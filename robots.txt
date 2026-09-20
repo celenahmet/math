@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Yonlendirme kabuklari (icerik tasimaz)
+Disallow: /c/
+
+Sitemap: https://ahmetcelen.com.tr/sitemap.xml
