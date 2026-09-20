@@ -33,3 +33,8 @@
 *.bmp
 *.tif
 *.tiff
+
+# PHP dosyalari: Vercel statik sunuyor, kaynak gorunur. HTML karsiliklari uretildi
+# (yonlendirme sayfalari meta refresh, digerleri duz HTML), .php adresleri
+# vercel.json ile .html'e yonlendiriliyor.
+*.php

@@ -24,3 +24,5 @@ node_modules/
 
 wp-config.php
 conf.d/
+.vercel
+.env*
