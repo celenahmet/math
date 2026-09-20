@@ -1,5 +1,26 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:yol*.:uzanti(mp4|MP4|mov|MOV|webm|m4v|avi|mkv|mp3|MP3|wav|pdf|PDF|pptx|PPTX|ppt|docx|doc|xlsx|rar|RAR|zip|ZIP|jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF|webp|bmp|tif|tiff)",
+      "destination": "https://server1.ahmetcelen.com.tr/:yol*.:uzanti",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js|woff2|svg|ico)",
+      "headers": [ { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" } ]
+    }
+  ]
 }

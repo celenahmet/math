@@ -1,0 +1,35 @@
+# Yayina CIKMAYAN dosyalar (Vercel'e yuklenmez).
+# 20.09.2026: medya (video/pdf/gorsel) kendi sunucumuzda kaliyor ve
+# server1.ahmetcelen.com.tr uzerinden servis ediliyor; vercel.json'daki
+# yonlendirme her medya adresini oraya gonderiyor. Vercel yalnizca
+# HTML/CSS/JS tasiyor (~33 MB), boylece dagitim deposu sismiyor.
+*.mp4
+*.MP4
+*.mov
+*.webm
+*.m4v
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.pdf
+*.PDF
+*.pptx
+*.ppt
+*.docx
+*.doc
+*.xlsx
+*.rar
+*.zip
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+*.png
+*.PNG
+*.gif
+*.GIF
+*.webp
+*.bmp
+*.tif
+*.tiff
