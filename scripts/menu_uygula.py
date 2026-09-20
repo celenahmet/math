@@ -15,7 +15,7 @@
 # - Baglantilar GORELI (/yol): site hangi alan adinda yayindaysa oraya gider.
 # - Olmayan sayfaya baglanti verilmez (denemeler/, anketler, telegramhome,
 #   redirect/socialmedia bu sitede yok → menuden cikarildi).
-# - Sponsor sayfasi kaldirildi (Ahmet, 21.09).
+# - Sponsor ve Ozel Ders sayfalari kaldirildi (Ahmet, 21.09).
 import re, sys, pathlib, html
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
@@ -87,7 +87,6 @@ MENU = [
     ("İletişim", "/iletisim/", [
         ("Hakkımda", "/hakkimizda/", None, False),
         ("İletişim", "/iletisim/", None, False),
-        ("Özel Ders", "/ozelders/", None, False),
         ("Soru Çözüm Grubu", "/sorucozumgrubu/", None, False),
     ], False),
 ]
