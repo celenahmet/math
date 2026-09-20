@@ -74,7 +74,7 @@
   /* Listede gosterilme sirasi: takvim sirasi. */
   var SIRA = ['msu', 'ales1', 'tyt', 'ayt', 'dgs', 'ales2', 'kpssa', 'ales3'];
 
-  var KOK = 'https://ahmetcelen.com.tr/sinavlar/';
+  var KOK = '/sinavlar/';
 
   function parcala(s) {
     var p = s.split('-');

@@ -38,3 +38,32 @@
 # (yonlendirme sayfalari meta refresh, digerleri duz HTML), .php adresleri
 # vercel.json ile .html'e yonlendiriliyor.
 *.php
+
+# 21.09.2026 (Ahmet: "bos linkleri ve sayfalari kaldiralim"): tema demolari,
+# eski sunucu arsivi, taslak/kopya sayfalar ve HTTrack kalintilari YAYINDAN
+# CIKTI. Depoda duruyor; kalici silme Ahmet'in `git rm` karari.
+temaindexler/
+okyanus/
+arsiv/
+sıcak/
+parabol/test1/
+video/eskiler/
+video/ucgen/eskiler/
+cozum.html
+indexcopy.html
+sinavlar/**/index1.html
+sinavlar/index1.html
+sinavlar/**/errors/
+sinavlar/errors/
+sinavlar/**/bakim/
+sinavlar/bakim/
+hts-log.txt
+*.whtt
+backblue.gif
+fade.gif
+error_docs/
+aytmat/
+cozumler/
+deneme/
+video/demo/
+video/ucgen/demo/
