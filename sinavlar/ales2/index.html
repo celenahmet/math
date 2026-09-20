@@ -131,56 +131,7 @@
         <!-- Contact end here -->
 
 
-        <script type="text/javascript">
-<!--
-// ***********************************************
-// ahmetcelen.com.tr üzerinden kaynaklandı
-
-//
-// ***********************************************
-function IE(e) {
-     if (navigator.appName == "Microsoft Internet Explorer" && (event.button == "2" || event.button  == "3")) {
-          alert('UYARI BEYBI');
-          return false;
-     }
-}
-function NS(e) {
-     if (document.layers || (document.getElementById && !document.all)) {
-          if (e.which == "2" || e.which  == "3") {
-               alert('Sağ tık ve kopyalama araçları özgün içeriklerimizin korunması için yasaktır. Bu yöntem Ahmet Çelen`in haklarını korumaya yönelik basit bir uygulamadır.');
-               return false;
-          }
-     }
-}
-document.onmousedown=IE;document.onmouseup=NS;document.oncontextmenu=new Function("return false");
-//-->
-</script>
-<script type="text/javascript">
- 
-//form tags to omit in NS6+:
-var omitformtags=["input", "textarea", "select"]
- 
-omitformtags=omitformtags.join("|")
- 
-function disableselect(e){
-if (omitformtags.indexOf(e.target.tagName.toLowerCase())==-1)
-return false
-}
- 
-function reEnable(){
-return true
-}
- 
-if (typeof document.onselectstart!="undefined")
-document.onselectstart=new Function ("return false")
-else{
-document.onmousedown=disableselect
-document.onmouseup=reEnable
-}
- 
-</script>
-
-<!--
+        <!--
 // ***********************************************
 // ahmetcelen.com.tr üzerinden kaynaklandı
 
