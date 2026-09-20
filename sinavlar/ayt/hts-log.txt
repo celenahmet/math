@@ -1,0 +1,13 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 23 Aug 2019 19:48:55 at medyacagan.com +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -WC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "tr, en, *" medyacagan.com -O1 "E:\Web\bakim\bakim" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+19:49:42	Error: 	"Not Found" (404) at link medyacagan.com/tema/webajans/bakimda/fonts/GET (from medyacagan.com/tema/webajans/bakimda/fonts/glyphicons-halflings-regular.html)
+19:49:42	Error: 	"Not Found" (404) at link medyacagan.com/errors/MultiDomainHosting.php (from medyacagan.com/tema/webajans/bakimda/fonts/glyphicons-halflings-regular.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 47 seconds : 39 links scanned, 36 files written (1457167 bytes overall) [1493136 bytes received at 31768 bytes/sec], 2.6 requests per connection
+(2 errors, 0 warnings, 0 messages)

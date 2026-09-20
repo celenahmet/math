@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+medyacagan.com	TRUE	/	FALSE	1999999999	PHPSESSID	f6ed3e92c4a9056c2c0e3d6bd848351b
+
