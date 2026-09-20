@@ -79,7 +79,7 @@
   }
   header.header-nav.menu_style_home_one .ace-responsive-menu li ul.sub-menu li a {
     white-space: nowrap;
-    font-size: 14px !important;
+    font-size: 15px !important;
   }
   header.header-nav.menu_style_home_one .ace-responsive-menu > li > ul.sub-menu {
     margin-left: 0 !important;
@@ -95,18 +95,36 @@
   }
 }
 
-/* ── 9) Mobil: hamburger dugmesi gorunmuyordu ─────────────────────────
-   Tema `.header a` kuraliyla menu dugmesini sol uste (logonun altina)
-   mutlak konumluyor; goruntude kayboluyordu. Saga, arama simgesinin
-   yanina alindi; sayfa sola tasan 15px beyaz seridi de kapatildi. */
+/* ── 9) Mobil: sayfa sola/saga tasmasin ─────────────────────────────────
+   ACIK SORUN (21.09): hamburger dugmesi (`.menu_bar_home2 a[href="#menu"]`)
+   dar ekranda gorunmuyor; uc deneme (konum, yigin sirasi, kutu yuksekligi)
+   tutmadi, tema CSS'i (`css/menu.css` 100. satir civari bozuk blok) ayrica
+   incelenecek. */
 @media (max-width: 992px) {
-  .mobile-menu .header.stylehome1 { overflow: visible; }
-  .mobile-menu .menu_bar_home2 li.list-inline-item:last-child > a {
-    left: auto !important; right: 14px !important; top: 14px !important;
-    z-index: 5; width: 35px; height: 24px; padding: 0 !important;
-  }
-  .mobile-menu .menu_bar_home2 li.list-inline-item:first-child { right: 64px; top: -12px; }
-  .mobile-menu .menu_bar_home2 li.list-inline-item:first-child:after { display: none; }
-  .mobile-menu .main_logo_home2 { padding-right: 110px; }
   html, body { overflow-x: hidden; max-width: 100vw; }
+}
+
+/* ── 10) Ust menu: buyuk ve dengeli (Ahmet, 21.09 "cok kucuk duruyor") ──
+   5 maddeye inince yer acildi: yazi 16px, maddeler arasi genis, menu SAGA
+   yasli (logo sol, menu sag) ve logoyla ayni yatay eksende. Flex DENENDI,
+   temanin sabitlenen baslik betigini (scrolltofixed) bozuyor; float ve
+   ust bosluk ile hizalandi. */
+@media (min-width: 992px) {
+  header.header-nav.menu_style_home_one ul.ace-responsive-menu {
+    width: auto !important;
+    float: right !important;
+    margin-top: 17px !important;
+    background: transparent !important;
+  }
+  header.header-nav.menu_style_home_one ul.ace-responsive-menu > li > a {
+    padding: 18px 14px !important;
+    font-size: 16px !important;
+    letter-spacing: 0.3px !important;
+  }
+  header.header-nav.menu_style_home_one ul.ace-responsive-menu > li:last-child > a { padding-right: 0 !important; }
+  header.header-nav.menu_style_home_one ul.ace-responsive-menu > li > a > .arrow { margin-left: 5px; }
+  header.header-nav.menu_style_home_one .navbar_brand span { font-size: 22px !important; }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  header.header-nav.menu_style_home_one ul.ace-responsive-menu > li > a { padding: 18px 9px !important; font-size: 14px !important; }
 }
