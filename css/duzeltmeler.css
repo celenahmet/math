@@ -37,3 +37,19 @@
 
 /* ── 5) Slider ok yazilari tek satir ──────────────────────────────────── */
 .slick-prev, .slick-next, .cs_slider_nav, .slider_nav_text { white-space: nowrap !important; }
+
+/* ── 6) Menu genisligi: 9 madde her ekranda tek satir ────────────────── */
+@media (min-width: 992px) {
+  ul.ace-responsive-menu > li > a { padding: 0 10px !important; font-size: 14px !important; letter-spacing: 0 !important; }
+  ul.ace-responsive-menu > li > a > .arrow { margin-left: 3px; width: 8px; }
+  .navbar_brand span { font-size: 18px !important; }
+}
+@media (min-width: 1200px) and (max-width: 1439px) {
+  ul.ace-responsive-menu > li > a { padding: 0 8px !important; font-size: 13px !important; }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  ul.ace-responsive-menu > li > a { padding: 0 6px !important; font-size: 12px !important; }
+  .navbar_brand span { font-size: 16px !important; }
+}
+/* Ust menu maddesi artik baglanti degil: imlec yine el olsun */
+.ace-responsive-menu > li > a.menu-ust { cursor: pointer; }
