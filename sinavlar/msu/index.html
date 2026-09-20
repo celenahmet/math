@@ -35,7 +35,7 @@
         <section class="main-wrapper">
             <!-- Logo start here -->
             <section id="logo" class="fade-down">
-                <a href="#" title="Ahmet Çelen"><img src="https://ahmetcelen.com.tr/images/sinavust.png" alt="ahmetcelen.com.tr - logo"></a>
+                <a href="https://ahmetcelen.com.tr/sinavlar/" title="Sınav geri sayımları"><img src="https://ahmetcelen.com.tr/images/sinavust.png" alt="ahmetcelen.com.tr - logo"></a>
             </section>
             <section class="slogan fade-down blackFont">
                 <!-- <img src="img/img-slogan.png" alt="TICTOC - Coming Soon HTML Template" loading="lazy" decoding="async"> -->
@@ -65,14 +65,8 @@
                     </li>
                 </ul>
             </section><center><strong>
-            <p>Diğer Sınavlar</p>
-<p><a href="https://ahmetcelen.com.tr/sinavlar/tyt">TYT (Temel Yeterlilik Testi)</a> 18.06.2022</p>
-<p><a href="https://ahmetcelen.com.tr/sinavlar/ayt">AYT (Alan Yeterlilik Testi)</a> 19.06.2022</p>
-<p><a href="https://ahmetcelen.com.tr/sinavlar/msu">MSÜ (Milli Savunma Üniversitesi Sınavı)</a> 27.03.2022</p>
-<p><a href="https://ahmetcelen.com.tr/sinavlar/dgs">DGS (Dikey Geçiş Sınavı)</a> 03.07.2022</p>
-<p><a href="https://ahmetcelen.com.tr/sinavlar/ales1">ALES/1 (Akademik Pesonel ve Lisansüstü Eğitimi Giriş Sınavı)</a> 17.04.2022</p>
-<p><a href="https://ahmetcelen.com.tr/sinavlar/ales2">ALES/2 (Akademik Pesonel ve Lisansüstü Eğitimi Giriş Sınavı)</a> 21.08.2022</p>
-<p><a href="https://ahmetcelen.com.tr/sinavlar/ales3">ALES/3 (Akademik Pesonel ve Lisansüstü Eğitimi Giriş Sınavı)</a> 20.11.2022</p></strong>
+            <div id="diger-sinavlar"></div>
+</strong>
 <br><br>
 <br>
 <h3><a href="https://ahmetcelen.com.tr/youtube">Ücretsiz Matematik Ders Videoları + PDF Ders Notları</a></h3></center>
@@ -90,13 +84,6 @@
                 </center>
             </section>
             <!-- Newsletter end here -->
-            <!-- Social icons start here -->
-            <ul class="connect-us row fade-down">
-                <li><a target="_blank" href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a target="_blank" href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a target="_blank" href="#" class="instagram tool-tip" title="İnstagram"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-            <!-- Social icons end here -->
             <!-- Footer start here -->
             <footer class="fade-down">
                 <p>Not : Sınavı koordine eden ÖSYM tarihi değiştirebilir.</p>
@@ -161,11 +148,12 @@
             $('body').delay(350).css({
                 'overflow': 'visible'
             });
-						$(".count-down").ccountdown(27,03,2022,'10:00');
+						sinavGeriSayim('msu');
         })
         </script>
         <script src="tema/webajans/bakimda/js/jquery.knob.js"></script>
         <script src="tema/webajans/bakimda/js/jquery.ccountdown.js"></script>
+        <script src="../js/sinav-takvimi.js"></script>
         <script src="tema/webajans/bakimda/js/init.js"></script>
         <script src="tema/webajans/bakimda/js/general.js"></script>
         <!-- Javascript framework and plugins end here -->
