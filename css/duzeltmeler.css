@@ -220,7 +220,7 @@
 /* ── 13) UniConnectly tanitim + blog kutusu (scripts/uniconnectly_blok.py) ── */
 .uc-blok { background: #f9fafc; border-top: 1px solid #e6e8f2; padding: 56px 0 64px; }
 .uc-tanitim { background: #fff; border: 1px solid #e6e8f2; border-radius: 14px; padding: 32px 34px; margin-bottom: 40px; }
-.uc-etiket { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #2441e7; margin-bottom: 10px; }
+.uc-etiket { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #2441e7; margin: 0 0 10px; }
 .uc-tanitim h3 { font-family: "Nunito", sans-serif; font-size: 26px; font-weight: 700; color: #0a0a0a; margin: 0 0 12px; }
 .uc-tanitim p { font-size: 15px; line-height: 1.7; color: #484848; max-width: 760px; margin-bottom: 0; }
 .uc-faydalar { list-style: none; padding: 0; margin: 16px 0 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 28px; max-width: 900px; }
@@ -273,7 +273,7 @@
 @media (max-width: 480px) { .cs-liste { gap: 10px; } .cs-kart { padding: 14px; } .cs-kart-yil { font-size: 24px; } .cs-sayfa .main-title h3 { font-size: 24px; } }
 
 /* UniConnectly kutusu: logo, magaza rozetleri, kapanis (Ahmet, 22.09) */
-.uc-logo { display: inline-block; margin-bottom: 14px; }
+.uc-logo { display: block; width: 200px; margin: 0 0 12px; }
 .uc-logo img { width: 200px; height: auto; display: block; }
 .uc-magazalar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 .uc-magazalar-orta { justify-content: center; margin: 18px 0 14px; }
