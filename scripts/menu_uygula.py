@@ -31,18 +31,11 @@ MENU = [
         ("TYT Matematik Deneme", "/yt/tytmat.pdf", None, True),
         ("AYT Matematik Deneme", "/yt/aytmat.pdf", None, True),
         ("DGS Matematik Deneme", "/yt/dgsmat.pdf", None, True),
-        ("KPSS Matematik Deneme", "/yt/kpssmat.pdf", None, True),
-        ("ALES Matematik Deneme", "/yt/alesmat.pdf", None, True),
+        # kpssmat.pdf / alesmat.pdf: eski menude vardi, dosya hicbir yerde yok
+        # (repo + medya sunucusu tarandi, 21.09) → 404 vermesin diye cikarildi.
         ("TYT Son Prova", "/yt/2021denemeler/tytmatsonprova.pdf", None, True),
         ("AYT Son Prova", "/yt/2021denemeler/aytmatsonprova.pdf", None, True),
         ("Parabol Fasikülü", "/pdf/parabol.pdf", None, True),
-        ("Çıkmış Sorular", "/ss/tyt/", [
-            ("TYT", "/ss/tyt/", None, False),
-            ("AYT", "/ss/ayt/", None, False),
-            ("MSÜ", "/ss/msu/", None, False),
-            ("DGS", "/ss/dgs/", None, False),
-            ("KPSS", "/ss/kpss/", None, False),
-        ], False),
         ("Tüm Notlar (Google Drive)",
          "https://drive.google.com/drive/folders/1rjDxAuM4c1mmqp_X-BTmfoJCCFFlahcU?usp=sharing", None, True),
     ], False),
@@ -73,16 +66,28 @@ MENU = [
             ("Analitik Geometri", yt("ahmet+%C3%A7elen+analitik+geometri"), None, True),
         ], True),
     ], False),
-    ("Geri Sayım", "/sinavlar/", [
-        ("Tüm Sınavlar", "/sinavlar/", None, False),
-        ("TYT Geri Sayım", "/sinavlar/tyt/", None, False),
-        ("AYT Geri Sayım", "/sinavlar/ayt/", None, False),
-        ("MSÜ Geri Sayım", "/sinavlar/msu/", None, False),
-        ("DGS Geri Sayım", "/sinavlar/dgs/", None, False),
-        ("KPSS Geri Sayım", "/sinavlar/kpssa/", None, False),
-        ("ALES/1 Geri Sayım", "/sinavlar/ales1/", None, False),
-        ("ALES/2 Geri Sayım", "/sinavlar/ales2/", None, False),
-        ("ALES/3 Geri Sayım", "/sinavlar/ales3/", None, False),
+    # "Sınavlar" = Çıkmış Sorular + Sınavlara Geri Sayım (Ahmet, 21.09).
+    # ADRESLER SABIT: /ss/* ve /sinavlar/* arama trafiginde onde, oturmus
+    # sayfalar; yalniz menu etiketleri degisti.
+    ("Sınavlar", "/sinavlar/", [
+        ("Çıkmış Sorular", "/ss/tyt/", [
+            ("TYT Çıkmış Sorular", "/ss/tyt/", None, False),
+            ("AYT Çıkmış Sorular", "/ss/ayt/", None, False),
+            ("MSÜ Çıkmış Sorular", "/ss/msu/", None, False),
+            ("DGS Çıkmış Sorular", "/ss/dgs/", None, False),
+            ("KPSS Çıkmış Sorular", "/ss/kpss/", None, False),
+        ], False),
+        ("Sınavlara Geri Sayım", "/sinavlar/", [
+            ("Tüm Sınavlar", "/sinavlar/", None, False),
+            ("TYT Geri Sayım", "/sinavlar/tyt/", None, False),
+            ("AYT Geri Sayım", "/sinavlar/ayt/", None, False),
+            ("MSÜ Geri Sayım", "/sinavlar/msu/", None, False),
+            ("DGS Geri Sayım", "/sinavlar/dgs/", None, False),
+            ("KPSS Geri Sayım", "/sinavlar/kpssa/", None, False),
+            ("ALES/1 Geri Sayım", "/sinavlar/ales1/", None, False),
+            ("ALES/2 Geri Sayım", "/sinavlar/ales2/", None, False),
+            ("ALES/3 Geri Sayım", "/sinavlar/ales3/", None, False),
+        ], False),
     ], False),
     ("İletişim", "/iletisim/", [
         ("Hakkımda", "/hakkimizda/", None, False),
@@ -121,7 +126,9 @@ def mobil(ogeler, seviye=0):
         if alt:
             out.append(f'{pad}<li><span>{html.escape(etiket)}</span>')
             out.append(f'{pad}\t<ul>')
-            out.append(f'{pad}\t\t<li>{a(etiket, href, ys)}{html.escape(etiket)} sayfası</a></li>')
+            # Ust maddenin kendi sayfasi alt listede zaten varsa ikinci kez yazma.
+            if href not in {h for _, h, _, _ in alt}:
+                out.append(f'{pad}\t\t<li>{a(etiket, href, ys)}{html.escape(etiket)} sayfası</a></li>')
             out.extend(mobil(alt, seviye + 1))
             out.append(f'{pad}\t</ul>')
             out.append(f'{pad}</li>')

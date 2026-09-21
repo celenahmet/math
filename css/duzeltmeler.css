@@ -93,13 +93,23 @@
     margin-left: 2px;
     padding-left: 0 !important;
   }
+  /* Menu saga yasli (blok 10): son iki maddenin ucuncu seviyesi saga
+     acilinca ekran disina tasiyordu (Sinavlar > Cikmis Sorular, Videolar >
+     Konulara Gore). Ucuncu seviye SOLA acilsin; solda her zaman yer var. */
+  header.header-nav.menu_style_home_one .ace-responsive-menu > li > ul.sub-menu > li ul.sub-menu {
+    left: auto !important;
+    right: 100% !important;
+    margin-left: 0;
+    margin-right: 2px;
+  }
 }
 
 /* ── 9) Mobil: sayfa sola/saga tasmasin ─────────────────────────────────
-   ACIK SORUN (21.09): hamburger dugmesi (`.menu_bar_home2 a[href="#menu"]`)
-   dar ekranda gorunmuyor; uc deneme (konum, yigin sirasi, kutu yuksekligi)
-   tutmadi, tema CSS'i (`css/menu.css` 100. satir civari bozuk blok) ayrica
-   incelenecek. */
+   NOT (21.09, kapandi): "hamburger gorunmuyor" bulgusu OLCUM HATASIYDI.
+   Headless Chrome pencereyi en az 500px yapiyor; 390px ekran goruntusu
+   sayfanin sol 390px'ini kirpiyordu, dugme sagda kirpilan bolgedeydi.
+   Gercek 390px goruntu (iframe ile) dugmeyi gosteriyor. Asil tasma sebebi
+   /ss/* kartlarindaki kapanmamis .row'lardi (scripts/ss_yapi_onar.py). */
 @media (max-width: 992px) {
   html, body { overflow-x: hidden; max-width: 100vw; }
 }
@@ -128,3 +138,6 @@
 @media (min-width: 992px) and (max-width: 1199px) {
   header.header-nav.menu_style_home_one ul.ace-responsive-menu > li > a { padding: 18px 9px !important; font-size: 14px !important; }
 }
+
+/* ── 11) /ss/* kartlari: <ul> olmadan yazilmis <li> madde imi gosteriyordu ── */
+.img_hvr_box .details li { list-style: none; }
