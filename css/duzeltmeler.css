@@ -141,3 +141,24 @@
 
 /* ── 11) /ss/* kartlari: <ul> olmadan yazilmis <li> madde imi gosteriyordu ── */
 .img_hvr_box .details li { list-style: none; }
+
+/* ── 12) /sinavlar/* baglanti satiri (scripts/sinav_sayfa_uygula.py) ─────── */
+.tictoc .sinav-baglantilar { text-align: center; margin: 28px 0 8px; font-size: 15px; line-height: 2; }
+.tictoc .sinav-baglantilar a { padding: 0 4px; white-space: nowrap; }
+.tictoc #diger-sinavlar { text-align: center; }
+/* Tema 1024px altinda .slogan p icindeki <br>'yi gizliyor; sinav-takvimi.js
+   satirlari <br> ile ayiriyor, metin birbirine yapisiyordu. */
+@media (max-width: 1024px) {
+  .tictoc .slogan p br { display: inline; }
+}
+/* Telefonda dort halka alt alta 4x210px yer tutuyordu (tek ekranda bir
+   sayac): 2x2 duzen, halka 160px. Halka canvas'i 260px cizilir, CSS ile
+   olceklenir; rakam ve baslik buna gore kuculur. */
+@media (max-width: 480px) {
+  .tictoc .count-down { max-width: 360px; }
+  .tictoc .count-down li { margin: 0 4px 6px; min-height: 172px; }
+  .tictoc .count-down li div, .tictoc .count-down li canvas { width: 160px !important; height: 160px !important; }
+  .tictoc .count-down li input { font-size: 54px !important; width: 110px !important; height: 62px !important; top: 44% !important; }
+  .tictoc #days-title, .tictoc #hours-title, .tictoc #mins-title, .tictoc #secs-title { font-size: 18px; margin-top: -62px; }
+}
+
