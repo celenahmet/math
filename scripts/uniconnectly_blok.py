@@ -14,7 +14,7 @@
 import html
 
 SITE = "https://uniconnectly.com"
-LOGO = SITE + "/brand/light-logo-navbar.webp"
+LOGO = SITE + "/brand/light-logo-yildizsiz.webp"  # yildizsiz (Ahmet 22.09: reklam alanlarinda hep bu)
 MAGAZALAR = [  # (etiket, rozet gorseli, adres)
     ("App Store", SITE + "/brand/imza/app-store.png", "https://apps.apple.com/tr/app/uniconnectly/id6784849124"),
     ("Google Play", SITE + "/brand/imza/google-play.png",
@@ -60,18 +60,10 @@ def blok(kampanya):
 		<div class="container">
 			<div class="uc-tanitim">
 				<div class="uc-tanitim-metin">
-					<a class="uc-logo" href="{ref("/", kampanya)}" target="_blank" rel="noopener"><img src="{LOGO}" alt="UniConnectly" width="320" height="115" loading="lazy" decoding="async"></a>
+					<a class="uc-logo" href="{ref("/", kampanya)}" target="_blank" rel="noopener"><img src="{LOGO}" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async"></a>
 					<span class="uc-etiket">Öğrenciler için ücretsiz</span>
 					<h3>Sınavdan sonra kampüs hayatı başlıyor</h3>
 					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, katıldıklarını ve sertifikalarını dijital portföyünde herkese açık paylaşırsın.</p>
-					<ul class="uc-faydalar">
-						<li><strong>Dijital portföy:</strong> <span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş, CV'ne ekle</li>
-						<li><strong>Doğrulanabilir katılım:</strong> QR ile giriş yaptığın etkinlikler portföyünde doğrulanmış olarak listelenir</li>
-						<li><strong>Sertifikalar:</strong> platformda verilen sertifikalar doğrulanmış işaretli, edu.tr e-postan onaylı görünür</li>
-						<li>Üniversitendeki toplulukları ve etkinlik takvimini tek ekranda gör</li>
-						<li>Burs, staj ve ücretsiz öğrenci araçları rehberleri</li>
-						<li>Şirketlerle etkinlik ve sponsorluk iletişimi topluluklar üzerinden</li>
-					</ul>
 					<div class="uc-dugmeler">
 						<a class="btn btn-thm" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
 						<a class="uc-ikincil" href="{ref("/blog", kampanya)}" target="_blank" rel="noopener">Tüm blog yazıları</a>
@@ -79,6 +71,17 @@ def blok(kampanya):
 					<div class="uc-magazalar">
 {rozetler}
 					</div>
+				</div>
+				<div class="uc-tanitim-liste">
+					<h4>Öğrenciye ne kazandırır?</h4>
+					<ul class="uc-faydalar">
+						<li><strong>Dijital portföy</strong><span><span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş, CV'ne ekle</span></li>
+						<li><strong>Doğrulanabilir katılım</strong><span>QR ile giriş yaptığın etkinlikler portföyünde doğrulanmış listelenir</span></li>
+						<li><strong>Sertifikalar</strong><span>Platformda verilen sertifikalar doğrulanmış işaretli, edu.tr e-postan onaylı</span></li>
+						<li><strong>Topluluklar ve etkinlikler</strong><span>Üniversitendeki toplulukları ve takvimi tek ekranda gör</span></li>
+						<li><strong>Burs, staj, öğrenci araçları</strong><span>Güncel rehberler ve fırsat yazıları</span></li>
+						<li><strong>Şirketlerle iletişim</strong><span>Etkinlik ve sponsorluk görüşmeleri topluluklar üzerinden</span></li>
+					</ul>
 				</div>
 			</div>
 

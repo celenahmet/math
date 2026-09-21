@@ -219,13 +219,13 @@
 
 /* ── 13) UniConnectly tanitim + blog kutusu (scripts/uniconnectly_blok.py) ── */
 .uc-blok { background: #f9fafc; border-top: 1px solid #e6e8f2; padding: 56px 0 64px; }
-.uc-tanitim { background: #fff; border: 1px solid #e6e8f2; border-radius: 14px; padding: 32px 34px; margin-bottom: 40px; }
+.uc-tanitim { display: grid; grid-template-columns: 1.15fr 1fr; gap: 36px; align-items: center; background: #fff; border: 1px solid #e6e8f2; border-radius: 14px; padding: 36px 38px; margin-bottom: 40px; }
 .uc-etiket { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #2441e7; margin: 0 0 10px; }
 .uc-tanitim h3 { font-family: "Nunito", sans-serif; font-size: 26px; font-weight: 700; color: #0a0a0a; margin: 0 0 12px; }
 .uc-tanitim p { font-size: 15px; line-height: 1.7; color: #484848; max-width: 760px; margin-bottom: 0; }
-.uc-faydalar { list-style: none; padding: 0; margin: 16px 0 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 28px; max-width: 900px; }
-.uc-faydalar li { position: relative; padding-left: 22px; font-size: 14px; line-height: 1.5; color: #0a0a0a; }
-.uc-faydalar li::before { content: ''; position: absolute; left: 0; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: #2441e7; }
+.uc-faydalar { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.uc-faydalar li { position: relative; padding-left: 34px; font-size: 14px; line-height: 1.45; color: #0a0a0a; }
+.uc-faydalar li::before { content: '✓'; position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: #2441e7; color: #fff; font-size: 13px; font-weight: 700; line-height: 22px; text-align: center; }
 .uc-dugmeler { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
 .uc-dugmeler .btn-thm { padding: 10px 24px; font-size: 15px; color: #fff; }
 .uc-dugmeler .btn-thm:hover { color: #fff; background: #192675; border-color: #192675; }
@@ -296,6 +296,12 @@
 .cs-kart.cs-kart-gorsel .cs-kart-ad { color: rgba(255, 255, 255, 0.85); }
 .cs-kart.cs-kart-gorsel .cs-kart-dugme { color: #fff176; }
 .cs-kart.cs-kart-gorsel:hover, .cs-kart.cs-kart-gorsel:focus { color: #fff; }
-.uc-faydalar li strong { color: #192675; }
+.uc-faydalar li strong { display: block; color: #192675; font-size: 15px; }
+.uc-faydalar li > span { display: block; color: #484848; }
 .uc-mono { font-family: "SFMono-Regular", Menlo, Consolas, monospace; font-size: 13px; background: #f4f5fa; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+.uc-tanitim-liste { background: #f4f5fa; border-radius: 12px; padding: 24px 24px 22px; }
+.uc-tanitim-liste h4 { font-family: "Nunito", sans-serif; font-size: 17px; font-weight: 700; color: #0a0a0a; margin: 0 0 16px; }
+.uc-logo img { width: 220px; }
+@media (max-width: 991px) { .uc-tanitim { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; } }
+@media (max-width: 480px) { .uc-tanitim-liste { padding: 18px 16px; } .uc-logo img { width: 180px; } .uc-faydalar li { font-size: 13px; } .uc-faydalar li strong { font-size: 14px; } }
 
