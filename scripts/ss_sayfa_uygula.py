@@ -39,8 +39,11 @@ def mevcut(yol):
         "giris": re.sub(r"\s+", " ", giris).strip() if giris else None,
     }
 
+# Eski tasarimdaki kart gorseli; Ahmet 22.09: "hepsi ayni olsun".
+KART_GORSELI = "https://cdn1.vectorstock.com/i/1000x1000/07/75/a-school-stationery-border-vector-23750775.jpg"
+
 def kart(yil, etiket, url):
-    return (f'\t\t\t\t<a class="cs-kart" href="{url}" target="_blank" rel="noopener">\n'
+    return (f'\t\t\t\t<a class="cs-kart cs-kart-gorsel" style="background-image:url({KART_GORSELI})" href="{url}" target="_blank" rel="noopener">\n'
             f'\t\t\t\t\t<span class="cs-kart-yil">{yil}</span>\n'
             f'\t\t\t\t\t<span class="cs-kart-ad">{html.escape(etiket)}</span>\n'
             f'\t\t\t\t\t<span class="cs-kart-dugme">PDF (ÖSYM)</span>\n'

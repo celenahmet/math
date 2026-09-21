@@ -14,6 +14,13 @@
 import html
 
 SITE = "https://uniconnectly.com"
+LOGO = SITE + "/brand/light-logo-navbar.webp"
+MAGAZALAR = [  # (etiket, rozet gorseli, adres)
+    ("App Store", SITE + "/brand/imza/app-store.png", "https://apps.apple.com/tr/app/uniconnectly/id6784849124"),
+    ("Google Play", SITE + "/brand/imza/google-play.png",
+     "https://play.google.com/store/apps/details?id=com.uniconnectly.app&referrer=utm_source%3Dahmetcelen.com.tr%26utm_medium%3Dreferral%26utm_campaign%3D{kampanya}"),
+    ("AppGallery", SITE + "/brand/imza/appgallery.png", "https://appgallery.huawei.com/app/C118677033"),
+]
 SABIT_YAZILAR = [
     ("edu-tr-mail-ogrenci-firsatlari", "Edu.tr Mailiyle Ücretsiz Neler Alınabilir? Öğrenci Fırsatları", "Fırsat"),
     ("google-ai-plus-ogrenci-ucretsiz", "Google AI Plus Öğrencilere 1 Yıl Ücretsiz: Nasıl Alınır?", "Fırsat"),
@@ -37,16 +44,24 @@ def yazi_karti(slug, baslik, etiket, kampanya):
             f'          <span class="uc-yazi-baslik">{html.escape(baslik)}</span>\n'
             f'        </a>')
 
+def magaza_rozetleri(kampanya):
+    return "\n".join(
+        f'\t\t\t\t\t\t<a class="uc-magaza" href="{u.format(kampanya=kampanya)}" target="_blank" rel="noopener" aria-label="{e}\'dan indir">'
+        f'<img src="{g}" alt="{e}" loading="lazy" decoding="async" height="40"></a>'
+        for e, g, u in MAGAZALAR)
+
 def blok(kampanya):
     """kampanya: utm_campaign degeri (ss-kpss, sinavlar-ales3 gibi)."""
     kartlar = "\n".join(yazi_karti(s, b, e, kampanya) for s, b, e in SABIT_YAZILAR)
+    rozetler = magaza_rozetleri(kampanya)
     return f'''
 	<!-- UniConnectly tanitim + blog (scripts/uniconnectly_blok.py) -->
 	<section class="uc-blok" data-kampanya="{kampanya}">
 		<div class="container">
 			<div class="uc-tanitim">
 				<div class="uc-tanitim-metin">
-					<span class="uc-etiket">UniConnectly · öğrenciler için ücretsiz</span>
+					<a class="uc-logo" href="{ref("/", kampanya)}" target="_blank" rel="noopener"><img src="{LOGO}" alt="UniConnectly" width="320" height="115" loading="lazy" decoding="async"></a>
+					<span class="uc-etiket">Öğrenciler için ücretsiz</span>
 					<h3>Sınavdan sonra kampüs hayatı başlıyor</h3>
 					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, burs ve öğrenci fırsatlarını tek yerden takip edersin.</p>
 					<ul class="uc-faydalar">
@@ -59,6 +74,9 @@ def blok(kampanya):
 						<a class="btn btn-thm" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
 						<a class="uc-ikincil" href="{ref("/blog", kampanya)}" target="_blank" rel="noopener">Tüm blog yazıları</a>
 					</div>
+					<div class="uc-magazalar">
+{rozetler}
+					</div>
 				</div>
 			</div>
 
@@ -70,6 +88,16 @@ def blok(kampanya):
 			<div id="uc-en-yeniler-kutu" hidden>
 				<h3 class="uc-alt-baslik">En yeniler</h3>
 				<div class="uc-yazilar uc-yeniler" id="uc-en-yeniler"></div>
+			</div>
+
+			<div class="uc-kapanis">
+				<img src="{LOGO}" alt="UniConnectly" width="320" height="115" loading="lazy" decoding="async">
+				<h3>Öğrenciler, etkinlikler, topluluklar, şirketler: hepsi bir arada!</h3>
+				<p>Üniversitendeki toplulukları keşfet, etkinliklere katıl, fırsatları kaçırma. Uygulamayı ücretsiz indir.</p>
+				<div class="uc-magazalar uc-magazalar-orta">
+{rozetler}
+				</div>
+				<a class="uc-ikincil" href="{ref("/", kampanya)}" target="_blank" rel="noopener">uniconnectly.com</a>
 			</div>
 		</div>
 	</section>
