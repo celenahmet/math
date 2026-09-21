@@ -216,3 +216,59 @@
   .gs-kart-kisa { font-size: 18px; }
   .gs-baglantilar { grid-template-columns: 1fr; }
 }
+
+/* ── 13) UniConnectly tanitim + blog kutusu (scripts/uniconnectly_blok.py) ── */
+.uc-blok { background: #f9fafc; border-top: 1px solid #e6e8f2; padding: 56px 0 64px; }
+.uc-tanitim { background: #fff; border: 1px solid #e6e8f2; border-radius: 14px; padding: 32px 34px; margin-bottom: 40px; }
+.uc-etiket { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #2441e7; margin-bottom: 10px; }
+.uc-tanitim h3 { font-family: "Nunito", sans-serif; font-size: 26px; font-weight: 700; color: #0a0a0a; margin: 0 0 12px; }
+.uc-tanitim p { font-size: 15px; line-height: 1.7; color: #484848; max-width: 760px; margin-bottom: 0; }
+.uc-faydalar { list-style: none; padding: 0; margin: 16px 0 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 28px; max-width: 900px; }
+.uc-faydalar li { position: relative; padding-left: 22px; font-size: 14px; line-height: 1.5; color: #0a0a0a; }
+.uc-faydalar li::before { content: ''; position: absolute; left: 0; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: #2441e7; }
+.uc-dugmeler { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.uc-dugmeler .btn-thm { padding: 10px 24px; font-size: 15px; color: #fff; }
+.uc-dugmeler .btn-thm:hover { color: #fff; background: #192675; border-color: #192675; }
+.uc-ikincil { color: #2441e7; font-weight: 600; font-size: 15px; }
+.uc-alt-baslik { font-family: "Nunito", sans-serif; font-size: 20px; font-weight: 700; color: #0a0a0a; margin: 0 0 16px; }
+.uc-yazilar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 36px; }
+.uc-yazi { display: block; background: #fff; border: 1px solid #e6e8f2; border-radius: 12px; overflow: hidden; color: #0a0a0a; transition: border-color .2s, transform .2s; }
+.uc-yazi:hover, .uc-yazi:focus { border-color: #2441e7; color: #0a0a0a; text-decoration: none; transform: translateY(-2px); }
+.uc-yazi img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; background: #eef0f6; }
+.uc-yazi-etiket { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #2441e7; padding: 12px 14px 4px; }
+.uc-yazi-baslik { display: block; padding: 0 14px 14px; font-size: 14px; font-weight: 600; line-height: 1.45; }
+@media (max-width: 991px) {
+  .uc-yazilar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .uc-faydalar { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .uc-blok { padding: 40px 0 48px; }
+  .uc-tanitim { padding: 22px 18px; }
+  .uc-tanitim h3 { font-size: 22px; }
+  .uc-yazilar { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .uc-yazi-baslik { font-size: 13px; padding: 0 10px 12px; }
+  .uc-yazi-etiket { padding: 10px 10px 3px; }
+}
+
+/* ── 14) /ss/* cikmis sorular yeni tasarim (scripts/ss_sayfa_uygula.py) ────── */
+.cs-sayfa { padding: 56px 0 64px; background: #fff; }
+.cs-sayfa .main-title { margin-bottom: 34px; }
+.cs-sayfa .main-title h3 { font-size: 30px; }
+.cs-sayfa .main-title p { max-width: 820px; margin: 0 auto; color: #484848; line-height: 1.75; }
+.cs-ozet { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 36px; }
+.cs-liste { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 26px; }
+.cs-kart { display: flex; flex-direction: column; background: #fff; border: 1px solid #e6e8f2; border-radius: 12px; padding: 18px 18px 16px; color: #0a0a0a; transition: border-color .2s, transform .2s; }
+.cs-kart:hover, .cs-kart:focus { border-color: #2441e7; color: #0a0a0a; text-decoration: none; transform: translateY(-2px); }
+.cs-kart-yil { font-family: "Nunito", sans-serif; font-size: 30px; font-weight: 700; color: #192675; line-height: 1; }
+.cs-kart-ad { font-size: 13px; color: #7a7a8c; margin: 6px 0 14px; line-height: 1.4; min-height: 36px; }
+.cs-kart-dugme { margin-top: auto; display: inline-block; font-size: 13px; font-weight: 700; color: #2441e7; }
+.cs-kart-dugme::after { content: ' ↗'; }
+.cs-not { font-size: 13px; color: #7a7a8c; line-height: 1.7; text-align: center; max-width: 820px; margin: 0 auto 40px; }
+.cs-diger { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.cs-diger a { display: block; border: 1px solid #e6e8f2; border-radius: 10px; padding: 12px 14px; color: #0a0a0a; font-weight: 600; font-size: 14px; }
+.cs-diger a:hover { border-color: #2441e7; text-decoration: none; color: #0a0a0a; }
+.cs-diger a span { display: block; font-size: 12px; font-weight: 400; color: #7a7a8c; }
+.cs-diger a.cs-secili { border-color: #2441e7; box-shadow: inset 0 0 0 1px #2441e7; }
+@media (max-width: 991px) { .cs-liste, .cs-diger { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cs-sayfa { padding: 40px 0 48px; } }
+@media (max-width: 480px) { .cs-liste { gap: 10px; } .cs-kart { padding: 14px; } .cs-kart-yil { font-size: 24px; } .cs-sayfa .main-title h3 { font-size: 24px; } }
+

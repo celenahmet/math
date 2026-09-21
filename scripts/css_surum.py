@@ -1,28 +1,41 @@
 #!/usr/bin/env python3
-# scripts/css_surum.py — css/duzeltmeler.css baglantisina icerik ozetinden
-# turetilen surum eki (?v=...) yazar.
+# scripts/css_surum.py — kendi CSS/JS dosyalarimizin baglantilarina icerik
+# ozetinden turetilen surum eki (?v=...) yazar.
 #
-# Neden: vercel.json CSS'i 7 gun onbellekliyor (max-age=604800). Dosya
-# degisince tarayici eski CSS'i gostermeye devam ediyordu (Ahmet 21.09'da
-# menuyu hala eski hizada gordu). Adres degisince onbellek anahtari da
+# Neden: vercel.json CSS/JS'i 7 gun onbellekliyor (max-age=604800). Dosya
+# degisince tarayici eski surumu gostermeye devam ediyordu (21.09: Ahmet
+# menuyu eski hizada gordu; 22.09: geri sayim JS'i eski surumle calismadi,
+# "Yaklasiyor" rozeti sabit kaldi). Adres degisince onbellek anahtari da
 # degisir; uzun onbellek korunur, guncelleme aninda gorunur.
 #
-# Kullanim: python3 scripts/css_surum.py   (duzeltmeler.css degisince kos)
+# Kullanim: python3 scripts/css_surum.py   (listedeki dosya degisince kos;
+# uretici betikler zaten cagiriyor)
 import hashlib, pathlib, re
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
-CSS = KOK / "css" / "duzeltmeler.css"
-ozet = hashlib.sha256(CSS.read_bytes()).hexdigest()[:8]
-desen = re.compile(r'href="/css/duzeltmeler\.css(?:\?v=[0-9a-f]+)?"')
-yeni = f'href="/css/duzeltmeler.css?v={ozet}"'
+VARLIKLAR = ["css/duzeltmeler.css", "sinavlar/js/sinav-takvimi.js", "js/uniconnectly-blok.js"]
+
+def ozet(yol):
+    p = KOK / yol
+    return hashlib.sha256(p.read_bytes()).hexdigest()[:8] if p.exists() else None
+
+kurallar = []
+for yol in VARLIKLAR:
+    o = ozet(yol)
+    if not o:
+        continue
+    desen = re.compile(r'(href|src)="/' + re.escape(yol) + r'(?:\?v=[0-9a-f]+)?"')
+    kurallar.append((desen, yol, o))
 
 sayac = 0
 for p in KOK.rglob("*.html"):
     if "scripts" in p.parts:
         continue
     s = p.read_text(encoding="utf-8", errors="surrogateescape")
-    y, n = desen.subn(yeni, s)
-    if n and y != s:
+    y = s
+    for desen, yol, o in kurallar:
+        y = desen.sub(lambda m, yol=yol, o=o: f'{m.group(1)}="/{yol}?v={o}"', y)
+    if y != s:
         p.write_text(y, encoding="utf-8", errors="surrogateescape")
         sayac += 1
-print(f"v={ozet} → {sayac} sayfa guncellendi")
+print(" · ".join(f"{yol} v={o}" for _, yol, o in kurallar) + f" → {sayac} sayfa guncellendi")

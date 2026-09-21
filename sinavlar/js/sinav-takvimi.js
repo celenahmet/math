@@ -5,7 +5,7 @@
  * kosulur (meta aciklama ve statik kart listesi ayni veriden uretilir).
  *
  * KAYNAK: yalnizca ÖSYM resmi sinav takvimi
- *   https://www.osym.gov.tr/Sayfa/SinavTakvimi   (21.09.2026'da alindi)
+ *   https://www.osym.gov.tr/Sayfa/SinavTakvimi   (21.09.2026'da alindi; KPSS On Lisans/Ortaogretim 22.09.2026)
  * Takvim siteleri, haber siteleri ve "tahmini tarih" iceren kaynaklar
  * KULLANILMAZ. ÖSYM yeni takvimi yayimlayinca asagidaki tablo guncellenir.
  *
@@ -24,7 +24,7 @@
   'use strict';
 
   var KAYNAK = 'https://www.osym.gov.tr/Sayfa/SinavTakvimi';
-  var KAYNAK_TARIHI = '21.09.2026';
+  var KAYNAK_TARIHI = '22.09.2026';
 
   /* ÖSYM 2026 takvimi. saatResmi=false → saat ÖSYM'ce yayimlanmadi. */
   var SINAVLAR = {
@@ -71,6 +71,18 @@
       sonuc: '07.10.2026',
       ek: 'Alan Bilgisi oturumları: 12.09.2026 ve 13.09.2026'
     },
+    kpssonlisans: {
+      kisa: 'KPSS Ön Lisans', yol: 'kpss-onlisans',
+      uzun: 'KPSS Ön Lisans (Kamu Personel Seçme Sınavı)',
+      donem: '2026-KPSS Ön Lisans', tarih: '2026-10-04', saat: '10:15', saatResmi: true,
+      sonuc: '30.10.2026'
+    },
+    kpssorta: {
+      kisa: 'KPSS Ortaöğretim', yol: 'kpss-ortaogretim',
+      uzun: 'KPSS Ortaöğretim (Kamu Personel Seçme Sınavı)',
+      donem: '2026-KPSS Ortaöğretim', tarih: '2026-10-25', saat: '10:00', saatResmi: false,
+      sonuc: '19.11.2026'
+    },
     ales3: {
       kisa: 'ALES/3', yol: 'ales3',
       uzun: 'ALES/3 (Akademik Personel ve Lisansüstü Eğitimi Giriş Sınavı)',
@@ -79,8 +91,9 @@
     }
   };
 
-  /* Listede gosterilme sirasi: takvim sirasi. */
-  var SIRA = ['msu', 'ales1', 'tyt', 'ayt', 'dgs', 'ales2', 'kpssa', 'ales3'];
+  /* Listede gosterilme sirasi: takvim sirasi. KPSS On Lisans / Ortaogretim
+     22.09.2026'da ÖSYM takviminden eklendi (04.10 10:15 ve 25.10). */
+  var SIRA = ['msu', 'ales1', 'tyt', 'ayt', 'dgs', 'ales2', 'kpssa', 'kpssonlisans', 'kpssorta', 'ales3'];
 
   var KOK = '/sinavlar/';
 

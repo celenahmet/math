@@ -21,7 +21,7 @@
 
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/flaticon.css">
-  <link rel="stylesheet" href="/css/duzeltmeler.css?v=5fdbc653">
+  <link rel="stylesheet" href="/css/duzeltmeler.css?v=c59ac09b">
 </head>
 <body>
 <div class="wrapper">
@@ -97,15 +97,17 @@
 		        </ul>
 		    </li>
 		    <li>
-		        <a href="/sinavlar/"><span class="title">Sınavlar</span></a>
+		        <a href="/ss/"><span class="title">Sınavlar</span></a>
 		        <ul>
-		        <li><a href="/ss/tyt/">Çıkmış Sorular</a>
+		        <li><a href="/ss/">Çıkmış Sorular</a>
 		            <ul>
 		            <li><a href="/ss/tyt/">TYT Çıkmış Sorular</a></li>
 		            <li><a href="/ss/ayt/">AYT Çıkmış Sorular</a></li>
 		            <li><a href="/ss/msu/">MSÜ Çıkmış Sorular</a></li>
 		            <li><a href="/ss/dgs/">DGS Çıkmış Sorular</a></li>
-		            <li><a href="/ss/kpss/">KPSS Çıkmış Sorular</a></li>
+		            <li><a href="/ss/kpss/">KPSS Lisans Çıkmış Sorular</a></li>
+		            <li><a href="/ss/kpss-onlisans/">KPSS Ön Lisans Çıkmış Sorular</a></li>
+		            <li><a href="/ss/kpss-ortaogretim/">KPSS Ortaöğretim Çıkmış Sorular</a></li>
 		            </ul>
 		        </li>
 		        <li><a href="/sinavlar/">Sınavlara Geri Sayım</a>
@@ -115,7 +117,9 @@
 		            <li><a href="/sinavlar/ayt/">AYT Geri Sayım</a></li>
 		            <li><a href="/sinavlar/msu/">MSÜ Geri Sayım</a></li>
 		            <li><a href="/sinavlar/dgs/">DGS Geri Sayım</a></li>
-		            <li><a href="/sinavlar/kpssa/">KPSS Geri Sayım</a></li>
+		            <li><a href="/sinavlar/kpssa/">KPSS Lisans Geri Sayım</a></li>
+		            <li><a href="/sinavlar/kpss-onlisans/">KPSS Ön Lisans Geri Sayım</a></li>
+		            <li><a href="/sinavlar/kpss-ortaogretim/">KPSS Ortaöğretim Geri Sayım</a></li>
 		            <li><a href="/sinavlar/ales1/">ALES/1 Geri Sayım</a></li>
 		            <li><a href="/sinavlar/ales2/">ALES/2 Geri Sayım</a></li>
 		            <li><a href="/sinavlar/ales3/">ALES/3 Geri Sayım</a></li>
@@ -228,11 +232,14 @@
 				<ul>
 				<li><span>Çıkmış Sorular</span>
 					<ul>
+						<li><a href="/ss/">Çıkmış Sorular sayfası</a></li>
 					<li><a href="/ss/tyt/">TYT Çıkmış Sorular</a></li>
 					<li><a href="/ss/ayt/">AYT Çıkmış Sorular</a></li>
 					<li><a href="/ss/msu/">MSÜ Çıkmış Sorular</a></li>
 					<li><a href="/ss/dgs/">DGS Çıkmış Sorular</a></li>
-					<li><a href="/ss/kpss/">KPSS Çıkmış Sorular</a></li>
+					<li><a href="/ss/kpss/">KPSS Lisans Çıkmış Sorular</a></li>
+					<li><a href="/ss/kpss-onlisans/">KPSS Ön Lisans Çıkmış Sorular</a></li>
+					<li><a href="/ss/kpss-ortaogretim/">KPSS Ortaöğretim Çıkmış Sorular</a></li>
 					</ul>
 				</li>
 				<li><span>Sınavlara Geri Sayım</span>
@@ -242,7 +249,9 @@
 					<li><a href="/sinavlar/ayt/">AYT Geri Sayım</a></li>
 					<li><a href="/sinavlar/msu/">MSÜ Geri Sayım</a></li>
 					<li><a href="/sinavlar/dgs/">DGS Geri Sayım</a></li>
-					<li><a href="/sinavlar/kpssa/">KPSS Geri Sayım</a></li>
+					<li><a href="/sinavlar/kpssa/">KPSS Lisans Geri Sayım</a></li>
+					<li><a href="/sinavlar/kpss-onlisans/">KPSS Ön Lisans Geri Sayım</a></li>
+					<li><a href="/sinavlar/kpss-ortaogretim/">KPSS Ortaöğretim Geri Sayım</a></li>
 					<li><a href="/sinavlar/ales1/">ALES/1 Geri Sayım</a></li>
 					<li><a href="/sinavlar/ales2/">ALES/2 Geri Sayım</a></li>
 					<li><a href="/sinavlar/ales3/">ALES/3 Geri Sayım</a></li>
@@ -277,161 +286,238 @@
 				</div>
 			</div>
 		</div>
-	</section><CENTER>
+	</section>
 	<!-- About Text Content -->
-	<section class="about-section">
+	<!-- Ders notlari (22.09 yeniden yazildi: eski sayfa hakkimda kopyasiydi) -->
+	<section class="cs-sayfa">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="about_content">
-		                    <li><a href="/video/parabol.html">Parabol 1.Video Ders Notları</a></li>   
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="about_thumb">
-						<img class="img-fluid" src="/images/about/" alt="8.jpg" loading="lazy" decoding="async">
-					</div>
-				</div>
+			<div class="main-title text-center">
+				<h3 class="mt0">Ücretsiz Matematik Ders Notları</h3>
+				<p>Deneme sınavları, konu fasikülleri ve video ders notlarının tamamı ücretsizdir; PDF'ler yeni sekmede açılır. Çözüm videoları için <a href="/video/">video çözümler</a> sayfasına, ÖSYM'nin resmî çıkmış soruları için <a href="/ss/">çıkmış sorular</a> sayfasına bakabilirsin.</p>
 			</div>
-			<div class="row mb60">
-				<div class="col-lg-12 text-center mt60">
-					<h3 class="fz26">İstatislikler</h3>
-				</div>
-				<div class="col-lg-12 text-center mt40">
-					<ul class="funfact_two_details">
-						<li class="list-inline-item">
-							<div class="funfact_two text-left">
-								<div class="details">
-									<h5>Yazdığım Soru</h5>
-									<div class="timer">+100</div>
-								</div>
-							</div>
-						</li>
-						<li class="list-inline-item">
-							<div class="funfact_two text-left">
-								<div class="details">
-									<h5>Paylaştığım Makale</h5>
-									<div class="timer">+11</div>
-								</div>
-							</div>
-						</li>
-						<li class="list-inline-item">
-							<div class="funfact_two text-left">
-								<div class="details">
-									<h5>Maddi Kazanç</h5>
-									<div class="timer">0</div>
-								</div>
-							</div>
-						</li>
-						<li class="list-inline-item">
-							<div class="funfact_two text-left">
-								<div class="details">
-									<h5>Manevi Kazanç</h5>
-									<a>Hayır Duası ve dahası..<a>
-								</div>
-							</div>
-						</li>
+			<div class="cs-ozet">
+				<span class="gs-cip"><strong>25</strong> PDF</span>
+				<span class="gs-cip">Ücretsiz</span>
+				<span class="gs-cip"><a href="https://drive.google.com/drive/folders/1rjDxAuM4c1mmqp_X-BTmfoJCCFFlahcU?usp=sharing" target="_blank" rel="noopener noreferrer">Tüm notlar Google Drive'da</a></span>
+			</div>
+
+			<h3 class="gs-alt-baslik">Deneme sınavları</h3>
+			<p class="cs-not" style="text-align:left;margin:0 0 16px">Sınav formatında, çözümlü matematik denemeleri.</p>
+			<div class="cs-liste">
+				<a class="cs-kart" href="/yt/tytmat.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">TYT Matematik Deneme</span>
+					<span class="cs-kart-ad">Tam deneme · çözümlü</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/aytmat.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">AYT Matematik Deneme</span>
+					<span class="cs-kart-ad">Tam deneme · çözümlü</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/dgsmat.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">DGS Matematik Deneme</span>
+					<span class="cs-kart-ad">Tam deneme · çözümlü</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/2021denemeler/tytmatsonprova.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">TYT Matematik Son Prova</span>
+					<span class="cs-kart-ad">2021 sınav öncesi prova</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/2021denemeler/aytmatsonprova.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">AYT Matematik Son Prova</span>
+					<span class="cs-kart-ad">2021 sınav öncesi prova</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/2021denemeler/dgsmatsonprova.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">DGS Matematik Son Prova</span>
+					<span class="cs-kart-ad">2021 sınav öncesi prova</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+			</div>
+
+			<h3 class="gs-alt-baslik">Konu fasikülleri</h3>
+			<p class="cs-not" style="text-align:left;margin:0 0 16px">Konu anlatımı ve soru bankası niteliğinde notlar.</p>
+			<div class="cs-liste">
+				<a class="cs-kart" href="/pdf/parabol.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Parabol Fasikülü</span>
+					<span class="cs-kart-ad">Konu anlatımlı soru bankası</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/parabol/parabolzorsorular.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Parabol Zor Sorular</span>
+					<span class="cs-kart-ad">Seçme zor sorular</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/karmasiksayilar/karmasiksayilar.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Karmaşık Sayılar</span>
+					<span class="cs-kart-ad">Konu notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/logaritma/logaritma.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Logaritma</span>
+					<span class="cs-kart-ad">Konu notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/fonksiyonlar/tekvecift.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Tek ve Çift Fonksiyonlar</span>
+					<span class="cs-kart-ad">Konu notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/analitik/cember.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Analitik Geometri: Çember</span>
+					<span class="cs-kart-ad">Konu notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/2021denemeler/limitsorutahminleri.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Limit Soru Tahminleri</span>
+					<span class="cs-kart-ad">Sınav öncesi tahmin seti</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+			</div>
+
+			<h3 class="gs-alt-baslik">Video ders notları</h3>
+			<p class="cs-not" style="text-align:left;margin:0 0 16px">YouTube'daki konu anlatımlarının yazılı notları.</p>
+			<div class="cs-liste">
+				<a class="cs-kart" href="/yt/parabol/1.video.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Parabol 1. Video</span>
+					<span class="cs-kart-ad">Video notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/parabol/2.video.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Parabol 2. Video</span>
+					<span class="cs-kart-ad">Video notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/parabol/3.video.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Parabol 3. Video</span>
+					<span class="cs-kart-ad">Video notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/parabol/4.video.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Parabol 4. Video</span>
+					<span class="cs-kart-ad">Video notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/parabol/5.video.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Parabol 5. Video</span>
+					<span class="cs-kart-ad">Video notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/turev/1.video.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Türev 1. Video</span>
+					<span class="cs-kart-ad">Video notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/turev/2.video.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Türev 2. Video</span>
+					<span class="cs-kart-ad">Video notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/turev/3.video.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Türev 3. Video</span>
+					<span class="cs-kart-ad">Türev alma kuralları</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/turev/4.video.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">Türev 4. Video</span>
+					<span class="cs-kart-ad">Video notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/turev/lhospital.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">L&#x27;Hospital Kuralı</span>
+					<span class="cs-kart-ad">Video notu</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+			</div>
+
+			<h3 class="gs-alt-baslik">Optik formlar</h3>
+			<p class="cs-not" style="text-align:left;margin:0 0 16px">Deneme çözerken kullanabileceğin boş cevap kâğıtları.</p>
+			<div class="cs-liste">
+				<a class="cs-kart" href="/yt/optik/tytoptikform.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">TYT Optik Form</span>
+					<span class="cs-kart-ad">Yazdırılabilir</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+				<a class="cs-kart" href="/yt/optik/aytoptikform.pdf" target="_blank" rel="noopener">
+					<span class="cs-kart-yil" style="font-size:20px">AYT Optik Form</span>
+					<span class="cs-kart-ad">Yazdırılabilir</span>
+					<span class="cs-kart-dugme">PDF</span>
+				</a>
+			</div>
+
+			<p class="cs-not">Notlar kişisel çalışma içindir; kaynak gösterilerek paylaşılabilir. Hata bildirimi: <a href="mailto:bilgi@ahmetcelen.com.tr">bilgi@ahmetcelen.com.tr</a></p>
+		</div>
+	</section>
+
+	<!-- UniConnectly tanitim + blog (scripts/uniconnectly_blok.py) -->
+	<section class="uc-blok" data-kampanya="pdfnot">
+		<div class="container">
+			<div class="uc-tanitim">
+				<div class="uc-tanitim-metin">
+					<span class="uc-etiket">UniConnectly · öğrenciler için ücretsiz</span>
+					<h3>Sınavdan sonra kampüs hayatı başlıyor</h3>
+					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, burs ve öğrenci fırsatlarını tek yerden takip edersin.</p>
+					<ul class="uc-faydalar">
+						<li>Üniversitendeki toplulukları ve etkinlik takvimini tek ekranda gör</li>
+						<li>Burs, staj ve ücretsiz öğrenci araçları rehberleri</li>
+						<li>Etkinliklere QR ile hızlı giriş, katıldıkların kaydedilir</li>
+						<li>App Store, Google Play ve AppGallery'de yayında</li>
 					</ul>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="about_whoweare">
-						<h4>Amacım nedir?</h4>
-<strong>Soruları yazıp ücretsiz olarak erişebilir hale getirmek ve video çözümleriyle desteklemek yani piyasada çok nadir yapılan bir iş. Özellikle video çözümlerini bir profesyonel öğretmen olmadan yaptım ve öğrencilerin çok umduğu hız opsiyonları ekledim. Henüz mobil uygulama çıkarmadım ki bence gerek yok. Web üzerinden erişim sağlanabiliyor sorunsuz olarak tüm cihazlar ile de uyumlu. Yaptığım çözümlerde 0,25x - 4x arası belirli kademelerde hız opsiyonları mevcut. Bu seçenek para vererek aldığınız çözüm uygulamalarında bile çoğunda yok :) Hobi olarak yazıp ücretsiz yayımlama elimden gelirse ekipmanlarım kısıtlı biraz , imkan oldukça video çözümleriyle de desteklemeye devam edeceğim.</strong>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="about_whoweare">
-						<h4>Gelecek Planlarım</h4>
-<strong>Uzun vadeli bir çalışma yapmayı düşünüyorum. Bu süre zarfında TYT Matematik denemesi, AYT Matematik denemesi çok elit sorularla birlikte hazırlamayı planlıyorum. İlave olarak yeni nesil adı altında problem odaklı express isimli bir soru bankası tarzında özel konsept yayımlayacağım, boş vakitlerimde hazırladığım için bu vaatlerim uzun sürebilir lütfen beni beklemeyin sınava hazırlanıyorsanız başka kaynak arayışına geçin bir yandan da takibi bırakmayın yayımlanan içeriklerden faydalanma şansını kaçırmayın :)</strong>
+					<div class="uc-dugmeler">
+						<a class="btn btn-thm" href="https://uniconnectly.com/?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=pdfnot" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
+						<a class="uc-ikincil" href="https://uniconnectly.com/blog?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=pdfnot" target="_blank" rel="noopener">Tüm blog yazıları</a>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-<h3>Asıl amacım hayır duası alıp ücretsiz olarak eğitime katkı sunabilmektir. Umarım yararlı olabilmişimdir bir nebze olsa da :)</h3>
 
-	<!-- Divider -->
-	<section class="divider parallax bg-img2" data-stellar-background-ratio="0.3">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="divider-one">
-						<p class="color-white">YouTube Kanalı</p>
-						<h1 class="color-white text-uppercase">YouTube Ücretsiz Dersler</h1>
-						<a class="btn btn-transparent divider-btn" href="https://www.youtube.com/channel/UCCXZwb5Y9Tphcv41jfgKI7wr">Kanalı İncele</a>
-					</div>
-				</div>
+			<h3 class="uc-alt-baslik">Öğrenciler için rehberler</h3>
+			<div class="uc-yazilar">
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/edu-tr-mail-ogrenci-firsatlari?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=pdfnot" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/edu-tr-mail-ogrenci-firsatlari.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">Edu.tr Mailiyle Ücretsiz Neler Alınabilir? Öğrenci Fırsatları</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/google-ai-plus-ogrenci-ucretsiz?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=pdfnot" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/google-ai-plus-ogrenci-ucretsiz.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">Google AI Plus Öğrencilere 1 Yıl Ücretsiz: Nasıl Alınır?</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/microsoft-365-ogrenci-ucretsiz?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=pdfnot" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/microsoft-365-ogrenci-ucretsiz.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">Microsoft 365 Öğrencilere Ücretsiz mi? Office 365 A1 Rehberi</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/github-student-developer-pack?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=pdfnot" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/github-student-developer-pack.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">GitHub Student Developer Pack Nedir? Ücretsiz Copilot ve Pro</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/2026-2027-burs-veren-kurumlar?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=pdfnot" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/2026-2027-burs-veren-kurumlar.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Burs</span>
+          <span class="uc-yazi-baslik">2026-2027 Burs Veren Kurumlar: Tutarlar ve Son Başvuru Tarihleri</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/universite-tercihi-dikkat-edilecekler?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=pdfnot" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/universite-tercihi-dikkat-edilecekler.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Rehber</span>
+          <span class="uc-yazi-baslik">Üniversite Tercihi Yaparken Dikkat Edilmesi Gerekenler</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/universiteye-baslayanlar-ilk-ay?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=pdfnot" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/universiteye-baslayanlar-ilk-ay.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Rehber</span>
+          <span class="uc-yazi-baslik">Üniversiteye Yeni Başlayanlar İçin İlk Ay Rehberi</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/kulube-katilmak-neden-onemli?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=pdfnot" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/kulube-katilmak-neden-onemli.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Kampüs</span>
+          <span class="uc-yazi-baslik">Üniversite Kulüplerine Katılmak Neden Önemli?</span>
+        </a>
 			</div>
-		</div>
-	</section>
 
-
-
-	<!-- Our Partners -->
-	<section id="our-partners" class="our-partners">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 offset-lg-3">
-					<div class="main-title text-center">
-						<h2 class="mt0">Sponsorlarımız </h2>
-						<h4>Bu hizmeti ücretsiz sunmamızda yardımcı olan bireysel ve kurumsal olarak tüm gerçek ve tüzel kişiliklere teşekkürlerimizi sunarız.</h4>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6 col-md-4 col-lg">
-					<div class="our_partner">
-						<img class="img-fluid" src="https://www.celenhosting.com/advert2/mavilogo.jpg" alt="celen hosting">
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg">
-					<div class="our_partner">
-						<img class="img-fluid" src="/images/partners/2.png" alt="2.png" loading="lazy" decoding="async">
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg">
-					<div class="our_partner">
-						<img class="img-fluid" src="/images/partners/3.png" alt="3.png" loading="lazy" decoding="async">
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg">
-					<div class="our_partner">
-						<img class="img-fluid" src="/images/partners/4.png" alt="4.png" loading="lazy" decoding="async">
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg">
-					<div class="our_partner">
-						<img class="img-fluid" src="/images/partners/5.png" alt="5.png" loading="lazy" decoding="async">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Our Partners -->
-	<section id="our-partners" class="our-partners">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 offset-lg-3">
-					<div class="main-title text-center">
-						<h2 class="mt0">Sponsorumuz olmak ister misin?</h2>
-						<h4>Ücretsiz olarak yayımladığımız ve sunmaya devam edeceğimiz destekler için maddi yönde destek olmak isterseniz aşağıda banka bilgileri mevcuttur. Hiçbir şekilde zoruniyet yoktur. Gönüllü bir gerekçedir. Kiminin parası kiminin hayır duası çalışmalarımı her daim ücretsiz yayımlayacağım.</h4>
-					</div>
-				</div>
-			</div>
-			<h4>Ziraat Bankası</h4>
-
-<p>Alıcı : AHMET ÇELEN</p>
-<p>IBAN Numarası : TR58 0001 0007 3189 6212 82 5001</p>
-<h4>----- </h4>
-<h4>Yapı Kredi Bankası</h4>
-
-<p>Alıcı : AHMET ÇELEN</p>
-<p>IBAN Numarası : TR69 0006 7010 0000 0058 7609 71</p>
-</h4>
-					</div>
-				</div>
+			<div id="uc-en-yeniler-kutu" hidden>
+				<h3 class="uc-alt-baslik">En yeniler</h3>
+				<div class="uc-yazilar uc-yeniler" id="uc-en-yeniler"></div>
 			</div>
 		</div>
 	</section>
@@ -551,6 +637,7 @@
 <script type="text/javascript" src="/js/timepicker.js"></script>
 <!-- Custom script for all pages --> 
 <script type="text/javascript" src="/js/script.js"></script>
+<script src="/js/uniconnectly-blok.js?v=20d90891"></script>
 </body>
 
 </html>

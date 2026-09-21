@@ -19,6 +19,8 @@
 #
 # Kullanim: python3 scripts/sinav_sayfa_uygula.py [--kuru]
 import re, sys, pathlib, datetime
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import uniconnectly_blok
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 KURU = "--kuru" in sys.argv
@@ -28,11 +30,14 @@ BUGUN = datetime.date.today()
 AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
          "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 YONELME = {"msu": "MSÜ'ye", "ales1": "ALES/1'e", "tyt": "TYT'ye", "ayt": "AYT'ye",
-           "dgs": "DGS'ye", "ales2": "ALES/2'ye", "kpssa": "KPSS'ye", "ales3": "ALES/3'e"}
+           "dgs": "DGS'ye", "ales2": "ALES/2'ye", "kpssa": "KPSS'ye", "ales3": "ALES/3'e",
+           "kpssonlisans": "KPSS Ön Lisans'a", "kpssorta": "KPSS Ortaöğretim'e"}
 CIKMIS = {"msu": ("MSÜ Çıkmış Sorular", "/ss/msu/"), "tyt": ("TYT Çıkmış Sorular", "/ss/tyt/"),
           "ayt": ("AYT Çıkmış Sorular", "/ss/ayt/"), "dgs": ("DGS Çıkmış Sorular", "/ss/dgs/"),
-          "kpssa": ("KPSS Lisans Çıkmış Sorular PDF", "/ss/kpss/")}
-GENEL_CIKMIS = ("Çıkmış Sorular (TYT, AYT, MSÜ, DGS, KPSS)", "/ss/tyt/")
+          "kpssa": ("KPSS Lisans Çıkmış Sorular PDF", "/ss/kpss/"),
+          "kpssonlisans": ("KPSS Ön Lisans Çıkmış Sorular PDF", "/ss/kpss-onlisans/"),
+          "kpssorta": ("KPSS Ortaöğretim Çıkmış Sorular PDF", "/ss/kpss-ortaogretim/")}
+GENEL_CIKMIS = ("Çıkmış Sorular (TYT, AYT, MSÜ, DGS, KPSS)", "/ss/")
 H2_GENEL = "Sınav Geri Sayımları"
 
 def js_sinavlar():
@@ -74,7 +79,7 @@ def aciklama_genel():
     sn = siradaki()
     ilk = (f"Sıradaki sınav {SINAVLAR[sn]['kisa']}, {tr_tarih(SINAVLAR[sn]['tarih'])}. " if sn else "")
     return (ilk + "TYT, AYT, MSÜ, DGS, KPSS ve ALES sınavlarına kaç gün kaldı? "
-            "ÖSYM takvimine göre canlı geri sayım, sınav ve sonuç tarihleri.")
+            "ÖSYM takvimine göre canlı geri sayım ve sonuç tarihleri.")
 
 def kartlar(secili):
     out = []
@@ -147,7 +152,7 @@ def govde(anahtar):
 			<p id="gs-kaynak" class="gs-kaynak"></p>
 		</div>
 	</section>
-'''
+''' + uniconnectly_blok.blok("sinavlar-genel" if genel else f"sinavlar-{anahtar}")
 
 # --- iskelet parcalari (ss/kpss/index.html) ---
 BAS = ISKELET[:ISKELET.index("\t<!-- Inner Page Breadcrumb -->")]
@@ -156,8 +161,10 @@ assert '<link rel="stylesheet" href="/css/duzeltmeler.css' in BAS and "</body>" 
 
 def sayfa(anahtar, yol):
     p = KOK / yol
-    eski = p.read_text(encoding="utf-8")
-    title = re.search(r"<title>(.*?)</title>", eski, re.S).group(1)          # KORUNUR
+    eski = p.read_text(encoding="utf-8") if p.exists() else ""
+    tm = re.search(r"<title>(.*?)</title>", eski, re.S)
+    kisa = H2_GENEL if anahtar == "tumu" else SINAVLAR[anahtar]["kisa"]
+    title = tm.group(1) if tm else f"{kisa} Sınavına Kaç Gün Kaldı? - {kisa} Geri Sayım"   # mevcut KORUNUR
     keywords = re.search(r'<meta name="keywords" content="([^"]*)">', eski)
     keywords = keywords.group(1) if keywords else "sınav tarihleri, kaç gün kaldı, geri sayım"
     metin = aciklama_genel() if anahtar == "tumu" else aciklama(anahtar)
@@ -168,22 +175,27 @@ def sayfa(anahtar, yol):
     bas = re.sub(r'<meta name="keywords" content="[^"]*">', lambda m: f'<meta name="keywords" content="{keywords}">', bas, count=1)
     bas = re.sub(r'<meta name="description" content="[^"]*">', lambda m: f'<meta name="description" content="{desc}">', bas, count=1)
     bas = bas.replace('<html dir="ltr" lang="en">', '<html dir="ltr" lang="tr">')
-    son = SON.replace('<script type="text/javascript" src="/js/script.js"></script>',
-                      '<script type="text/javascript" src="/js/script.js"></script>\n'
+    son = SON if "uniconnectly-blok.js" in SON else SON.replace(
+        '<script type="text/javascript" src="/js/script.js"></script>',
+        '<script type="text/javascript" src="/js/script.js"></script>\n<script src="/js/uniconnectly-blok.js"></script>')
+    son = son.replace('<script src="/js/uniconnectly-blok.js"></script>',
+                      '<script src="/js/uniconnectly-blok.js"></script>\n'
                       '<script src="/sinavlar/js/sinav-takvimi.js"></script>\n'
                       f"<script>sinavGeriSayim('{anahtar}');</script>")
     yeni = bas + govde(anahtar) + son
     if not KURU and yeni != eski:
+        p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(yeni, encoding="utf-8")
-    print(f"{yol}: {'ayni' if yeni == eski else 'yazildi'} · title korundu: {title[:45]} · {len(metin)} kr")
+    print(f"{yol}: {'ayni' if yeni == eski else 'yazildi'} · title: {title[:45]} · {len(metin)} kr")
 
 # Mevcut <h2> metinleri (korunur): dosyadan okunur, yoksa "<KISA> Geri Sayım".
 H2 = {}
 for a in SINAVLAR:
-    eski = (KOK / f"sinavlar/{a}/index.html").read_text(encoding="utf-8")
+    dosya = KOK / f"sinavlar/{SINAVLAR[a]['yol']}/index.html"
+    eski = dosya.read_text(encoding="utf-8") if dosya.exists() else ""
     m = re.search(r"<h2[^>]*>(.*?)</h2>", eski, re.S)
     H2[a] = m.group(1).strip() if m else f"{SINAVLAR[a]['kisa']} Geri Sayım"
 
 for a in SIRA:
-    sayfa(a, f"sinavlar/{a}/index.html")
+    sayfa(a, f"sinavlar/{SINAVLAR[a]['yol']}/index.html")
 sayfa("tumu", "sinavlar/index.html")

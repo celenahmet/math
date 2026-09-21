@@ -21,7 +21,7 @@
 
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/flaticon.css">
-  <link rel="stylesheet" href="/css/duzeltmeler.css?v=5fdbc653">
+  <link rel="stylesheet" href="/css/duzeltmeler.css?v=c59ac09b">
 </head>
 <body>
 <div class="wrapper">
@@ -97,15 +97,17 @@
 		        </ul>
 		    </li>
 		    <li>
-		        <a href="/sinavlar/"><span class="title">Sınavlar</span></a>
+		        <a href="/ss/"><span class="title">Sınavlar</span></a>
 		        <ul>
-		        <li><a href="/ss/tyt/">Çıkmış Sorular</a>
+		        <li><a href="/ss/">Çıkmış Sorular</a>
 		            <ul>
 		            <li><a href="/ss/tyt/">TYT Çıkmış Sorular</a></li>
 		            <li><a href="/ss/ayt/">AYT Çıkmış Sorular</a></li>
 		            <li><a href="/ss/msu/">MSÜ Çıkmış Sorular</a></li>
 		            <li><a href="/ss/dgs/">DGS Çıkmış Sorular</a></li>
-		            <li><a href="/ss/kpss/">KPSS Çıkmış Sorular</a></li>
+		            <li><a href="/ss/kpss/">KPSS Lisans Çıkmış Sorular</a></li>
+		            <li><a href="/ss/kpss-onlisans/">KPSS Ön Lisans Çıkmış Sorular</a></li>
+		            <li><a href="/ss/kpss-ortaogretim/">KPSS Ortaöğretim Çıkmış Sorular</a></li>
 		            </ul>
 		        </li>
 		        <li><a href="/sinavlar/">Sınavlara Geri Sayım</a>
@@ -115,7 +117,9 @@
 		            <li><a href="/sinavlar/ayt/">AYT Geri Sayım</a></li>
 		            <li><a href="/sinavlar/msu/">MSÜ Geri Sayım</a></li>
 		            <li><a href="/sinavlar/dgs/">DGS Geri Sayım</a></li>
-		            <li><a href="/sinavlar/kpssa/">KPSS Geri Sayım</a></li>
+		            <li><a href="/sinavlar/kpssa/">KPSS Lisans Geri Sayım</a></li>
+		            <li><a href="/sinavlar/kpss-onlisans/">KPSS Ön Lisans Geri Sayım</a></li>
+		            <li><a href="/sinavlar/kpss-ortaogretim/">KPSS Ortaöğretim Geri Sayım</a></li>
 		            <li><a href="/sinavlar/ales1/">ALES/1 Geri Sayım</a></li>
 		            <li><a href="/sinavlar/ales2/">ALES/2 Geri Sayım</a></li>
 		            <li><a href="/sinavlar/ales3/">ALES/3 Geri Sayım</a></li>
@@ -228,11 +232,14 @@
 				<ul>
 				<li><span>Çıkmış Sorular</span>
 					<ul>
+						<li><a href="/ss/">Çıkmış Sorular sayfası</a></li>
 					<li><a href="/ss/tyt/">TYT Çıkmış Sorular</a></li>
 					<li><a href="/ss/ayt/">AYT Çıkmış Sorular</a></li>
 					<li><a href="/ss/msu/">MSÜ Çıkmış Sorular</a></li>
 					<li><a href="/ss/dgs/">DGS Çıkmış Sorular</a></li>
-					<li><a href="/ss/kpss/">KPSS Çıkmış Sorular</a></li>
+					<li><a href="/ss/kpss/">KPSS Lisans Çıkmış Sorular</a></li>
+					<li><a href="/ss/kpss-onlisans/">KPSS Ön Lisans Çıkmış Sorular</a></li>
+					<li><a href="/ss/kpss-ortaogretim/">KPSS Ortaöğretim Çıkmış Sorular</a></li>
 					</ul>
 				</li>
 				<li><span>Sınavlara Geri Sayım</span>
@@ -242,7 +249,9 @@
 					<li><a href="/sinavlar/ayt/">AYT Geri Sayım</a></li>
 					<li><a href="/sinavlar/msu/">MSÜ Geri Sayım</a></li>
 					<li><a href="/sinavlar/dgs/">DGS Geri Sayım</a></li>
-					<li><a href="/sinavlar/kpssa/">KPSS Geri Sayım</a></li>
+					<li><a href="/sinavlar/kpssa/">KPSS Lisans Geri Sayım</a></li>
+					<li><a href="/sinavlar/kpss-onlisans/">KPSS Ön Lisans Geri Sayım</a></li>
+					<li><a href="/sinavlar/kpss-ortaogretim/">KPSS Ortaöğretim Geri Sayım</a></li>
 					<li><a href="/sinavlar/ales1/">ALES/1 Geri Sayım</a></li>
 					<li><a href="/sinavlar/ales2/">ALES/2 Geri Sayım</a></li>
 					<li><a href="/sinavlar/ales3/">ALES/3 Geri Sayım</a></li>
@@ -262,6 +271,7 @@
 	</div>
 </div>
 </div>
+
 
 
 	<!-- Inner Page Breadcrumb -->
@@ -341,6 +351,18 @@
         <span class="gs-kart-tarih">06.09.2026</span>
         <span class="gs-rozet">Tamamlandı</span>
       </a>
+      <a class="gs-kart" data-sinav="kpssonlisans" href="/sinavlar/kpss-onlisans/">
+        <span class="gs-kart-kisa">KPSS Ön Lisans</span>
+        <span class="gs-kart-uzun">Kamu Personel Seçme Sınavı</span>
+        <span class="gs-kart-tarih">04.10.2026</span>
+        <span class="gs-rozet">Yaklaşıyor</span>
+      </a>
+      <a class="gs-kart" data-sinav="kpssorta" href="/sinavlar/kpss-ortaogretim/">
+        <span class="gs-kart-kisa">KPSS Ortaöğretim</span>
+        <span class="gs-kart-uzun">Kamu Personel Seçme Sınavı</span>
+        <span class="gs-kart-tarih">25.10.2026</span>
+        <span class="gs-rozet">Yaklaşıyor</span>
+      </a>
       <a class="gs-kart" data-sinav="ales3" href="/sinavlar/ales3/">
         <span class="gs-kart-kisa">ALES/3</span>
         <span class="gs-kart-uzun">Akademik Personel ve Lisansüstü Eğitimi Giriş Sınavı</span>
@@ -356,6 +378,78 @@
       <a class="gs-baglanti" href="/video/"><strong>Video Çözümler</strong><span>Konu anlatımı ve soru çözümü</span></a>
 			</div>
 			<p id="gs-kaynak" class="gs-kaynak"></p>
+		</div>
+	</section>
+
+	<!-- UniConnectly tanitim + blog (scripts/uniconnectly_blok.py) -->
+	<section class="uc-blok" data-kampanya="sinavlar-dgs">
+		<div class="container">
+			<div class="uc-tanitim">
+				<div class="uc-tanitim-metin">
+					<span class="uc-etiket">UniConnectly · öğrenciler için ücretsiz</span>
+					<h3>Sınavdan sonra kampüs hayatı başlıyor</h3>
+					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, burs ve öğrenci fırsatlarını tek yerden takip edersin.</p>
+					<ul class="uc-faydalar">
+						<li>Üniversitendeki toplulukları ve etkinlik takvimini tek ekranda gör</li>
+						<li>Burs, staj ve ücretsiz öğrenci araçları rehberleri</li>
+						<li>Etkinliklere QR ile hızlı giriş, katıldıkların kaydedilir</li>
+						<li>App Store, Google Play ve AppGallery'de yayında</li>
+					</ul>
+					<div class="uc-dugmeler">
+						<a class="btn btn-thm" href="https://uniconnectly.com/?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=sinavlar-dgs" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
+						<a class="uc-ikincil" href="https://uniconnectly.com/blog?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=sinavlar-dgs" target="_blank" rel="noopener">Tüm blog yazıları</a>
+					</div>
+				</div>
+			</div>
+
+			<h3 class="uc-alt-baslik">Öğrenciler için rehberler</h3>
+			<div class="uc-yazilar">
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/edu-tr-mail-ogrenci-firsatlari?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=sinavlar-dgs" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/edu-tr-mail-ogrenci-firsatlari.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">Edu.tr Mailiyle Ücretsiz Neler Alınabilir? Öğrenci Fırsatları</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/google-ai-plus-ogrenci-ucretsiz?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=sinavlar-dgs" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/google-ai-plus-ogrenci-ucretsiz.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">Google AI Plus Öğrencilere 1 Yıl Ücretsiz: Nasıl Alınır?</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/microsoft-365-ogrenci-ucretsiz?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=sinavlar-dgs" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/microsoft-365-ogrenci-ucretsiz.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">Microsoft 365 Öğrencilere Ücretsiz mi? Office 365 A1 Rehberi</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/github-student-developer-pack?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=sinavlar-dgs" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/github-student-developer-pack.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">GitHub Student Developer Pack Nedir? Ücretsiz Copilot ve Pro</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/2026-2027-burs-veren-kurumlar?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=sinavlar-dgs" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/2026-2027-burs-veren-kurumlar.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Burs</span>
+          <span class="uc-yazi-baslik">2026-2027 Burs Veren Kurumlar: Tutarlar ve Son Başvuru Tarihleri</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/universite-tercihi-dikkat-edilecekler?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=sinavlar-dgs" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/universite-tercihi-dikkat-edilecekler.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Rehber</span>
+          <span class="uc-yazi-baslik">Üniversite Tercihi Yaparken Dikkat Edilmesi Gerekenler</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/universiteye-baslayanlar-ilk-ay?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=sinavlar-dgs" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/universiteye-baslayanlar-ilk-ay.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Rehber</span>
+          <span class="uc-yazi-baslik">Üniversiteye Yeni Başlayanlar İçin İlk Ay Rehberi</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/kulube-katilmak-neden-onemli?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=sinavlar-dgs" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/kulube-katilmak-neden-onemli.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Kampüs</span>
+          <span class="uc-yazi-baslik">Üniversite Kulüplerine Katılmak Neden Önemli?</span>
+        </a>
+			</div>
+
+			<div id="uc-en-yeniler-kutu" hidden>
+				<h3 class="uc-alt-baslik">En yeniler</h3>
+				<div class="uc-yazilar uc-yeniler" id="uc-en-yeniler"></div>
+			</div>
 		</div>
 	</section>
 	<section class="footer_one">
@@ -398,8 +492,8 @@
 						<ul class="list-unstyled">
 							<li><a href="/video/">Video Çözümler</a></li>
 							<li><a href="/video/parabol.html">Parabol Fasikülü</a></li>
-							<li><a href="/redirect/youtube/">YouTube Kanalı</a></li>
-							<li><a href="/redirect/vimeo/">Vimeo Kanalı</a></li>
+							<li><a href="https://www.youtube.com/channel/UCCXZwb5Y9Tphcv41jfgKI7w?sub_confirmation=1" target="_blank" rel="noopener noreferrer">YouTube Kanalı</a></li>
+							<li><a href="https://vimeo.com/search?type=clip&amp;q=ahmet+celen" target="_blank" rel="noopener noreferrer">Vimeo Kanalı</a></li>
 							<li><a href="/video/ucgen/">Üçgen Konu Anlatımı</a></li>
 						</ul>
 					</div>
@@ -490,7 +584,8 @@
 <script type="text/javascript" src="/js/timepicker.js"></script>
 <!-- Custom script for all pages --> 
 <script type="text/javascript" src="/js/script.js"></script>
-<script src="/sinavlar/js/sinav-takvimi.js"></script>
+<script src="/js/uniconnectly-blok.js?v=20d90891"></script>
+<script src="/sinavlar/js/sinav-takvimi.js?v=c2ae7f25"></script>
 <script>sinavGeriSayim('dgs');</script>
 </body>
 

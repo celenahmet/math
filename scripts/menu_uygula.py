@@ -69,13 +69,16 @@ MENU = [
     # "Sınavlar" = Çıkmış Sorular + Sınavlara Geri Sayım (Ahmet, 21.09).
     # ADRESLER SABIT: /ss/* ve /sinavlar/* arama trafiginde onde, oturmus
     # sayfalar; yalniz menu etiketleri degisti.
-    ("Sınavlar", "/sinavlar/", [
-        ("Çıkmış Sorular", "/ss/tyt/", [
+    # Ust madde /ss/ (Cikmis Sorular ve Sinavlar ana sayfasi, 22.09).
+    ("Sınavlar", "/ss/", [
+        ("Çıkmış Sorular", "/ss/", [
             ("TYT Çıkmış Sorular", "/ss/tyt/", None, False),
             ("AYT Çıkmış Sorular", "/ss/ayt/", None, False),
             ("MSÜ Çıkmış Sorular", "/ss/msu/", None, False),
             ("DGS Çıkmış Sorular", "/ss/dgs/", None, False),
-            ("KPSS Çıkmış Sorular", "/ss/kpss/", None, False),
+            ("KPSS Lisans Çıkmış Sorular", "/ss/kpss/", None, False),
+            ("KPSS Ön Lisans Çıkmış Sorular", "/ss/kpss-onlisans/", None, False),
+            ("KPSS Ortaöğretim Çıkmış Sorular", "/ss/kpss-ortaogretim/", None, False),
         ], False),
         ("Sınavlara Geri Sayım", "/sinavlar/", [
             ("Tüm Sınavlar", "/sinavlar/", None, False),
@@ -83,7 +86,9 @@ MENU = [
             ("AYT Geri Sayım", "/sinavlar/ayt/", None, False),
             ("MSÜ Geri Sayım", "/sinavlar/msu/", None, False),
             ("DGS Geri Sayım", "/sinavlar/dgs/", None, False),
-            ("KPSS Geri Sayım", "/sinavlar/kpssa/", None, False),
+            ("KPSS Lisans Geri Sayım", "/sinavlar/kpssa/", None, False),
+            ("KPSS Ön Lisans Geri Sayım", "/sinavlar/kpss-onlisans/", None, False),
+            ("KPSS Ortaöğretim Geri Sayım", "/sinavlar/kpss-ortaogretim/", None, False),
             ("ALES/1 Geri Sayım", "/sinavlar/ales1/", None, False),
             ("ALES/2 Geri Sayım", "/sinavlar/ales2/", None, False),
             ("ALES/3 Geri Sayım", "/sinavlar/ales3/", None, False),
