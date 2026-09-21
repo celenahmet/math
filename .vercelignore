@@ -70,3 +70,7 @@ video/ucgen/demo/
 
 # Ozel Ders sayfasi kaldirildi (Ahmet, 21.09)
 ozelders/
+
+# Eski geri sayim sablonu (tema/webajans): sayfalar ana temaya gecti (21.09)
+sinavlar/*/tema/
+sinavlar/tema/

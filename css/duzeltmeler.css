@@ -142,23 +142,52 @@
 /* ── 11) /ss/* kartlari: <ul> olmadan yazilmis <li> madde imi gosteriyordu ── */
 .img_hvr_box .details li { list-style: none; }
 
-/* ── 12) /sinavlar/* baglanti satiri (scripts/sinav_sayfa_uygula.py) ─────── */
-.tictoc .sinav-baglantilar { text-align: center; margin: 28px 0 8px; font-size: 15px; line-height: 2; }
-.tictoc .sinav-baglantilar a { padding: 0 4px; white-space: nowrap; }
-.tictoc #diger-sinavlar { text-align: center; }
-/* Tema 1024px altinda .slogan p icindeki <br>'yi gizliyor; sinav-takvimi.js
-   satirlari <br> ile ayiriyor, metin birbirine yapisiyordu. */
-@media (max-width: 1024px) {
-  .tictoc .slogan p br { display: inline; }
+/* ── 12) /sinavlar/* geri sayim sayfalari (yeni tasarim, 21.09) ───────────
+   Uretici: scripts/sinav_sayfa_uygula.py · veri: sinavlar/js/sinav-takvimi.js
+   Tema renkleri: #2441e7 (ana), #192675 (koyu), #f9fafc (zemin). Parilti ve
+   dekoratif gradyan yok. */
+.gs-sayfa { padding: 60px 0 70px; background: #fff; }
+.gs-sayfa .gs-baslik { margin-bottom: 34px; }
+.gs-sayfa .gs-baslik h2 { font-family: "Nunito", sans-serif; font-size: 32px; font-weight: 700; color: #0a0a0a; margin-bottom: 12px; }
+.gs-one-cikan { font-size: 16px; color: #192675; margin: 0 0 6px; }
+.gs-durum { font-size: 16px; line-height: 1.75; max-width: 780px; margin: 0 auto; color: #484848; }
+.gs-durum a { color: #2441e7; }
+.gs-sayac { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 0 auto 26px; }
+.gs-sayac[hidden] { display: none; }
+.gs-kutu { flex: 0 0 160px; background: #f9fafc; border: 1px solid #e6e8f2; border-radius: 12px; padding: 24px 10px 18px; text-align: center; }
+.gs-sayi { display: block; font-family: "Nunito", sans-serif; font-size: 56px; font-weight: 700; line-height: 1; color: #192675; font-variant-numeric: tabular-nums; }
+.gs-etiket { display: block; margin-top: 10px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #7a7a8c; }
+.gs-bilgi { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 50px; }
+.gs-bilgi:empty { display: none; }
+.gs-cip { background: #f4f5fa; border-radius: 999px; padding: 8px 16px; font-size: 14px; color: #484848; }
+.gs-cip a { color: #2441e7; }
+.gs-alt-baslik { font-family: "Nunito", sans-serif; font-size: 20px; font-weight: 700; color: #0a0a0a; margin: 0 0 18px; }
+.gs-liste { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 44px; }
+.gs-kart { display: block; background: #fff; border: 1px solid #e6e8f2; border-radius: 12px; padding: 18px 18px 16px; color: #0a0a0a; transition: border-color .2s, transform .2s; }
+.gs-kart:hover, .gs-kart:focus { border-color: #2441e7; color: #0a0a0a; text-decoration: none; transform: translateY(-2px); }
+.gs-kart.gs-secili { border-color: #2441e7; box-shadow: inset 0 0 0 1px #2441e7; }
+.gs-kart-kisa { display: block; font-family: "Nunito", sans-serif; font-size: 22px; font-weight: 700; color: #192675; }
+.gs-kart-uzun { display: block; font-size: 13px; line-height: 1.45; color: #7a7a8c; min-height: 38px; margin: 2px 0 10px; }
+.gs-kart-tarih { display: block; font-size: 15px; font-weight: 600; }
+.gs-rozet { display: inline-block; margin-top: 10px; font-size: 12px; font-weight: 600; padding: 4px 11px; border-radius: 999px; background: #eef1fd; color: #2441e7; }
+.gs-rozet.gs-bitti { background: #f1f1f1; color: #777; }
+.gs-baglantilar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 30px; }
+.gs-baglanti { display: block; border: 1px solid #e6e8f2; border-radius: 12px; padding: 16px 18px; color: #0a0a0a; transition: border-color .2s; }
+.gs-baglanti:hover, .gs-baglanti:focus { border-color: #2441e7; color: #0a0a0a; text-decoration: none; }
+.gs-baglanti strong { display: block; font-size: 16px; color: #192675; margin-bottom: 3px; }
+.gs-baglanti span { font-size: 13px; color: #7a7a8c; }
+.gs-kaynak { font-size: 13px; color: #7a7a8c; text-align: center; margin: 0; line-height: 1.7; }
+@media (max-width: 991px) {
+  .gs-liste, .gs-baglantilar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gs-sayfa { padding: 44px 0 56px; }
 }
-/* Telefonda dort halka alt alta 4x210px yer tutuyordu (tek ekranda bir
-   sayac): 2x2 duzen, halka 160px. Halka canvas'i 260px cizilir, CSS ile
-   olceklenir; rakam ve baslik buna gore kuculur. */
 @media (max-width: 480px) {
-  .tictoc .count-down { max-width: 360px; }
-  .tictoc .count-down li { margin: 0 4px 6px; min-height: 172px; }
-  .tictoc .count-down li div, .tictoc .count-down li canvas { width: 160px !important; height: 160px !important; }
-  .tictoc .count-down li input { font-size: 54px !important; width: 110px !important; height: 62px !important; top: 44% !important; }
-  .tictoc #days-title, .tictoc #hours-title, .tictoc #mins-title, .tictoc #secs-title { font-size: 18px; margin-top: -62px; }
+  .gs-sayfa .gs-baslik h2 { font-size: 26px; }
+  .gs-sayac { gap: 10px; }
+  .gs-kutu { flex-basis: calc(50% - 5px); padding: 18px 8px 14px; }
+  .gs-sayi { font-size: 40px; }
+  .gs-liste { gap: 10px; }
+  .gs-kart { padding: 14px; }
+  .gs-kart-kisa { font-size: 18px; }
+  .gs-baglantilar { grid-template-columns: 1fr; }
 }
-

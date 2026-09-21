@@ -1,7 +1,8 @@
-/* sinavlar/js/sinav-takvimi.js — 21.09.2026
+/* sinavlar/js/sinav-takvimi.js — 21.09.2026 (2. surum: yeni tasarim)
  *
  * Butun sinav geri sayim sayfalarinin TEK tarih kaynagi. Tarih degisince
- * yalnizca bu dosya guncellenir; 9 sayfaya tek tek dokunulmaz.
+ * yalnizca bu dosya guncellenir, ardindan `python3 scripts/sinav_sayfa_uygula.py`
+ * kosulur (meta aciklama ve statik kart listesi ayni veriden uretilir).
  *
  * KAYNAK: yalnizca ÖSYM resmi sinav takvimi
  *   https://www.osym.gov.tr/Sayfa/SinavTakvimi   (21.09.2026'da alindi)
@@ -11,8 +12,15 @@
  * NOT: ÖSYM takviminde sinav SAATI cogu sinav icin yayimlanmiyor; saat
  * yayimlanmissa o kullanilir, yayimlanmamissa geri sayimin calisabilmesi
  * icin 10:00 varsayilir ve sayfada saat GOSTERILMEZ.
+ *
+ * Sayfa DOM sozlesmesi (scripts/sinav_sayfa_uygula.py uretir):
+ *   #gs-durum  durum cumlesi          #gs-sayac  4 kutu (gun/saat/dk/sn)
+ *   #gs-gun #gs-saat #gs-dk #gs-sn    #gs-bilgi  cipler
+ *   [data-sinav=anahtar] .gs-rozet    kart rozeti ("N gun kaldi" / "tamamlandi")
+ *   #gs-kaynak                        kaynak + guncelleme satiri
+ * jQuery gerektirmez.
  */
-(function (window) {
+(function (window, document) {
   'use strict';
 
   var KAYNAK = 'https://www.osym.gov.tr/Sayfa/SinavTakvimi';
@@ -94,76 +102,127 @@
   }
 
   function gectiMi(sinav) {
-    return tarihNesnesi(sinav).getTime() <= new Date().getTime();
+    return tarihNesnesi(sinav).getTime() <= Date.now();
   }
 
-  /* "Diger Sinavlar" listesi: her sayfada ayni, tek yerden uretilir. */
-  function digerSinavlar(bulunduguAnahtar) {
-    var html = '<p>Diğer Sınavlar</p>';
+  /* Takvim gunu farki (saatten bagimsiz): "N gun kaldi" rozeti icin. */
+  function kalanGun(sinav) {
+    var d = parcala(sinav.tarih);
+    var hedef = new Date(d.yil, d.ay - 1, d.gun);
+    var bugun = new Date(); bugun.setHours(0, 0, 0, 0);
+    return Math.round((hedef - bugun) / 86400000);
+  }
+
+  function siradakiSinav() {
     for (var i = 0; i < SIRA.length; i++) {
-      var a = SIRA[i];
-      if (a === bulunduguAnahtar) continue;
-      var s = SINAVLAR[a];
-      var etiket = gosterimTarihi(s) + (gectiMi(s) ? ' (tamamlandı)' : '');
-      html += '<p><a href="' + KOK + s.yol + '">' + s.uzun + '</a> ' + etiket + '</p>';
+      if (!gectiMi(SINAVLAR[SIRA[i]])) { return SINAVLAR[SIRA[i]]; }
     }
-    return html;
+    return null;
   }
 
-  function kaynakSatiri() {
-    return '<p style="font-size:13px;opacity:.85;">Tarihler ÖSYM resmî sınav takviminden alınmıştır ' +
-      '(<a href="' + KAYNAK + '" target="_blank" rel="noopener">osym.gov.tr</a>).<br>' +
-      'Bu sayfa <strong>' + KAYNAK_TARIHI + '</strong> tarihinde güncellendi.</p>';
+  function el(id) { return document.getElementById(id); }
+  function iki(n) { return (n < 10 ? '0' : '') + n; }
+
+  function cip(metin) { return '<span class="gs-cip">' + metin + '</span>'; }
+
+  /* Kart rozetleri: her sayfada ayni, tarih durumuna gore. */
+  function rozetleriYaz(bulunduguAnahtar) {
+    var kartlar = document.querySelectorAll('[data-sinav]');
+    for (var i = 0; i < kartlar.length; i++) {
+      var k = kartlar[i], s = SINAVLAR[k.getAttribute('data-sinav')];
+      var r = k.querySelector('.gs-rozet');
+      if (!s || !r) { continue; }
+      if (gectiMi(s)) {
+        r.textContent = 'Tamamlandı'; r.className = 'gs-rozet gs-bitti';
+      } else {
+        var g = kalanGun(s);
+        r.textContent = g <= 0 ? 'Bugün' : g + ' gün kaldı'; r.className = 'gs-rozet gs-yakin';
+      }
+      if (k.getAttribute('data-sinav') === bulunduguAnahtar) { k.className += ' gs-secili'; }
+    }
+  }
+
+  function sayaciBaslat(sinav) {
+    var kutu = el('gs-sayac');
+    if (!kutu) { return; }
+    kutu.hidden = false;
+    var hedef = tarihNesnesi(sinav).getTime();
+    function tik() {
+      var fark = Math.max(0, hedef - Date.now());
+      var sn = Math.floor(fark / 1000);
+      el('gs-gun').textContent = Math.floor(sn / 86400);
+      el('gs-saat').textContent = iki(Math.floor(sn % 86400 / 3600));
+      el('gs-dk').textContent = iki(Math.floor(sn % 3600 / 60));
+      el('gs-sn').textContent = iki(sn % 60);
+      if (fark <= 0) { clearInterval(z); durumYaz(sinav, true); }
+    }
+    tik();
+    var z = setInterval(tik, 1000);
+  }
+
+  function durumYaz(s, one) {
+    var d = el('gs-durum');
+    if (!d) { return; }
+    var tarih = gosterimTarihi(s);
+    if (!gectiMi(s)) {
+      d.innerHTML = (one ? '' : '') + '<strong>' + s.donem + '</strong> sınavı <strong>' + tarih + '</strong>' +
+        (s.saatResmi ? ' saat ' + s.saat : '') + ' tarihinde yapılacak.' +
+        (s.ek ? '<br>' + s.ek + '.' : '');
+    } else {
+      var siradaki = siradakiSinav();
+      d.innerHTML = '<strong>' + s.donem + '</strong> sınavı <strong>' + tarih + '</strong> tarihinde yapıldı' +
+        (s.sonuc ? ', sonuçlar ' + s.sonuc + ' tarihinde açıklandı' : '') + '.' +
+        (s.ek ? '<br>' + s.ek + '.' : '') +
+        '<br>2027 sınav takvimi ÖSYM tarafından henüz yayımlanmadı; yayımlandığında geri sayım bu sayfada yeniden başlar.' +
+        (siradaki && siradaki !== s
+          ? '<br>Şu an geri sayımı süren sınav: <a href="' + KOK + siradaki.yol + '/"><strong>' +
+            siradaki.donem + '</strong> · ' + gosterimTarihi(siradaki) + '</a>'
+          : '');
+    }
+  }
+
+  function bilgiYaz(s) {
+    var b = el('gs-bilgi');
+    if (!b) { return; }
+    var h = cip('Sınav tarihi: <strong>' + gosterimTarihi(s) + '</strong>');
+    if (s.saatResmi) { h += cip('Saat: <strong>' + s.saat + '</strong>'); }
+    if (s.sonuc) { h += cip('Sonuç: <strong>' + s.sonuc + '</strong>'); }
+    h += cip('Kaynak: <a href="' + KAYNAK + '" target="_blank" rel="noopener">ÖSYM sınav takvimi</a>');
+    b.innerHTML = h;
+  }
+
+  function kaynakYaz() {
+    var k = el('gs-kaynak');
+    if (!k) { return; }
+    k.innerHTML = 'Tarihler ÖSYM resmî sınav takviminden alınmıştır (<a href="' + KAYNAK +
+      '" target="_blank" rel="noopener">osym.gov.tr</a>). Sınavı düzenleyen kurum tarihi değiştirebilir. ' +
+      'Bu sayfa <strong>' + KAYNAK_TARIHI + '</strong> tarihinde güncellendi.';
   }
 
   /**
    * Sayfayi baslatir.
-   * @param {string} anahtar SINAVLAR icindeki anahtar (tyt, ayt, dgs, ...)
+   * @param {string} anahtar SINAVLAR anahtari (tyt, ayt, ...) ya da 'tumu'
+   *   (genel sayfa: geri sayimi suren en yakin sinav one cikar).
    */
   function sinavGeriSayim(anahtar) {
-    var s = SINAVLAR[anahtar];
-    if (!s) { return; }
-    /* Sayfa kendi sinavi gecmisse, ziyaretciyi en yakin ileri tarihli
-       sinava yonlendirebilmek icin o sinavi hesapla. */
-    var siradaki = null;
-    for (var i = 0; i < SIRA.length; i++) {
-      if (!gectiMi(SINAVLAR[SIRA[i]])) { siradaki = SINAVLAR[SIRA[i]]; break; }
+    var s = anahtar === 'tumu' ? siradakiSinav() : SINAVLAR[anahtar];
+    if (!s) {
+      var d = el('gs-durum');
+      if (d) { d.textContent = '2027 sınav takvimi ÖSYM tarafından henüz yayımlanmadı.'; }
+      rozetleriYaz(null); kaynakYaz();
+      return;
     }
-
-    var tarihMetni = gosterimTarihi(s);
-    var $slogan = jQuery('.slogan');
-    var $sayim = jQuery('.count-down-wrapper');
-
-    if (!gectiMi(s)) {
-      /* Sinav ileride: knob geri sayimi calissin. */
-      var d = parcala(s.tarih);
-      jQuery('.count-down').ccountdown(d.gun, d.ay, d.yil, s.saat);
-      $slogan.find('p').first().html(
-        '<strong>' + s.donem + '</strong> · ' + tarihMetni +
-        '<br>Aşağıda gün, saat, dakika, saniye biçiminde canlı geri sayım bulunmaktadır.'
-      );
-    } else {
-      /* Sinav gecti: yaniltici geri sayim gosterme. */
-      $sayim.hide();
-      $slogan.find('p').first().html(
-        '<strong>' + s.donem + '</strong> sınavı <strong>' + tarihMetni + '</strong> tarihinde yapıldı' +
-        (s.sonuc ? ', sonuçlar ' + s.sonuc + ' tarihinde açıklandı' : '') + '.' +
-        (s.ek ? '<br>' + s.ek + '.' : '') +
-        '<br><strong>2027 sınav takvimi ÖSYM tarafından henüz yayımlanmadı.</strong> ' +
-        'Takvim yayımlandığında geri sayım bu sayfada yeniden başlayacak.' +
-        (siradaki && siradaki !== s
-          ? '<br>Şu an geri sayımı süren sınav: <a href="' + KOK + siradaki.yol + '">' +
-            siradaki.donem + ' · ' + gosterimTarihi(siradaki) + '</a>'
-          : '')
-      );
+    if (anahtar === 'tumu') {
+      var b = el('gs-one-cikan');
+      if (b) { b.innerHTML = 'Sıradaki sınav: <a href="' + KOK + s.yol + '/">' + s.uzun + '</a>'; }
     }
-
-    var $liste = jQuery('#diger-sinavlar');
-    if ($liste.length) {
-      $liste.html(digerSinavlar(anahtar) + kaynakSatiri());
-    }
+    durumYaz(s);
+    if (!gectiMi(s)) { sayaciBaslat(s); }
+    bilgiYaz(s);
+    rozetleriYaz(anahtar === 'tumu' ? s.yol : anahtar);
+    kaynakYaz();
   }
 
-  window.SINAV_TAKVIMI = { sinavlar: SINAVLAR, sira: SIRA, kaynak: KAYNAK };
+  window.SINAV_TAKVIMI = { sinavlar: SINAVLAR, sira: SIRA, kaynak: KAYNAK, kaynakTarihi: KAYNAK_TARIHI };
   window.sinavGeriSayim = sinavGeriSayim;
-})(window);
+})(window, document);
