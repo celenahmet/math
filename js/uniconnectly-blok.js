@@ -4,6 +4,20 @@
  * Baglantilar sayfanin data-kampanya degeriyle UTM'lenir. jQuery gerekmez. */
 (function () {
   'use strict';
+  /* Kitle sekmeleri (Ogrenciler / Topluluklar / Sirketler / Akademisyenler) */
+  var sekmeler = document.querySelectorAll('[data-uc-sekme]');
+  Array.prototype.forEach.call(sekmeler, function (b) {
+    b.addEventListener('click', function () {
+      var ad = b.getAttribute('data-uc-sekme');
+      Array.prototype.forEach.call(sekmeler, function (x) {
+        var acik = x === b; x.classList.toggle('uc-sekme-acik', acik); x.setAttribute('aria-selected', acik ? 'true' : 'false');
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-uc-panel]'), function (p) {
+        p.hidden = p.getAttribute('data-uc-panel') !== ad;
+      });
+    });
+  });
+
   var kutu = document.getElementById('uc-en-yeniler-kutu');
   var liste = document.getElementById('uc-en-yeniler');
   var blok = document.querySelector('.uc-blok');

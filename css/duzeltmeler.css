@@ -223,9 +223,10 @@
 .uc-etiket { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #2441e7; margin: 0 0 10px; }
 .uc-tanitim h3 { font-family: "Nunito", sans-serif; font-size: 26px; font-weight: 700; color: #0a0a0a; margin: 0 0 12px; }
 .uc-tanitim p { font-size: 15px; line-height: 1.7; color: #484848; max-width: 760px; margin-bottom: 0; }
-.uc-faydalar { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-.uc-faydalar li { position: relative; padding-left: 34px; font-size: 14px; line-height: 1.45; color: #0a0a0a; }
-.uc-faydalar li::before { content: '✓'; position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; background: #2441e7; color: #fff; font-size: 13px; font-weight: 700; line-height: 22px; text-align: center; }
+.uc-faydalar { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.uc-faydalar li { position: relative; padding: 12px 14px 12px 50px; font-size: 14px; line-height: 1.45; color: #0a0a0a; background: #fff; border: 1px solid #e6e8f2; border-radius: 10px; transition: border-color .2s, transform .2s; }
+.uc-faydalar li:hover { border-color: #c9cff5; transform: translateX(2px); }
+.uc-faydalar li::before { content: '✓'; position: absolute; left: 14px; top: 13px; width: 24px; height: 24px; border-radius: 50%; background: #2441e7; color: #fff; font-size: 13px; font-weight: 700; line-height: 24px; text-align: center; }
 .uc-dugmeler { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
 .uc-dugmeler .btn-thm { padding: 10px 24px; font-size: 15px; color: #fff; }
 .uc-dugmeler .btn-thm:hover { color: #fff; background: #192675; border-color: #192675; }
@@ -278,8 +279,12 @@
 .uc-magazalar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 .uc-magazalar-orta { justify-content: center; margin: 18px 0 14px; }
 .uc-magaza img { height: 40px; width: auto; display: block; }
-.uc-kapanis { text-align: center; background: #fff; border: 1px solid #e6e8f2; border-radius: 14px; padding: 36px 24px 30px; }
-.uc-kapanis > img { width: 220px; height: auto; margin: 0 auto 14px; display: block; }
+.uc-kapanis { text-align: center; background: #fff; border: 1px solid #e6e8f2; border-radius: 14px; padding: 36px 24px 30px; transition: border-color .2s; }
+.uc-kapanis:hover { border-color: #2441e7; }
+.uc-kapanis-baglanti { display: block; color: inherit; }
+.uc-kapanis-baglanti:hover, .uc-kapanis-baglanti:focus { color: inherit; text-decoration: none; }
+.uc-kapanis-baglanti:hover h3 { color: #2441e7; }
+.uc-kapanis-baglanti img { width: 220px; height: auto; margin: 0 auto 14px; display: block; }
 .uc-kapanis h3 { font-family: "Nunito", sans-serif; font-size: 26px; font-weight: 700; color: #192675; margin: 0 0 8px; }
 .uc-kapanis p { font-size: 15px; color: #484848; margin: 0; }
 @media (max-width: 480px) {
@@ -288,20 +293,31 @@
 }
 
 /* /ss/* kartlari: eski tasarimdaki arka plan gorseli, hepsinde ayni (Ahmet, 22.09) */
-.cs-kart.cs-kart-gorsel { position: relative; overflow: hidden; color: #fff; border: 0; min-height: 190px; background-size: cover; background-position: center; }
-.cs-kart.cs-kart-gorsel::before { content: ''; position: absolute; inset: 0; background: rgba(25, 38, 117, 0.72); transition: background .2s; }
-.cs-kart.cs-kart-gorsel:hover::before { background: rgba(25, 38, 117, 0.6); }
-.cs-kart.cs-kart-gorsel > span { position: relative; }
-.cs-kart.cs-kart-gorsel .cs-kart-yil { color: #fff; }
-.cs-kart.cs-kart-gorsel .cs-kart-ad { color: rgba(255, 255, 255, 0.85); }
-.cs-kart.cs-kart-gorsel .cs-kart-dugme { color: #fff176; }
+.cs-kart.cs-kart-gorsel { position: relative; overflow: hidden; color: #fff; border: 0; min-height: 190px; background-size: cover; background-position: center; align-items: center; justify-content: center; text-align: center; padding: 22px 16px; }
+.cs-kart.cs-kart-gorsel::before { content: ''; position: absolute; inset: 0; background: rgba(25, 38, 117, 0.4); transition: background .2s; }
+.cs-kart.cs-kart-gorsel:hover::before { background: rgba(25, 38, 117, 0.5); }
+.cs-kart.cs-kart-gorsel > span { position: relative; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75); }
+.cs-kart.cs-kart-gorsel .cs-kart-yil { color: #fff; font-size: 34px; }
+.cs-kart.cs-kart-gorsel .cs-kart-ad { color: #fff; min-height: 0; margin: 6px 0 10px; }
+.cs-kart.cs-kart-gorsel .cs-kart-dugme { color: #fff176; margin-top: 0; font-size: 14px; }
 .cs-kart.cs-kart-gorsel:hover, .cs-kart.cs-kart-gorsel:focus { color: #fff; }
 .uc-faydalar li strong { display: block; color: #192675; font-size: 15px; }
 .uc-faydalar li > span { display: block; color: #484848; }
 .uc-mono { font-family: "SFMono-Regular", Menlo, Consolas, monospace; font-size: 13px; background: #f4f5fa; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
-.uc-tanitim-liste { background: #f4f5fa; border-radius: 12px; padding: 24px 24px 22px; }
-.uc-tanitim-liste h4 { font-family: "Nunito", sans-serif; font-size: 17px; font-weight: 700; color: #0a0a0a; margin: 0 0 16px; }
+.uc-tanitim-liste { background: #f4f5fa; border-radius: 14px; padding: 18px 20px 20px; }
+.uc-tanitim-liste h4 { font-family: "Nunito", sans-serif; font-size: 17px; font-weight: 700; color: #0a0a0a; margin: 14px 0 14px 4px; }
 .uc-logo img { width: 220px; }
 @media (max-width: 991px) { .uc-tanitim { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; } }
 @media (max-width: 480px) { .uc-tanitim-liste { padding: 18px 16px; } .uc-logo img { width: 180px; } .uc-faydalar li { font-size: 13px; } .uc-faydalar li strong { font-size: 14px; } }
+.uc-sekmeler { display: flex; flex-wrap: wrap; gap: 6px; background: #fff; border: 1px solid #e6e8f2; border-radius: 999px; padding: 4px; }
+.uc-sekme { flex: 1 1 auto; border: 0; background: transparent; border-radius: 999px; padding: 8px 12px; font-size: 13px; font-weight: 700; color: #484848; cursor: pointer; font-family: inherit; transition: background .2s, color .2s; }
+.uc-sekme:hover { color: #192675; }
+.uc-sekme.uc-sekme-acik { background: #2441e7; color: #fff; }
+.uc-panel[hidden] { display: none; }
+.uc-rakamlar { display: flex; gap: 22px; flex-wrap: wrap; margin: 4px 0 20px; }
+.uc-rakamlar div { border-left: 3px solid #2441e7; padding-left: 12px; }
+.uc-rakamlar strong { display: block; font-family: "Nunito", sans-serif; font-size: 22px; font-weight: 700; color: #192675; line-height: 1.1; }
+.uc-rakamlar span { font-size: 12px; color: #7a7a8c; }
+.uc-tanitim-metin > p { margin-bottom: 18px; }
+@media (max-width: 480px) { .uc-sekme { font-size: 12px; padding: 7px 8px; } .uc-faydalar li { padding: 10px 12px 10px 44px; } .uc-faydalar li::before { left: 11px; top: 11px; } .uc-rakamlar { gap: 14px; } }
 

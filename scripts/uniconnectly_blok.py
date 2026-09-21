@@ -44,6 +44,49 @@ def yazi_karti(slug, baslik, etiket, kampanya):
             f'          <span class="uc-yazi-baslik">{html.escape(baslik)}</span>\n'
             f'        </a>')
 
+# Kitleye gore faydalar. Her madde uygulamada VAR olan bir ozelliktir (22.09
+# dogrulama: portfoy mig 237, event_checkins, sertifika bayragi, company_jobs,
+# kampus elcisi mig 102-112, podyum, organizer_web_visibility, uye karti
+# indirimleri, Bilime Destek). Olmayan ozellik yazilmaz.
+FAYDALAR = {
+    "ogrenci": ("Öğrenciye ne kazandırır?", [
+        ("Dijital portföy", '<span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş; CV\'ne ve LinkedIn\'e sertifika doğrulama bağlantısı olarak ekle'),
+        ("Doğrulanabilir katılım", "QR ile giriş yaptığın etkinlikler portföyünde doğrulanmış listelenir"),
+        ("Sertifikalar", "Platformda verilen sertifikalar doğrulanmış işaretli, edu.tr e-postan onaylı"),
+        ("Anlık fırsatlar", "Staj, iş ve burs duyuruları akışına düşer; şirket ilanlarına uygulamadan başvur"),
+        ("Topluluklar ve etkinlikler", "Üniversitendeki toplulukları ve takvimi tek ekranda gör, başvurulu etkinliklere katıl"),
+        ("Üye kartı indirimleri", "Takip ettiğin toplulukların anlaşmalı işletme indirimlerinden yararlan"),
+    ]),
+    "topluluk": ("Topluluğa ne kazandırır?", [
+        ("Ücretsiz web sitesi", '<span class="uc-mono">uniconnectly.com/@topluluk</span>: etkinlikler, duyurular ve yönetim kurulu herkese açık, Google\'da bulunur'),
+        ("Podyum ile sponsor bulma", "Etkinliğini yayınlamadan önce hazırlık aşamasında şirketlere sun, sponsor ve iş birliği görüşmesini uygulamada yürüt"),
+        ("İş birliği ortamı", "Şirketler ve diğer topluluklarla mesajlaşma, ortak etkinlik ve sponsorluk iletişimi tek kanalda"),
+        ("QR ile katılım takibi", "Kapıda QR okut, katılımcı istatistiklerini ve geçmiş etkinlik raporlarını gör"),
+        ("Başvurulu etkinlik ve bilet", "Başvuru al, onayla, görevli üye ata; harici biletli etkinliklerde kapı yönetimi"),
+        ("Üye kartı fırsatları", "Üyelerine özel anlaşmalı işletme indirimleri tanımla"),
+    ]),
+    "sirket": ("Şirkete ne kazandırır?", [
+        ("Kampüs elçisi programı", "Üniversitelere elçi ilanı aç, başvuruları değerlendir, her kampüste elçi ekibi kur"),
+        ("Markanı kampüse taşı", "Etkinlik ve sponsorluk fırsatlarını Podyum'da gör, topluluklarla doğrudan görüş"),
+        ("Staj ve iş ilanları", "İlanların öğrenci akışında ve İş İlanları bölümünde görünür, başvurular uygulamadan gelir"),
+        ("İş birliği fırsatları", "Topluluklarla mesajlaş, ortak etkinlik ve marka iş birliklerini tek yerden yönet"),
+        ("Etki ölçümü", "Markanın kampüslerdeki toplulaştırılmış, anonim etkileşim raporu"),
+    ]),
+    "akademik": ("Akademisyene ne kazandırır?", [
+        ("Bilime Destek", "Anket ve araştırma çağrını UniConnectly ağındaki doğru öğrenci kitlesine ulaştır, katılımcı topla"),
+        ("Etkinlik ve seminer duyurusu", "Bölüm topluluklarıyla seminer, atölye ve konferans duyurularını öğrencilere ulaştır"),
+        ("Öğrenci topluluklarına erişim", "Danışmanı olduğun topluluğun etkinlik takvimi ve katılım verileri tek ekranda"),
+    ]),
+}
+
+def fayda_panelleri():
+    out = []
+    for i, (anahtar, (baslik, maddeler)) in enumerate(FAYDALAR.items()):
+        li = "\n".join(f'\t\t\t\t\t\t\t<li><strong>{b}</strong><span>{a}</span></li>' for b, a in maddeler)
+        out.append(f'\t\t\t\t\t<div class="uc-panel" data-uc-panel="{anahtar}" role="tabpanel"{"" if i == 0 else " hidden"}>\n'
+                   f'\t\t\t\t\t\t<h4>{baslik}</h4>\n\t\t\t\t\t\t<ul class="uc-faydalar">\n{li}\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>')
+    return "\n".join(out)
+
 def magaza_rozetleri(kampanya):
     return "\n".join(
         f'\t\t\t\t\t\t<a class="uc-magaza" href="{u.format(kampanya=kampanya)}" target="_blank" rel="noopener" aria-label="{e}\'dan indir">'
@@ -54,6 +97,7 @@ def blok(kampanya):
     """kampanya: utm_campaign degeri (ss-kpss, sinavlar-ales3 gibi)."""
     kartlar = "\n".join(yazi_karti(s, b, e, kampanya) for s, b, e in SABIT_YAZILAR)
     rozetler = magaza_rozetleri(kampanya)
+    FAYDA_PANELLERI = fayda_panelleri()
     return f'''
 	<!-- UniConnectly tanitim + blog (scripts/uniconnectly_blok.py) -->
 	<section class="uc-blok" data-kampanya="{kampanya}">
@@ -64,6 +108,11 @@ def blok(kampanya):
 					<span class="uc-etiket">Öğrenciler için ücretsiz</span>
 					<h3>Sınavdan sonra kampüs hayatı başlıyor</h3>
 					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, katıldıklarını ve sertifikalarını dijital portföyünde herkese açık paylaşırsın.</p>
+					<div class="uc-rakamlar">
+						<div><strong>234</strong><span>üniversite</span></div>
+						<div><strong>Ücretsiz</strong><span>öğrenciler ve topluluklar için</span></div>
+						<div><strong>3</strong><span>mağazada yayında</span></div>
+					</div>
 					<div class="uc-dugmeler">
 						<a class="btn btn-thm" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
 						<a class="uc-ikincil" href="{ref("/blog", kampanya)}" target="_blank" rel="noopener">Tüm blog yazıları</a>
@@ -73,15 +122,13 @@ def blok(kampanya):
 					</div>
 				</div>
 				<div class="uc-tanitim-liste">
-					<h4>Öğrenciye ne kazandırır?</h4>
-					<ul class="uc-faydalar">
-						<li><strong>Dijital portföy</strong><span><span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş, CV'ne ekle</span></li>
-						<li><strong>Doğrulanabilir katılım</strong><span>QR ile giriş yaptığın etkinlikler portföyünde doğrulanmış listelenir</span></li>
-						<li><strong>Sertifikalar</strong><span>Platformda verilen sertifikalar doğrulanmış işaretli, edu.tr e-postan onaylı</span></li>
-						<li><strong>Topluluklar ve etkinlikler</strong><span>Üniversitendeki toplulukları ve takvimi tek ekranda gör</span></li>
-						<li><strong>Burs, staj, öğrenci araçları</strong><span>Güncel rehberler ve fırsat yazıları</span></li>
-						<li><strong>Şirketlerle iletişim</strong><span>Etkinlik ve sponsorluk görüşmeleri topluluklar üzerinden</span></li>
-					</ul>
+					<div class="uc-sekmeler" role="tablist" aria-label="Kime ne kazandırır?">
+						<button type="button" class="uc-sekme uc-sekme-acik" role="tab" aria-selected="true" data-uc-sekme="ogrenci">Öğrenciler</button>
+						<button type="button" class="uc-sekme" role="tab" aria-selected="false" data-uc-sekme="topluluk">Topluluklar</button>
+						<button type="button" class="uc-sekme" role="tab" aria-selected="false" data-uc-sekme="sirket">Şirketler</button>
+						<button type="button" class="uc-sekme" role="tab" aria-selected="false" data-uc-sekme="akademik">Akademisyenler</button>
+					</div>
+{FAYDA_PANELLERI}
 				</div>
 			</div>
 
@@ -96,9 +143,11 @@ def blok(kampanya):
 			</div>
 
 			<div class="uc-kapanis">
-				<img src="{LOGO}" alt="UniConnectly" width="320" height="115" loading="lazy" decoding="async">
-				<h3>Öğrenciler, etkinlikler, topluluklar, şirketler: hepsi bir arada!</h3>
-				<p>Toplulukları keşfet, etkinliklere QR ile katıl, dijital portföyünü herkese açık paylaş. Öğrenciler için ücretsiz.</p>
+				<a class="uc-kapanis-baglanti" href="{ref("/", kampanya)}" target="_blank" rel="noopener">
+					<img src="{LOGO}" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async">
+					<h3>Öğrenciler, etkinlikler, topluluklar, şirketler: hepsi bir arada!</h3>
+					<p>Toplulukları keşfet, etkinliklere QR ile katıl, dijital portföyünü herkese açık paylaş. Öğrenciler için ücretsiz.</p>
+				</a>
 				<div class="uc-magazalar uc-magazalar-orta">
 {rozetler}
 				</div>
