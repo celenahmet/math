@@ -26,3 +26,4 @@ wp-config.php
 conf.d/
 .vercel
 .env*
+scripts/__pycache__/
