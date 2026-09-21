@@ -63,12 +63,14 @@ def blok(kampanya):
 					<a class="uc-logo" href="{ref("/", kampanya)}" target="_blank" rel="noopener"><img src="{LOGO}" alt="UniConnectly" width="320" height="115" loading="lazy" decoding="async"></a>
 					<span class="uc-etiket">Öğrenciler için ücretsiz</span>
 					<h3>Sınavdan sonra kampüs hayatı başlıyor</h3>
-					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, burs ve öğrenci fırsatlarını tek yerden takip edersin.</p>
+					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, katıldıklarını ve sertifikalarını dijital portföyünde herkese açık paylaşırsın.</p>
 					<ul class="uc-faydalar">
+						<li><strong>Dijital portföy:</strong> <span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş, CV'ne ekle</li>
+						<li><strong>Doğrulanabilir katılım:</strong> QR ile giriş yaptığın etkinlikler portföyünde doğrulanmış olarak listelenir</li>
+						<li><strong>Sertifikalar:</strong> platformda verilen sertifikalar doğrulanmış işaretli, edu.tr e-postan onaylı görünür</li>
 						<li>Üniversitendeki toplulukları ve etkinlik takvimini tek ekranda gör</li>
 						<li>Burs, staj ve ücretsiz öğrenci araçları rehberleri</li>
-						<li>Etkinliklere QR ile hızlı giriş, katıldıkların kaydedilir</li>
-						<li>App Store, Google Play ve AppGallery'de yayında</li>
+						<li>Şirketlerle etkinlik ve sponsorluk iletişimi topluluklar üzerinden</li>
 					</ul>
 					<div class="uc-dugmeler">
 						<a class="btn btn-thm" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
@@ -93,7 +95,7 @@ def blok(kampanya):
 			<div class="uc-kapanis">
 				<img src="{LOGO}" alt="UniConnectly" width="320" height="115" loading="lazy" decoding="async">
 				<h3>Öğrenciler, etkinlikler, topluluklar, şirketler: hepsi bir arada!</h3>
-				<p>Üniversitendeki toplulukları keşfet, etkinliklere katıl, fırsatları kaçırma. Uygulamayı ücretsiz indir.</p>
+				<p>Toplulukları keşfet, etkinliklere QR ile katıl, dijital portföyünü herkese açık paylaş. Öğrenciler için ücretsiz.</p>
 				<div class="uc-magazalar uc-magazalar-orta">
 {rozetler}
 				</div>

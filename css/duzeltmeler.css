@@ -296,4 +296,6 @@
 .cs-kart.cs-kart-gorsel .cs-kart-ad { color: rgba(255, 255, 255, 0.85); }
 .cs-kart.cs-kart-gorsel .cs-kart-dugme { color: #fff176; }
 .cs-kart.cs-kart-gorsel:hover, .cs-kart.cs-kart-gorsel:focus { color: #fff; }
+.uc-faydalar li strong { color: #192675; }
+.uc-mono { font-family: "SFMono-Regular", Menlo, Consolas, monospace; font-size: 13px; background: #f4f5fa; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
 
