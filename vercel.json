@@ -3,7 +3,7 @@
   "trailingSlash": true,
   "redirects": [
     {
-      "source": "/:yol*.:uzanti(mp4|MP4|mov|MOV|webm|m4v|avi|mkv|mp3|MP3|wav|pdf|PDF|pptx|PPTX|ppt|docx|doc|xlsx|rar|RAR|zip|ZIP|jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF|webp|bmp|tif|tiff)",
+      "source": "/:yol*.:uzanti(mp4|MP4|mov|MOV|webm|m4v|avi|mkv|mp3|MP3|wav|pptx|PPTX|ppt|docx|doc|xlsx|rar|RAR|zip|ZIP|jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF|webp|bmp|tif|tiff)",
       "destination": "https://medya.ahmetcelen.com.tr/:yol*.:uzanti",
       "permanent": false
     },
@@ -68,6 +68,25 @@
           "value": "public, max-age=604800, stale-while-revalidate=86400"
         }
       ]
+    },
+    {
+      "source": "/(.*)\\.(pdf|PDF)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/:yol*.pdf",
+      "destination": "https://medya.ahmetcelen.com.tr/:yol*.pdf"
+    },
+    {
+      "source": "/:yol*.PDF",
+      "destination": "https://medya.ahmetcelen.com.tr/:yol*.PDF"
     }
   ]
 }
