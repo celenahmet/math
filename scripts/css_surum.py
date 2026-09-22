@@ -18,7 +18,7 @@ KOK = pathlib.Path(__file__).resolve().parent.parent
 # ESKI style.css kalir, 14 dosya hem @import hem <link> ile iki kez inerdi.
 VARLIKLAR = ["css/duzeltmeler.css", "css/style-az.css", "css/font-awesome-az.css",
               "css/flaticon-az.css", "sinavlar/js/sinav-takvimi.js",
-              "js/uniconnectly-blok.js", "js/sayfa-duzeltmeleri.js"]
+              "js/uniconnectly-blok.js", "js/sayfa-duzeltmeleri.js", "js/arama.js"]
 
 def ozet(yol):
     p = KOK / yol
