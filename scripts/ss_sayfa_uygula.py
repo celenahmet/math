@@ -89,7 +89,7 @@ def govde(anahtar, v, m):
 				<p>{giris}</p>
 			</div>
 			<div class="cs-ozet">
-				<span class="gs-cip"><strong>{len(kartlar)}</strong> yıl</span>
+				<span class="gs-cip"><strong>{len(kartlar)}</strong> yılın soruları</span>
 				<span class="gs-cip">{kartlar[0][0]} - {kartlar[-1][0]}</span>
 				<span class="gs-cip">Kaynak: <a href="https://www.osym.gov.tr/" target="_blank" rel="noopener">ÖSYM</a></span>
 				<span class="gs-cip"><a href="/sinavlar/{v["geri_sayim"]}/">{v["kisa"]} sınavına kaç gün kaldı?</a></span>
@@ -112,7 +112,7 @@ def hub():
     for a in ss_veri.SIRA:
         v = ss_veri.SAYFALAR[a]; y = v["kartlar"]
         kartlar.append(f'\t\t\t\t<a class="cs-kart" href="/ss/{a}/">\n\t\t\t\t\t<span class="cs-kart-yil" style="font-size:24px">{v["kisa"]}</span>\n'
-                       f'\t\t\t\t\t<span class="cs-kart-ad">{len(y)} yıl · {y[0][0]} - {y[-1][0]} · ÖSYM PDF</span>\n'
+                       f'\t\t\t\t\t<span class="cs-kart-ad">{y[0][0]} - {y[-1][0]} · {len(y)} yılın soruları · ÖSYM PDF</span>\n'
                        f'\t\t\t\t\t<span class="cs-kart-dugme" style="color:#192675">Çıkmış sorular</span>\n\t\t\t\t</a>')
     return f'''
 	<!-- Inner Page Breadcrumb -->
