@@ -97,7 +97,9 @@ def blok(p, yol):
         '<link rel="preload" as="style" href="/css/flaticon-az.css" onload="this.rel=\'stylesheet\'">',
         f'<link rel="canonical" href="{adres}">',
         # Uzun ozet + buyuk gorsel izni (TO). Varsayilan snippet 155-160 karakterde kesiliyor.
-        '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">',
+        # Taslak sayfa (scripts/blog_uygula.py) aramaya DUSMEZ.
+        ('<meta name="robots" content="noindex, follow">' if "<!-- blog:taslak -->" in s
+         else '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">'),
         '<meta property="og:type" content="website">',
         '<meta property="og:site_name" content="Ahmet Çelen">',
         '<meta property="og:locale" content="tr_TR">',

@@ -16,26 +16,6 @@
       "source": "/:yol*.php",
       "destination": "/:yol*.html",
       "permanent": false
-    },
-    {
-      "source": "/blog",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/blog/",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/blog/:yol*",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/blog/:yol*/",
-      "destination": "/",
-      "permanent": false
     }
   ],
   "headers": [

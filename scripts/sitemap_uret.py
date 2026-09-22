@@ -34,6 +34,10 @@ def uret():
             continue
         if any(x in "/" + r for x in HARIC_PARCA) or yonlendirme_mi(p):
             continue
+        # "<!-- blog:taslak -->" tasiyan sayfa henuz icerik tasimiyor
+        # (scripts/blog_uygula.py); sitemap'e girmez.
+        if "<!-- blog:taslak -->" in p.read_text(encoding="utf-8", errors="ignore"):
+            continue
         if p.name == "index.html":
             yol = "/" if p.parent == KOK else "/" + p.parent.relative_to(KOK).as_posix() + "/"
         else:

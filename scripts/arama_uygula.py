@@ -48,6 +48,9 @@ def sayfalar():
             continue
         if any(x in "/" + r for x in HARIC_PARCA) or yonlendirme_mi(p):
             continue
+        # Taslak sayfa (scripts/blog_uygula.py) site ici aramaya da girmez.
+        if "<!-- blog:taslak -->" in p.read_text(encoding="utf-8", errors="ignore"):
+            continue
         yield p
 
 def yol_of(p):

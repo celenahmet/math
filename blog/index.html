@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="tr">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="blog, sınav, matematik, çalışma yöntemi">
+<meta name="description" content="Sınavlar, çalışma yöntemi ve matematik üzerine yazılar.">
+<meta name="CreativeLayers" content="ATFN">
+<!-- css file -->
+<link rel="stylesheet" href="/css/bootstrap-az.css">
+<!-- cssz:bas -->
+<link rel="stylesheet" href="/css/menu-az.css">
+<link rel="stylesheet" href="/css/ace-responsive-menu-az.css">
+<link rel="stylesheet" href="/css/slider-az.css">
+<!-- cssz:son -->
+<link rel="stylesheet" href="/css/style-az.css?v=7b1afd2f">
+<!-- Responsive stylesheet -->
+<link rel="stylesheet" href="/css/responsive-az.css">
+<!-- Title -->
+<title>Blog - Ahmet Çelen</title>
+<!-- Favicon -->
+<link href="/images/favicon.ico" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
+<link href="/images/favicon.ico" sizes="128x128" rel="shortcut icon" />
+
+  <link rel="stylesheet" href="/css/duzeltmeler.css?v=1a28d48c">
+<!-- seo:bas -->
+<link rel="preload" as="font" type="font/woff2" href="/fonts/webfont/nunito-latin-20fc9b6f.woff2" crossorigin>
+<link rel="stylesheet" href="/css/yazitipleri.css">
+<link rel="preload" as="image" href="/images/background/inner-pagebg.webp" fetchpriority="high" media="(min-width: 992px)">
+<link rel="preload" as="image" href="/images/background/inner-pagebg-960.webp" fetchpriority="high" media="(max-width: 991px)">
+<link rel="preload" as="style" href="/css/font-awesome-az.css?v=278ad3e6" onload="this.rel='stylesheet'">
+<link rel="preload" as="style" href="/css/flaticon-az.css?v=029646a7" onload="this.rel='stylesheet'">
+<link rel="canonical" href="https://ahmetcelen.com.tr/blog/">
+<meta name="robots" content="noindex, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ahmet Çelen">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Blog - Ahmet Çelen">
+<meta property="og:description" content="Sınavlar, çalışma yöntemi ve matematik üzerine yazılar.">
+<meta property="og:url" content="https://ahmetcelen.com.tr/blog/">
+<meta property="og:image" content="https://ahmetcelen.com.tr/images/about/3.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog - Ahmet Çelen">
+<meta name="twitter:description" content="Sınavlar, çalışma yöntemi ve matematik üzerine yazılar.">
+<meta name="twitter:image" content="https://ahmetcelen.com.tr/images/about/3.jpg">
+<!-- seo:son -->
+<!-- jsonld:bas -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Blog","@id":"https://ahmetcelen.com.tr/blog/","url":"https://ahmetcelen.com.tr/blog/","name":"Ahmet Çelen Blog","inLanguage":"tr-TR","author":{"@id":"https://ahmetcelen.com.tr/#kisi"},"blogPost":[]},{"@type":"Person","@id":"https://ahmetcelen.com.tr/#kisi","name":"Ahmet Çelen","url":"https://ahmetcelen.com.tr/hakkimizda/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://ahmetcelen.com.tr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://ahmetcelen.com.tr/blog/"}]}]}</script>
+<!-- jsonld:son -->
+<!-- blog:taslak -->
+</head>
+<body>
+<div class="wrapper">
+	<div class="preloader"></div>
+
+	<!-- Main Header Nav -->
+	<header class="header-nav menu_style_home_one navbar-scrolltofixed stricky main-menu">
+		<div class="container-fluid">
+		    <!-- Ace Responsive Menu -->
+		    <nav>
+		        <!-- Menu Toggle btn-->
+		        <div class="menu-toggle">
+		            <img class="nav_logo_img img-fluid" src="/images/header-logo.png" alt="header-logo.png">
+		            <button type="button" id="menu-btn">
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		            </button>
+		        </div>
+		        <a href="/" class="navbar_brand float-left dn-smd">
+		            <img class="logo1 img-fluid" src="/images/header-logo.png" alt="header-logo.png">
+		            <img class="logo2 img-fluid" src="/images/header-logo2.png" alt="header-logo2.png">
+		            <span>Ahmet Çelen</span>
+		        </a>
+		        <!-- Responsive Menu Structure-->
+		        <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+		        <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
+		    <li>
+		        <a href="/"><span class="title">Ana Sayfa</span></a>
+		    </li>
+		    <li>
+		        <a href="/pdfnot/"><span class="title">Ders Notları</span></a>
+		        <ul>
+		        <li><a href="/yt/tytmat.pdf" target="_blank" rel="noopener noreferrer">TYT Matematik Deneme</a></li>
+		        <li><a href="/yt/aytmat.pdf" target="_blank" rel="noopener noreferrer">AYT Matematik Deneme</a></li>
+		        <li><a href="/yt/dgsmat.pdf" target="_blank" rel="noopener noreferrer">DGS Matematik Deneme</a></li>
+		        <li><a href="/yt/2021denemeler/tytmatsonprova.pdf" target="_blank" rel="noopener noreferrer">TYT Son Prova</a></li>
+		        <li><a href="/yt/2021denemeler/aytmatsonprova.pdf" target="_blank" rel="noopener noreferrer">AYT Son Prova</a></li>
+		        <li><a href="/pdf/parabol.pdf" target="_blank" rel="noopener noreferrer">Parabol Fasikülü</a></li>
+		        <li><a href="https://drive.google.com/drive/folders/1rjDxAuM4c1mmqp_X-BTmfoJCCFFlahcU?usp=sharing" target="_blank" rel="noopener noreferrer">Tüm Notlar (Google Drive)</a></li>
+		        </ul>
+		    </li>
+		    <li>
+		        <a href="/video/"><span class="title">Videolar</span></a>
+		        <ul>
+		        <li><a href="/youtube/">YouTube Kanalı</a></li>
+		        <li><a href="/video/konu.html">Konu Anlatımları</a></li>
+		        <li><a href="/video/parabol.html">Parabol Fasikülü Çözümleri</a></li>
+		        <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+rehberlik" target="_blank" rel="noopener noreferrer">Rehberlik</a></li>
+		        <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+tyt" target="_blank" rel="noopener noreferrer">TYT</a></li>
+		        <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+ayt" target="_blank" rel="noopener noreferrer">AYT</a></li>
+		        <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+dgs" target="_blank" rel="noopener noreferrer">DGS</a></li>
+		        <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+kpss" target="_blank" rel="noopener noreferrer">KPSS</a></li>
+		        <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+matematik" target="_blank" rel="noopener noreferrer">Konulara Göre</a>
+		            <ul>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+problemler" target="_blank" rel="noopener noreferrer">Problemler</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+mant%C4%B1k" target="_blank" rel="noopener noreferrer">Mantık</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+mutlak+de%C4%9Fer" target="_blank" rel="noopener noreferrer">Mutlak Değer</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+%C3%BCsl%C3%BC+ve+k%C3%B6kl%C3%BC+say%C4%B1lar" target="_blank" rel="noopener noreferrer">Üslü ve Köklü Sayılar</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+polinomlar" target="_blank" rel="noopener noreferrer">Polinomlar</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+parabol" target="_blank" rel="noopener noreferrer">Parabol</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+ikinci+dereceden+denklemler" target="_blank" rel="noopener noreferrer">İkinci Dereceden Denklemler</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+e%C5%9Fitsizlikler" target="_blank" rel="noopener noreferrer">Eşitsizlikler</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+trigonometri" target="_blank" rel="noopener noreferrer">Trigonometri</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+logaritma" target="_blank" rel="noopener noreferrer">Logaritma</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+diziler" target="_blank" rel="noopener noreferrer">Diziler</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+limit" target="_blank" rel="noopener noreferrer">Limit</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+t%C3%BCrev" target="_blank" rel="noopener noreferrer">Türev</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+integral" target="_blank" rel="noopener noreferrer">İntegral</a></li>
+		            <li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+analitik+geometri" target="_blank" rel="noopener noreferrer">Analitik Geometri</a></li>
+		            </ul>
+		        </li>
+		        </ul>
+		    </li>
+		    <li>
+		        <a href="/ss/"><span class="title">Sınavlar</span></a>
+		        <ul>
+		        <li><a href="/ss/">Çıkmış Sorular</a>
+		            <ul>
+		            <li><a href="/ss/tyt/">TYT Çıkmış Sorular</a></li>
+		            <li><a href="/ss/ayt/">AYT Çıkmış Sorular</a></li>
+		            <li><a href="/ss/msu/">MSÜ Çıkmış Sorular</a></li>
+		            <li><a href="/ss/dgs/">DGS Çıkmış Sorular</a></li>
+		            <li><a href="/ss/kpss/">KPSS Lisans Çıkmış Sorular</a></li>
+		            <li><a href="/ss/kpss-onlisans/">KPSS Ön Lisans Çıkmış Sorular</a></li>
+		            <li><a href="/ss/kpss-ortaogretim/">KPSS Ortaöğretim Çıkmış Sorular</a></li>
+		            </ul>
+		        </li>
+		        <li><a href="/sinavlar/">Sınavlara Geri Sayım</a>
+		            <ul>
+		            <li><a href="/sinavlar/">Tüm Sınavlar</a></li>
+		            <li><a href="/sinavlar/tyt/">TYT Geri Sayım</a></li>
+		            <li><a href="/sinavlar/ayt/">AYT Geri Sayım</a></li>
+		            <li><a href="/sinavlar/msu/">MSÜ Geri Sayım</a></li>
+		            <li><a href="/sinavlar/dgs/">DGS Geri Sayım</a></li>
+		            <li><a href="/sinavlar/kpssa/">KPSS Lisans Geri Sayım</a></li>
+		            <li><a href="/sinavlar/kpss-onlisans/">KPSS Ön Lisans Geri Sayım</a></li>
+		            <li><a href="/sinavlar/kpss-ortaogretim/">KPSS Ortaöğretim Geri Sayım</a></li>
+		            <li><a href="/sinavlar/ales1/">ALES/1 Geri Sayım</a></li>
+		            <li><a href="/sinavlar/ales2/">ALES/2 Geri Sayım</a></li>
+		            <li><a href="/sinavlar/ales3/">ALES/3 Geri Sayım</a></li>
+		            </ul>
+		        </li>
+		        </ul>
+		    </li>
+		    <li>
+		        <a href="/iletisim/"><span class="title">İletişim</span></a>
+		        <ul>
+		        <li><a href="/hakkimizda/">Hakkımda</a></li>
+		        <li><a href="/iletisim/">İletişim</a></li>
+		        <li><a href="/sorucozumgrubu/">Soru Çözüm Grubu</a></li>
+		        </ul>
+		    </li>
+		    </ul></nav>
+		</div>
+	</header>
+	<!-- Modal Search Button Bacground Overlay -->
+    <div class="search_overlay dn-992">
+		<div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
+		    <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="fa fa-times"></i></a>
+		    <div id="mk-fullscreen-search-wrapper">
+		      <form method="get" id="mk-fullscreen-searchform">
+		        <input type="text" value="" placeholder="İçerik Ara..." id="mk-fullscreen-search-input">
+		        <i class="flaticon-magnifying-glass fullscreen-search-icon"><input value="" type="submit"></i>
+		      </form>
+		    </div>
+		</div>
+	</div>
+
+	<!-- Main Header Nav For Mobile -->
+	<div id="page" class="stylehome1 h0">
+		<div class="mobile-menu">
+			<div class="header stylehome1">
+				<div class="main_logo_home2">
+		            <img class="nav_logo_img img-fluid float-left mt20" src="/images/header-logo.png" alt="header-logo.png">
+		            <span>Ahmet Çelen </span>
+				</div>
+				<ul class="menu_bar_home2">
+					<li class="list-inline-item">
+	                	<div class="search_overlay">
+						  <a id="search-button-listener2" class="mk-search-trigger mk-fullscreen-trigger" href="#">
+						    <div id="search-button2"><i class="flaticon-magnifying-glass"></i></div>
+						  </a>
+							<div class="mk-fullscreen-search-overlay" id="mk-search-overlay2">
+							    <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button2"><i class="fa fa-times"></i></a>
+							    <div id="mk-fullscreen-search-wrapper2">
+							      <form method="get" id="mk-fullscreen-searchform2">
+							        <input type="text" value="" placeholder="İçerik ara..." id="mk-fullscreen-search-input2">
+							        <i class="flaticon-magnifying-glass fullscreen-search-icon"><input value="" type="submit"></i>
+							      </form>
+							    </div>
+							</div>
+						</div>
+					</li>
+					<li class="list-inline-item"><a href="#menu"><span></span></a></li>
+				</ul>
+			</div>
+		</div><!-- /.mobile-menu -->
+		<nav id="menu" class="stylehome1">
+			<ul>
+			<li><a href="/">Ana Sayfa</a></li>
+			<li><span>Ders Notları</span>
+				<ul>
+					<li><a href="/pdfnot/">Ders Notları sayfası</a></li>
+				<li><a href="/yt/tytmat.pdf" target="_blank" rel="noopener noreferrer">TYT Matematik Deneme</a></li>
+				<li><a href="/yt/aytmat.pdf" target="_blank" rel="noopener noreferrer">AYT Matematik Deneme</a></li>
+				<li><a href="/yt/dgsmat.pdf" target="_blank" rel="noopener noreferrer">DGS Matematik Deneme</a></li>
+				<li><a href="/yt/2021denemeler/tytmatsonprova.pdf" target="_blank" rel="noopener noreferrer">TYT Son Prova</a></li>
+				<li><a href="/yt/2021denemeler/aytmatsonprova.pdf" target="_blank" rel="noopener noreferrer">AYT Son Prova</a></li>
+				<li><a href="/pdf/parabol.pdf" target="_blank" rel="noopener noreferrer">Parabol Fasikülü</a></li>
+				<li><a href="https://drive.google.com/drive/folders/1rjDxAuM4c1mmqp_X-BTmfoJCCFFlahcU?usp=sharing" target="_blank" rel="noopener noreferrer">Tüm Notlar (Google Drive)</a></li>
+				</ul>
+			</li>
+			<li><span>Videolar</span>
+				<ul>
+					<li><a href="/video/">Videolar sayfası</a></li>
+				<li><a href="/youtube/">YouTube Kanalı</a></li>
+				<li><a href="/video/konu.html">Konu Anlatımları</a></li>
+				<li><a href="/video/parabol.html">Parabol Fasikülü Çözümleri</a></li>
+				<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+rehberlik" target="_blank" rel="noopener noreferrer">Rehberlik</a></li>
+				<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+tyt" target="_blank" rel="noopener noreferrer">TYT</a></li>
+				<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+ayt" target="_blank" rel="noopener noreferrer">AYT</a></li>
+				<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+dgs" target="_blank" rel="noopener noreferrer">DGS</a></li>
+				<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+kpss" target="_blank" rel="noopener noreferrer">KPSS</a></li>
+				<li><span>Konulara Göre</span>
+					<ul>
+						<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+matematik" target="_blank" rel="noopener noreferrer">Konulara Göre sayfası</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+problemler" target="_blank" rel="noopener noreferrer">Problemler</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+mant%C4%B1k" target="_blank" rel="noopener noreferrer">Mantık</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+mutlak+de%C4%9Fer" target="_blank" rel="noopener noreferrer">Mutlak Değer</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+%C3%BCsl%C3%BC+ve+k%C3%B6kl%C3%BC+say%C4%B1lar" target="_blank" rel="noopener noreferrer">Üslü ve Köklü Sayılar</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+polinomlar" target="_blank" rel="noopener noreferrer">Polinomlar</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+parabol" target="_blank" rel="noopener noreferrer">Parabol</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+ikinci+dereceden+denklemler" target="_blank" rel="noopener noreferrer">İkinci Dereceden Denklemler</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+e%C5%9Fitsizlikler" target="_blank" rel="noopener noreferrer">Eşitsizlikler</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+trigonometri" target="_blank" rel="noopener noreferrer">Trigonometri</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+logaritma" target="_blank" rel="noopener noreferrer">Logaritma</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+diziler" target="_blank" rel="noopener noreferrer">Diziler</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+limit" target="_blank" rel="noopener noreferrer">Limit</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+t%C3%BCrev" target="_blank" rel="noopener noreferrer">Türev</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+integral" target="_blank" rel="noopener noreferrer">İntegral</a></li>
+					<li><a href="https://www.youtube.com/results?search_query=ahmet+%C3%A7elen+analitik+geometri" target="_blank" rel="noopener noreferrer">Analitik Geometri</a></li>
+					</ul>
+				</li>
+				</ul>
+			</li>
+			<li><span>Sınavlar</span>
+				<ul>
+				<li><span>Çıkmış Sorular</span>
+					<ul>
+						<li><a href="/ss/">Çıkmış Sorular sayfası</a></li>
+					<li><a href="/ss/tyt/">TYT Çıkmış Sorular</a></li>
+					<li><a href="/ss/ayt/">AYT Çıkmış Sorular</a></li>
+					<li><a href="/ss/msu/">MSÜ Çıkmış Sorular</a></li>
+					<li><a href="/ss/dgs/">DGS Çıkmış Sorular</a></li>
+					<li><a href="/ss/kpss/">KPSS Lisans Çıkmış Sorular</a></li>
+					<li><a href="/ss/kpss-onlisans/">KPSS Ön Lisans Çıkmış Sorular</a></li>
+					<li><a href="/ss/kpss-ortaogretim/">KPSS Ortaöğretim Çıkmış Sorular</a></li>
+					</ul>
+				</li>
+				<li><span>Sınavlara Geri Sayım</span>
+					<ul>
+					<li><a href="/sinavlar/">Tüm Sınavlar</a></li>
+					<li><a href="/sinavlar/tyt/">TYT Geri Sayım</a></li>
+					<li><a href="/sinavlar/ayt/">AYT Geri Sayım</a></li>
+					<li><a href="/sinavlar/msu/">MSÜ Geri Sayım</a></li>
+					<li><a href="/sinavlar/dgs/">DGS Geri Sayım</a></li>
+					<li><a href="/sinavlar/kpssa/">KPSS Lisans Geri Sayım</a></li>
+					<li><a href="/sinavlar/kpss-onlisans/">KPSS Ön Lisans Geri Sayım</a></li>
+					<li><a href="/sinavlar/kpss-ortaogretim/">KPSS Ortaöğretim Geri Sayım</a></li>
+					<li><a href="/sinavlar/ales1/">ALES/1 Geri Sayım</a></li>
+					<li><a href="/sinavlar/ales2/">ALES/2 Geri Sayım</a></li>
+					<li><a href="/sinavlar/ales3/">ALES/3 Geri Sayım</a></li>
+					</ul>
+				</li>
+				</ul>
+			</li>
+			<li><span>İletişim</span>
+				<ul>
+				<li><a href="/hakkimizda/">Hakkımda</a></li>
+				<li><a href="/iletisim/">İletişim</a></li>
+				<li><a href="/sorucozumgrubu/">Soru Çözüm Grubu</a></li>
+				</ul>
+			</li>
+			</ul>
+		</nav>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Inner Page Breadcrumb -->
+	<section class="inner_page_breadcrumb">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-8 offset-xl-2 text-center">
+					<div class="breadcrumb_content">
+						<h4 class="breadcrumb_title">Blog</h4>
+						<ol class="breadcrumb">
+						    <li class="breadcrumb-item"><a href="/">Ana Sayfa</a></li>
+						    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- scripts/blog_uygula.py uretir; icerik scripts/blog_veri.py -->
+	<section class="blog-sayfa">
+		<div class="container">
+			<div class="main-title">
+				<h2 class="mt0">Blog</h2>
+			</div>
+			
+			<p class="blog-bos">İlk yazı hazırlanıyor.</p>
+		</div>
+	</section>
+
+	<!-- UniConnectly tanitim + blog (scripts/uniconnectly_blok.py) -->
+	<section class="uc-blok" data-kampanya="blog-hub">
+		<div class="container">
+			<div class="uc-tanitim">
+				<div class="uc-tanitim-metin">
+					<a class="uc-logo" href="https://uniconnectly.com/?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener"><img src="https://uniconnectly.com/brand/light-logo-yildizsiz.webp" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async"></a>
+					<span class="uc-etiket">Ücretsiz indir ve kaydol</span>
+					<h3>Sınavdan sonra kampüs hayatı başlıyor</h3>
+					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, katıldıklarını ve sertifikalarını dijital portföyünde herkese açık paylaşırsın.</p>
+					<ol class="uc-adimlar">
+						<li><strong>Kaydol</strong><span>Uygulamayı indir, üniversiteni seç</span></li>
+						<li><strong>Katıl</strong><span>Toplulukları takip et, etkinliklere başvur</span></li>
+						<li><strong>Paylaş</strong><span>Doğrulanmış katılımların ve sertifikaların portföyünde; tek bağlantıyla paylaş</span></li>
+					</ol>
+					<p class="uc-indir-not">Ücretsiz indir:</p>
+					<div class="uc-magazalar">
+						<a class="uc-magaza" href="https://apps.apple.com/tr/app/uniconnectly/id6784849124" target="_blank" rel="noopener" aria-label="App Store'dan indir"><img src="https://uniconnectly.com/brand/imza/app-store.png" alt="App Store" loading="lazy" decoding="async" height="40"></a>
+						<a class="uc-magaza" href="https://play.google.com/store/apps/details?id=com.uniconnectly.app&referrer=utm_source%3Dahmetcelen.com.tr%26utm_medium%3Dreferral%26utm_campaign%3Dblog-hub" target="_blank" rel="noopener" aria-label="Google Play'dan indir"><img src="https://uniconnectly.com/brand/imza/google-play.png" alt="Google Play" loading="lazy" decoding="async" height="40"></a>
+						<a class="uc-magaza" href="https://appgallery.huawei.com/app/C118677033" target="_blank" rel="noopener" aria-label="AppGallery'dan indir"><img src="https://uniconnectly.com/brand/imza/appgallery.png" alt="AppGallery" loading="lazy" decoding="async" height="40"></a>
+					</div>
+				</div>
+				<div class="uc-tanitim-liste">
+					<div class="uc-sekmeler" role="tablist" aria-label="Kime ne kazandırır?">
+						<button type="button" class="uc-sekme uc-sekme-acik" role="tab" aria-selected="true" data-uc-sekme="ogrenci">Öğrenciler</button>
+						<button type="button" class="uc-sekme" role="tab" aria-selected="false" data-uc-sekme="topluluk">Topluluklar</button>
+						<button type="button" class="uc-sekme" role="tab" aria-selected="false" data-uc-sekme="sirket">Şirketler</button>
+						<button type="button" class="uc-sekme" role="tab" aria-selected="false" data-uc-sekme="akademik">Akademisyenler</button>
+					</div>
+					<div class="uc-panel" data-uc-panel="ogrenci" role="tabpanel">
+						<h4>Öğrenciye ne kazandırır?</h4>
+						<ul class="uc-faydalar">
+							<li><strong>Dijital portföy</strong><span><span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş; CV'ne ve LinkedIn'e sertifika doğrulama bağlantısı olarak ekle. <a class="uc-ornek" href="https://uniconnectly.com/@nursena" target="_blank" rel="noopener" title="Örnek portföy: @nursena">Örneği gör: @nursena</a></span></li>
+							<li><strong>Doğrulanabilir katılım</strong><span>QR ile giriş yaptığın etkinlikler portföyünde doğrulanmış listelenir</span></li>
+							<li><strong>Sertifikalar</strong><span>Platformda verilen sertifikalar doğrulanmış işaretli, edu.tr e-postan onaylı</span></li>
+							<li><strong>Anlık fırsatlar</strong><span>Staj, iş ve burs duyuruları akışına düşer; şirket ilanlarına uygulamadan başvur</span></li>
+							<li><strong>Topluluklar ve etkinlikler</strong><span>Üniversitendeki toplulukları ve takvimi tek ekranda gör, başvurulu etkinliklere katıl</span></li>
+							<li><strong>Üye kartı indirimleri</strong><span>Takip ettiğin toplulukların anlaşmalı işletme indirimlerinden yararlan</span></li>
+						</ul>
+					</div>
+					<div class="uc-panel" data-uc-panel="topluluk" role="tabpanel" hidden>
+						<h4>Öğrenci topluluklarına ne kazandırır?</h4>
+						<ul class="uc-faydalar">
+							<li><strong>Ücretsiz web sitesi</strong><span><span class="uc-mono">uniconnectly.com/@topluluk</span>: etkinlikler, duyurular ve yönetim kurulu herkese açık, Google'da bulunur. <a class="uc-ornek" href="https://uniconnectly.com/@uludag_emt" target="_blank" rel="noopener" title="Örnek topluluk sayfası: @uludag_emt">Örneği gör: @uludag_emt</a></span></li>
+							<li><strong>Podyum ile sponsor bulma</strong><span>Etkinliğini yayınlamadan önce hazırlık aşamasında şirketlere sun, sponsor ve iş birliği görüşmesini uygulamada yürüt</span></li>
+							<li><strong>İş birliği ortamı</strong><span>Şirketler ve diğer topluluklarla mesajlaşma, ortak etkinlik ve sponsorluk iletişimi tek kanalda</span></li>
+							<li><strong>QR ile katılım takibi</strong><span>Kapıda QR okut, katılımcı istatistiklerini ve geçmiş etkinlik raporlarını gör</span></li>
+							<li><strong>Başvurulu etkinlik ve bilet</strong><span>Başvuru al, onayla, görevli üye ata; harici biletli etkinliklerde kapı yönetimi</span></li>
+							<li><strong>Üye kartı fırsatları</strong><span>Üyelerine özel anlaşmalı işletme indirimleri tanımla</span></li>
+						</ul>
+					</div>
+					<div class="uc-panel" data-uc-panel="sirket" role="tabpanel" hidden>
+						<h4>Şirkete ne kazandırır?</h4>
+						<ul class="uc-faydalar">
+							<li><strong>Kampüs elçisi programı</strong><span>Üniversitelere elçi ilanı aç, başvuruları değerlendir, her kampüste elçi ekibi kur</span></li>
+							<li><strong>Markanı kampüse taşı</strong><span>Etkinlik ve sponsorluk fırsatlarını Podyum'da gör, topluluklarla doğrudan görüş</span></li>
+							<li><strong>Staj ve iş ilanları</strong><span>İlanların öğrenci akışında ve İş İlanları bölümünde görünür, başvurular uygulamadan gelir</span></li>
+							<li><strong>İş birliği fırsatları</strong><span>Topluluklarla mesajlaş, ortak etkinlik ve marka iş birliklerini tek yerden yönet</span></li>
+							<li><strong>Etki ölçümü</strong><span>Markanın kampüslerdeki toplulaştırılmış, anonim etkileşim raporu</span></li>
+						</ul>
+					</div>
+					<div class="uc-panel" data-uc-panel="akademik" role="tabpanel" hidden>
+						<h4>Akademisyene ne kazandırır?</h4>
+						<ul class="uc-faydalar">
+							<li><strong>Bilime Destek</strong><span>Anket ve araştırma çağrını UniConnectly ağındaki doğru öğrenci kitlesine ulaştır, katılımcı topla</span></li>
+							<li><strong>Etkinlik ve seminer duyurusu</strong><span>Bölüm topluluklarıyla seminer, atölye ve konferans duyurularını öğrencilere ulaştır</span></li>
+							<li><strong>Öğrenci topluluklarına erişim</strong><span>Danışmanı olduğun topluluğun etkinlik takvimi ve katılım verileri tek ekranda</span></li>
+							<li><strong>Blog ile anlık fırsat takibi</strong><span>Hibe, araştırma programı, burs ve etkinlik çağrılarını UniConnectly blogundan takipte kal</span></li>
+						</ul>
+					</div>
+					<div class="uc-dugmeler-sag">
+						<a class="uc-dugme uc-dugme-cerceve" href="https://uniconnectly.com/blog?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">Tüm blog yazıları <span class="uc-ok" aria-hidden="true">→</span></a>
+						<a class="uc-dugme uc-dugme-dolu" href="https://uniconnectly.com/?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">UniConnectly'yi keşfet <span class="uc-ok" aria-hidden="true">→</span></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="uc-baslik-satiri">
+				<h3 class="uc-alt-baslik" id="uc-yazi-baslik">Öğrenciler için rehberler</h3>
+				<div class="uc-kategoriler" id="uc-kategoriler" role="tablist" aria-label="Blog kategorileri">
+					<button type="button" class="uc-kategori uc-kategori-acik" data-uc-kategori="seckiler" aria-selected="true">Seçkiler</button>
+				</div>
+			</div>
+			<div class="uc-yazilar" id="uc-yazilar" data-uc-seckiler>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/edu-tr-mail-ogrenci-firsatlari?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/edu-tr-mail-ogrenci-firsatlari.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">Edu.tr Mailiyle Ücretsiz Neler Alınabilir? Öğrenci Fırsatları</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/google-ai-plus-ogrenci-ucretsiz?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/google-ai-plus-ogrenci-ucretsiz.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">Google AI Plus Öğrencilere 1 Yıl Ücretsiz: Nasıl Alınır?</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/microsoft-365-ogrenci-ucretsiz?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/microsoft-365-ogrenci-ucretsiz.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">Microsoft 365 Öğrencilere Ücretsiz mi? Office 365 A1 Rehberi</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/github-student-developer-pack?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/github-student-developer-pack.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Fırsat</span>
+          <span class="uc-yazi-baslik">GitHub Student Developer Pack Nedir? Ücretsiz Copilot ve Pro</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/2026-2027-burs-veren-kurumlar?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/2026-2027-burs-veren-kurumlar.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Burs</span>
+          <span class="uc-yazi-baslik">2026-2027 Burs Veren Kurumlar: Tutarlar ve Son Başvuru Tarihleri</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/universite-tercihi-dikkat-edilecekler?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/universite-tercihi-dikkat-edilecekler.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Rehber</span>
+          <span class="uc-yazi-baslik">Üniversite Tercihi Yaparken Dikkat Edilmesi Gerekenler</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/universiteye-baslayanlar-ilk-ay?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/universiteye-baslayanlar-ilk-ay.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Rehber</span>
+          <span class="uc-yazi-baslik">Üniversiteye Yeni Başlayanlar İçin İlk Ay Rehberi</span>
+        </a>
+        <a class="uc-yazi" href="https://uniconnectly.com/blog/kulube-katilmak-neden-onemli?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">
+          <img src="https://uniconnectly.com/assets/blog/kulube-katilmak-neden-onemli.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
+          <span class="uc-yazi-etiket">Kampüs</span>
+          <span class="uc-yazi-baslik">Üniversite Kulüplerine Katılmak Neden Önemli?</span>
+        </a>
+			</div>
+			<p class="uc-tumu" id="uc-tumu" hidden><a href="https://uniconnectly.com/blog?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">Tümünü gör</a></p>
+
+			<div id="uc-en-yeniler-kutu" hidden>
+				<h3 class="uc-alt-baslik">En yeniler</h3>
+				<div class="uc-yazilar uc-yeniler" id="uc-en-yeniler"></div>
+			</div>
+
+			<div class="uc-kapanis">
+				<a class="uc-kapanis-baglanti" href="https://uniconnectly.com/?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">
+					<img src="https://uniconnectly.com/brand/light-logo-yildizsiz.webp" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async">
+					<h3>Öğrenciler, etkinlikler, topluluklar, şirketler: hepsi bir arada!</h3>
+					<p>Toplulukları keşfet, etkinliklere başvur, dijital portföyünü herkese açık paylaş. Ücretsiz indir ve kaydol.</p>
+				</a>
+				<div class="uc-magazalar uc-magazalar-orta">
+						<a class="uc-magaza" href="https://apps.apple.com/tr/app/uniconnectly/id6784849124" target="_blank" rel="noopener" aria-label="App Store'dan indir"><img src="https://uniconnectly.com/brand/imza/app-store.png" alt="App Store" loading="lazy" decoding="async" height="40"></a>
+						<a class="uc-magaza" href="https://play.google.com/store/apps/details?id=com.uniconnectly.app&referrer=utm_source%3Dahmetcelen.com.tr%26utm_medium%3Dreferral%26utm_campaign%3Dblog-hub" target="_blank" rel="noopener" aria-label="Google Play'dan indir"><img src="https://uniconnectly.com/brand/imza/google-play.png" alt="Google Play" loading="lazy" decoding="async" height="40"></a>
+						<a class="uc-magaza" href="https://appgallery.huawei.com/app/C118677033" target="_blank" rel="noopener" aria-label="AppGallery'dan indir"><img src="https://uniconnectly.com/brand/imza/appgallery.png" alt="AppGallery" loading="lazy" decoding="async" height="40"></a>
+				</div>
+				<a class="uc-ikincil" href="https://uniconnectly.com/?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=blog-hub" target="_blank" rel="noopener">uniconnectly.com</a>
+			</div>
+		</div>
+	</section>
+	<section class="footer_one">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-md-4 col-md-3 col-lg-3">
+					<div class="footer_contact_widget">
+						<h4>İletişim</h4>
+						<p>AHMET ÇELEN  </p>
+						<p>bilgi@ahmetcelen.com.tr</p>
+						<p>ahmetcelen@hacettepe.edu.tr</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-md-3 col-lg-2">
+					<div class="footer_company_widget">
+						<h4>PDF</h4>
+						<ul class="list-unstyled">
+							<li><a href="/pdf/parabol/">Parabol</a></li>
+							<li><a href="/yt/logaritma/logaritma.pdf">Logaritma</a></li>
+							<li><a href="/yt/karmasiksayilar/karmasiksayilar.pdf">Karmaşık Sayılar</a></li>
+							<li><a href="/yt/fonksiyonlar/tekvecift.pdf">Tek ve Çift Fonksiyonlar</a></li>
+							<li><a href="/dersnot/">YouTube Video Notları</a></li>
+							<li><a href="/yt/turev/3.video.pdf">Türev Alma Kuralları</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-md-3 col-lg-2">
+					<div class="footer_program_widget">
+						<h4>Denemeler</h4>
+						<ul class="list-unstyled">
+							<li><a href="/deneme/tytmat/">TYT Matematik </a></li>
+							<li><a href="/deneme/aytmat/">AYT Matematik</a></li>
+							<li><a href="/deneme/tytfen/">TYT Fen</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-md-3 col-lg-2">
+					<div class="footer_support_widget">
+						<h4>Video Çözümleri</h4>
+						<ul class="list-unstyled">
+							<li><a href="/video/">Video Çözümler</a></li>
+							<li><a href="/video/parabol.html">Parabol Fasikülü</a></li>
+							<li><a href="https://www.youtube.com/channel/UCCXZwb5Y9Tphcv41jfgKI7w?sub_confirmation=1" target="_blank" rel="noopener noreferrer">YouTube Kanalı</a></li>
+							<li><a href="https://vimeo.com/search?type=clip&amp;q=ahmet+celen" target="_blank" rel="noopener noreferrer">Vimeo Kanalı</a></li>
+							<li><a href="/video/ucgen/">Üçgen Konu Anlatımı</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-6 col-md-3 col-lg-3">
+					<div class="footer_apps_widget">
+						<h4>Mobil</h4>
+<!-- ucfooter:bas -->
+					<div class="uc-footer">
+						<a class="uc-footer-logo" href="https://uniconnectly.com/?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=footer" target="_blank" rel="noopener">
+							<img src="https://uniconnectly.com/brand/dark-logo-yildizsiz.webp" alt="UniConnectly" width="150" height="43" loading="lazy" decoding="async">
+						</a>
+						<p>Öğrenciler, etkinlikler, topluluklar, şirketler: hepsi bir arada. Ücretsiz.</p>
+						<div class="uc-footer-magazalar">
+							<a href="https://apps.apple.com/tr/app/uniconnectly/id6784849124" target="_blank" rel="noopener"><img src="https://uniconnectly.com/brand/imza/app-store.png" alt="App Store" width="120" height="36" loading="lazy" decoding="async"></a>
+							<a href="https://play.google.com/store/apps/details?id=com.uniconnectly.app&referrer=utm_source%3Dahmetcelen.com.tr%26utm_medium%3Dreferral%26utm_campaign%3Dfooter" target="_blank" rel="noopener"><img src="https://uniconnectly.com/brand/imza/google-play.png" alt="Google Play" width="120" height="36" loading="lazy" decoding="async"></a>
+							<a href="https://appgallery.huawei.com/app/C118677033" target="_blank" rel="noopener"><img src="https://uniconnectly.com/brand/imza/appgallery.png" alt="AppGallery" width="120" height="36" loading="lazy" decoding="async"></a>
+						</div>
+					</div>
+<!-- ucfooter:son -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Our Footer Middle Area -->
+	<section class="footer_middle_area p0">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-md-3 col-lg-3 col-xl-2 pb15 pt15">
+					<div class="logo-widget home1">
+						<img class="img-fluid" src="/images/header-logo.png" alt="header-logo.png">
+						<span>Ahmet ÇELEN</span>
+					</div>
+				</div>
+				<div class="col-sm-8 col-md-5 col-lg-6 col-xl-6 pb25 pt25 brdr_left_right">
+					<div class="footer_menu_widget">
+						<ul>
+<p>Bu sitede yayımlanan tüm belgeler Ahmet Çelen`e aittir. Soruların paylaşımı amacınız iyi olsada <strong>lütfen kaynak belirtmeden paylaşmayınız/kullanmayınız.</strong> Soru yazmak hiç kolay bir şey değil, yazılmış ücretsiz yayımlanıp video çözümleri ile desteklenmiştir. Verilen emeğin karşılığı olarak lütfen kaynak belirterek kullanın bizde daha çok kitleye ulaşarak yardımlaşmayı arttıralım.</p>
+						</ul>
+					</div>
+				</div>
+				</div>
+		</div>
+	</section>
+<!--
+// ***********************************************
+// ahmetcelen.com.tr üzerinden kaynaklandı
+
+//
+// ***********************************************
+	<!-- Our Footer Bottom Area -->
+	<section class="footer_bottom_area pt25 pb25">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 offset-lg-3">
+					<div class="copyright-widget text-center">
+						<p>Ahmet ÇELEN © 2021 - <span class="telif-yil">2026</span> - Tüm Hakları saklıdır.</p><script>(function(){var y=new Date().getFullYear();if(y>2026){var e=document.querySelectorAll(".telif-yil");for(var i=0;i<e.length;i++){e[i].textContent=y;}}})();</script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<a class="scrollToHome" href="#"><i class="flaticon-up-arrow-1"></i></a>
+</div>
+<!-- Wrapper End -->
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery-migrate-3.0.0.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jquery.mmenu.all.js"></script>
+<script type="text/javascript" src="/js/ace-responsive-menu.js"></script>
+<script type="text/javascript" src="/js/snackbar.min.js"></script>
+<script type="text/javascript" src="/js/scrollto.js"></script>
+<script type="text/javascript" src="/js/progressbar.js"></script>
+<!-- Custom script for all pages --> 
+<script src="/js/sayfa-duzeltmeleri.js?v=e0a66057"></script>
+<script type="text/javascript" src="/js/script.js"></script>
+<!-- aramabetik:bas -->
+<script src="/js/arama.js?v=56194ccb"></script>
+<!-- aramabetik:son -->
+<script src="/js/uniconnectly-blok.js?v=ebc716cf"></script>
+</body>
+
+</html>

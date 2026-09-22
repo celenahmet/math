@@ -101,6 +101,12 @@ MENU = [
     ], False),
 ]
 
+# Blog menuye YALNIZ yayinda yazi varken girer: her sayfadan bos bir
+# sayfaya baglanti vermek hem kullaniciyi hem tarayiciyi yanlis yere goturur.
+import blog_veri  # noqa: E402
+if blog_veri.yayinda():
+    MENU.insert(len(MENU) - 1, ("Blog", "/blog/", None, False))
+
 def a(etiket, href, yeni_sekme, sinif=None):
     ek = ' target="_blank" rel="noopener noreferrer"' if yeni_sekme else ""
     ek += f' class="{sinif}"' if sinif else ""

@@ -740,3 +740,93 @@ ul.arama-sonuc li a > span {
   .arama-kutu { max-height: calc(100vh - 210px); }
   .mk-fullscreen-search-overlay .mk-fullscreen-close { right: 18px; top: 24px; }
 }
+
+/* ── 27) Blog (22.09) ──────────────────────────────────────────────────
+   Sayfalari scripts/blog_uygula.py uretir, icerik scripts/blog_veri.py.
+   Yapi UniConnectly blogundan alindi (liste → yazi → SSS → kontrol →
+   kaynaklar → ilgili yazilar); gorunum bu sitenin kendi temasi.
+   Okunurluk icin govde 17px/1.75 ve satir uzunlugu ~70 karakterle sinirli
+   (.blog-yazi max-width). Dekoratif gradyan/parilti YOK. */
+.blog-sayfa { padding: 55px 0 30px; }
+.blog-sayfa .main-title h2 { margin-bottom: 6px; }
+
+/* hub */
+.blog-kategoriler { margin: 0 0 22px; }
+.blog-kategoriler span {
+  display: inline-block; margin: 0 6px 6px 0; padding: 4px 12px;
+  border: 1px solid #e2e2e2; border-radius: 20px; font-size: 13px; color: #5a5a5a;
+}
+.blog-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.blog-kart {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 8px; padding: 20px 22px;
+}
+.blog-kart h3 { font-size: 19px; line-height: 1.35; margin: 8px 0 8px; }
+.blog-kart h3 a { color: #1c1c1c; }
+.blog-kart h3 a:hover { color: #c75533; }
+.blog-kart p { font-size: 14.5px; line-height: 1.6; color: #6f6f6f; margin: 0; }
+.blog-bos { color: #6f6f6f; }
+
+/* yazi */
+.blog-yazi { max-width: 760px; margin: 0 auto; }
+.blog-baslik { font-size: 32px; line-height: 1.25; margin: 0 0 10px; color: #1c1c1c; }
+.blog-kunye { font-size: 13.5px; color: #7a7a7a; margin: 0 0 20px; }
+.blog-kat {
+  display: inline-block; margin-right: 8px; padding: 2px 10px; border-radius: 20px;
+  background: #f4f0ee; color: #c75533; font-size: 12.5px;
+}
+.blog-ozet { font-size: 18.5px; line-height: 1.7; color: #3a3a3a; margin: 0 0 26px; }
+.blog-icindekiler {
+  background: #fafafa; border: 1px solid #ececec; border-radius: 8px;
+  padding: 16px 20px; margin: 0 0 30px;
+}
+.blog-icindekiler p { font-weight: 600; font-size: 14px; margin: 0 0 8px; color: #1c1c1c; }
+.blog-icindekiler ol { margin: 0; padding-left: 20px; }
+.blog-icindekiler li { font-size: 14.5px; line-height: 1.9; }
+.blog-icindekiler a { color: #4a4a4a; }
+.blog-icindekiler a:hover { color: #c75533; }
+.blog-h2 { font-size: 23px; line-height: 1.35; margin: 34px 0 12px; color: #1c1c1c; scroll-margin-top: 100px; }
+.blog-yazi p, .blog-yazi li { font-size: 17px; line-height: 1.75; color: #3a3a3a; }
+/* Tema `ul{list-style:none}` diyor; yazi govdesinde madde isaretleri
+   GEREKLI (olculdu: deneme yazisinda maddeler isaretsiz cikti). */
+.blog-yazi ul, .blog-yazi ol { padding-left: 22px; margin-bottom: 16px; }
+.blog-yazi ul { list-style: disc; }
+.blog-yazi ol { list-style: decimal; }
+.blog-icindekiler ol { list-style: decimal; }
+.blog-yazi li { display: list-item; }
+.blog-kontrol { list-style: none !important; padding-left: 0 !important; }
+.blog-kontrol li { position: relative; padding-left: 26px; }
+/* Ikon YAZI TIPI kullanilmaz: font-awesome-az.css yalniz sitede gecen
+   simgeleri tasiyor, yeni bir kod noktasi eklemek altkumeyi yeniden
+   uretmeyi gerektirirdi (unutulursa kutu □ cikar — 22.09'da menu oklarinda
+   yasandi). Duz karakter her yazi tipinde var. */
+.blog-kontrol li:before {
+  content: "\2713"; position: absolute; left: 0; top: 0;
+  color: #79b530; font-size: 15px; font-weight: 700;
+}
+.blog-yazi table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 15px; }
+.blog-yazi th, .blog-yazi td { border: 1px solid #e4e4e4; padding: 9px 12px; text-align: left; vertical-align: top; }
+.blog-yazi th { background: #fafafa; font-weight: 600; }
+.blog-tablo-sar { overflow-x: auto; }
+
+.blog-sss details {
+  border: 1px solid #e8e8e8; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; background: #fff;
+}
+.blog-sss summary { cursor: pointer; font-weight: 600; font-size: 16px; color: #1c1c1c; }
+.blog-sss p { margin: 10px 0 0; }
+.blog-kontrol li { margin-bottom: 6px; }
+.blog-kaynaklar { padding-left: 22px; }
+.blog-kaynaklar a { color: #c75533; word-break: break-word; }
+.blog-ilgili { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+.blog-ilgili a {
+  display: block; background: #fff; border: 1px solid #e8e8e8; border-radius: 8px; padding: 14px 16px;
+}
+.blog-ilgili a:hover { border-color: #c75533; }
+.blog-ilgili strong { display: block; color: #1c1c1c; font-size: 15.5px; line-height: 1.35; margin-bottom: 5px; }
+.blog-ilgili span { display: block; color: #6f6f6f; font-size: 13.5px; line-height: 1.5; }
+
+@media (max-width: 767px) {
+  .blog-baslik { font-size: 26px; }
+  .blog-ozet { font-size: 17px; }
+  .blog-h2 { font-size: 20px; }
+  .blog-yazi p, .blog-yazi li { font-size: 16.5px; }
+}
