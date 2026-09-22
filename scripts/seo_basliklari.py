@@ -76,8 +76,10 @@ def blok(p, yol):
         '<link rel="preload" as="image" href="/images/background/inner-pagebg.webp" fetchpriority="high" media="(min-width: 992px)">',
         '<link rel="preload" as="image" href="/images/background/inner-pagebg-960.webp" fetchpriority="high" media="(max-width: 991px)">',
         # Ikon fontlari kritik degil: render'i bloklamadan yuklensinler.
-        '<link rel="preload" as="style" href="/css/font-awesome.min.css" onload="this.rel=\'stylesheet\'">',
-        '<link rel="preload" as="style" href="/css/flaticon.css" onload="this.rel=\'stylesheet\'">',
+        # 22.09: -az surumleri yalniz sitede GECEN ikonlari tasir
+        # (scripts/ikon_azalt.py): 131 KB → 10 KB.
+        '<link rel="preload" as="style" href="/css/font-awesome-az.css" onload="this.rel=\'stylesheet\'">',
+        '<link rel="preload" as="style" href="/css/flaticon-az.css" onload="this.rel=\'stylesheet\'">',
         f'<link rel="canonical" href="{adres}">',
         # Uzun ozet + buyuk gorsel izni (TO). Varsayilan snippet 155-160 karakterde kesiliyor.
         '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">',
