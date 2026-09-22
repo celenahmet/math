@@ -40,7 +40,7 @@ def mevcut(yol):
     }
 
 # Eski tasarimdaki kart gorseli; Ahmet 22.09: "hepsi ayni olsun".
-KART_GORSELI = "https://cdn1.vectorstock.com/i/1000x1000/07/75/a-school-stationery-border-vector-23750775.jpg"
+KART_GORSELI = "/images/ss-kart.webp"  # tema gorseli (images/background/8.jpg kirpik); 22.09 vectorstock hotlink kaldirildi
 
 def kart(yil, etiket, url):
     return (f'\t\t\t\t<a class="cs-kart cs-kart-gorsel" style="background-image:url({KART_GORSELI})" href="{url}" target="_blank" rel="noopener">\n'

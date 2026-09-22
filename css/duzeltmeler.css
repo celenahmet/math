@@ -292,7 +292,7 @@
 }
 
 /* /ss/* kartlari: eski tasarimdaki arka plan gorseli, hepsinde ayni (Ahmet, 22.09) */
-.cs-kart.cs-kart-gorsel { position: relative; overflow: hidden; color: #fff; border: 0; min-height: 190px; background-size: cover; background-position: center 30%; align-items: center; justify-content: center; text-align: center; padding: 22px 16px; }
+.cs-kart.cs-kart-gorsel { position: relative; overflow: hidden; color: #fff; border: 0; min-height: 190px; background-size: cover; background-position: center; align-items: center; justify-content: center; text-align: center; padding: 22px 16px; }
 .cs-kart.cs-kart-gorsel::before { content: ''; position: absolute; inset: 0; background: rgba(25, 38, 117, 0.4); transition: background .2s; }
 .cs-kart.cs-kart-gorsel:hover::before { background: rgba(25, 38, 117, 0.5); }
 .cs-kart.cs-kart-gorsel > span { position: relative; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75); }
