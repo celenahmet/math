@@ -121,8 +121,8 @@ def blok(kampanya, kitle="kampus"):
 	<section class="uc-blok" data-kampanya="{kampanya}">
 		<div class="container">
 			<div class="uc-tanitim">
-				<div class="uc-tanitim-metin uc-koyu">
-					<a class="uc-logo" href="{ref("/", kampanya)}" target="_blank" rel="noopener"><img src="{LOGO_KOYU}" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async"></a>
+				<div class="uc-tanitim-metin">
+					<a class="uc-logo" href="{ref("/", kampanya)}" target="_blank" rel="noopener"><img src="{LOGO}" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async"></a>
 					<span class="uc-etiket">Ücretsiz indir ve kaydol</span>
 					<h3>{baslik}</h3>
 					<p>{metin}</p>

@@ -219,7 +219,7 @@
 
 /* ── 13) UniConnectly tanitim + blog kutusu (scripts/uniconnectly_blok.py) ── */
 .uc-blok { background: #f9fafc; border-top: 1px solid #e6e8f2; padding: 56px 0 64px; }
-.uc-tanitim { display: grid; grid-template-columns: 0.95fr 1.3fr; gap: 0; align-items: stretch; background: #fff; border: 1px solid #e6e8f2; border-radius: 16px; overflow: hidden; padding: 0; margin-bottom: 40px; }
+.uc-tanitim { display: grid; grid-template-columns: 0.9fr 1.35fr; gap: 32px; align-items: stretch; background: #fff; border: 1px solid #e6e8f2; border-radius: 14px; padding: 32px 34px; margin-bottom: 40px; }
 .uc-etiket { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #2441e7; margin: 0 0 10px; }
 .uc-tanitim h3 { font-family: "Nunito", sans-serif; font-size: 26px; font-weight: 700; color: #0a0a0a; margin: 0 0 12px; }
 .uc-tanitim p { font-size: 15px; line-height: 1.7; color: #484848; max-width: 760px; margin-bottom: 0; }
@@ -303,10 +303,10 @@
 .uc-faydalar li strong { display: block; color: #192675; font-size: 14px; margin-bottom: 2px; }
 .uc-faydalar li > span { display: block; color: #484848; }
 .uc-mono { font-family: "SFMono-Regular", Menlo, Consolas, monospace; font-size: 13px; background: #f4f5fa; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
-.uc-tanitim-liste { background: #fff; padding: 26px 28px 28px; display: flex; flex-direction: column; justify-content: center; }
+.uc-tanitim-liste { background: #f4f5fa; border-radius: 14px; padding: 18px 20px 20px; display: flex; flex-direction: column; }
 .uc-tanitim-liste h4 { font-family: "Nunito", sans-serif; font-size: 17px; font-weight: 700; color: #0a0a0a; margin: 14px 0 14px 4px; }
 .uc-logo img { width: 220px; }
-@media (max-width: 991px) { .uc-tanitim { grid-template-columns: 1fr; } .uc-tanitim-metin { padding: 26px 22px; } .uc-tanitim-liste { padding: 22px 20px; } }
+@media (max-width: 991px) { .uc-tanitim { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; } }
 @media (max-width: 480px) { .uc-tanitim-liste { padding: 18px 16px; } .uc-logo img { width: 180px; } .uc-faydalar li { font-size: 13px; } .uc-faydalar li strong { font-size: 14px; } }
 .uc-sekmeler { display: flex; flex-wrap: wrap; gap: 6px; background: #fff; border: 1px solid #e6e8f2; border-radius: 999px; padding: 4px; }
 .uc-sekme { flex: 1 1 auto; border: 0; background: transparent; border-radius: 999px; padding: 8px 12px; font-size: 13px; font-weight: 700; color: #484848; cursor: pointer; font-family: inherit; transition: background .2s, color .2s; }
@@ -331,7 +331,7 @@
 @media (max-width: 480px) { .uc-kategori { font-size: 12px; padding: 5px 10px; } .uc-tumu { text-align: center; margin-top: -20px; } }
 .uc-ornek { display: inline-block; margin-top: 4px; font-weight: 700; color: #2441e7; border-bottom: 1px dashed #2441e7; }
 .uc-ornek:hover { color: #192675; border-bottom-style: solid; }
-.uc-tanitim-metin { padding: 34px 32px 32px; }
+.uc-tanitim-metin { padding-top: 6px; }
 .uc-koyu { background: #192675; color: #fff; }
 .uc-koyu .uc-etiket { color: #9fb0ff; }
 .uc-koyu h3 { color: #fff; }
@@ -352,9 +352,9 @@
 .uc-adimlar li::before { content: counter(adim); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; background: #192675; color: #fff; font-family: "Nunito", sans-serif; font-weight: 700; font-size: 14px; line-height: 28px; text-align: center; }
 .uc-adimlar strong { display: block; color: #192675; font-size: 15px; }
 .uc-adimlar span { color: #484848; }
-.uc-indir-not { font-size: 13px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); margin: 6px 0 0; }
+.uc-indir-not { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #7a7a8c; margin: 6px 0 0; }
 .uc-koyu .uc-magazalar { margin-top: 10px; }
-.uc-dugmeler-sag { justify-content: flex-end; margin-top: 20px; }
+.uc-dugmeler-sag { justify-content: flex-end; margin-top: auto; padding-top: 18px; }
 .uc-dugmeler-sag .uc-ikincil { color: #2441e7; text-decoration: none; }
 @media (max-width: 640px) { .uc-dugmeler-sag { justify-content: flex-start; } }
 
