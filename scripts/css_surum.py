@@ -16,7 +16,8 @@ KOK = pathlib.Path(__file__).resolve().parent.parent
 # 22.09: css/style.css listeye eklendi — icindeki 14 @import kaldirildi
 # (scripts/css_zinciri.py). Surum eki olmasa donen ziyaretcide 7 gun boyunca
 # ESKI style.css kalir, 14 dosya hem @import hem <link> ile iki kez inerdi.
-VARLIKLAR = ["css/duzeltmeler.css", "css/style-az.css", "sinavlar/js/sinav-takvimi.js",
+VARLIKLAR = ["css/duzeltmeler.css", "css/style-az.css", "css/font-awesome-az.css",
+              "css/flaticon-az.css", "sinavlar/js/sinav-takvimi.js",
               "js/uniconnectly-blok.js", "js/sayfa-duzeltmeleri.js"]
 
 def ozet(yol):

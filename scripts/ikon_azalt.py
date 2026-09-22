@@ -18,7 +18,7 @@
 # betikler ikon sinifini calisma aninda basiyor, taramaya girmezse ikon kaybolur.
 #
 # Kullanim: <venv>/bin/python scripts/ikon_azalt.py
-import re, pathlib, sys
+import hashlib, re, pathlib, sys
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 HARIC = ("arsiv", "okyanus", "temaindexler", "scripts")
@@ -35,6 +35,24 @@ def kullanilan(on_ek):
                 continue
             bulunan.update(re.findall(r"\b" + on_ek + r"[a-z0-9-]+", s))
     return bulunan
+
+def icerik_kodlari():
+    """Site CSS'lerinde `content: "\fXXX"` ile basilan tum kod noktalari."""
+    desen = re.compile(r"content\s*:\s*[\"']\\([0-9a-fA-F]{3,4})[\"']")
+    kodlar = set()
+    for p in sorted((KOK / "css").glob("*.css")):
+        # Ikon yazi tipi CSS'lerinin KENDISI haric: onlar zaten 786/99
+        # ikonun tamamini tanimliyor, taramaya girerse altkume anlamsizlasir
+        # (olculdu: font 1 KB yerine 72 KB kaldi).
+        if p.name.endswith("-az.css") or p.name.startswith(("font-awesome", "flaticon")):
+            continue
+        try:
+            s = p.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        kodlar.update(int(m, 16) for m in desen.findall(s))
+    return kodlar
+
 
 def azalt(css_ad, on_ek, font_ad, yeni_css, yeni_font, font_ailesi):
     from fontTools import subset
@@ -75,7 +93,7 @@ def azalt(css_ad, on_ek, font_ad, yeni_css, yeni_font, font_ailesi):
         ic = m.group(1)
         korunan = [x.strip() for x in ic.split(";")
                    if x.strip() and not x.strip().lower().startswith("src")]
-        korunan.append(f"src:url('/{yeni_font}') format('woff2')")
+        korunan.append(f"src:url('/{yeni_font}?v={{FONTSURUM}}') format('woff2')")
         return "@FONTFACE_KORU{" + ";".join(korunan) + ";}"
     y, kf = re.subn(r"@font-face\s*\{([^{}]*)\}", font_face, y, count=1)
     assert kf == 1, f"{css_ad}: @font-face blogu bulunamadi"
@@ -91,6 +109,12 @@ def azalt(css_ad, on_ek, font_ad, yeni_css, yeni_font, font_ailesi):
         and "Flaticon.html" not in y, f"{css_ad}: eski font kaynagi kaldi"
     (KOK / yeni_css).write_text(y, encoding="utf-8")
 
+    # CSS `content` ile basilan glifler de gerekli. Menu oklari
+    # (.arrow:before{content:"\f107"}) HTML'de fa-* SINIFI tasimiyor; ilk
+    # turda altkumeye girmedigi icin canlida KUTU (tofu) goruntulendi.
+    # Sitedeki tum stil dosyalarindaki \fXXX kaciklari toplanir; yazi
+    # tipinde olmayan kod noktasi zararsizca atlanir.
+    kodlar |= icerik_kodlari()
     kodlar = sorted(kodlar)
     se = subset.Subsetter(subset.Options(layout_features=[], notdef_outline=True,
                                          drop_tables=["FFTM"], ignore_missing_glyphs=True))
@@ -98,6 +122,14 @@ def azalt(css_ad, on_ek, font_ad, yeni_css, yeni_font, font_ailesi):
     se.populate(unicodes=kodlar)
     se.subset(font)
     subset.save_font(font, str(KOK / yeni_font), subset.Options(flavor="woff2", with_zopfli=False))
+    # Yazi tipinin ADI sabit ama ICERIGI degisiyor. Surum eki olmadan,
+    # eski altkumeyi onbellekte tutan tarayici yeni CSS'i alsa bile ESKI
+    # fonti kullanir ve eklenen glifler KUTU gorunur. Ozet, dosya yazildiktan
+    # sonra hesaplanip CSS'e islenir.
+    ozet = hashlib.sha256((KOK / yeni_font).read_bytes()).hexdigest()[:8]
+    hedef = KOK / yeni_css
+    hedef.write_text(hedef.read_text(encoding="utf-8").replace("{FONTSURUM}", ozet),
+                     encoding="utf-8")
     eski_f = (KOK / font_ad).stat().st_size
     yeni_f = (KOK / yeni_font).stat().st_size
     print(f"{font_ailesi}: {len(kul)}/{len(tum)} ikon · yazi tipi {eski_f//1024} KB → {yeni_f//1024} KB"
