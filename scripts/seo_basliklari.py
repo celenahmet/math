@@ -35,6 +35,12 @@ OG_GORSEL = {
 }
 OG_VARSAYILAN = "/images/about/3.jpg"
 
+# On yuklenecek yazi tipi: govde fontu Nunito'nun latin altkumesi.
+# Adi icerik ozeti tasir; css/yazitipleri.css'ten okunur ki elle guncelleme
+# gerekmesin.
+_yt = (KOK / "css/yazitipleri.css").read_text(encoding="utf-8")
+ANA_FONT = re.search(r"webfont/(nunito-latin-[0-9a-f]+\.woff2)", _yt).group(1)
+
 def yol_of(p):
     r = p.relative_to(KOK).as_posix()
     if p.name == "index.html":
@@ -67,12 +73,13 @@ def blok(p, yol):
     hero = "home1-mainslider" in s
     satirlar = [
         BAS,
-        # Font: style.css'teki @import kaldirildi (zincirleme istek). Burada
-        # paralel yuklenir; display=swap metnin fontu beklemesini onler.
-        '<link rel="preconnect" href="https://fonts.googleapis.com">',
-        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-        '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,600,700|Open+Sans&display=swap" media="print" onload="this.media=\'all\'">',
-        '<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,600,700|Open+Sans&display=swap"></noscript>',
+        # Yazi tipleri 22.09'da KENDI SUNUCUMUZA alindi
+        # (scripts/yazitipi_yerel.py). Once fonts.googleapis.com'dan CSS,
+        # fonts.gstatic.com'dan dosya geliyordu: mobilde iki ayri kaynak icin
+        # DNS + TCP + TLS ve font istegi CSS inmeden baslayamiyordu.
+        # Dosya adi icerik ozeti tasidigi icin surum eki gerekmez.
+        f'<link rel="preload" as="font" type="font/woff2" href="/fonts/webfont/{ANA_FONT}" crossorigin>',
+        '<link rel="stylesheet" href="/css/yazitipleri.css">',
         # LCP ogesi sayfa tipine gore degisir; yanlis gorseli on yuklemek
         # hem bos yere bant genisligi harcar hem GERCEK LCP'yi geciktirir.
         # 22.09: ana sayfa ve /video/ hero slayti kullaniyor, ic sayfalar
