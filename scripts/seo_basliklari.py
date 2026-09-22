@@ -66,6 +66,14 @@ def blok(p, yol):
     g = ALAN + gorsel_of(yol)
     satirlar = [
         BAS,
+        # Font: style.css'teki @import kaldirildi (zincirleme istek). Burada
+        # paralel yuklenir; display=swap metnin fontu beklemesini onler.
+        '<link rel="preconnect" href="https://fonts.googleapis.com">',
+        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
+        '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,600,700|Open+Sans&display=swap" media="print" onload="this.media=\'all\'">',
+        '<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,600,700|Open+Sans&display=swap"></noscript>',
+        # LCP ogesi her ic sayfada ayni: baslik bandinin arka plan gorseli.
+        '<link rel="preload" as="image" href="/images/background/inner-pagebg.jpg" fetchpriority="high">',
         f'<link rel="canonical" href="{adres}">',
         # Uzun ozet + buyuk gorsel izni (TO). Varsayilan snippet 155-160 karakterde kesiliyor.
         '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">',

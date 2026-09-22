@@ -23,7 +23,10 @@ Tag:    academy, college, coursera, courses, education, elearning, kindergarten,
 @import url(slider.css);
 @import url(magnific-popup.css);
 @import url(timecounter.css);
-@import url(https://fonts.googleapis.com/css?family=Nunito:400,500,600,700|Open+Sans);
+/* 22.09.2026: @import KALDIRILDI (zincirleme istek: style.css indirilmeden
+   font istegi baslamiyordu). Ayni font artik her sayfanin <head>'inde
+   preconnect + display=swap ile paralel yukleniyor; kaynak:
+   scripts/seo_basliklari.py */
 /* Table of contents */
 
 

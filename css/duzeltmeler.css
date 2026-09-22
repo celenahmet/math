@@ -421,3 +421,18 @@
 .il-paneller { margin-bottom: 0; }
 @media (max-width: 991px) { .il-ust { grid-template-columns: 1fr; gap: 24px; } .il-kanallar { justify-content: center; } }
 @media (max-width: 640px) { .il-ust h2 { font-size: 23px; } .il-adres { font-size: 18px; } }
+
+/* ── 16) Core Web Vitals — 22.09.2026 ──────────────────────────────────────
+   Lighthouse (mobil, /ss/kpss/): CLS 1,001 (esik 0,1). Tek kaynak: tema
+   on yukleyicisi. `.preloader` tam ekran beyaz katman; script.js 200 ms
+   bekleyip fadeOut yapiyor, katman kalkinca SAYFANIN TAMAMI yerine
+   oturuyor -> tek seferde 1,0 kayma. On yukleyici hicbir ise yaramiyor
+   (statik sayfa zaten hazir geliyor), CLS ise dogrudan siralama sinyali.
+   HTML'e dokunulmadi: dugum duruyor, yalniz gorunmuyor; script.js'in
+   fadeOut cagrisi da hatasiz calisiyor. */
+.preloader { display: none !important; }
+/* CLS'in asil onarimi: baslik cubugu JS ile fixed yapilmak yerine CSS sticky.
+   (js/sayfa-duzeltmeleri.js eklentiyi etkisiz kiliyor.) Gorunum ayni: sayfa
+   basinda akista, kaydirinca yapisik. Sticky akistan CIKMADIGI icin kayma
+   uretmez. */
+header.navbar-scrolltofixed { position: sticky; top: 0; z-index: 999; }

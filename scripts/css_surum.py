@@ -13,7 +13,8 @@
 import hashlib, pathlib, re
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
-VARLIKLAR = ["css/duzeltmeler.css", "sinavlar/js/sinav-takvimi.js", "js/uniconnectly-blok.js"]
+VARLIKLAR = ["css/duzeltmeler.css", "sinavlar/js/sinav-takvimi.js", "js/uniconnectly-blok.js",
+              "js/sayfa-duzeltmeleri.js"]
 
 def ozet(yol):
     p = KOK / yol
