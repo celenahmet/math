@@ -47,7 +47,7 @@
     var tumu = document.getElementById('uc-tumu');
     if (!cubuk || !yazilar || !d.kategoriler) { return; }
     var seckiler = yazilar.innerHTML;
-    var SIRA = ['rehber', 'kariyer', 'etkinlik', 'topluluk', 'girisimcilik', 'markalar', 'duyuru'];
+    var SIRA = ['rehber', 'kariyer', 'akademi', 'etkinlik', 'topluluk', 'girisimcilik', 'markalar', 'duyuru'];
     SIRA.forEach(function (k) {
       var kat = d.kategoriler[k];
       if (!kat || !kat.yazilar || !kat.yazilar.length) { return; }
@@ -73,7 +73,7 @@
       if (baslik) { baslik.textContent = kat.etiket + ' yazıları'; }
       if (tumu) {
         var a = tumu.querySelector('a');
-        if (a) { a.href = ref('/blog') + '&kategori=' + encodeURIComponent(k); a.textContent = 'Tümünü gör (' + kat.sayi + ' yazı)'; }
+        if (a) { a.href = ref('/blog') + (kat.sanal ? '&ara=' + encodeURIComponent(kat.arama || k) : '&kategori=' + encodeURIComponent(k)); a.textContent = 'Tümünü gör (' + kat.sayi + ' yazı)'; }
         tumu.hidden = false;
       }
     });

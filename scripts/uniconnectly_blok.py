@@ -15,6 +15,7 @@ import html
 
 SITE = "https://uniconnectly.com"
 LOGO = SITE + "/brand/light-logo-yildizsiz.webp"  # yildizsiz (Ahmet 22.09: reklam alanlarinda hep bu)
+LOGO_KOYU = SITE + "/brand/dark-logo-yildizsiz.webp"  # lacivert panel icin
 MAGAZALAR = [  # (etiket, rozet gorseli, adres)
     ("App Store", SITE + "/brand/imza/app-store.png", "https://apps.apple.com/tr/app/uniconnectly/id6784849124"),
     ("Google Play", SITE + "/brand/imza/google-play.png",
@@ -57,7 +58,7 @@ FAYDALAR = {
         ("Topluluklar ve etkinlikler", "Üniversitendeki toplulukları ve takvimi tek ekranda gör, başvurulu etkinliklere katıl"),
         ("Üye kartı indirimleri", "Takip ettiğin toplulukların anlaşmalı işletme indirimlerinden yararlan"),
     ]),
-    "topluluk": ("Topluluğa ne kazandırır?", [
+    "topluluk": ("Öğrenci topluluklarına ne kazandırır?", [
         ("Ücretsiz web sitesi", '<span class="uc-mono">uniconnectly.com/@topluluk</span>: etkinlikler, duyurular ve yönetim kurulu herkese açık, Google\'da bulunur. <a class="uc-ornek" href="{ORNEK_TOPLULUK}" target="_blank" rel="noopener" title="Örnek topluluk sayfası: @uludag_emt">Örneği gör: @uludag_emt</a>'),
         ("Podyum ile sponsor bulma", "Etkinliğini yayınlamadan önce hazırlık aşamasında şirketlere sun, sponsor ve iş birliği görüşmesini uygulamada yürüt"),
         ("İş birliği ortamı", "Şirketler ve diğer topluluklarla mesajlaşma, ortak etkinlik ve sponsorluk iletişimi tek kanalda"),
@@ -107,9 +108,9 @@ def blok(kampanya):
 	<section class="uc-blok" data-kampanya="{kampanya}">
 		<div class="container">
 			<div class="uc-tanitim">
-				<div class="uc-tanitim-metin">
-					<a class="uc-logo" href="{ref("/", kampanya)}" target="_blank" rel="noopener"><img src="{LOGO}" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async"></a>
-					<span class="uc-etiket">Tamamen ücretsiz</span>
+				<div class="uc-tanitim-metin uc-koyu">
+					<a class="uc-logo" href="{ref("/", kampanya)}" target="_blank" rel="noopener"><img src="{LOGO_KOYU}" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async"></a>
+					<span class="uc-etiket">Ücretsiz indir ve kaydol</span>
 					<h3>Sınavdan sonra kampüs hayatı başlıyor</h3>
 					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, katıldıklarını ve sertifikalarını dijital portföyünde herkese açık paylaşırsın.</p>
 					<ol class="uc-adimlar">
@@ -118,7 +119,7 @@ def blok(kampanya):
 						<li><strong>Paylaş</strong><span>Doğrulanmış katılımların ve sertifikaların portföyünde; tek bağlantıyla paylaş</span></li>
 					</ol>
 					<div class="uc-dugmeler">
-						<a class="btn btn-thm" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
+						<a class="btn uc-btn-acik" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
 						<a class="uc-ikincil" href="{ref("/blog", kampanya)}" target="_blank" rel="noopener">Tüm blog yazıları</a>
 					</div>
 					<div class="uc-magazalar">
