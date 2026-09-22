@@ -21,7 +21,7 @@
 
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/flaticon.css">
-  <link rel="stylesheet" href="/css/duzeltmeler.css?v=954da603">
+  <link rel="stylesheet" href="/css/duzeltmeler.css?v=c387469d">
 </head>
 <body>
 <div class="wrapper">
@@ -275,6 +275,9 @@
 
 
 
+
+
+
 	<!-- Inner Page Breadcrumb -->
 	<section class="inner_page_breadcrumb">
 		<div class="container">
@@ -382,7 +385,7 @@
 					<div class="uc-panel" data-uc-panel="ogrenci" role="tabpanel">
 						<h4>Öğrenciye ne kazandırır?</h4>
 						<ul class="uc-faydalar">
-							<li><strong>Dijital portföy</strong><span><span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş; CV'ne ve LinkedIn'e sertifika doğrulama bağlantısı olarak ekle</span></li>
+							<li><strong>Dijital portföy</strong><span><span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş; CV'ne ve LinkedIn'e sertifika doğrulama bağlantısı olarak ekle. <a class="uc-ornek" href="https://uniconnectly.com/@nursena" target="_blank" rel="noopener" title="Örnek portföy: @nursena">Örneği gör: @nursena</a></span></li>
 							<li><strong>Doğrulanabilir katılım</strong><span>QR ile giriş yaptığın etkinlikler portföyünde doğrulanmış listelenir</span></li>
 							<li><strong>Sertifikalar</strong><span>Platformda verilen sertifikalar doğrulanmış işaretli, edu.tr e-postan onaylı</span></li>
 							<li><strong>Anlık fırsatlar</strong><span>Staj, iş ve burs duyuruları akışına düşer; şirket ilanlarına uygulamadan başvur</span></li>
@@ -393,7 +396,7 @@
 					<div class="uc-panel" data-uc-panel="topluluk" role="tabpanel" hidden>
 						<h4>Topluluğa ne kazandırır?</h4>
 						<ul class="uc-faydalar">
-							<li><strong>Ücretsiz web sitesi</strong><span><span class="uc-mono">uniconnectly.com/@topluluk</span>: etkinlikler, duyurular ve yönetim kurulu herkese açık, Google'da bulunur</span></li>
+							<li><strong>Ücretsiz web sitesi</strong><span><span class="uc-mono">uniconnectly.com/@topluluk</span>: etkinlikler, duyurular ve yönetim kurulu herkese açık, Google'da bulunur. <a class="uc-ornek" href="https://uniconnectly.com/@uludag_emt" target="_blank" rel="noopener" title="Örnek topluluk sayfası: @uludag_emt">Örneği gör: @uludag_emt</a></span></li>
 							<li><strong>Podyum ile sponsor bulma</strong><span>Etkinliğini yayınlamadan önce hazırlık aşamasında şirketlere sun, sponsor ve iş birliği görüşmesini uygulamada yürüt</span></li>
 							<li><strong>İş birliği ortamı</strong><span>Şirketler ve diğer topluluklarla mesajlaşma, ortak etkinlik ve sponsorluk iletişimi tek kanalda</span></li>
 							<li><strong>QR ile katılım takibi</strong><span>Kapıda QR okut, katılımcı istatistiklerini ve geçmiş etkinlik raporlarını gör</span></li>
@@ -417,13 +420,19 @@
 							<li><strong>Bilime Destek</strong><span>Anket ve araştırma çağrını UniConnectly ağındaki doğru öğrenci kitlesine ulaştır, katılımcı topla</span></li>
 							<li><strong>Etkinlik ve seminer duyurusu</strong><span>Bölüm topluluklarıyla seminer, atölye ve konferans duyurularını öğrencilere ulaştır</span></li>
 							<li><strong>Öğrenci topluluklarına erişim</strong><span>Danışmanı olduğun topluluğun etkinlik takvimi ve katılım verileri tek ekranda</span></li>
+							<li><strong>Blog ile anlık fırsat takibi</strong><span>Hibe, araştırma programı, burs ve etkinlik çağrılarını UniConnectly blogundan takipte kal</span></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 
-			<h3 class="uc-alt-baslik">Öğrenciler için rehberler</h3>
-			<div class="uc-yazilar">
+			<div class="uc-baslik-satiri">
+				<h3 class="uc-alt-baslik" id="uc-yazi-baslik">Öğrenciler için rehberler</h3>
+				<div class="uc-kategoriler" id="uc-kategoriler" role="tablist" aria-label="Blog kategorileri">
+					<button type="button" class="uc-kategori uc-kategori-acik" data-uc-kategori="seckiler" aria-selected="true">Seçkiler</button>
+				</div>
+			</div>
+			<div class="uc-yazilar" id="uc-yazilar" data-uc-seckiler>
         <a class="uc-yazi" href="https://uniconnectly.com/blog/edu-tr-mail-ogrenci-firsatlari?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=ss-kpss-ortaogretim" target="_blank" rel="noopener">
           <img src="https://uniconnectly.com/assets/blog/edu-tr-mail-ogrenci-firsatlari.webp" alt="" loading="lazy" decoding="async" width="600" height="400">
           <span class="uc-yazi-etiket">Fırsat</span>
@@ -465,6 +474,7 @@
           <span class="uc-yazi-baslik">Üniversite Kulüplerine Katılmak Neden Önemli?</span>
         </a>
 			</div>
+			<p class="uc-tumu" id="uc-tumu" hidden><a href="https://uniconnectly.com/blog?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr&utm_medium=referral&utm_campaign=ss-kpss-ortaogretim" target="_blank" rel="noopener">Tümünü gör</a></p>
 
 			<div id="uc-en-yeniler-kutu" hidden>
 				<h3 class="uc-alt-baslik">En yeniler</h3>
@@ -618,7 +628,7 @@
 <script type="text/javascript" src="/js/timepicker.js"></script>
 <!-- Custom script for all pages --> 
 <script type="text/javascript" src="/js/script.js"></script>
-<script src="/js/uniconnectly-blok.js?v=18baf8d3"></script>
+<script src="/js/uniconnectly-blok.js?v=630a773e"></script>
 </body>
 
 </html>

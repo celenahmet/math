@@ -50,7 +50,7 @@ def yazi_karti(slug, baslik, etiket, kampanya):
 # indirimleri, Bilime Destek). Olmayan ozellik yazilmaz.
 FAYDALAR = {
     "ogrenci": ("Öğrenciye ne kazandırır?", [
-        ("Dijital portföy", '<span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş; CV\'ne ve LinkedIn\'e sertifika doğrulama bağlantısı olarak ekle'),
+        ("Dijital portföy", '<span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş; CV\'ne ve LinkedIn\'e sertifika doğrulama bağlantısı olarak ekle. <a class="uc-ornek" href="{ORNEK_OGRENCI}" target="_blank" rel="noopener" title="Örnek portföy: @nursena">Örneği gör: @nursena</a>'),
         ("Doğrulanabilir katılım", "QR ile giriş yaptığın etkinlikler portföyünde doğrulanmış listelenir"),
         ("Sertifikalar", "Platformda verilen sertifikalar doğrulanmış işaretli, edu.tr e-postan onaylı"),
         ("Anlık fırsatlar", "Staj, iş ve burs duyuruları akışına düşer; şirket ilanlarına uygulamadan başvur"),
@@ -58,7 +58,7 @@ FAYDALAR = {
         ("Üye kartı indirimleri", "Takip ettiğin toplulukların anlaşmalı işletme indirimlerinden yararlan"),
     ]),
     "topluluk": ("Topluluğa ne kazandırır?", [
-        ("Ücretsiz web sitesi", '<span class="uc-mono">uniconnectly.com/@topluluk</span>: etkinlikler, duyurular ve yönetim kurulu herkese açık, Google\'da bulunur'),
+        ("Ücretsiz web sitesi", '<span class="uc-mono">uniconnectly.com/@topluluk</span>: etkinlikler, duyurular ve yönetim kurulu herkese açık, Google\'da bulunur. <a class="uc-ornek" href="{ORNEK_TOPLULUK}" target="_blank" rel="noopener" title="Örnek topluluk sayfası: @uludag_emt">Örneği gör: @uludag_emt</a>'),
         ("Podyum ile sponsor bulma", "Etkinliğini yayınlamadan önce hazırlık aşamasında şirketlere sun, sponsor ve iş birliği görüşmesini uygulamada yürüt"),
         ("İş birliği ortamı", "Şirketler ve diğer topluluklarla mesajlaşma, ortak etkinlik ve sponsorluk iletişimi tek kanalda"),
         ("QR ile katılım takibi", "Kapıda QR okut, katılımcı istatistiklerini ve geçmiş etkinlik raporlarını gör"),
@@ -76,13 +76,17 @@ FAYDALAR = {
         ("Bilime Destek", "Anket ve araştırma çağrını UniConnectly ağındaki doğru öğrenci kitlesine ulaştır, katılımcı topla"),
         ("Etkinlik ve seminer duyurusu", "Bölüm topluluklarıyla seminer, atölye ve konferans duyurularını öğrencilere ulaştır"),
         ("Öğrenci topluluklarına erişim", "Danışmanı olduğun topluluğun etkinlik takvimi ve katılım verileri tek ekranda"),
+        ("Blog ile anlık fırsat takibi", "Hibe, araştırma programı, burs ve etkinlik çağrılarını UniConnectly blogundan takipte kal"),
     ]),
 }
+
+ORNEK_OGRENCI = SITE + "/@nursena"      # Ahmet 22.09: ornek kisisel portfoy
+ORNEK_TOPLULUK = SITE + "/@uludag_emt"  # Ahmet 22.09: ornek topluluk sayfasi
 
 def fayda_panelleri():
     out = []
     for i, (anahtar, (baslik, maddeler)) in enumerate(FAYDALAR.items()):
-        li = "\n".join(f'\t\t\t\t\t\t\t<li><strong>{b}</strong><span>{a}</span></li>' for b, a in maddeler)
+        li = "\n".join(f'\t\t\t\t\t\t\t<li><strong>{b}</strong><span>{a.replace("{ORNEK_OGRENCI}", ORNEK_OGRENCI).replace("{ORNEK_TOPLULUK}", ORNEK_TOPLULUK)}</span></li>' for b, a in maddeler)
         out.append(f'\t\t\t\t\t<div class="uc-panel" data-uc-panel="{anahtar}" role="tabpanel"{"" if i == 0 else " hidden"}>\n'
                    f'\t\t\t\t\t\t<h4>{baslik}</h4>\n\t\t\t\t\t\t<ul class="uc-faydalar">\n{li}\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>')
     return "\n".join(out)
@@ -132,10 +136,16 @@ def blok(kampanya):
 				</div>
 			</div>
 
-			<h3 class="uc-alt-baslik">Öğrenciler için rehberler</h3>
-			<div class="uc-yazilar">
+			<div class="uc-baslik-satiri">
+				<h3 class="uc-alt-baslik" id="uc-yazi-baslik">Öğrenciler için rehberler</h3>
+				<div class="uc-kategoriler" id="uc-kategoriler" role="tablist" aria-label="Blog kategorileri">
+					<button type="button" class="uc-kategori uc-kategori-acik" data-uc-kategori="seckiler" aria-selected="true">Seçkiler</button>
+				</div>
+			</div>
+			<div class="uc-yazilar" id="uc-yazilar" data-uc-seckiler>
 {kartlar}
 			</div>
+			<p class="uc-tumu" id="uc-tumu" hidden><a href="{ref("/blog", kampanya)}" target="_blank" rel="noopener">Tümünü gör</a></p>
 
 			<div id="uc-en-yeniler-kutu" hidden>
 				<h3 class="uc-alt-baslik">En yeniler</h3>
