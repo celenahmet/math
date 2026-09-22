@@ -105,7 +105,7 @@ def govde(anahtar, v, m):
 			</div>
 		</div>
 	</section>
-''' + uniconnectly_blok.blok(f"ss-{anahtar}")
+''' + uniconnectly_blok.blok(f"ss-{anahtar}", "kariyer" if anahtar.startswith("kpss") else "kampus")
 
 def hub():
     kartlar = []

@@ -152,7 +152,7 @@ def govde(anahtar):
 			<p id="gs-kaynak" class="gs-kaynak"></p>
 		</div>
 	</section>
-''' + uniconnectly_blok.blok("sinavlar-genel" if genel else f"sinavlar-{anahtar}")
+''' + uniconnectly_blok.blok("sinavlar-genel" if genel else f"sinavlar-{anahtar}", "kariyer" if (not genel and (anahtar.startswith("kpss") or anahtar.startswith("ales"))) else "kampus")
 
 # --- iskelet parcalari (ss/kpss/index.html) ---
 BAS = ISKELET[:ISKELET.index("\t<!-- Inner Page Breadcrumb -->")]

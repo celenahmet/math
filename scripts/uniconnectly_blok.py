@@ -98,8 +98,21 @@ def magaza_rozetleri(kampanya):
         f'<img src="{g}" alt="{e}" loading="lazy" decoding="async" height="40"></a>'
         for e, g, u in MAGAZALAR)
 
-def blok(kampanya):
-    """kampanya: utm_campaign degeri (ss-kpss, sinavlar-ales3 gibi)."""
+# Baslik/metin kitleye gore (Ahmet 22.09): KPSS ve ALES adaylari kampusten
+# ayrilip is/akademi hayatina geciyor; onlara "kampus hayati basliyor" degil,
+# firsat/haberdar ol vurgusu. Diger sayfalarda (TYT/AYT/MSU/DGS, ders notu)
+# kampus vurgusu kalir.
+BASLIKLAR = {
+    "kampus": ("Sınavdan sonra kampüs hayatı başlıyor",
+               "UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, katıldıklarını ve sertifikalarını dijital portföyünde herkese açık paylaşırsın."),
+    "kariyer": ("Sınavlar bir yana, fırsatlar bir yana: hepsinden haberdar ol",
+                "Kamu, akademi ya da iş hayatı; hangi yolda olursan ol staj, iş ve burs duyurularını, kariyer rehberlerini ve etkinlikleri tek uygulamada takip et. Katıldıkların ve sertifikaların dijital portföyünde, tek bağlantıyla paylaş."),
+}
+
+def blok(kampanya, kitle="kampus"):
+    """kampanya: utm_campaign degeri (ss-kpss, sinavlar-ales3 gibi);
+    kitle: 'kampus' (varsayilan) ya da 'kariyer' (KPSS/ALES sayfalari)."""
+    baslik, metin = BASLIKLAR[kitle]
     kartlar = "\n".join(yazi_karti(s, b, e, kampanya) for s, b, e in SABIT_YAZILAR)
     rozetler = magaza_rozetleri(kampanya)
     FAYDA_PANELLERI = fayda_panelleri()
@@ -111,8 +124,8 @@ def blok(kampanya):
 				<div class="uc-tanitim-metin uc-koyu">
 					<a class="uc-logo" href="{ref("/", kampanya)}" target="_blank" rel="noopener"><img src="{LOGO_KOYU}" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async"></a>
 					<span class="uc-etiket">Ücretsiz indir ve kaydol</span>
-					<h3>Sınavdan sonra kampüs hayatı başlıyor</h3>
-					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, katıldıklarını ve sertifikalarını dijital portföyünde herkese açık paylaşırsın.</p>
+					<h3>{baslik}</h3>
+					<p>{metin}</p>
 					<ol class="uc-adimlar">
 						<li><strong>Kaydol</strong><span>Uygulamayı indir, üniversiteni seç</span></li>
 						<li><strong>Katıl</strong><span>Toplulukları takip et, etkinliklere QR ile gir</span></li>
