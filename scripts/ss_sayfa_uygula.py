@@ -40,7 +40,11 @@ def mevcut(yol):
     }
 
 # Eski tasarimdaki kart gorseli; Ahmet 22.09: "hepsi ayni olsun".
-KART_GORSELI = "/images/ss-kart.webp"  # tema gorseli (images/background/8.jpg kirpik); 22.09 vectorstock hotlink kaldirildi
+KART_GORSELI = "/images/ss-kart-kucuk.webp"  # tema gorseli (images/background/8.jpg kirpik);
+# 22.09 vectorstock hotlink kaldirildi. 22.09 aksam: kart ekranda 266x190 px,
+# uzerinde %40 lacivert ortu var; 900x675/73 KB gereksizdi → 600x450/34 KB.
+# Paylasim gorseli (og:image) BUYUK surumde kalir: sosyal onizleme icin
+# buyuk olcu gerekiyor (scripts/seo_basliklari.py OG_GORSEL).
 
 def kart(yil, etiket, url):
     return (f'\t\t\t\t<a class="cs-kart cs-kart-gorsel" style="background-image:url({KART_GORSELI})" href="{url}" target="_blank" rel="noopener">\n'
