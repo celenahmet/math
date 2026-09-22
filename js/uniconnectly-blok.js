@@ -47,7 +47,7 @@
     var tumu = document.getElementById('uc-tumu');
     if (!cubuk || !yazilar || !d.kategoriler) { return; }
     var seckiler = yazilar.innerHTML;
-    var SIRA = ['rehber', 'kariyer', 'akademi', 'etkinlik', 'topluluk', 'girisimcilik', 'markalar', 'duyuru'];
+    var SIRA = ['indirim', 'rehber', 'kariyer', 'akademi', 'etkinlik', 'topluluk', 'girisimcilik', 'markalar', 'duyuru'];
     SIRA.forEach(function (k) {
       var kat = d.kategoriler[k];
       if (!kat || !kat.yazilar || !kat.yazilar.length) { return; }

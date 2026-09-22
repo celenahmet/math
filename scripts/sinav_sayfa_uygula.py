@@ -178,10 +178,12 @@ def sayfa(anahtar, yol):
     son = SON if "uniconnectly-blok.js" in SON else SON.replace(
         '<script type="text/javascript" src="/js/script.js"></script>',
         '<script type="text/javascript" src="/js/script.js"></script>\n<script src="/js/uniconnectly-blok.js"></script>')
-    son = son.replace('<script src="/js/uniconnectly-blok.js"></script>',
-                      '<script src="/js/uniconnectly-blok.js"></script>\n'
-                      '<script src="/sinavlar/js/sinav-takvimi.js"></script>\n'
-                      f"<script>sinavGeriSayim('{anahtar}');</script>")
+    # css_surum.py etiketi "?v=..." ile surumler; surumlu/surumsuz ikisini de yakala.
+    # (22.09: duz replace surumlu etiketi bulamayinca geri sayim betigi TUM sayfalardan dusmustu.)
+    son, n = re.subn(r'(<script src="/js/uniconnectly-blok\.js(?:\?v=[0-9a-f]+)?"></script>)',
+                     lambda m: m.group(1) + '\n<script src="/sinavlar/js/sinav-takvimi.js"></script>\n'
+                               f"<script>sinavGeriSayim('{anahtar}');</script>", son, count=1)
+    assert n == 1, "uniconnectly-blok.js etiketi bulunamadi; geri sayim betigi eklenemedi"
     yeni = bas + govde(anahtar) + son
     if not KURU and yeni != eski:
         p.parent.mkdir(parents=True, exist_ok=True)

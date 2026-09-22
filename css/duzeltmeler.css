@@ -292,7 +292,7 @@
 }
 
 /* /ss/* kartlari: eski tasarimdaki arka plan gorseli, hepsinde ayni (Ahmet, 22.09) */
-.cs-kart.cs-kart-gorsel { position: relative; overflow: hidden; color: #fff; border: 0; min-height: 190px; background-size: cover; background-position: center; align-items: center; justify-content: center; text-align: center; padding: 22px 16px; }
+.cs-kart.cs-kart-gorsel { position: relative; overflow: hidden; color: #fff; border: 0; min-height: 190px; background-size: cover; background-position: center 30%; align-items: center; justify-content: center; text-align: center; padding: 22px 16px; }
 .cs-kart.cs-kart-gorsel::before { content: ''; position: absolute; inset: 0; background: rgba(25, 38, 117, 0.4); transition: background .2s; }
 .cs-kart.cs-kart-gorsel:hover::before { background: rgba(25, 38, 117, 0.5); }
 .cs-kart.cs-kart-gorsel > span { position: relative; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75); }
@@ -354,7 +354,17 @@
 .uc-adimlar span { color: #484848; }
 .uc-indir-not { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #7a7a8c; margin: 6px 0 0; }
 .uc-koyu .uc-magazalar { margin-top: 10px; }
-.uc-dugmeler-sag { justify-content: flex-end; margin-top: auto; padding-top: 18px; }
-.uc-dugmeler-sag .uc-ikincil { color: #2441e7; text-decoration: none; }
-@media (max-width: 640px) { .uc-dugmeler-sag { justify-content: flex-start; } }
+.uc-dugmeler-sag { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; padding-top: 18px; }
+@media (max-width: 640px) { .uc-dugmeler-sag { grid-template-columns: 1fr; } }
+.uc-dugme { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; border-radius: 10px; font-size: 15px; font-weight: 700; line-height: 1.2; text-align: center; transition: transform .2s, background .2s, border-color .2s, color .2s; }
+.uc-dugme:hover, .uc-dugme:focus { transform: translateY(-2px); text-decoration: none; }
+.uc-dugme .uc-ok { display: inline-block; transition: transform .2s; }
+.uc-dugme:hover .uc-ok { transform: translateX(4px); }
+.uc-dugme-cerceve { background: #fff; color: #192675; border: 1px solid #c9cff5; }
+.uc-dugme-cerceve:hover, .uc-dugme-cerceve:focus { border-color: #2441e7; color: #2441e7; }
+.uc-dugme-dolu { background: #2441e7; color: #fff; border: 1px solid #2441e7; }
+.uc-dugme-dolu:hover, .uc-dugme-dolu:focus { background: #192675; border-color: #192675; color: #fff; }
+@media (prefers-reduced-motion: reduce) { .uc-dugme, .uc-dugme .uc-ok, .uc-kart, .uc-yazi, .cs-kart { transition: none; } }
 
+/* 22.09 mobil: kitle sekmeleri dar ekranda 2x2 esit izgara (tek sekme alt satira sarkmasin). */
+@media (max-width: 480px) { .uc-sekmeler { display: grid; grid-template-columns: 1fr 1fr; border-radius: 16px; } .uc-sekme { padding: 9px 6px; } }

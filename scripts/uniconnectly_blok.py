@@ -128,7 +128,7 @@ def blok(kampanya, kitle="kampus"):
 					<p>{metin}</p>
 					<ol class="uc-adimlar">
 						<li><strong>Kaydol</strong><span>Uygulamayı indir, üniversiteni seç</span></li>
-						<li><strong>Katıl</strong><span>Toplulukları takip et, etkinliklere QR ile gir</span></li>
+						<li><strong>Katıl</strong><span>Toplulukları takip et, etkinliklere başvur</span></li>
 						<li><strong>Paylaş</strong><span>Doğrulanmış katılımların ve sertifikaların portföyünde; tek bağlantıyla paylaş</span></li>
 					</ol>
 					<p class="uc-indir-not">Ücretsiz indir:</p>
@@ -144,9 +144,9 @@ def blok(kampanya, kitle="kampus"):
 						<button type="button" class="uc-sekme" role="tab" aria-selected="false" data-uc-sekme="akademik">Akademisyenler</button>
 					</div>
 {FAYDA_PANELLERI}
-					<div class="uc-dugmeler uc-dugmeler-sag">
-						<a class="uc-ikincil" href="{ref("/blog", kampanya)}" target="_blank" rel="noopener">Tüm blog yazıları</a>
-						<a class="btn btn-thm" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
+					<div class="uc-dugmeler-sag">
+						<a class="uc-dugme uc-dugme-cerceve" href="{ref("/blog", kampanya)}" target="_blank" rel="noopener">Tüm blog yazıları <span class="uc-ok" aria-hidden="true">→</span></a>
+						<a class="uc-dugme uc-dugme-dolu" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet <span class="uc-ok" aria-hidden="true">→</span></a>
 					</div>
 				</div>
 			</div>
@@ -171,7 +171,7 @@ def blok(kampanya, kitle="kampus"):
 				<a class="uc-kapanis-baglanti" href="{ref("/", kampanya)}" target="_blank" rel="noopener">
 					<img src="{LOGO}" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async">
 					<h3>Öğrenciler, etkinlikler, topluluklar, şirketler: hepsi bir arada!</h3>
-					<p>Toplulukları keşfet, etkinliklere QR ile katıl, dijital portföyünü herkese açık paylaş. Tamamen ücretsiz.</p>
+					<p>Toplulukları keşfet, etkinliklere başvur, dijital portföyünü herkese açık paylaş. Ücretsiz indir ve kaydol.</p>
 				</a>
 				<div class="uc-magazalar uc-magazalar-orta">
 {rozetler}
