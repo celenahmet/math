@@ -407,3 +407,17 @@
 @media (max-width: 991px) { .hk-hero { grid-template-columns: 1fr; gap: 24px; } .hk-kartlar { grid-template-columns: 1fr 1fr; } .hk-rakamlar { grid-template-columns: 1fr 1fr; } .hk-iletisim { grid-template-columns: 1fr; } .hk-baglantilar { justify-content: flex-start; } }
 @media (max-width: 640px) { .hk-sayfa { padding: 40px 0 48px; } .hk-hero h2 { font-size: 24px; } .hk-kartlar, .hk-paneller { grid-template-columns: 1fr; } .hk-rakamlar { padding: 18px 16px; } .hk-rakamlar strong { font-size: 26px; } .hk-dugmeler .uc-dugme { min-width: 0; flex: 1 1 100%; } }
 @media (prefers-reduced-motion: reduce) { .hk-kart, .hk-baglanti { transition: none; } }
+/* Iletisim sayfasi (il-*, scripts/iletisim_uygula.py) — hk-* dilinin uzantisi. */
+.il-ust { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; margin-bottom: 40px; }
+.il-ust h2 { font-family: "Nunito", sans-serif; font-size: 28px; line-height: 1.34; font-weight: 700; color: #0a0a0a; margin: 0 0 14px; }
+.il-kart { padding: 26px; background: #f4f5fa; border: 1px solid #e6e8f2; border-radius: 16px; text-align: center; }
+.il-kart-etiket { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #2441e7; margin-bottom: 10px; }
+.il-adres { display: block; font-family: "Nunito", sans-serif; font-size: 22px; font-weight: 800; color: #192675; word-break: break-all; margin-bottom: 18px; }
+.il-adres:hover, .il-adres:focus { color: #2441e7; text-decoration: underline; }
+.il-kanallar { justify-content: center; }
+.il-sebepler { list-style: none; margin: 0 0 44px; padding: 0; }
+.il-sebep { cursor: default; }
+.il-sebep:hover { transform: none; box-shadow: none; border-color: #e6e8f2; }
+.il-paneller { margin-bottom: 0; }
+@media (max-width: 991px) { .il-ust { grid-template-columns: 1fr; gap: 24px; } .il-kanallar { justify-content: center; } }
+@media (max-width: 640px) { .il-ust h2 { font-size: 23px; } .il-adres { font-size: 18px; } }

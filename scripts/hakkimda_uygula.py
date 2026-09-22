@@ -34,6 +34,8 @@ def ikon(ad):
         "pdf": '<path d="M4 19V6a2 2 0 0 1 2-2h5l2 2h5a2 2 0 0 1 2 2v11"/><path d="M2 19h20"/><path d="M9 11h6M9 14h4"/>',
         "video": '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/>',
         "posta": '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+        "balon": '<path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-6a8 8 0 0 1 8-8h2a8 8 0 0 1 8 3z"/><path d="M9 11h6"/>',
+        "elsikisma": '<path d="M9 7a3 3 0 1 0-3 3"/><path d="M18 10a3 3 0 1 0-3-3"/><path d="M3 20v-2a4 4 0 0 1 4-4h2"/><path d="M15 14h2a4 4 0 0 1 4 4v2"/><path d="M9 18l3-3 3 3"/>',
     }
     return (f'<svg class="hk-ikon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" '
             f'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{yollar[ad]}</svg>')
@@ -120,16 +122,21 @@ GOVDE = f'''	<!-- Inner Page Breadcrumb -->
 	</section>
 '''
 
-s = DOSYA.read_text(encoding="utf-8")
-a = s.index("\t<!-- Inner Page Breadcrumb -->")
-b = s.index('\t<section class="footer_one">')
-bas = s[:a]
-bas = re.sub(r'<meta name="description" content="[^"]*">',
-             f'<meta name="description" content="{ACIKLAMA}">', bas, count=1)
-assert "<title>Hakkımda - Ahmet Çelen</title>" in bas, "title degismis olmali degil"
-yeni = bas + GOVDE + s[b:]
-# CENTER gibi eski artiklar govdeyle birlikte gitti; iskelette kalmadigini dogrula
-assert "<CENTER>" not in yeni
-if yeni != s:
-    DOSYA.write_text(yeni, encoding="utf-8")
-print(f"hakkimizda/index.html: {'yazildi' if yeni != s else 'ayni'} · PDF {PDF_SAYISI} · ss {SS_SAYISI} · gs {GS_SAYISI}")
+def uygula():
+    s = DOSYA.read_text(encoding="utf-8")
+    a = s.index("\t<!-- Inner Page Breadcrumb -->")
+    b = s.index('\t<section class="footer_one">')
+    bas = s[:a]
+    bas = re.sub(r'<meta name="description" content="[^"]*">',
+                 f'<meta name="description" content="{ACIKLAMA}">', bas, count=1)
+    assert "<title>Hakkımda - Ahmet Çelen</title>" in bas, "title degismis olmali degil"
+    yeni = bas + GOVDE + s[b:]
+    # CENTER gibi eski artiklar govdeyle birlikte gitti; iskelette kalmadigini dogrula
+    assert "<CENTER>" not in yeni
+    if yeni != s:
+        DOSYA.write_text(yeni, encoding="utf-8")
+    print(f"hakkimizda/index.html: {'yazildi' if yeni != s else 'ayni'} · PDF {PDF_SAYISI} · ss {SS_SAYISI} · gs {GS_SAYISI}")
+
+
+if __name__ == "__main__":
+    uygula()
