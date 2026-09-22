@@ -574,3 +574,12 @@ nav#menu:not(.mm-menu) { height: 0 !important; overflow: hidden !important; opac
  * Olculen: /video/ belge genisligi 1285 → 1270; baslik kaydirmada top=0.
  */
 .wrapper { overflow-x: clip; }
+
+/* ── 24) Bolum arka plani WebP (22.09.2026) ───────────────────────────────
+ * `.bg-img2` temada images/background/2.jpg gosteriyor: 1920x960, 1092 KB.
+ * Ana sayfanin toplam 1889 KB'lik transferinin yarisindan fazlasi tek bu
+ * dosyaydi. Ayni olcude WebP karsiligi 89 KB.
+ * Kural style.css'te; uretilen -az dosyasi elle duzenlenmesin diye burada
+ * eziliyor (duzeltmeler.css en sonda yukleniyor).
+ */
+.bg-img2 { background-image: url("/images/background/2.webp"); }

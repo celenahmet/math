@@ -64,6 +64,7 @@ def blok(p, yol):
     desc = dm.group(1).strip() if dm else ""
     adres = ALAN + yol
     g = ALAN + gorsel_of(yol)
+    hero = "home1-mainslider" in s
     satirlar = [
         BAS,
         # Font: style.css'teki @import kaldirildi (zincirleme istek). Burada
@@ -72,9 +73,16 @@ def blok(p, yol):
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,600,700|Open+Sans&display=swap" media="print" onload="this.media=\'all\'">',
         '<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,600,700|Open+Sans&display=swap"></noscript>',
-        # LCP ogesi her ic sayfada ayni: baslik bandinin arka plan gorseli.
+        # LCP ogesi sayfa tipine gore degisir; yanlis gorseli on yuklemek
+        # hem bos yere bant genisligi harcar hem GERCEK LCP'yi geciktirir.
+        # 22.09: ana sayfa ve /video/ hero slayti kullaniyor, ic sayfalar
+        # baslik bandinin arka planini.
+    ] + (
+        ['<link rel="preload" as="image" href="/images/home/1.webp" fetchpriority="high">']
+        if hero else [
         '<link rel="preload" as="image" href="/images/background/inner-pagebg.webp" fetchpriority="high" media="(min-width: 992px)">',
         '<link rel="preload" as="image" href="/images/background/inner-pagebg-960.webp" fetchpriority="high" media="(max-width: 991px)">',
+    ]) + [
         # Ikon fontlari kritik degil: render'i bloklamadan yuklensinler.
         # 22.09: -az surumleri yalniz sitede GECEN ikonlari tasir
         # (scripts/ikon_azalt.py): 131 KB → 10 KB.

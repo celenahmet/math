@@ -65,8 +65,30 @@ def azalt(css_ad, on_ek, font_ad, yeni_css, yeni_font, font_ailesi):
         parca.append(s[son:a]); son = b
     parca.append(s[son:])
     y = "".join(parca)
-    # @font-face kaynaklarini tek woff2'ye indir
-    y = re.sub(r"src:\s*url\([^;]*?\);", f"src:url('/{yeni_font}') format('woff2');", y, count=1, flags=re.S)
+    # @font-face kaynaklarini tek woff2'ye indir.
+    # DIKKAT: blokta IKI ayri `src:` bildirimi var (once eot, sonra
+    # woff2/woff/ttf/svg zinciri). 22.09'da yalnizca ilki degistirilmisti;
+    # ikincisi onu EZDIGI icin tarayici altkumeyi degil ESKI 75 KB'lik fontu
+    # indirmeye devam etti (canli olcumde yakalandi). Artik @font-face
+    # blogunun TAMAMI yeniden yazilir.
+    def font_face(m):
+        ic = m.group(1)
+        korunan = [x.strip() for x in ic.split(";")
+                   if x.strip() and not x.strip().lower().startswith("src")]
+        korunan.append(f"src:url('/{yeni_font}') format('woff2')")
+        return "@FONTFACE_KORU{" + ";".join(korunan) + ";}"
+    y, kf = re.subn(r"@font-face\s*\{([^{}]*)\}", font_face, y, count=1)
+    assert kf == 1, f"{css_ad}: @font-face blogu bulunamadi"
+    # Kalan @font-face bildirimlerini at: flaticon.css'te webkit icin ikinci
+    # bir blok var ve KIRIK bir SVG kaynagi gosteriyor
+    # (@media (-webkit-min-device-pixel-ratio:0) → url("Flaticon.html#Flaticon")).
+    # Ayni aileyi yeniden tanimladigi icin altkumeyi eziyor ve bosa istek
+    # uretiyor. Bos kalan @media kabugu da silinir.
+    y = re.sub(r"@font-face\s*\{[^{}]*\}", "", y)
+    y = y.replace("@FONTFACE_KORU{", "@font-face{")
+    y = re.sub(r"@media[^{]*\{\s*\}", "", y)
+    assert "fontawesome-webfont" not in y and "Flaticon.woff" not in y \
+        and "Flaticon.html" not in y, f"{css_ad}: eski font kaynagi kaldi"
     (KOK / yeni_css).write_text(y, encoding="utf-8")
 
     kodlar = sorted(kodlar)
