@@ -352,4 +352,9 @@
 .uc-adimlar li::before { content: counter(adim); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; background: #192675; color: #fff; font-family: "Nunito", sans-serif; font-weight: 700; font-size: 14px; line-height: 28px; text-align: center; }
 .uc-adimlar strong { display: block; color: #192675; font-size: 15px; }
 .uc-adimlar span { color: #484848; }
+.uc-indir-not { font-size: 13px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); margin: 6px 0 0; }
+.uc-koyu .uc-magazalar { margin-top: 10px; }
+.uc-dugmeler-sag { justify-content: flex-end; margin-top: 20px; }
+.uc-dugmeler-sag .uc-ikincil { color: #2441e7; text-decoration: none; }
+@media (max-width: 640px) { .uc-dugmeler-sag { justify-content: flex-start; } }
 

@@ -131,10 +131,7 @@ def blok(kampanya, kitle="kampus"):
 						<li><strong>Katıl</strong><span>Toplulukları takip et, etkinliklere QR ile gir</span></li>
 						<li><strong>Paylaş</strong><span>Doğrulanmış katılımların ve sertifikaların portföyünde; tek bağlantıyla paylaş</span></li>
 					</ol>
-					<div class="uc-dugmeler">
-						<a class="btn uc-btn-acik" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
-						<a class="uc-ikincil" href="{ref("/blog", kampanya)}" target="_blank" rel="noopener">Tüm blog yazıları</a>
-					</div>
+					<p class="uc-indir-not">Ücretsiz indir:</p>
 					<div class="uc-magazalar">
 {rozetler}
 					</div>
@@ -147,6 +144,10 @@ def blok(kampanya, kitle="kampus"):
 						<button type="button" class="uc-sekme" role="tab" aria-selected="false" data-uc-sekme="akademik">Akademisyenler</button>
 					</div>
 {FAYDA_PANELLERI}
+					<div class="uc-dugmeler uc-dugmeler-sag">
+						<a class="uc-ikincil" href="{ref("/blog", kampanya)}" target="_blank" rel="noopener">Tüm blog yazıları</a>
+						<a class="btn btn-thm" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
+					</div>
 				</div>
 			</div>
 
