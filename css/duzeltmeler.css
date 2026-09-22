@@ -452,4 +452,23 @@ header.navbar-scrolltofixed { position: sticky; top: 0; z-index: 999; }
    yonetiyordu; ertelenince liste sayfanin icinde HAM olarak goruntulendi
    (ekran goruntusuyle yakalandi). `.mm-menu` sinifini mmenu kurulumda
    ekler: kurulmadan gizli, kurulunca eklentiye birakilir. */
-nav#menu:not(.mm-menu) { display: none !important; }
+/* `display:none` DENENDI, YAN ETKISI VAR: menu dugumu akistan cikinca
+   tema duzeni bozuluyor, baslik bandindaki .row 1320 px yerine 306 px
+   olculuyordu (olcum: 1350 ve 1500 px pencerede fark tam 150 px).
+   Bunun yerine ekran disina alip olculebilir birakiyoruz: duzen bozulmaz,
+   baglantilar DOM'da kalir (tarayici ve ekran okuyucu icin de dogru). */
+nav#menu:not(.mm-menu) { height: 0 !important; overflow: hidden !important; opacity: 0; }
+/* mmenu ertelenince tema duzeninde tek yan etki: baslik bandindaki satir
+   daraliyordu (1320 -> 306 px). Satira acik genislik veriliyor. */
+.inner_page_breadcrumb .row { width: 100%; }
+
+/* ── 19) Alt bilgide UniConnectly — 22.09.2026 (scripts/footer_uniconnectly.py) */
+.uc-footer { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); }
+.uc-footer-logo { display: inline-block; margin-bottom: 10px; }
+.uc-footer-logo img { width: 150px; height: auto; display: block; }
+.uc-footer p { font-size: 13px; line-height: 1.5; color: #b7b7b7; margin: 0 0 12px; }
+.uc-footer-magazalar { display: flex; flex-wrap: wrap; gap: 8px; }
+.uc-footer-magazalar img { width: 120px; height: auto; display: block; border-radius: 4px; }
+.uc-footer-magazalar a { display: inline-block; transition: opacity .2s; }
+.uc-footer-magazalar a:hover { opacity: .85; }
+@media (prefers-reduced-motion: reduce) { .uc-footer-magazalar a { transition: none; } }
