@@ -472,3 +472,31 @@ nav#menu:not(.mm-menu) { height: 0 !important; overflow: hidden !important; opac
 .uc-footer-magazalar a { display: inline-block; transition: opacity .2s; }
 .uc-footer-magazalar a:hover { opacity: .85; }
 @media (prefers-reduced-motion: reduce) { .uc-footer-magazalar a { transition: none; } }
+
+/* ── 20) Ana sayfa hero'su genis ekranda daraliyordu (22.09.2026) ──────────
+ * Ahmet 22.09, ekran goruntusu: 1920 px ve ustunde hero bandi sayfanin
+ * ortasinda ~856 px'lik dar bir sutuna sikisiyor, baslik menusu icerige
+ * biniyordu. 1280 px'te sorun yok.
+ *
+ * OLCUM: stil dosyalari tek tek kapatilarak bulundu; suclu blok 18'deki
+ * `nav#menu:not(.mm-menu)` gizlemesi. mmenu ilk etkilesime ertelendigi icin
+ * nav#menu kurulana dek ham listedir ve sayfada gorunmesin diye gizlenir;
+ * ama o eleman akistan cikinca `.home1-mainslider .row` daralip icerigi
+ * kadar yer kapliyor (1890 px yerine 856 px). Gizlemenin bicimi fark
+ * etmiyor: display:none, height:0, position:fixed hepsi ayni sonucu veriyor.
+ *
+ * Bu, mmenu ertelemesinden ONCEKI surumde de vardi — yani yeni bir kirilma
+ * degil, o turda gozden kacmis yan etki.
+ *
+ * COZUM: satiri kendi genisligine birakmak yerine kapsayicisina esitle.
+ * `.row`un -15 px kenar bosluklari oldugu icin 100% degil `100% + 30px`:
+ * boylece 1280 px'te olculen 1300 px genislik AYNEN korunur, 1900 px'te
+ * 856 → 1920 duzelir. Ek 30 px'in ucu disari tasmasin diye kapsayiciya
+ * overflow-x verilir (responsive.css bunu yalniz kucuk ekranda yapiyordu).
+ *
+ * Olculen sonuc (genislik / yatay tasma):
+ *   1900 px: 856/0  → 1920/0        1280 px: 1300/0 → 1300/0 (degismedi)
+ *    760 px: 748/0  →  748/0 (degismedi)
+ */
+.home1-mainslider { overflow-x: hidden; }
+.home1-mainslider .row { width: calc(100% + 30px); }

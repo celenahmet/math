@@ -37,19 +37,21 @@ BAS, SON = "<!-- cssz:bas -->", "<!-- cssz:son -->"
 
 # (dosya, bloklayici_mi) — SIRA style.css'teki @import sirasinin AYNISI.
 # Sira degismez: kaskad belge sirasina gore cozulur.
+# 22.09 ikinci tur: adlar "-az" surumlerine gecti (scripts/css_azalt.py).
+# megadropdown.css listeden CIKTI: budama sonrasi 0 bayt kaldi, sitede
+# tek bir secicisi bile kullanilmiyor.
+# 22.09 ucuncu tur: ertelenmis 8 dosya TAMAMEN cikti (163 KB bos indirme).
+# Gerekce: onlari besleyen betikler de kaldirildi (scripts/js_yuku.py), yani
+# sinifi calisma aninda ekleyecek kod artik yok ve govdede de gecmiyorlar:
+#   jquery-ui (jquery-ui.js hic yuklenmiyordu) · font-awesome-animation (faa-*
+#   yok) · bootstrap-select (selectpicker yok) · simplebar · progressbar
+#   (.circlechart yok) · animate (class="wow" yok, wow.min.js kaldirildi) ·
+#   magnific-popup (isotop.js kaldirildi) · timecounter (timepicker.js kaldirildi)
+# megadropdown.css da cikti: budama sonrasi 0 bayt.
 DOSYALAR = [
-    ("jquery-ui.min.css", False),              # kullanilmiyor (0 sayfa)
-    ("font-awesome-animation.min.css", False), # kullanilmiyor (0 sayfa)
-    ("menu.css", True),                        # baslik/mobil menu — ilk ekran
-    ("ace-responsive-menu.css", True),         # alt menuyu gizler — SART
-    ("megadropdown.css", True),                # baslik icinde
-    ("bootstrap-select.min.css", False),       # form ogeleri, ilk ekranda yok
-    ("simplebar.min.css", False),
-    ("progressbar.css", False),
-    ("animate.css", False),                    # wow animasyonlari, alt bolumler
-    ("slider.css", True),                      # ana sayfa hero slider — ilk ekran
-    ("magnific-popup.css", False),             # kullanilmiyor (0 sayfa)
-    ("timecounter.css", False),                # kullanilmiyor (0 sayfa)
+    ("menu-az.css", True),                     # baslik/mobil menu — ilk ekran
+    ("ace-responsive-menu-az.css", True),      # alt menuyu gizler — SART
+    ("slider-az.css", True),                   # ana sayfa hero slider — ilk ekran
 ]
 
 def blok(girinti):
@@ -60,7 +62,8 @@ def blok(girinti):
         else:
             sat.append(f'<link rel="stylesheet" href="/css/{ad}" media="print" onload="this.media=\'all\'">')
     ertelenen = "".join(f'<link rel="stylesheet" href="/css/{ad}">' for ad, b in DOSYALAR if not b)
-    sat.append(f"<noscript>{ertelenen}</noscript>")
+    if ertelenen:
+        sat.append(f"<noscript>{ertelenen}</noscript>")
     sat.append(SON)
     return "\n".join(girinti + x for x in sat) + "\n"
 
@@ -72,6 +75,8 @@ def style_css_ayikla():
     for ad in adlar:
         y, k = re.subn(r"@import url\(" + re.escape(ad) + r"\);\n", "", y)
         n += k
+    if n == 0:
+        return                                  # zaten temizlenmis (idempotent)
     assert n == len(adlar), f"style.css'te {n}/{len(adlar)} @import bulundu"
     y = y.replace("/* CSS Document */\n",
                   "/* CSS Document */\n"
@@ -81,7 +86,7 @@ def style_css_ayikla():
     p.write_text(y, encoding="utf-8")
     print(f"style.css: {n} @import kaldirildi")
 
-HEDEF = re.compile(r'^([ \t]*)<link rel="stylesheet" href="/css/style\.css(?:\?v=[0-9a-f]+)?">$', re.M)
+HEDEF = re.compile(r'^([ \t]*)<link rel="stylesheet" href="/css/style-az\.css(?:\?v=[0-9a-f]+)?">$', re.M)
 
 def uygula():
     style_css_ayikla()
