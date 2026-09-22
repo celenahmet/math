@@ -37,10 +37,34 @@
   var $ = window.jQuery;
   if (!$ || !$.fn) { return; }
 
-  // 2) baslik cubugu: JS fixed yerine CSS sticky
-  if ($.fn.scrollToFixed) {
-    $.fn.scrollToFixed = function () { return this; };
+  // 3) kaldirilan eklentiler icin bos karsilik (sim)
+  //
+  // scripts/js_yuku.py sayfada karsiligi olmayan tema betiklerini kaldiriyor
+  // (bir icerik sayfasinda ~1,05 MB ham JS'in ~650 KB'i bos yere iniyordu).
+  // Tema betigi js/script.js bazi eklentileri KORUMASIZ cagiriyor; eklenti
+  // yoksa TypeError firlar ve o noktadan sonraki tema kodu hic calismaz.
+  // Burada eksik adlar zararsiz bir fonksiyonla doldurulur. GERCEK eklenti
+  // yuklenmisse dokunulmaz: yalniz tanimsiz olanlar doldurulur.
+  // 'stellar' parallax.js'ten geliyordu; script.js:276 KORUMASIZ cagiriyor.
+  var eksikler = ['stellar', 'magnificPopup', 'selectpicker', 'counterUp', 'countdown',
+    'datetimepicker', 'datepicker', 'isotope', 'parallax', 'slider',
+    'owlCarousel', 'slick', 'maximage', 'cycle', 'pogoSlider', 'circlechart',
+    'progressBar', 'replaceProgressBar', 'snackbar', 'simplebar'];
+  for (var i = 0; i < eksikler.length; i++) {
+    if (!$.fn[eksikler[i]]) {
+      $.fn[eksikler[i]] = function () { return this; };
+    }
   }
+  // wow.min.js kaldirildi; tema `new WOW().init()` diyor.
+  if (!window.WOW) {
+    window.WOW = function () { this.init = function () {}; };
+  }
+
+  // 2) baslik cubugu: JS fixed yerine CSS sticky
+  // 22.09: jquery-scrolltofixed-min.js (28 KB) sayfalardan tamamen kaldirildi.
+  // Eskiden "varsa etkisiz kil" idi; artik HIC yuklenmedigi icin kosulsuz
+  // tanimlanir, yoksa script.js:17 TypeError firlatiyor.
+  $.fn.scrollToFixed = function () { return this; };
 
   // 1) mobil menu: ilk etkilesime kadar kurulmaz
   if ($.fn.mmenu) {
