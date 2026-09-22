@@ -71,6 +71,7 @@ SAYFALAR = {
         "kisa": "TYT", "geri_sayim": "tyt",
         "kartlar": [
             (2018, "TYT · tam kitapçık", D + "2018/YKS/TYT_01072018.pdf"),
+            (2019, "TYT · temel soru kitapçığı", D + "2019/YKS/TSK/tyt_yks_2019_web.pdf"),
             (2020, "TYT · temel soru kitapçığı", D + "2020/YKS/TSK/tyt_yks_2020.pdf"),
             (2021, "TYT · temel soru kitapçığı", D + "2021/YKS/TSK/tyt_yks_2021.pdf"),
             (2022, "TYT · temel soru kitapçığı", D + "2022/YKS/TSK/yks_2022_tyt.pdf"),
@@ -84,6 +85,7 @@ SAYFALAR = {
         "kisa": "AYT", "geri_sayim": "ayt",
         "kartlar": [
             (2018, "AYT · tam kitapçık", D + "2018/YKS/AYT_01072018.pdf"),
+            (2019, "AYT · temel soru kitapçığı", D + "2019/YKS/TSK/ayt_yks_2019_web.pdf"),
             (2020, "AYT · temel soru kitapçığı", D + "2020/YKS/TSK/ayt_yks_2020.pdf"),
             (2021, "AYT · temel soru kitapçığı", D + "2021/YKS/TSK/ayt_yks_2021.pdf"),
             (2022, "AYT · temel soru kitapçığı", D + "2022/YKS/TSK/yks_2022_ayt.pdf"),
@@ -118,6 +120,9 @@ SAYFALAR = {
             (2019, "DGS · %10 kitapçık", D + "2019/DGS/dgskitapcik30062019.pdf"),
             (2020, "DGS · %10 kitapçık", D + "2020/DGS/kitapcik10082020.pdf"),
             (2021, "DGS · %10 kitapçık", D + "2021/DGS/CS/2021_DGS_sorular.pdf"),
+            (2022, "DGS · %10 kitapçık", D + "2022/DGS/dgs_kitapcik_yuzde10_03072022.pdf"),
+            (2023, "DGS · %10 kitapçık", D + "2023/DGS/tintkitapcik_16072023.pdf"),
+            (2024, "DGS · %10 kitapçık", D + "2024/DGS/tintkitapcik_30062024.pdf"),
             (2025, "DGS · %10 kitapçık", D + "2025/DGS/tintkitapcik_20072025.pdf"),
             (2026, "DGS · %10 kitapçık", D + "2026/DGS/TSK/intkitapcik_td19072026.pdf"),
         ],
