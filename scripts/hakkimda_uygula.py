@@ -111,6 +111,7 @@ GOVDE = f'''	<!-- Inner Page Breadcrumb -->
 					<p>Görüş, öneri ve düzeltmeler için yazabilirsin. Kırık bağlantı ya da hatalı tarih görürsen haber ver; kaynağı kontrol edip düzeltirim.</p>
 				</div>
 				<div class="hk-baglantilar">
+					<a class="hk-baglanti" href="mailto:ahmetcelen@hacettepe.edu.tr">ahmetcelen@hacettepe.edu.tr</a>
 					<a class="hk-baglanti" href="mailto:bilgi@ahmetcelen.com.tr">bilgi@ahmetcelen.com.tr</a>
 					<a class="hk-baglanti" href="{YOUTUBE}" target="_blank" rel="noopener noreferrer">YouTube</a>
 					<a class="hk-baglanti" href="{VIMEO}" target="_blank" rel="noopener noreferrer">Vimeo</a>
