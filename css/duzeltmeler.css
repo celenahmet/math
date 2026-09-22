@@ -336,4 +336,9 @@
 .uc-tanitim-liste h4 { margin-top: 12px; }
 @media (max-width: 991px) { .uc-faydalar { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .uc-faydalar { grid-template-columns: 1fr; } }
+.uc-adimlar { list-style: none; counter-reset: adim; padding: 0; margin: 4px 0 22px; display: grid; gap: 10px; }
+.uc-adimlar li { counter-increment: adim; position: relative; padding-left: 40px; font-size: 14px; line-height: 1.45; }
+.uc-adimlar li::before { content: counter(adim); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; background: #192675; color: #fff; font-family: "Nunito", sans-serif; font-weight: 700; font-size: 14px; line-height: 28px; text-align: center; }
+.uc-adimlar strong { display: block; color: #192675; font-size: 15px; }
+.uc-adimlar span { color: #484848; }
 

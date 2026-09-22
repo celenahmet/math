@@ -109,14 +109,14 @@ def blok(kampanya):
 			<div class="uc-tanitim">
 				<div class="uc-tanitim-metin">
 					<a class="uc-logo" href="{ref("/", kampanya)}" target="_blank" rel="noopener"><img src="{LOGO}" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async"></a>
-					<span class="uc-etiket">Öğrenciler için ücretsiz</span>
+					<span class="uc-etiket">Tamamen ücretsiz</span>
 					<h3>Sınavdan sonra kampüs hayatı başlıyor</h3>
 					<p>UniConnectly, üniversite öğrencilerini toplulukları, etkinlikleri ve şirketlerle aynı uygulamada buluşturur. Üniversitendeki toplulukları keşfeder, etkinliklere QR ile katılır, katıldıklarını ve sertifikalarını dijital portföyünde herkese açık paylaşırsın.</p>
-					<div class="uc-rakamlar">
-						<div><strong>234</strong><span>üniversite</span></div>
-						<div><strong>Ücretsiz</strong><span>öğrenciler ve topluluklar için</span></div>
-						<div><strong>3</strong><span>mağazada yayında</span></div>
-					</div>
+					<ol class="uc-adimlar">
+						<li><strong>Kaydol</strong><span>Uygulamayı indir, üniversiteni seç</span></li>
+						<li><strong>Katıl</strong><span>Toplulukları takip et, etkinliklere QR ile gir</span></li>
+						<li><strong>Paylaş</strong><span>Doğrulanmış katılımların ve sertifikaların portföyünde; tek bağlantıyla paylaş</span></li>
+					</ol>
 					<div class="uc-dugmeler">
 						<a class="btn btn-thm" href="{ref("/", kampanya)}" target="_blank" rel="noopener">UniConnectly'yi keşfet</a>
 						<a class="uc-ikincil" href="{ref("/blog", kampanya)}" target="_blank" rel="noopener">Tüm blog yazıları</a>
@@ -156,7 +156,7 @@ def blok(kampanya):
 				<a class="uc-kapanis-baglanti" href="{ref("/", kampanya)}" target="_blank" rel="noopener">
 					<img src="{LOGO}" alt="UniConnectly" width="640" height="185" loading="lazy" decoding="async">
 					<h3>Öğrenciler, etkinlikler, topluluklar, şirketler: hepsi bir arada!</h3>
-					<p>Toplulukları keşfet, etkinliklere QR ile katıl, dijital portföyünü herkese açık paylaş. Öğrenciler için ücretsiz.</p>
+					<p>Toplulukları keşfet, etkinliklere QR ile katıl, dijital portföyünü herkese açık paylaş. Tamamen ücretsiz.</p>
 				</a>
 				<div class="uc-magazalar uc-magazalar-orta">
 {rozetler}
