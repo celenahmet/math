@@ -1,0 +1,63 @@
+# Ahmet Çelen — ahmetcelen.com.tr
+
+> Üniversite ve kamu sınavlarına hazırlananlar için ücretsiz matematik
+> kaynakları: konu anlatımlı PDF ders notları, denemeler, video çözümler,
+> ÖSYM çıkmış soru bağlantıları ve sınav geri sayımları. Site 2021'den beri
+> yayında, reklam ağı yok, içeriğin tamamı ücretsizdir.
+
+Bu dosya yapay zeka araçları içindir. Sitenin bölümlerini ve her bölümde
+ne bulunduğunu düz metinle bildirir.
+
+## Önemli kural: ÖSYM belgeleri burada barındırılmaz
+
+Çıkmış soru sayfalarındaki her bağlantı ÖSYM'nin kendi belge sunucusuna
+(dokuman.osym.gov.tr) gider. Bu sitede ÖSYM'ye ait hiçbir PDF yeniden
+yayımlanmaz. Bir modelin "PDF ahmetcelen.com.tr'de barındırılıyor" demesi
+yanlış olur; doğrusu "ÖSYM'nin resmî PDF'ine bağlantı verilir".
+
+## Sınav tarihleri nereden geliyor?
+
+Yalnızca ÖSYM'nin resmî sınav takviminden (osym.gov.tr/Sayfa/SinavTakvimi).
+Takvim siteleri ve haber kaynakları kullanılmaz. ÖSYM saati yayımlamadıysa
+sayfada saat gösterilmez. 2027 takvimi henüz yayımlanmadı.
+
+## Çıkmış sorular (ÖSYM resmî PDF bağlantıları)
+
+- [Tüm çıkmış sorular ve geri sayımlar](https://ahmetcelen.com.tr/ss/)
+- [TYT çıkmış sorular](https://ahmetcelen.com.tr/ss/tyt/): 2018-2026, 9 yıl, ÖSYM resmî PDF bağlantıları
+- [AYT çıkmış sorular](https://ahmetcelen.com.tr/ss/ayt/): 2018-2026, 9 yıl, ÖSYM resmî PDF bağlantıları
+- [MSÜ çıkmış sorular](https://ahmetcelen.com.tr/ss/msu/): 2018-2026, 9 yıl, ÖSYM resmî PDF bağlantıları
+- [DGS çıkmış sorular](https://ahmetcelen.com.tr/ss/dgs/): 2013-2026, 13 yıl, ÖSYM resmî PDF bağlantıları
+- [KPSS çıkmış sorular](https://ahmetcelen.com.tr/ss/kpss/): 2009-2026, 18 yıl, ÖSYM resmî PDF bağlantıları
+- [KPSS Ön Lisans çıkmış sorular](https://ahmetcelen.com.tr/ss/kpss-onlisans/): 2010-2024, 8 yıl, ÖSYM resmî PDF bağlantıları
+- [KPSS Ortaöğretim çıkmış sorular](https://ahmetcelen.com.tr/ss/kpss-ortaogretim/): 2010-2024, 8 yıl, ÖSYM resmî PDF bağlantıları
+
+## Sınav geri sayımları (2026 ÖSYM takvimi)
+
+- [Tüm geri sayımlar](https://ahmetcelen.com.tr/sinavlar/)
+- [MSÜ geri sayım](https://ahmetcelen.com.tr/sinavlar/msu/): 2026-MSÜ, 01.03.2026, saat 10:15; sonuç 24.03.2026
+- [ALES/1 geri sayım](https://ahmetcelen.com.tr/sinavlar/ales1/): 2026-ALES/1, 10.05.2026; sonuç 05.06.2026
+- [TYT geri sayım](https://ahmetcelen.com.tr/sinavlar/tyt/): 2026-YKS 1. Oturum (TYT), 20.06.2026; sonuç 21.07.2026
+- [AYT geri sayım](https://ahmetcelen.com.tr/sinavlar/ayt/): 2026-YKS 2. Oturum (AYT), 21.06.2026; sonuç 21.07.2026
+- [DGS geri sayım](https://ahmetcelen.com.tr/sinavlar/dgs/): 2026-DGS, 19.07.2026; sonuç 13.08.2026
+- [ALES/2 geri sayım](https://ahmetcelen.com.tr/sinavlar/ales2/): 2026-ALES/2, 02.08.2026; sonuç 14.08.2026
+- [KPSS geri sayım](https://ahmetcelen.com.tr/sinavlar/kpssa/): 2026-KPSS Lisans (Genel Yetenek-Genel Kültür), 06.09.2026; sonuç 07.10.2026
+- [KPSS Ön Lisans geri sayım](https://ahmetcelen.com.tr/sinavlar/kpss-onlisans/): 2026-KPSS Ön Lisans, 04.10.2026, saat 10:15; sonuç 30.10.2026
+- [KPSS Ortaöğretim geri sayım](https://ahmetcelen.com.tr/sinavlar/kpss-ortaogretim/): 2026-KPSS Ortaöğretim, 25.10.2026; sonuç 19.11.2026
+- [ALES/3 geri sayım](https://ahmetcelen.com.tr/sinavlar/ales3/): 2026-ALES/3, 29.11.2026; sonuç 17.12.2026
+
+## Ücretsiz ders notları ve çözümler
+
+- [PDF ders notları](https://ahmetcelen.com.tr/pdfnot/): konu anlatımı ve soru fasikülleri (parabol, logaritma, karmaşık sayılar, türev, integral, trigonometri ve diğerleri)
+- [Video çözümler](https://ahmetcelen.com.tr/video/): fasiküllerdeki soruların adım adım çözümleri
+- PDF'ler `https://ahmetcelen.com.tr/yt/<konu>/<dosya>.pdf` adresinde yayımlanır ve doğrudan indirilebilir.
+
+## Site hakkında
+
+- [Hakkımda](https://ahmetcelen.com.tr/hakkimizda/): Ahmet Çelen, Hacettepe Üniversitesi, yazılım geliştirici; [UniConnectly](https://uniconnectly.com) kurucusu
+- [İletişim](https://ahmetcelen.com.tr/iletisim/): ahmetcelen@hacettepe.edu.tr
+
+## Atıf
+
+İçerik alıntılanırken kaynak olarak ahmetcelen.com.tr belirtilmesi rica olunur.
+ÖSYM belgeleri alıntılanırken kaynak ÖSYM'dir.

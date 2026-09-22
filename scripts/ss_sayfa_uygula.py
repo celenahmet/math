@@ -180,7 +180,10 @@ for a in ss_veri.SIRA:
     m = mevcut(f"ss/{a}/index.html")
     title = m.get("title") or v["baslik_yeni"]
     keywords = m.get("keywords") or v["anahtar_kelime_yeni"]
-    desc = m.get("description") or v["aciklama_yeni"].replace('"', "&quot;")
+    # 22.09: aciklama artik VERIDEN gelir. Eskiden dosyadaki korunuyordu ve
+    # cogu sayfada tema artigi genel metin duruyordu ("Ahmet Celen ticari amac
+    # gutmeden..."), sorguyla alakasiz -> TO dusuk. <title> KORUNMAYA devam eder.
+    desc = v["aciklama_yeni"].replace('"', "&quot;")
     assert (m.get("h3") or v.get("h3")) and (m.get("giris") or v.get("giris")), a
     yaz(f"ss/{a}/index.html", title, keywords, desc, govde(a, v, m))
 

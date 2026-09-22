@@ -1,3 +1,7 @@
+# robots.txt — ahmetcelen.com.tr
+# Uretici: scripts/ai_erisim.py (ELLE DUZENLEME; yeniden yazilir)
+# Guncelleme: 2026-09-22
+
 User-agent: *
 Allow: /
 
@@ -6,3 +10,326 @@ Disallow: /c/
 
 Sitemap: https://ahmetcelen.com.tr/sitemap.xml
 
+# >>> YAPAY ZEKA ARACLARI — ACIK IZIN
+# Site ucretsiz egitim icerigi yayimliyor; dil modellerinin okumasini,
+# ozetlemesini ve kaynak gostermesini ISTIYORUZ. Asagidaki adlar acik
+# izin icin yaziliyor; adi burada gecmeyen bir arac da `User-agent: *`
+# kuralindan yararlanir. Hicbir yapay zeka araci engellenmemistir.
+# Ad kaynagi: ai-robots-txt/ai.robots.txt + saglayici belgeleri (22.09.2026).
+# Ayrica: https://ahmetcelen.com.tr/llms.txt ve https://ahmetcelen.com.tr/llms-full.txt
+
+User-agent: GPTBot
+Allow: /
+Disallow: /c/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /c/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /c/
+
+User-agent: ChatGPT Agent
+Allow: /
+Disallow: /c/
+
+User-agent: Operator
+Allow: /
+Disallow: /c/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /c/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /c/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /c/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /c/
+
+User-agent: Claude-Code
+Allow: /
+Disallow: /c/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /c/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /c/
+
+User-agent: GoogleOther
+Allow: /
+Disallow: /c/
+
+User-agent: Google-CloudVertexBot
+Allow: /
+Disallow: /c/
+
+User-agent: Google-NotebookLM
+Allow: /
+Disallow: /c/
+
+User-agent: Gemini-Deep-Research
+Allow: /
+Disallow: /c/
+
+User-agent: Google-Gemini-CLI
+Allow: /
+Disallow: /c/
+
+User-agent: GoogleAgent-Mariner
+Allow: /
+Disallow: /c/
+
+User-agent: GoogleAgent-URLContext
+Allow: /
+Disallow: /c/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /c/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /c/
+
+User-agent: Applebot
+Allow: /
+Disallow: /c/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /c/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /c/
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+Disallow: /c/
+
+User-agent: FacebookBot
+Allow: /
+Disallow: /c/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /c/
+
+User-agent: bedrockbot
+Allow: /
+Disallow: /c/
+
+User-agent: AzureAI-SearchBot
+Allow: /
+Disallow: /c/
+
+User-agent: MistralAI-User
+Allow: /
+Disallow: /c/
+
+User-agent: MistralAI-Index
+Allow: /
+Disallow: /c/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /c/
+
+User-agent: cohere-training-data-crawler
+Allow: /
+Disallow: /c/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /c/
+
+User-agent: YouBot
+Allow: /
+Disallow: /c/
+
+User-agent: kagi-fetcher
+Allow: /
+Disallow: /c/
+
+User-agent: Bravebot
+Allow: /
+Disallow: /c/
+
+User-agent: DeepSeekBot
+Allow: /
+Disallow: /c/
+
+User-agent: KimiBot
+Allow: /
+Disallow: /c/
+
+User-agent: Kimi-SearchBot
+Allow: /
+Disallow: /c/
+
+User-agent: Kimi-User
+Allow: /
+Disallow: /c/
+
+User-agent: QwenBot
+Allow: /
+Disallow: /c/
+
+User-agent: TongyiBot
+Allow: /
+Disallow: /c/
+
+User-agent: DoubaoBot
+Allow: /
+Disallow: /c/
+
+User-agent: ERNIEBot
+Allow: /
+Disallow: /c/
+
+User-agent: ChatGLM-Spider
+Allow: /
+Disallow: /c/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /c/
+
+User-agent: PetalBot
+Allow: /
+Disallow: /c/
+
+User-agent: PanguBot
+Allow: /
+Disallow: /c/
+
+User-agent: TikTokSpider
+Allow: /
+Disallow: /c/
+
+User-agent: Cursor
+Allow: /
+Disallow: /c/
+
+User-agent: Devin
+Allow: /
+Disallow: /c/
+
+User-agent: Trae
+Allow: /
+Disallow: /c/
+
+User-agent: opencode
+Allow: /
+Disallow: /c/
+
+User-agent: FirecrawlAgent
+Allow: /
+Disallow: /c/
+
+User-agent: Crawl4AI
+Allow: /
+Disallow: /c/
+
+User-agent: Lightpanda
+Allow: /
+Disallow: /c/
+
+User-agent: CCBot
+Allow: /
+Disallow: /c/
+
+User-agent: AI2Bot
+Allow: /
+Disallow: /c/
+
+User-agent: Diffbot
+Allow: /
+Disallow: /c/
+
+User-agent: Diffbot-User
+Allow: /
+Disallow: /c/
+
+User-agent: ExaBot
+Allow: /
+Disallow: /c/
+
+User-agent: ExaSearchBot
+Allow: /
+Disallow: /c/
+
+User-agent: TavilyBot
+Allow: /
+Disallow: /c/
+
+User-agent: LinerBot
+Allow: /
+Disallow: /c/
+
+User-agent: PhindBot
+Allow: /
+Disallow: /c/
+
+User-agent: ImagesiftBot
+Allow: /
+Disallow: /c/
+
+User-agent: Timpibot
+Allow: /
+Disallow: /c/
+
+User-agent: Webzio-Extended
+Allow: /
+Disallow: /c/
+
+User-agent: omgili
+Allow: /
+Disallow: /c/
+
+User-agent: iAskBot
+Allow: /
+Disallow: /c/
+
+User-agent: NotebookLM
+Allow: /
+Disallow: /c/
+
+User-agent: Andibot
+Allow: /
+Disallow: /c/
+
+User-agent: WRTNBot
+Allow: /
+Disallow: /c/
+
+User-agent: SemrushBot-OCOB
+Allow: /
+Disallow: /c/
+
+User-agent: Grokbot
+Allow: /
+Disallow: /c/
+
+User-agent: Grok
+Allow: /
+Disallow: /c/
+
+User-agent: xAI-Bot
+Allow: /
+Disallow: /c/
+
+User-agent: xAI-Crawler
+Allow: /
+Disallow: /c/

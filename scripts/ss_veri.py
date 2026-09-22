@@ -17,6 +17,7 @@ D = "https://dokuman.osym.gov.tr/pdfdokuman/"
 SAYFALAR = {
     "kpss": {
         "kisa": "KPSS", "geri_sayim": "kpssa",
+        "aciklama_yeni": "KPSS Lisans çıkmış sorular PDF: 2009-2026 ÖSYM temel soru kitapçıkları ve cevap anahtarları. Son 10 yıl dahil 18 yıl, matematik ve tüm testler ücretsiz.",
         "kartlar": [
             (2009, "KPSS Lisans", D + "2009/KPSS/Lisans/2009kpsscsgenyetgenkul2.pdf"),
             (2010, "KPSS Lisans", D + "2010/KPSS/Lisans/2010kpsscsgenyetgenkul.pdf"),
@@ -76,6 +77,7 @@ SAYFALAR = {
     },
     "tyt": {
         "kisa": "TYT", "geri_sayim": "tyt",
+        "aciklama_yeni": "TYT çıkmış sorular PDF: 2018-2026 ÖSYM temel soru kitapçıkları ve cevap anahtarları. Matematik dahil tüm testler, resmî ÖSYM bağlantısıyla ücretsiz.",
         "kartlar": [
             (2018, "TYT · tam kitapçık", D + "2018/YKS/TYT_01072018.pdf"),
             (2019, "TYT · temel soru kitapçığı", D + "2019/YKS/TSK/tyt_yks_2019_web.pdf"),
@@ -90,6 +92,7 @@ SAYFALAR = {
     },
     "ayt": {
         "kisa": "AYT", "geri_sayim": "ayt",
+        "aciklama_yeni": "AYT çıkmış sorular PDF: 2018-2026 ÖSYM temel soru kitapçıkları ve cevap anahtarları. Matematik dahil tüm testler, resmî ÖSYM bağlantısıyla ücretsiz.",
         "kartlar": [
             (2018, "AYT · tam kitapçık", D + "2018/YKS/AYT_01072018.pdf"),
             (2019, "AYT · temel soru kitapçığı", D + "2019/YKS/TSK/ayt_yks_2019_web.pdf"),
@@ -104,6 +107,7 @@ SAYFALAR = {
     },
     "msu": {
         "kisa": "MSÜ", "geri_sayim": "msu",
+        "aciklama_yeni": "MSÜ çıkmış sorular PDF: 2018-2026 ÖSYM temel soru kitapçıkları ve cevap anahtarları. MSÜ matematik dahil tüm testler, resmî ÖSYM bağlantısıyla.",
         "kartlar": [
             (2018, "MSÜ · tam kitapçık", D + "2018/MSU/CS/MSUCikmissorular24072018.pdf"),
             (2019, "MSÜ · %10 kitapçık", D + "2019/MSU/internetkitapcigi07042019.pdf"),
@@ -118,6 +122,7 @@ SAYFALAR = {
     },
     "dgs": {
         "kisa": "DGS", "geri_sayim": "dgs",
+        "aciklama_yeni": "DGS çıkmış sorular PDF: 2013-2026 ÖSYM temel soru kitapçıkları ve cevap anahtarları. Sayısal ve sözel bölümler, resmî ÖSYM bağlantısıyla ücretsiz.",
         "kartlar": [
             (2013, "DGS", D + "2013/DGS/DGS_internet%20kitap%C3%A7%C4%B1%C4%9F%C4%B1.pdf"),
             (2014, "DGS", D + "2014/DGS/2014_Dgs_Soru_Kitapciklari.pdf"),

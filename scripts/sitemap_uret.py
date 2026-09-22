@@ -26,24 +26,29 @@ def yonlendirme_mi(p):
         return True
     return 'http-equiv="refresh"' in bas or "yonlendiriliyor" in bas or "404 not found" in bas
 
-urls = []
-for p in sorted(KOK.rglob("*.html")):
-    r = p.relative_to(KOK).as_posix()
-    if r.startswith(HARIC_ON_EK) or p.name in HARIC_AD or HARIC_DESEN.match(p.name):
-        continue
-    if any(x in "/" + r for x in HARIC_PARCA) or yonlendirme_mi(p):
-        continue
-    if p.name == "index.html":
-        yol = "/" if p.parent == KOK else "/" + p.parent.relative_to(KOK).as_posix() + "/"
-    else:
-        yol = "/" + r
-    urls.append(yol)
+def uret():
+    urls = []
+    for p in sorted(KOK.rglob("*.html")):
+        r = p.relative_to(KOK).as_posix()
+        if r.startswith(HARIC_ON_EK) or p.name in HARIC_AD or HARIC_DESEN.match(p.name):
+            continue
+        if any(x in "/" + r for x in HARIC_PARCA) or yonlendirme_mi(p):
+            continue
+        if p.name == "index.html":
+            yol = "/" if p.parent == KOK else "/" + p.parent.relative_to(KOK).as_posix() + "/"
+        else:
+            yol = "/" + r
+        urls.append(yol)
 
-urls = sorted(set(urls), key=lambda u: (u.count("/"), u))
-bugun = datetime.date.today().isoformat()
-xml = ['<?xml version="1.0" encoding="UTF-8"?>',
-       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-xml += [f"  <url><loc>{ALAN}{u}</loc><lastmod>{bugun}</lastmod></url>" for u in urls]
-xml.append("</urlset>")
-(KOK / "sitemap.xml").write_text("\n".join(xml) + "\n", encoding="utf-8")
-print(f"{len(urls)} adres yazildi → sitemap.xml")
+    urls = sorted(set(urls), key=lambda u: (u.count("/"), u))
+    bugun = datetime.date.today().isoformat()
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    xml += [f"  <url><loc>{ALAN}{u}</loc><lastmod>{bugun}</lastmod></url>" for u in urls]
+    xml.append("</urlset>")
+    (KOK / "sitemap.xml").write_text("\n".join(xml) + "\n", encoding="utf-8")
+    print(f"{len(urls)} adres yazildi → sitemap.xml")
+
+
+if __name__ == "__main__":
+    uret()

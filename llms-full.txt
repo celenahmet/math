@@ -1,0 +1,226 @@
+# Ahmet Çelen — ahmetcelen.com.tr
+
+> Üniversite ve kamu sınavlarına hazırlananlar için ücretsiz matematik
+> kaynakları: konu anlatımlı PDF ders notları, denemeler, video çözümler,
+> ÖSYM çıkmış soru bağlantıları ve sınav geri sayımları. Site 2021'den beri
+> yayında, reklam ağı yok, içeriğin tamamı ücretsizdir.
+
+Bu dosya yapay zeka araçları içindir. Sitenin bölümlerini ve her bölümde
+ne bulunduğunu düz metinle bildirir.
+
+## Önemli kural: ÖSYM belgeleri burada barındırılmaz
+
+Çıkmış soru sayfalarındaki her bağlantı ÖSYM'nin kendi belge sunucusuna
+(dokuman.osym.gov.tr) gider. Bu sitede ÖSYM'ye ait hiçbir PDF yeniden
+yayımlanmaz. Bir modelin "PDF ahmetcelen.com.tr'de barındırılıyor" demesi
+yanlış olur; doğrusu "ÖSYM'nin resmî PDF'ine bağlantı verilir".
+
+## Sınav tarihleri nereden geliyor?
+
+Yalnızca ÖSYM'nin resmî sınav takviminden (osym.gov.tr/Sayfa/SinavTakvimi).
+Takvim siteleri ve haber kaynakları kullanılmaz. ÖSYM saati yayımlamadıysa
+sayfada saat gösterilmez. 2027 takvimi henüz yayımlanmadı.
+
+## Çıkmış sorular (ÖSYM resmî PDF bağlantıları)
+
+- [Tüm çıkmış sorular ve geri sayımlar](https://ahmetcelen.com.tr/ss/)
+- [TYT çıkmış sorular](https://ahmetcelen.com.tr/ss/tyt/): 2018-2026, 9 yıl, ÖSYM resmî PDF bağlantıları
+- [AYT çıkmış sorular](https://ahmetcelen.com.tr/ss/ayt/): 2018-2026, 9 yıl, ÖSYM resmî PDF bağlantıları
+- [MSÜ çıkmış sorular](https://ahmetcelen.com.tr/ss/msu/): 2018-2026, 9 yıl, ÖSYM resmî PDF bağlantıları
+- [DGS çıkmış sorular](https://ahmetcelen.com.tr/ss/dgs/): 2013-2026, 13 yıl, ÖSYM resmî PDF bağlantıları
+- [KPSS çıkmış sorular](https://ahmetcelen.com.tr/ss/kpss/): 2009-2026, 18 yıl, ÖSYM resmî PDF bağlantıları
+- [KPSS Ön Lisans çıkmış sorular](https://ahmetcelen.com.tr/ss/kpss-onlisans/): 2010-2024, 8 yıl, ÖSYM resmî PDF bağlantıları
+- [KPSS Ortaöğretim çıkmış sorular](https://ahmetcelen.com.tr/ss/kpss-ortaogretim/): 2010-2024, 8 yıl, ÖSYM resmî PDF bağlantıları
+
+## Sınav geri sayımları (2026 ÖSYM takvimi)
+
+- [Tüm geri sayımlar](https://ahmetcelen.com.tr/sinavlar/)
+- [MSÜ geri sayım](https://ahmetcelen.com.tr/sinavlar/msu/): 2026-MSÜ, 01.03.2026, saat 10:15; sonuç 24.03.2026
+- [ALES/1 geri sayım](https://ahmetcelen.com.tr/sinavlar/ales1/): 2026-ALES/1, 10.05.2026; sonuç 05.06.2026
+- [TYT geri sayım](https://ahmetcelen.com.tr/sinavlar/tyt/): 2026-YKS 1. Oturum (TYT), 20.06.2026; sonuç 21.07.2026
+- [AYT geri sayım](https://ahmetcelen.com.tr/sinavlar/ayt/): 2026-YKS 2. Oturum (AYT), 21.06.2026; sonuç 21.07.2026
+- [DGS geri sayım](https://ahmetcelen.com.tr/sinavlar/dgs/): 2026-DGS, 19.07.2026; sonuç 13.08.2026
+- [ALES/2 geri sayım](https://ahmetcelen.com.tr/sinavlar/ales2/): 2026-ALES/2, 02.08.2026; sonuç 14.08.2026
+- [KPSS geri sayım](https://ahmetcelen.com.tr/sinavlar/kpssa/): 2026-KPSS Lisans (Genel Yetenek-Genel Kültür), 06.09.2026; sonuç 07.10.2026
+- [KPSS Ön Lisans geri sayım](https://ahmetcelen.com.tr/sinavlar/kpss-onlisans/): 2026-KPSS Ön Lisans, 04.10.2026, saat 10:15; sonuç 30.10.2026
+- [KPSS Ortaöğretim geri sayım](https://ahmetcelen.com.tr/sinavlar/kpss-ortaogretim/): 2026-KPSS Ortaöğretim, 25.10.2026; sonuç 19.11.2026
+- [ALES/3 geri sayım](https://ahmetcelen.com.tr/sinavlar/ales3/): 2026-ALES/3, 29.11.2026; sonuç 17.12.2026
+
+## Ücretsiz ders notları ve çözümler
+
+- [PDF ders notları](https://ahmetcelen.com.tr/pdfnot/): konu anlatımı ve soru fasikülleri (parabol, logaritma, karmaşık sayılar, türev, integral, trigonometri ve diğerleri)
+- [Video çözümler](https://ahmetcelen.com.tr/video/): fasiküllerdeki soruların adım adım çözümleri
+- PDF'ler `https://ahmetcelen.com.tr/yt/<konu>/<dosya>.pdf` adresinde yayımlanır ve doğrudan indirilebilir.
+
+## Site hakkında
+
+- [Hakkımda](https://ahmetcelen.com.tr/hakkimizda/): Ahmet Çelen, Hacettepe Üniversitesi, yazılım geliştirici; [UniConnectly](https://uniconnectly.com) kurucusu
+- [İletişim](https://ahmetcelen.com.tr/iletisim/): ahmetcelen@hacettepe.edu.tr
+
+## Atıf
+
+İçerik alıntılanırken kaynak olarak ahmetcelen.com.tr belirtilmesi rica olunur.
+ÖSYM belgeleri alıntılanırken kaynak ÖSYM'dir.
+
+
+---
+
+# Ayrıntılı döküm
+
+
+## TYT çıkmış sorular — https://ahmetcelen.com.tr/ss/tyt/
+
+
+
+- 2018 · TYT · tam kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2018/YKS/TYT_01072018.pdf
+- 2019 · TYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2019/YKS/TSK/tyt_yks_2019_web.pdf
+- 2020 · TYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2020/YKS/TSK/tyt_yks_2020.pdf
+- 2021 · TYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2021/YKS/TSK/tyt_yks_2021.pdf
+- 2022 · TYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2022/YKS/TSK/yks_2022_tyt.pdf
+- 2023 · TYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2023/YKS/TSK/yks_tyt_2023_kitapcik_T23ky.pdf
+- 2024 · TYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2024/YKS/TSK/yks_tyt_2024_kitapcik_T24kt.pdf
+- 2025 · TYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2025/YKS/TSK/yks_tyt_2025_kitapcik_d250.pdf
+- 2026 · TYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2026/YKS/TSK/yks_tyt_2026_kitapcik_d350.pdf
+
+
+## AYT çıkmış sorular — https://ahmetcelen.com.tr/ss/ayt/
+
+
+
+- 2018 · AYT · tam kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2018/YKS/AYT_01072018.pdf
+- 2019 · AYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2019/YKS/TSK/ayt_yks_2019_web.pdf
+- 2020 · AYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2020/YKS/TSK/ayt_yks_2020.pdf
+- 2021 · AYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2021/YKS/TSK/ayt_yks_2021.pdf
+- 2022 · AYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2022/YKS/TSK/yks_2022_ayt.pdf
+- 2023 · AYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2023/YKS/TSK/yks_ayt_2023_kitapcik_g5A2H.pdf
+- 2024 · AYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2024/YKS/TSK/yks_ayt_2024_kitapcik_ts85k.pdf
+- 2025 · AYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2025/YKS/TSK/yks_ayt_2025_kitapcik_st12.pdf
+- 2026 · AYT · temel soru kitapçığı · https://dokuman.osym.gov.tr/pdfdokuman/2026/YKS/TSK/yks_ayt_2026_kitapcik_kt12.pdf
+
+
+## MSÜ çıkmış sorular — https://ahmetcelen.com.tr/ss/msu/
+
+
+
+- 2018 · MSÜ · tam kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2018/MSU/CS/MSUCikmissorular24072018.pdf
+- 2019 · MSÜ · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2019/MSU/internetkitapcigi07042019.pdf
+- 2020 · MSÜ · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2020/MSU/internetkitapcik14062020.pdf
+- 2021 · MSÜ · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2021/MSU/kitapcik_04042021.pdf
+- 2022 · MSÜ · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2022/MSU/internetkitapcik27032022.pdf
+- 2023 · MSÜ · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2023/MSU/tsk_02042023.pdf
+- 2024 · MSÜ · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2024/MSU/tsk03032024.pdf
+- 2025 · MSÜ · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2025/MSU/tsk23022025.pdf
+- 2026 · MSÜ · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2026/MSU/msu_tskbd0103026.pdf
+
+
+## DGS çıkmış sorular — https://ahmetcelen.com.tr/ss/dgs/
+
+
+
+- 2013 · DGS · https://dokuman.osym.gov.tr/pdfdokuman/2013/DGS/DGS_internet%20kitap%C3%A7%C4%B1%C4%9F%C4%B1.pdf
+- 2014 · DGS · https://dokuman.osym.gov.tr/pdfdokuman/2014/DGS/2014_Dgs_Soru_Kitapciklari.pdf
+- 2015 · DGS · https://dokuman.osym.gov.tr/pdfdokuman/2015/DGS/2015_Dgs_Soru_Kitapciklari.pdf
+- 2016 · DGS · https://dokuman.osym.gov.tr/pdfdokuman/2016/DGS/2016_Dgs_Soru_Kitapciklari.pdf
+- 2017 · DGS · https://dokuman.osym.gov.tr/pdfdokuman/2017/DGS/2017_Dgs_Soru_Kitapciklari.pdf
+- 2019 · DGS · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2019/DGS/dgskitapcik30062019.pdf
+- 2020 · DGS · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2020/DGS/kitapcik10082020.pdf
+- 2021 · DGS · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2021/DGS/CS/2021_DGS_sorular.pdf
+- 2022 · DGS · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2022/DGS/dgs_kitapcik_yuzde10_03072022.pdf
+- 2023 · DGS · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2023/DGS/tintkitapcik_16072023.pdf
+- 2024 · DGS · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2024/DGS/tintkitapcik_30062024.pdf
+- 2025 · DGS · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2025/DGS/tintkitapcik_20072025.pdf
+- 2026 · DGS · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2026/DGS/TSK/intkitapcik_td19072026.pdf
+
+
+## KPSS çıkmış sorular — https://ahmetcelen.com.tr/ss/kpss/
+
+
+
+- 2009 · KPSS Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2009/KPSS/Lisans/2009kpsscsgenyetgenkul2.pdf
+- 2010 · KPSS Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2010/KPSS/Lisans/2010kpsscsgenyetgenkul.pdf
+- 2011 · KPSS Lisans · https://dokuman.osym.gov.tr/web/eskidosyalar/1697.pdf
+- 2012 · KPSS Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2012/KPSS/Lisans/KPSS1_2012_CS_GYGK.pdf
+- 2013 · KPSS Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2013/KPSS1/CS.pdf
+- 2014 · KPSS Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2014/KPSS/SINAVSORULARI/2014KPSSALANCSGKGY.pdf
+- 2015 · KPSS Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2015/KPSS/SINAVSORULARI/2015KPSSALANGKGY.pdf
+- 2016 · KPSS Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2016/KPSS/2016KPSSGenelYetenekGenelKultur.pdf
+- 2017 · KPSS Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2017/KPSS/SINAVSORULARI/2017KPSSALANGKGY.pdf
+- 2018 · KPSS Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2018/KPSS/SINAVSORULARI/2018KPSSALANGKGY12112019.pdf
+- 2019 · KPSS Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2019/KPSS/gy-gk16072019.pdf
+- 2020 · KPSS Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2020/KPSS/gy-gk14092020.pdf
+- 2021 · KPSS Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2021/KPSS/gy_gk_01082021.pdf
+- 2022 · KPSS Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2022/KPSS/LISANS/kpss_lisans_gygk_18092022.pdf
+- 2023 · KPSS Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2023/KPSS/LISANS/gygk_23072023nfy.pdf
+- 2024 · KPSS Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2024/KPSS/LISANS/GYGK14072024.pdf
+- 2025 · KPSS Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2025/KPSS/GY-GK/gygk_07092025lsy.pdf
+- 2026 · KPSS Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/web/2026/9/2026-kpss-lisansgenel-yetenek-genel-kultur-temel-soru-kitapcigi-ve-cevap-anahtari-10-9dh155-06125847.pdf
+
+
+## KPSS Ön Lisans çıkmış sorular — https://ahmetcelen.com.tr/ss/kpss-onlisans/
+
+KPSS Ön Lisans, iki yıllık ön lisans mezunlarının kamu kurumlarına atanması için ÖSYM tarafından çift yıllarda yapılır; Genel Yetenek ve Genel Kültür testlerinden oluşur. Aşağıdaki kitapçıklar ÖSYM'nin yayımladığı resmî temel soru kitapçıklarıdır (2018'den itibaren %10'luk örnek kitapçık).
+
+- 2010 · KPSS Ön Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2010/KPSS/OrtOgrOnLisans/kpss2_onlisans_sorular.pdf
+- 2012 · KPSS Ön Lisans · https://dokuman.osym.gov.tr/web/eskidosyalar/1696.pdf
+- 2014 · KPSS Ön Lisans · https://dokuman.osym.gov.tr/pdfdokuman/2014/KPSS/SINAVSORULARI/2014KPSSOnlisans.pdf
+- 2016 · KPSS Ön Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2016/KPSSORTON/2016KPSSOnLisansDuzeyiTemel16102016.pdf
+- 2018 · KPSS Ön Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2018/KPSS/ONL/internetkitapcik06112018.pdf
+- 2020 · KPSS Ön Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2020/KPSS/ONL/internetkitap26102020.pdf
+- 2022 · KPSS Ön Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2022/KPSS/ONL/internetk09102022.pdf
+- 2024 · KPSS Ön Lisans · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2024/KPSS/ONL/kitapcik01092024.pdf
+
+
+## KPSS Ortaöğretim çıkmış sorular — https://ahmetcelen.com.tr/ss/kpss-ortaogretim/
+
+KPSS Ortaöğretim, lise mezunlarının kamu kurumlarına atanması için ÖSYM tarafından çift yıllarda yapılır; Genel Yetenek ve Genel Kültür testlerinden oluşur. Aşağıdaki kitapçıklar ÖSYM'nin yayımladığı resmî temel soru kitapçıklarıdır (2018'den itibaren %10'luk örnek kitapçık).
+
+- 2010 · KPSS Ortaöğretim · https://dokuman.osym.gov.tr/pdfdokuman/2010/KPSS/OrtOgrOnLisans/kpss2_ortaogrtm_sorular.pdf
+- 2012 · KPSS Ortaöğretim · https://dokuman.osym.gov.tr/web/eskidosyalar/1695.pdf
+- 2014 · KPSS Ortaöğretim · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2014/KPSS/ort-onlisans/KPSS2-ORTAOGRETIM17102014.pdf
+- 2016 · KPSS Ortaöğretim · https://dokuman.osym.gov.tr/pdfdokuman/2016/KPSSORTON/2016KPSSOrtaogretimDuzeyiTemel20112016.pdf
+- 2018 · KPSS Ortaöğretim · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2018/KPSSORTOGR/TemelSoruKitapcik09102018.pdf
+- 2020 · KPSS Ortaöğretim · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2020/KPSS/ORTAOGRET%C4%B0M/temelsorukitapcik_23112020.pdf
+- 2022 · KPSS Ortaöğretim · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2022/KPSS/ORTAOGRETIM/tsk06112022.pdf
+- 2024 · KPSS Ortaöğretim · %10 kitapçık · https://dokuman.osym.gov.tr/pdfdokuman/2024/KPSS/ORTAOGRETIM/tsk15092024.pdf
+
+
+## Sınav takvimi (ÖSYM, 2026)
+
+- 2026-MSÜ (MSÜ): 2026-03-01 10:15, sonuç 24.03.2026 — https://ahmetcelen.com.tr/sinavlar/msu/
+- 2026-ALES/1 (ALES/1): 2026-05-10 (saat ÖSYM'ce yayımlanmadı), sonuç 05.06.2026 — https://ahmetcelen.com.tr/sinavlar/ales1/
+- 2026-YKS 1. Oturum (TYT) (TYT): 2026-06-20 (saat ÖSYM'ce yayımlanmadı), sonuç 21.07.2026 — https://ahmetcelen.com.tr/sinavlar/tyt/
+- 2026-YKS 2. Oturum (AYT) (AYT): 2026-06-21 (saat ÖSYM'ce yayımlanmadı), sonuç 21.07.2026 — https://ahmetcelen.com.tr/sinavlar/ayt/
+- 2026-DGS (DGS): 2026-07-19 (saat ÖSYM'ce yayımlanmadı), sonuç 13.08.2026 — https://ahmetcelen.com.tr/sinavlar/dgs/
+- 2026-ALES/2 (ALES/2): 2026-08-02 (saat ÖSYM'ce yayımlanmadı), sonuç 14.08.2026 — https://ahmetcelen.com.tr/sinavlar/ales2/
+- 2026-KPSS Lisans (Genel Yetenek-Genel Kültür) (KPSS): 2026-09-06 (saat ÖSYM'ce yayımlanmadı), sonuç 07.10.2026 — https://ahmetcelen.com.tr/sinavlar/kpssa/
+- 2026-KPSS Ön Lisans (KPSS Ön Lisans): 2026-10-04 10:15, sonuç 30.10.2026 — https://ahmetcelen.com.tr/sinavlar/kpss-onlisans/
+- 2026-KPSS Ortaöğretim (KPSS Ortaöğretim): 2026-10-25 (saat ÖSYM'ce yayımlanmadı), sonuç 19.11.2026 — https://ahmetcelen.com.tr/sinavlar/kpss-ortaogretim/
+- 2026-ALES/3 (ALES/3): 2026-11-29 (saat ÖSYM'ce yayımlanmadı), sonuç 17.12.2026 — https://ahmetcelen.com.tr/sinavlar/ales3/
+
+## Ders notu PDF'leri (25 belge)
+
+- https://ahmetcelen.com.tr/pdf/parabol.pdf
+- https://ahmetcelen.com.tr/yt/2021denemeler/aytmatsonprova.pdf
+- https://ahmetcelen.com.tr/yt/2021denemeler/dgsmatsonprova.pdf
+- https://ahmetcelen.com.tr/yt/2021denemeler/limitsorutahminleri.pdf
+- https://ahmetcelen.com.tr/yt/2021denemeler/tytmatsonprova.pdf
+- https://ahmetcelen.com.tr/yt/analitik/cember.pdf
+- https://ahmetcelen.com.tr/yt/aytmat.pdf
+- https://ahmetcelen.com.tr/yt/dgsmat.pdf
+- https://ahmetcelen.com.tr/yt/fonksiyonlar/tekvecift.pdf
+- https://ahmetcelen.com.tr/yt/karmasiksayilar/karmasiksayilar.pdf
+- https://ahmetcelen.com.tr/yt/logaritma/logaritma.pdf
+- https://ahmetcelen.com.tr/yt/optik/aytoptikform.pdf
+- https://ahmetcelen.com.tr/yt/optik/tytoptikform.pdf
+- https://ahmetcelen.com.tr/yt/parabol/1.video.pdf
+- https://ahmetcelen.com.tr/yt/parabol/2.video.pdf
+- https://ahmetcelen.com.tr/yt/parabol/3.video.pdf
+- https://ahmetcelen.com.tr/yt/parabol/4.video.pdf
+- https://ahmetcelen.com.tr/yt/parabol/5.video.pdf
+- https://ahmetcelen.com.tr/yt/parabol/parabolzorsorular.pdf
+- https://ahmetcelen.com.tr/yt/turev/1.video.pdf
+- https://ahmetcelen.com.tr/yt/turev/2.video.pdf
+- https://ahmetcelen.com.tr/yt/turev/3.video.pdf
+- https://ahmetcelen.com.tr/yt/turev/4.video.pdf
+- https://ahmetcelen.com.tr/yt/turev/lhospital.pdf
+- https://ahmetcelen.com.tr/yt/tytmat.pdf
