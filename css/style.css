@@ -9,20 +9,9 @@ Tag:    academy, college, coursera, courses, education, elearning, kindergarten,
 
 ********/
 /* CSS Document */
-@import url(jquery-ui.min.css);
-@import url(font-awesome.min.css);
-@import url(font-awesome-animation.min.css);
-@import url(menu.css);
-@import url(ace-responsive-menu.css);
-@import url(megadropdown.css);
-@import url(bootstrap-select.min.css);
-@import url(simplebar.min.css);
-@import url(progressbar.css);
-@import url(flaticon.css);
-@import url(animate.css);
-@import url(slider.css);
-@import url(magnific-popup.css);
-@import url(timecounter.css);
+/* 22.09.2026: 14 @import KALDIRILDI (zincirli istek; mobil FCP 5,3 sn).
+   Ayni dosyalar her sayfanin <head>'inde, bu dosyadan ONCE ve ayni
+   sirada <link> ile paralel yukleniyor. Kaynak: scripts/css_zinciri.py */
 /* 22.09.2026: @import KALDIRILDI (zincirleme istek: style.css indirilmeden
    font istegi baslamiyordu). Ayni font artik her sayfanin <head>'inde
    preconnect + display=swap ile paralel yukleniyor; kaynak:

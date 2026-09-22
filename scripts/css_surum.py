@@ -13,8 +13,11 @@
 import hashlib, pathlib, re
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
-VARLIKLAR = ["css/duzeltmeler.css", "sinavlar/js/sinav-takvimi.js", "js/uniconnectly-blok.js",
-              "js/sayfa-duzeltmeleri.js"]
+# 22.09: css/style.css listeye eklendi — icindeki 14 @import kaldirildi
+# (scripts/css_zinciri.py). Surum eki olmasa donen ziyaretcide 7 gun boyunca
+# ESKI style.css kalir, 14 dosya hem @import hem <link> ile iki kez inerdi.
+VARLIKLAR = ["css/duzeltmeler.css", "css/style.css", "sinavlar/js/sinav-takvimi.js",
+              "js/uniconnectly-blok.js", "js/sayfa-duzeltmeleri.js"]
 
 def ozet(yol):
     p = KOK / yol
