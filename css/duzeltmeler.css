@@ -500,3 +500,34 @@ nav#menu:not(.mm-menu) { height: 0 !important; overflow: hidden !important; opac
  */
 .home1-mainslider { overflow-x: hidden; }
 .home1-mainslider .row { width: calc(100% + 30px); }
+
+/* ── 21) Ana sayfada baslik cubugu ustte gorunmuyordu (22.09.2026) ────────
+ * Ahmet: "yukarida gozukmuyo ust menuler, asagi kaydirinca gozukuyo."
+ *
+ * OLCUM (elementFromPoint + kutu olculeri):
+ *   · header.header-nav YUKSEKLIGI 1 px. Icindeki logo (float:left) ve menu
+ *     (float:right) yuzen oge; kapsayici onlari icermedigi icin cokuyor.
+ *   · Yuzenler basligin disina tasiyor. `.home1-mainslider` ise kendi blok
+ *     bicimlendirme baglami (overflow-x:hidden) oldugu icin yuzenlerin
+ *     UZERINE BINEMEZ, altlarina itiliyor → ustte 79 px bos beyaz serit.
+ *   · Logo ve menu beyaz renkli oldugundan o beyaz seritte gorunmez oluyor.
+ *   · Ayrica 1 px'lik basligin `.stricky-fixed` beyaz zemini de gorunmuyor;
+ *     kaydirinca koyu yazi dogrudan hero'nun uzerine dusuyor.
+ *
+ * COZUM: baslik `display:flow-root` ile kendi yuzenlerini kapsar (1 → 80 px).
+ * Artik akista 80 px yer kapladigi icin hero ayni kadar yukari cekilir; sonuc
+ * temanin amacladigi gorunum: baslik seffaf, hero'nun UZERINDE.
+ *
+ * KAPSAM: yalniz hero tasiyan sayfalar (`body:has(.home1-mainslider)`).
+ * Ic sayfalarda kirinti bandi basligin altindan zaten dogru geciyor; oralarda
+ * `flow-root` verilirse bandin arka plan gorseli 80 px kayiyor (olculdu,
+ * piksel karsilastirmasinda %3,7 fark). `:has()` desteklemeyen eski tarayici
+ * kurali yok sayar; sonuc bugunku davranistir, daha kotusu degil.
+ *
+ * Olculen: ana sayfa ve /video/ 1280 ve 1920 px'te ilk bolumun ust kenari
+ * 79 → 0; /ss/kpss/, /iletisim/, /pdfnot/ DEGISMEDI; 760 px DEGISMEDI.
+ */
+@media (min-width: 992px) {
+  body:has(.home1-mainslider) header.header-nav.menu_style_home_one { display: flow-root; }
+  body:has(.home1-mainslider) .home1-mainslider { margin-top: -80px; }
+}
