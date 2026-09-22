@@ -39,8 +39,10 @@ BLOK = f'''{BAS}
 {SON}'''
 
 def uygula():
-    # "Mobil" sutunundaki app_grid'in kapanisindan hemen sonra ekle.
-    desen = re.compile(r'(<h4>Mobil</h4>\s*<div class="app_grid">.*?</div>\n)', re.S)
+    # "Mobil" basliginin hemen altina ekle.
+    # 22.09: eskiden capa app_grid ("Yakinda!" kutulari) idi; o blok
+    # scripts/footer_yakinda_kaldir.py ile kaldirildi, capa basliga tasindi.
+    desen = re.compile(r'(<h4>Mobil</h4>\n)')
     n = 0
     for p in sorted(KOK.rglob("*.html")):
         r = p.relative_to(KOK).as_posix()

@@ -531,3 +531,46 @@ nav#menu:not(.mm-menu) { height: 0 !important; overflow: hidden !important; opac
   body:has(.home1-mainslider) header.header-nav.menu_style_home_one { display: flow-root; }
   body:has(.home1-mainslider) .home1-mainslider { margin-top: -80px; }
 }
+
+/* ── 22) Kaydirinca baslik cubugunun beyaz zemini gorunmuyordu (22.09) ────
+ * Blok 21 ana sayfayi duzeltti; ic sayfalarda baslik hala 1 px yuksekliginde
+ * oldugu icin `.stricky-fixed`in beyaz arka plani goze carpmiyor, koyu yazi
+ * dogrudan icerigin uzerine dusuyordu.
+ *
+ * Ic sayfalarda basliga akista yukseklik VEREMEYIZ: kirinti bandinin arka
+ * plani 80 px kayiyor (olculdu, %3,7 piksel farki). Bu yuzden yukseklik
+ * yalniz KAYDIRILMIS durumda verilir ve oge `position:fixed` ile akistan
+ * cikarilir; boylece sayfa duzeni hic degismez (olculen tek fark 1 px).
+ *
+ * Kapsam `body:not(:has(.home1-mainslider))`: hero tasiyan sayfalarda baslik
+ * zaten akista 80 px (blok 21) ve hero ona gore -80 px cekilmis; orada
+ * `fixed` yapilsa hero 80 px zipliyor.
+ *
+ * Olculen: /ss/kpss/ ve /pdfnot/ kaydirilmis durumda baslik 1 → 80 px,
+ * arka plan #ffffff, kirinti bandi ustte 0 (degismedi).
+ */
+@media (min-width: 992px) {
+  body:not(:has(.home1-mainslider)) header.header-nav.menu_style_home_one.stricky-fixed {
+    display: flow-root;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+}
+
+/* ── 23) /video/ sayfasinda 15 px yatay kaydirma (22.09) ──────────────────
+ * Temanin `.row` ogeleri -15 px kenar boslugu tasir; `.container-fluid`
+ * icindeyken satir kapsayicidan 30 px genis olur. Ic bolumlerin cogunda
+ * kapsayici bunu kirpiyor, /video/ sayfasinda kirpan yok → belge 15 px
+ * yatay kayiyordu. (Bugunku degisikliklerden ONCE de vardi.)
+ *
+ * `overflow-x: hidden` KULLANILAMAZ: kaydirma kapsayicisi yaratir ve icindeki
+ * `position: sticky` basligi devre disi birakir — olculdu, baslik 600 px
+ * kaydirmada ekrandan cikiyor (top=-600). `overflow-x: clip` kaydirma
+ * kapsayicisi yaratmaz; tasma kesilir, yapiskan baslik calismaya devam eder.
+ * Desteklemeyen eski tarayici kurali yok sayar (bugunku davranis kalir).
+ *
+ * Olculen: /video/ belge genisligi 1285 → 1270; baslik kaydirmada top=0.
+ */
+.wrapper { overflow-x: clip; }
