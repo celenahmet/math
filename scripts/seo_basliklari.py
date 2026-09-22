@@ -73,7 +73,11 @@ def blok(p, yol):
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,600,700|Open+Sans&display=swap" media="print" onload="this.media=\'all\'">',
         '<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,600,700|Open+Sans&display=swap"></noscript>',
         # LCP ogesi her ic sayfada ayni: baslik bandinin arka plan gorseli.
-        '<link rel="preload" as="image" href="/images/background/inner-pagebg.jpg" fetchpriority="high">',
+        '<link rel="preload" as="image" href="/images/background/inner-pagebg.webp" fetchpriority="high" media="(min-width: 992px)">',
+        '<link rel="preload" as="image" href="/images/background/inner-pagebg-960.webp" fetchpriority="high" media="(max-width: 991px)">',
+        # Ikon fontlari kritik degil: render'i bloklamadan yuklensinler.
+        '<link rel="preload" as="style" href="/css/font-awesome.min.css" onload="this.rel=\'stylesheet\'">',
+        '<link rel="preload" as="style" href="/css/flaticon.css" onload="this.rel=\'stylesheet\'">',
         f'<link rel="canonical" href="{adres}">',
         # Uzun ozet + buyuk gorsel izni (TO). Varsayilan snippet 155-160 karakterde kesiliyor.
         '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">',

@@ -436,3 +436,20 @@
    basinda akista, kaydirinca yapisik. Sticky akistan CIKMADIGI icin kayma
    uretmez. */
 header.navbar-scrolltofixed { position: sticky; top: 0; z-index: 999; }
+
+/* ── 17) LCP gorseli: JPG yerine WebP — 22.09.2026 ─────────────────────────
+   Baslik bandi (`.inner_page_breadcrumb`) her ic sayfanin LCP ogesi.
+   Kaynak 1920x400 JPG 73 KB; ayni gorsel WebP'de 33 KB, dar ekran surumu
+   960px'de 13 KB. Tema CSS'i degistirilmiyor, yalniz uzeri yaziliyor. */
+.inner_page_breadcrumb { background-image: url(/images/background/inner-pagebg.webp); background-size: cover; }
+@media (max-width: 991px) {
+  .inner_page_breadcrumb { background-image: url(/images/background/inner-pagebg-960.webp); }
+}
+
+/* ── 18) Mobil menu kurulana kadar gizli — 22.09.2026 ──────────────────────
+   mmenu artik ilk etkilesimde kuruluyor (js/sayfa-duzeltmeleri.js). mmenu
+   kurulunca `nav#menu`yu off-canvas panele tasiyip kendi gorunurlugunu
+   yonetiyordu; ertelenince liste sayfanin icinde HAM olarak goruntulendi
+   (ekran goruntusuyle yakalandi). `.mm-menu` sinifini mmenu kurulumda
+   ekler: kurulmadan gizli, kurulunca eklentiye birakilir. */
+nav#menu:not(.mm-menu) { display: none !important; }
