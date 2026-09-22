@@ -106,7 +106,14 @@
      ana kutunun altindan basliyordu (Ahmet, 21.09 ekran goruntusu). Kutu
      2. seviye kutunun UST kenarina hizalanir (li static, ul relative), iki
      sutun ve sik satirlarla ~8 satira iner. */
-  header.header-nav.menu_style_home_one .ace-responsive-menu > li > ul.sub-menu { position: relative; }
+  /* 22.09 DUZELTME: burada `position: relative` yaziyordu. Relative
+     konumlandirma ogeyi AKISTA birakir; 1. seviye kutu acilinca basligin
+     kendisi kutunun boyu kadar uzuyordu (olculdu: baslik 80px -> 457px,
+     hero 377px asagi itiliyordu). Ayni hizalama referansi `absolute` ile
+     de elde edilir (her ikisi de konumlandirilmis ata sayilir), ustelik
+     kutu akis disinda kalir. Temanin kendi degeri de absolute'dur;
+     asagidaki satir onu yalniz acikca tekrar eder. */
+  header.header-nav.menu_style_home_one .ace-responsive-menu > li > ul.sub-menu { position: absolute; }
   header.header-nav.menu_style_home_one .ace-responsive-menu > li > ul.sub-menu > li { position: static !important; }
   header.header-nav.menu_style_home_one .ace-responsive-menu > li > ul.sub-menu > li ul.sub-menu {
     top: 0 !important;
@@ -583,3 +590,20 @@ nav#menu:not(.mm-menu) { height: 0 !important; overflow: hidden !important; opac
  * eziliyor (duzeltmeler.css en sonda yukleniyor).
  */
 .bg-img2 { background-image: url("/images/background/2.webp"); }
+
+/* ── 25) Alt menu ekran disina tasmasin (22.09) ────────────────────────
+   Blok 8'den sonra 1. seviye kutu ait oldugu maddenin SOL kenarindan
+   acilir. Menu serit icinde saga yasli oldugu icin en sagdaki maddenin
+   kutusu ekranin disina cikiyordu (olculdu: 2560px pencerede kutu
+   2382-2612, 52px tasma). Son madde icin kutu SAGA hizalanir; ucundaki
+   ok isareti de saga tasinir. */
+@media (min-width: 992px) {
+  header.header-nav.menu_style_home_one .ace-responsive-menu > li:last-child > ul.sub-menu {
+    left: auto !important;
+    right: 0 !important;
+  }
+  header.header-nav.menu_style_home_one .ace-responsive-menu > li:last-child > ul.sub-menu:before {
+    left: auto !important;
+    right: 25px !important;
+  }
+}
