@@ -165,8 +165,10 @@ h1, h2, h3, h4 {
   .bs-duzen { grid-template-columns: minmax(0, 1fr) 300px; align-items: start; }
 }
 .bs-icerik { min-width: 0; max-width: 720px; }
-.bs-baslik { font-size: 40px; font-weight: 700; margin-bottom: 14px; }
-.bs-ozet { font-size: 19.5px; line-height: 1.7; color: #475569; margin: 18px 0 26px; }
+.bs-baslik { font-size: 37px; font-weight: 700; margin-bottom: 14px; }
+/* 23.09: giris paragrafi 19,5 px'ten 18 px'e indi; govdeden (17 px)
+   ayrilsin ama one firlamasin. */
+.bs-ozet { font-size: 18px; line-height: 1.72; color: #475569; margin: 18px 0 26px; }
 .bs-ayrac { border: 0; border-top: 1px solid var(--cizgi); margin: 0 0 30px; }
 
 .bs-icerik h2 {
@@ -450,3 +452,38 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 .bs-paylas-ana { background: var(--mor) !important; border-color: var(--mor) !important; color: #fff !important; }
 .bs-paylas-ana:hover { background: var(--mor-koyu) !important; color: #fff !important; }
 .bs-paylas-kopya.bs-kopyalandi { border-color: #16a34a; color: #16a34a; }
+
+/* ── süzgeç satırları (23.09) ──────────────────────────────────────────
+   Ahmet: "sağda kategoriler ve sınavlar diye ayrı bloklar olsun."
+   Hub'da da iki eksen var: Konu ve Sınav. İkisi birlikte süzüyor (VE). */
+.bs-suzgec-satir { display: flex; align-items: flex-start; gap: 14px; padding: 4px 0; scroll-margin-top: 84px; }
+.bs-suzgec-etiket {
+  flex: none; width: 52px; padding-top: 14px;
+  font-family: Outfit, sans-serif; font-size: 12px; font-weight: 600;
+  color: var(--soluk); text-transform: uppercase; letter-spacing: .06em;
+}
+.bs-suzgec-satir .bs-suzgec { padding: 10px 0; margin: 0; flex: 1; }
+.bs-suzgec-sinav button { font-size: 13.5px; padding: 6px 13px 6px 10px; }
+.bs-suzgec-sinav .bs-ikon { width: 15px; height: 15px; }
+.bs-sinav-blok { margin-top: 22px; }
+.bs-izgara { margin-top: 18px; }
+@media (max-width: 640px) {
+  .bs-suzgec-satir { flex-direction: column; gap: 0; }
+  .bs-suzgec-etiket { width: auto; padding-top: 10px; }
+}
+
+/* yan bloktaki sayı rozeti ve henüz yazısı olmayan kategori */
+.bs-kategori-blok a, .bs-bos-kat { justify-content: flex-start; }
+.bs-kategori-blok em, .bs-bos-kat em {
+  margin-left: auto; font-style: normal; font-size: 11.5px; font-weight: 600;
+  color: var(--soluk); background: var(--cizgi-acik); border-radius: 20px; padding: 1px 8px;
+}
+.bs-bos-kat {
+  display: flex; align-items: center; gap: 9px; padding: 8px 10px;
+  color: #a8b3c2; font-size: 14px; font-weight: 500;
+}
+.bs-bos-kat .bs-ikon { width: 17px; height: 17px; }
+.bs-bos-kat em { background: transparent; color: #b6c2d2; font-size: 11px; }
+
+/* yan bloktaki bölümler arası nefes */
+.bs-yan .bs-toc { margin-top: 24px; }

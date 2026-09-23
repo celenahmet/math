@@ -40,8 +40,9 @@ KAT = blog_veri.KAT_AD
 _yt = (KOK / "css/blog-yazitipleri.css").read_text(encoding="utf-8")
 ANA_FONT = re.search(r"webfont/(inter-latin-[0-9a-f]+\.woff2)", _yt).group(1)
 
-MENU = [("Ana Sayfa", "/"), ("Ders Notları", "/pdfnot/"), ("Videolar", "/video/"),
-        ("Sınavlar", "/sinavlar/"), ("Çıkmış Sorular", "/ss/"), ("Blog", "/blog/")]
+MENU = [("Tüm Yazılar", "/blog/"), ("Konular", "/blog/#konular"),
+        ("Sınavlar", "/blog/#sinavlar"), ("Ders Notları", "/pdfnot/"),
+        ("Ana Site", "/")]
 
 
 def k(s):
@@ -98,7 +99,7 @@ def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=
     adres = ALAN + yol
     og = ALAN + (gorsel or "/blog/kapak/fonksiyonlar-konu-anlatimi.avif")
     menu = "".join(
-        f'<a href="{u}"{" class=\"etkin\"" if u == "/blog/" else ""}>{k(a)}</a>'
+        f'<a href="{u}"{" class=\"etkin\"" if u == "/blog/" and yol == "/blog/" else ""}>{k(a)}</a>'
         for a, u in MENU)
     robots = ("noindex, follow" if taslak else
               "index, follow, max-snippet:-1, max-image-preview:large")
@@ -241,8 +242,9 @@ def yazi_govde(y, digerleri):
   </article>
   <aside class="bs-yan">
     {blog_yan.uc_karti("blog-" + y["slug"])}
-    <nav class="bs-toc" aria-label="İçindekiler"><p class="bs-yan-baslik">İçindekiler</p><ol>{toc}</ol></nav>
     {blog_yan.kategori_blogu(y["kategori"])}
+    {blog_yan.sinav_blogu(y.get("sinavlar"))}
+    <nav class="bs-toc" aria-label="İçindekiler"><p class="bs-yan-baslik">İçindekiler</p><ol>{toc}</ol></nav>
   </aside>
 </div>
 '''
@@ -257,18 +259,26 @@ def hub_govde(yazilar):
     suzgec = ('<button data-kat="*" aria-pressed="true">Tümü</button>'
               + "".join(f'<button data-kat="{a}" aria-pressed="false" style="--kat:{r}">'
                         + ikon(i) + k(ad) + "</button>" for a, ad, i, r in kullanilan))
-    kartlar = "".join(f'''<article class="bs-kart" data-kat="{k(y["kategori"])}" style="--kat:{blog_veri.KAT_RENK.get(y["kategori"], "#1860f0")}">
+    kartlar = "".join(f'''<article class="bs-kart" data-kat="{k(y["kategori"])}" data-sinav="{k(" ".join(str(x).lower() for x in y.get("sinavlar", [])))}" style="--kat:{blog_veri.KAT_RENK.get(y["kategori"], "#1860f0")}">
         {kat_rozet(y["kategori"])}
         <h2><a href="/blog/{k(y["slug"])}/">{k(y["baslik"])}</a></h2>
         <p>{k(y["aciklama"])}</p>
         <p class="bs-kunye">{"".join(f'<span class="bs-rozet">{k(s)}</span>' for s in y.get("sinavlar", []))}<time datetime="{k(y["tarih"])}">{tr_tarih(y["tarih"])}</time> · {okuma_dk(y)} dk</p>
       </article>''' for y in yazilar)
+    sinav_suzgec = ('<button data-sinav="*" aria-pressed="true">Tüm sınavlar</button>'
+                    + "".join(f'<button data-sinav="{a}" aria-pressed="false" style="--kat:{r}">'
+                              + ikon("sinavda") + k(ad) + "</button>"
+                              for a, ad, r in blog_veri.SINAVLAR))
     return f'''
 <div class="kap bs-hero">
   <h1>Matematik Konu Anlatımı</h1>
   <p>Üniversite ve kamu sınavlarına hazırlananlar için baştan sona konu anlatımı, hap bilgiler ve çözümlü örnekler. Tamamı ücretsiz.</p>
 </div>
-<div class="kap"><div class="bs-suzgec">{suzgec}</div><div class="bs-izgara">{kartlar}</div></div>
+<div class="kap">
+  <div class="bs-suzgec-satir" id="konular"><span class="bs-suzgec-etiket">Konu</span><div class="bs-suzgec">{suzgec}</div></div>
+  <div class="bs-suzgec-satir" id="sinavlar"><span class="bs-suzgec-etiket">Sınav</span><div class="bs-suzgec bs-suzgec-sinav">{sinav_suzgec}</div></div>
+  <div class="bs-izgara">{kartlar}</div>
+</div>
 '''
 
 

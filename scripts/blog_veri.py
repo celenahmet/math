@@ -41,6 +41,18 @@ KAT_AD = {a: ad for a, ad, _, _ in KATEGORILER}
 KAT_IKON = {a: i for a, _, i, _ in KATEGORILER}
 KAT_RENK = {a: r for a, _, _, r in KATEGORILER}
 
+# Sinav ekseni. Ayni konu uc sinavda farkli derinlikte soruluyor; ogrenci
+# hangi sinava calisiyorsa oradan girsin diye kategoriden AYRI bir eksen.
+# (Ahmet 23.09: "sagda kategoriler ve sinavlar diye ayri bloklar olsun".)
+SINAVLAR = [
+    ("tyt", "TYT", "#1860f0"),
+    ("ayt", "AYT", "#6d28d9"),
+    ("ales", "ALES", "#0f766e"),
+    ("kpss", "KPSS", "#c2410c"),
+]
+SINAV_AD = {a: ad for a, ad, _ in SINAVLAR}
+SINAV_RENK = {a: r for a, _, r in SINAVLAR}
+
 def _yukle():
     out = []
     for p in sorted((KOK / "scripts/yazilar").glob("[0-9]*.py")):

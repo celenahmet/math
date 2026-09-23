@@ -184,28 +184,56 @@
     }
   }
 
-  // 3) hub: kategori suzgeci
-  var suzgec = document.querySelector('.bs-suzgec');
-  if (suzgec) {
-    // Sag bloktaki kategori baglantilari /blog/#<anahtar> adresine gidiyor;
-    // hub acilinca o kategori secili gelsin diye adres parcasi okunuyor.
+  // 3) hub: iki eksenli suzgec (Konu VE Sinav)
+  //
+  // Ahmet (23.09): "sagda kategoriler ve sinavlar diye ayri bloklar olsun."
+  // Yan bloktaki baglantilar /blog/#<kategori> ve /blog/#sinav-<ad>
+  // adreslerine gidiyor; hub acilinca adres parcasi okunup ilgili dugme
+  // tiklaniyor, boylece baglanti gercekten bir ise yariyor.
+  var satirlar = [].slice.call(document.querySelectorAll('.bs-suzgec'));
+  if (satirlar.length) {
+    var kartlar = [].slice.call(document.querySelectorAll('.bs-kart'));
+    var secim = { kat: '*', sinav: '*' };
+
+    function suz() {
+      var gorunen = 0;
+      kartlar.forEach(function (kart) {
+        var katUyar = secim.kat === '*' || kart.getAttribute('data-kat') === secim.kat;
+        var sinavlar = (kart.getAttribute('data-sinav') || '').split(/\s+/);
+        var sinavUyar = secim.sinav === '*' || sinavlar.indexOf(secim.sinav) !== -1;
+        var ac = katUyar && sinavUyar;
+        kart.hidden = !ac;
+        if (ac) { gorunen++; }
+      });
+      var bos = document.querySelector('.bs-suzgec-bos');
+      if (bos) { bos.hidden = gorunen !== 0; }
+    }
+
+    satirlar.forEach(function (satir) {
+      satir.addEventListener('click', function (e) {
+        var d = e.target.closest('button');
+        if (!d) { return; }
+        var eksen = d.hasAttribute('data-sinav') ? 'sinav' : 'kat';
+        secim[eksen] = d.getAttribute('data-' + (eksen === 'sinav' ? 'sinav' : 'kat'));
+        [].forEach.call(satir.querySelectorAll('button'), function (b) {
+          b.setAttribute('aria-pressed', String(b === d));
+        });
+        suz();
+      });
+    });
+
     var parcaSec = function () {
       var p = (location.hash || '').replace('#', '');
-      var d = p && suzgec.querySelector('[data-kat="' + p.replace(/"/g, '') + '"]');
-      if (d) { d.click(); }
+      if (!p) { return; }
+      var d;
+      if (p.indexOf('sinav-') === 0) {
+        d = document.querySelector('[data-sinav="' + p.slice(6).replace(/"/g, '') + '"]');
+      } else {
+        d = document.querySelector('[data-kat="' + p.replace(/"/g, '') + '"]');
+      }
+      if (d) { d.click(); }   // "konular" / "sinavlar" gibi capa adlari eslesmez, yoksayilir
     };
     parcaSec();
     addEventListener('hashchange', parcaSec);
-    suzgec.addEventListener('click', function (e) {
-      var d = e.target.closest('button');
-      if (!d) return;
-      var secilen = d.getAttribute('data-kat');
-      [].forEach.call(suzgec.querySelectorAll('button'), function (b) {
-        b.setAttribute('aria-pressed', String(b === d));
-      });
-      [].forEach.call(document.querySelectorAll('.bs-kart'), function (kart) {
-        kart.hidden = !(secilen === '*' || kart.getAttribute('data-kat') === secilen);
-      });
-    });
   }
 })();

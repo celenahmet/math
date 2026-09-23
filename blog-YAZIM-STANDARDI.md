@@ -107,3 +107,29 @@ yazılır: bir bilgi sorgulanırsa nereden geldiğini gösterebilelim.
 - Yayımlanan `slug`, `<title>` ve `<h1>` **değiştirilmez**; arama
   birikimi oradan gelir. Düzeltme gerekiyorsa gövdeye yapılır.
 - Güncelleme yapılınca `guncelleme` alanı doldurulur.
+
+## 8. Arayüz metni üslubu
+
+Ahmet (23.09): *"paylaş kısmını da 'bu yazı işine yaradıysa' yazmak
+yerine daha uygun üslup tercih edelim."*
+
+Sayfadaki düğme, başlık ve kısa açıklamalar **yalvarmaz, pazarlamaz**.
+
+| Kaçın | Yerine |
+|---|---|
+| "Bu yazı işine yaradıysa paylaş" | "Bu yazıyı paylaş" |
+| "Beğendiyseniz lütfen paylaşın" | "Paylaş" |
+| "Harika bir kaynak!" | (hiç yazma) |
+| "Hemen keşfet!" | "Keşfet" |
+
+Kurallar:
+
+- **Okurun yararını varsayma.** "İşine yaradıysa", "faydalandıysan" gibi
+  ifadeler okura bir borç yükler.
+- **Düz emir kipi yeter.** "Paylaş", "İndir", "Keşfet".
+- **Ünlem yok.** Heyecanı metin değil içerik taşır.
+- **Abartı sıfat yok.** "Harika", "muhteşem", "en iyi" yazılmaz.
+- Uzun tire (—) kullanılmaz.
+
+⚠️ Okura dönük metnin son hâli **Ahmet'in kararıdır**. Ajan varsayılan bir
+metin koyar ve bunu açıkça söyler; Ahmet değiştirir.

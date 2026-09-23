@@ -10,7 +10,7 @@
 <link rel="icon" href="/images/favicon.ico" sizes="128x128">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/webfont/inter-latin-e3634157.woff2" crossorigin>
 <link rel="stylesheet" href="/css/blog-yazitipleri.css">
-<link rel="stylesheet" href="/css/blog.css?v=e255e3d3">
+<link rel="stylesheet" href="/css/blog.css?v=d3dd3f7e">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ahmet Çelen">
@@ -33,7 +33,7 @@
       <img src="/blog/kapak/ac-monogram.avif" alt="" width="34" height="26" decoding="async">
       <span>Ahmet Çelen</span>
     </a>
-    <nav class="bs-menu"><a href="/">Ana Sayfa</a><a href="/pdfnot/">Ders Notları</a><a href="/video/">Videolar</a><a href="/sinavlar/">Sınavlar</a><a href="/ss/">Çıkmış Sorular</a><a href="/blog/" class="etkin">Blog</a>
+    <nav class="bs-menu"><a href="/blog/" class="etkin">Tüm Yazılar</a><a href="/blog/#konular">Konular</a><a href="/blog/#sinavlar">Sınavlar</a><a href="/pdfnot/">Ders Notları</a><a href="/">Ana Site</a>
       <button type="button" class="bs-ara" id="search-button" aria-label="Sitede ara">Ara <kbd>/</kbd></button>
     </nav>
   </div>
@@ -44,12 +44,16 @@
   <h1>Matematik Konu Anlatımı</h1>
   <p>Üniversite ve kamu sınavlarına hazırlananlar için baştan sona konu anlatımı, hap bilgiler ve çözümlü örnekler. Tamamı ücretsiz.</p>
 </div>
-<div class="kap"><div class="bs-suzgec"><button data-kat="*" aria-pressed="true">Tümü</button><button data-kat="fonksiyonlar" aria-pressed="false" style="--kat:#1860f0"><svg class="bs-ikon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8.5" y="8.5" width="7" height="7" rx="1.6"/><path d="M2.5 12h6"/><path d="M15.5 12h6"/><path d="M19.2 9.7 21.5 12l-2.3 2.3"/></svg>Fonksiyonlar</button></div><div class="bs-izgara"><article class="bs-kart" data-kat="fonksiyonlar" style="--kat:#1860f0">
+<div class="kap">
+  <div class="bs-suzgec-satir" id="konular"><span class="bs-suzgec-etiket">Konu</span><div class="bs-suzgec"><button data-kat="*" aria-pressed="true">Tümü</button><button data-kat="fonksiyonlar" aria-pressed="false" style="--kat:#1860f0"><svg class="bs-ikon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8.5" y="8.5" width="7" height="7" rx="1.6"/><path d="M2.5 12h6"/><path d="M15.5 12h6"/><path d="M19.2 9.7 21.5 12l-2.3 2.3"/></svg>Fonksiyonlar</button></div></div>
+  <div class="bs-suzgec-satir" id="sinavlar"><span class="bs-suzgec-etiket">Sınav</span><div class="bs-suzgec bs-suzgec-sinav"><button data-sinav="*" aria-pressed="true">Tüm sınavlar</button><button data-sinav="tyt" aria-pressed="false" style="--kat:#1860f0"><svg class="bs-ikon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3.6h10a1.4 1.4 0 0 1 1.4 1.4v14a1.4 1.4 0 0 1-1.4 1.4H7A1.4 1.4 0 0 1 5.6 19V5A1.4 1.4 0 0 1 7 3.6z"/><path d="M9 8.4h6"/><path d="M9 12h6"/><path d="M9 15.6h3.5"/></svg>TYT</button><button data-sinav="ayt" aria-pressed="false" style="--kat:#6d28d9"><svg class="bs-ikon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3.6h10a1.4 1.4 0 0 1 1.4 1.4v14a1.4 1.4 0 0 1-1.4 1.4H7A1.4 1.4 0 0 1 5.6 19V5A1.4 1.4 0 0 1 7 3.6z"/><path d="M9 8.4h6"/><path d="M9 12h6"/><path d="M9 15.6h3.5"/></svg>AYT</button><button data-sinav="ales" aria-pressed="false" style="--kat:#0f766e"><svg class="bs-ikon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3.6h10a1.4 1.4 0 0 1 1.4 1.4v14a1.4 1.4 0 0 1-1.4 1.4H7A1.4 1.4 0 0 1 5.6 19V5A1.4 1.4 0 0 1 7 3.6z"/><path d="M9 8.4h6"/><path d="M9 12h6"/><path d="M9 15.6h3.5"/></svg>ALES</button><button data-sinav="kpss" aria-pressed="false" style="--kat:#c2410c"><svg class="bs-ikon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3.6h10a1.4 1.4 0 0 1 1.4 1.4v14a1.4 1.4 0 0 1-1.4 1.4H7A1.4 1.4 0 0 1 5.6 19V5A1.4 1.4 0 0 1 7 3.6z"/><path d="M9 8.4h6"/><path d="M9 12h6"/><path d="M9 15.6h3.5"/></svg>KPSS</button></div></div>
+  <div class="bs-izgara"><article class="bs-kart" data-kat="fonksiyonlar" data-sinav="tyt ayt ales kpss" style="--kat:#1860f0">
         <span class="bs-etiket" style="--kat:#1860f0"><svg class="bs-ikon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8.5" y="8.5" width="7" height="7" rx="1.6"/><path d="M2.5 12h6"/><path d="M15.5 12h6"/><path d="M19.2 9.7 21.5 12l-2.3 2.3"/></svg>Fonksiyonlar</span>
         <h2><a href="/blog/fonksiyonlar-konu-anlatimi/">Fonksiyonlar Konu Anlatımı</a></h2>
         <p>Fonksiyon nedir, tanım ve görüntü kümesi, birebir ve örten fonksiyonlar, bileşke ve ters fonksiyon: baştan sona konu anlatımı.</p>
         <p class="bs-kunye"><span class="bs-rozet">TYT</span><span class="bs-rozet">AYT</span><span class="bs-rozet">ALES</span><span class="bs-rozet">KPSS</span><time datetime="2026-09-23">23 Eylül 2026</time> · 11 dk</p>
-      </article></div></div>
+      </article></div>
+</div>
 
 </main>
 <footer class="bs-alt">
@@ -67,6 +71,6 @@
   </div>
 </div>
 <script src="/js/arama.js?v=56194ccb"></script>
-<script src="/js/blog.js?v=6ac72841"></script>
+<script src="/js/blog.js?v=81471eb4"></script>
 </body>
 </html>
