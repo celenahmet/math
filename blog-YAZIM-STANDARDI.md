@@ -175,3 +175,35 @@ değil (bkz. `scripts/blog_gorsel.py`).
   soru varsa `FAQPage`
 - Formüller MathML, yani **metin**: arama motoru okuyor
 - Metinsiz bağlantı bırakılmaz; ikon bağlantısına `aria-label`
+
+## 10. İfade ile açıklama ayrı satırda
+
+Stajyer geri bildirimi (23.09), Ahmet onayladı: *"blog kısmını bu şekilde
+revizeleri uyguladıktan sonra bitiriyoruz; bu formatta yazacağız."*
+
+Bir kutunun içinde **veri / ifade / kural** ile **yorum / açıklama / soru**
+aynı cümlede birleştirilmez. Her biri kendi satırında (kendi paragrafında)
+durur. Göz önce veriyi, sonra ne yapılacağını ayrı ayrı görür.
+
+| Yanlış | Doğru |
+|---|---|
+| "$s(A)=3$ ve $s(B)=4$ olsun. $A$ dan $B$ ye kaç fonksiyon tanımlanabilir?" | "$s(A)=3$ ve $s(B)=4$ olsun." ↵ "$A$ dan $B$ ye kaç fonksiyon tanımlanabilir?" |
+| "Dikey doğru testi: fonksiyon mu? Yatay doğru testi: birebir mi? İkisini karıştırma." | "Dikey doğru testi: fonksiyon mu?" ↵ "Yatay doğru testi: birebir mi?" ↵ "İkisini karıştırma." |
+| "Kök içi için $\geq 0$ yazılır. Bu ikisi sık karıştırılır." | "Kök içi için $\geq 0$ yazılır." ↵ "Bu ikisi sık karıştırılır." |
+
+Uygulama: kutu yardımcıları (`hap`, `ornek`, `dikkat`, `onkosul`,
+`sinavda`) her argümanı ayrı paragraf yapar. **Veri bir argüman, soru
+ya da yorum ayrı argüman.**
+
+Örnek kutusunda sıra her zaman: **verilenler → soru → çözüm adımları.**
+
+### Dil düzeltmesi
+
+"Bu yazıyı rahat okumak için" değil, **"Bu yazıyı daha rahat anlamak
+için"**: amaç okumak değil anlamak.
+
+## 11. Kontrol listesi tamamlanınca
+
+On maddenin hepsi işaretlenince listenin altında yeşil bir tebrik satırı
+çıkar: *"Tebrikler, bu konunun kontrol listesini tamamladın."* (metin
+varsayılan; son hâli Ahmet'in).

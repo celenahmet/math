@@ -18,15 +18,15 @@ YAZI = {
     "bolumler": [
         {"baslik": "Fonksiyon nedir?", "icerik": [
             onkosul(
-                "Bu yazıyı rahat okumak için küme kavramını (eleman, alt küme, kesişim) ve koordinat düzleminde nokta işaretlemeyi biliyor olman yeterli. Denklem çözmeyi biliyorsan ters fonksiyon bölümü de kolay gelir."),
+                "Bu yazıyı daha rahat anlamak için küme kavramını (eleman, alt küme, kesişim) ve koordinat düzleminde nokta işaretlemeyi biliyor olman yeterli.", "Denklem çözmeyi biliyorsan ters fonksiyon bölümü de kolay gelir."),
             "Bir fonksiyonu anlamanın en kolay yolu onu bir <strong>makine</strong> gibi düşünmektir. Makineye bir değer verirsin, makine sana tek bir değer döndürür. Aynı değeri tekrar verdiğinde yine aynı cevabı alırsın; makine keyfine göre bazen şunu bazen bunu vermez.",
             "Matematikte bu fikir şöyle yazılır: $A$ ve $B$ iki boş olmayan küme olsun. $A$ kümesinin <strong>her</strong> elemanını, $B$ kümesinin <strong>bir ve yalnız bir</strong> elemanına eşleyen kurala $A$ dan $B$ ye fonksiyon denir ve $f:A \\to B$ yazılır.",
             "Tanımın içinde iki ayrı şart saklı ve sınavda sorulan da genellikle bu iki şart:",
             "<ul><li><strong>Açıkta eleman kalmaz.</strong> $A$ kümesinde eşleşmemiş tek bir eleman bile varsa bu bir fonksiyon değildir.</li><li><strong>Bir elemanın iki görüntüsü olmaz.</strong> $A$ daki bir eleman $B$ deki iki farklı elemana birden gidiyorsa yine fonksiyon değildir.</li></ul>",
             "Tersi serbesttir: $B$ tarafında açıkta eleman kalabilir, $B$ deki bir elemana $A$ dan birden fazla ok gelebilir. Bunların ikisi de fonksiyonluğu bozmaz.",
-            hap("Fonksiyon olma şartı yalnızca <strong>çıkış tarafında</strong> aranır: her $x$ in tam bir $f(x)$ i olacak. Giriş tarafında ne olduğu fonksiyonluğu bozmaz."),
+            hap("Fonksiyon olma şartı yalnızca <strong>çıkış tarafında</strong> aranır: her $x$ in tam bir $f(x)$ i olacak.", "Giriş tarafında ne olduğu fonksiyonluğu bozmaz."),
             dikkat(
-                "Türkçede \"her elemanın bir görüntüsü var\" cümlesi kulağa \"en az bir\" gibi geliyor. Matematikte burada kastedilen <strong>tam olarak bir</strong> tanedir. $f(2)=5$ ve $f(2)=7$ aynı anda olamaz."),
+                "Türkçede \"her elemanın bir görüntüsü var\" cümlesi kulağa \"en az bir\" gibi geliyor. Matematikte burada kastedilen <strong>tam olarak bir</strong> tanedir.", "$f(2)=5$ ve $f(2)=7$ aynı anda olamaz."),
         ]},
         {"baslik": "Tanım kümesi, değer kümesi, görüntü kümesi", "icerik": [
             "$f:A \\to B$ fonksiyonunda üç küme konuşuruz ve üçünü karıştırmak sınavda en pahalı hatalardan biridir.",
@@ -45,17 +45,17 @@ YAZI = {
             ]),
             "Tek dereceden kökte (küp kök gibi) kısıt yoktur; negatif sayının küp kökü tanımlıdır.",
             ornek(
-                "$f(x)=\\dfrac{\\sqrt{x-2}}{x-5}$ fonksiyonunun en geniş tanım kümesini bulalım.",
+                "$f(x)=\\dfrac{\\sqrt{x-2}}{x-5}$ olsun.", "Bu fonksiyonun en geniş tanım kümesini bulalım.",
                 "Kök içi sıfır ya da pozitif olmalı: $x-2 \\geq 0 \\Rightarrow x \\geq 2$.",
                 "Payda sıfır olmamalı: $x-5 \\neq 0 \\Rightarrow x \\neq 5$.",
                 "İkisi birlikte: tanım kümesi $[2,5) \\cup (5,\\infty)$ dur."),
             dikkat(
-                "Kök içi için $> 0$ değil $\\geq 0$ yazılır; $\\sqrt{0}=0$ tanımlıdır. Payda içinse eşitlik yasaktır. Bu ikisi sık karıştırılır."),
+                "Kök içi için $> 0$ değil $\\geq 0$ yazılır; $\\sqrt{0}=0$ tanımlıdır. Payda içinse eşitlik yasaktır.", "Bu ikisi sık karıştırılır."),
         ]},
         {"baslik": "Bir eşleme ne zaman fonksiyon değildir?", "icerik": [
             "Şema olarak verilen bir eşlemede iki şeye bakarsın: açıkta kalan eleman var mı, çift ok çıkan eleman var mı. Grafikte ise aynı kontrolün adı <strong>dikey doğru testi</strong>dir.",
             "Grafiğin üzerinden geçen her dikey doğru, grafiği <strong>en fazla bir</strong> noktada kesiyorsa bu bir fonksiyon grafiğidir. İki noktada kesiyorsa aynı $x$ e iki farklı $y$ düşüyor demektir ve fonksiyon değildir.",
-            hap("<strong>Dikey doğru testi:</strong> fonksiyon mu? <br><strong>Yatay doğru testi:</strong> birebir mi? İkisini karıştırma."),
+            hap("<strong>Dikey doğru testi:</strong> fonksiyon mu?<br><strong>Yatay doğru testi:</strong> birebir mi?", "İkisini karıştırma."),
             "Örneğin merkezi orijinde olan bir çember, $y$ ekseni yönünde iki değer ürettiği için fonksiyon grafiği değildir. Ama çemberin yalnız üst yarısı fonksiyondur.",
         ]},
         {"baslik": "Fonksiyon çeşitleri: birebir, örten, içine", "icerik": [
@@ -63,7 +63,7 @@ YAZI = {
             "Farklı girişler farklı çıkışlar veriyorsa fonksiyon <strong>birebir</strong>dir. Simgeyle: $x_1 \\neq x_2 \\Rightarrow f(x_1) \\neq f(x_2)$.",
             "Sınavda bunu genelde ters yönden kullanmak daha kolaydır: $f(x_1)=f(x_2)$ olduğunu varsay, buradan $x_1=x_2$ çıkıyorsa fonksiyon birebirdir.",
             ornek(
-                "$f(x)=3x-5$ birebir midir?",
+                "$f(x)=3x-5$ olsun.", "Bu fonksiyon birebir midir?",
                 "$f(x_1)=f(x_2)$ diyelim: $3x_1-5 = 3x_2-5$.",
                 "Her iki tarafa $5$ ekleyip $3$ e bölersek $x_1=x_2$ bulunur. Öyleyse $f$ birebirdir."),
             "<h3>Örten fonksiyon</h3>",
@@ -87,14 +87,14 @@ YAZI = {
             ]),
             "Mantığı şudur: $A$ nın her elemanı için $B$ den bağımsız bir seçim yaparız, bu yüzden $n \\cdot n \\cdots n = n^m$ olur. Birebirde ise seçilen her eleman havuzdan düşer: $n(n-1)(n-2)\\cdots$ diye gider.",
             ornek(
-                "$s(A)=3$ ve $s(B)=4$ olsun. $A$ dan $B$ ye kaç fonksiyon tanımlanabilir, bunların kaçı birebirdir?",
+                "$s(A)=3$ ve $s(B)=4$ olsun.", "$A$ dan $B$ ye kaç fonksiyon tanımlanabilir, bunların kaçı birebirdir?",
                 "Tüm fonksiyonlar: $4^3 = 64$.",
                 "Birebir olanlar: ilk eleman için $4$, ikinci için $3$, üçüncü için $2$ seçenek kalır; $4 \\cdot 3 \\cdot 2 = 24$.",
                 "Bu $24$ sayısı $\\dfrac{4!}{(4-3)!} = \\dfrac{24}{1}$ ile de bulunur."),
             "Örten fonksiyon sayısı için doğrudan bir çarpım yoktur; içerme-dışarma ilkesi kullanılır:",
             "$$\\sum_{k=0}^{n} (-1)^k \\binom{n}{k} (n-k)^m$$",
             "Bu formül sınavda nadiren gerekir; küçük kümelerde örtenleri doğrudan saymak genellikle daha hızlıdır. Örneğin $s(A)=3$, $s(B)=2$ için tüm fonksiyonlar $2^3=8$, bunlardan ikisi sabit olduğu için örtenler $8-2=6$ tanedir.",
-            hap("$A$ dan $B$ ye fonksiyon sayısı $n^m$ dir; <strong>üs tanım kümesinin eleman sayısıdır</strong>. Hangi sayının üste çıkacağı en sık yapılan karışıklıktır."),
+            hap("$A$ dan $B$ ye fonksiyon sayısı $n^m$ dir; <strong>üs tanım kümesinin eleman sayısıdır</strong>.", "Hangi sayının üste çıkacağı en sık yapılan karışıklıktır."),
         ]},
         {"baslik": "Özel fonksiyonlar", "icerik": [
             "<ul>"
@@ -105,7 +105,7 @@ YAZI = {
             "<li><strong>Parçalı fonksiyon:</strong> tanım kümesinin farklı aralıklarında farklı kuralla tanımlanan fonksiyon.</li>"
             "</ul>",
             dikkat(
-                "$f(x)=|x|$ fonksiyonu $\\mathbb{R} \\to \\mathbb{R}$ olarak <strong>birebir değildir</strong>: $f(-3)=f(3)=3$. Bu yüzden tersi de yoktur. Mutlak değerin tersini almaya çalışmak sık görülen bir hatadır."),
+                "$f(x)=|x|$ fonksiyonu $\\mathbb{R} \\to \\mathbb{R}$ olarak <strong>birebir değildir</strong>: $f(-3)=f(3)=3$.", "Bu yüzden tersi de yoktur. Mutlak değerin tersini almaya çalışmak sık görülen bir hatadır."),
             ornek(
                 "Parçalı bir örnek alalım: $x \\geq 0$ için $f(x)=x^2$, $x<0$ için $f(x)=-x$ olsun.",
                 "$f(3)$ için $3 \\geq 0$ olduğundan birinci kural geçerlidir: $f(3)=9$.",
@@ -116,12 +116,12 @@ YAZI = {
             "İki fonksiyonun eşit sayılması için kurallarının aynı görünmesi yetmez. $f=g$ diyebilmek için iki şart birden gerekir:",
             "<ul><li>Tanım kümeleri aynı olmalı.</li><li>Tanım kümesindeki <strong>her</strong> $x$ için $f(x)=g(x)$ olmalı.</li></ul>",
             ornek(
-                "$f(x)=\\dfrac{x^2-1}{x-1}$ ve $g(x)=x+1$ fonksiyonları eşit midir?",
+                "$f(x)=\\dfrac{x^2-1}{x-1}$ ve $g(x)=x+1$ olsun.", "Bu iki fonksiyon eşit midir?",
                 "Sadeleştirince $f(x)$ de $x+1$ gibi görünür, ama $f$ in tanım kümesinde $x=1$ <strong>yoktur</strong>; payda sıfır olur.",
                 "$g$ ise $x=1$ için tanımlıdır ve $g(1)=2$ değerini alır.",
                 "Tanım kümeleri farklı olduğu için bu iki fonksiyon eşit değildir. Ancak $x \\neq 1$ için değerleri aynıdır."),
             dikkat(
-                "Sadeleştirme tanım kümesini değiştirmez. Bir ifadeyi sadeleştirdiğinde, sadeleşen çarpanın sıfır yaptığı değer tanım kümesinden çıkmış olarak kalır. Bu, limit ve süreklilik konularında karşına tekrar çıkacak."),
+                "Sadeleştirme tanım kümesini değiştirmez. Bir ifadeyi sadeleştirdiğinde, sadeleşen çarpanın sıfır yaptığı değer tanım kümesinden çıkmış olarak kalır.", "Bu, limit ve süreklilik konularında karşına tekrar çıkacak."),
         ]},
         {"baslik": "Fonksiyonlarda dört işlem", "icerik": [
             "İki fonksiyon toplanabilir, çıkarılabilir, çarpılabilir ve bölünebilir. Kural beklendiği gibidir:",
@@ -129,7 +129,7 @@ YAZI = {
             "$$(f \\cdot g)(x) = f(x) \\cdot g(x)$$",
             "$$\\left(\\frac{f}{g}\\right)(x) = \\frac{f(x)}{g(x)}$$",
             "Asıl dikkat edilecek yer sonuçların <strong>tanım kümesi</strong>dir. Toplam, fark ve çarpımda yeni tanım kümesi iki fonksiyonun tanım kümelerinin kesişimidir. Bölmede buna bir şart daha eklenir: $g(x) \\neq 0$.",
-            hap("$f+g$, $f-g$ ve $f \\cdot g$ için tanım kümesi $A_f \\cap A_g$ dir. $\\dfrac{f}{g}$ için ayrıca $g(x) \\neq 0$ şartı aranır."),
+            hap("$f+g$, $f-g$ ve $f \\cdot g$ için tanım kümesi $A_f \\cap A_g$ dir.", "$\\dfrac{f}{g}$ için ayrıca $g(x) \\neq 0$ şartı aranır."),
         ]},
         {"baslik": "Bileşke fonksiyon", "icerik": [
             "İki makineyi arka arkaya bağladığını düşün: birinin çıkışı ötekinin girişi olsun. Bu birleşime <strong>bileşke</strong> denir.",
@@ -147,9 +147,9 @@ YAZI = {
             "<li><strong>Birim fonksiyon etkisizdir:</strong> $f \\circ I = I \\circ f = f$.</li>"
             "</ul>",
             dikkat(
-                "$f \\circ g \\neq g \\circ f$ olması <strong>her zaman farklı</strong> demek değildir; bazı özel fonksiyonlarda eşit olabilirler. Doğru ifade şudur: genel olarak eşit olmak zorunda değillerdir."),
+                "$f \\circ g \\neq g \\circ f$ olması <strong>her zaman farklı</strong> demek değildir; bazı özel fonksiyonlarda eşit olabilirler.", "Doğru ifade şudur: genel olarak eşit olmak zorunda değillerdir."),
             ornek(
-                "$f(x)=3x-2$ ve $(f \\circ g)(x) = 6x+4$ ise $g(x)$ nedir?",
+                "$f(x)=3x-2$ ve $(f \\circ g)(x) = 6x+4$ olsun.", "$g(x)$ nedir?",
                 "$f(g(x)) = 3 \\cdot g(x) - 2$ olduğunu biliyoruz.",
                 "Öyleyse $3 \\cdot g(x) - 2 = 6x+4$ yazarız.",
                 "$3 \\cdot g(x) = 6x+6$ ve buradan $g(x) = 2x+2$ bulunur."),
@@ -157,11 +157,11 @@ YAZI = {
         {"baslik": "Ters fonksiyon", "icerik": [
             "Ters fonksiyon, makineyi geriye çalıştırmaktır: çıkıştan girişe dönmek. $f(a)=b$ ise $f^{-1}(b)=a$ olur.",
             "Ama her fonksiyonun tersi yoktur. Geriye dönebilmek için iki şey gerekir: her çıkışın <strong>bir</strong> girişten gelmesi (birebirlik) ve <strong>her</strong> çıkışın kullanılmış olması (örtenlik).",
-            hap("Bir fonksiyonun tersi <strong>ancak ve ancak</strong> birebir ve örtense vardır. Bu şart sağlanmıyorsa $f^{-1}$ diye bir fonksiyon yoktur."),
+            hap("Bir fonksiyonun tersi <strong>ancak ve ancak</strong> birebir ve örtense vardır.", "Bu şart sağlanmıyorsa $f^{-1}$ diye bir fonksiyon yoktur."),
             "<h3>Ters fonksiyon nasıl bulunur?</h3>",
             "<ol><li>$y=f(x)$ yaz.</li><li>Denklemi $x$ i yalnız bırakacak biçimde çöz.</li><li>$x$ ile $y$ yi yer değiştir.</li></ol>",
             ornek(
-                "$f(x)=3x-5$ fonksiyonunun tersini bulalım.",
+                "$f(x)=3x-5$ olsun.", "Bu fonksiyonun tersini bulalım.",
                 "$y=3x-5$ yazarız.",
                 "$x$ i çekeriz: $3x = y+5$ ve $x = \\dfrac{y+5}{3}$.",
                 "$x$ ile $y$ yi değiştiririz: $f^{-1}(x) = \\dfrac{x+5}{3}$.",
@@ -176,8 +176,8 @@ YAZI = {
             "<li>$f$ nin grafiği ile $f^{-1}$ in grafiği $y=x$ doğrusuna göre simetriktir.</li>"
             "</ul>",
             dikkat(
-                "$f^{-1}(x)$ ile $\\dfrac{1}{f(x)}$ aynı şey <strong>değildir</strong>. Buradaki $-1$ bir üs değil, ters fonksiyon işaretidir. $f(x)=3x-5$ için $f^{-1}(x)=\\dfrac{x+5}{3}$ tür, $\\dfrac{1}{3x-5}$ değil."),
-            hap("$(f \\circ g)^{-1} = g^{-1} \\circ f^{-1}$ sırasını hatırlamak için giyinme sırasını düşün: önce çorap sonra ayakkabı giyilir; çıkarırken önce ayakkabı çıkar. Ters alınca sıra tersine döner."),
+                "$f^{-1}(x)$ ile $\\dfrac{1}{f(x)}$ aynı şey <strong>değildir</strong>.", "Buradaki $-1$ bir üs değil, ters fonksiyon işaretidir.", "$f(x)=3x-5$ için $f^{-1}(x)=\\dfrac{x+5}{3}$ tür, $\\dfrac{1}{3x-5}$ değil."),
+            hap("$(f \\circ g)^{-1} = g^{-1} \\circ f^{-1}$", "Bu sırayı hatırlamak için giyinme sırasını düşün: önce çorap sonra ayakkabı giyilir; çıkarırken önce ayakkabı çıkar. Ters alınca sıra tersine döner."),
         ]},
         {"baslik": "Grafikten fonksiyon okuma", "icerik": [
             "Bir fonksiyon grafiğinden şunları doğrudan okuyabilirsin:",

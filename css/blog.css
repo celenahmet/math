@@ -210,9 +210,12 @@ h1, h2, h3, h4 {
 .bs-hap { border-left: 3px solid var(--mor); background: var(--mor-acik); border-color: #e0e7ff; }
 .bs-dikkat { border-left: 3px solid #d97706; background: #fffbeb; border-color: #fde68a; }
 .bs-ornek { border-left: 3px solid #0f766e; background: #f0fdfa; border-color: #99f6e4; }
-.bs-onkosul { border-left: 3px solid #64748b; background: #f8fafc; }
+/* 23.09 (Ahmet): onkosul rengi degisti. Gri, kutuyu duz metinden
+   ayirmiyordu. Mor: diger dort kutunun (mavi hap, amber dikkat, teal
+   ornek, lacivert sinav) hicbiriyle karismiyor. */
+.bs-onkosul { border-left: 3px solid #7c3aed; background: #f5f3ff; border-color: #e4dcfd; }
 .bs-sinavda { border-left: 3px solid #0d2560; background: #f5f8ff; border-color: #dbe6fb; }
-.bs-onkosul b { color: #475569; }
+.bs-onkosul b { color: #6d28d9; }
 .bs-sinavda b { color: #0d2560; }
 .bs-onkosul p:last-child, .bs-sinavda p:last-child { margin-bottom: 0; }
 .bs-hap b, .bs-dikkat b, .bs-ornek b, .bs-onkosul b, .bs-sinavda b {
@@ -591,3 +594,40 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
   .bs-paylas-dugmeler { margin-left: 0; }
   .bs-alt .kap { flex-direction: column; align-items: flex-start; }
 }
+
+/* ── sağ içindekiler gezintisi (23.09) ─────────────────────────────────
+   Ahmet: "sağdaki içindekilerde 1.ciye dönüş olmuyor, ileri gidiş daha
+   kolay olmalı." Pencere yalnız çevreyi gösterdiği için uzak bölüme
+   ulaşmak zordu: önceki / sonraki, tüm bölümler ve başa dön. */
+.bs-toc-gezinti { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+.bs-toc-gezinti button, .bs-toc-alt button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  border: 1px solid var(--cizgi); background: var(--yuzey); color: var(--govde);
+  border-radius: 8px; padding: 7px 8px; font: 600 12.5px Inter, sans-serif; cursor: pointer;
+}
+.bs-toc-gezinti button:hover:not(:disabled), .bs-toc-alt button:hover { border-color: var(--mor); color: var(--mor); }
+.bs-toc-gezinti button:disabled { opacity: .4; cursor: default; }
+.bs-toc-gezinti .bs-ikon, .bs-toc-alt .bs-ikon { width: 14px; height: 14px; }
+.bs-toc-alt { display: flex; justify-content: space-between; gap: 6px; margin-top: 6px; }
+.bs-toc-alt button { flex: 1; background: transparent; border-color: transparent; color: var(--soluk); font-weight: 500; }
+.bs-toc-alt button:hover { background: var(--cizgi-acik); }
+
+/* kontrol listesi tamamlanınca tebrik satırı */
+.bs-kontrol-tebrik {
+  display: flex; align-items: center; gap: 9px; margin: 6px 0 10px; padding: 11px 14px;
+  border-radius: var(--r-kucuk); background: #ecfdf3; border: 1px solid #a7f3c4;
+  color: #15803d; font-weight: 600; font-size: 15px;
+}
+.bs-kontrol-tebrik[hidden] { display: none; }
+.bs-kontrol-tebrik .bs-ikon { width: 18px; height: 18px; }
+
+/* ⚠️ 23.09 ölçümle yakalandı: beş kutunun kuralında `border-color`
+   `border-left`ten SONRA geliyordu ve sol vurgu çizgisini de açık renge
+   boyuyordu (önkoşulun sol kenarı mor yerine rgb(228,220,253) ölçüldü).
+   Kutuların sol çizgisi baştan beri görünmüyormuş. Sol renk burada
+   ayrıca ve en sonda veriliyor. */
+.bs-hap      { border-left-color: var(--mor); }
+.bs-dikkat   { border-left-color: #d97706; }
+.bs-ornek    { border-left-color: #0f766e; }
+.bs-onkosul  { border-left-color: #7c3aed; }
+.bs-sinavda  { border-left-color: #0d2560; }

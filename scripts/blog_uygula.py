@@ -210,7 +210,11 @@ def yazi_govde(y, digerleri):
                + f'<p class="bs-kontrol-durum"><strong>0</strong> / {n} tamamlandı</p>'
                + '<button type="button" class="bs-kontrol-sifirla" hidden>Sıfırla</button></div>'
                + '<div class="bs-kontrol-cubuk"><span style="width:0%"></span></div>'
-               + f'<ul class="bs-kontrol">{maddeler}</ul></div>\n')
+               + f'<ul class="bs-kontrol">{maddeler}</ul>'
+               # Hepsi isaretlenince gorunur (Ahmet 23.09: "10/10 olunca
+               # tebrikler tarzi bir sey donebilir"). Metin varsayilan.
+               + '<p class="bs-kontrol-tebrik" hidden>' + ikon("kontrol")
+               + "Tebrikler, bu konunun kontrol listesini tamamladın.</p></div>\n")
         toc += '<li><a href="#b-kontrol">Kontrol listesi</a></li>'
     # ⚠️ KAYNAKLAR YAYINDA GOSTERILMIYOR (Ahmet, 23.09): "kaynaklar kismini
     # not alalim ama yayinda gostermeyelim, kendi icimizde denetim icin
@@ -269,6 +273,14 @@ def yazi_govde(y, digerleri):
       <p class="bs-yan-baslik">Neredesin<em><span class="bs-konum">1</span> / {toc_sayi}</em></p>
       <div class="bs-toc-cubuk"><span style="width:0%"></span></div>
       <ol>{toc}</ol>
+      <div class="bs-toc-gezinti">
+        <button type="button" class="bs-toc-onceki" aria-label="Önceki bölüm">{ikon("ok-sol")}Önceki</button>
+        <button type="button" class="bs-toc-sonraki" aria-label="Sonraki bölüm">Sonraki{ikon("ok-sag")}</button>
+      </div>
+      <div class="bs-toc-alt">
+        <button type="button" class="bs-toc-hepsi" aria-expanded="false">Tüm bölümler</button>
+        <button type="button" class="bs-toc-basa">{ikon("ok-yukari")}Başa dön</button>
+      </div>
     </nav>
   </aside>
 </div>

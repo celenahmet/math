@@ -37,6 +37,20 @@
     var sira = basliklar.map(function (h) { return h.id; });
     var gorunen = [];
     var PENCERE = 2;   // etkin bolumun iki ustu, iki alti
+    var simdiki = 0;
+    var hepsiAcik = false;
+    // ⚠️ Konum ve ileri/geri, sagdaki icindekilerin KENDI baglantilarindan
+    // hesaplanir; sayfadaki butun h2'lerden degil. "Bunlar da ilgini
+    // cekebilir" gibi basliklar icindekilerde yok; h2 sirasini kullanmak
+    // ilgili yazi ciktigi anda sayaci ve pencereyi bir kaydirirdi.
+    var gezinti = yanToc ? [].map.call(yanToc.querySelectorAll('ol a[href^="#"]'),
+      function (a) { return a.getAttribute('href').slice(1); }) : sira;
+
+    function git(i) {
+      if (i < 0 || i >= gezinti.length) { return; }
+      var h = document.getElementById(gezinti[i]);
+      if (h) { h.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    }
 
     function isaretle(hedef) {
       tocler.forEach(function (toc) {
@@ -45,12 +59,17 @@
         });
       });
       if (!yanToc) { return; }
-      var i = sira.indexOf(hedef);
-      if (i === -1) { i = 0; }
-      var ogeler = [].slice.call(yanToc.querySelectorAll('li'));
+      var i = gezinti.indexOf(hedef);
+      if (i === -1) { i = simdiki; }   // icindekilerde olmayan baslik: konum korunur
+      simdiki = i;
+      var ogeler = [].slice.call(yanToc.querySelectorAll('ol li'));
       ogeler.forEach(function (li, j) {
-        li.hidden = Math.abs(j - i) > PENCERE;
+        li.hidden = !hepsiAcik && Math.abs(j - i) > PENCERE;
       });
+      var onc = yanToc.querySelector('.bs-toc-onceki');
+      var son = yanToc.querySelector('.bs-toc-sonraki');
+      if (onc) { onc.disabled = i <= 0; }
+      if (son) { son.disabled = i >= gezinti.length - 1; }
       var sayac = yanToc.querySelector('.bs-konum');
       if (sayac) { sayac.textContent = String(i + 1); }
       var cubuk = yanToc.querySelector('.bs-toc-cubuk span');
@@ -78,6 +97,85 @@
     }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
     basliklar.forEach(function (h) { g.observe(h); });
     if (sira.length) { isaretle(sira[0]); }
+
+    // Ahmet (23.09): "sagdaki icindekilerde 1.ciye donus olmuyor, ileri
+    // gidis daha kolay olmali." Pencere yalniz cevreyi gosterdigi icin
+    // uzaktaki bolume ulasmak zordu: onceki/sonraki, tum bolumler ve basa
+    // don dugmeleri eklendi.
+    if (yanToc) {
+      var q = function (c) { return yanToc.querySelector(c); };
+      if (q('.bs-toc-onceki')) { q('.bs-toc-onceki').addEventListener('click', function () { git(simdiki - 1); }); }
+      if (q('.bs-toc-sonraki')) { q('.bs-toc-sonraki').addEventListener('click', function () { git(simdiki + 1); }); }
+      if (q('.bs-toc-basa')) {
+        q('.bs-toc-basa').addEventListener('click', function () { scrollTo({ top: 0, behavior: 'smooth' }); });
+      }
+      var hepsiDugme = q('.bs-toc-hepsi');
+      if (hepsiDugme) {
+        hepsiDugme.addEventListener('click', function () {
+          hepsiAcik = !hepsiAcik;
+          hepsiDugme.setAttribute('aria-expanded', String(hepsiAcik));
+          hepsiDugme.textContent = hepsiAcik ? 'Daralt' : 'Tüm bölümler';
+          yanToc.classList.toggle('bs-toc-acik', hepsiAcik);
+          isaretle(gezinti[simdiki]);
+        });
+      }
+    }
+  }
+
+  // 4) tiklanabilir kontrol listesi
+  //
+  // ⚠️ 23.09: bu bolum bir onceki duzenlemede YANLISLIKLA SILINMISTI
+  // (icindekiler bolumu yeniden yazilirken aradaki kod da gitti); sayac
+  // 0/10'da kaliyordu. Geri kondu ve Ahmet'in istegiyle tamamlaninca
+  // tebrik satiri gosteriliyor.
+  //
+  // Isaretler YALNIZCA tarayicida saklanir; sunucuya hicbir sey gitmez.
+  // localStorage gizli sekmede hata firlatabilir, her erisim try ile sarili.
+  var sar = document.querySelector('.bs-kontrol-sar');
+  if (sar) {
+    var anahtar = 'ac-kontrol:' + (sar.getAttribute('data-yazi') || '');
+    var kutular = [].slice.call(sar.querySelectorAll('input[type=checkbox]'));
+    var toplam = kutular.length;
+    var durum = sar.querySelector('.bs-kontrol-durum strong');
+    var cubuk2 = sar.querySelector('.bs-kontrol-cubuk span');
+    var sifirla = sar.querySelector('.bs-kontrol-sifirla');
+    var tebrik = sar.querySelector('.bs-kontrol-tebrik');
+
+    var oku = function () {
+      try { return JSON.parse(localStorage.getItem(anahtar) || '[]') || []; } catch (e) { return []; }
+    };
+    var yazDepo = function (d) {
+      try { localStorage.setItem(anahtar, JSON.stringify(d)); } catch (e) { /* yoksay */ }
+    };
+    var tazele = function () {
+      var n = 0;
+      for (var i = 0; i < toplam; i++) { if (kutular[i].checked) { n++; } }
+      if (durum) { durum.textContent = String(n); }
+      if (cubuk2) { cubuk2.style.width = toplam ? (n / toplam * 100).toFixed(0) + '%' : '0%'; }
+      if (sifirla) { sifirla.hidden = n === 0; }
+      var bitti = toplam > 0 && n === toplam;
+      sar.classList.toggle('bs-bitti', bitti);
+      if (tebrik) { tebrik.hidden = !bitti; }
+    };
+
+    var kayitli = oku();
+    kutular.forEach(function (k, i) { if (kayitli.indexOf(i) !== -1) { k.checked = true; } });
+    tazele();
+
+    sar.addEventListener('change', function (e) {
+      if (!e.target || e.target.type !== 'checkbox') { return; }
+      var secili = [];
+      kutular.forEach(function (k, i) { if (k.checked) { secili.push(i); } });
+      yazDepo(secili);
+      tazele();
+    });
+    if (sifirla) {
+      sifirla.addEventListener('click', function () {
+        kutular.forEach(function (k) { k.checked = false; });
+        yazDepo([]);
+        tazele();
+      });
+    }
   }
 
   // 5) paylasim

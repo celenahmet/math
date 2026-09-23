@@ -78,6 +78,8 @@ _YOL = {
     "ev": '<path d="M4 10.2 12 4l8 6.2V19a1.2 1.2 0 0 1-1.2 1.2H5.2A1.2 1.2 0 0 1 4 19z"/>'
           '<path d="M9.6 20.2v-6h4.8v6"/>',
     "ok-sag": '<path d="M9.5 6.5 15 12l-5.5 5.5"/>',
+    "ok-sol": '<path d="M14.5 6.5 9 12l5.5 5.5"/>',
+    "ok-yukari": '<path d="M12 19V5.5"/><path d="M6.5 11 12 5.5 17.5 11"/>',
     "liste": '<path d="M4.5 7h2"/><path d="M9.5 7h10"/><path d="M4.5 12h2"/>'
              '<path d="M9.5 12h10"/><path d="M4.5 17h2"/><path d="M9.5 17h10"/>',
     "x": '<path d="M4 4l16 16"/><path d="M20 4L4 20"/>',
