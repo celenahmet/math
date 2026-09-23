@@ -259,6 +259,34 @@
     }
   }
 
+
+  // 6) goruntulenme sayaci (Vercel fonksiyonu + Upstash Redis)
+  //
+  // Ahmet (23.09): "goruntulenme sayacini vercelde tutsak." Ayni tarayici
+  // bir yaziyi gunde BIR KEZ sayar (yerel bayrak); sonraki acilislarda
+  // yalniz okur. Depo bagli degilse ya da bir hata olursa sayac GIZLI
+  // kalir: uydurma sayi gosterilmez. Sunucuya kisisel veri gitmez.
+  var gor = document.querySelector('.bs-goruntulenme');
+  if (gor && window.fetch) {
+    var gyol = gor.getAttribute('data-yol') || '';
+    var bugun = new Date().toISOString().slice(0, 10);
+    var bayrak = 'ac-gor:' + gyol + ':' + bugun;
+    var sayildi = false;
+    try { sayildi = localStorage.getItem(bayrak) === '1'; } catch (e) { /* yoksay */ }
+    fetch('/api/goruntulenme/?yol=' + encodeURIComponent(gyol), {
+      method: sayildi ? 'GET' : 'POST', credentials: 'omit'
+    })
+      .then(function (r) { if (!r.ok) { throw new Error(String(r.status)); } return r.json(); })
+      .then(function (v) {
+        if (typeof v.sayi !== 'number' || v.sayi < 1) { return; }
+        var alan = gor.querySelector('.bs-gor-sayi');
+        if (alan) { alan.textContent = v.sayi.toLocaleString('tr-TR'); }
+        gor.hidden = false;
+        if (!sayildi) { try { localStorage.setItem(bayrak, '1'); } catch (e) { /* yoksay */ } }
+      })
+      .catch(function () { /* sayac gizli kalir */ });
+  }
+
   // 3) hub: iki eksenli suzgec (Konu VE Sinav)
   //
   // Ahmet (23.09): "sagda kategoriler ve sinavlar diye ayri bloklar olsun."

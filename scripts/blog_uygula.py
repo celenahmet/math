@@ -254,7 +254,7 @@ def yazi_govde(y, digerleri):
   <article class="bs-icerik">
     {kat_rozet(y["kategori"])}
     <h1 class="bs-baslik">{k(y["baslik"])}</h1>
-    <p class="bs-kunye">{rozet}<span class="bs-kunye-oge">{ikon("saat")}{okuma_dk(y)} dakikalık okuma</span><span class="bs-kunye-oge"><time datetime="{k(y["tarih"])}">{tr_tarih(y["tarih"])}</time>{guncel}</span></p>
+    <p class="bs-kunye">{rozet}<span class="bs-kunye-oge">{ikon("saat")}{okuma_dk(y)} dakikalık okuma</span><span class="bs-kunye-oge bs-goruntulenme" data-yol="/blog/{k(y["slug"])}/" hidden>{ikon("goz")}<span class="bs-gor-sayi"></span> görüntülenme</span><span class="bs-kunye-oge"><time datetime="{k(y["tarih"])}">{tr_tarih(y["tarih"])}</time>{guncel}</span></p>
     {kapak}
     <p class="bs-ozet">{mm(k(y["ozet"]))}</p>
     <nav class="bs-toc bs-toc-ust" aria-label="İçindekiler">
@@ -399,6 +399,10 @@ def uygula():
         yol="/blog/", title="Matematik Konu Anlatımı Blog - Ahmet Çelen",
         desc="TYT, AYT, ALES ve KPSS için baştan sona matematik konu anlatımı; hap bilgiler, çözümlü örnekler ve grafiklerle. Ücretsiz.",
         govde=hub_govde(yazilar), jsonld=jsonld_hub(yazilar), taslak=not yazilar))
+    # api/goruntulenme.js yalniz bu listedeki adresleri kabul eder
+    # (varsayilan red). Yazi eklenince liste de kendiliginden buyur.
+    beyaz = json.dumps(sorted(f"/blog/{y['slug']}/" for y in yazilar), ensure_ascii=False, indent=1) + "\n"
+    yaz("api/_yazilar.json", beyaz)
     print(f"blog: {len(yazilar)} yazi · {n} dosya yazildi"
           + ("" if yazilar else " · hub TASLAK (noindex)"))
 
