@@ -227,15 +227,23 @@ def yazi_govde(y, digerleri):
                  f'fetchpriority="high" decoding="async">')
     return f'''
 <div class="kap bs-yazi-ust">
-  <p class="bs-kirinti"><a href="/">Ana Sayfa</a> / <a href="/blog/">Blog</a> / {k(kat)}</p>
+  <nav class="bs-kirinti" aria-label="Sayfa yolu">
+    <a href="/">{ikon("ev")}<span>Ana Sayfa</span></a>{ikon("ok-sag")}
+    <a href="/blog/">Blog</a>{ikon("ok-sag")}
+    <a href="/blog/#{k(y["kategori"])}">{k(kat)}</a>
+  </nav>
 </div>
 <div class="kap bs-duzen">
   <article class="bs-icerik">
     {kat_rozet(y["kategori"])}
     <h1 class="bs-baslik">{k(y["baslik"])}</h1>
-    <p class="bs-kunye">{rozet}<time datetime="{k(y["tarih"])}">{tr_tarih(y["tarih"])}</time>{guncel} · {okuma_dk(y)} dakikalık okuma</p>
+    <p class="bs-kunye">{rozet}<span class="bs-kunye-oge">{ikon("saat")}{okuma_dk(y)} dakikalık okuma</span><span class="bs-kunye-oge"><time datetime="{k(y["tarih"])}">{tr_tarih(y["tarih"])}</time>{guncel}</span></p>
     {kapak}
     <p class="bs-ozet">{mm(k(y["ozet"]))}</p>
+    <nav class="bs-toc bs-toc-ust" aria-label="İçindekiler">
+      <p class="bs-yan-baslik">{ikon("liste")}İçindekiler</p>
+      <ol>{toc}</ol>
+    </nav>
     <hr class="bs-ayrac">
 {mm(govde)}{mm(ek)}
     {blog_yan.paylas(y["baslik"], "/blog/" + y["slug"] + "/")}
@@ -244,7 +252,6 @@ def yazi_govde(y, digerleri):
     {blog_yan.uc_karti("blog-" + y["slug"])}
     {blog_yan.kategori_blogu(y["kategori"])}
     {blog_yan.sinav_blogu(y.get("sinavlar"))}
-    <nav class="bs-toc" aria-label="İçindekiler"><p class="bs-yan-baslik">İçindekiler</p><ol>{toc}</ol></nav>
   </aside>
 </div>
 '''

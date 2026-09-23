@@ -487,3 +487,49 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 
 /* yan bloktaki bölümler arası nefes */
 .bs-yan .bs-toc { margin-top: 24px; }
+
+/* ── kırıntı yolu (23.09 yeniden tasarlandı) ───────────────────────────
+   Ahmet: "üst tarafta > yolları daha güzel tasarlanabilir." Düz eğik
+   çizgi yerine ikonlu ayraç; ilk adımda ev ikonu. */
+.bs-kirinti { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; font-size: 13.5px; margin-bottom: 18px; }
+.bs-kirinti a {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 9px; border-radius: 7px; color: var(--soluk); text-decoration: none;
+}
+.bs-kirinti a:hover { background: var(--cizgi-acik); color: var(--murekkep); }
+.bs-kirinti a:last-child { color: var(--mor); font-weight: 600; }
+.bs-kirinti > .bs-ikon { width: 15px; height: 15px; color: #c3cedc; flex: none; }
+.bs-kirinti a .bs-ikon { width: 15px; height: 15px; }
+
+/* künye: okuma süresi ve tarih ikonlu */
+.bs-kunye { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; }
+.bs-kunye-oge { display: inline-flex; align-items: center; gap: 6px; }
+.bs-kunye-oge .bs-ikon { width: 15px; height: 15px; color: #94a3b8; }
+
+/* ── içindekiler artık YAZININ BAŞINDA (23.09) ─────────────────────────
+   Ahmet: "bu içindekiler kısmını yazının başına koysak yönlendirmeli
+   gitse daha güzel olur." Yan tarafa da iyi geldi: sağ blok kısaldığı
+   için kaydırınca artık içerikle uyumlu ilerliyor (önce sağ sütun
+   ekrandan uzundu, yapışkan davranış bozuluyordu). */
+.bs-toc-ust {
+  background: var(--yuzey); border: 1px solid var(--cizgi);
+  border-radius: var(--r); padding: 20px 22px; margin: 0 0 30px;
+}
+.bs-toc-ust .bs-yan-baslik { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.bs-toc-ust .bs-yan-baslik .bs-ikon { width: 16px; height: 16px; color: var(--mor); }
+.bs-toc-ust ol {
+  columns: 2; column-gap: 26px; list-style: none; margin: 0; padding: 0; border-left: 0;
+}
+.bs-toc-ust li { break-inside: avoid; }
+.bs-toc-ust a {
+  border-left: 0; margin-left: 0; padding: 6px 8px; border-radius: 7px;
+  font-size: 14.5px; color: #475569;
+}
+.bs-toc-ust a:hover { background: var(--mor-acik); color: var(--mor); }
+.bs-toc-ust a.etkin { background: var(--mor-acik); color: var(--mor); font-weight: 600; }
+@media (max-width: 720px) { .bs-toc-ust ol { columns: 1; } }
+
+/* sağ blok kısaldı; yine de ekrandan uzun kalırsa kendi içinde kaysın */
+@media (min-width: 1060px) {
+  .bs-yan { max-height: calc(100vh - 104px); overflow-y: auto; scrollbar-width: thin; }
+}
