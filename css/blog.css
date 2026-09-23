@@ -134,6 +134,25 @@ h1, h2, h3, h4 {
 .bs-kart h2 a:hover { color: var(--mor); }
 .bs-kart p { font-size: 15px; color: var(--soluk); margin: 0 0 16px; line-height: 1.65; }
 .bs-kart .bs-kunye { margin-top: auto; }
+/* Kart kapaklari (23.09): gorsel ustte, 16:9; ilk kart genis ekranda
+   yatay "one cikan". Kategori rengi rozette; ustteki renk seridi gorselle
+   cakistigi icin kaldirildi. Hover'da yalniz hafif buyume (parilti yok). */
+.bs-kart { padding: 0; }
+.bs-kart::before { display: none; }
+.bs-kart-ic { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.bs-kart .bs-etiket { align-self: flex-start; }
+.bs-kart h2 { margin-top: 12px; }
+.bs-kart-gorsel { display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--cizgi-acik); line-height: 0; }
+.bs-kart-gorsel img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.bs-kart:hover .bs-kart-gorsel img { transform: scale(1.03); }
+@media (min-width: 900px) {
+  .bs-kart-one { grid-column: 1 / -1; flex-direction: row; }
+  .bs-kart-one .bs-kart-gorsel { flex: 0 0 56%; aspect-ratio: auto; min-height: 320px; }
+  .bs-kart-one .bs-kart-ic { justify-content: center; padding: 30px 34px; }
+  .bs-kart-one h2 { font-size: 27px; }
+  .bs-kart-one p { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .bs-kart-gorsel img { transition: none; } }
 /* Kategori rozeti. Renk satir ici `--kat` degiskeninden gelir; kategori
    basina ayri CSS kurali yazilmiyor, tek kural her renge uyuyor.
    color-mix ile ayni renkten cok acik bir zemin uretiliyor. */
@@ -316,7 +335,10 @@ math.mtml { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", s
   border-radius: var(--r-kucuk); padding: 16px 18px; text-decoration: none;
 }
 .bs-ilgili a:hover { border-color: var(--mor); }
-.bs-ilgili .bs-etiket { margin-bottom: 8px; }
+.bs-ilgili a { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.bs-ilgili-gorsel { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--cizgi-acik); margin: 0; border-radius: 0; }
+.bs-ilgili-ic { padding: 14px 16px 16px; }
+.bs-ilgili .bs-etiket { margin-bottom: 8px; display: inline-flex; }
 .bs-ilgili strong { display: block; color: var(--murekkep); font-size: 15.5px; line-height: 1.4; margin-bottom: 5px; font-weight: 600; }
 .bs-ilgili span { display: block; color: var(--soluk); font-size: 13.5px; line-height: 1.55; }
 
@@ -395,6 +417,12 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
   background: var(--mor); color: #fff; font-weight: 600; font-size: 14px; text-decoration: none;
 }
 .bs-uc-dugme:hover { background: var(--mor-koyu); color: #fff; }
+/* Magaza rozetleri: ana dugmenin altinda tek satir, esit yukseklik.
+   object-fit: rozetlerin en-boy orani farkli (3,0 / 3,4), kirpilmaz. */
+.bs-uc-magazalar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; }
+.bs-uc-magazalar a { display: block; line-height: 0; border-radius: 6px; }
+.bs-uc-magazalar a:focus-visible { outline: 2px solid var(--mor); outline-offset: 2px; }
+.bs-uc-magazalar img { width: 100%; height: 30px; object-fit: contain; }
 
 .bs-kategori-blok { margin-top: 24px; }
 .bs-kategori-blok ul { list-style: none; margin: 0; padding: 0; }
@@ -408,6 +436,31 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 .bs-kategori-blok a.etkin {
   background: color-mix(in srgb, var(--kat) 9%, #fff); color: var(--kat); font-weight: 600;
 }
+
+/* En popüler / En yeni: iki düğmeli sekme + numaralı liste */
+.bs-yazilar-blok { margin-top: 24px; }
+.bs-yazilar-sekme { display: flex; gap: 6px; margin: 0 0 10px; }
+.bs-yazilar-sekme button {
+  flex: 1; padding: 7px 10px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--cizgi); background: var(--yuzey); color: var(--soluk);
+  font-family: Outfit, sans-serif; font-weight: 600; font-size: 12.5px;
+  text-transform: uppercase; letter-spacing: .06em;
+}
+.bs-yazilar-sekme button[aria-pressed="true"] { background: var(--mor); border-color: var(--mor); color: #fff; }
+.bs-yazilar-sekme button[hidden], .bs-yazilar[hidden], .bs-yazilar li[hidden] { display: none !important; }
+.bs-yazilar { list-style: none; margin: 0; padding: 0; counter-reset: yazi; }
+.bs-yazilar li { counter-increment: yazi; }
+.bs-yazilar a {
+  --kat: var(--mor);
+  display: flex; gap: 10px; align-items: baseline; padding: 7px 10px; border-radius: 9px;
+  color: var(--murekkep); font-size: 13.5px; line-height: 1.4; font-weight: 500; text-decoration: none;
+}
+.bs-yazilar a::before {
+  content: counter(yazi); flex: none; min-width: 12px;
+  font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 700; color: var(--kat);
+}
+.bs-yazilar a:hover { background: var(--cizgi-acik); }
+.bs-yazilar a[aria-current="page"] { background: color-mix(in srgb, var(--kat) 9%, #fff); color: var(--kat); font-weight: 600; }
 
 /* içindekiler: numaralı, sol rayda etkin bölüm işaretli */
 .bs-toc ol { counter-reset: toc; }

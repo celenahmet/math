@@ -287,6 +287,51 @@
       .catch(function () { /* sayac gizli kalir */ });
   }
 
+  // 7) sag blok: "En popüler / En yeni"
+  //
+  // Ahmet (23.09): "sag blokta en populer yazilar olsun, 5 tane gozuksun;
+  // en populer en yeni diye degistirilebilsin." "En yeni" sunucuda hazir.
+  // Populer sirasi /api/populer/ dan gelir; yanit yoksa, hata varsa ya da
+  // hic sayim yoksa "En popüler" dugmesi GIZLI kalir. innerHTML YOK: gizli
+  // basilmis ogeler yeniden dizilip acilir.
+  var yb = document.querySelector('.bs-yazilar-blok');
+  if (yb) {
+    var sekmeler = [].slice.call(yb.querySelectorAll('.bs-yazilar-sekme button'));
+    var paneller = [].slice.call(yb.querySelectorAll('.bs-yazilar'));
+    var sec = function (ad) {
+      sekmeler.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-sekme') === ad)); });
+      paneller.forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== ad; });
+    };
+    sekmeler.forEach(function (b) {
+      b.addEventListener('click', function () { sec(b.getAttribute('data-sekme')); });
+    });
+    var ppanel = yb.querySelector('[data-panel="populer"]');
+    var psekme = yb.querySelector('[data-sekme="populer"]');
+    if (ppanel && psekme && window.fetch) {
+      fetch('/api/populer/', { credentials: 'omit' })
+        .then(function (r) { if (!r.ok) { throw new Error(String(r.status)); } return r.json(); })
+        .then(function (v) {
+          if (!v || !Array.isArray(v.yazilar) || !v.yazilar.length) { return; }
+          var sira = {};
+          v.yazilar.forEach(function (x, i) { if (x && typeof x.yol === 'string') { sira[x.yol] = i; } });
+          var ogeler = [].slice.call(ppanel.children);
+          var ilk = ogeler.map(function (li, i) { return [li, i]; });
+          // sayimi olanlar sayiya gore, kalanlar "en yeni" sirasiyla
+          ilk.sort(function (a, b) {
+            var sa = a[0].getAttribute('data-yol'), sb = b[0].getAttribute('data-yol');
+            var ka = Object.prototype.hasOwnProperty.call(sira, sa) ? sira[sa] : 1000 + a[1];
+            var kb = Object.prototype.hasOwnProperty.call(sira, sb) ? sira[sb] : 1000 + b[1];
+            return ka - kb;
+          });
+          var adet = parseInt(ppanel.getAttribute('data-adet'), 10) || 5;
+          ilk.forEach(function (c, i) { c[0].hidden = i >= adet; ppanel.appendChild(c[0]); });
+          psekme.hidden = false;
+          sec('populer');
+        })
+        .catch(function () { /* populer sekmesi gizli kalir */ });
+    }
+  }
+
   // 3) hub: iki eksenli suzgec (Konu VE Sinav)
   //
   // Ahmet (23.09): "sagda kategoriler ve sinavlar diye ayri bloklar olsun."

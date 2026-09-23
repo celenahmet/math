@@ -43,5 +43,8 @@ Kurallar: `blog-YAZIM-STANDARDI.md` (11 bölüm) · kaynaklar iç rapor `blog-KA
 - [x] 02-05 yazıldı (23.09): Tanım, Değer ve Görüntü Kümeleri (3439 kelime) · Birebir ve Örten Fonksiyon Nedir? (2122) · Bileşke Fonksiyon Konu Anlatımı (2015) · Ters Fonksiyon Nasıl Bulunur? (2007). Kapaklar: 03 ve 04 için `-v2` (01 de v2 idi, piksel karşılaştırmasıyla ölçüldü)
 - [x] `scripts/blog_dogrula.py`: 261 matematiksel ve biçim denetimi, hepsi tuttu (sympy `.venv`'de)
 - [x] `matematik.py`: `{1,2,3}` ve `[2,5)` içindeki virgül ondalık sanılıyordu; işaret eksisi `{ − 1` diye aralıklı basılıyordu. İkisi düzeldi, 01 de yeniden üretildi
+- [x] Sağ blok: UniConnectly kartının altına 3 mağaza rozeti (App Store, Google Play, AppGallery; adresler `uniconnectly_blok.MAGAZALAR`)
+- [x] Sağ blok: "En popüler / En yeni" (5 yazı). Popüler sırası `api/populer.js` (salt okuma, MGET, CDN 5 dk, 12 test `scripts/api_populer_test.js`). **Upstash bağlanana kadar popüler sekmesi gizli**, yalnız "En yeni" görünür
+- [x] Hub kartları kapaklı (ilk kart geniş ekranda yatay öne çıkan), "Bunlar da ilgini çekebilir" kartları kapaklı
 - [ ] Sıradaki yazılar: `blog-gorselleri/` 06-50 (brief'teki konu sırası); her yazının iddiaları `blog_dogrula.py`'ye eklenir
 - [ ] Boş durum ve arayüz metinleri (tebrik, "Bu yazıyı paylaş") Ahmet onayı bekliyor

@@ -224,9 +224,14 @@ def yazi_govde(y, digerleri):
     # basilmiyor. Rapor da .vercelignore ile yayin disinda.
     if digerleri:
         ek += (bolum_basligi("b-ilgili", "ilgili", "Bunlar da ilgini çekebilir") + '<div class="bs-ilgili">'
-               + "".join(f'<a href="/blog/{k(d["slug"])}/">{kat_rozet(d["kategori"], "bs-etiket bs-etiket-mini")}'
+               + "".join(f'<a href="/blog/{k(d["slug"])}/">'
+                         # Kapak (Ahmet 23.09: "onerilen yazilarda da gorseller gozuksun").
+                         # Baglantinin adi basliktan geliyor; gorsel sus: alt="".
+                         + (f'<img class="bs-ilgili-gorsel" src="/blog/kapak/{k(d["kapak"])}-800.avif" alt="" '
+                            'width="800" height="450" loading="lazy" decoding="async">' if d.get("kapak") else "")
+                         + f'<div class="bs-ilgili-ic">{kat_rozet(d["kategori"], "bs-etiket bs-etiket-mini")}'
                          f'<strong>{k(d["baslik"])}</strong>'
-                         f'<span>{k(d["aciklama"])}</span></a>' for d in digerleri) + "</div>\n")
+                         f'<span>{k(d["aciklama"])}</span></div></a>' for d in digerleri) + "</div>\n")
 
     toc_sayi = toc.count("<li>")
     guncel = (f' · Güncellendi <time datetime="{k(y["guncelleme"])}">{tr_tarih(y["guncelleme"])}</time>'
@@ -269,6 +274,7 @@ def yazi_govde(y, digerleri):
     {blog_yan.uc_karti("blog-" + y["slug"])}
     {blog_yan.kategori_blogu(y["kategori"])}
     {blog_yan.sinav_blogu(y.get("sinavlar"))}
+    {blog_yan.yazi_listesi(y["slug"])}
     <nav class="bs-toc bs-toc-yan" aria-label="Okuma konumu" data-toplam="{toc_sayi}">
       <p class="bs-yan-baslik">Neredesin<em><span class="bs-konum">1</span> / {toc_sayi}</em></p>
       <div class="bs-toc-cubuk"><span style="width:0%"></span></div>
@@ -296,12 +302,32 @@ def hub_govde(yazilar):
     suzgec = ('<button data-kat="*" aria-pressed="true">Tümü</button>'
               + "".join(f'<button data-kat="{a}" aria-pressed="false" style="--kat:{r}">'
                         + ikon(i) + k(ad) + "</button>" for a, ad, i, r in kullanilan))
-    kartlar = "".join(f'''<article class="bs-kart" data-kat="{k(y["kategori"])}" data-sinav="{k(" ".join(str(x).lower() for x in y.get("sinavlar", [])))}" style="--kat:{blog_veri.KAT_RENK.get(y["kategori"], "#1860f0")}">
+    def kapak_img(y, sizes, ilk=False):
+        """Kart kapagi. Baslik baglantisi ayrica var; gorsel baglantisi ekran
+        okuyucuda ve sekme sirasinda TEKRAR etmesin diye alt="" +
+        aria-hidden + tabindex=-1 (sus gorseli kurali)."""
+        if not y.get("kapak"):
+            return ""
+        kp = k(y["kapak"])
+        return (f'<a class="bs-kart-gorsel" href="/blog/{k(y["slug"])}/" tabindex="-1" aria-hidden="true">'
+                f'<img src="/blog/kapak/{kp}-800.avif" srcset="/blog/kapak/{kp}-800.avif 800w, /blog/kapak/{kp}.avif 1600w" '
+                f'sizes="{sizes}" alt="" width="800" height="450" decoding="async"'
+                + (' fetchpriority="high"' if ilk else ' loading="lazy"') + "></a>")
+
+    def kart(y, i):
+        # Ilk kart genis ekranda yatay "one cikan" kart (Ahmet 23.09: "blog ana
+        # sayfasinin tasarimini resimlerle birlikte duzenleyelim").
+        one = i == 0
+        return f'''<article class="bs-kart{" bs-kart-one" if one else ""}" data-kat="{k(y["kategori"])}" data-sinav="{k(" ".join(str(x).lower() for x in y.get("sinavlar", [])))}" style="--kat:{blog_veri.KAT_RENK.get(y["kategori"], "#1860f0")}">
+        {kapak_img(y, "(min-width: 900px) 620px, 100vw" if one else "(min-width: 900px) 380px, 100vw", ilk=one)}
+        <div class="bs-kart-ic">
         {kat_rozet(y["kategori"])}
         <h2><a href="/blog/{k(y["slug"])}/">{k(y["baslik"])}</a></h2>
         <p>{k(y["aciklama"])}</p>
         <p class="bs-kunye">{"".join(f'<span class="bs-rozet">{k(s)}</span>' for s in y.get("sinavlar", []))}<time datetime="{k(y["tarih"])}">{tr_tarih(y["tarih"])}</time> · {okuma_dk(y)} dk</p>
-      </article>''' for y in yazilar)
+        </div>
+      </article>'''
+    kartlar = "".join(kart(y, i) for i, y in enumerate(yazilar))
     sinav_suzgec = ('<button data-sinav="*" aria-pressed="true">Tüm sınavlar</button>'
                     + "".join(f'<button data-sinav="{a}" aria-pressed="false" style="--kat:{r}">'
                               + ikon("sinavda") + k(ad) + "</button>"
