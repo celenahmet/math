@@ -1,57 +1,51 @@
 #!/usr/bin/env python3
-# scripts/blog_veri.py — blog yazilarinin TEK kaynagi (22.09.2026)
+# scripts/blog_veri.py — blog yazilarini toplar (23.09.2026)
 #
-# Ahmet (22.09): "uniconnectly'deki gibi blog sayfasi kuracagiz, bloglari
-# yazacagiz; blog kurulunca icerigini bahsederim." Bu dosya iskeleti tutar,
-# ICERIK Ahmet'ten gelir — ajan kendi basina yazi uretmez.
-#
-# Sayfalar scripts/blog_uygula.py ile uretilir. Bir yazi eklemek = asagidaki
-# YAZILAR listesine bir sozluk eklemek; baska hicbir dosyaya dokunulmaz.
+# Her yazi scripts/yazilar/ altinda KENDI dosyasinda durur ve bir `YAZI`
+# sozlugu disa verir. Elli konuluk yol haritasi tek dosyaya sigmaz; bu
+# yuzden yazi basina bir dosya. Sira dosya adindaki numaradan gelir.
 #
 # ALAN SOZLUGU
-#   slug        : adres parcasi (/blog/<slug>/). SONRADAN DEGISTIRILMEZ —
-#                 yayinlanmis adres aramada birikir (bkz. SEO kurali).
-#   baslik      : yazinin <h1>'i ve <title>'inin govdesi
+#   slug        : /blog/<slug>/ — YAYINLANDIKTAN SONRA DEGISTIRILMEZ
+#   baslik      : <h1> ve <title> govdesi
 #   aciklama    : meta description (<= 160 karakter)
-#   tarih       : ISO yayin tarihi (2026-09-22)
-#   guncelleme  : ISO ya da None
-#   kategori    : KATEGORILER icinden biri
+#   tarih       : ISO yayin tarihi · guncelleme: ISO ya da None
+#   kategori    : KATEGORILER anahtari
+#   sinavlar    : ["TYT","AYT","ALES","KPSS"] — hangi sinavda cikar
+#   kapak       : blog/kapak/<kapak>.avif  (scripts/blog_gorsel.py uretir)
+#   kapak_alt   : gorselin alt metni
 #   ozet        : giris paragrafi (duz metin)
-#   bolumler    : [{"baslik": "H2 metni", "icerik": ["<p>…</p>", "<ul>…</ul>"]}]
-#   sss         : [("soru", "cevap")] — hem sayfada hem JSON-LD FAQPage'te
-#   kontrol     : ["kontrol listesi maddesi", …]  (bos birakilabilir)
-#   kaynaklar   : [("ad", "https://…")] — YALNIZ RESMI KAYNAK.
-#                 Ucuncu taraf blog/haber atfi YOK; ic baglanti da YOK
-#                 (ic baglantilar "Bunlar da ilgini cekebilir" bolumunde).
-#   taslak      : True ise sayfa uretilmez (yayindan once bekletmek icin)
-#
-# Kullanim: python3 scripts/blog_uygula.py
+#   bolumler    : [{"baslik": "H2", "icerik": [html ya da duz paragraf]}]
+#   sss         : [(soru, cevap)] — sayfada ve JSON-LD FAQPage'te
+#   kontrol     : ["kontrol listesi maddesi"]
+#   kaynaklar   : [(ad, url)] — YALNIZ RESMI kaynak, ic baglanti YOK
+#   ilgili      : ["baska-yazinin-slugu"] (bos birakilirsa tarihe gore)
+#   taslak      : True ise sayfa uretilmez
+import importlib.util, pathlib, re
+
+KOK = pathlib.Path(__file__).resolve().parent.parent
 
 KATEGORILER = [
-    ("sinav", "Sınav"),
-    ("calisma", "Çalışma Yöntemi"),
-    ("matematik", "Matematik"),
-    ("tercih", "Tercih ve Başvuru"),
+    ("fonksiyonlar", "Fonksiyonlar"),
+    ("polinomlar", "Polinomlar"),
+    ("denklemler", "Denklem ve Parabol"),
+    ("trigonometri", "Trigonometri"),
+    ("logaritma", "Logaritma ve Diziler"),
+    ("analiz", "Limit, Türev, İntegral"),
 ]
 
-YAZILAR = [
-    # Ornek kalip (silinmedi, KOPYALANIR):
-    # {
-    #     "slug": "ornek-yazi",
-    #     "baslik": "Örnek Yazı Başlığı",
-    #     "aciklama": "Arama sonucunda görünecek bir cümlelik özet.",
-    #     "tarih": "2026-09-22",
-    #     "guncelleme": None,
-    #     "kategori": "sinav",
-    #     "ozet": "Yazının ilk paragrafı.",
-    #     "bolumler": [
-    #         {"baslik": "İlk bölüm", "icerik": ["<p>Metin.</p>"]},
-    #     ],
-    #     "sss": [("Soru?", "Cevap.")],
-    #     "kontrol": ["Madde"],
-    #     "kaynaklar": [("ÖSYM Sınav Takvimi", "https://www.osym.gov.tr/Sayfa/SinavTakvimi/...")],
-    # },
-]
+def _yukle():
+    out = []
+    for p in sorted((KOK / "scripts/yazilar").glob("[0-9]*.py")):
+        ad = "blog_yazi_" + p.stem
+        spec = importlib.util.spec_from_file_location(ad, p)
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        if hasattr(m, "YAZI"):
+            out.append(m.YAZI)
+    return out
+
+YAZILAR = _yukle()
 
 def yayinda():
     return [y for y in YAZILAR if not y.get("taslak")]

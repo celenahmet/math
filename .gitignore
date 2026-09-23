@@ -27,3 +27,4 @@ conf.d/
 .vercel
 .env*
 scripts/__pycache__/
+.venv/

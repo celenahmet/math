@@ -54,6 +54,11 @@ def sayfalar():
             continue
         if any(x in "/" + r for x in HARIC_PARCA) or yonlendirme_mi(p):
             continue
+        # Blog sayfalari KENDI head'ini yaziyor (scripts/blog_uygula.py):
+        # canonical, og, JSON-LD, yazi tipi ve stil oradan geliyor. Buradan
+        # bir blok daha eklenirse sayfada IKI canonical olur.
+        if r == "blog/index.html" or r.startswith("blog/"):
+            continue
         yield p
 
 def gorsel_of(yol):
