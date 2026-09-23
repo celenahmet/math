@@ -631,3 +631,13 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 .bs-ornek    { border-left-color: #0f766e; }
 .bs-onkosul  { border-left-color: #7c3aed; }
 .bs-sinavda  { border-left-color: #0d2560; }
+
+/* 23.09 (Ahmet): "altı çizili çirkin duruyor, tıklanabilir oldukları
+   zaten belli." Yazı gövdesindeki bağlantı kuralı (.bs-icerik a →
+   underline) İçindekiler'e ve paylaş düğmelerine de sızıyordu (ölçüldü:
+   14 + 2 bağlantı). Gezinti bileşenleri kutu, hover ve renkle zaten
+   tıklanabilir görünüyor; alt çizgi yalnız düz metin içindeki
+   bağlantılarda kalır (renk tek başına yetmez, erişilebilirlik). */
+.bs-icerik .bs-toc a,
+.bs-icerik .bs-paylas a,
+.bs-icerik .bs-ilgili a { text-decoration: none; }

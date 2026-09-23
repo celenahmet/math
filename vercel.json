@@ -68,5 +68,8 @@
       "source": "/:yol*.PDF",
       "destination": "https://medya.ahmetcelen.com.tr/:yol*.PDF"
     }
+  ],
+  "regions": [
+    "fra1"
   ]
 }

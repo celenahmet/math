@@ -23,9 +23,18 @@ const YAZILAR = new Set(require("./_yazilar.json"));
 const YOL = /^\/blog\/[a-z0-9-]{1,80}\/$/;
 
 function depo() {
-  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
-  return url && token ? { url, token } : null;
+  // Panelde baglarken "Environment Variables Prefix" alani degistirilirse
+  // KV_REST_API_URL yerine <ONEK>_REST_API_URL gelir. Ada bagli kalmamak
+  // icin once bilinen adlar, sonra ayni onekli URL/TOKEN cifti aranir.
+  // Salt okunur token (READ_ONLY) YAZMA icin kullanilmaz.
+  const e = process.env;
+  if (e.KV_REST_API_URL && e.KV_REST_API_TOKEN) return { url: e.KV_REST_API_URL, token: e.KV_REST_API_TOKEN };
+  if (e.UPSTASH_REDIS_REST_URL && e.UPSTASH_REDIS_REST_TOKEN) return { url: e.UPSTASH_REDIS_REST_URL, token: e.UPSTASH_REDIS_REST_TOKEN };
+  for (const k of Object.keys(e)) {
+    const m = k.match(/^(.*)_REST_API_URL$/);
+    if (m && e[m[1] + "_REST_API_TOKEN"]) return { url: e[k], token: e[m[1] + "_REST_API_TOKEN"] };
+  }
+  return null;
 }
 
 async function komut(d, dizi) {
