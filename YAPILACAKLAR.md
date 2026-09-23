@@ -20,3 +20,25 @@ Kural: başlık (`<title>`), H1/H3 ve dosya yolları DEĞİŞMEZ · ÖSYM PDF'le
 
 
 Yayın: cc80324 (22.09). Canlı doğrulandı: /ss/, 7 çıkmış soru sayfası, 10 geri sayım, 404, pdfnot, hakkımda.
+
+# 23.09.2026 — Blog (ahmetcelen.com.tr/blog)
+
+Kurallar: `blog-YAZIM-STANDARDI.md` (11 bölüm) · kaynaklar iç rapor `blog-KAYNAK-DENETIMI.md` (yayında gösterilmez) · kapaklar AVIF (webp medya sunucusuna yönleniyor).
+
+- [x] Kendi modern kabuğu (tema yok, jQuery/Bootstrap yok) · palet kapaktan ölçüldü · AÇ monogram kilidi
+- [x] Formüller MathML (`scripts/matematik.py`), sayfaya JS/CSS inmez
+- [x] İlk yazı: Fonksiyonlar Konu Anlatımı (2213 kelime, 26 kutu, 6 SSS, 10 madde kontrol listesi)
+- [x] Kutular: önce şunları bil (mor) · hap bilgi · dikkat · örnek · sınavda nasıl çıkar; hap bilgi özeti otomatik
+- [x] Tıklanabilir kontrol listesi + 10/10 tebrik (localStorage, sunucuya veri gitmez)
+- [x] Sağ blok: UniConnectly → Kategoriler (sayılı, boşlar "yakında") → Sınavlar → akıllı okuma konumu (5'li pencere, önceki/sonraki, tüm bölümler, başa dön)
+- [x] İçindekiler yazının başında (iki sütun) · kırıntı yolu ikonlu · okuma süresi ikonu
+- [x] Hub: Konu + Sınav iki eksenli süzgeç, `/blog/#analiz` `/blog/#sinav-kpss` çapaları
+- [x] Blog menüsü (Tüm Yazılar · Konular · Sınavlar · Ders Notları · Ana Site)
+- [x] Paylaş: sistem paylaşımı + kopyala + WhatsApp + X + Instagram (Instagram web paylaşımını desteklemiyor → kopyalar)
+- [x] Görsel SEO: srcset, og:image:alt/boyut, JSON-LD ImageObject + wordCount + timeRequired
+- [x] Stajyer notları: ifade ile açıklama/soru ayrı satırda (21 yer) · standarda bölüm 10
+- [x] GÜVENLİK: `scripts/` ve `*.md` yayındaydı (200) → `.vercelignore`, şimdi 404
+- [x] Görüntülenme sayacı: `api/goruntulenme.js` canlı, 15 test (adversarial dahil) geçti
+- [ ] **Ahmet:** Vercel → math → Storage → Upstash for Redis → projeye bağla → yeniden dağıt. Bağlanana kadar sayaç gizli (503).
+- [ ] Sıradaki yazılar: `blog-gorselleri/` 02-50 (brief'teki konu sırası)
+- [ ] Boş durum ve arayüz metinleri (tebrik, "Bu yazıyı paylaş") Ahmet onayı bekliyor
