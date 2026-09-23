@@ -133,3 +133,45 @@ Kurallar:
 
 ⚠️ Okura dönük metnin son hâli **Ahmet'in kararıdır**. Ajan varsayılan bir
 metin koyar ve bunu açıkça söyler; Ahmet değiştirir.
+
+## 9. Görsel ve SEO standardı
+
+Ahmet (23.09): *"blog görselleri ve SEO anlamında kusursuz olmalı,
+100 puan vermeli, görsellerde arama odaklı olmalı, alt etiketler vs her
+şeyiyle birlikte."*
+
+### Kapak görseli
+
+| Kural | Değer |
+|---|---|
+| Biçim | **AVIF** |
+| Ölçü | 1600 px (ana) + 800 px (dar ekran) |
+| Dosya adı | Yazının slug'ı; `fonksiyonlar-konu-anlatimi.avif` |
+| `srcset` + `sizes` | Zorunlu |
+| `width` / `height` | Zorunlu (yerleşim kayması olmasın) |
+| `fetchpriority` | Kapakta `high`, diğerlerinde `loading="lazy"` |
+
+⚠️ **WebP kullanılmaz.** `vercel.json` `.webp` uzantısını medya sunucusuna
+yönlendiriyor; depoya konan webp siteden servis edilmez. `.avif` o listede
+değil (bkz. `scripts/blog_gorsel.py`).
+
+### Alt metin
+
+- Alt metin görselde **ne olduğunu** anlatır; anahtar kelime yığını değil.
+- Konunun adı doğal biçimde geçer.
+- Örnek: *"Fonksiyonlar konu anlatımı: giriş değerlerini çıkış değerlerine
+  bağlayan eşleme şeması ve bir fonksiyon grafiği"*
+- Süs görselinin alt metni **boş** bırakılır (`alt=""`), uydurma metin
+  yazılmaz.
+
+### Sayfa başına zorunlu SEO
+
+- Tek `<h1>`, bölümler `<h2>`
+- `lang="tr"`, canonical, `meta description` (≤ 160 karakter)
+- `og:title`, `og:description`, `og:image`, **`og:image:alt`**,
+  `og:image:width`, `og:image:height`
+- JSON-LD: `BlogPosting` (görsel **ImageObject** olarak; `wordCount`,
+  `timeRequired`, `articleSection`, `keywords`), `BreadcrumbList`,
+  soru varsa `FAQPage`
+- Formüller MathML, yani **metin**: arama motoru okuyor
+- Metinsiz bağlantı bırakılmaz; ikon bağlantısına `aria-label`

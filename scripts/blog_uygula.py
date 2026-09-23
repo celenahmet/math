@@ -54,6 +54,12 @@ def tr_tarih(iso):
     return f"{g} {AYLAR[a - 1]} {y}"
 
 
+def kelime_sayisi(y):
+    metin = " ".join([y["ozet"]] + [p for b in y["bolumler"] for p in b["icerik"]]
+                     + [c for _, c in y.get("sss", [])] + list(y.get("kontrol", [])))
+    return len(re.sub(r"<[^>]+>", " ", metin).split())
+
+
 def okuma_dk(y):
     metin = " ".join([y["ozet"]] + [p for b in y["bolumler"] for p in b["icerik"]]
                      + [c for _, c in y.get("sss", [])])
@@ -95,7 +101,7 @@ def kimlik(baslik):
 
 
 # ── kabuk ────────────────────────────────────────────────────────────────
-def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=False):
+def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=False, gorsel_alt=None):
     adres = ALAN + yol
     og = ALAN + (gorsel or "/blog/kapak/fonksiyonlar-konu-anlatimi.avif")
     menu = "".join(
@@ -124,6 +130,7 @@ def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=
 <meta property="og:description" content="{k(desc)}">
 <meta property="og:url" content="{adres}">
 <meta property="og:image" content="{og}">
+{gorsel_alt or ""}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:image" content="{og}">
@@ -148,7 +155,7 @@ def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=
 </main>
 <footer class="bs-alt">
   <div class="kap">
-    <p><img class="bs-alt-logo" src="/blog/kapak/ahmet-celen-logo.avif" alt="Ahmet Çelen" width="80" height="80" loading="lazy" decoding="async"><br>Üniversite ve kamu sınavlarına ücretsiz matematik kaynakları</p>
+    <p><img class="bs-alt-logo" src="/blog/kapak/ahmet-celen-logo.avif" alt="Ahmet Çelen" width="80" height="80" loading="lazy" decoding="async"><span>Üniversite ve kamu sınavlarına ücretsiz matematik kaynakları</span></p>
     <nav><a href="/pdfnot/">Ders Notları</a><a href="/video/">Video Çözümler</a><a href="/ss/">Çıkmış Sorular</a><a href="/sinavlar/">Geri Sayımlar</a><a href="/hakkimizda/">Hakkımda</a><a href="/iletisim/">İletişim</a></nav>
   </div>
 </footer>
@@ -217,12 +224,18 @@ def yazi_govde(y, digerleri):
                          f'<strong>{k(d["baslik"])}</strong>'
                          f'<span>{k(d["aciklama"])}</span></a>' for d in digerleri) + "</div>\n")
 
+    toc_sayi = toc.count("<li>")
     guncel = (f' · Güncellendi <time datetime="{k(y["guncelleme"])}">{tr_tarih(y["guncelleme"])}</time>'
               if y.get("guncelleme") else "")
     rozet = "".join(f'<span class="bs-rozet">{k(s)}</span>' for s in y.get("sinavlar", []))
     kapak = ""
     if y.get("kapak"):
+        # srcset: dar ekranda 1600 px'lik kapagi indirmenin anlami yok
+        # (olculdu: 106 KB yerine 48 KB). `sizes` icerik sutunu genisligini
+        # bildiriyor, yoksa tarayici 100vw varsayip buyugu seciyor.
         kapak = (f'<img class="bs-kapak" src="/blog/kapak/{k(y["kapak"])}.avif" '
+                 f'srcset="/blog/kapak/{k(y["kapak"])}-800.avif 800w, /blog/kapak/{k(y["kapak"])}.avif 1600w" '
+                 f'sizes="(max-width: 767px) 100vw, 720px" '
                  f'alt="{k(y.get("kapak_alt", y["baslik"]))}" width="1600" height="901" '
                  f'fetchpriority="high" decoding="async">')
     return f'''
@@ -241,7 +254,7 @@ def yazi_govde(y, digerleri):
     {kapak}
     <p class="bs-ozet">{mm(k(y["ozet"]))}</p>
     <nav class="bs-toc bs-toc-ust" aria-label="İçindekiler">
-      <p class="bs-yan-baslik">{ikon("liste")}İçindekiler</p>
+      <p class="bs-yan-baslik">{ikon("liste")}İçindekiler<em>{toc_sayi} bölüm</em></p>
       <ol>{toc}</ol>
     </nav>
     <hr class="bs-ayrac">
@@ -252,6 +265,11 @@ def yazi_govde(y, digerleri):
     {blog_yan.uc_karti("blog-" + y["slug"])}
     {blog_yan.kategori_blogu(y["kategori"])}
     {blog_yan.sinav_blogu(y.get("sinavlar"))}
+    <nav class="bs-toc bs-toc-yan" aria-label="Okuma konumu" data-toplam="{toc_sayi}">
+      <p class="bs-yan-baslik">Neredesin<em><span class="bs-konum">1</span> / {toc_sayi}</em></p>
+      <div class="bs-toc-cubuk"><span style="width:0%"></span></div>
+      <ol>{toc}</ol>
+    </nav>
   </aside>
 </div>
 '''
@@ -300,7 +318,16 @@ def jsonld_yazi(y):
           "datePublished": y["tarih"], "dateModified": y.get("guncelleme") or y["tarih"],
           "author": {"@id": ALAN + "/#kisi"}, "publisher": {"@id": ALAN + "/#kisi"},
           "isAccessibleForFree": True,
-          "image": ALAN + f"/blog/kapak/{y['kapak']}.avif" if y.get("kapak") else None},
+          "inLanguage": "tr-TR",
+          "articleSection": KAT.get(y["kategori"], y["kategori"]),
+          "keywords": ", ".join([y["baslik"]] + [str(x) for x in y.get("sinavlar", [])]),
+          "wordCount": kelime_sayisi(y),
+          # ISO 8601 sure: PT11M → 11 dakika
+          "timeRequired": f"PT{okuma_dk(y)}M",
+          "image": ({"@type": "ImageObject",
+                     "url": ALAN + f"/blog/kapak/{y['kapak']}.avif",
+                     "width": 1600, "height": 901,
+                     "caption": y.get("kapak_alt", y["baslik"])} if y.get("kapak") else None)},
          KISI,
          {"@type": "BreadcrumbList", "itemListElement": [
              {"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": ALAN + "/"},
@@ -352,6 +379,9 @@ def uygula():
             yol=f"/blog/{y['slug']}/", title=f"{y['baslik']} - Ahmet Çelen",
             desc=y["aciklama"], govde=yazi_govde(y, digerleri), jsonld=jsonld_yazi(y),
             gorsel=f"/blog/kapak/{y['kapak']}.avif" if y.get("kapak") else None,
+            gorsel_alt=(f'<meta property="og:image:alt" content="{k(y.get("kapak_alt", y["baslik"]))}">'
+                        '\n<meta property="og:image:width" content="1600">'
+                        '\n<meta property="og:image:height" content="901">') if y.get("kapak") else None,
             onyukle=onyukle))
     n += yaz("blog/index.html", kabuk(
         yol="/blog/", title="Matematik Konu Anlatımı Blog - Ahmet Çelen",

@@ -533,3 +533,61 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 @media (min-width: 1060px) {
   .bs-yan { max-height: calc(100vh - 104px); overflow-y: auto; scrollbar-width: thin; }
 }
+
+/* ── içindekiler yeniden (23.09) ───────────────────────────────────────
+   Ahmet: "o içindekiler kısmının tasarımı iyi olmamış" — kutu 329 px
+   yer kaplıyordu (ölçüldü). Satır yüksekliği ve iç boşluk sıkıştırıldı,
+   başlığa bölüm sayısı eklendi. */
+.bs-toc-ust { padding: 15px 18px 12px; margin-bottom: 26px; }
+.bs-toc-ust .bs-yan-baslik { margin-bottom: 8px; }
+.bs-toc-ust .bs-yan-baslik em {
+  margin-left: auto; font-style: normal; text-transform: none; letter-spacing: 0;
+  font-size: 11.5px; color: var(--soluk); font-weight: 500;
+}
+.bs-toc-ust ol { column-gap: 22px; }
+.bs-toc-ust a { padding: 4px 7px; font-size: 13.8px; line-height: 1.45; }
+.bs-toc-ust a::before { font-size: 10.5px; padding-top: 2px; }
+
+/* ── sağ blok: akıllı okuma konumu (23.09) ─────────────────────────────
+   Ahmet: "en sağdaki en alta da içindekiler kısmı, neredeyse orayı da
+   gösterecek şekilde akıllı bi tasarım."
+   Ondört başlığı yan sütuna sığdırmak sütunu yine ekrandan uzun yapardı
+   (kaydırma uyumunu bozan tam da buydu). Bu yüzden liste TAM basılıyor
+   ama js/blog.js yalnız BULUNDUĞUN bölümün çevresindeki beşini açık
+   bırakıyor; üstte kaçıncı bölümde olduğun ve bir ilerleme çubuğu var. */
+.bs-toc-yan { margin-top: 24px; }
+.bs-toc-yan .bs-yan-baslik { display: flex; align-items: center; }
+.bs-toc-yan .bs-yan-baslik em {
+  margin-left: auto; font-style: normal; text-transform: none; letter-spacing: 0;
+  font-size: 11.5px; font-weight: 600; color: var(--mor);
+}
+.bs-toc-cubuk { height: 4px; border-radius: 3px; background: var(--cizgi-acik); overflow: hidden; margin: 0 0 10px; }
+.bs-toc-cubuk span { display: block; height: 100%; background: var(--mor); transition: width .18s ease; }
+.bs-toc-yan ol { border-left: 2px solid var(--cizgi); }
+.bs-toc-yan li[hidden] { display: none !important; }
+.bs-toc-yan a { font-size: 13.5px; padding: 5px 0 5px 13px; }
+.bs-toc-yan a::before { display: none; }
+
+/* ── alt şerit sıkıştırıldı (23.09) ────────────────────────────────────
+   Ahmet: "bu görseldeki en alt kısmı da güzelleştirelim, dikey çok yer
+   kaplamasın." Ölçüldü: paylaş 118 px + alt bilgi 199 px = 317 px.
+   Paylaş başlığı düğmelerle aynı satıra alındı, alt bilgi tek satıra. */
+.bs-paylas {
+  margin-top: 34px; padding: 14px 18px;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 10px 16px;
+}
+.bs-paylas > p { margin: 0; font-size: 14.5px; white-space: nowrap; }
+.bs-paylas-dugmeler { gap: 8px; margin-left: auto; }
+.bs-paylas-dugmeler > * { padding: 7px 12px; font-size: 13.5px; }
+.bs-paylas-dugmeler .bs-ikon { width: 15px; height: 15px; }
+
+.bs-alt { padding: 20px 0; }
+.bs-alt .kap { align-items: center; gap: 12px 26px; }
+.bs-alt p { display: flex; align-items: center; gap: 12px; font-size: 13.5px; }
+.bs-alt-logo { width: 46px; margin-bottom: 0; }
+.bs-alt nav { gap: 14px; }
+.bs-alt nav a { font-size: 13.5px; }
+@media (max-width: 640px) {
+  .bs-paylas-dugmeler { margin-left: 0; }
+  .bs-alt .kap { flex-direction: column; align-items: flex-start; }
+}

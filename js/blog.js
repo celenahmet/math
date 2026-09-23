@@ -21,87 +21,64 @@
     yaz();
   }
 
-  // 2) icindekiler: gorunen bolumu isaretle
-  var toc = document.querySelector('.bs-toc');
-  if (toc && 'IntersectionObserver' in window) {
-    var baglar = {};
-    [].forEach.call(toc.querySelectorAll('a[href^="#"]'), function (a) {
-      baglar[a.getAttribute('href').slice(1)] = a;
-    });
-    var basliklar = [].filter.call(document.querySelectorAll('.bs-icerik h2[id]'),
-      function (h) { return baglar[h.id]; });
+  // 2) icindekiler: etkin bolum + sag blokta AKILLI pencere
+  //
+  // Iki icindekiler var: yazinin basindaki tam liste ve sag bloktaki
+  // okuma konumu. Ikisi de ayni etkin bolumu isaretliyor.
+  //
+  // Sag blokta ondort baslik birden basilsa sutun yine ekrandan uzun olur
+  // ve yapiskan davranis bozulur (23.09'da yasandi). Bu yuzden liste tam
+  // basiliyor ama yalnizca BULUNDUGUN bolumun cevresindeki bes tanesi
+  // acik biraktiliyor; ustte kacinci bolumde oldugun ve ilerleme cubugu.
+  var tocler = [].slice.call(document.querySelectorAll('.bs-toc'));
+  var yanToc = document.querySelector('.bs-toc-yan');
+  if (tocler.length && 'IntersectionObserver' in window) {
+    var basliklar = [].slice.call(document.querySelectorAll('.bs-icerik h2[id]'));
+    var sira = basliklar.map(function (h) { return h.id; });
     var gorunen = [];
+    var PENCERE = 2;   // etkin bolumun iki ustu, iki alti
+
+    function isaretle(hedef) {
+      tocler.forEach(function (toc) {
+        [].forEach.call(toc.querySelectorAll('a[href^="#"]'), function (a) {
+          a.classList.toggle('etkin', a.getAttribute('href').slice(1) === hedef);
+        });
+      });
+      if (!yanToc) { return; }
+      var i = sira.indexOf(hedef);
+      if (i === -1) { i = 0; }
+      var ogeler = [].slice.call(yanToc.querySelectorAll('li'));
+      ogeler.forEach(function (li, j) {
+        li.hidden = Math.abs(j - i) > PENCERE;
+      });
+      var sayac = yanToc.querySelector('.bs-konum');
+      if (sayac) { sayac.textContent = String(i + 1); }
+      var cubuk = yanToc.querySelector('.bs-toc-cubuk span');
+      if (cubuk && ogeler.length) {
+        cubuk.style.width = ((i + 1) / ogeler.length * 100).toFixed(0) + '%';
+      }
+    }
+
     var g = new IntersectionObserver(function (girisler) {
       girisler.forEach(function (x) {
         var i = gorunen.indexOf(x.target.id);
-        if (x.isIntersecting && i === -1) gorunen.push(x.target.id);
-        if (!x.isIntersecting && i !== -1) gorunen.splice(i, 1);
+        if (x.isIntersecting && i === -1) { gorunen.push(x.target.id); }
+        if (!x.isIntersecting && i !== -1) { gorunen.splice(i, 1); }
       });
-      var hedef = gorunen.length ? gorunen[0] : null;
-      if (!hedef) {   // hicbiri gorunmuyorsa en son gecilen baslik
+      var hedef = null;
+      if (gorunen.length) {
+        // Gorunenler arasindan sayfada EN USTTEKI bolum
+        hedef = sira.filter(function (id) { return gorunen.indexOf(id) !== -1; })[0];
+      } else {
         for (var j = 0; j < basliklar.length; j++) {
-          if (basliklar[j].getBoundingClientRect().top < 120) hedef = basliklar[j].id;
+          if (basliklar[j].getBoundingClientRect().top < 120) { hedef = basliklar[j].id; }
         }
       }
-      for (var k in baglar) baglar[k].classList.toggle('etkin', k === hedef);
+      if (hedef) { isaretle(hedef); }
     }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
     basliklar.forEach(function (h) { g.observe(h); });
+    if (sira.length) { isaretle(sira[0]); }
   }
-
-  // 4) tiklanabilir kontrol listesi
-  //
-  // Ahmet (23.09): "kontrol listesi tiklanabilir checklist gibi olsun."
-  // Isaretler YALNIZCA tarayicida saklanir; sunucuya hicbir sey gitmez,
-  // hesap da istenmez. localStorage erisimi gizli sekmede ya da site
-  // verileri kapaliyken HATA FIRLATABILIR, bu yuzden her erisim try ile
-  // sarili; depolama yoksa liste calisir, yalniz hatirlamaz.
-  var sar = document.querySelector('.bs-kontrol-sar');
-  if (sar) {
-    var anahtar = 'ac-kontrol:' + (sar.getAttribute('data-yazi') || '');
-    var kutular = [].slice.call(sar.querySelectorAll('input[type=checkbox]'));
-    var toplam = kutular.length;
-    var durum = sar.querySelector('.bs-kontrol-durum strong');
-    var cubuk = sar.querySelector('.bs-kontrol-cubuk span');
-    var sifirla = sar.querySelector('.bs-kontrol-sifirla');
-
-    function oku() {
-      try { return JSON.parse(localStorage.getItem(anahtar) || '[]') || []; }
-      catch (e) { return []; }
-    }
-    function yazDepo(d) {
-      try { localStorage.setItem(anahtar, JSON.stringify(d)); } catch (e) { /* yoksay */ }
-    }
-    function tazele() {
-      var n = 0;
-      for (var i = 0; i < toplam; i++) { if (kutular[i].checked) n++; }
-      if (durum) { durum.textContent = String(n); }
-      if (cubuk) { cubuk.style.width = toplam ? (n / toplam * 100).toFixed(0) + '%' : '0%'; }
-      if (sifirla) { sifirla.hidden = n === 0; }
-      sar.classList.toggle('bs-bitti', toplam > 0 && n === toplam);
-    }
-
-    var kayitli = oku();
-    for (var i = 0; i < toplam; i++) {
-      if (kayitli.indexOf(i) !== -1) { kutular[i].checked = true; }
-    }
-    tazele();
-
-    sar.addEventListener('change', function (e) {
-      if (!e.target || e.target.type !== 'checkbox') { return; }
-      var secili = [];
-      for (var j = 0; j < toplam; j++) { if (kutular[j].checked) { secili.push(j); } }
-      yazDepo(secili);
-      tazele();
-    });
-    if (sifirla) {
-      sifirla.addEventListener('click', function () {
-        for (var j = 0; j < toplam; j++) { kutular[j].checked = false; }
-        yazDepo([]);
-        tazele();
-      });
-    }
-  }
-
 
   // 5) paylasim
   //

@@ -24,5 +24,5 @@ sorgulanırsa nereden geldiğini gösterebilelim.
 ### Fonksiyonlar Konu Anlatımı
 
 - Adres: `/blog/fonksiyonlar-konu-anlatimi/` · Tarih: 2026-09-23
-- MEB Ortaöğretim Matematik Dersi Öğretim Programı — <https://mufredat.meb.gov.tr/ProgramDetay.aspx?PID=343> · durum: 200
+- MEB Ortaöğretim Matematik Dersi Öğretim Programı — <https://mufredat.meb.gov.tr/ProgramDetay.aspx?PID=343> · durum: —
 
