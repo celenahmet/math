@@ -14,6 +14,14 @@ olmayacak ve uzun olacak detaylı. hap bilgiler gibi böyle yenilikçi,
 - Sınav formatına ait bir iddia (soru sayısı, konu dağılımı) **ÖSYM'nin
   kendi belgesine** dayanır; kulaktan dolma dağılım yazılmaz.
 - Emin olunmayan bilgi yazılmaz. Eksik bırakmak, yanlış yazmaktan iyidir.
+- **Makine doğrulaması zorunlu** (Ahmet 23.09: *"matematiksel hata yapmayalım, kaynakta
+  matematiksel olarak doğrulayalım"*). Yazıdaki her tanım/görüntü kümesi, ters fonksiyon,
+  bileşke ve sayma sonucu `scripts/blog_dogrula.py` içinde bir satırdır: sympy ile sembolik ya
+  da kaba kuvvetle (bütün fonksiyonlar tek tek sayılarak) yeniden hesaplanır. Yayından önce
+  `.venv/bin/python scripts/blog_dogrula.py` çalışır; tek satır tutmazsa yayın yapılmaz.
+  Betik biçimi de denetler: ≥ 2000 kelime, 10 kontrol maddesi, uzun tire yok, formül dışında ünlem yok.
+- Sınav düzeyi anlatılırken **sıklık iddiası** ("çoğunlukla", "en çok", "sık sorulan") yazılmaz;
+  ÖSYM dağılım yayımlamıyor. "Şu biçimde karşına çıkabilir" denir.
 
 ## 2. Uzunluk ve derinlik
 
@@ -72,6 +80,9 @@ yoksa bağlantı panoya kopyalanır.
 
 - LaTeX alt kümesiyle yazılır (`$...$` satır içi, `$$...$$` blok),
   `scripts/matematik.py` MathML'e çevirir. Sayfaya JS/CSS inmez.
+- **Ondalık sayı kaynakta NOKTA ile** yazılır (`2.5`), ekrana virgülle basılır (2,5).
+  Virgül her zaman ayraçtır: `\{1,2,3\}`, `[2,5)`. (23.09'a kadar `1,2` ve `[2,5)` tek bir
+  ondalık sayı gibi basılıyordu; `matematik.py` düzeltildi.)
 - Formül **görsel olarak** değil, **metin olarak** yazılır: ekran
   okuyucu okur, arama motoru anlar, kopyalanabilir.
 

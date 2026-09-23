@@ -45,9 +45,13 @@ FONKSIYON = ["sin", "cos", "tan", "cot", "sec", "csc", "log", "ln",
              "arcsin", "arccos", "arctan", "max", "min", "ebob", "ekok"]
 BUYUK = {"sum": "∑", "prod": "∏", "int": "∫", "lim": "lim"}
 
+# Sayi jetonu: ondalik ayirac KAYNAKTA NOKTA ile yazilir (2.5), ekrana
+# virgulle basilir (2,5). Virgul HER ZAMAN ayractir. Eskiden [.,] ikisi de
+# ondalik sayiliyordu: {1,2,3} icindeki "1,2" ve [2,5) araligi tek bir
+# ondalik sayi (<mn>2,5</mn>) olarak basiliyordu (23.09 olculdu).
 _JETON = re.compile(r"""
     \\text\{[^{}]*\} |
-    \\[A-Za-z]+ | \\[{}|,\ ] | \d+[.,]?\d* | [A-Za-z] |
+    \\[A-Za-z]+ | \\[{}|,\ ] | \d+(?:\.\d+)? | [A-Za-z] |
     \^ | _ | \{ | \} | \( | \) | \[ | \] | \| |
     [+\-=<>/!,.:;'] | \s+
 """, re.X)
@@ -172,6 +176,16 @@ def _duzmetin(jetonlar, k):
     raise ValueError("matematik: \\text{...} kapanmadi")
 
 
+_KAPAYAN = {")", "]", "}", "|", "\u2032", "!"}
+
+
+def _acan_isaret(mathml):
+    """Onceki parca bir isaret mi ve ardindan gelen eksi, isaret eksisi mi?
+    Kapayan ayrac ya da sayi/harf sonrasi eksi cikarmadir."""
+    m = re.fullmatch(r"<mo[^>]*>(.*?)</mo>", mathml)
+    return bool(m) and m.group(1) not in _KAPAYAN
+
+
 def _dizi(jetonlar, k, bitis=None):
     out = []
     while k < len(jetonlar):
@@ -198,6 +212,11 @@ def _dizi(jetonlar, k, bitis=None):
             k = k2
             continue
         parca, k = _atom(j, jetonlar, k + 1)
+        if j == "-" and (not out or _acan_isaret(out[-1])):
+            # Isaret eksisi: "{-1", "f(-1)", "=-3", "^{-1}". Varsayilan <mo>
+            # ikili islem boslugu alip "{ − 1" gibi basiliyordu (23.09 olculdu);
+            # prefix bicimi bosluksuz dizer.
+            parca = '<mo form="prefix">\u2212</mo>'
         out.append(parca)
     if bitis:
         raise ValueError(f"matematik: {bitis} kapanmadi")

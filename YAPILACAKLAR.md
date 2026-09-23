@@ -40,5 +40,8 @@ Kurallar: `blog-YAZIM-STANDARDI.md` (11 bölüm) · kaynaklar iç rapor `blog-KA
 - [x] GÜVENLİK: `scripts/` ve `*.md` yayındaydı (200) → `.vercelignore`, şimdi 404
 - [x] Görüntülenme sayacı: `api/goruntulenme.js` canlı, 15 test (adversarial dahil) geçti
 - [ ] **Ahmet:** Vercel → math → Storage → Upstash for Redis → projeye bağla → yeniden dağıt. Bağlanana kadar sayaç gizli (503).
-- [ ] Sıradaki yazılar: `blog-gorselleri/` 02-50 (brief'teki konu sırası)
+- [x] 02-05 yazıldı (23.09): Tanım, Değer ve Görüntü Kümeleri (3439 kelime) · Birebir ve Örten Fonksiyon Nedir? (2122) · Bileşke Fonksiyon Konu Anlatımı (2015) · Ters Fonksiyon Nasıl Bulunur? (2007). Kapaklar: 03 ve 04 için `-v2` (01 de v2 idi, piksel karşılaştırmasıyla ölçüldü)
+- [x] `scripts/blog_dogrula.py`: 261 matematiksel ve biçim denetimi, hepsi tuttu (sympy `.venv`'de)
+- [x] `matematik.py`: `{1,2,3}` ve `[2,5)` içindeki virgül ondalık sanılıyordu; işaret eksisi `{ − 1` diye aralıklı basılıyordu. İkisi düzeldi, 01 de yeniden üretildi
+- [ ] Sıradaki yazılar: `blog-gorselleri/` 06-50 (brief'teki konu sırası); her yazının iddiaları `blog_dogrula.py`'ye eklenir
 - [ ] Boş durum ve arayüz metinleri (tebrik, "Bu yazıyı paylaş") Ahmet onayı bekliyor
