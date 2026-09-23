@@ -9,37 +9,48 @@
 # scripts/matematik.py bunlari MathML'e cevirir (sayfaya JS/CSS inmez).
 import html
 
+from blog_ikon import ikon
+
 
 def _ic(parcalar):
     return "".join(p if p.lstrip().startswith("<") else f"<p>{p}</p>" for p in parcalar)
 
 
 def hap(*parcalar):
-    """Ezberlenecek kural, formul ya da kisayol."""
-    return '<div class="bs-hap"><b>Hap bilgi</b>' + _ic(parcalar) + "</div>"
+    """Ezberlenecek kural, formul ya da kisayol.
+
+    Ic govde ayri bir sarmalayiciya aliniyor: scripts/blog_uygula.py
+    sayfanin sonunda butun hap bilgileri toplayip "Hap bilgi ozeti"
+    bolumunu URETIYOR (Ahmet 23.09). Bu yuzden hap kutusunun icine
+    TABLO KONMAZ; tablo da <div> oldugu icin ozet cikarimini bozar.
+    """
+    ic = _ic(parcalar)
+    assert "<div" not in ic, "hap() icine div (orn. tablo) konmaz; ozet cikarimi bozulur"
+    return ('<div class="bs-hap"><b>' + ikon("hap") + "Hap bilgi" + "</b>"
+            + '<div class="bs-hap-ic">' + ic + "</div></div>")
 
 
 def dikkat(*parcalar):
     """Sinavda tuzak olan, sik yapilan hata."""
-    return '<div class="bs-dikkat"><b>Dikkat</b>' + _ic(parcalar) + "</div>"
+    return '<div class="bs-dikkat"><b>' + ikon("dikkat") + "Dikkat" + '</b>' + _ic(parcalar) + "</div>"
 
 
 def ornek(*parcalar):
     """Cozumlu ornek."""
-    return '<div class="bs-ornek"><b>Örnek</b>' + _ic(parcalar) + "</div>"
+    return '<div class="bs-ornek"><b>' + ikon("ornek") + "Örnek" + '</b>' + _ic(parcalar) + "</div>"
 
 
 def onkosul(*parcalar):
     """Yaziya baslamadan once bilinmesi gerekenler. Ogrenci konuya hazir mi
     olmadan giriyorsa once oraya donsun diye yazinin BASINA konur."""
-    return '<div class="bs-onkosul"><b>Önce şunları bil</b>' + _ic(parcalar) + "</div>"
+    return '<div class="bs-onkosul"><b>' + ikon("onkosul") + "Önce şunları bil" + '</b>' + _ic(parcalar) + "</div>"
 
 
 def sinavda(*parcalar):
     """Konunun sinavda hangi bicimde sorulduğu. Ahmet: kitle YKS + ALES/KPSS;
     ayni konu uc sinavda farkli derinlikte soruluyor, ogrenci hangisine
     calistigini bilerek okusun."""
-    return '<div class="bs-sinavda"><b>Sınavda nasıl çıkar</b>' + _ic(parcalar) + "</div>"
+    return '<div class="bs-sinavda"><b>' + ikon("sinavda") + "Sınavda nasıl çıkar" + '</b>' + _ic(parcalar) + "</div>"
 
 
 def tablo(basliklar, satirlar):

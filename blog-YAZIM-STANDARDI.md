@@ -38,6 +38,36 @@ olmayacak ve uzun olacak detaylı. hap bilgiler gibi böyle yenilikçi,
 Kutu süs değildir: her biri gerçekten o işlevi görmeli. Bölüm başına
 en fazla bir-iki kutu; sayfa kutu tarlasına dönmez.
 
+### Hap bilgi özeti (zorunlu)
+
+Sayfanın sonunda, kontrol listesinin hemen üstünde **"Hap bilgi özeti"**
+bölümü bulunur. Bu bölüm **elle yazılmaz**: yazının içindeki bütün hap
+bilgiler üretici tarafından toplanıp numaralı listeye dizilir.
+
+Sonucu şudur: öğrenci yazıyı bitirdiğinde ya da sınavdan önce geri
+döndüğünde, tüm konunun ezberlenecek kısmını tek ekranda görür.
+
+Bu, hap bilgilerin yazıya **anlamlı dağıtılmasını** zorunlu kılar. Bir
+bölümde hiç hap bilgi yoksa özet eksik kalır; on tane üst üste konursa
+özet okunmaz olur. Her ana bölümde bir tane, en fazla iki tane.
+
+⚠️ Hap bilgi kutusunun içine **tablo konmaz**; özet çıkarımını bozar.
+
+### Kontrol listesi (zorunlu)
+
+Yazının en sonunda, öğrencinin işaretleyebileceği bir kontrol listesi
+bulunur. Maddeler "biliyorum" değil **"yapabiliyorum"** diliyle yazılır:
+öğrenci kendini sınasın, kendine güven vermesin.
+
+İşaretler yalnızca öğrencinin tarayıcısında saklanır; sunucuya hiçbir
+şey gitmez, hesap istenmez.
+
+### Paylaş alanı
+
+Yazının sonunda paylaş alanı otomatik gelir. Üçüncü taraf paylaşım
+betiği yüklenmez; tarayıcının kendi paylaşım penceresi kullanılır,
+yoksa bağlantı panoya kopyalanır.
+
 ## 4. Formüller
 
 - LaTeX alt kümesiyle yazılır (`$...$` satır içi, `$$...$$` blok),

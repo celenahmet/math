@@ -28,13 +28,15 @@ import html, json, re, sys, pathlib, datetime
 KOK = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(KOK / "scripts"))
 import blog_veri                      # noqa: E402
+from blog_ikon import ikon            # noqa: E402
+import blog_yan                      # noqa: E402
 from matematik import satir as mm     # noqa: E402
 
 ALAN = "https://ahmetcelen.com.tr"
 TASLAK = "<!-- blog:taslak -->"
 AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
          "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
-KAT = dict(blog_veri.KATEGORILER)
+KAT = blog_veri.KAT_AD
 _yt = (KOK / "css/blog-yazitipleri.css").read_text(encoding="utf-8")
 ANA_FONT = re.search(r"webfont/(inter-latin-[0-9a-f]+\.woff2)", _yt).group(1)
 
@@ -55,6 +57,33 @@ def okuma_dk(y):
     metin = " ".join([y["ozet"]] + [p for b in y["bolumler"] for p in b["icerik"]]
                      + [c for _, c in y.get("sss", [])])
     return max(1, round(len(re.sub(r"<[^>]+>", " ", metin).split()) / 190))
+
+
+def kat_rozet(anahtar, sinif="bs-etiket"):
+    """Kategori rozeti. Renk satir ici degisken olarak geciyor; her
+    kategori kendi rengini tasisin diye (CSS'te altti kategori icin ayri
+    kural yazmak yerine tek kural + degisken)."""
+    return (f'<span class="{sinif}" style="--kat:{blog_veri.KAT_RENK.get(anahtar, "#1860f0")}">'
+            + ikon(blog_veri.KAT_IKON.get(anahtar, "fonksiyonlar"))
+            + k(KAT.get(anahtar, anahtar)) + "</span>")
+
+
+def bolum_basligi(kimlik_, ikon_adi, metin):
+    return f'<h2 id="{kimlik_}" class="bs-h2-ikon">{ikon(ikon_adi)}{k(metin)}</h2>\n'
+
+
+def hap_ozeti(govde):
+    """Yazidaki butun hap bilgileri sayfanin sonunda tek listede toplar.
+    Ahmet (23.09): ogrenci yaziyi bitirince ya da sinav oncesi yalniz bu
+    bolumu okusun. Ozet ELLE yazilmaz, kutulardan uretilir; boylece
+    metin degisince ozet de kendiliginden degisir."""
+    parcalar = re.findall(r'<div class="bs-hap-ic">(.*?)</div>', govde, re.S)
+    if not parcalar:
+        return "", ""
+    liste = "".join(f"<li>{x}</li>" for x in parcalar)
+    return (bolum_basligi("b-hap-ozet", "hap", "Hap bilgi özeti")
+            + f'<ol class="bs-hap-ozet">{liste}</ol>\n',
+            '<li><a href="#b-hap-ozet">Hap bilgi özeti</a></li>')
 
 
 def kimlik(baslik):
@@ -148,22 +177,41 @@ def yazi_govde(y, digerleri):
         govde += (f'<h2 id="{kimlik(b["baslik"])}">{k(b["baslik"])}</h2>\n' + icerik + "\n")
 
     ek = ""
+    _ozet, _ozet_toc = hap_ozeti(govde)
+    ek += _ozet
+    toc += _ozet_toc
     if y.get("sss"):
-        ek += ('<h2 id="b-sss">Sık sorulanlar</h2>\n<div class="bs-sss">'
+        ek += (bolum_basligi("b-sss", "sss", "Sık sorulanlar") + '<div class="bs-sss">'
                + "".join(f"<details><summary>{k(s)}</summary><p>{mm(c)}</p></details>"
                          for s, c in y["sss"]) + "</div>\n")
         toc += '<li><a href="#b-sss">Sık sorulanlar</a></li>'
     if y.get("kontrol"):
-        ek += ('<h2 id="b-kontrol">Kontrol listesi</h2>\n<ul class="bs-kontrol">'
-               + "".join(f"<li>{mm(m)}</li>" for m in y["kontrol"]) + "</ul>\n")
+        # Tiklanabilir kontrol listesi (Ahmet 23.09). Isaretler tarayicida
+        # saklanir (js/blog.js, localStorage); sunucuya hicbir sey gitmez.
+        # JS calismazsa liste yine okunur kalir: kutular islevsiz ama
+        # maddeler gorunur.
+        n = len(y["kontrol"])
+        maddeler = "".join(
+            f'<li><label><input type="checkbox" data-i="{i}">'
+            f'<span class="bs-kutu">{ikon("kontrol") if False else ""}</span>'
+            f'<span class="bs-madde">{mm(m)}</span></label></li>'
+            for i, m in enumerate(y["kontrol"]))
+        ek += (bolum_basligi("b-kontrol", "kontrol", "Kontrol listesi")
+               + f'<div class="bs-kontrol-sar" data-yazi="{k(y["slug"])}" data-toplam="{n}">'
+               + '<div class="bs-kontrol-ust">'
+               + f'<p class="bs-kontrol-durum"><strong>0</strong> / {n} tamamlandı</p>'
+               + '<button type="button" class="bs-kontrol-sifirla" hidden>Sıfırla</button></div>'
+               + '<div class="bs-kontrol-cubuk"><span style="width:0%"></span></div>'
+               + f'<ul class="bs-kontrol">{maddeler}</ul></div>\n')
         toc += '<li><a href="#b-kontrol">Kontrol listesi</a></li>'
     if y.get("kaynaklar"):
-        ek += ('<h2 id="b-kaynaklar">Kaynaklar</h2>\n<ul class="bs-kaynaklar">'
+        ek += (bolum_basligi("b-kaynaklar", "kaynak", "Kaynaklar") + '<ul class="bs-kaynaklar">'
                + "".join(f'<li><a href="{k(u)}" target="_blank" rel="noopener noreferrer">{k(a)}</a></li>'
                          for a, u in y["kaynaklar"]) + "</ul>\n")
     if digerleri:
-        ek += ('<h2>Bunlar da ilgini çekebilir</h2>\n<div class="bs-ilgili">'
-               + "".join(f'<a href="/blog/{k(d["slug"])}/"><strong>{k(d["baslik"])}</strong>'
+        ek += (bolum_basligi("b-ilgili", "ilgili", "Bunlar da ilgini çekebilir") + '<div class="bs-ilgili">'
+               + "".join(f'<a href="/blog/{k(d["slug"])}/">{kat_rozet(d["kategori"], "bs-etiket bs-etiket-mini")}'
+                         f'<strong>{k(d["baslik"])}</strong>'
                          f'<span>{k(d["aciklama"])}</span></a>' for d in digerleri) + "</div>\n")
 
     guncel = (f' · Güncellendi <time datetime="{k(y["guncelleme"])}">{tr_tarih(y["guncelleme"])}</time>'
@@ -180,16 +228,19 @@ def yazi_govde(y, digerleri):
 </div>
 <div class="kap bs-duzen">
   <article class="bs-icerik">
-    <span class="bs-etiket">{k(kat)}</span>
+    {kat_rozet(y["kategori"])}
     <h1 class="bs-baslik">{k(y["baslik"])}</h1>
     <p class="bs-kunye">{rozet}<time datetime="{k(y["tarih"])}">{tr_tarih(y["tarih"])}</time>{guncel} · {okuma_dk(y)} dakikalık okuma</p>
     {kapak}
     <p class="bs-ozet">{mm(k(y["ozet"]))}</p>
     <hr class="bs-ayrac">
 {mm(govde)}{mm(ek)}
+    {blog_yan.paylas(y["baslik"], "/blog/" + y["slug"] + "/")}
   </article>
   <aside class="bs-yan">
-    <nav class="bs-toc" aria-label="İçindekiler"><p>İçindekiler</p><ol>{toc}</ol></nav>
+    {blog_yan.uc_karti("blog-" + y["slug"])}
+    <nav class="bs-toc" aria-label="İçindekiler"><p class="bs-yan-baslik">İçindekiler</p><ol>{toc}</ol></nav>
+    {blog_yan.kategori_blogu(y["kategori"])}
   </aside>
 </div>
 '''
@@ -202,10 +253,10 @@ def hub_govde(yazilar):
                 '<p class="bs-bos">İlk yazı hazırlanıyor.</p></div>')
     kullanilan = [x for x in blog_veri.KATEGORILER if any(y["kategori"] == x[0] for y in yazilar)]
     suzgec = ('<button data-kat="*" aria-pressed="true">Tümü</button>'
-              + "".join(f'<button data-kat="{a}" aria-pressed="false">{k(ad)}</button>'
-                        for a, ad in kullanilan))
-    kartlar = "".join(f'''<article class="bs-kart" data-kat="{k(y["kategori"])}">
-        <span class="bs-etiket">{k(KAT.get(y["kategori"], y["kategori"]))}</span>
+              + "".join(f'<button data-kat="{a}" aria-pressed="false" style="--kat:{r}">'
+                        + ikon(i) + k(ad) + "</button>" for a, ad, i, r in kullanilan))
+    kartlar = "".join(f'''<article class="bs-kart" data-kat="{k(y["kategori"])}" style="--kat:{blog_veri.KAT_RENK.get(y["kategori"], "#1860f0")}">
+        {kat_rozet(y["kategori"])}
         <h2><a href="/blog/{k(y["slug"])}/">{k(y["baslik"])}</a></h2>
         <p>{k(y["aciklama"])}</p>
         <p class="bs-kunye">{"".join(f'<span class="bs-rozet">{k(s)}</span>' for s in y.get("sinavlar", []))}<time datetime="{k(y["tarih"])}">{tr_tarih(y["tarih"])}</time> · {okuma_dk(y)} dk</p>

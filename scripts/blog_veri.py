@@ -25,14 +25,21 @@ import importlib.util, pathlib, re
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 
+# (anahtar, ad, ikon adi, renk). Renk her kategoriye AYRI bir kimlik verir;
+# Ahmet: "kategorileri de iyi ayirmaliyiz, bunlara da ikonlu yapalim."
+# Renkler marka mavisiyle ayni doygunluk bandindan secildi; dekoratif
+# gradyan ya da parilti YOK.
 KATEGORILER = [
-    ("fonksiyonlar", "Fonksiyonlar"),
-    ("polinomlar", "Polinomlar"),
-    ("denklemler", "Denklem ve Parabol"),
-    ("trigonometri", "Trigonometri"),
-    ("logaritma", "Logaritma ve Diziler"),
-    ("analiz", "Limit, Türev, İntegral"),
+    ("fonksiyonlar", "Fonksiyonlar", "fonksiyonlar", "#1860f0"),
+    ("polinomlar", "Polinomlar", "polinomlar", "#0f766e"),
+    ("denklemler", "Denklem ve Parabol", "denklemler", "#6d28d9"),
+    ("trigonometri", "Trigonometri", "trigonometri", "#c2410c"),
+    ("logaritma", "Logaritma ve Diziler", "logaritma", "#15803d"),
+    ("analiz", "Limit, Türev, İntegral", "analiz", "#be123c"),
 ]
+KAT_AD = {a: ad for a, ad, _, _ in KATEGORILER}
+KAT_IKON = {a: i for a, _, i, _ in KATEGORILER}
+KAT_RENK = {a: r for a, _, _, r in KATEGORILER}
 
 def _yukle():
     out = []

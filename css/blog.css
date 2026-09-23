@@ -111,26 +111,43 @@ h1, h2, h3, h4 {
 .bs-hero p { font-size: 18.5px; color: var(--soluk); max-width: 640px; margin: 0; }
 .bs-suzgec { display: flex; flex-wrap: wrap; gap: 8px; padding: 22px 0 28px; }
 .bs-suzgec button {
-  padding: 7px 15px; border: 1px solid var(--cizgi); border-radius: 999px;
-  background: var(--yuzey); color: var(--soluk); font: 500 14px Inter, sans-serif; cursor: pointer;
+  --kat: var(--murekkep);
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 15px 7px 12px; border: 1px solid var(--cizgi); border-radius: 999px;
+  background: var(--yuzey); color: var(--soluk); font: 600 14px Inter, sans-serif; cursor: pointer;
 }
-.bs-suzgec button:hover { border-color: #cbd5e1; color: var(--murekkep); }
-.bs-suzgec button[aria-pressed="true"] { background: var(--murekkep); border-color: var(--murekkep); color: #fff; }
+.bs-suzgec button:hover { border-color: color-mix(in srgb, var(--kat) 40%, #fff); color: var(--kat); }
+.bs-suzgec button[aria-pressed="true"] { background: var(--kat); border-color: var(--kat); color: #fff; }
 .bs-izgara { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; padding-bottom: 60px; }
 .bs-kart {
+  --kat: var(--mor);
+  position: relative; overflow: hidden;
   background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r);
   padding: 24px; box-shadow: var(--golge); display: flex; flex-direction: column;
 }
-.bs-kart:hover { border-color: #cbd5e1; }
+.bs-kart::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: var(--kat);
+}
+.bs-kart:hover { border-color: color-mix(in srgb, var(--kat) 35%, var(--cizgi)); }
 .bs-kart h2 { font-size: 20px; font-weight: 600; margin: 10px 0 8px; }
 .bs-kart h2 a { color: var(--murekkep); }
 .bs-kart h2 a:hover { color: var(--mor); }
 .bs-kart p { font-size: 15px; color: var(--soluk); margin: 0 0 16px; line-height: 1.65; }
 .bs-kart .bs-kunye { margin-top: auto; }
+/* Kategori rozeti. Renk satir ici `--kat` degiskeninden gelir; kategori
+   basina ayri CSS kurali yazilmiyor, tek kural her renge uyuyor.
+   color-mix ile ayni renkten cok acik bir zemin uretiliyor. */
 .bs-etiket {
-  display: inline-block; padding: 3px 11px; border-radius: 999px;
-  background: var(--mor-acik); color: var(--mor-koyu); font-size: 12.5px; font-weight: 500;
+  --kat: var(--mor);
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px 4px 9px; border-radius: 999px;
+  background: color-mix(in srgb, var(--kat) 9%, #fff);
+  border: 1px solid color-mix(in srgb, var(--kat) 20%, #fff);
+  color: var(--kat); font-size: 12.5px; font-weight: 600;
 }
+.bs-etiket-mini { padding: 2px 9px 2px 7px; font-size: 11.5px; margin-bottom: 8px; }
+.bs-ikon { width: 16px; height: 16px; flex: none; }
+.bs-etiket .bs-ikon { width: 15px; height: 15px; }
 .bs-rozet {
   display: inline-block; margin-right: 6px; padding: 2px 9px; border-radius: 6px;
   background: var(--cizgi-acik); color: var(--soluk); font-size: 12px; font-weight: 500;
@@ -145,7 +162,7 @@ h1, h2, h3, h4 {
 .bs-kirinti a:hover { color: var(--mor); }
 .bs-duzen { display: grid; grid-template-columns: 1fr; gap: 40px; padding-bottom: 70px; }
 @media (min-width: 1060px) {
-  .bs-duzen { grid-template-columns: minmax(0, 1fr) 260px; align-items: start; }
+  .bs-duzen { grid-template-columns: minmax(0, 1fr) 300px; align-items: start; }
 }
 .bs-icerik { min-width: 0; max-width: 720px; }
 .bs-baslik { font-size: 40px; font-weight: 700; margin-bottom: 14px; }
@@ -155,6 +172,8 @@ h1, h2, h3, h4 {
 .bs-icerik h2 {
   font-size: 27px; font-weight: 600; margin: 46px 0 14px; scroll-margin-top: 84px;
 }
+.bs-h2-ikon { display: flex; align-items: center; gap: 10px; }
+.bs-h2-ikon .bs-ikon { width: 22px; height: 22px; color: var(--mor); flex: none; }
 .bs-icerik h3 { font-size: 20.5px; font-weight: 600; margin: 30px 0 10px; scroll-margin-top: 84px; }
 .bs-icerik p { margin: 0 0 16px; }
 .bs-icerik ul, .bs-icerik ol { margin: 0 0 18px; padding-left: 24px; }
@@ -195,7 +214,7 @@ h1, h2, h3, h4 {
 .bs-sinavda b { color: #0d2560; }
 .bs-onkosul p:last-child, .bs-sinavda p:last-child { margin-bottom: 0; }
 .bs-hap b, .bs-dikkat b, .bs-ornek b, .bs-onkosul b, .bs-sinavda b {
-  display: block; font-family: Outfit, sans-serif; font-size: 13px; font-weight: 600;
+  display: flex; align-items: center; gap: 7px; font-family: Outfit, sans-serif; font-size: 13px; font-weight: 600;
   text-transform: uppercase; letter-spacing: .05em; margin-bottom: 7px;
 }
 .bs-hap b { color: var(--mor-koyu); }
@@ -232,12 +251,56 @@ math.mtml { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", s
 .bs-sss details[open] summary::after { content: "\2212"; }
 .bs-sss details p { margin: 11px 0 0; }
 
-/* kontrol listesi */
-.bs-kontrol { list-style: none !important; padding-left: 0 !important; }
-.bs-kontrol li { position: relative; padding-left: 27px; margin-bottom: 9px; }
-.bs-kontrol li::before {
-  content: "\2713"; position: absolute; left: 0; top: 0; color: #0f766e; font-weight: 700;
+/* ── tiklanabilir kontrol listesi ──────────────────────────────────────
+   Ahmet: "kontrol listesi tiklanabilir checklist gibi olsun."
+   Isaretler js/blog.js ile tarayicida saklanir; sunucuya veri gitmez.
+   JS calismazsa liste yine okunur: kutular islevsiz kalir, maddeler durur. */
+.bs-kontrol-sar {
+  background: var(--yuzey); border: 1px solid var(--cizgi);
+  border-radius: var(--r); padding: 18px 20px 8px;
 }
+.bs-kontrol-ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.bs-kontrol-durum { font-size: 14px; color: var(--soluk); margin: 0; }
+.bs-kontrol-durum strong { color: var(--mor); font-size: 16px; }
+.bs-kontrol-sifirla {
+  border: 1px solid var(--cizgi); background: var(--zemin); color: var(--soluk);
+  border-radius: 8px; padding: 5px 12px; font: 500 13px Inter, sans-serif; cursor: pointer;
+}
+.bs-kontrol-sifirla:hover { color: var(--murekkep); border-color: #cbd5e1; }
+.bs-kontrol-cubuk {
+  height: 5px; border-radius: 3px; background: var(--cizgi-acik); margin: 12px 0 4px; overflow: hidden;
+}
+.bs-kontrol-cubuk span {
+  display: block; height: 100%; background: var(--mor); border-radius: 3px;
+  transition: width .18s ease;
+}
+.bs-kontrol { list-style: none !important; padding-left: 0 !important; margin: 0; }
+.bs-kontrol li { margin: 0; border-top: 1px solid var(--cizgi-acik); }
+.bs-kontrol li:first-child { border-top: 0; }
+.bs-kontrol label {
+  display: flex; align-items: flex-start; gap: 12px; padding: 12px 2px; cursor: pointer;
+}
+.bs-kontrol input {
+  appearance: none; -webkit-appearance: none; flex: none;
+  width: 21px; height: 21px; margin: 1px 0 0; border: 1.8px solid #cbd5e1;
+  border-radius: 6px; background: #fff; cursor: pointer; position: relative;
+  transition: background .12s ease, border-color .12s ease;
+}
+.bs-kontrol input:hover { border-color: var(--mor); }
+.bs-kontrol input:focus-visible { outline: 2px solid var(--mor); outline-offset: 2px; }
+.bs-kontrol input:checked { background: var(--mor); border-color: var(--mor); }
+.bs-kontrol input:checked::after {
+  content: ""; position: absolute; left: 6.5px; top: 2.5px; width: 5px; height: 10px;
+  border: solid #fff; border-width: 0 2.2px 2.2px 0; transform: rotate(42deg);
+}
+.bs-kontrol .bs-madde { font-size: 16px; line-height: 1.55; }
+.bs-kontrol input:checked ~ .bs-madde { color: var(--soluk); text-decoration: line-through; }
+.bs-kontrol .bs-kutu { display: none; }
+/* Hepsi isaretlenince kutu kenarligi yesile doner: kucuk ama gorunur
+   bir tamamlandi sinyali. */
+.bs-kontrol-sar.bs-bitti { border-color: #86efac; background: #f6fef9; }
+.bs-kontrol-sar.bs-bitti .bs-kontrol-cubuk span { background: #16a34a; }
+.bs-kontrol-sar.bs-bitti .bs-kontrol-durum strong { color: #16a34a; }
 
 /* kaynaklar + ilgili */
 .bs-kaynaklar { font-size: 15px; }
@@ -248,6 +311,7 @@ math.mtml { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", s
   border-radius: var(--r-kucuk); padding: 16px 18px; text-decoration: none;
 }
 .bs-ilgili a:hover { border-color: var(--mor); }
+.bs-ilgili .bs-etiket { margin-bottom: 8px; }
 .bs-ilgili strong { display: block; color: var(--murekkep); font-size: 15.5px; line-height: 1.4; margin-bottom: 5px; font-weight: 600; }
 .bs-ilgili span { display: block; color: var(--soluk); font-size: 13.5px; line-height: 1.55; }
 
@@ -302,3 +366,87 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
   .bs-icerik h3 { font-size: 19px; }
   body { font-size: 16.5px; }
 }
+
+/* ── sağ blok (23.09) ──────────────────────────────────────────────────
+   Ahmet: "sağda kategoriler vs olsun, en üstte uniconnectly reklam alanı
+   olsun sağ blokta" + "içindekiler böyle güzel olsun".
+   Sıra: tanıtım → içindekiler → kategoriler. Tanıtım en üstte çünkü sayfa
+   açıldığında görünen tek sağ öğe o; içindekiler zaten kaydırma boyunca
+   yapışık kalıyor. */
+.bs-yan-baslik {
+  font-family: Outfit, sans-serif; font-weight: 600; color: var(--murekkep);
+  font-size: 12.5px; text-transform: uppercase; letter-spacing: .07em; margin: 0 0 10px;
+}
+
+.bs-uc {
+  background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r);
+  padding: 18px; margin-bottom: 22px; text-align: center;
+}
+.bs-uc-logo { display: block; margin-bottom: 12px; }
+.bs-uc-logo img { width: 132px; height: auto; }
+.bs-uc p { font-size: 13.5px; line-height: 1.55; color: var(--soluk); margin: 0 0 14px; }
+.bs-uc-dugme {
+  display: block; padding: 9px 14px; border-radius: 9px;
+  background: var(--mor); color: #fff; font-weight: 600; font-size: 14px; text-decoration: none;
+}
+.bs-uc-dugme:hover { background: var(--mor-koyu); color: #fff; }
+
+.bs-kategori-blok { margin-top: 24px; }
+.bs-kategori-blok ul { list-style: none; margin: 0; padding: 0; }
+.bs-kategori-blok a {
+  --kat: var(--mor);
+  display: flex; align-items: center; gap: 9px; padding: 8px 10px; border-radius: 9px;
+  color: var(--soluk); font-size: 14px; font-weight: 500; text-decoration: none;
+}
+.bs-kategori-blok a .bs-ikon { color: var(--kat); width: 17px; height: 17px; }
+.bs-kategori-blok a:hover { background: var(--cizgi-acik); color: var(--murekkep); }
+.bs-kategori-blok a.etkin {
+  background: color-mix(in srgb, var(--kat) 9%, #fff); color: var(--kat); font-weight: 600;
+}
+
+/* içindekiler: numaralı, sol rayda etkin bölüm işaretli */
+.bs-toc ol { counter-reset: toc; }
+.bs-toc li { counter-increment: toc; }
+.bs-toc a { display: flex; gap: 9px; align-items: baseline; border-radius: 0 7px 7px 0; }
+.bs-toc a::before {
+  content: counter(toc, decimal-leading-zero);
+  font-variant-numeric: tabular-nums; font-size: 11px; font-weight: 600;
+  color: #b6c2d2; flex: none; padding-top: 1px;
+}
+.bs-toc a:hover { background: var(--cizgi-acik); }
+.bs-toc a.etkin::before { color: var(--mor); }
+
+/* hap bilgi özeti */
+.bs-hap-ozet { counter-reset: hapoz; list-style: none !important; padding-left: 0 !important; }
+.bs-hap-ozet > li {
+  counter-increment: hapoz; position: relative; padding: 14px 16px 14px 52px;
+  background: var(--mor-acik); border: 1px solid #dbe6fb; border-radius: var(--r-kucuk);
+  margin-bottom: 8px;
+}
+.bs-hap-ozet > li::before {
+  content: counter(hapoz); position: absolute; left: 16px; top: 13px;
+  width: 24px; height: 24px; border-radius: 50%; background: var(--mor); color: #fff;
+  font: 600 12.5px Inter, sans-serif; display: grid; place-items: center;
+}
+.bs-hap-ozet > li > p:last-child { margin-bottom: 0; }
+
+/* ── paylaş alanı (23.09) ──────────────────────────────────────────────
+   Üçüncü taraf paylaşım betiği YÜKLENMEZ (her biri izleme çerezi taşır).
+   Önce tarayıcının kendi paylaşım penceresi denenir; yoksa bağlantı
+   panoya kopyalanır. */
+.bs-paylas {
+  margin-top: 40px; padding: 20px 22px; background: var(--yuzey);
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+}
+.bs-paylas > p { margin: 0 0 12px; font-weight: 600; color: var(--murekkep); font-size: 15.5px; }
+.bs-paylas-dugmeler { display: flex; flex-wrap: wrap; gap: 9px; }
+.bs-paylas-dugmeler > * {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 14px; border-radius: 9px; border: 1px solid var(--cizgi);
+  background: var(--zemin); color: var(--govde);
+  font: 600 14px Inter, sans-serif; cursor: pointer; text-decoration: none;
+}
+.bs-paylas-dugmeler > *:hover { border-color: var(--mor); color: var(--mor); }
+.bs-paylas-ana { background: var(--mor) !important; border-color: var(--mor) !important; color: #fff !important; }
+.bs-paylas-ana:hover { background: var(--mor-koyu) !important; color: #fff !important; }
+.bs-paylas-kopya.bs-kopyalandi { border-color: #16a34a; color: #16a34a; }
