@@ -28,3 +28,4 @@ conf.d/
 .env*
 scripts/__pycache__/
 .venv/
+__pycache__/
