@@ -204,10 +204,12 @@ def yazi_govde(y, digerleri):
                + '<div class="bs-kontrol-cubuk"><span style="width:0%"></span></div>'
                + f'<ul class="bs-kontrol">{maddeler}</ul></div>\n')
         toc += '<li><a href="#b-kontrol">Kontrol listesi</a></li>'
-    if y.get("kaynaklar"):
-        ek += (bolum_basligi("b-kaynaklar", "kaynak", "Kaynaklar") + '<ul class="bs-kaynaklar">'
-               + "".join(f'<li><a href="{k(u)}" target="_blank" rel="noopener noreferrer">{k(a)}</a></li>'
-                         for a, u in y["kaynaklar"]) + "</ul>\n")
+    # ⚠️ KAYNAKLAR YAYINDA GOSTERILMIYOR (Ahmet, 23.09): "kaynaklar kismini
+    # not alalim ama yayinda gostermeyelim, kendi icimizde denetim icin
+    # kullanalim; MEB sorularini kullanmak yasak olabilir cunku."
+    # Kaynaklar veride (scripts/yazilar/*.py) DURUYOR ve
+    # scripts/blog_kaynak_denetimi.py ile ic rapora yaziliyor; sayfaya
+    # basilmiyor. Rapor da .vercelignore ile yayin disinda.
     if digerleri:
         ek += (bolum_basligi("b-ilgili", "ilgili", "Bunlar da ilgini çekebilir") + '<div class="bs-ilgili">'
                + "".join(f'<a href="/blog/{k(d["slug"])}/">{kat_rozet(d["kategori"], "bs-etiket bs-etiket-mini")}'

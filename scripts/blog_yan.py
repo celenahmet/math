@@ -59,4 +59,11 @@ def paylas(baslik, yol):
         '<button type="button" class="bs-paylas-ana">' + ikon("paylas") + "Paylaş</button>"
         '<button type="button" class="bs-paylas-kopya">' + ikon("baglanti") + "Bağlantıyı kopyala</button>"
         '<a class="bs-paylas-whatsapp" target="_blank" rel="noopener" href="#">' + ikon("whatsapp") + "WhatsApp</a>"
+        '<a class="bs-paylas-x" target="_blank" rel="noopener" href="#">' + ikon("x") + "X</a>"
+        # ⚠️ Instagram web uzerinden BAGLANTI PAYLASIMINI DESTEKLEMIYOR:
+        # X'in intent adresi gibi bir adresi yok. Bu yuzden dugme baglantiyi
+        # panoya kopyalayip kullaniciya hikayesine yapistirmasini soyluyor.
+        # Mobilde zaten sistem paylasim penceresinde (Paylas dugmesi)
+        # Instagram cikiyor.
+        '<button type="button" class="bs-paylas-instagram">' + ikon("instagram") + "Instagram</button>"
         "</div></div>")

@@ -74,3 +74,14 @@ ozelders/
 # Eski geri sayim sablonu (tema/webajans): sayfalar ana temaya gecti (21.09)
 sinavlar/*/tema/
 sinavlar/tema/
+
+# 23.09.2026 — IC ÇALIŞMA DOSYALARI YAYINDAN ÇIKTI.
+# Ölçüldü: https://ahmetcelen.com.tr/scripts/blog_uygula.py 200 dönüyordu,
+# yani bütün üretici betikler ve içlerindeki çalışma notları herkese
+# okunabilir durumdaydı. Hiçbir HTML sayfası /scripts/ ya da .md dosyasına
+# atıf yapmıyor (arandı), bu yüzden yayından çıkarmak hiçbir şeyi kırmaz.
+# (.env.local zaten git'te değil ve yayında yok; denendi, 404.)
+scripts/
+*.md
+blog-gorselleri/
+.venv/

@@ -83,12 +83,24 @@ yoksa bağlantı panoya kopyalanır.
 - Uzun tire (—) kullanılmaz.
 - İç mimariden (RPC, migration, dosya adı) ekranda söz edilmez.
 
-## 6. Kaynaklar
+## 6. Kaynaklar ve telif
 
-- "Kaynaklar" bölümünde **yalnız resmî kaynak** olur: ÖSYM, MEB, YÖK.
+**Kaynaklar yayımlanan sayfada GÖSTERİLMEZ** (Ahmet, 23.09). Yazı
+verisinde tutulur ve `scripts/blog_kaynak_denetimi.py` ile iç rapora
+yazılır: bir bilgi sorgulanırsa nereden geldiğini gösterebilelim.
+
+- Kayda geçen kaynak **yalnız resmî** olur: MEB, ÖSYM, YÖK.
 - Üçüncü taraf blog/haber atfı YOK.
-- İç bağlantı Kaynaklar'a konmaz; iç bağlantılar "Bunlar da ilgini
-  çekebilir" bölümünde.
+- İç bağlantılar "Bunlar da ilgini çekebilir" bölümünde.
+
+### Soru kullanımı — yasak
+
+- Yazılarda **başka bir kurumun sorusu kullanılmaz.** MEB, ÖSYM ya da
+  yayınevi sorularının metni alınmaz, uyarlanmaz.
+- Bütün örnekler **özgün** yazılır.
+- Kaynak yalnız tanım, kazanım ve müfredat çerçevesi için kullanılır;
+  oradan da metin kopyalanmaz.
+- ÖSYM belgeleri siteye yüklenmez, yalnız bağlantı verilir.
 
 ## 7. Değişmezler
 

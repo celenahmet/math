@@ -120,6 +120,11 @@
     if (wa) {
       wa.href = 'https://wa.me/?text=' + encodeURIComponent(baslik + ' ' + adres);
     }
+    var xd = paylasKutu.querySelector('.bs-paylas-x');
+    if (xd) {
+      xd.href = 'https://x.com/intent/post?text=' + encodeURIComponent(baslik)
+              + '&url=' + encodeURIComponent(adres);
+    }
 
     function panoyaYaz() {
       var bitti = function () {
@@ -158,6 +163,25 @@
       });
     }
     if (kopyaDugme) { kopyaDugme.addEventListener('click', panoyaYaz); }
+
+    // Instagram web uzerinden baglanti paylasimi KABUL ETMIYOR (X'teki gibi
+    // bir intent adresi yok). Yapilabilecek tek durust sey baglantiyi
+    // kopyalayip kullaniciyi yonlendirmek.
+    var ig = paylasKutu.querySelector('.bs-paylas-instagram');
+    if (ig) {
+      ig.addEventListener('click', function () {
+        panoyaYaz();
+        var yazi = ig.lastChild;
+        if (yazi && yazi.nodeType === 3) {
+          ig.classList.add('bs-kopyalandi');
+          yazi.nodeValue = 'Kopyalandı, hikâyene yapıştır';
+          setTimeout(function () {
+            ig.classList.remove('bs-kopyalandi');
+            yazi.nodeValue = 'Instagram';
+          }, 2600);
+        }
+      });
+    }
   }
 
   // 3) hub: kategori suzgeci

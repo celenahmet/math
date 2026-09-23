@@ -71,6 +71,9 @@ _YOL = {
                 '<path d="M13.5 10.5a4 4 0 0 0-5.7 0l-2.6 2.6a4 4 0 0 0 5.7 5.7l1.1-1.1"/>',
     "whatsapp": '<path d="M20 11.7a8 8 0 0 1-11.9 7L4 20l1.4-4a8 8 0 1 1 14.6-4.3z"/>'
                 '<path d="M9 9.2c.3 1.6 2.2 3.5 3.8 3.8l.9-1.2 1.8.8v1.3c-2.6.5-5.9-2.8-5.4-5.4h1.3l.8 1.8z"/>',
+    "x": '<path d="M4 4l16 16"/><path d="M20 4L4 20"/>',
+    "instagram": '<rect x="3.6" y="3.6" width="16.8" height="16.8" rx="4.6"/>'
+                 '<circle cx="12" cy="12" r="3.9"/><circle cx="17" cy="7" r="1"/>',
     "ilgili": '<rect x="3.6" y="4.6" width="7" height="7" rx="1.4"/>'
               '<rect x="13.4" y="4.6" width="7" height="7" rx="1.4"/>'
               '<rect x="3.6" y="14.4" width="7" height="5" rx="1.4"/>'
