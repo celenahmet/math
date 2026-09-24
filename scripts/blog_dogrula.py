@@ -1197,6 +1197,104 @@ def yazi_81_85():
     esit("85 teklif", (10000 + 10000*D("0.3")*2, 10000*D("1.28")**2, 16384 - 16000, 10000*D("1.3") == 10000*(1 + D("0.3"))), (16000, 16384, 384, True))
 
 
+def yazi_86_91():
+    """86 Oran-Oranti, 87 Isci-Havuz, 88 Hareket, 89 Karisim problemleri, 90 Sayi Basamaklari, 91 Basamak Degeri."""
+    Q = Rational
+    D = lambda s: Rational(s)
+    k_, d_, a_s, r_ = sp.symbols("k_ d_ a_s r_", real=True)
+    # ── 86 oran ve oranti problemleri ──
+    esit("86 paylastirma", (_coz(5*k_ - 2*k_, 1200, k_), [2*400, 3*400, 5*400], 800 + 1200 + 2000, 2000 - 800), (FiniteSet(400), [800, 1200, 2000], 4000, 1200))
+    esit("86 ters oranti", (sp.ilcm(sp.ilcm(3, 4), 6), [12*Q(1, 3), 12*Q(1, 4), 12*Q(1, 6)], 4 + 3 + 2, Q(900, 9), [400, 300, 200], 3*400, 4*300, 6*200), (12, [4, 3, 2], 9, 100, [400, 300, 200], 1200, 1200, 1200))
+    esit("86 birlesik", ((3*2, 4*2), sp.ilcm(4, 8), 6 + 8 + 1, _coz(15*k_, 150, k_), [60, 80, 10], Q(60, 80) == Q(3, 4), Q(80, 10) == Q(8, 1)), ((6, 8), 8, 15, FiniteSet(10), [60, 80, 10], True, True))
+    esit("86 degisen oran", (_coz(7*(5*k_ - 4), 21*k_, k_), 5*2, 7*2, Q(10 - 4, 14)), (FiniteSet(2), 10, 14, Q(3, 7)))
+    esit("86 oran kesir", (_coz(4*k_*Q(1, 4) + 5*k_*Q(1, 5), 72, k_), 9*36, 4*36, 5*36, 144*Q(1, 4), 180*Q(1, 5)), (FiniteSet(36), 324, 144, 180, 36, 36))
+    esit("86 aktarma", (_coz(5*k_ - 60, 3*k_ + 60, k_), 300 - 60, 180 + 60, 300 + 180), (FiniteSet(60), 240, 240, 480))
+    esit("86 dorduncu orantili", (_coz(Q(3, 5), 12/x), Q(12, 20)), (FiniteSet(20), Q(3, 5)))
+    esit("86 olcek", (6*25000, Q(150000, 100000), 2*25000**2, Q(1250000000, 10000)), (150000, D("1.5"), 1250000000, 125000))
+    esit("86 oran koruma", (_coz(8*k_, 40, k_), _coz(8*k_, 64, k_), (3*5, 5*5), (3*8, 5*8), 24 - 15, 40 - 25, Q(9, 15)), (FiniteSet(5), FiniteSet(8), (15, 25), (24, 40), 9, 15, Q(3, 5)))
+    esit("86 tarif", (Q(6, 4), 300*Q(3, 2), Q(5, 8), float(Q(5, 8))), (Q(3, 2), 450, Q(5, 8), 0.625))
+    esit("86 hiz sure", (Q(8, 4), 3*2, 8*3 == 6*4), (2, 6, True))
+    esit("86 calisma hizi", (_coz(5*k_*30, 1, k_), Q(2, 150), Q(3, 150), Q(1, 75) + Q(1, 50)), (FiniteSet(Q(1, 150)), Q(1, 75), Q(1, 50), Q(1, 30)))
+    esit("86 hizli cozum", (sp.simplify((2*k_ + 3*k_)/(2*k_ - 3*k_)), Q(4 + 6, 4 - 6)), (-5, -5))
+    # ── 87 isci ve havuz ──
+    esit("87 iki kisi", (Q(1, 12) + Q(1, 24), Q(12*24, 12 + 24), 8 < 12), (Q(1, 8), 8, True))
+    esit("87 kisa formul", all(1/(Q(1, a2) + Q(1, b2)) == Q(a2*b2, a2 + b2) for a2 in range(1, 40) for b2 in range(1, 40)), True)
+    esit("87 uc kisi", (Q(1, 10) + Q(1, 15) + Q(1, 30), Q(30, 3 + 2 + 1)), (Q(1, 5), 5))
+    esit("87 bir kisinin suresi", (Q(1, 12) - Q(1, 20), Q(1, 20) + Q(1, 30)), (Q(1, 30), Q(1, 12)))
+    esit("87 birlikte sonra tek", (Q(1, 18) + Q(1, 36), 4*Q(1, 12), 1 - Q(1, 3), Q(2, 3)*18, 4 + 12), (Q(1, 12), Q(1, 3), Q(2, 3), 12, 16))
+    esit("87 sirayla", (Q(4, 10), 1 - Q(2, 5), Q(3, 5)*15, Q(4, 10) + Q(9, 15)), (Q(2, 5), Q(3, 5), 9, 1))
+    esit("87 kismi is", (Q(8, 2)*5, Q(1, 20) + Q(1, 30)), (20, Q(1, 12)))
+    esit("87 isci sayisi", (8*15, Q(120, 12), 6*20, 6*4, 120 - 24, Q(96, 8), 4 + 12), (120, 10, 120, 24, 96, 12, 16))
+    esit("87 farkli hiz", (_coz(3*r_*6, 1, r_), Q(1, 9) + Q(1, 18)), (FiniteSet(Q(1, 18)), Q(1, 6)))
+    esit("87 ara verme", (12 // 3, 12 // 3 - 1, 12 + 3, len("WWWRWWWRWWWRWWW"), "WWWRWWWRWWWRWWW".count("W")), (4, 3, 15, 15, 12))
+    esit("87 havuz", (Q(1, 6) + Q(1, 9), Q(18, 5), float(Q(18, 5)), Q(6*9, 15), D("0.6")*60), (Q(5, 18), Q(18, 5), 3.6, Q(18, 5), 36))
+    esit("87 dolduran bosaltan", (Q(1, 4) - Q(1, 12), Q(1, 8) - Q(1, 6)), (Q(1, 6), -Q(1, 24)))
+    esit("87 kismen dolu", (1 - Q(1, 3), Q(1, 6) - Q(1, 9), Q(2, 3)/Q(1, 18)), (Q(2, 3), Q(1, 18), 12))
+    esit("87 uc musluk", (Q(1, 6) + Q(1, 12) - Q(1, 8), 4 + 2 - 3, Q(24, 3)), (Q(1, 8), 3, 8))
+    esit("87 once biri", (Q(3, 12), 1 - Q(1, 4), Q(1, 12) + Q(1, 6), Q(3, 4)/Q(1, 4), 3 + 3), (Q(1, 4), Q(3, 4), Q(1, 4), 3, 6))
+    # ── 88 hareket ──
+    esit("88 birimler", (Q(72000, 3600), 90*Q(20, 60), 90*20), (20, 30, 1800))
+    esit("88 temel", (Q(240, 3), Q(150, 60), D("0.5")*60), (80, D("2.5"), 30))
+    esit("88 karsilasma", (Q(420, 60 + 80), 60*3, 80*3, 180 + 240), (3, 180, 240, 420))
+    esit("88 farkli saat", (480 - 60, Q(420, 140), 10 + 3, 60*4, 80*3, 240 + 240), (420, 3, 13, 240, 240, 480))
+    esit("88 yetisme", (60*2, Q(120, 90 - 60), 90*4, 60*(2 + 4)), (120, 4, 360, 360))
+    esit("88 uzaklasma", ((45 + 55)*4,), (400,))
+    esit("88 ortalama hiz", (Q(120, 60), Q(120, 40), Q(240, 5), Q(60 + 40, 2), Q(180, 60), Q(180, 90), Q(360, 5), Q(60 + 90, 2), Q(2*60*90, 60 + 90)), (2, 3, 48, 50, 3, 2, 72, 75, 72))
+    esit("88 esit sure ortalamasi", Q(60*1 + 90*1, 2), 75)
+    esit("88 gidis donus", (_coz(d_/80 + d_/120, 5, d_), Q(240, 80), Q(240, 120)), (FiniteSet(240), 3, 2))
+    esit("88 akinti", (20 + 4, 20 - 4, Q(48, 24), Q(48, 16), Q(24 + 16, 2), Q(24 - 16, 2)), (24, 16, 2, 3, 20, 4))
+    esit("88 tren", (Q(800 + 200, 20), Q(200, 20), Q(800, 20)), (50, 10, 40))
+    esit("88 pist", (Q(400, 6 - 4), Q(400, 6 + 4), [200*i2 for i2 in range(1, 6)][-1], len([t2 for t2 in range(1, 1001) if t2 % 200 == 0])), (200, 40, 1000, 5))
+    esit("88 gec kalma", (_coz(d_/5 - d_/6, Q(1, 6), d_), Q(5, 5)*60, Q(5, 6)*60, 6 + 4), (FiniteSet(5), 60, 50, 10))
+    # ── 89 karisim ──
+    esit("89 oran yuzde", (Q(1, 1 + 4), Q(1, 4)), (Q(1, 5), Q(1, 4)))
+    esit("89 madde ekleme", (300*D("0.2"), Q(60 + 100, 400), _coz(60 + x, D("0.4")*(300 + x))), (60, Q(2, 5), FiniteSet(100)))
+    esit("89 su ekleme", (400*D("0.3"), Q(120, 600), 120/D("0.2") - 400), (120, Q(1, 5), 200))
+    esit("89 buharlasma", (500*D("0.12"), Q(60, 300), 600*D("0.15"), 90/D("0.25"), 600 - 360), (60, Q(1, 5), 90, 360, 240))
+    esit("89 iki karisim", (200*D("0.1") + 300*D("0.25"), Q(95, 500), Q(10 + 25, 2)), (95, D("0.19"), D("17.5")))
+    esit("89 uc karisim", (100*D("0.1") + 200*D("0.2") + 200*D("0.35"), Q(120, 500)), (120, D("0.24")))
+    esit("89 madde ve su", (200*D("0.2") + 50, Q(90, 300), Q(50, 100)), (90, D("0.3"), Q(1, 2)))
+    esit("89 istenen oran", (_coz(300*D("0.1") + D("0.4")*x, D("0.2")*(300 + x)), Q(30 + 60, 450)), (FiniteSet(150), Q(1, 5)))
+    esit("89 capraz", (20 - 10, 40 - 20, Q(20, 10), Q(300, 150)), (10, 20, 2, 2))
+    esit("89 alip su koyma", (40*D("0.5"), 10*D("0.5"), Q(15, 40), 15*Q(3, 4)), (20, 5, D("0.375"), D("11.25")))
+    esit("89 alasim", (60*Q(18, 24), _coz(45 + x, Q(22, 24)*(60 + x)), Q(165, 180), Q(22, 24)), (45, FiniteSet(120), Q(11, 12), Q(11, 12)))
+    esit("89 fiyat", (_coz(40*a_s + 70*(30 - a_s), 1500, a_s), 20*40 + 10*70, 50 - 40, 70 - 50), (FiniteSet(20), 1500, 10, 20))
+    esit("89 oranli karisim", (_coz(2*k_ + 4, 3*k_, k_), 2*4, 3*4, 8 + 4), (FiniteSet(4), 8, 12, 12))
+    # ── 90 sayi basamaklari ──
+    esit("90 adetler", ([9*10**(n2 - 1) for n2 in range(1, 5)], [len(range(10**(n2 - 1), 10**n2)) for n2 in range(2, 5)], 99 - 10 + 1), ([9, 90, 900, 9000], [90, 900, 9000], 90))
+    uc_ = [n2 for n2 in range(100, 1000) if len(set(str(n2))) == 3]
+    esit("90 rakamlari farkli", (min(uc_), max(uc_), 987 - 102, len(uc_), len([n2 for n2 in range(10, 100) if len(set(str(n2))) == 2])), (102, 987, 885, 648, 81))
+    sec_ = [n2 for n2 in range(100, 1000) if set(str(n2)) <= set("0123")]
+    esit("90 verilen rakamlar", (len([n2 for n2 in sec_ if len(set(str(n2))) == 3]), len(sec_), len([n2 for n2 in range(100, 1000) if set(str(n2)) <= set("12345") and len(set(str(n2))) == 3 and n2 % 2 == 0])), (18, 48, 24))
+    esit("90 rakam toplami", ([n2 for n2 in range(10, 100) if sum(map(int, str(n2))) == 5], [n2 for n2 in range(10, 100) if sum(map(int, str(n2))) == 15]), ([14, 23, 32, 41, 50], [69, 78, 87, 96]))
+    esit("90 yer degistirme", (sp.expand((10*a + b) + (10*b + a)), sp.expand((10*a + b) - (10*b + a)), sp.expand((100*a + 10*b + c) - (100*c + 10*b + a)), 74 + 47, 74 - 47,
+                               [10*A2 + B2 for A2 in range(1, 10) for B2 in range(1, 10) if (10*A2 + B2) + (10*B2 + A2) == 132]),
+         (11*a + 11*b, 9*a - 9*b, 99*a - 99*c, 121, 27, [39, 48, 57, 66, 75, 84, 93]))
+    esit("90 basamak sayisi", (len(str(5**10*2**12)), 5**10*2**12, len(str(10**10))), (11, 4*10**10, 11))
+    esit("90 9 a bolunen", max(n2 for n2 in uc_ if n2 % 9 == 0), 981)
+    esit("90 sayfa", (sum(len(str(n2)) for n2 in range(1, 151)), 9 + 180 + 153, 99 + (342 - 189)//3), (342, 342, 150))
+    esit("90 yedi rakami", sum(str(n2).count("7") for n2 in range(1, 101)), 20)
+    dizi_ = "".join(str(n2) for n2 in range(1, 300))
+    esit("90 yan yana", (dizi_[99], dizi_[199], 100 - 9, divmod(91, 2), 9 + 180, divmod(11, 3)), ("5", "0", 91, (45, 1), 189, (3, 2)))
+    # ── 91 basamak degeri ──
+    esit("91 cozumleme", (4*1000 + 5*100 + 7*10 + 2, 4*10**3 + 5*10**2 + 7*10 + 2, 3*10000 + 4*100 + 5, 7*111), (4572, 4572, 30405, 777))
+    esit("91 denklem", ([10*A2 + B2 for A2 in range(1, 10) for B2 in range(10) if 10*A2 + B2 == 4*(A2 + B2)], [100*A2 + 10*B2 + C2 for A2 in range(1, 10) for B2 in range(10) for C2 in range(10) if A2 == 2*C2 and B2 == A2 + C2 and A2 + B2 + C2 == 12]),
+         ([12, 24, 36, 48], [462]))
+    esit("91 basamak degerleri", (5000 + 5, 5000 - 5), (5005, 4995))
+    esit("91 rakam ekleme", (_coz(10*x + 7, x + 520), 577 - 57), (FiniteSet(57), 520))
+    esit("91 rakam degistirme", (2*100 - 5, 511 - 316), (195, 195))
+    esit("91 uc basamak ters", (len([n2 for n2 in range(100, 1000) if n2 % 10 != 0 and n2 - int(str(n2)[::-1]) == 396]), 5*10, sp.expand((100*a + 10*b + c) + (100*b + 10*c + a) + (100*c + 10*a + b)), 123 + 231 + 312, 111*6),
+         (50, 50, 111*a + 111*b + 111*c, 666, 666))
+    esit("91 harfli bolunebilme", ([A2 for A2 in range(10) if (400 + 10*A2 + 7) % 9 == 0], [A2 for A2 in range(10) if (400 + 10*A2 + 7) % 3 == 0]), ([7], [1, 4, 7]))
+    esit("91 en buyuk fark", (max((10*A2 + B2) - (10*B2 + A2) for A2 in range(1, 10) for B2 in range(1, 10)), 91 - 19), (72, 72))
+    esit("91 ters cevrilen", [10*A2 + B2 for A2 in range(1, 10) for B2 in range(10) if (10*B2 + A2) - (10*A2 + B2) == 36 and A2 + B2 == 10], [37])
+    esit("91 eldeli", (47 + 38, 52 - 27), (85, 25))
+    esit("91 dokuz iliskisi", (4 + 5 + 7 + 2, 4572 - 18, Q(4554, 9), all((n2 - sum(map(int, str(n2)))) % 9 == 0 for n2 in range(1, 20000)), sp.expand((100*a + 10*b + c) - (a + b + c))), (18, 4554, 506, True, 99*a + 9*b))
+    esit("91 ondalik", (D("3.472"), 3 + D("0.4") + D("0.07") + D("0.002")), (D("3.472"), D("3.472")))
+    esit("91 tabanlar", (int("1011", 2), 8 + 0 + 2 + 1, int("23", 5)), (11, 11, 13))
+    esit("91 yuvarlama", (round(4572, -1), (4572 + 50)//100*100, (4572 + 500)//1000*1000), (4570, 4600, 5000))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -1219,7 +1317,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
