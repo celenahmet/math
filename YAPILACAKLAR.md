@@ -49,6 +49,7 @@ Kurallar: `blog-YAZIM-STANDARDI.md` (11 bölüm) · kaynaklar iç rapor `blog-KA
 - [x] 24.09: 51-55 yazıldı (Temel Kavramlar ve Sayılar kategorisi; hepsi ≥ 2000 kelime, `blog_dogrula.py` 12932 denetim tuttu). PDF başlıklı yazılarda PDF şimdilik YOK (Ahmet'in kararı)
 - [x] 24.09 SEO: yazı başlıklarında "Ahmet Çelen" yok (hub hariç, 01-05 dahil); kapaklar görsel site haritasında; ImageObject name = konu; altbilgi logosu alt=""
 - [x] Sağ blok "Popüler / En yeni": solda küçük kapak (-240.avif), sağda başlık + tarih
-- [ ] 06-50 BEKLİYOR (Ahmet 24.09: "6-50 arası bekleyecek sonra ekleriz"); sıradaki olası: 56+ (kapaklar hazır)
+- [x] 24.09: 56-60 yazıldı ve yayında (tek-çift, pozitif-negatif, ardışık, sayı doğrusu, mutlak değer; hepsi ≥ 2000 kelime, `blog_dogrula.py` toplam 13061 denetim tuttu)
+- [ ] 06-50 BEKLİYOR (Ahmet 24.09: "6-50 arası bekleyecek sonra ekleriz"); sıradaki olası: 61+ (kapak varsa)
 - [ ] (eski) Sıradaki yazılar: `blog-gorselleri/` 06-50 (brief'teki konu sırası); her yazının iddiaları `blog_dogrula.py`'ye eklenir
 - [ ] Boş durum ve arayüz metinleri (tebrik, "Bu yazıyı paylaş") Ahmet onayı bekliyor
