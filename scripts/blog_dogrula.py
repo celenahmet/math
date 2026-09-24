@@ -1007,6 +1007,112 @@ def yazi_71_75():
     esit("75 hiz yol zaman", (sp.solve(sp.Eq(60*x, 120*90), x), 120*90), ([180], 10800))
 
 
+def _coz(sol, sag=0, degisken=None):
+    """Gercek sayilarda denklem ya da esitsizlik cozum kumesi."""
+    v = degisken if degisken is not None else x
+    if isinstance(sol, sp.Basic) and sol.is_Relational:
+        return sp.solveset(sol, v, R)
+    return sp.solveset(sp.Eq(sol, sag), v, R)
+
+
+def yazi_76_80():
+    """76 Cebirsel Ifadeler, 77 Birinci Dereceden Denklemler, 78 Esitsizlikler, 79 Denklem Kurma, 80 Sayi Problemleri."""
+    Q = Rational
+    D = lambda s: Rational(s)  # ondalik sayiyi tam kesir olarak okur
+    ex = sp.expand
+    y_, m_, k_, e_, t_ = sp.symbols("y_ m_ k_ e_ t_", real=True)
+    # ── 76 cebirsel ifadeler ──
+    # NOT: sympy 1.x solveset(|x-2| > -1) yanlislikla EmptySet donuyor; 78 bu yuzden tumleyenle denetleniyor.
+    esit("76 derece", (sp.degree(4*x**2 - 3*x + 7, x), sp.degree(5*x - 1, x), sp.Poly(3*x**2*y_, x, y_).total_degree(), sp.degree(7 - 2*x + x**3 + 5*x**2, x)), (2, 1, 3, 3))
+    esit("76 siralama", ex(7 - 2*x + x**3 + 5*x**2) - (x**3 + 5*x**2 - 2*x + 7), 0)
+    esit("76 benzer terim toplama", (ex(5*x + 3*y_ - 2*x + y_), ex((3*x**2 - 2*x + 5) + (x**2 + 4*x - 8)), ex((5*a - 3*b) - (2*a - 7*b)), ex(-(2*a - 7*b))),
+         (3*x + 4*y_, 4*x**2 + 2*x - 3, 3*a + 4*b, -2*a + 7*b))
+    esit("76 carpma", (ex(3*x*4*x), ex(2*a**2*5*a**3), ex(3*(2*x - 5)), ex(-2*x*(x - 4)), ex((x + 3)*(x + 2)), ex((2*x - 1)*(x + 4)), ex((x + 3)**2), ex((x + 3)**2) == x**2 + 9),
+         (12*x**2, 10*a**5, 6*x - 15, -2*x**2 + 8*x, x**2 + 5*x + 6, 2*x**2 + 7*x - 4, x**2 + 6*x + 9, False))
+    esit("76 bolme ve sadelestirme", (sp.simplify((6*x**2 + 9*x)/(3*x)), sp.simplify((x + 3)/3 - (x/3 + 1)), sp.simplify((x + 3)/3 - x) == 0, sp.simplify((x**2 - 9)/(x - 3))), (2*x + 3, 0, False, x + 3))
+    esit("76 deger hesaplama", ((x**2 - 3*x + 1).subs(x, -2), (2*a**2 - a*b + b**2).subs({a: 3, b: -1}), (-x**2).subs(x, -3), ((-x)**2).subs(x, -3), -3**2), (11, 22, -9, 9, -9))
+    esit("76 ortak carpan", (ex(3*(2*x + 3)), ex(2*x*(2*x - 5)), ex((x + y_)*(a - b)) - ex(a*x + a*y_ - b*x - b*y_), 37*23 + 37*77, 37*(23 + 77)), (6*x + 9, 4*x**2 - 10*x, 0, 3700, 3700))
+    esit("76 ozdeslikler", (ex((a + b)**2), ex((a - b)**2), ex((a - b)*(a + b)), 51**2, 2500 + 100 + 1, 99*101, 10000 - 1),
+         (a**2 + 2*a*b + b**2, a**2 - 2*a*b + b**2, a**2 - b**2, 2601, 2601, 9999, 9999))
+    esit("76 sozel ifade", (ex(3*(x - 4)), ex(x + (x + 2) + (x + 4))), (3*x - 12, 3*x + 6))
+    esit("76 geometri", (ex(2*(x + 3) + 2*x), ex(x*(x + 3)), (4*x + 6).subs(x, 5), (x**2 + 3*x).subs(x, 5)), (4*x + 6, x**2 + 3*x, 26, 40))
+    esit("76 toplam carpimdan", (sp.simplify((x**2 + y_**2) - ((x + y_)**2 - 2*x*y_)), 5**2 - 2*6, 2**2 + 3**2, 2 + 3, 2*3, sp.simplify((a**2 + b**2) - ((a - b)**2 + 2*a*b)), 3**2 + 2*10, 5**2 + 2**2, 5 - 2, 5*2),
+         (0, 13, 13, 5, 6, 0, 29, 29, 3, 10))
+    esit("76 iki ifade esit mi", ([((x + 1)**2).subs(x, v_) for v_ in (0, 1)], [(x**2 + 1).subs(x, v_) for v_ in (0, 1)], ex((x + 1)**2 - (x**2 + 1)), _coz(2*x)), ([1, 4], [1, 2], 2*x, FiniteSet(0)))
+    # ── 77 birinci dereceden denklemler ──
+    esit("77 kok ve terazi", (_coz(2*x + 3, 11), _coz(3*x + 2, 11), 3*3 + 2), (FiniteSet(4), FiniteSet(3), 11))
+    esit("77 derece tablosu", (sp.degree(ex(3*x - 7 - 5), x), sp.degree(ex(x**2 - 4), x), sp.degree(ex(4*(x + 1) - 3*x), x), ex(2*(x + 1)) - (2*x + 2)), (1, 2, 1, 0))
+    esit("77 adim adim", (_coz(5*x - 4, 2*x + 11), 5*5 - 4, 2*5 + 11, _coz(7 - 3*x, x - 9), 7 - 12, 4 - 9), (FiniteSet(5), 21, 21, FiniteSet(4), -5, -5))
+    esit("77 parantezli", (ex(3*(x - 2) - 2*(x + 1)), _coz(3*(x - 2) - 2*(x + 1), 4), 3*10 - 2*13, ex(2*(3*x + 1)), ex(5*(x - 2) + 3), _coz(2*(3*x + 1), 5*(x - 2) + 3), 2*(-26), 5*(-11) + 3, ex(-2*(x + 1))),
+         (x - 8, FiniteSet(12), 4, 6*x + 2, 5*x - 7, FiniteSet(-9), -52, -52, -2*x - 2))
+    esit("77 kesirli", (_coz(x/3 + x/4, 14), Q(24, 3) + Q(24, 4), ex(10*((x - 1)/2 - (x + 2)/5)), _coz((x - 1)/2 - (x + 2)/5, 3), Q(12, 2) - Q(15, 5), sp.ilcm(3, 4), sp.ilcm(2, 5)),
+         (FiniteSet(24), 14, 3*x - 9, FiniteSet(13), 3, 12, 10))
+    esit("77 ondalikli", (_coz(D("0.2")*x + D("1.5"), D("0.5")*x - D("0.3")), D("1.2") + D("1.5"), 3 - D("0.3")), (FiniteSet(6), D("2.7"), D("2.7")))
+    esit("77 kisayollar", (_coz(12*x - 36, 48), 12*7 - 36, _coz((2*x - 1)/3, (x + 4)/2), Q(27, 3), Q(18, 2)), (FiniteSet(7), 48, FiniteSet(14), 9, 9))
+    esit("77 cozum kumesi", (_coz(3*x, 12), _coz(2*x + 3, 2*x + 5), _coz(2*(x + 3), 2*x + 6)), (FiniteSet(4), S.EmptySet, R))
+    esit("77 parametreli", ([_coz((mv - 2)*x, mv - 2) for mv in (0, 1, 3, 5, Q(7, 2))], _coz((2 - 2)*x, 2 - 2)), ([FiniteSet(1)]*5, R))
+    esit("77 kokten katsayi", (sp.solve(sp.Eq(3*4 + a, 2*4 - 5), a), _coz(3*x - 9, 2*x - 5)), ([-9], FiniteSet(4)))
+    esit("77 bilinmeyen paydada", (_coz(6/(x - 1), 3), sp.solveset(sp.Eq((x + 2)/(x - 1), (x + 5)/(x + 1)), x, R), ex((x + 2)*(x + 1)), ex((x + 5)*(x - 1)), Q(9, 6), Q(12, 8), sp.solveset(sp.Eq(x/(x - 2), 2/(x - 2)), x, R)),
+         (FiniteSet(3), FiniteSet(7), x**2 + 3*x + 2, x**2 + 4*x - 5, Q(3, 2), Q(3, 2), S.EmptySet))
+    esit("77 mutlak degerli", (_coz(Abs(x - 3), 5), _coz(Abs(x - 3), -5)), (FiniteSet(-2, 8), S.EmptySet))
+    esit("77 sistemler", (sp.solve([x + y_ - 10, x - y_ - 4], [x, y_]), sp.solve([y_ - (2*x - 1), 3*x + y_ - 19], [x, y_]), sp.solve([x + y_ - 3, x + y_ - 5], [x, y_]), sp.solve([x + y_ - 3, 2*x + 2*y_ - 6], [x, y_])),
+         ({x: 7, y_: 3}, {x: 4, y_: 7}, [], {x: 3 - y_}))
+    esit("77 problemden denkleme", (_coz(3*x + 5, 26), _coz(4*(x + 15) + 3*x, 165), ex(4*(x + 15) + 3*x), 4*30 + 3*15, _coz(3*x, 12)), (FiniteSet(7), FiniteSet(15), 7*x + 60, 165, FiniteSet(4)))
+    # ── 78 esitsizlikler ──
+    esit("78 ozellikler", (3 < 7, -1 > -4, 2 < 5, 2 + 3 < 5 + 3, 2*4 < 5*4, -2 > -5), (True,)*6)
+    esit("78 birinci derece", (_coz(3*x - 5 < 7), _coz(-2*x + 3 >= 11), (-2*x + 3).subs(x, -5), (-2*x + 3).subs(x, 0) >= 11, _coz(3 - 11 >= 2*x)),
+         (Interval.open(-oo, 4), Interval(-oo, -4), 13, False, Interval(-oo, -4)))
+    esit("78 aralik ve tam sayi", ([n_ for n_ in range(-20, 20) if 2 < n_ <= 7], [n_ for n_ in range(-20, 20) if 2 < n_ < 7]), ([3, 4, 5, 6, 7], [3, 4, 5, 6]))
+    esit("78 parantezli kesirli", (_coz(2*(x - 3) <= 5*x + 6), _coz(x/2 - 1 > x/3), Q(12, 2) - 1, Q(12, 3)), (Interval(-4, oo), Interval.open(6, oo), 5, 4))
+    esit("78 sirali", (aralik(-3 < 2*x + 1, 2*x + 1 <= 9), [n_ for n_ in range(-20, 20) if -3 < 2*n_ + 1 <= 9], aralik(1 <= 5 - 2*x, 5 - 2*x < 7)),
+         (Interval.Lopen(-2, 4), [-1, 0, 1, 2, 3, 4], Interval.Lopen(-1, 2)))
+    esit("78 kesisim birlesim", (aralik(2*x - 1 > 3, x + 4 <= 10), [n_ for n_ in range(-20, 20) if 2*n_ - 1 > 3 and n_ + 4 <= 10], aralik(x < 1, x > 3), _coz(x**2 < 9), (-5)**2),
+         (Interval.Lopen(2, 6), [3, 4, 5, 6], S.EmptySet, Interval.open(-3, 3), 25))
+    xs_ = [Q(2) + Q(3)*i_/40 for i_ in range(1, 40)]
+    ys_ = [Q(1) + Q(2)*j_/40 for j_ in range(1, 40)]
+    toplam_ = [p_ + q_ for p_ in xs_ for q_ in ys_]
+    fark_ = [p_ - q_ for p_ in xs_ for q_ in ys_]
+    carpim_ = [p_*q_ for p_ in xs_ for q_ in ys_]
+    esit("78 deger araligi", (2 + 1, 5 + 3, 2 - 3, 5 - 1, 2*1, 5*3, all(3 < v_ < 8 for v_ in toplam_), all(-1 < v_ < 4 for v_ in fark_), all(2 < v_ < 15 for v_ in carpim_),
+                              max(fark_) > 2, D("4.9") - D("1.1")),
+         (3, 8, -1, 4, 2, 15, True, True, True, True, D("3.8")))
+    esit("78 mutlak degerli", (_coz(Abs(x - 2) < 3), _coz(Abs(x + 1) >= 4), _coz(Abs(x - 2) < -1), R - _coz(Abs(x - 2) <= -1), all(abs(Q(v_, 7) - 2) > -1 for v_ in range(-700, 700))),
+         (Interval.open(-1, 5), Union(Interval(-oo, -5), Interval(3, oo)), S.EmptySet, R, True))
+    esit("78 problemler", (_coz(45*x <= 500), Q(500, 45), max(n_ for n_ in range(100) if 45*n_ <= 500), 11*45, 12*45, _coz((62 + 75 + x)/3 >= 70), 62 + 75, 3*70, _coz(50*x >= 1200), 24*50),
+         (Interval(-oo, Q(100, 9)), Q(100, 9), 11, 495, 540, Interval(73, oo), 137, 210, Interval(24, oo), 1200))
+    # ── 79 denklem kurma ──
+    esit("79 bilinmeyen secimi", (_coz(x + 3*x, 48), 12 + 36, 3*12, Q(48, 4)), (FiniteSet(12), 48, 36, 12))
+    esit("79 sayi problemleri", (_coz(x + (x + 2) + (x + 4), 87), 27 + 29 + 31, _coz(Q(2, 3)*x - Q(1, 4)*x, 15), 36*Q(2, 3), Q(36, 4), 24 - 9, _coz(3*x, 87), Q(87, 3), sp.ilcm(3, 4)),
+         (FiniteSet(27), 87, FiniteSet(36), 24, 9, 15, FiniteSet(29), 29, 12))
+    esit("79 yas", (_coz(4*x + 6, 3*(x + 6)), 4*12, 12 + 6, 48 + 6, 3*18), (FiniteSet(12), 48, 18, 54, 54))
+    esit("79 para tablo", (_coz(5*x + 10*(30 - x), 220), 30 - 16, 5*16, 10*14, 80 + 140), (FiniteSet(16), 14, 80, 140, 220))
+    esit("79 geometri", (_coz(2*(x + x + 4), 40), 8*12, 2*(8 + 12), _coz((x + 3)**2 - x**2, 57), 11**2 - 8**2), (FiniteSet(8), 96, 40, FiniteSet(8), 57))
+    esit("79 cok kosullu", (_coz(2*3*x + 5*x, 110), 3*10, 2*30 + 5*10), (FiniteSet(10), 30, 110))
+    esit("79 kalanin kesri", (sp.simplify(x - x/3 - 2*x/3), sp.simplify(2*x/3*Q(1, 4) - x/6), sp.simplify(2*x/3 - x/6 - x/2), _coz(x/2, 300), 600 - 200, Q(400, 4), 400 - 100, Q(600, 4)),
+         (0, 0, 0, FiniteSet(600), 400, 100, 300, 150))
+    esit("79 hiz yuzde", (_coz(50*t_ + 70*t_, 360, t_), 50*3 + 70*3, _coz(D("1.2")*x, 540), 450*D("1.2")), (FiniteSet(3), 360, FiniteSet(450), 540))
+    esit("79 iki bilinmeyen", (sp.solve([k_ + e_ - 32, k_ - e_ - 6], [k_, e_]), _coz(2*e_ + 6, 32, e_)), ({k_: 19, e_: 13}, FiniteSet(13)))
+    esit("79 sorulan nicelik", (_coz(2*(x + 5), 26), 8**2), (FiniteSet(8), 64))
+    # ── 80 sayi problemleri ──
+    esit("80 toplam fark", (sp.solve([a + b - 50, a - b - 14], [a, b]), Q(50 + 14, 2), Q(50 - 14, 2), sp.solve([a + b - 50, a - b - 15], [a, b])),
+         ({a: 32, b: 18}, 32, 18, {a: Q(65, 2), b: Q(35, 2)}))
+    esit("80 parite", all((p_ + q_) % 2 == (p_ - q_) % 2 for p_ in range(-30, 30) for q_ in range(-30, 30)), True)
+    esit("80 kat", (_coz(4*x - x, 36), 4*12, _coz(3*x + 7, 5*x - 9), 3*8 + 7, 5*8 - 9, _coz(x + 4*x, 60), Q(60, 5)), (FiniteSet(12), 48, FiniteSet(8), 31, 31, FiniteSet(12), 12))
+    esit("80 uc sayi", (_coz(x + 2*x + 2*x + 3, 58), 2*11, 22 + 3, 11 + 22 + 25), (FiniteSet(11), 22, 25, 58))
+    esit("80 ardisik", (_coz(4*x + 12, 100), 22 + 24 + 26 + 28, Q(100, 4)), (FiniteSet(22), 100, 25))
+    esit("80 oran", (_coz(3*k_ + 5*k_, 64, k_), 3*8, 5*8, Q(24, 40)), (FiniteSet(8), 24, 40, Q(3, 5)))
+    esit("80 bolme kalan", (7*12 + 5, divmod(89, 7), all((3*n_) % 6 == 0 for n_ in range(4, 400, 6)), ex(3*(6*k_ + 4)), 10 % 6, 30 % 6), (89, (12, 5), True, 18*k_ + 12, 4, 0))
+    esit("80 iki basamak", ([10*a_ + b_ for a_ in range(1, 10) for b_ in range(10) if a_ + b_ == 11 and (10*b_ + a_) - (10*a_ + b_) == 27], ex((10*b + a) - (10*a + b)), 74 - 47, 4 + 7, 4*7, 4*10 + 7,
+                            all((10*b_ + a_ - (10*a_ + b_)) % 9 == 0 for a_ in range(1, 10) for b_ in range(1, 10))),
+         ([47], 9*b - 9*a, 27, 11, 28, 47, True))
+    esit("80 uc basamak", [100*4 + 10*b_ + 8 for b_ in range(10) if 4 + b_ + 2*4 == 15], [438])
+    esit("80 ardisik carpim", ([n_ for n_ in range(1, 200) if n_*(n_ + 1) == 132], 11*11, 12*12, 11*12), ([11], 121, 144, 132))
+    esit("80 kalan kosulu", ([n_ for n_ in range(1, 50) if n_ % 4 == 3 and n_ % 5 == 2], sp.ilcm(4, 5), 4*11 + 3, 5*9 + 2), ([7, 27, 47], 20, 47, 47))
+    esit("80 kesirli", (_coz(3*x/5 + 2, 20), 30*Q(3, 5), _coz(x/2 + x/3, 45), Q(54, 2), Q(54, 3)), (FiniteSet(30), 18, FiniteSet(54), 27, 18))
+    esit("80 ortalama", (5*18, 4*16, 90 - 64, 20*70, 21*71, 1491 - 1400, 70 + 21*1), (90, 64, 26, 1400, 1491, 91, 91))
+    esit("80 tersten", (_coz((3*(x + 5) - 6)/2, 18), 18*2, 36 + 6, Q(42, 3), 14 - 5, (9 + 5)*3, 42 - 6, Q(36, 2)), (FiniteSet(9), 36, 42, 14, 9, 42, 36, 18))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -1029,7 +1135,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")

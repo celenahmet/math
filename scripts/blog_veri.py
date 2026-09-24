@@ -32,6 +32,13 @@ KOK = pathlib.Path(__file__).resolve().parent.parent
 KATEGORILER = [
     # 24.09: 51-55 (Ahmet: kategori adi "Temel Kavramlar ve Sayilar"); temel konu, basa.
     ("sayilar", "Temel Kavramlar ve Sayılar", "sayilar", "#a16207"),
+    # 24.09 Ahmet: TYT blogu icin bes yeni kategori (76-79 cebir, 80-89 problemler,
+    # 92-95 sayma, 96-97 kumeler, 98-99 veri).
+    ("cebir", "Temel Cebir", "cebir", "#4338ca"),
+    ("problemler", "Problemler", "problemler", "#a21caf"),
+    ("sayma", "Sayma ve Olasılık", "sayma", "#0369a1"),
+    ("kumeler", "Kümeler ve Mantık", "kumeler", "#475569"),
+    ("veri", "Veri ve Grafik", "veri", "#3f6212"),
     ("fonksiyonlar", "Fonksiyonlar", "fonksiyonlar", "#1860f0"),
     ("polinomlar", "Polinomlar", "polinomlar", "#0f766e"),
     ("denklemler", "Denklem ve Parabol", "denklemler", "#6d28d9"),

@@ -46,6 +46,22 @@ _YOL = {
               '<path d="M5.5 16.5c4-1 6.5-6.5 13-11"/><path d="M8 18.5 16 9.5"/>'
               '<circle cx="12" cy="14" r="1.3"/>',
 
+    # Temel cebir: terazi (denklem = denge)
+    "cebir": '<path d="M12 4.5v14.5"/><path d="M8 19.5h8"/><path d="M4.5 7.5h15"/>'
+             '<path d="M4.5 7.5 2.5 12.5a2 2 0 0 0 4 0z"/><path d="M19.5 7.5l-2 5a2 2 0 0 0 4 0z"/>',
+    # Problemler: hesap makinesi
+    "problemler": '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 6.5h8v3H8z"/>'
+                  '<path d="M8.5 13h.01"/><path d="M12 13h.01"/><path d="M15.5 13h.01"/>'
+                  '<path d="M8.5 16.5h.01"/><path d="M12 16.5h.01"/><path d="M15.5 16.5h.01"/>',
+    # Sayma ve olasilik: zar
+    "sayma": '<rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="8.5" cy="8.5" r="1"/>'
+             '<circle cx="15.5" cy="8.5" r="1"/><circle cx="12" cy="12" r="1"/>'
+             '<circle cx="8.5" cy="15.5" r="1"/><circle cx="15.5" cy="15.5" r="1"/>',
+    # Kumeler ve mantik: kesisen iki kume (Venn)
+    "kumeler": '<circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/>',
+    # Veri ve grafik: dilimi ayrilmis pasta grafik
+    "veri": '<path d="M20 13.5A8 8 0 1 1 10.5 4v9.5z"/><path d="M13.5 3.2a8 8 0 0 1 7.3 7.3h-7.3z"/>',
+
     # ── kutular ──────────────────────────────────────────────────────────
     # Once sunlari bil: acik kitap
     "onkosul": '<path d="M12 6.5C10.4 5.3 8.4 4.7 6 4.7H4v13h2c2.4 0 4.4.6 6 1.8"/>'
