@@ -1480,6 +1480,95 @@ def yazi_92_97():
     esit("97 niceleyiciler", (all(x_ + 1 > x_ for x_ in range(1000)), [x_ for x_ in range(1000) if x_ + 3 == 1], [x_ for x_ in range(-1000, 1000) if x_ + 3 == 1]), (True, [], [-2]))
 
 
+def yazi_98_100():
+    """98 Tablo ve Grafik Yorumlama, 99 Aritmetik Ortalama ve Veri Analizi, 100 Genel Tekrar."""
+    import statistics as st
+    from math import factorial as fa, sqrt as kok
+    ort = lambda v: F(sum(v), len(v))
+    degisim = lambda eski, yeni: F(yeni - eski, eski)*100
+    # ── 98 tablo ve grafik ──
+    notlar = {1: 2, 2: 6, 3: 14, 4: 10, 5: 8}
+    esit("98 siklik", (sum(notlar.values()), [F(s, 40)*100 for s in notlar.values()], notlar[4] + notlar[5], F(18, 40)*100, 25 + 20, max(notlar, key=notlar.get), 5 + 15 + 35 + 25 + 20),
+         (40, [5, 15, 35, 25, 20], 18, 45, 45, 3, 100))
+    esit("98 cift yonlu", (18 + 62, 12 + 48, 18 + 12, 62 + 48, 80 + 60, F(18, 30)*100, F(12, 60)*100, F(18, 80), F(12, 60), F(18, 80) > F(12, 60)),
+         (80, 60, 30, 110, 140, 60, 20, F(225, 1000), F(2, 10), True))
+    defter = [40, 50, 70, 56, 84]
+    esit("98 defter", (sum(defter), ort(defter), [i for i in range(4) if defter[i + 1] < defter[i]], degisim(40, 50), degisim(70, 56), degisim(56, 84), round(float(-degisim(84, 56)))),
+         (300, 60, [2], 25, -20, 50, 33))
+    esit("98 miktar yuzde", (240 - 200, degisim(200, 240), 75 - 50, degisim(50, 75), 240 - 200 > 75 - 50, degisim(50, 75) > degisim(200, 240)), (40, 20, 25, 50, True, True))
+    net = [40, 46, 44, 52, 58, 60]
+    artis = [net[i + 1] - net[i] for i in range(5)]
+    esit("98 deneme", ([i + 1 for i in range(5) if artis[i] < 0], max(artis), artis.index(max(artis)) + 1, degisim(40, 60), ort(net), all(v > 50 for v in net[3:]), artis[4], min(net) > 35),
+         ([2], 8, 3, 50, 50, True, 2, True))
+    aci = {"Otobüs": 120, "Yürüyerek": 90, "Servis": 60, "Özel araç": 60, "Bisiklet": 30}
+    kisi = {k: F(a, 360)*240 for k, a in aci.items()}
+    esit("98 daire", (sum(aci.values()), list(kisi.values()), sum(kisi.values()), F(90, 360)*100, F(40, 240)*360, 20*F(360, 30), F(120 - 90, 360)*240, kisi["Otobüs"] - kisi["Yürüyerek"], F(240, 360)*3),
+         (360, [80, 60, 40, 40, 20], 240, 25, 60, 240, 20, 20, 2))
+    esit("98 resim", ([3*10, 3*10 + 5, 2*10, 5*10, 4*10 + 5], 30 + 35 + 20 + 50 + 45), ([30, 35, 20, 50, 45], 180))
+    boy = [4, 12, 10, 4]
+    esit("98 gruplanmis", (sum(boy), boy[2] + boy[3], boy.index(max(boy))), (30, 14, 1))
+    butce_aci = [144, 90, 72, 54]
+    esit("98 iki grafik", (sum(butce_aci), [F(a, 360)*300 for a in butce_aci], sum(F(a, 360)*300 for a in butce_aci), degisim(200, 300)), (360, [120, 75, 60, 45], 300, 50))
+    esit("98 yaniltici", (96 - 94, 100 - 94, F(100 - 94, 96 - 94), 100 - 96, round(float(degisim(96, 100)))), (2, 6, 3, 4, 4))
+    esit("98 sss", (F(90, 360), degisim(40, 50)), (F(1, 4), 25))
+    # ── 99 aritmetik ortalama ──
+    esit("99 tanim", (sum([7, 9, 10, 12, 12]), ort([7, 9, 10, 12, 12])), (50, 10))
+    sutun = [2, 5, 3, 6]
+    esit("99 esitleme", (sum(sutun), ort(sutun), [v - 4 for v in sutun], sum(v - 4 for v in sutun)), (16, 4, [-2, 1, -1, 2], 0))
+    esit("99 toplamdan", (5*12, 60 - 20, F(40, 4)), (60, 40, 10))
+    esit("99 ekleme cikarma", (20*70, 1400 + 91, F(1491, 21), 10*15, 9*14, 150 - 126), (1400, 1491, 71, 150, 126, 24))
+    esit("99 degistirme", (42 - 18, F(24, 8), 25 - 3, 8*25 - 24, F(176, 8)), (24, 3, 22, 176, 22))
+    esit("99 hedef", (5*74, 4*70, 370 - 280, 74 + 4*4), (370, 280, 90, 90))
+    cift = list(range(12, 31, 2))
+    esit("99 ardisik", (ort(cift), len(cift), sum(cift), F(30 - 12, 2) + 1, ort(list(range(1, 100)))), (21, 10, 210, 10, 50))
+    esit("99 agirlikli", (30*70 + 20*80, F(3700, 50), F(70 + 80, 2), F(4*80 + 3*70 + 3*90, 10)), (3700, 74, 75, 80))
+    esit("99 ortalama hiz", (F(120, 60), F(120, 40), F(240, 5), F(2*60*40, 60 + 40)), (2, 3, 48, 48))
+    esit("99 ortanca", (st.median([3, 8, 5, 12, 7]), sorted([3, 8, 5, 12, 7]), [3, 8, 5, 12, 7][2], st.median([4, 9, 2, 7, 10, 6]), sorted([4, 9, 2, 7, 10, 6])),
+         (7, [3, 5, 7, 8, 12], 5, 6.5, [2, 4, 6, 7, 9, 10]))
+    esit("99 tepe", (st.multimode([2, 3, 3, 5, 7, 7, 7, 9]), [2, 3, 3, 5, 7, 7, 7, 9].count(7), [2, 3, 3, 5, 7, 7, 7, 9].count(3)), ([7], 3, 2))
+    liste = [n for n, s in notlar.items() for _ in range(s)]
+    esit("99 sikliktan", ([n*s for n, s in notlar.items()], sum(n*s for n, s in notlar.items()), ort(liste), st.median(liste), sorted(liste)[19], sorted(liste)[20], 2 + 6, st.mode(liste)),
+         ([2, 12, 42, 40, 40], 136, F(34, 10), 3, 3, 3, 8, 3))
+    maas = [20, 22, 24, 26, 108]
+    esit("99 uc deger", (sum(maas), ort(maas), st.median(maas), sum(1 for m in maas if m < ort(maas))), (200, 40, 24, 4))
+    esit("99 aciklik", (ort([48, 50, 52]), ort([20, 50, 80]), 52 - 48, 80 - 20), (50, 50, 4, 60))
+    def ceyrek(v):
+        v = sorted(v); n = len(v); h = n // 2
+        alt, ust = v[:h], v[n - h:]
+        return st.median(alt), st.median(v), st.median(ust)
+    q = ceyrek([3, 5, 7, 8, 10, 12, 15, 20])
+    q2 = ceyrek([3, 5, 7, 8, 10, 12, 15, 200])
+    esit("99 ceyrekler", (q, q[2] - q[0], q2[2] - q2[0], 200 - 3 > 20 - 3), ((6, 9, 13.5), 7.5, 7.5, True))
+    v = [7, 7, 10, 13, 13]
+    esit("99 standart sapma", (ort(v), [x_ - 10 for x_ in v], sum((x_ - 10)**2 for x_ in v), st.stdev(v), st.pstdev(v) < 3, st.stdev([10]*5)), (10, [-3, -3, 0, 3, 3], 36, 3.0, True, 0.0))
+    esit("99 donusum", (ort([x_ + 5 for x_ in v]), st.stdev([x_ + 5 for x_ in v]), [x_ + 5 for x_ in v], ort([2*x_ for x_ in v]), st.stdev([2*x_ for x_ in v]), [2*x_ for x_ in v]),
+         (15, 3.0, [12, 12, 15, 18, 18], 20, 6.0, [14, 14, 20, 26, 26]))
+    # ── 100 genel tekrar ──
+    x_ = sp.symbols("x_")
+    esit("100 bilinmeyen", (_coz(x_ + 3*x_, 48, x_), 3*12), (FiniteSet(12), 36))
+    esit("100 sayi", (_coz(3*x_ + 7, 5*x_ - 9, x_), 3*8 + 7, 5*8 - 9), (FiniteSet(8), 31, 31))
+    h = F(600)
+    esit("100 kesir", (F(2, 3)*F(3, 4), 300 / F(1, 2), h/3, h - h/3, (h - h/3)/4, h - h/3 - (h - h/3)/4), (F(1, 2), 600, 200, 400, 100, 300))
+    esit("100 yas", (_coz(38 + x_, 2*(10 + x_), x_), 38 + 18, 10 + 18, 38 - 10, 56 - 28), (FiniteSet(18), 56, 28, 28, 28))
+    esit("100 yuzde", (100*F(120, 100), 120*F(20, 100), 120 - 24, degisim(100, 96)), (120, 24, 96, -4))
+    esit("100 kar zarar", (400*F(125, 100), F(360)/F(8, 10), 450*F(80, 100)), (500, 450, 360))
+    esit("100 faiz", (F(20000*15*2, 100), 20000 + 6000), (6000, 26000))
+    esit("100 oran", (_coz(3*x_ + 5*x_, 400, x_), 3*50, 5*50, F(6*10, 4)), (FiniteSet(50), 150, 250, 15))
+    esit("100 isci havuz", (F(1, 6) + F(1, 12), F(3, 12), 1/(F(1, 6) + F(1, 12)), F(1, 4) - F(1, 6), 1/(F(1, 4) - F(1, 6))), (F(1, 4), F(1, 4), 4, F(1, 12), 12))
+    esit("100 hareket", (60 + 80, F(420, 140)), (140, 3))
+    esit("100 karisim", (300*F(2, 10), 60 + 100, 300 + 100, F(160, 400)), (60, 160, 400, F(4, 10)))
+    esit("100 ortalama", (5*16, 6*18, 108 - 80), (80, 108, 28))
+    iki = list(itertools.product(range(1, 7), repeat=2))
+    esit("100 sayma olasilik", (fa(4), len(iki), sum(1 for a, b in iki if a + b == 7), F(6, 36)), (24, 36, 6, F(1, 6)))
+    esit("100 kume", (50 - 6, 32 + 28 - 44, 32 - 16 + 28 - 16 + 16 + 6), (44, 16, 50))
+    esit("100 basamak", ([10*a + b for a in range(1, 10) for b in range(10) if a + b == 11 and (10*b + a) - (10*a + b) == 27], 74 - 47, all((10*b + a) - (10*a + b) == 9*(b - a) for a in range(10) for b in range(10))),
+         ([47], 27, True))
+    esit("100 kumbara", ([(x2, 20 - x2) for x2 in range(21) if 5*x2 + (20 - x2) == 60], 10*5 + 10*1, 60 - 20, F(40, 4)), ([(10, 10)], 60, 40, 10))
+    esit("100 grafik", (F(90, 360), F(240, 4)), (F(1, 4), 60))
+    esit("100 ortadaki", (F(57, 3), 17 + 19 + 21, [a for a in range(-100, 100) if a % 2 == 1 and a + (a + 2) + (a + 4) == 57], F(50, 4), 11 + 12 + 13 + 14), (19, 57, [17], F(25, 2), 50))
+    esit("100 cok adimli", (F(500)/F(125, 100), 500*F(9, 10), 450 - 400, F(50, 400)*100, 25 - 10), (400, 450, 50, F(25, 2), 15))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -1502,7 +1591,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")

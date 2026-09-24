@@ -64,7 +64,8 @@ SINAV_RENK = {a: r for a, _, r in SINAVLAR}
 
 def _yukle():
     out = []
-    for p in sorted((KOK / "scripts/yazilar").glob("[0-9]*.py")):
+    # sayisal sira: "100_" metin sirasinda "51_" den once gelirdi (25.09)
+    for p in sorted((KOK / "scripts/yazilar").glob("[0-9]*.py"), key=lambda p: int(p.stem.split("_")[0])):
         ad = "blog_yazi_" + p.stem
         spec = importlib.util.spec_from_file_location(ad, p)
         m = importlib.util.module_from_spec(spec)

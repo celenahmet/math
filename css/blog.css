@@ -261,6 +261,19 @@ math.mtml { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", s
 .bs-tablo th, .bs-tablo td { border: 1px solid var(--cizgi); padding: 10px 14px; text-align: left; vertical-align: top; }
 .bs-tablo th { background: var(--cizgi-acik); font-weight: 600; color: var(--murekkep); font-size: 14px; }
 
+/* grafik (25.09): satir ici SVG, scripts/blog_ogeler.py sutun/cizgi/daire_grafik */
+.bs-grafik { margin: 22px 0; padding: 16px 12px 12px; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r-kucuk); }
+.bs-grafik svg { display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto; }
+.bs-grafik text { fill: var(--soluk); font: 500 14px Inter, system-ui, sans-serif; }
+.bs-grafik .g-deger { fill: var(--murekkep); font-weight: 700; }
+.bs-grafik .g-izgara { stroke: var(--cizgi); stroke-width: 1; }
+.bs-grafik .g-eksen { stroke: var(--soluk); stroke-width: 1.5; }
+.bs-grafik .g-sutun { fill: var(--mor); }
+.bs-grafik .g-cizgi { fill: none; stroke: var(--mor); stroke-width: 3; stroke-linejoin: round; }
+.bs-grafik .g-nokta { fill: var(--yuzey); stroke: var(--mor); stroke-width: 3; }
+.bs-grafik .g-dilim { stroke: var(--yuzey); stroke-width: 2; }
+.bs-grafik figcaption { margin-top: 8px; text-align: center; font-size: 14px; color: var(--soluk); }
+
 /* sss */
 .bs-sss details {
   background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r-kucuk);

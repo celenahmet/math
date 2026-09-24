@@ -58,6 +58,7 @@ def _duz(metin):
     """Etiketleri siler. Once formul icindeki < ve > bosluga cevrilir: $x<2$
     gibi bir formul etiket basi sanilip bir sonraki > isaretine kadar olan
     METNI siliyordu (24.09 olculdu, kelime sayisi dusuk cikiyordu)."""
+    metin = re.sub(r"<svg\b.*?</svg>", " ", metin, flags=re.S)  # grafik etiketleri kelime sayilmaz (25.09)
     metin = re.sub(r"\$[^$]*\$", lambda m: m.group(0).replace("<", " ").replace(">", " "), metin)
     return re.sub(r"<[^>]+>", " ", metin)
 
