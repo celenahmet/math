@@ -53,6 +53,7 @@ Kurallar: `blog-YAZIM-STANDARDI.md` (11 bölüm) · kaynaklar iç rapor `blog-KA
 - [x] 24.09: 61-65 yayında (üslü, köklü, işlem önceliği, bölünebilme, asal); 51-60 metinlerinden sınav sıklık iddiaları temizlendi; `blog_dogrula.py` 13193 denetim tuttu
 - [x] 24.09: 66-70 yayında (EBOB-EKOK, kesirler, sıralama, toplama-çıkarma, çarpma-bölme); `scripts/ek_denetimi.py` eklendi (formül sonrası ek, okunuşa göre), 01-70 arasında 83 yanlış ek düzeltildi; 13329 denetim
 - [x] 24.09: 71-75 yayında (ondalık gösterim, devirli ondalık, yüzdeler, oran-orantı, doğru-ters orantı); `yazi_71_75` 13445 denetim
-- [ ] 06-50 BEKLİYOR (Ahmet 24.09: "6-50 arası bekleyecek sonra ekleriz"); sıradaki: 76 Cebirsel İfadeler (kapaklar 76-100 hazır). 76-79 cebir, 80-89 problemler, 92-95 sayma/olasılık, 96-97 kümeler/mantık, 98-99 veri: kategori kararı Ahmet'te
+- [x] 24.09: 76-80 yayında (cebirsel ifadeler, 1. derece denklemler, eşitsizlikler, denklem kurma, sayı problemleri); `yazi_76_80` 13539 denetim. Ahmet'in kategori kararı: Temel Cebir (76-79), Problemler (80-89), Sayma ve Olasılık (92-95), Kümeler ve Mantık (96-97), Veri ve Grafik (98-99); `blog_veri.KATEGORILER` + `blog_ikon`
+- [ ] 06-50 BEKLİYOR (Ahmet 24.09: "6-50 arası bekleyecek sonra ekleriz"); sıradaki: 81 Kesir Problemleri (kapaklar 81-100 hazır). Not: `matematik.py` \quad / \qquad tanımıyor; sympy `solveset(|x-2| > -1)` yanlışlıkla boş küme veriyor (tümleyenle denetle)
 - [ ] (eski) Sıradaki yazılar: `blog-gorselleri/` 06-50 (brief'teki konu sırası); her yazının iddiaları `blog_dogrula.py`'ye eklenir
 - [ ] Boş durum ve arayüz metinleri (tebrik, "Bu yazıyı paylaş") Ahmet onayı bekliyor
