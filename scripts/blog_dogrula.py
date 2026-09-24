@@ -446,6 +446,141 @@ def yazi_51_55():
          ([-2, -1, 0, 1, 2, 3], [-1, 0, 1, 2, 3], [-2, -1, 0, 1, 2, 3]))
     esit("55 e ve kok basamaklari", (str(sp.N(sp.E, 10))[:10], str(sp.N(sqrt(2), 10))[:10], str(sp.N(sqrt(3), 10))[:10]), ("2.71828182", "1.41421356", "1.73205080"))
 
+def yazi_56_60():
+    """56 Tek-Cift, 57 Pozitif-Negatif, 58 Ardisik, 59 Sayi Dogrusu, 60 Mutlak Deger."""
+    n, k = sp.symbols("n k", integer=True)
+    Q = Rational
+    tek = lambda m: m % 2 == 1
+    # ── 56 tek ve cift ──
+    esit("56 17..95 tek/cift/toplam", (len([m for m in range(17, 96) if tek(m)]), len([m for m in range(18, 95) if not tek(m)]), len(range(17, 96))),
+         (40, 39, 79))
+    esit("56 terim formulleri", ((95 - 17) // 2 + 1, (94 - 18) // 2 + 1, 39 + 40, 95 - 17 + 1), (40, 39, 79, 79))
+    uc = [m for m in range(100, 1000) if len(set(str(m))) == 3]
+    cift_uc = [m for m in uc if m % 2 == 0]
+    esit("56 rakamlari farkli uc basamakli", (len(uc), len([m for m in cift_uc if m % 10 == 0]), len([m for m in cift_uc if m % 10 != 0]), len(cift_uc), len(uc) - len(cift_uc)),
+         (9 * 9 * 8, 9 * 8, 4 * 8 * 8, 72 + 256, 648 - 328))
+    esit("56 parite ornekleri", (3457218 % 2, (-135) % 2, (10**6 + 7) % 2, (-2)**5, (-3)**4), (0, 1, 1, -32, 81))
+    esit("56 tek carpi tek", sp.expand((2*a + 1)*(2*b + 1) - (2*(2*a*b + a + b) + 1)), 0)
+    esit("56 n^2+5n+6", (sp.factor(n**2 + 5*n + 6), all((m*m + 5*m + 6) % 2 == 0 for m in range(-50, 51)), 1 + 5 + 6, 4 + 10 + 6), ((n + 2)*(n + 3), True, 12, 20))
+    esit("56 n^3-n", (sp.factor(n**3 - n), all((m**3 - m) % 6 == 0 for m in range(-50, 51))), ((n - 1)*n*(n + 1), True))
+    esit("56 tek kare 8k+1", (sp.expand((2*k + 1)**2 - (4*k*(k + 1) + 1)), all((m*m) % 8 == 1 for m in range(-51, 52, 2)), (9, 25, 49)), (0, True, (8 + 1, 24 + 1, 48 + 1)))
+    esit("56 n^2+7 tek n icin cift", ([m*m + 7 for m in (1, 3, 5)], all((m*m + 7) % 2 == 0 for m in range(-51, 52, 2))), ([8, 16, 32], True))
+    esit("56 bolme ornekleri", (12 // 4, 12 // 6, 12 % 4, 12 % 6), (3, 2, 0, 0))
+    esit("56 (a+1)(b+2) tek", {(a_ % 2, b_ % 2) for a_ in range(-9, 10) for b_ in range(-9, 10) if ((a_ + 1)*(b_ + 2)) % 2 == 1}, {(0, 1)})
+    esit("56 A tek B cift", (sp.prod(range(3, 100, 2)) % 2, sp.factorial(20) % 2), (1, 0))
+    esit("56 toplamlar", (sum(range(1, 101)), sum(range(1, 11)), sp.simplify(sp.summation(2*k - 1, (k, 1, n)) - n**2), sp.simplify(sp.summation(2*k, (k, 1, n)) - n*(n + 1))), (5050, 55, 0, 0))
+    esit("56 1..n tek/cift sayisi", all((len([i for i in range(1, m + 1) if tek(i)]), len([i for i in range(1, m + 1) if not tek(i)]))
+                                       == (((m + 1)//2, (m - 1)//2) if tek(m) else (m//2, m//2)) for m in range(1, 60)), True)
+    # ── 57 pozitif ve negatif ──
+    esit("57 ornekler", (5 - (-7), -8 + 13 - (-4) - 9, (-2)*(-3)*(-4)*5, (-2)**4, -2**4, (-2)**3 + (-2)**2 - (-2)**1, (-1)**2026 - (-1)**2025),
+         (12, 0, -120, 16, -16, -2, 2))
+    esit("57 isaret tablosu kontrol", Q((-1)**3 * 2**2, -4), 1)
+    esit("57 a^3 b^2 / c isareti", all(sp.sign(Q(a_**3 * b_**2, c_)) == 1 for a_ in range(-5, 0) for b_ in range(1, 5) for c_ in range(-5, 0)), True)
+    ikili = [(a_, b_) for a_ in range(-9, 10) for b_ in range(-9, 10) if a_ and b_]
+    esit("57 ab>0, a+b<0", {(sp.sign(a_), sp.sign(b_)) for a_, b_ in ikili if a_*b_ > 0 and a_ + b_ < 0}, {(-1, -1)})
+    esit("57 ab<0, a<b", {(sp.sign(a_), sp.sign(b_)) for a_, b_ in ikili if a_*b_ < 0 and a_ < b_}, {(-1, 1)})
+    esit("57 a^2 b<0", ({sp.sign(b_) for a_, b_ in ikili if a_*a_*b_ < 0}, {sp.sign(a_) for a_, b_ in ikili if a_*a_*b_ < 0}), ({-1}, {-1, 1}))
+    esit("57 toplamin isareti belirsiz", (-5 + 3 < 0, -2 + 3 > 0), (True, True))
+    esit("57 terslerin siralamasi", (Q(1, -4) > Q(1, -2), Q(1, -4), Q(1, -2)), (True, Q(-1, 4), Q(-1, 2)))
+    ornekler = [Q(-p, q) for q in range(2, 30) for p in range(1, q)]
+    esit("57 -1<x<0 siralama", all(1/v < v < v**3 < v**2 for v in ornekler), True)
+    esit("57 x<-1 siralama", all(v**3 < v < 1/v < v**2 for v in [Q(-q, p) for q in range(2, 30) for p in range(1, q)]), True)
+    esit("57 x=-1/2 ve x=-2", ((Q(-1, 2)**2, Q(-1, 2)**3, 1/Q(-1, 2)), ((-2)**2, (-2)**3, Q(1, -2))), ((Q(1, 4), Q(-1, 8), -2), (4, -8, Q(-1, 2))))
+    esit("57 x=-1 esitlik", ((-1)**3, Q(1, -1)), (-1, -1))
+    esit("57 yukseklik ve ortalama", (30 - (-12), sum([-4, -1, 2, 0, -7]), Q(sum([-4, -1, 2, 0, -7]), 5), 2 + (-4 - 1 - 7)), (42, -10, -2, -10))
+    esit("57 uzaklik |-2-(-9)|", abs(-2 - (-9)), 7)
+    esit("57 -3^2+(-3)^2-2(-3)", (-3**2, (-3)**2, 2*(-3), -3**2 + (-3)**2 - 2*(-3)), (-9, 9, -6, 6))
+    esit("57 zincir", (2*(-1), (-1)*(-3), 2 - (-3)), (-2, 3, 5))
+    esit("57 -2x+3>7", sp.solveset(-2*x + 3 > 7, x, R), Interval.open(-oo, -2))
+    esit("57 -2x+3 kontrol", (-2*(-3) + 3, -2*0 + 3), (9, 3))
+    esit("57 eksi carpi eksi", sp.expand((-a)*(b + (-b))), 0)
+    esit("57 bolme ve kesir", (Q(-24, -6), Q(-24, 6), Q(-3, 4) == Q(3, -4) == -Q(3, 4), Q(-3, -4)), (4, -4, True, Q(3, 4)))
+    # ── 58 ardisik sayilar ──
+    terim = lambda ilk, son, adim: (son - ilk) // adim + 1
+    esit("58 terim sayilari", (terim(7, 91, 2), len(range(7, 92, 2)), terim(15, 120, 5), len(range(15, 121, 5)),
+                               len([m for m in range(10, 100) if m % 3 == 0]), terim(12, 99, 3), len(range(3, 8))),
+         (43, 43, 22, 22, 30, 30, 5))
+    esit("58 arasinda / dahil", (len(range(11, 20)), len(range(10, 21))), (9, 11))
+    esit("58 kacinci terim", (5 + 19*4, [5 + 4*i for i in range(30)].index(101) + 1, [100 - 7*i for i in range(20)].index(2) + 1, (50 - 5) % 4 != 0, (100 - 2) // 7 + 1),
+         (81, 25, 15, True, 15))
+    esit("58 Gauss", (sum(range(1, 101)), 50 * 101), (5050, 5050))
+    esit("58 21+23+..+59", (terim(21, 59, 2), sum(range(21, 60, 2)), (21 + 59) * 20 // 2), (20, 800, 800))
+    esit("58 ozel toplam formulleri", tuple(sp.simplify(e) for e in (sp.summation(k, (k, 1, n)) - n*(n + 1)/2, sp.summation(2*k, (k, 1, n)) - n*(n + 1), sp.summation(2*k - 1, (k, 1, n)) - n**2)), (0, 0, 0))
+    esit("58 ozel toplamlar", (sum(range(1, 41)), sum(range(2, 61, 2)), sum(range(1, 50, 2)), 40*41//2, 30*31, 25**2), (820, 930, 625, 820, 930, 625))
+    esit("58 11..30", (sum(range(11, 31)), sum(range(1, 31)), sum(range(1, 11)), (11 + 30)*20//2), (410, 465, 55, 410))
+    esit("58 40..80 cift", (terim(40, 80, 2), sum(range(40, 81, 2)), 2*(sum(range(1, 41)) - sum(range(1, 20))), sum(range(1, 20))), (21, 1260, 1260, 190))
+    esit("58 toplami verilen", (list(range(21, 26)), sum(range(21, 26)), [22, 24, 26, 28], sum([22, 24, 26, 28]), [25, 27, 29], sum([25, 27, 29])),
+         ([21, 22, 23, 24, 25], 115, [22, 24, 26, 28], 100, [25, 27, 29], 81))
+    esit("58 kare/kup formul", (sp.simplify(sp.summation(k**2, (k, 1, n)) - n*(n + 1)*(2*n + 1)/6), sp.simplify(sp.summation(k**3, (k, 1, n)) - n**2*(n + 1)**2/4)), (0, 0))
+    esit("58 kare/kup sayilar", (sum(i*i for i in range(1, 11)), 10*11*21, sum(i**3 for i in range(1, 6)), 15**2, sum(i*i for i in range(6, 11)), sum(i*i for i in range(1, 6)), 5*6*11//6),
+         (385, 2310, 225, 225, 330, 55, 55))
+    esit("58 k ardisik carpim k! boler", all(sp.prod(range(m, m + kk)) % sp.factorial(kk) == 0 for kk in range(2, 7) for m in range(-30, 30)), True)
+    esit("58 iki ardisik cift carpim 8", all((2*m)*(2*m + 2) % 8 == 0 for m in range(-50, 50)), True)
+    esit("58 carpim ornekleri", (5*6*7, 210 // 6, 12*13*14*15, 32760 // 24, 32760 % 24), (210, 35, 32760, 1365, 0))
+    esit("58 dort ardisik +1 kare", (sp.expand(n*(n + 1)*(n + 2)*(n + 3) + 1 - (n**2 + 3*n + 1)**2), 1*2*3*4 + 1, 2*3*4*5 + 1), (0, 25, 121))
+    esit("58 kareler farki 37", (sp.solve(sp.Eq((x + 1)**2 - x**2, 37), x), 19**2 - 18**2, 361, 324), ([18], 37, 19**2, 18**2))
+    esit("58 sayfa rakamlari", (sum(len(str(p)) for p in range(1, 151)), 9 + 90*2 + 51*3, len(range(100, 151))), (342, 342, 51))
+    esit("58 karsilikli sayfa 245", sp.solve(sp.Eq(2*x + 1, 245), x), [122])
+    # ── 59 sayi dogrusu ──
+    esit("59 uzaklik ve orta nokta", (abs(7 - (-3)), Q(-3 + 7, 2), abs(2 - (-3)), abs(7 - 2)), (10, 2, 5, 5))
+    esit("59 1:3 bolen nokta", (8 - (-4), -4 + 12 // 4, abs(-1 - (-4)), abs(8 - (-1))), (12, -1, 3, 9))
+    esit("59 |x-5|=3", sp.solveset(sp.Eq(Abs(x - 5), 3), x, R), FiniteSet(2, 8))
+    esit("59 aralik tam sayilari", ([m for m in range(-10, 10) if -3 < m <= 4], [m for m in range(-10, 10) if Q(-5, 2) <= m < Q(16, 5)]),
+         ([-2, -1, 0, 1, 2, 3, 4], [-2, -1, 0, 1, 2, 3]))
+    esit("59 ortak aralik", Interval(-3, oo).intersect(Interval.open(-oo, 2)), Interval.Ropen(-3, 2))
+    esit("59 kesir yerlesimi", (Q(7, 3) == 2 + Q(1, 3), -Q(7, 3) == -2 - Q(1, 3), -3 < -Q(7, 3) < -2, abs(-Q(7, 3) - (-2)) < abs(-Q(7, 3) - (-3))), (True, True, True, True))
+    esit("59 ondalik", (Q(3, 10) < Q(305, 1000) < Q(35, 100), -Q(35, 100) < -Q(305, 1000) < -Q(3, 10), str(sp.N(sqrt(2), 3))), (True, True, "1.41"))
+    esit("59 kesir kurallari", (Q(5, 9) > Q(4, 9), Q(4, 7) > Q(4, 9)), (True, True))
+    esit("59 3/5 5/8 7/12", (sp.ilcm(5, 8, 12), Q(3, 5)*120, Q(5, 8)*120, Q(7, 12)*120, Q(7, 12) < Q(3, 5) < Q(5, 8), str(sp.N(Q(7, 12), 3))), (120, 72, 75, 70, True, "0.583"))
+    esit("59 capraz carpim", (5*11, 8*7, Q(5, 8) < Q(7, 11)), (55, 56, True))
+    esit("59 bire uzaklik", (Q(3, 4) < Q(5, 6) < Q(7, 8), Q(9, 8) < Q(7, 6) < Q(5, 4), Q(2025, 2026) < Q(2026, 2027)), (True, True, True))
+    esit("59 negatif kesir", (Q(2, 3) < Q(3, 4), -Q(3, 4) < -Q(2, 3), Q(2, 3) == Q(8, 12), Q(3, 4) == Q(9, 12)), (True, True, True, True))
+    esit("59 koklu siralama", (2*sqrt(3) == sqrt(12), 3*sqrt(2) == sqrt(18), bool(2*sqrt(3) < sqrt(15) < 4 < 3*sqrt(2)), bool(4 < sqrt(17) < 5), bool(7 < sqrt(50) < 8), 3*sqrt(2) == sqrt(6)),
+         (True, True, True, True, True, False))
+    esit("59 uslu siralama", (4**5 == 2**10, 8**3 == 2**9, 16**2 == 2**8, 16**2 < 8**3 < 4**5, 2**30 == 8**10, 3**20 == 9**10, 5**10 < 2**30 < 3**20), (True,) * 7)
+    esit("59 0<x<1 siralama", all(v**2 < v < sqrt(v) < 1/v for v in [Q(p, q) for q in range(2, 25) for p in range(1, q)]), True)
+    esit("59 x=1/4", (Q(1, 4)**2, sqrt(Q(1, 4)), 1/Q(1, 4), float(Q(1, 16))), (Q(1, 16), Q(1, 2), 4, 0.0625))
+    esit("59 karisik siralama", (bool(-sqrt(2) < -Q(5, 4) < -Q(6, 5)), -Q(5, 4) == Q(-125, 100)), (True, True))
+    esit("59 pi ve 22/7", (bool(Q(314, 100) < sp.pi < Q(22, 7)), str(sp.N(sp.pi, 10))[:7], str(sp.N(Q(22, 7), 10))[:7]), (True, "3.14159", "3.14285"))
+    # ── 60 mutlak deger ──
+    esit("60 temel", (abs(5), abs(-5), abs(0)), (5, 5, 0))
+    esit("60 icerik acma", (Abs(3 - sp.pi), Abs(sqrt(2) - 2)), (sp.pi - 3, 2 - sqrt(2)))
+    esit("60 x<0<y ifadesi", all(abs(p) + abs(q - p) - abs(-q) == -2*p for p in range(-9, 0) for q in range(1, 10)), True)
+    esit("60 2<x<5", all(abs(v - 2) + abs(v - 5) == 3 for v in [2 + Q(i, 10) for i in range(1, 30)]), True)
+    esit("60 ozellik ornekleri", (abs(-4), abs(2 - 9), abs(9 - 2), abs((-3)*4), abs(Q(-8, 2)), abs(-5)**2, (-5)**2, sqrt((-3)**2)), (4, 7, 7, 12, 4, 25, 25, 3))
+    esit("60 ozellikler kaba kuvvet", all(abs(p*q) == abs(p)*abs(q) and abs(p + q) <= abs(p) + abs(q) and ((abs(p + q) == abs(p) + abs(q)) == (p*q >= 0))
+                                          for p in range(-9, 10) for q in range(-9, 10)), True)
+    esit("60 ucgen ornegi", (abs(3 + (-5)), abs(3) + abs(-5)), (2, 8))
+    esit("60 |x|/x", ({sp.sign(v) for v in range(1, 9)}, {Q(abs(v), v) for v in range(1, 9)}, {Q(abs(v), v) for v in range(-9, 0)}), ({1}, {1}, {-1}))
+    esit("60 |x-3|=5", sp.solveset(sp.Eq(Abs(x - 3), 5), x, R), FiniteSet(-2, 8))
+    esit("60 |2x+1|=7", (sp.solveset(sp.Eq(Abs(2*x + 1), 7), x, R), 3 + (-4)), (FiniteSet(-4, 3), -1))
+    esit("60 |x-1|=|2x+3|", sp.solveset(sp.Eq(Abs(x - 1), Abs(2*x + 3)), x, R), FiniteSet(-4, Q(-2, 3)))
+    esit("60 |x-1|=|2x+3| degerler", (abs(-4 - 1), abs(2*(-4) + 3), abs(Q(-2, 3) - 1), abs(2*Q(-2, 3) + 3)), (5, 5, Q(5, 3), Q(5, 3)))
+    esit("60 |x+4|=-2", sp.solveset(sp.Eq(Abs(x + 4), -2), x, R), S.EmptySet)
+    esit("60 |x-2|=2x-7", sp.solveset(sp.Eq(Abs(x - 2), 2*x - 7), x, R), FiniteSet(5))
+    esit("60 x=3 kontrol", (abs(3 - 2), 2*3 - 7), (1, -1))
+    kok = sp.solveset(sp.Eq(Abs(Abs(x - 2) - 3), 1), x, R)
+    esit("60 ic ice", (kok, sum(kok)), (FiniteSet(-2, 0, 4, 6), 8))
+    esit("60 |x-4|=2 ve |x-4|<2", (sp.solveset(sp.Eq(Abs(x - 4), 2), x, R), sp.solveset(Abs(x - 4) < 2, x, R)), (FiniteSet(2, 6), Interval.open(2, 6)))
+    esit("60 |x-2|=|x-10|", sp.solveset(sp.Eq(Abs(x - 2), Abs(x - 10)), x, R), FiniteSet(6))
+    esit("60 |x-2|<3", ([m for m in range(-20, 20) if abs(m - 2) < 3], sp.solveset(Abs(x - 2) < 3, x, R)), ([0, 1, 2, 3, 4], Interval.open(-1, 5)))
+    esit("60 |2x-1|>=5", sp.solveset(Abs(2*x - 1) >= 5, x, R), Union(Interval(-oo, -2), Interval(3, oo)))
+    esit("60 1<=|x-3|<4", [m for m in range(-20, 20) if 1 <= abs(m - 3) < 4], [0, 1, 2, 4, 5, 6])
+    esit("60 |x-3|<=0, <0, >=0", (sp.solveset(Abs(x - 3) <= 0, x, R), sp.solveset(Abs(x - 3) < 0, x, R), sp.solveset(Abs(x - 3) >= 0, x, R)), (FiniteSet(3), S.EmptySet, R))
+    esit("60 tolerans", sp.solveset(Abs(x - 50) <= Q(1, 5), x, R), Interval(Q(249, 5), Q(251, 5)))
+    esit("60 |x|<a, |x|>a", (sp.solveset(Abs(x) < 4, x, R), sp.solveset(Abs(x) > 4, x, R)), (Interval.open(-4, 4), Union(Interval.open(-oo, -4), Interval.open(4, oo))))
+    f = Abs(x - 1) + Abs(x + 3)
+    esit("60 kritik noktalar", (sp.simplify(sp.Piecewise((-2*x - 2, x < -3), (4, x <= 1), (2*x + 2, True)).rewrite(Abs) - f.rewrite(sp.Piecewise)) == 0 or
+                                all(f.subs(x, v) == (-2*v - 2 if v < -3 else 4 if v <= 1 else 2*v + 2) for v in [Q(i, 4) for i in range(-40, 40)]), f.subs(x, -5)),
+         (True, 8))
+    ornek_x = [Q(i, 8) for i in range(-80, 120)]
+    g = lambda v: abs(v + 2) + abs(v - 3)
+    esit("60 min |x+2|+|x-3|", (min(g(v) for v in ornek_x), all(g(v) == 5 for v in ornek_x if -2 <= v <= 3), all(g(v) > 5 for v in ornek_x if v < -2 or v > 3)), (5, True, True))
+    h = lambda v: abs(v - 1) + abs(v - 2) + abs(v - 6)
+    esit("60 min uc terim", (min(h(v) for v in ornek_x), [v for v in ornek_x if h(v) == 5], h(1), h(3)), (5, [2], 6, 6))
+    m_ = lambda v: abs(v - 2) - abs(v - 7)
+    esit("60 fark araligi", (max(m_(v) for v in ornek_x), min(m_(v) for v in ornek_x), all(m_(v) == 5 for v in ornek_x if v >= 7), all(m_(v) == -5 for v in ornek_x if v <= 2)), (5, -5, True, True))
+
 # ── bicim denetimi ─────────────────────────────────────────────────────
 def bicim():
     import blog_veri
@@ -466,7 +601,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
