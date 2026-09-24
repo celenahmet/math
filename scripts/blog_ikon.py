@@ -25,6 +25,10 @@ _YOL = {
     "fonksiyonlar": '<rect x="8.5" y="8.5" width="7" height="7" rx="1.6"/>'
                     '<path d="M2.5 12h6"/><path d="M15.5 12h6"/>'
                     '<path d="M19.2 9.7 21.5 12l-2.3 2.3"/>',
+    # Sayilar: sayi dogrusu, uc cizgi ve ustunde isaretli bir nokta
+    "sayilar": '<path d="M2.5 15h18"/><path d="M18.8 12.8 21 15l-2.2 2.2"/>'
+               '<path d="M6 12.5v5"/><path d="M11 12.5v5"/><path d="M16 12.5v5"/>'
+               '<circle cx="11" cy="7.5" r="1.8"/>',
     # Polinomlar: ustuste terimler
     "polinomlar": '<path d="M4 7h16"/><path d="M4 12h11"/><path d="M4 17h7"/>'
                   '<path d="M18.5 15v4"/><path d="M16.5 17h4"/>',

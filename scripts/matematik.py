@@ -40,7 +40,7 @@ ISARET = {
 }
 # Cift cizgili kume simgeleri: \mathbb{R} gibi yazilir ama tek bir harf gibi
 # davranir; grup ayristirmasina girmeden dogrudan karsiligi basilir.
-KUMELER = {"R": "ℝ", "N": "ℕ", "Z": "ℤ", "Q": "ℚ", "C": "ℂ"}
+KUMELER = {"R": "ℝ", "N": "ℕ", "Z": "ℤ", "Q": "ℚ", "C": "ℂ", "I": "\U0001D540"}  # I: irrasyoneller
 FONKSIYON = ["sin", "cos", "tan", "cot", "sec", "csc", "log", "ln",
              "arcsin", "arccos", "arctan", "max", "min", "ebob", "ekok"]
 BUYUK = {"sum": "∑", "prod": "∏", "int": "∫", "lim": "lim"}
@@ -49,9 +49,10 @@ BUYUK = {"sum": "∑", "prod": "∏", "int": "∫", "lim": "lim"}
 # virgulle basilir (2,5). Virgul HER ZAMAN ayractir. Eskiden [.,] ikisi de
 # ondalik sayiliyordu: {1,2,3} icindeki "1,2" ve [2,5) araligi tek bir
 # ondalik sayi (<mn>2,5</mn>) olarak basiliyordu (23.09 olculdu).
+# Devirli ondalikta nokta ust cizgiden hemen once de gelebilir: 1.\overline{27} → "1,"
 _JETON = re.compile(r"""
     \\text\{[^{}]*\} |
-    \\[A-Za-z]+ | \\[{}|,\ ] | \d+(?:\.\d+)? | [A-Za-z] |
+    \\[A-Za-z]+ | \\[{}|,\ %] | \d+(?:\.\d+)?(?:\.(?=\\overline))? | [A-Za-z] |
     \^ | _ | \{ | \} | \( | \) | \[ | \] | \| |
     [+\-=<>/!,.:;'] | \s+
 """, re.X)
@@ -89,7 +90,7 @@ def _atom(j, jetonlar, k):
                 harf = jetonlar[k + 1] if k + 1 < len(jetonlar) else ""
                 if harf in KUMELER and k + 2 < len(jetonlar) and jetonlar[k + 2] == "}":
                     return (f"<mi>{KUMELER[harf]}</mi>", k + 3)
-            raise ValueError("matematik: \\mathbb yalnizca R N Z Q C alir")
+            raise ValueError("matematik: \\mathbb yalnizca R N Z Q C I alir")
         if ad == "binom":
             # Kombinasyon: cizgisiz kesir + esneyen parantez
             a, k = _grup(jetonlar, k)
@@ -113,8 +114,15 @@ def _atom(j, jetonlar, k):
                 p = jetonlar[k]
                 if p == "\\|":
                     p = "|"
+                elif p in ("\\{", "\\}"):   # \left\{ ... \right\} : kume parantezi
+                    p = p[1]
                 return (f'<mo stretchy="true">{_kacir(p)}</mo>', k + 1)
             return ("", k)
+        if ad == "overline":
+            # Devirli ondalik: 0,1\overline{6}. MACRON (U+00AF) MathML Core
+            # sozlugunde esneyen vurgu; devreden basamaklarin ustune yayilir.
+            a, k = _grup(jetonlar, k)
+            return (f'<mover accent="true">{a}<mo>\u00af</mo></mover>', k)
         if ad in BUYUK:
             return (f'<mo movablelimits="false">{BUYUK[ad]}</mo>', k)
         if ad in FONKSIYON:
@@ -127,6 +135,9 @@ def _atom(j, jetonlar, k):
             return ('<mspace width="0.3em"/>', k)
         if j in ("\\{", "\\}"):
             return (f"<mo>{j[1]}</mo>", k)
+        if j == "\\%":
+            # Yuzde: Turkcede sayinin ONUNDE yazilir (%25); islem boslugu almasin.
+            return ("<mtext>%</mtext>", k)
         if j == "\\,":
             return ('<mspace width="0.17em"/>', k)
         raise ValueError(f"matematik: bilinmeyen komut \\{ad}")

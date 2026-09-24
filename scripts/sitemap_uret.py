@@ -45,10 +45,21 @@ def uret():
         urls.append(yol)
 
     urls = sorted(set(urls), key=lambda u: (u.count("/"), u))
+    # Blog kapaklari gorsel site haritasina (Ahmet 24.09: "blog gorselleri
+    # Ahmet Celen yazinca degil, konusuyla aranınca ciksin"). Gorsel, konusu
+    # belli sayfaya baglanir. Google image:title/caption'i okumuyor; yalniz loc.
+    import sys
+    sys.path.insert(0, str(KOK / "scripts"))
+    import blog_veri
+    kapak = {f"/blog/{y['slug']}/": f"{ALAN}/blog/kapak/{y['kapak']}.avif"
+             for y in blog_veri.yayinda() if y.get("kapak")}
     bugun = datetime.date.today().isoformat()
     xml = ['<?xml version="1.0" encoding="UTF-8"?>',
-           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    xml += [f"  <url><loc>{ALAN}{u}</loc><lastmod>{bugun}</lastmod></url>" for u in urls]
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+           'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
+    xml += [f"  <url><loc>{ALAN}{u}</loc><lastmod>{bugun}</lastmod>"
+            + (f"<image:image><image:loc>{kapak[u]}</image:loc></image:image>" if u in kapak else "")
+            + "</url>" for u in urls]
     xml.append("</urlset>")
     (KOK / "sitemap.xml").write_text("\n".join(xml) + "\n", encoding="utf-8")
     print(f"{len(urls)} adres yazildi → sitemap.xml")

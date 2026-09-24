@@ -333,6 +333,119 @@ def ekler():
     esit("05 f(8), f^-1(0)", (k3.subs(x, 8), ((3 - x)**2 - 1).subs(x, 0)), (0, 8))
     esit("05 artan f -> artan f^-1", sp.diff((x + 3) / 2, x) > 0, True)
 
+# ── 51-55 Temel kavramlar ve sayilar (24.09) ────────────────────────────
+def _devirli(tam, devretmeyen, devreden):
+    """Devirli ondalik → kesir, TANIMDAN (x = tam,devretmeyen(devreden)...):
+    kuraldan bagimsiz hesap; yazidaki kuralla karsilastirilir."""
+    n, m = len(devretmeyen), len(devreden)
+    a = F(int(str(tam) + devretmeyen + devreden)) if (devretmeyen + devreden) else F(tam)
+    b = F(int(str(tam) + devretmeyen)) if devretmeyen else F(tam)
+    return (a - b) / (10**n * (10**m - 1)) if m else F(int(str(tam) + devretmeyen), 10**n)
+
+
+def _sonlu_mu(p, q):
+    """Uzun bolme ile: kalan tekrar etmeden 0 olursa sonlu."""
+    r, gorulen = p % q, set()
+    while r and r not in gorulen:
+        gorulen.add(r); r = (r * 10) % q
+    return r == 0
+
+
+def yazi_51_55():
+    # 51
+    uc = [n for n in range(100, 1000) if len(set(str(n))) == 3]
+    esit("51 rakamlari farkli 3 bas. max/min", (max(uc), min(uc), max(uc) + min(uc)), (987, 102, 1089))
+    esit("51 rakamlari farkli 2 bas. adet", sum(1 for n in range(10, 100) if len(set(str(n))) == 2), 81)
+    for a_, b_ in itertools.product(range(-6, 7), repeat=2):
+        esit("51 tek/cift", ((a_ + b_) % 2, (a_ * b_) % 2), ((a_ % 2 + b_ % 2) % 2, (a_ % 2) * (b_ % 2)))
+        esit("51 3a+2b tek <=> a tek", (3 * a_ + 2 * b_) % 2 == 1, a_ % 2 == 1)
+    esit("51 bolme", (12 // 4, 12 // 6), (3, 2))
+    esit("51 kuvvet isaret", ((-2)**4, (-2)**3, -2**4), (16, -8, -16))
+    esit("51 a=-2 b=3", ((-2) * 3, 4 * 3, (-2)**3, 3 - (-2)), (-6, 12, -8, 5))
+    dz = list(range(12, 41, 2))
+    esit("51 12..40", (len(dz), sum(dz), (40 - 12) // 2 + 1), (15, 390, 15))
+    esit("51 toplamlar", (sum(range(1, 21)), sum(range(1, 20, 2))), (210, 100))
+    esit("51 ardisik tek 87", [n for n in range(1, 87, 2) if n + n + 2 + n + 4 == 87], [27])
+    esit("51 asal <30", list(sp.primerange(1, 30)), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
+    esit("51 asal toplam 25", [(p_, 25 - p_) for p_ in sp.primerange(1, 13) if sp.isprime(25 - p_)], [(2, 23)])
+    esit("51 8,15 aralarinda asal", sp.gcd(8, 15), 1)
+    esit("51 faktoriyeller", [sp.factorial(k) for k in range(7)], [1, 1, 2, 6, 24, 120, 720])
+    esit("51 7!/5!, 5!+6!, 2!+3!", (sp.factorial(7) / sp.factorial(5), sp.factorial(5) + sp.factorial(6), 2 + 6), (42, 840, 8))
+    esit("51 25! sondaki sifir", len(str(sp.factorial(25))) - len(str(sp.factorial(25)).rstrip("0")), 6)
+    esit("51 ardisik carpim cift, 3 un kati", all(n * (n + 1) % 2 == 0 and (n * (n + 1) * (n + 2)) % 3 == 0 for n in range(-50, 50)), True)
+    ab = [10 * a_ + b_ for a_ in range(1, 10) for b_ in range(1, 10) if (10 * a_ + b_) - (10 * b_ + a_) == 27]
+    esit("51 ab-ba=27", ab, [41, 52, 63, 74, 85, 96])
+    esit("51 ab+ba, ab-ba", all((10*a_+b_)+(10*b_+a_) == 11*(a_+b_) and (10*a_+b_)-(10*b_+a_) == 9*(a_-b_) for a_ in range(10) for b_ in range(10)), True)
+    # 52
+    esit("52 ortalama", ((F(1, 3) + F(1, 2)) / 2, F(1, 3), F(1, 2)), (F(5, 12), F(4, 12), F(6, 12)))
+    esit("52 kokler", (sqrt(9), sqrt(Rational(4, 25))), (3, Rational(2, 5)))
+    esit("52 22/7", str(sp.N(Rational(22, 7), 8))[:8], "3.142857")
+    esit("52 pi irrasyonel", sp.pi.is_rational, False)
+    esit("52 basamaklar", (str(sp.N(sqrt(2), 8))[:7], str(sp.N(sqrt(3), 8))[:7], str(sp.N(sp.pi, 8))[:7]), ("1.41421", "1.73205", "3.14159"))
+    A = [Rational(-2), Rational(0), Rational(1, 2), sqrt(4), sqrt(5), sp.pi, Rational(1, 3), Rational(7)]
+    say = lambda f: sum(1 for e in A if f(e))
+    esit("52 A siniflama", (say(lambda e: e.is_integer and e >= 0), say(lambda e: e.is_integer), say(lambda e: e.is_rational), say(lambda e: e.is_rational is False)), (3, 4, 6, 2))
+    esit("52 0.25", F(25, 100), F(1, 4))
+    esit("52 kapalilik karsi ornekleri", (3 - 5, F(1, 2).denominator, sqrt(2) + (-sqrt(2)), sqrt(2) * sqrt(2), sqrt(2) / sqrt(2)), (-2, 2, 0, 2, 1))
+    esit("52 sqrt2+sqrt3 irrasyonel (min. polinom 4. derece)", sp.degree(sp.minimal_polynomial(sqrt(2) + sqrt(3), x), x), 4)
+    esit("52 (-2.5,3) tam sayilar", [n for n in range(-5, 6) if -2.5 < n < 3], [-2, -1, 0, 1, 2])
+    esit("52 sqrt10..sqrt50", [n for n in range(0, 10) if 10 < n * n < 50], [4, 5, 6, 7])
+    esit("52 irrasyonel carpimlar", (sqrt(2) * sqrt(8), (sqrt(2) * sqrt(3)).is_rational), (4, False))
+    # 53
+    esit("53 dagilma", (37 * 25 + 37 * 75, 25 * 98, F(12, 6) / 2, F(12) / (F(6) / 2)), (3700, 2450, 1, 4))
+    esit("53 siralama", sorted([-8, 3, -1, 0, -12, 5]), [-12, -8, -1, 0, 3, 5])
+    esit("53 toplama/cikarma", ((-8) + (-5), (-8) + 5, 7 - (-4), -6 - 9, -4 + 9 - 12), (-13, -3, 11, -15, -7))
+    esit("53 carpma/bolme", (F(-36, 9), F(-36, -9), (-1)**25 * (-2)**2), (-4, 4, -4))
+    esit("53 (-1) kuvvet toplami", sum((-1)**k for k in range(1, 102)), -1)
+    esit("53 islem onceligi", (12 - 3 * (-2)**2 + F(8, -4), -2**2 + (-3) * (4 - (-1)), F(24, 4) * 2), (-2, -19, 12))
+    esit("53 bolme ve kalan", (divmod(47, 6), divmod(-17, 5)), ((7, 5), (-4, 3)))
+    esit("53 n=4 mod 7 -> 3n=5 mod 7", all((3 * n) % 7 == 5 for n in range(4, 500, 7)), True)
+    esit("53 en buyuk kalan", (9 * 12 + 8, divmod(116, 9)), (116, (12, 8)))
+    esit("53 sayma", (len(range(-4, 7)), len(range(-3, 6)), sum(range(-10, 13))), (11, 9, 23))
+    ok = all((a_ * c_ < 0, a_ + b_ < 0, c_ - a_ > 0) == (True, True, True)
+             for a_ in range(-5, 6) for b_ in range(-5, 6) for c_ in range(-5, 6)
+             if a_ < 0 and a_ * b_ > 0 and b_ * c_ < 0)
+    esit("53 isaret sorusu", ok, True)
+    esit("53 -a>-b", (-5 + 3 < 0, -2 + 3 > 0, -2 > -5), (True, True, True))
+    # 54
+    esit("54 sadelestirme", (sp.gcd(84, 126), F(84, 126), sp.factorint(84), sp.factorint(126)), (42, F(2, 3), {2: 2, 3: 1, 7: 1}, {2: 1, 3: 2, 7: 1}))
+    esit("54 tam sayili", (divmod(7, 3), F(2 * 3 + 1, 3)), ((2, 1), F(7, 3)))
+    esit("54 toplama", (sp.ilcm(6, 4), F(5, 6) + F(3, 4), F(1, 2) + F(1, 3), F(2, 5) < F(1, 2)), (12, F(19, 12), F(5, 6), True))
+    esit("54 cikarma", F(5, 2) - F(7, 4), F(3, 4))
+    esit("54 bolme, merdiven, ters", (F(3, 5) / F(9, 10), 1 / (1 + 1 / (1 + F(1, 2))), F(2, 3) * F(3, 2)), (F(2, 3), F(3, 5), 1))
+    esit("54 siralama 120", (sp.ilcm(3, 5, 8), F(2, 3) * 120, F(3, 5) * 120, F(5, 8) * 120), (120, 80, 72, 75))
+    esit("54 kisa yollar", (F(3, 7) > F(3, 8), F(8, 9) > F(7, 8), 1 - F(7, 8), 1 - F(8, 9)), (True, True, F(1, 8), F(1, 9)))
+    esit("54 negatif siralama", sorted([F(-2, 3), F(-3, 4), F(-1, 2)]), [F(-3, 4), F(-2, 3), F(-1, 2)])
+    esit("54 ondaliklar", (F(3, 8), F(7, 20), F(7, 40), F(9, 75), F(3, 12)), (F(375, 1000), F(35, 100), F(175, 1000), F(12, 100), F(25, 100)))
+    esit("54 devirliler", (_sonlu_mu(1, 6), _sonlu_mu(5, 12), _sonlu_mu(1, 3)), (False, False, False))
+    for q_ in range(1, 201):
+        for p_ in range(1, q_):
+            if sp.gcd(p_, q_) == 1:
+                esit(f"54 sonlu kurali {p_}/{q_}", _sonlu_mu(p_, q_), set(sp.factorint(q_)) <= {2, 5})
+    esit("54 devirli -> kesir (tanimdan)", (_devirli(0, "", "3"), _devirli(0, "1", "6"), _devirli(1, "", "27"), _devirli(0, "", "9")), (F(1, 3), F(1, 6), F(14, 11), F(1)))
+    esit("54 kural ile", (F(16 - 1, 90), F(127 - 1, 99), F(9, 9)), (F(1, 6), F(14, 11), 1))
+    esit("54 5/12 = 0.41(6)", _devirli(0, "41", "6"), F(5, 12))
+    esit("54 sayi dogrusu", (2 < F(7, 3) < 3, -2 < F(-5, 4) < -1), (True, True))
+    esit("54 yuzde", (F(25, 100), F(3, 5) * 100, F(7, 100) * 100, F(40, 100), F(3, 8) * 100, F(1, 8) * 100), (F(1, 4), 60, 7, F(2, 5), F(75, 2), F(25, 2)))
+    esit("54 kuvvet", (F(2, 3)**2, F(-1, 2)**3, F(1, 3)**2 < F(1, 3)), (F(4, 9), F(-1, 8), True))
+    esit("54 harclik", (1 - F(1, 4), F(3, 4) * F(2, 3), F(3, 4) - F(1, 2)), (F(3, 4), F(1, 2), F(1, 4)))
+    # 55
+    esit("55 rasyonel kokler", (sqrt(4), sqrt(49), sqrt(Rational(9, 4)), sqrt(Rational(1, 4)), sqrt(16), sqrt(Rational(25, 36)), sqrt(Rational(4, 100))), (2, 7, Rational(3, 2), Rational(1, 2), 4, Rational(5, 6), Rational(1, 5)))
+    esit("55 irrasyonel kokler", ((sqrt(18)).is_rational, sqrt(Rational(2, 5)).is_rational, sp.real_root(2, 3).is_rational, sp.real_root(8, 3)), (False, False, False, 2))
+    esit("55 tam kare kurali 1..400", all(sqrt(n).is_rational == (sp.sqrt(n).is_integer) for n in range(1, 401)), True)
+    esit("55 sadelestirme", (sqrt(12), sqrt(18), sqrt(50), sqrt(72), sqrt(8) + sqrt(18)), (2 * sqrt(3), 3 * sqrt(2), 5 * sqrt(2), 6 * sqrt(2), 5 * sqrt(2)))
+    esit("55 kok toplamaya dagilmaz", (sqrt(9 + 16), sqrt(9) + sqrt(16)), (5, 7))
+    esit("55 islemler", (sqrt(2) + (3 - sqrt(2)), sqrt(2) * sqrt(8), sqrt(12) / sqrt(3), sqrt(6).is_rational, (2 + sqrt(3)).is_rational, (5 * sqrt(2)).is_rational, 0 * sqrt(2)), (3, 4, 2, False, False, False, 0))
+    esit("55 paydayi rasyonel yapma", (sp.radsimp(2 / (sqrt(3) - 1)), sp.radsimp(1 / sqrt(2)), sp.expand((sqrt(a) - b) * (sqrt(a) + b))), (sqrt(3) + 1, sqrt(2) / 2, a - b**2))
+    esit("55 sqrt20", (F(44, 10)**2, F(45, 10)**2, str(sp.N(sqrt(20), 6))[:5]), (F(1936, 100), F(2025, 100), "4.472"))
+    esit("55 sqrt40", (F(65, 10)**2, str(sp.N(sqrt(40), 6))[:5], round(float(sqrt(40)))), (F(4225, 100), "6.324", 6))
+    esit("55 siralama", (4 < 3 * sqrt(2), 3 * sqrt(2) < 2 * sqrt(5), (3 * sqrt(2))**2, (2 * sqrt(5))**2), (True, True, 18, 20))
+    esit("55 pi, 22/7, sqrt10", (Rational(314, 100) < sp.pi, sp.pi < Rational(22, 7), Rational(22, 7) < sqrt(10), str(sp.N(sqrt(10), 5))[:5]), (True, True, True, "3.162"))
+    esit("55 kosegen", sqrt(1**2 + 1**2), sqrt(2))
+    esit("55 aralik sayma", ([n for n in range(-5, 6) if -2.5 < n <= 3], [n for n in range(-5, 6) if -1 <= n < 4], [n for n in range(-5, 6) if -sqrt(5) < n < sqrt(10)]),
+         ([-2, -1, 0, 1, 2, 3], [-1, 0, 1, 2, 3], [-2, -1, 0, 1, 2, 3]))
+    esit("55 e ve kok basamaklari", (str(sp.N(sp.E, 10))[:10], str(sp.N(sqrt(2), 10))[:10], str(sp.N(sqrt(3), 10))[:10]), ("2.71828182", "1.41421356", "1.73205080"))
+
 # ── bicim denetimi ─────────────────────────────────────────────────────
 def bicim():
     import blog_veri
@@ -343,7 +456,7 @@ def bicim():
                          + [p for b in Y["bolumler"] for p in b["icerik"]]
                          + [s + " " + c for s, c in Y.get("sss", [])] + list(Y.get("kontrol", [])))
         esit(f"{no} uzun tire yok", "—" in metin, False)
-        esit(f"{no} formul disinda unlem yok", "!" in re.sub(r"\$[^$]*\$", "", metin), False)
+        esit(f"{no} formul disinda unlem yok", "!" in re.sub(r"\$\$.*?\$\$|\$[^$]*\$", "", metin, flags=re.S), False)
         esit(f"{no} $ dengeli", metin.count("$") % 2, 0)
         esit(f"{no} aciklama <= 160", len(Y["aciklama"]) <= 160, True)
         esit(f"{no} kontrol 10", len(Y["kontrol"]), 10)
@@ -353,7 +466,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")

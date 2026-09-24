@@ -18,10 +18,12 @@ import pathlib, subprocess, sys
 KOK = pathlib.Path(__file__).resolve().parent.parent
 HEDEF = KOK / "blog/kapak"
 
-def cevir(kaynak, slug):
+def cevir(kaynak, slug, olculer=((1600, ""), (800, "-800"), (240, "-240"))):
     HEDEF.mkdir(parents=True, exist_ok=True)
     cikti = []
-    for en, ek in ((1600, ""), (800, "-800")):
+    # -240: sag bloktaki "Populer / En yeni" kucuk resmi (72 px, 2x ekran).
+    # 800 px'lik kapagi orada kullanmak sayfa basina ~240 KB fazladan inis demekti.
+    for en, ek in olculer:
         ara = HEDEF / f"_{slug}{ek}.png"
         son = HEDEF / f"{slug}{ek}.avif"
         subprocess.run(["sips", "-Z", str(en), str(kaynak), "--out", str(ara)],
@@ -35,7 +37,9 @@ def cevir(kaynak, slug):
     return cikti
 
 if __name__ == "__main__":
+    # --kucuk: yalniz -240 uretir (var olan kapaklara dokunmaz)
     kaynak, slug = sys.argv[1], sys.argv[2]
     ham = pathlib.Path(kaynak).stat().st_size
-    for yol, boyut in cevir(kaynak, slug):
+    olc = ((240, "-240"),) if "--kucuk" in sys.argv[3:] else ((1600, ""), (800, "-800"), (240, "-240"))
+    for yol, boyut in cevir(kaynak, slug, olc):
         print(f"{yol.relative_to(KOK)}  {boyut//1024} KB  (kaynak {ham//1024} KB)")

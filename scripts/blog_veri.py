@@ -30,6 +30,8 @@ KOK = pathlib.Path(__file__).resolve().parent.parent
 # Renkler marka mavisiyle ayni doygunluk bandindan secildi; dekoratif
 # gradyan ya da parilti YOK.
 KATEGORILER = [
+    # 24.09: 51-55 (Ahmet: kategori adi "Temel Kavramlar ve Sayilar"); temel konu, basa.
+    ("sayilar", "Temel Kavramlar ve Sayılar", "sayilar", "#a16207"),
     ("fonksiyonlar", "Fonksiyonlar", "fonksiyonlar", "#1860f0"),
     ("polinomlar", "Polinomlar", "polinomlar", "#0f766e"),
     ("denklemler", "Denklem ve Parabol", "denklemler", "#6d28d9"),

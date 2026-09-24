@@ -175,6 +175,19 @@ değil (bkz. `scripts/blog_gorsel.py`).
 - Süs görselinin alt metni **boş** bırakılır (`alt=""`), uydurma metin
   yazılmaz.
 
+### Başlıkta ve görselde kişi adı yok (Ahmet, 24.09)
+
+*"Ahmet Çelen yazınca çıkmasın; başlıklarda da Ahmet Çelen yazmasın, blog ana sayfası hariç.
+Resim alt etiketleri de önemli, tüm yazılarda."* Blog bir portfolyo değil; alan adı zaten
+ad aramasında öne çıkıyor. Blog görselleri **konu aramasında** çıkmalı.
+
+- Yazı `<title>`, `og:title`, `twitter:title`: **yalnız konu başlığı** (" - Ahmet Çelen" eki yok).
+  Tek istisna blog ana sayfası. 01-05'te ek yayından kaldırıldı (Ahmet'in açık kararı, "yayındaki
+  title değişmez" kuralına bilinçli istisna).
+- Açıklama, alt metin, JSON-LD `ImageObject` (`name`, `caption`) ve dosya adı: konu; kişi adı yok.
+- Kapaklar görsel site haritasında (`image:loc`) kendi yazısına bağlı.
+- Kişi adı yalnız yazar bilgisinde (JSON-LD `author`) ve site logosunda kalır.
+
 ### Sayfa başına zorunlu SEO
 
 - Tek `<h1>`, bölümler `<h2>`

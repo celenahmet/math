@@ -46,5 +46,9 @@ Kurallar: `blog-YAZIM-STANDARDI.md` (11 bölüm) · kaynaklar iç rapor `blog-KA
 - [x] Sağ blok: UniConnectly kartının altına 3 mağaza rozeti (App Store, Google Play, AppGallery; adresler `uniconnectly_blok.MAGAZALAR`)
 - [x] Sağ blok: "En popüler / En yeni" (5 yazı). Popüler sırası `api/populer.js` (salt okuma, MGET, CDN 5 dk, 12 test `scripts/api_populer_test.js`). **Upstash bağlanana kadar popüler sekmesi gizli**, yalnız "En yeni" görünür
 - [x] Hub kartları kapaklı (ilk kart geniş ekranda yatay öne çıkan), "Bunlar da ilgini çekebilir" kartları kapaklı
-- [ ] Sıradaki yazılar: `blog-gorselleri/` 06-50 (brief'teki konu sırası); her yazının iddiaları `blog_dogrula.py`'ye eklenir
+- [x] 24.09: 51-55 yazıldı (Temel Kavramlar ve Sayılar kategorisi; hepsi ≥ 2000 kelime, `blog_dogrula.py` 12932 denetim tuttu). PDF başlıklı yazılarda PDF şimdilik YOK (Ahmet'in kararı)
+- [x] 24.09 SEO: yazı başlıklarında "Ahmet Çelen" yok (hub hariç, 01-05 dahil); kapaklar görsel site haritasında; ImageObject name = konu; altbilgi logosu alt=""
+- [x] Sağ blok "Popüler / En yeni": solda küçük kapak (-240.avif), sağda başlık + tarih
+- [ ] 06-50 BEKLİYOR (Ahmet 24.09: "6-50 arası bekleyecek sonra ekleriz"); sıradaki olası: 56+ (kapaklar hazır)
+- [ ] (eski) Sıradaki yazılar: `blog-gorselleri/` 06-50 (brief'teki konu sırası); her yazının iddiaları `blog_dogrula.py`'ye eklenir
 - [ ] Boş durum ve arayüz metinleri (tebrik, "Bu yazıyı paylaş") Ahmet onayı bekliyor

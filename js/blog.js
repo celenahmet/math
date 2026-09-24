@@ -301,6 +301,8 @@
     var sec = function (ad) {
       sekmeler.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-sekme') === ad)); });
       paneller.forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== ad; });
+      var bas = yb.querySelector('.bs-yazilar-baslik');
+      if (bas && bas.getAttribute('data-' + ad)) { bas.textContent = bas.getAttribute('data-' + ad); }
     };
     sekmeler.forEach(function (b) {
       b.addEventListener('click', function () { sec(b.getAttribute('data-sekme')); });
@@ -325,7 +327,8 @@
           });
           var adet = parseInt(ppanel.getAttribute('data-adet'), 10) || 5;
           ilk.forEach(function (c, i) { c[0].hidden = i >= adet; ppanel.appendChild(c[0]); });
-          psekme.hidden = false;
+          var secici = yb.querySelector('.bs-yazilar-sekme');
+          if (secici) { secici.hidden = false; }
           sec('populer');
         })
         .catch(function () { /* populer sekmesi gizli kalir */ });

@@ -54,16 +54,24 @@ def tr_tarih(iso):
     return f"{g} {AYLAR[a - 1]} {y}"
 
 
+def _duz(metin):
+    """Etiketleri siler. Once formul icindeki < ve > bosluga cevrilir: $x<2$
+    gibi bir formul etiket basi sanilip bir sonraki > isaretine kadar olan
+    METNI siliyordu (24.09 olculdu, kelime sayisi dusuk cikiyordu)."""
+    metin = re.sub(r"\$[^$]*\$", lambda m: m.group(0).replace("<", " ").replace(">", " "), metin)
+    return re.sub(r"<[^>]+>", " ", metin)
+
+
 def kelime_sayisi(y):
     metin = " ".join([y["ozet"]] + [p for b in y["bolumler"] for p in b["icerik"]]
                      + [c for _, c in y.get("sss", [])] + list(y.get("kontrol", [])))
-    return len(re.sub(r"<[^>]+>", " ", metin).split())
+    return len(_duz(metin).split())
 
 
 def okuma_dk(y):
     metin = " ".join([y["ozet"]] + [p for b in y["bolumler"] for p in b["icerik"]]
                      + [c for _, c in y.get("sss", [])])
-    return max(1, round(len(re.sub(r"<[^>]+>", " ", metin).split()) / 190))
+    return max(1, round(len(_duz(metin).split()) / 190))
 
 
 def kat_rozet(anahtar, sinif="bs-etiket"):
@@ -155,7 +163,7 @@ def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=
 </main>
 <footer class="bs-alt">
   <div class="kap">
-    <p><img class="bs-alt-logo" src="/blog/kapak/ahmet-celen-logo.avif" alt="Ahmet Çelen" width="80" height="80" loading="lazy" decoding="async"><span>Üniversite ve kamu sınavlarına ücretsiz matematik kaynakları</span></p>
+    <p><img class="bs-alt-logo" src="/blog/kapak/ahmet-celen-logo.avif" alt="" width="80" height="80" loading="lazy" decoding="async"><span>Üniversite ve kamu sınavlarına ücretsiz matematik kaynakları</span></p>
     <nav><a href="/pdfnot/">Ders Notları</a><a href="/video/">Video Çözümler</a><a href="/ss/">Çıkmış Sorular</a><a href="/sinavlar/">Geri Sayımlar</a><a href="/hakkimizda/">Hakkımda</a><a href="/iletisim/">İletişim</a></nav>
   </div>
 </footer>
@@ -362,8 +370,11 @@ def jsonld_yazi(y):
           "wordCount": kelime_sayisi(y),
           # ISO 8601 sure: PT11M → 11 dakika
           "timeRequired": f"PT{okuma_dk(y)}M",
+          # Gorsel KONUYA baglanir (name = konu basligi), kisiye degil (24.09).
           "image": ({"@type": "ImageObject",
                      "url": ALAN + f"/blog/kapak/{y['kapak']}.avif",
+                     "contentUrl": ALAN + f"/blog/kapak/{y['kapak']}.avif",
+                     "name": y["baslik"],
                      "width": 1600, "height": 901,
                      "caption": y.get("kapak_alt", y["baslik"])} if y.get("kapak") else None)},
          KISI,
@@ -414,7 +425,11 @@ def uygula():
         onyukle = (f'<link rel="preload" as="image" href="/blog/kapak/{y["kapak"]}.avif" fetchpriority="high">'
                    if y.get("kapak") else None)
         n += yaz(f"blog/{y['slug']}/index.html", kabuk(
-            yol=f"/blog/{y['slug']}/", title=f"{y['baslik']} - Ahmet Çelen",
+            # Ahmet (24.09): "basliklarda Ahmet Celen yazmasin, blog ana sayfasi
+            # haric; tum yazilarda." Yazi <title>'i YALNIZ konu basligi. 01-05'te
+            # ek yayindan kalkti: Ahmet'in acik karari, "yayindaki title degismez"
+            # kuralina bilincli istisna. "title_eki": True ancak Ahmet isterse.
+            yol=f"/blog/{y['slug']}/", title=y["baslik"] + (" - Ahmet Çelen" if y.get("title_eki") else ""),
             desc=y["aciklama"], govde=yazi_govde(y, digerleri), jsonld=jsonld_yazi(y),
             gorsel=f"/blog/kapak/{y['kapak']}.avif" if y.get("kapak") else None,
             gorsel_alt=(f'<meta property="og:image:alt" content="{k(y.get("kapak_alt", y["baslik"]))}">'

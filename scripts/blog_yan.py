@@ -99,31 +99,45 @@ def sinav_blogu(etkinler=None):
             '<p class="bs-yan-baslik">Sınavlar</p><ul>' + "".join(ogeler) + "</ul></nav>")
 
 
+_AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
+          "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
+
+
+def _tarih(iso):
+    yil, ay, gun = (int(x) for x in iso.split("-"))
+    return f"{gun} {_AYLAR[ay - 1]} {yil}"
+
+
 def yazi_listesi(etkin=None, adet=5):
-    """"En popüler / En yeni" blogu (Ahmet 23.09: "sag blokta en populer
-    yazilar olsun, 5 tane gozuksun; en populer ve en yeni diye
-    degistirilebilsin").
+    """"Popüler Yazılar / En Yeni Yazılar" blogu. Ahmet (23.09): "sag blokta
+    en populer yazilar olsun, 5 tane; populer ya da en yeni diye
+    degistirilebilsin" + (24.09) "solda kapak fotografi, sagda yazi"
+    (UniConnectly blogundaki Populer Yazilar kutusu ornek).
 
     · "En yeni" SUNUCUDA uretilir; JS olmadan da calisir. Ayni gunde
       yayinlananlarda dosya numarasi buyuk olan daha yenidir.
-    · "En popüler" icin yayindaki BUTUN yazilar gizli olarak basilir;
-      js/blog.js /api/populer/ yanitina gore siralayip ilk 5'i acar ve
-      sekmeyi gorunur yapar. Depo bagli degilse ya da hic sayim yoksa
-      sekme GIZLI kalir: uydurma siralama gosterilmez.
-    · Istemcide innerHTML YOK: yalniz var olan ogeler yeniden dizilir."""
+    · Populer icin yayindaki BUTUN yazilar gizli basilir; js/blog.js
+      /api/populer/ yanitina gore siralayip ilk 5'i acar, secim dugmesini
+      gosterir. Depo bagli degilse ya da sayim yoksa dugme GIZLI kalir ve
+      baslik "En Yeni Yazılar" olur: uydurma siralama gosterilmez.
+    · Kucuk resim -240.avif (~5 KB); gizli ogelerin resmi lazy oldugu icin
+      inmez. Istemcide innerHTML YOK."""
     yazilar = list(enumerate(blog_veri.yayinda()))
     yeniler = [y for _, y in sorted(yazilar, key=lambda iy: (iy[1]["tarih"], iy[0]), reverse=True)]
 
     def oge(y, gizli=False):
         simdiki = ' aria-current="page"' if y["slug"] == etkin else ""
+        resim = (f'<img src="/blog/kapak/{_k(y["kapak"])}-240.avif" alt="" width="240" height="135" '
+                 'loading="lazy" decoding="async">' if y.get("kapak") else "")
         return (f'<li data-yol="/blog/{_k(y["slug"])}/"{" hidden" if gizli else ""}>'
-                f'<a href="/blog/{_k(y["slug"])}/"{simdiki} '
-                f'style="--kat:{blog_veri.KAT_RENK.get(y["kategori"], "#1860f0")}">'
-                f'<span>{_k(y["baslik"])}</span></a></li>')
+                f'<a href="/blog/{_k(y["slug"])}/"{simdiki}>{resim}'
+                f'<span class="bs-yazilar-metin"><strong>{_k(y["baslik"])}</strong>'
+                f'<time datetime="{_k(y["tarih"])}">{_tarih(y["tarih"])}</time></span></a></li>')
 
     return ('<nav class="bs-yazilar-blok" aria-label="Öne çıkan yazılar">'
-            '<div class="bs-yazilar-sekme">'
-            '<button type="button" data-sekme="populer" aria-pressed="false" hidden>En popüler</button>'
+            '<p class="bs-yazilar-baslik" data-populer="Popüler Yazılar" data-yeni="En Yeni Yazılar">En Yeni Yazılar</p>'
+            '<div class="bs-yazilar-sekme" hidden>'
+            '<button type="button" data-sekme="populer" aria-pressed="false">Popüler</button>'
             '<button type="button" data-sekme="yeni" aria-pressed="true">En yeni</button></div>'
             '<ol class="bs-yazilar" data-panel="yeni">'
             + "".join(oge(y) for y in yeniler[:adet]) + "</ol>"
