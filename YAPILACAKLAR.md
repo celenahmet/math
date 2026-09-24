@@ -51,6 +51,7 @@ Kurallar: `blog-YAZIM-STANDARDI.md` (11 bölüm) · kaynaklar iç rapor `blog-KA
 - [x] Sağ blok "Popüler / En yeni": solda küçük kapak (-240.avif), sağda başlık + tarih
 - [x] 24.09: 56-60 yazıldı ve yayında (tek-çift, pozitif-negatif, ardışık, sayı doğrusu, mutlak değer; hepsi ≥ 2000 kelime, `blog_dogrula.py` toplam 13061 denetim tuttu)
 - [x] 24.09: 61-65 yayında (üslü, köklü, işlem önceliği, bölünebilme, asal); 51-60 metinlerinden sınav sıklık iddiaları temizlendi; `blog_dogrula.py` 13193 denetim tuttu
-- [ ] 06-50 BEKLİYOR (Ahmet 24.09: "6-50 arası bekleyecek sonra ekleriz"); sıradaki: 66 EBOB-EKOK (kapaklar 66-100 hazır)
+- [x] 24.09: 66-70 yayında (EBOB-EKOK, kesirler, sıralama, toplama-çıkarma, çarpma-bölme); `scripts/ek_denetimi.py` eklendi (formül sonrası ek, okunuşa göre), 01-70 arasında 83 yanlış ek düzeltildi; 13329 denetim
+- [ ] 06-50 BEKLİYOR (Ahmet 24.09: "6-50 arası bekleyecek sonra ekleriz"); sıradaki: 71 Ondalık Gösterim (kapaklar 71-100 hazır)
 - [ ] (eski) Sıradaki yazılar: `blog-gorselleri/` 06-50 (brief'teki konu sırası); her yazının iddiaları `blog_dogrula.py`'ye eklenir
 - [ ] Boş durum ve arayüz metinleri (tebrik, "Bu yazıyı paylaş") Ahmet onayı bekliyor
