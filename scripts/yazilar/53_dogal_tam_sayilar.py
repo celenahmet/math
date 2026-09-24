@@ -153,7 +153,7 @@ YAZI = {
                 "Kalan negatif olamayacağı için $-17$ den küçük ya da ona eşit olan en büyük $5$ katını ararız: $5 \\cdot (-4)=-20$.",
                 "$-17=5 \\cdot (-4)+3$.",
                 "Bölüm $-4$, kalan $3$ tür. $-3$ değildir."),
-            "Kalan soruları çoğu zaman sayının kendisini bilmeden çözülür. Bir sayının $b$ ile bölümünden kalanı biliyorsan, o sayının katlarının ve toplamlarının kalanını da bulabilirsin.",
+            "Kalan soruları, sayının kendisini bilmeden de çözülebilir. Bir sayının $b$ ile bölümünden kalanı biliyorsan, o sayının katlarının ve toplamlarının kalanını da bulabilirsin.",
             ornek(
                 "Bir $n$ doğal sayısının $7$ ile bölümünden kalan $4$ olsun.",
                 "$3n$ nin $7$ ile bölümünden kalan kaçtır?",
@@ -199,7 +199,7 @@ YAZI = {
             sinavda(
                 "Temel düzeyde (<strong>TYT</strong>) bu konu bir problemin içinde de gelebilir: işlem önceliği, negatif sayının kuvveti ve bölme ve kalan soruları bu türdendir.",
                 "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde işlem hızı öne çıkar. İşlem özelliklerini (dağılma, ortak çarpan parantezi) bilmek uzun hesapları kısaltır."),
-            "Bu konuda hatalar çoğu zaman kavramdan değil, işaret ve işlem sırasından çıkar. Her adımda işareti ayrı yazmak ve işlem önceliğini sırayla uygulamak bu hataların büyük kısmını önler.",
+            "Bu konuda hatalar yalnızca kavramdan değil, işaret ve işlem sırasından da çıkabilir. Her adımda işareti ayrı yazmak ve işlem önceliğini sırayla uygulamak bu tür hataları önler.",
         ]},
         {"baslik": "Sık yapılan hatalar", "icerik": [
             tablo(["Hata", "Doğrusu"], [

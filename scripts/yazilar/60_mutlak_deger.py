@@ -65,7 +65,7 @@ YAZI = {
                 "İçerisi negatifse ifadenin işaretlerini değiştirerek dışarı çıkar."),
         ]},
         {"baslik": "Mutlak değerin özellikleri", "icerik": [
-            "Aşağıdaki özellikler her gerçek sayı için geçerlidir ve soruları kısaltmak için sık kullanılır:",
+            "Aşağıdaki özellikler her gerçek sayı için geçerlidir ve soruları kısaltmak için kullanılır:",
             tablo(["Özellik", "Örnek"], [
                 ["$|x| \\geq 0$", "$|-4|=4 \\geq 0$"],
                 ["$|-x|=|x|$", "$|-6|=|6|=6$"],
@@ -220,7 +220,7 @@ YAZI = {
         {"baslik": "Sınavda mutlak değer", "icerik": [
             sinavda(
                 "Temel düzeyde (<strong>TYT</strong>) bu konu işareti bilinen ifadelerde mutlak değer açma, mutlak değerli denklem ve eşitsizlikler ve en küçük değer soruları biçiminde karşına çıkabilir.",
-                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde mutlak değer çoğu zaman bir uzaklık ya da fark problemi içinde kullanılır: iki değer arasındaki farkın belirli bir sınırı aşmaması gibi."),
+                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde mutlak değer bir uzaklık ya da fark problemi içinde de karşına çıkabilir: iki değer arasındaki farkın belirli bir sınırı aşmaması gibi."),
             "Mutlak değer sorularında en güçlü araç sayı doğrusudur. $|x-a|$ yı gördüğün yerde \"$x$ in $a$ ya uzaklığı\" diye okursan, denklem ve eşitsizliklerin çoğu çizim yapmadan çözülür. Bulduğun kökleri her zaman denkleme geri koyarak kontrol et; özellikle sağ tarafta değişken olan denklemlerde yabancı kök kolayca araya karışır.",
         ]},
         {"baslik": "Sık yapılan hatalar", "icerik": [

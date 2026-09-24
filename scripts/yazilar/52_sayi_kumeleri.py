@@ -156,7 +156,7 @@ YAZI = {
                 "$\\mathbb{Q}$ ile $\\mathbb{Q}'$ ayrık kümelerdir; birleşimleri $\\mathbb{R}$ dir."),
         ]},
         {"baslik": "İki sayı arasındaki tam sayıları sayma", "icerik": [
-            "Sayı kümelerinin en sık kullanıldığı soru tiplerinden biri, iki gerçek sayı arasında kaç tam sayı olduğunu sormaktır. Yöntem basittir: alt sınırdan büyük ilk tam sayıyı ve üst sınırdan küçük son tam sayıyı bul, sonra aradakileri say.",
+            "Sayı kümeleriyle ilgili bir soru tipi, iki gerçek sayı arasında kaç tam sayı olduğunu sormaktır. Yöntem basittir: alt sınırdan büyük ilk tam sayıyı ve üst sınırdan küçük son tam sayıyı bul, sonra aradakileri say.",
             "Aralıktaki tam sayılar ardışık olduğu için sayıları $\\text{son}-\\text{ilk}+1$ dir.",
             ornek(
                 "$\\sqrt{10}$ ile $\\sqrt{50}$ sayıları verilsin.",
@@ -168,8 +168,8 @@ YAZI = {
         {"baslik": "Sınavda sayı kümeleri", "icerik": [
             sinavda(
                 "Temel düzeyde (<strong>TYT</strong>) sayı kümeleri bir listenin elemanlarını sınıflandırma, \"aşağıdakilerden hangisi rasyonel değildir?\" ya da kapalılık biçiminde karşına çıkabilir.",
-                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde kümeler çoğu zaman problemin şartı olarak gelir: \"$a$ bir pozitif tam sayı\", \"$x$ bir doğal sayı\" gibi. Bu şartı doğru okumak cevabı doğrudan belirler."),
-            "Sınıflandırma sorularında en sık yanılgı, sayıyı sadeleştirmeden karar vermektir. $\\sqrt{16}$, $\\dfrac{12}{4}$ ve $0.999\\ldots$ gibi ifadeler ilk bakışta olduğundan farklı görünür; önce sadeleştir, sonra kümeye yerleştir.",
+                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde kümeler problemin şartı olarak da karşına çıkabilir: \"$a$ bir pozitif tam sayı\", \"$x$ bir doğal sayı\" gibi. Bu şartı doğru okumak cevabı doğrudan belirler."),
+            "Sınıflandırma sorularında dikkat edilecek nokta, sayıyı sadeleştirmeden karar vermemektir. $\\sqrt{16}$, $\\dfrac{12}{4}$ ve $0.999\\ldots$ gibi ifadeler ilk bakışta olduğundan farklı görünür; önce sadeleştir, sonra kümeye yerleştir.",
         ]},
         {"baslik": "Sık yapılan hatalar", "icerik": [
             tablo(["Hata", "Doğrusu"], [

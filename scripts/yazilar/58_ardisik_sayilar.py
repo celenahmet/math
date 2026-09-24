@@ -14,7 +14,7 @@ YAZI = {
     "sinavlar": ["TYT", "ALES", "KPSS"],
     "kapak": "ardisik-sayilar",
     "kapak_alt": "Ardışık sayılar: ahşap tabla üzerinde eşit adımlarla yükselen bloklar ve eşit aralıklarla dizilmiş mavi toplarla çalışan öğrenci",
-    "ozet": "Ardışık sayılar, belirli bir adımla düzenli olarak artan sayılardır ve sayı problemlerinin en sık kullanılan araçlarından biridir. Bu yazıda ardışık sayıları harfle yazmayı, bir dizide kaç terim olduğunu bulmayı, ardışık sayıların toplamını tek bir formülle hesaplamayı, kareler ve küpler toplamını, ardışık sayıların çarpımındaki bölünebilme özelliklerini ve klasik ardışık sayı problemlerini çözümlü örneklerle ele alıyoruz.",
+    "ozet": "Ardışık sayılar, belirli bir adımla düzenli olarak artan sayılardır ve sayı problemlerinde kullanılan temel araçlardan biridir. Bu yazıda ardışık sayıları harfle yazmayı, bir dizide kaç terim olduğunu bulmayı, ardışık sayıların toplamını tek bir formülle hesaplamayı, kareler ve küpler toplamını, ardışık sayıların çarpımındaki bölünebilme özelliklerini ve klasik ardışık sayı problemlerini çözümlü örneklerle ele alıyoruz.",
     "bolumler": [
         {"baslik": "Ardışık sayı nedir?", "icerik": [
             onkosul(
@@ -90,7 +90,7 @@ YAZI = {
                 "Önce terim sayısı: $\\dfrac{59-21}{2}+1=19+1=20$.",
                 "Formülü uygulayalım: $\\dfrac{(21+59) \\cdot 20}{2}=\\dfrac{80 \\cdot 20}{2}$.",
                 "Toplam $800$ dür."),
-            "<h3>Sık kullanılan özel toplamlar</h3>",
+            "<h3>Özel toplamlar</h3>",
             "Genel formülden elde edilen üç özel toplam, sorularda çok zaman kazandırır:",
             tablo(["Toplam", "Sonuç"], [
                 ["$1+2+3+\\cdots+n$", "$\\dfrac{n(n+1)}{2}$"],
@@ -216,7 +216,7 @@ YAZI = {
         {"baslik": "Sınavda ardışık sayılar", "icerik": [
             sinavda(
                 "Temel düzeyde (<strong>TYT</strong>) bu konu terim sayısı, ardışık sayıların toplamı, toplamı verilen sayıları bulma ve sayfa numarası gibi problemler biçiminde karşına çıkabilir.",
-                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde ardışık sayı bilgisi çoğu zaman sayısal akıl yürütme sorularının içinde kullanılır: ortalamadan terim bulma ya da iki toplamın farkını hesaplama gibi."),
+                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde ardışık sayı bilgisi sayısal akıl yürütme sorularının içinde de karşına çıkabilir: ortalamadan terim bulma ya da iki toplamın farkını hesaplama gibi."),
             "Bu konuda hız, formülleri ezberlemekten çok onların nereden geldiğini bilmekten gelir. Terim sayısı formülündeki $+1$ i ve toplam formülündeki eşleştirme fikrini anladıysan, hatırlamadığın bir formülü birkaç saniyede yeniden kurabilirsin.",
         ]},
         {"baslik": "Sık yapılan hatalar", "icerik": [

@@ -46,13 +46,13 @@ YAZI = {
                 "Soruda \"rakamları farklı\" ifadesinin olup olmadığına mutlaka bak."),
         ]},
         {"baslik": "Sayı çeşitleri kısaca", "icerik": [
-            "Temel kavramlarda en sık kullanılan sayı kümeleri şunlardır:",
+            "Temel kavramlarda kullanılan sayı kümeleri şunlardır:",
             "<ul><li><strong>Sayma sayıları:</strong> $\\{1,2,3,\\ldots\\}$. Nesneleri saymak için kullandığımız sayılar.</li>"
             "<li><strong>Doğal sayılar</strong> $\\mathbb{N}$: $\\{0,1,2,3,\\ldots\\}$. Sayma sayılarına $0$ eklenmiş hâli.</li>"
             "<li><strong>Tam sayılar</strong> $\\mathbb{Z}$: $\\{\\ldots,-2,-1,0,1,2,\\ldots\\}$. Doğal sayılara negatifleri eklenmiş hâli.</li>"
             "<li><strong>Rasyonel sayılar</strong> $\\mathbb{Q}$: $\\dfrac{a}{b}$ biçiminde yazılabilen sayılar ($a$ ve $b$ tam sayı, $b \\neq 0$).</li>"
             "<li><strong>Gerçek sayılar</strong> $\\mathbb{R}$: sayı doğrusundaki bütün noktalar.</li></ul>",
-            "Soruda \"$a$ bir tam sayıdır\" ile \"$a$ bir doğal sayıdır\" arasındaki fark çoğu zaman cevabı değiştirir. Tam sayı negatif olabilir, doğal sayı olamaz.",
+            "Soruda \"$a$ bir tam sayıdır\" ile \"$a$ bir doğal sayıdır\" arasındaki fark cevabı değiştirebilir. Tam sayı negatif olabilir, doğal sayı olamaz.",
             hap("Sayma sayıları $1$ den, doğal sayılar $0$ dan başlar.",
                 "Soruda hangi kümeden söz edildiğini cevaba geçmeden önce not et."),
         ]},
@@ -102,7 +102,7 @@ YAZI = {
                 "Kontrol için $a=-2$ ve $b=3$ alalım: $a \\cdot b=-6$, $a^2 \\cdot b=12$, $a^3=-8$, $b-a=5$."),
         ]},
         {"baslik": "Ardışık sayılar", "icerik": [
-            "Belirli bir kurala göre art arda gelen sayılara <strong>ardışık sayılar</strong> denir. En sık kullanılanları şunlardır:",
+            "Belirli bir kurala göre art arda gelen sayılara <strong>ardışık sayılar</strong> denir. Başlıcaları şunlardır:",
             "<ul><li>Ardışık tam sayılar: $n$, $n+1$, $n+2$, ...</li><li>Ardışık çift sayılar: $2n$, $2n+2$, $2n+4$, ...</li><li>Ardışık tek sayılar: $2n+1$, $2n+3$, $2n+5$, ...</li></ul>",
             "Aralarındaki fark sabit olan sayı dizilerinde iki soru sık sorulur: kaç terim var ve toplamları kaç? İkisinin de kısa bir cevabı vardır.",
             "$$\\text{Terim sayısı}=\\frac{\\text{son}-\\text{ilk}}{\\text{artış}}+1$$",
@@ -144,7 +144,7 @@ YAZI = {
             "$1$ den $n$ ye kadar olan doğal sayıların çarpımına <strong>$n$ faktöriyel</strong> denir ve $n!$ ile gösterilir:",
             "$$n!=1 \\cdot 2 \\cdot 3 \\cdots n$$",
             "Tanım gereği $0!=1$ ve $1!=1$ dir. İlk birkaç değer: $2!=2$, $3!=6$, $4!=24$, $5!=120$, $6!=720$.",
-            "Faktöriyel sorularının neredeyse hepsi tek bir eşitlikle çözülür: $n!=n \\cdot (n-1)!$. Büyük faktöriyeli küçüğe kadar açıp sadeleştirirsin.",
+            "Faktöriyel sorularında temel araç tek bir eşitliktir: $n!=n \\cdot (n-1)!$. Büyük faktöriyeli küçüğe kadar açıp sadeleştirirsin. Böylece çok büyük sayıları hiç hesaplamadan sadeleştirebilirsin.",
             ornek(
                 "$\\dfrac{7!}{5!}$ ve $5!+6!$ ifadelerini hesaplayalım.",
                 "Her birinin değeri kaçtır?",

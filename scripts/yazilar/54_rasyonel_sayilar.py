@@ -194,7 +194,7 @@ YAZI = {
         {"baslik": "Sınavda rasyonel sayılar", "icerik": [
             sinavda(
                 "Temel düzeyde (<strong>TYT</strong>) rasyonel sayılar dört işlem, merdiven kesir, sıralama ve devirli ondalık sayıları kesre çevirme biçiminde karşına çıkabilir.",
-                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde kesirler çoğu zaman bir problemin içinde gelir: \"bir işin üçte biri\", \"paranın beşte ikisi\" gibi ifadeler kesirle işlem gerektirir."),
+                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde kesirler bir problemin içinde de karşına çıkabilir: \"bir işin üçte biri\", \"paranın beşte ikisi\" gibi ifadeler kesirle işlem gerektirir."),
             "Kesir problemlerinde bütünün ne olduğunu en başta belirlemek önemlidir. \"Kalanın yarısı\" ile \"tamamın yarısı\" farklı bütünlere göre hesaplanır.",
             ornek(
                 "Bir öğrenci harçlığının $\\dfrac{1}{4}$ ünü kitaba, kalanın $\\dfrac{2}{3}$ ünü yemeğe harcıyor.",

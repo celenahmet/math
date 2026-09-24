@@ -179,7 +179,7 @@ YAZI = {
                 "Köklü sayıları sıralarken hepsini tek bir kökün içine al."),
         ]},
         {"baslik": "Farklı türden sayıları sıralama", "icerik": [
-            "Sınavda sıralanacak sayılar çoğu zaman karışık gelir: bir kesir, bir ondalık sayı ve bir köklü sayı aynı soruda yer alabilir. Bu durumda en pratik yol, hepsini aynı biçime, genellikle ondalık yaklaşık değere çevirmektir. Yaklaşık değerler birbirine çok yakın çıkarsa bir basamak daha hesaplanır.",
+            "Sınavda sıralanacak sayılar karışık da gelebilir: bir kesir, bir ondalık sayı ve bir köklü sayı aynı soruda yer alabilir. Bu durumda en pratik yol, hepsini aynı biçime, genellikle ondalık yaklaşık değere çevirmektir. Yaklaşık değerler birbirine çok yakın çıkarsa bir basamak daha hesaplanır.",
             ornek(
                 "$-1.2$, $-\\dfrac{5}{4}$ ve $-\\sqrt{2}$ sayıları verilsin.",
                 "Küçükten büyüğe sıralayalım.",
@@ -210,7 +210,7 @@ YAZI = {
         {"baslik": "Sınavda sayı doğrusu ve sıralama", "icerik": [
             sinavda(
                 "Temel düzeyde (<strong>TYT</strong>) bu konu kesir, köklü ve üslü sayıları sıralama, aralıktaki tam sayıları sayma ve sayı doğrusunda uzaklık biçiminde karşına çıkabilir.",
-                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde sıralama bilgisi çoğu zaman sayısal akıl yürütme sorularının içinde kullanılır: verilen seçeneklerden en büyüğünü ya da en küçüğünü bulma gibi."),
+                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde sıralama bilgisi sayısal akıl yürütme sorularının içinde de karşına çıkabilir: verilen seçeneklerden en büyüğünü ya da en küçüğünü bulma gibi."),
             "Sıralama sorularında her sayıyı aynı biçime getirmek işin yarısıdır: kesirleri ortak paydaya, köklüleri tek köke, üslüleri ortak tabana ya da ortak üsse. Sayılar aynı dili konuştuğunda karşılaştırma kendiliğinden ortaya çıkar. Seçeneklerde birbirine çok yakın değerler varsa yaklaşık değer yerine kesin bir yöntemi, yani ortak paydayı, çapraz çarpımı ya da tek kök yöntemini tercih et.",
         ]},
         {"baslik": "Sık yapılan hatalar", "icerik": [

@@ -96,7 +96,7 @@ YAZI = {
                 "$a \\cdot \\sqrt{5}$: $a \\neq 0$ ise irrasyoneldir. Yalnızca $a=0$ için sonuç $0$ olur ve rasyoneldir."),
         ]},
         {"baslik": "Paydayı rasyonel yapma", "icerik": [
-            "Paydasında kök bulunan bir kesri, değerini değiştirmeden paydası rasyonel olan bir kesre çevirmek çoğu zaman işi kolaylaştırır. Buna <strong>paydayı rasyonel yapma</strong> denir. Yöntem, kesri uygun bir ifadeyle genişletmektir.",
+            "Paydasında kök bulunan bir kesri, değerini değiştirmeden paydası rasyonel olan bir kesre çevirmek işi kolaylaştırabilir. Buna <strong>paydayı rasyonel yapma</strong> denir. Yöntem, kesri uygun bir ifadeyle genişletmektir.",
             "<ul><li>Paydada yalnız $\\sqrt{a}$ varsa pay ve payda $\\sqrt{a}$ ile çarpılır: $\\dfrac{1}{\\sqrt{2}}=\\dfrac{\\sqrt{2}}{2}$.</li>"
             "<li>Paydada $\\sqrt{a}-b$ gibi iki terim varsa <strong>eşleniği</strong> olan $\\sqrt{a}+b$ ile çarpılır. İki kare farkı özdeşliği, $(x-y)(x+y)=x^2-y^2$, kökü paydadan kaldırır.</li></ul>",
             ornek(
@@ -179,7 +179,7 @@ YAZI = {
             sinavda(
                 "Temel düzeyde (<strong>TYT</strong>) bu konu \"aşağıdakilerden hangisi irrasyoneldir?\" sınıflandırmaları, köklü sayıları sıralama ve bir kökün hangi iki tam sayı arasında olduğu biçiminde karşına çıkabilir.",
                 "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde köklü ifadeleri sadeleştirme, kök dışına çıkarma ve aralıktaki tam sayıları sayma soruları öne çıkabilir."),
-            "Bu konuda en çok işe yarayan beceri, sayıyı sadeleştirip karşılaştırılabilir hâle getirmektir. Kökü dışarı çıkarmayı ve içeri almayı akıcı yapmak, sınıflandırma ve sıralama sorularının ikisini birden kolaylaştırır.",
+            "Bu konuda işe yarayan temel beceri, sayıyı sadeleştirip karşılaştırılabilir hâle getirmektir. Kökü dışarı çıkarmayı ve içeri almayı akıcı yapmak, sınıflandırma ve sıralama sorularının ikisini birden kolaylaştırır.",
         ]},
         {"baslik": "Sık yapılan hatalar", "icerik": [
             tablo(["Hata", "Doğrusu"], [

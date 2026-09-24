@@ -81,7 +81,7 @@ YAZI = {
             "Bölme de aynı kurala uyar: $(-24):(-6)=4$ ve $(-24):6=-4$. Kesirlerde eksi işareti paya, paydaya ya da kesrin önüne yazılabilir; üçü de aynı sayıyı gösterir: $\\dfrac{-3}{4}=\\dfrac{3}{-4}=-\\dfrac{3}{4}$. Pay ve paydanın ikisi de negatifse kesir pozitiftir: $\\dfrac{-3}{-4}=\\dfrac{3}{4}$.",
         ]},
         {"baslik": "Kuvvetlerde işaret", "icerik": [
-            "Kuvvet tekrarlı çarpma olduğu için aynı kural geçerlidir. Negatif bir sayının çift kuvveti pozitif, tek kuvveti negatiftir. En sık kullanılan taban $-1$ dir: $(-1)^{\\text{çift}}=1$ ve $(-1)^{\\text{tek}}=-1$.",
+            "Kuvvet tekrarlı çarpma olduğu için aynı kural geçerlidir. Negatif bir sayının çift kuvveti pozitif, tek kuvveti negatiftir. Özellikle $-1$ tabanını akılda tut: $(-1)^{\\text{çift}}=1$ ve $(-1)^{\\text{tek}}=-1$.",
             dikkat(
                 "$(-2)^4$ ile $-2^4$ farklıdır.",
                 "$(-2)^4=16$ dır: parantez, eksinin de kuvvete girdiğini gösterir.",
@@ -193,14 +193,14 @@ YAZI = {
                 "$-1$ gibi sınır değerler eşitlik üretir: $x=-1$ için $x=x^3=\\dfrac{1}{x}=-1$ olur ve sıralama bozulur."),
         ]},
         {"baslik": "Mutlak değerle bağlantı", "icerik": [
-            "Negatif sayılarla çalışırken sık sık \"sayının büyüklüğü\" ile \"sayının kendisi\" karıştırılır. $-9$ ile $-2$ den büyük olan $-2$ dir, ama $-9$ sıfırdan daha uzaktadır. Sıfıra olan bu uzaklığa <strong>mutlak değer</strong> denir ve işaretten bağımsız olarak büyüklüğü ölçer: $|-9|=9$, $|-2|=2$.",
+            "Negatif sayılarla çalışırken \"sayının büyüklüğü\" ile \"sayının kendisi\" karıştırılabilir. $-9$ ile $-2$ den büyük olan $-2$ dir, ama $-9$ sıfırdan daha uzaktadır. Sıfıra olan bu uzaklığa <strong>mutlak değer</strong> denir ve işaretten bağımsız olarak büyüklüğü ölçer: $|-9|=9$, $|-2|=2$.",
             "Sayı doğrusunda iki sayı arasındaki uzaklık da mutlak değerle bulunur: $-9$ ile $-2$ arasındaki uzaklık $|-2-(-9)|=|7|=7$ birimdir. İki sıcaklık ya da iki yükseklik arasındaki farkı işaretten bağımsız ölçmenin temeli bu fikirdir.",
             "İki negatif sayıdan mutlak değeri büyük olanın daha küçük olmasının sebebi budur. Mutlak değerin ayrıntılı anlatımı için <a href=\"/blog/mutlak-deger-konu-anlatimi-pdf/\">Mutlak Değer Konu Anlatımı PDF</a> yazısına bakabilirsin.",
         ]},
         {"baslik": "Sınavda pozitif ve negatif sayılar", "icerik": [
             sinavda(
                 "Temel düzeyde (<strong>TYT</strong>) bu konu işaret problemleri, negatif tabanlı kuvvetler, işlem önceliği ve aralıklara göre sıralama biçiminde karşına çıkabilir.",
-                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde işaret bilgisi çoğu zaman bir problemin içinde kullanılır: sıcaklık farkı, borç-alacak hesabı ya da bir ifadenin kesinlikle pozitif olup olmadığı gibi."),
+                "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde işaret bilgisi bir problemin içinde de karşına çıkabilir: sıcaklık farkı, borç-alacak hesabı ya da bir ifadenin kesinlikle pozitif olup olmadığı gibi."),
             ornek(
                 "Bir şehirde beş günün en düşük sıcaklıkları $-4$, $-1$, $2$, $0$ ve $-7$ derece olsun.",
                 "Bu beş günün ortalama en düşük sıcaklığını bulalım.",

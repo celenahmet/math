@@ -79,7 +79,7 @@ YAZI = {
                 "Sıfırdan farklı her sayının sıfırıncı kuvveti $1$ dir ve $1$ tektir: $4^0=1$. Yani çift bir sayının sıfırıncı kuvveti tek çıkar.",
                 "$0^0$ ise tanımsız kabul edilir."),
             "<h3>İfadelerin paritesi</h3>",
-            "Kuvvet kuralı, değişken içeren ifadelerin paritesini bulmak için güçlü bir araçtır. En sık kullanılan sonuçlar şunlar:",
+            "Kuvvet kuralı, değişken içeren ifadelerin paritesini bulmak için güçlü bir araçtır. Bilinmesi yararlı sonuçlar şunlar:",
             "<ul><li>$n$ ile $n^2$ aynı paritededir. Bu yüzden $n^2+n$ ve $n^2-n$ her zaman çifttir.</li>"
             "<li>$n$ ile $n+1$ ardışık olduğundan biri çifttir; $n(n+1)$ her zaman çifttir.</li>"
             "<li>$n^3-n=(n-1)n(n+1)$ üç ardışık sayının çarpımıdır ve her zaman çifttir.</li>"
