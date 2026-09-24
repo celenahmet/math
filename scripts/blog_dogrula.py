@@ -735,6 +735,131 @@ def yazi_61_65_ek():
     esit("65e sifreleme ornegi ve kalbur", (13*17, len(list(sp.primerange(2, 101))), all(any(m % p_ == 0 for p_ in (2, 3, 5, 7)) for m in range(2, 101) if not sp.isprime(m)), 11**2), (221, 25, True, 121))
     esit("65e aralarinda asal ornekleri", (sp.igcd(14, 15), sp.igcd(14, 21)), (1, 7))
 
+def yazi_66_70():
+    """66 EBOB-EKOK, 67 Kesirler, 68 Siralama, 69 Toplama-Cikarma, 70 Carpma-Bolme."""
+    Q = Rational
+    Fr = F
+    g, l = sp.igcd, sp.ilcm
+    # ── 66 EBOB ve EKOK ──
+    esit("66 bolen ve katlar", (sp.divisors(12), sp.divisors(18), sorted(set(sp.divisors(12)) & set(sp.divisors(18))), g(12, 18), l(12, 18),
+                                [12*i for i in range(1, 5)], [18*i for i in range(1, 4)]),
+         ([1, 2, 3, 4, 6, 12], [1, 2, 3, 6, 9, 18], [1, 2, 3, 6], 6, 36, [12, 24, 36, 48], [18, 36, 54]))
+    esit("66 asal carpanlarla", (sp.factorint(72), sp.factorint(120), g(72, 120), l(72, 120), 2**3*3, 2**3*3**2*5), ({2: 3, 3: 2}, {2: 3, 3: 1, 5: 1}, 24, 360, 24, 360))
+    A_, B_ = 2**4*3**2*7, 2**2*3**5*5
+    esit("66 uslu EBOB EKOK", (g(A_, B_), l(A_, B_)), (2**2*3**2, 2**4*3**5*5*7))
+    satirlar, cur = [], [24, 36, 60]
+    for p_ in (2, 2, 2, 3, 3, 5):
+        cur = [c_ // p_ if c_ % p_ == 0 else c_ for c_ in cur]; satirlar.append(cur)
+    esit("66 bolme tablosu", (satirlar, g(g(24, 36), 60), l(l(24, 36), 60), 2*2*3, 2*2*2*3*3*5), ([[12, 18, 30], [6, 9, 15], [3, 9, 15], [1, 3, 5], [1, 1, 5], [1, 1, 1]], 12, 360, 12, 360))
+    esit("66 uc sayi asal carpan", (sp.factorint(24), sp.factorint(36), sp.factorint(60), 24*15, 36*10, 60*6), ({2: 3, 3: 1}, {2: 2, 3: 2}, {2: 2, 3: 1, 5: 1}, 360, 360, 360))
+    esit("66 EBOB*EKOK=ab kaba kuvvet", all(g(p_, q_)*l(p_, q_) == p_*q_ for p_ in range(1, 120) for q_ in range(1, 120)), True)
+    esit("66 EBOB*EKOK ornekleri", (6*36, 12*18, 6*90, Fr(540, 18), g(18, 30), l(18, 30)), (216, 216, 540, 30, 6, 90))
+    esit("66 uc sayida gecmez", (g(g(2, 4), 8), l(l(2, 4), 8), 2*8, 2*4*8), (2, 8, 16, 64))
+    esit("66 diger iliskiler", (all(l(p_, q_) % g(p_, q_) == 0 for p_ in range(1, 80) for q_ in range(1, 80)), g(6, 24), l(6, 24), l(8, 15)), (True, 6, 24, 120))
+    esit("66 EBOB 8 toplam 56", sorted((p_, 56 - p_) for p_ in range(1, 29) if g(p_, 56 - p_) == 8), [(8, 48), (16, 40), (24, 32)])
+    esit("66 EBOB 6 toplam 48", (sorted((p_, 48 - p_) for p_ in range(1, 25) if g(p_, 48 - p_) == 6), g(12, 36)), ([(6, 42), (18, 30)], 12))
+    esit("66 karton ve halat", (g(84, 120), 84 // 12, 120 // 12, 7*10, g(g(48, 72), 120), 48 // 24 + 72 // 24 + 120 // 24), (12, 7, 10, 70, 24, 10))
+    esit("66 bahce", (g(60, 84), 2*(60 + 84), 288 // 12), (12, 288, 24))
+    esit("66 otobus ve fayans", (l(12, 18), l(6, 8), 24 // 6, 24 // 8, 4*3), (36, 24, 4, 3, 12))
+    esit("66 kalan esit", (l(l(4, 6), 9), min(n_ for n_ in range(4, 1000) if n_ % 4 == 3 and n_ % 6 == 3 and n_ % 9 == 3), 4*9 + 3, 6*6 + 3, 9*4 + 3), (36, 39, 39, 39, 39))
+    esit("66 kalan farkli", (l(l(5, 6), 8), min(n_ for n_ in range(1, 1000) if n_ % 5 == 3 and n_ % 6 == 4 and n_ % 8 == 6), 118 % 5, 118 % 6, 118 % 8), (120, 118, 3, 4, 6))
+    esit("66 kesirlerde", (g(84, 120), Fr(84, 120), l(12, 18), Fr(5, 12) + Fr(7, 18), Fr(5, 12)*36, Fr(7, 18)*36), (12, Fr(7, 10), 36, Fr(29, 36), 15, 14))
+    # ── 67 kesirler ──
+    esit("67 temel", (Fr(0, 5), Fr(12)*Fr(3, 4), Fr(11, 4), 2 + Fr(3, 4), 3 + Fr(2, 5), Fr(17, 5), 2*Fr(3, 4) == Fr(11, 4)), (0, 9, Fr(11, 4), Fr(11, 4), Fr(17, 5), Fr(17, 5), False))
+    esit("67 donusum", (divmod(11, 4), 3*5 + 2), ((2, 3), 17))
+    esit("67 birim ve denk", (Fr(1, 10) < Fr(1, 2), 3*Fr(1, 8), Fr(2, 3) == Fr(4, 6) == Fr(10, 15) == Fr(20, 30), g(36, 48), Fr(36, 48), Fr(2 + 6, 2), Fr(2, 2) + 6),
+         (True, Fr(3, 8), True, 12, Fr(3, 4), 4, 7))
+    esit("67 cokluk", (60 // 5, 12*2, Fr(60)*Fr(2, 5), 21 // 3, 7*7, Fr(49)*Fr(3, 7)), (12, 24, 24, 7, 49, 21))
+    esit("67 ondalik ve yuzde", (float(Fr(7, 4)), [float(Fr(*k_)) for k_ in ((1, 2), (1, 4), (3, 4), (1, 5), (1, 8))], [float(Fr(*k_))*100 for k_ in ((1, 2), (1, 4), (3, 4), (1, 5), (1, 8))], float(Fr(3, 8))),
+         (1.75, [0.5, 0.25, 0.75, 0.2, 0.125], [50.0, 25.0, 75.0, 20.0, 12.5], 0.375))
+    esit("67 sonlu ondalik kurali", all(_sonlu_mu(p_, q_) == (set(sp.primefactors(Fr(p_, q_).denominator)) <= {2, 5}) for q_ in range(1, 120) for p_ in range(1, 60)), True)
+    esit("67 kitap", (1 - Fr(1, 3), Fr(1, 4)*Fr(2, 3), Fr(2, 3) - Fr(1, 6), 60 / Fr(1, 2)), (Fr(2, 3), Fr(1, 6), Fr(1, 2), 120))
+    esit("67 depo", (Fr(3, 4) - Fr(2, 5), Fr(15, 20) - Fr(8, 20), 21 // 7, 20*3, Fr(2, 5)*20, Fr(3, 4)*20), (Fr(7, 20), Fr(7, 20), 3, 60, 8, 15))
+    esit("67 sinif", (12 // 3, 8*4, 5*4, Fr(3, 8)*32), (4, 32, 20, 12))
+    # ── 68 siralama ──
+    esit("68 esit pay payda", (Fr(5, 9) > Fr(4, 9), Fr(4, 7) > Fr(4, 9)), (True, True))
+    esit("68 ortak payda", (l(l(6, 9), 12), [Fr(5, 6)*36, Fr(7, 9)*36, Fr(11, 12)*36], Fr(7, 9) < Fr(5, 6) < Fr(11, 12)), (36, [30, 28, 33], True))
+    esit("68 ortak pay", (Fr(4, 9) == Fr(12, 27), Fr(6, 13) == Fr(12, 26), Fr(4, 9) < Fr(6, 13) < Fr(12, 25), l(l(9, 13), 25), l(l(4, 6), 12)), (True, True, True, 2925, 12))
+    esit("68 capraz carpim", (5*11, 8*7, Fr(5, 8) < Fr(7, 11), all((Fr(p_, q_) < Fr(r_, t_)) == (p_*t_ < q_*r_) for p_ in range(-5, 6) for q_ in range(1, 7) for r_ in range(-5, 6) for t_ in range(1, 7))),
+         (55, 56, True, True))
+    esit("68 referans", (Fr(5, 11) < Fr(1, 2) < Fr(7, 12), 2*5, 2*7, Fr(2024, 2025) < Fr(2025, 2026), Fr(9, 7) == 1 + Fr(2, 7), Fr(13, 11) == 1 + Fr(2, 11), Fr(9, 7) > Fr(13, 11)),
+         (True, 10, 14, True, True, True, True))
+    esit("68 pay paydaya ekleme", (Fr(3, 5) < Fr(4, 6) < Fr(5, 7), Fr(7, 5) > Fr(8, 6) > Fr(9, 7),
+                                   all((Fr(p_ + k_, q_ + k_) > Fr(p_, q_)) == (p_ < q_) and (Fr(p_ + k_, q_ + k_) == Fr(p_, q_)) == (p_ == q_) for p_ in range(1, 15) for q_ in range(1, 15) for k_ in range(1, 6)),
+                                   Fr(3, 5) < Fr(13, 15) < Fr(23, 25), str(sp.N(Q(13, 15), 3)), float(Fr(23, 25))),
+         (True, True, True, True, "0.867", 0.92))
+    esit("68 ondalik", (float(Fr(3, 8)), float(Fr(7, 20)), Fr(7, 20) < Fr(3, 8) < Fr(4, 10)), (0.375, 0.35, True))
+    esit("68 negatif", (l(l(5, 3), 8), [Fr(3, 5)*120, Fr(2, 3)*120, Fr(5, 8)*120], -Fr(2, 3) < -Fr(5, 8) < -Fr(3, 5)), (120, [72, 80, 75], True))
+    esit("68 arada kesir", (Fr(1, 3) < Fr(5, 12) < Fr(1, 2), Fr(1, 3) == Fr(2, 6) == Fr(4, 12), Fr(1, 2) == Fr(3, 6) == Fr(6, 12), Fr(1, 3) < Fr(2, 5) < Fr(1, 2), Fr(1, 3) + Fr(1, 2)),
+         (True, True, True, True, Fr(5, 6)))
+    esit("68 mediant kaba kuvvet", all(Fr(p_, q_) < Fr(p_ + r_, q_ + t_) < Fr(r_, t_) for p_ in range(-6, 7) for q_ in range(1, 8) for r_ in range(-6, 7) for t_ in range(1, 8) if Fr(p_, q_) < Fr(r_, t_)), True)
+    # ── 69 toplama cikarma ──
+    esit("69 esit payda", (Fr(2, 7) + Fr(3, 7), Fr(7, 12) + Fr(11, 12), Fr(18, 12), Fr(9, 10) - Fr(3, 10)), (Fr(5, 7), Fr(3, 2), Fr(3, 2), Fr(3, 5)))
+    esit("69 farkli payda", (l(6, 8), Fr(5, 6)*24, Fr(3, 8)*24, Fr(5, 6) + Fr(3, 8), 1 + Fr(5, 24), Fr(58, 48), l(15, 9), Fr(7, 15)*45, Fr(2, 9)*45, Fr(7, 15) - Fr(2, 9)),
+         (24, 20, 9, Fr(29, 24), Fr(29, 24), Fr(29, 24), 45, 21, 10, Fr(11, 45)))
+    esit("69 klasik yanlis", (Fr(1, 2) + Fr(1, 3), Fr(2, 5) < Fr(1, 2)), (Fr(5, 6), True))
+    esit("69 tam sayi", (3 - Fr(2, 5), 2 + Fr(3, 4), Fr(15, 5)), (Fr(13, 5), Fr(11, 4), 3))
+    esit("69 tam sayili", (3 + Fr(1, 4) + 2 + Fr(2, 3), 5 + Fr(11, 12), Fr(1, 4) + Fr(2, 3), 5 + Fr(1, 6) - (2 + Fr(3, 4)), 2 + Fr(5, 12), Fr(31, 6) - Fr(11, 4), 4 + Fr(14, 12) == 5 + Fr(2, 12)),
+         (Fr(71, 12), Fr(71, 12), Fr(11, 12), Fr(29, 12), Fr(29, 12), Fr(29, 12), True))
+    esit("69 uc kesir", (Fr(1, 2) + Fr(1, 3) + Fr(1, 6), Fr(3, 4) - Fr(1, 6) + Fr(5, 12)), (1, 1))
+    esit("69 negatif", (-Fr(3, 4) + Fr(1, 6), Fr(2, 5) - (-Fr(1, 3))), (Fr(-7, 12), Fr(11, 15)))
+    nn = sp.Symbol("nn", positive=True)
+    esit("69 birbirini goturen", (sp.simplify(1/(nn*(nn + 1)) - (1/nn - 1/(nn + 1))), sum(Fr(1, k_*(k_ + 1)) for k_ in range(1, 10))), (0, Fr(9, 10)))
+    esit("69 problemler", (Fr(1, 3) + Fr(2, 5), 1 - Fr(11, 15), Fr(1, 4) + Fr(1, 6), 1 - Fr(5, 12), 210 // 7, 12*30, Fr(360)*Fr(7, 12), Fr(3, 8) - Fr(1, 4), Fr(3, 8)*Fr(3, 4)),
+         (Fr(11, 15), Fr(4, 15), Fr(5, 12), Fr(7, 12), 30, 360, 210, Fr(1, 8), Fr(9, 32)))
+    # ── 70 carpma bolme ──
+    esit("70 carpma", (3*Fr(2, 5), Fr(2, 3)*Fr(3, 4), Fr(3, 4)*Fr(2, 5), Fr(14, 15)*Fr(25, 28), Fr(350, 420)), (Fr(6, 5), Fr(1, 2), Fr(3, 10), Fr(5, 6), Fr(5, 6)))
+    esit("70 tam sayili carpma", ((2 + Fr(1, 2))*(1 + Fr(1, 3)), 3 + Fr(1, 3), 2*1 + Fr(1, 2)*Fr(1, 3), 2 + Fr(1, 6)), (Fr(10, 3), Fr(10, 3), Fr(13, 6), Fr(13, 6)))
+    esit("70 buyur kucultur", (12*Fr(3, 4), 12*Fr(5, 4), Fr(12)/Fr(3, 4)), (9, 15, 16))
+    esit("70 ters", (1/Fr(3, 7), 1/Fr(5), 1/Fr(-2, 9), Fr(3, 7)*Fr(7, 3)), (Fr(7, 3), Fr(1, 5), Fr(-9, 2), 1))
+    esit("70 bolme", (Fr(3, 4)/Fr(2, 5), 1 + Fr(7, 8), Fr(6, 7)/3, 4/Fr(2, 3), 1/Fr(1, 4)), (Fr(15, 8), Fr(15, 8), Fr(2, 7), 6, 4))
+    pa, pb, pc, pd = sp.symbols("pa pb pc pd", positive=True)
+    esit("70 bolme kurali", sp.simplify((pa/pb)/(pc/pd) - pa*pd/(pb*pc)), 0)
+    esit("70 merdiven", (Fr(1, 2)/Fr(3, 4), 1/(1 + 1/(1 + Fr(1, 2))), 1 + Fr(1, 2), 1/Fr(3, 2), 1 + Fr(2, 3), 1/Fr(5, 3)), (Fr(2, 3), Fr(3, 5), Fr(3, 2), Fr(2, 3), Fr(5, 3), Fr(3, 5)))
+    esit("70 us", (Fr(2, 3)**3, Fr(3, 2)**-2, [Fr(1, 2)**k_ for k_ in (1, 2, 3)]), (Fr(8, 27), Fr(4, 9), [Fr(1, 2), Fr(1, 4), Fr(1, 8)]))
+    esit("70 problemler", (6*Fr(3, 4), Fr(9, 2)/Fr(3, 8), Fr(2, 3)/4, 10*Fr(1, 6), 1 + Fr(2, 3), Fr(3, 4)*Fr(2, 5), 18/Fr(3, 10), Fr(60)*Fr(2, 5)*Fr(3, 4)),
+         (Fr(9, 2), 12, Fr(1, 6), Fr(5, 3), Fr(5, 3), Fr(3, 10), 60, 18))
+
+def yazi_66_70_ek():
+    """66-70 genisletmelerindeki iddialar."""
+    Fr = F
+    Q = Rational
+    k_ = sp.Symbol("k_", positive=True)
+    # 67
+    esit("67e kalanli bolme", (divmod(17, 5), Fr(17, 5), 3 + Fr(2, 5)), ((3, 2), Fr(17, 5), Fr(17, 5)))
+    esit("67e gunluk", (Fr(60, 2), Fr(60, 4), 60*Fr(3, 4), 200*Fr(1, 4), 2*60, Fr(120)*Fr(3, 4)), (30, 15, 45, 50, 120, 90))
+    esit("67e denk kesir", (sp.solve(sp.Eq(2*k_ + 3*k_, 35), k_), Fr(14, 21) == Fr(2, 3), sp.solve(sp.Eq(5*k_ - 3*k_, 12), k_), Fr(18, 30) == Fr(3, 5)), ([7], True, [6], True))
+    esit("67e pay payda", (2*Fr(3, 8), Fr(6, 8), Fr(3, 8)/2, Fr(3, 16), Fr(6, 16) == Fr(3, 8)), (Fr(3, 4), Fr(3, 4), Fr(3, 16), Fr(3, 16), True))
+    esit("67e otobus", sp.solve(sp.Eq(x - Fr(2, 7)*x + 4, 24), x), [28])
+    esit("67e birim kesirler", (Fr(1, 2) + Fr(1, 4), Fr(1, 2) + Fr(1, 3)), (Fr(3, 4), Fr(5, 6)))
+    # 68
+    esit("68e sayi dogrusu", (Fr(2, 3)*15, Fr(3, 5)*15, Fr(2, 3) - Fr(3, 5), 1/Fr(3, 5), Fr(3, 5) < 1 < Fr(5, 3)), (10, 9, Fr(1, 15), Fr(5, 3), True))
+    esit("68e kuvvet kok", (Fr(4, 9)**2, sqrt(Q(4, 9)), [Fr(16, 81), Fr(4, 9)*81, Fr(2, 3)*81], Fr(16, 81) < Fr(4, 9) < Fr(2, 3), Fr(9, 4)**2, sqrt(Q(9, 4)), Fr(3, 2) < Fr(9, 4) < Fr(81, 16)),
+         (Fr(16, 81), Q(2, 3), [Fr(16, 81), 36, 54], True, Fr(81, 16), Q(3, 2), True))
+    bes = [Fr(3, 7), Fr(5, 12), Fr(4, 9), Fr(7, 15), Fr(2, 5)]
+    esit("68e bes kesir", (sorted(bes), [str(sp.N(Q(v_.numerator, v_.denominator), 3)) for v_ in bes], all(2*v_.numerator < v_.denominator for v_ in bes), 3*9, 7*4),
+         ([Fr(2, 5), Fr(5, 12), Fr(3, 7), Fr(4, 9), Fr(7, 15)], ["0.429", "0.417", "0.444", "0.467", "0.400"], True, 27, 28))
+    esit("68e gunluk", (float(Fr(3, 8)), Fr(3, 8) > Fr(35, 100), 18*30, 25*21, float(Fr(18, 25)), float(Fr(21, 30))), (0.375, True, 540, 525, 0.72, 0.7))
+    esit("68e harfli", (sp.simplify((x + 1)/(x + 2) - x/(x + 1) - 1/((x + 1)*(x + 2))) == 0, all(Fr(v_, v_ + 1) < Fr(v_ + 1, v_ + 2) for v_ in range(1, 50)), Fr(1, 2) < Fr(2, 3)), (True, True, True))
+    esit("68e kisa yol yanlis", (Fr(3, 10) < Fr(2, 3), Fr(1, 3) < Fr(3, 4), 3*8 == 4*6), (True, True, True))
+    # 69
+    esit("69e ozellikler", (Fr(1, 3) + Fr(5, 7) + Fr(2, 3), 1 + Fr(5, 7), Fr(1, 3) + Fr(5, 7), Fr(2, 3) == Fr(14, 21), Fr(36, 21)), (Fr(12, 7), Fr(12, 7), Fr(22, 21), True, Fr(12, 7)))
+    esit("69e tahmin", (Fr(7, 8) + Fr(5, 9), l_ := sp.ilcm(8, 9), Fr(7, 8)*72, Fr(5, 9)*72, str(sp.N(Q(103, 72), 3)), Fr(12, 17) < 1), (Fr(103, 72), 72, 63, 40, "1.43", True))
+    esit("69e ondalik harfli", (Fr(1, 4) + Fr(2, 3), sp.simplify(1/x + 1/(2*x) - 3/(2*x)), sp.simplify(a/b + c/d - (a*d + b*c)/(b*d))), (Fr(11, 12), 0, 0))
+    esit("69e eksik kesir", (Fr(3, 4) - Fr(1, 6), 1 - Fr(2, 5)), (Fr(7, 12), Fr(3, 5)))
+    esit("69e yol", (Fr(1, 4) + Fr(1, 3), 35 // 7, 12*5, Fr(60)*Fr(7, 12)), (Fr(7, 12), 5, 60, 35))
+    esit("69e pizza ve fark", (Fr(1, 2) == Fr(3, 6), Fr(1, 3) == Fr(2, 6), Fr(1, 2) + Fr(1, 3), sp.ilcm(2, 3), Fr(5, 6) - Fr(3, 4), Fr(5, 6)*12, Fr(3, 4)*12), (True, True, Fr(5, 6), 6, Fr(1, 12), 10, 9))
+    esit("69e gunluk", (1 - Fr(5, 6), Fr(1, 2) + Fr(3, 4), 1 + Fr(1, 2) + Fr(3, 4), Fr(1, 4)*60), (Fr(1, 6), Fr(5, 4), Fr(9, 4), 15))
+    # 70
+    esit("70e bolme ortak payda", (Fr(3, 4)/Fr(1, 8), Fr(3, 4) == Fr(6, 8), Fr(3, 4)*8), (6, True, 6))
+    esit("70e ozellikler", (Fr(4, 7)*14 + Fr(4, 7)*7, Fr(4, 7)*21, Fr(5, 9)*Fr(7, 11)*Fr(9, 5)), (12, 12, Fr(7, 11)))
+    esit("70e ondalik harfli", (Fr(6, 10)*Fr(5, 9), sp.simplify(x/2*4/x), sp.simplify((a/b)/(a/c) - c/b)), (Fr(1, 3), 2, 0))
+    esit("70e tablo", (Fr(60)*Fr(2, 3), Fr(3)/Fr(3, 4), Fr(3, 5)/3, Fr(40)/Fr(2, 3)), (40, 4, Fr(1, 5), 60))
+    esit("70e hiz", (60*Fr(3, 4), Fr(90, 60)), (45, Fr(3, 2)))
+    esit("70e kontrol", (Fr(15, 8)*Fr(2, 5), Fr(4, 3)*Fr(2, 5), Fr(8, 15)*Fr(2, 5)), (Fr(3, 4), Fr(8, 15), Fr(16, 75)))
+    esit("70e yuzde", (Fr(40, 100), Fr(3, 4)*Fr(2, 5), 20*Fr(2, 5), 8*Fr(3, 4), Fr(6, 20)*100), (Fr(2, 5), Fr(3, 10), 8, 6, 30))
+    esit("70e negatif", (-Fr(2, 3)*Fr(3, 4), (-Fr(2, 3))*(-Fr(3, 4))), (Fr(-1, 2), Fr(1, 2)))
+
 # ── bicim denetimi ─────────────────────────────────────────────────────
 def bicim():
     import blog_veri
@@ -750,12 +875,15 @@ def bicim():
         esit(f"{no} aciklama <= 160", len(Y["aciklama"]) <= 160, True)
         esit(f"{no} kontrol 10", len(Y["kontrol"]), 10)
         esit(f"{no} >= 2000 kelime", kelime_sayisi(Y) >= 2000, True)
+        import json as _json
+        from ek_denetimi import denetle as _ek_denetle
+        esit(f"{no} formul sonrasi ekler", _ek_denetle(_json.dumps(Y, ensure_ascii=False).replace("\\\\", "\\")), [])
         print(f"  {no:34s} {kelime_sayisi(Y):5d} kelime · {len(Y['bolumler']):2d} bolum · "
               f"{metin.count('bs-hap-ic'):2d} hap · aciklama {len(Y['aciklama'])}")
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")

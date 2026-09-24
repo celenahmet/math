@@ -176,7 +176,7 @@ YAZI = {
             "<li>$f$ nin grafiği ile $f^{-1}$ in grafiği $y=x$ doğrusuna göre simetriktir.</li>"
             "</ul>",
             dikkat(
-                "$f^{-1}(x)$ ile $\\dfrac{1}{f(x)}$ aynı şey <strong>değildir</strong>.", "Buradaki $-1$ bir üs değil, ters fonksiyon işaretidir.", "$f(x)=3x-5$ için $f^{-1}(x)=\\dfrac{x+5}{3}$ tür, $\\dfrac{1}{3x-5}$ değil."),
+                "$f^{-1}(x)$ ile $\\dfrac{1}{f(x)}$ aynı şey <strong>değildir</strong>.", "Buradaki $-1$ bir üs değil, ters fonksiyon işaretidir.", "$f(x)=3x-5$ için $f^{-1}(x)=\\dfrac{x+5}{3}$ tir, $\\dfrac{1}{3x-5}$ değil."),
             hap("$(f \\circ g)^{-1} = g^{-1} \\circ f^{-1}$", "Bu sırayı hatırlamak için giyinme sırasını düşün: önce çorap sonra ayakkabı giyilir; çıkarırken önce ayakkabı çıkar. Ters alınca sıra tersine döner."),
         ]},
         {"baslik": "Grafikten fonksiyon okuma", "icerik": [

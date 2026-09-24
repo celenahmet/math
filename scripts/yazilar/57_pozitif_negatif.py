@@ -164,7 +164,7 @@ YAZI = {
             "Aynı işaretli iki sayının terslerinde sıralama ters döner. İki negatif sayı için: $x<y<0$ ise $\\dfrac{1}{x}>\\dfrac{1}{y}$ dir.",
             ornek(
                 "$-4$ ve $-2$ sayıları verilsin; $-4<-2$.",
-                "$\\dfrac{1}{-4}$ ile $\\dfrac{1}{-2}$ yi karşılaştıralım.",
+                "$\\dfrac{1}{-4}$ ile $\\dfrac{1}{-2}$ i karşılaştıralım.",
                 "$\\dfrac{1}{-4}=-0.25$ ve $\\dfrac{1}{-2}=-0.5$.",
                 "$-0.25$, $-0.5$ ten büyüktür.",
                 "Yani $-4<-2$ iken $-\\dfrac{1}{4}>-\\dfrac{1}{2}$: tersler alınınca sıralama ters döndü."),
@@ -178,7 +178,7 @@ YAZI = {
             "İki durumda da $x^2$ pozitif olduğu için en büyüktür; diğer üçü negatiftir. Farkı yaratan, $x$ in mutlak değerinin $1$ den küçük ya da büyük olmasıdır: mutlak değeri $1$ den küçük bir sayının kuvveti alındıkça mutlak değeri küçülür, $1$ den büyük bir sayınınki büyür.",
             ornek(
                 "$x=-\\dfrac{1}{2}$ olsun.",
-                "$x$, $x^2$, $x^3$ ve $\\dfrac{1}{x}$ yi sıralayalım.",
+                "$x$, $x^2$, $x^3$ ve $\\dfrac{1}{x}$ i sıralayalım.",
                 "Hesaplayalım: $x=-0.5$, $x^2=0.25$, $x^3=-0.125$, $\\dfrac{1}{x}=-2$.",
                 "Küçükten büyüğe: $-2<-0.5<-0.125<0.25$.",
                 "Yani $\\dfrac{1}{x}<x<x^3<x^2$; tablodaki birinci satırla aynı."),
@@ -247,7 +247,7 @@ YAZI = {
         "Yalnızca işaretleri verilen sayılarla bir ifadenin işaretini bulabiliyorum.",
         "Verilen işaret bilgilerinden sayıların işaretini çıkarabiliyorum.",
         "Eşitsizliği negatif sayıyla çarparken yönü çevirmeyi unutmuyorum.",
-        "$-1<x<0$ ve $x<-1$ aralıklarında $x$, $x^2$, $x^3$ ve $\\dfrac{1}{x}$ yi sıralayabiliyorum.",
+        "$-1<x<0$ ve $x<-1$ aralıklarında $x$, $x^2$, $x^3$ ve $\\dfrac{1}{x}$ i sıralayabiliyorum.",
         "İki negatif sayıyı ve terslerini doğru karşılaştırabiliyorum.",
     ],
     "kaynaklar": [

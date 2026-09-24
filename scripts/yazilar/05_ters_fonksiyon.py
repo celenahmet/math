@@ -72,7 +72,7 @@ YAZI = {
             "Bu işlemi genel harflerle yaparsak akılda kalıcı bir kalıp çıkar:",
             "$$f(x)=\\frac{ax+b}{cx+d} \\Rightarrow f^{-1}(x)=\\frac{-dx+b}{cx-a}$$",
             "Kalıbı hatırlamanın yolu: $a$ ile $d$ <strong>yer değiştirir</strong> ve ikisinin de <strong>işareti değişir</strong>; $b$ ile $c$ olduğu yerde kalır. Kalıp $ad-bc \\neq 0$ için geçerlidir; $ad-bc=0$ ise fonksiyon sabittir ve tersi yoktur.",
-            hap("$f(x)=\\dfrac{ax+b}{cx+d}$ ise $f^{-1}(x)=\\dfrac{-dx+b}{cx-a}$ dır.",
+            hap("$f(x)=\\dfrac{ax+b}{cx+d}$ ise $f^{-1}(x)=\\dfrac{-dx+b}{cx-a}$ dir.",
                 "$a$ ile $d$ yer ve işaret değiştirir, $b$ ile $c$ kalır."),
             dikkat(
                 "$a+d=0$ ise kalıp fonksiyonun kendisini verir; böyle bir fonksiyon <strong>kendi tersidir</strong>.",
@@ -161,7 +161,7 @@ YAZI = {
             ornek(
                 "$f(x)=2x+1$ ve $g(x)=x-3$ olsun.",
                 "$(f \\circ g)^{-1}$ i iki yoldan bulup karşılaştıralım.",
-                "Birinci yol: $(f \\circ g)(x)=2(x-3)+1=2x-5$. Tersi $\\dfrac{x+5}{2}$ dir.",
+                "Birinci yol: $(f \\circ g)(x)=2(x-3)+1=2x-5$. Tersi $\\dfrac{x+5}{2}$ tir.",
                 "İkinci yol: $f^{-1}(x)=\\dfrac{x-1}{2}$ ve $g^{-1}(x)=x+3$. $g^{-1}(f^{-1}(x))=\\dfrac{x-1}{2}+3=\\dfrac{x+5}{2}$.",
                 "İki yol aynı sonucu verdi."),
             "Bu özellikler bileşke sorularında bir fonksiyonu yalnız bırakmak için kullanılır. Bir eşitliğin iki tarafına da <strong>soldan</strong> $f^{-1}$ uygulamak, $f$ yi ortadan kaldırır.",

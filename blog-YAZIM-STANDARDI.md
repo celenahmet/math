@@ -92,6 +92,10 @@ yoksa bağlantı panoya kopyalanır.
 - Teknik terim **herkes için** açıklanır: terimi ilk geçtiği yerde bir
   cümleyle tanımla.
 - Uzun tire (—) kullanılmaz.
+- **Formülden sonraki ek, formülün okunuşuna uyar** (24.09): ek ayrı yazılır (`$x$ in`) ve okunuşun son
+  kelimesine göre seçilir. Kesir "paydada pay" okunur, son kelime PAYDIR: `$\dfrac{2}{5}$ nin` (beşte ikinin),
+  `$\dfrac{1}{4}$ i` (dörtte biri), `$\dfrac{3}{8}$ tür` (sekizde üçtür). `scripts/ek_denetimi.py` bunu
+  `blog_dogrula.py` içinde denetler; "de/da" bağlacı, "ya da" ve "su" bilinçli olarak dışarıda.
 - İç mimariden (RPC, migration, dosya adı) ekranda söz edilmez.
 
 ## 6. Kaynaklar ve telif

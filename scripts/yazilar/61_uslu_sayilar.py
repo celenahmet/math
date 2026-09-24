@@ -44,7 +44,7 @@ YAZI = {
                 "$\\left(\\dfrac{2}{3}\\right)^{-2}=\\left(\\dfrac{3}{2}\\right)^2=\\dfrac{9}{4}$."),
             dikkat(
                 "Negatif üs sonucu negatif yapmaz.",
-                "$2^{-3}=\\dfrac{1}{8}$ tir, $-8$ değildir. Negatif üs yalnızca sayının tersini alır; işaret tabana bağlıdır."),
+                "$2^{-3}=\\dfrac{1}{8}$ dir, $-8$ değildir. Negatif üs yalnızca sayının tersini alır; işaret tabana bağlıdır."),
         ]},
         {"baslik": "Negatif tabanlı üslü sayılar", "icerik": [
             "Kuvvet tekrarlı çarpma olduğu için negatif tabanda işaret, negatif çarpanların sayısına bağlıdır. Negatif bir sayının <strong>çift</strong> kuvveti pozitif, <strong>tek</strong> kuvveti negatiftir.",
@@ -186,7 +186,7 @@ YAZI = {
             ornek(
                 "$3400000$ ve $0.00052$ sayıları verilsin.",
                 "Bilimsel gösterimle yazalım.",
-                "Tam sayılarda virgül sayının sonunda kabul edilir. $3400000$ da virgülü $6$ basamak sola kaydırırsak $3.4$ elde ederiz: $3.4 \\cdot 10^6$.",
+                "Tam sayılarda virgül sayının sonunda kabul edilir. $3400000$ de virgülü $6$ basamak sola kaydırırsak $3.4$ elde ederiz: $3.4 \\cdot 10^6$.",
                 "$0.00052$ de virgülü $4$ basamak sağa kaydırırsak $5.2$ elde ederiz: $5.2 \\cdot 10^{-4}$."),
             ornek(
                 "$(3 \\cdot 10^4) \\cdot (5 \\cdot 10^{-7})$ çarpımı verilsin.",

@@ -80,7 +80,7 @@ YAZI = {
                 "Dışarıdaki pozitif bir sayı kök içine karesi alınarak girer: $3\\sqrt{5}=\\sqrt{45}$."),
             "Tersine, kökün dışındaki bir pozitif sayı karesi alınarak içeri taşınır: $3\\sqrt{5}=\\sqrt{9 \\cdot 5}=\\sqrt{45}$. Bu işlem köklü sayıları karşılaştırırken işe yarar.",
             "<h3>Karekök ve mutlak değer</h3>",
-            "Bir sayının karesinin karekökü, sayının kendisi değil mutlak değeridir: $\\sqrt{x^2}=|x|$. Örneğin $\\sqrt{(-5)^2}=\\sqrt{25}=5$ tir. Tek dereceli köklerde ise işaret korunduğu için $\\sqrt[3]{x^3}=x$ dir. Mutlak değerin ayrıntısı için <a href=\"/blog/mutlak-deger-konu-anlatimi-pdf/\">Mutlak Değer Konu Anlatımı PDF</a> yazısına bakabilirsin.",
+            "Bir sayının karesinin karekökü, sayının kendisi değil mutlak değeridir: $\\sqrt{x^2}=|x|$. Örneğin $\\sqrt{(-5)^2}=\\sqrt{25}=5$ tir. Tek dereceli köklerde ise işaret korunduğu için $\\sqrt[3]{x^3}=x$ tir. Mutlak değerin ayrıntısı için <a href=\"/blog/mutlak-deger-konu-anlatimi-pdf/\">Mutlak Değer Konu Anlatımı PDF</a> yazısına bakabilirsin.",
         ]},
         {"baslik": "Köklü sayılarda toplama ve çıkarma", "icerik": [
             "Köklü sayılar yalnızca <strong>kök içleri ve dereceleri aynıysa</strong> toplanıp çıkarılabilir; bu durumda katsayılar toplanır, kök aynen kalır. Bu, cebirdeki benzer terimlerin toplanmasına benzer: $2x+3x=5x$ olduğu gibi $2\\sqrt{3}+3\\sqrt{3}=5\\sqrt{3}$ tür. Kök içleri farklı görünüyorsa önce kök dışına çıkarma denenir.",

@@ -201,10 +201,10 @@ YAZI = {
                 "Tanım kümesinin <strong>sol</strong> ucu görüntü kümesinin <strong>sağ</strong> ucunu verir. Açık ve kapalı uçlar da onlarla birlikte taşınır."),
         ]},
         {"baslik": "İkinci dereceden fonksiyonun görüntü kümesi", "icerik": [
-            "$f(x)=ax^2+bx+c$ fonksiyonu ($a \\neq 0$) doğrusal fonksiyon gibi tek yönlü değildir. Grafiği bir paraboldür: $a>0$ ise önce azalır sonra artar, $a<0$ ise önce artar sonra azalır. Yön değiştirdiği noktaya <strong>tepe noktası</strong> denir. Tepe noktasının apsisi, yani $x$ koordinatı, $x=-\\dfrac{b}{2a}$ dır.",
+            "$f(x)=ax^2+bx+c$ fonksiyonu ($a \\neq 0$) doğrusal fonksiyon gibi tek yönlü değildir. Grafiği bir paraboldür: $a>0$ ise önce azalır sonra artar, $a<0$ ise önce artar sonra azalır. Yön değiştirdiği noktaya <strong>tepe noktası</strong> denir. Tepe noktasının apsisi, yani $x$ koordinatı, $x=-\\dfrac{b}{2a}$ dir.",
             "Tanım kümesi $\\mathbb{R}$ ise görüntü kümesi tepe noktasındaki değerle belirlenir. Bu değere $k$ dersek, $a>0$ için görüntü kümesi $[k,\\infty)$, $a<0$ için $(-\\infty,k]$ olur.",
             hap("$a>0$ ise parabolün en küçük değeri, $a<0$ ise en büyük değeri tepe noktasındadır.",
-                "Tepe noktasının apsisi $x=-\\dfrac{b}{2a}$ dır."),
+                "Tepe noktasının apsisi $x=-\\dfrac{b}{2a}$ dir."),
             ornek(
                 "$f(x)=x^2-4x+7$ ve tanım kümesi $\\mathbb{R}$ olsun.",
                 "Görüntü kümesini bulalım.",
@@ -244,7 +244,7 @@ YAZI = {
                 "Görüntü kümesi $\\mathbb{R}-\\{2\\}$ dir."),
             "Bu yöntemin kısa bir sonucu vardır ve sınavda zaman kazandırır.",
             hap("$f(x)=\\dfrac{ax+b}{cx+d}$ ise ($c \\neq 0$ ve $ad-bc \\neq 0$):",
-                "Tanım kümesi $\\mathbb{R}-\\{-\\dfrac{d}{c}\\}$, görüntü kümesi $\\mathbb{R}-\\{\\dfrac{a}{c}\\}$ dir."),
+                "Tanım kümesi $\\mathbb{R}-\\{-\\dfrac{d}{c}\\}$, görüntü kümesi $\\mathbb{R}-\\{\\dfrac{a}{c}\\}$ dır."),
             dikkat(
                 "$ad-bc=0$ ise bu kısayol çalışmaz, çünkü fonksiyon aslında sabittir.",
                 "Örneğin $f(x)=\\dfrac{2x+4}{x+2}$ için $ad-bc=2 \\cdot 2-4 \\cdot 1=0$ dır.",

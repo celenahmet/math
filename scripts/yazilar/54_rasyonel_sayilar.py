@@ -24,7 +24,7 @@ YAZI = {
             "Kesir çizgisi aslında bir bölme işaretidir: $\\dfrac{3}{4}$, \"$3$ ün $4$ e bölümü\" demektir. Paydanın sıfır olamamasının sebebi de budur; sıfıra bölme tanımsızdır.",
             "Her tam sayı bir rasyonel sayıdır, çünkü paydasına $1$ yazılabilir: $-6=\\dfrac{-6}{1}$. Payı sıfır olan kesir ise sıfıra eşittir: $\\dfrac{0}{7}=0$.",
             "Rasyonel sayılar toplama, çıkarma, çarpma ve sıfır hariç bölme işlemlerine göre kapalıdır: iki rasyonel sayıyla bu işlemleri yaptığında sonuç yine rasyoneldir. Tam sayılarda bölmenin yarattığı eksiklik burada kapanır.",
-            hap("$\\dfrac{a}{b}$ de payda sıfır olamaz: $b \\neq 0$.",
+            hap("$\\dfrac{a}{b}$ da payda sıfır olamaz: $b \\neq 0$.",
                 "Pay sıfırsa kesrin değeri sıfırdır: $\\dfrac{0}{b}=0$."),
             dikkat(
                 "$\\dfrac{0}{5}=0$ tanımlıdır, $\\dfrac{5}{0}$ tanımsızdır.",
@@ -49,7 +49,7 @@ YAZI = {
             "<li><strong>Tam sayılı kesir:</strong> bir tam sayı ile bir basit kesrin birlikte yazılışıdır: $2\\dfrac{1}{3}$, \"iki tam üçte bir\" diye okunur.</li></ul>",
             "Tam sayılı kesir ile bileşik kesir birbirine çevrilebilir. Tam kısım payda ile çarpılıp paya eklenir:",
             "$$2\\frac{1}{3}=\\frac{2 \\cdot 3+1}{3}=\\frac{7}{3}$$",
-            "Tersine, $\\dfrac{7}{3}$ te $7$ yi $3$ e bölersek bölüm $2$, kalan $1$ çıkar. Bölüm tam kısım, kalan yeni pay olur: $2\\dfrac{1}{3}$.",
+            "Tersine, $\\dfrac{7}{3}$ de $7$ yi $3$ e bölersek bölüm $2$, kalan $1$ çıkar. Bölüm tam kısım, kalan yeni pay olur: $2\\dfrac{1}{3}$.",
             dikkat(
                 "$2\\dfrac{1}{3}$ bir çarpım değil, bir toplamdır: $2+\\dfrac{1}{3}$.",
                 "İşlem yapmadan önce tam sayılı kesri bileşik kesre çevir."),
@@ -71,7 +71,7 @@ YAZI = {
                 "Çıkaralım: $\\dfrac{10}{4}-\\dfrac{7}{4}=\\dfrac{3}{4}$."),
             dikkat(
                 "Kesirler toplanırken paylar ve paydalar ayrı ayrı toplanmaz.",
-                "$\\dfrac{1}{2}+\\dfrac{1}{3}$ ün sonucu $\\dfrac{2}{5}$ değil, $\\dfrac{5}{6}$ dır. Kontrol: $\\dfrac{2}{5}$, $\\dfrac{1}{2}$ den bile küçüktür; iki pozitif sayının toplamı onlardan küçük olamaz."),
+                "$\\dfrac{1}{2}+\\dfrac{1}{3}$ in sonucu $\\dfrac{2}{5}$ değil, $\\dfrac{5}{6}$ tir. Kontrol: $\\dfrac{2}{5}$, $\\dfrac{1}{2}$ den bile küçüktür; iki pozitif sayının toplamı onlardan küçük olamaz."),
             hap("Toplama ve çıkarmada önce paydaları eşitle; ortak payda olarak EKOK u kullan.",
                 "Paylar toplanır, payda aynı kalır."),
         ]},
@@ -86,7 +86,7 @@ YAZI = {
                 "Sonucu bulalım.",
                 "İkinci kesri ters çevirip çarpalım: $\\dfrac{3}{5} \\cdot \\dfrac{10}{9}$.",
                 "Çapraz sadeleştirelim: $3$ ile $9$ u $3$ e, $10$ ile $5$ i $5$ e bölelim: $\\dfrac{1}{1} \\cdot \\dfrac{2}{3}$.",
-                "Sonuç $\\dfrac{2}{3}$ tür."),
+                "Sonuç $\\dfrac{2}{3}$ dir."),
             "Kesrin içinde kesir bulunan ifadelere <strong>merdiven kesir</strong> denir. Bu ifadeler en alttan başlanarak yukarı doğru çözülür.",
             ornek(
                 "$\\dfrac{1}{1+\\dfrac{1}{1+\\dfrac{1}{2}}}$ ifadesi verilsin.",
@@ -100,7 +100,7 @@ YAZI = {
         {"baslik": "Rasyonel sayıları sıralama", "icerik": [
             "İki kesri karşılaştırmanın en güvenli yolu paydalarını eşitlemektir; paydası eşit iki pozitif kesirden payı büyük olan büyüktür. Bazı durumlarda daha kısa yollar vardır:",
             "<ul><li><strong>Payları eşitse:</strong> paydası küçük olan büyüktür. $\\dfrac{3}{7}>\\dfrac{3}{8}$, çünkü aynı bütün daha az parçaya bölünmüştür.</li>"
-            "<li><strong>Bire yakınlık:</strong> $\\dfrac{7}{8}$ ile $\\dfrac{8}{9}$ un bire uzaklıkları $\\dfrac{1}{8}$ ve $\\dfrac{1}{9}$ dur. Bire daha yakın olan $\\dfrac{8}{9}$ daha büyüktür.</li>"
+            "<li><strong>Bire yakınlık:</strong> $\\dfrac{7}{8}$ ile $\\dfrac{8}{9}$ in bire uzaklıkları $\\dfrac{1}{8}$ ve $\\dfrac{1}{9}$ dir. Bire daha yakın olan $\\dfrac{8}{9}$ daha büyüktür.</li>"
             "<li><strong>Ondalığa çevirme:</strong> kesirleri ondalık sayıya çevirip karşılaştırmak da her zaman işe yarar.</li></ul>",
             ornek(
                 "$a=\\dfrac{2}{3}$, $b=\\dfrac{3}{5}$ ve $c=\\dfrac{5}{8}$ olsun.",
@@ -119,14 +119,14 @@ YAZI = {
                 "Bu sayıyı sayı doğrusunda yerleştirelim.",
                 "Tam sayılı kesre çevirelim: $\\dfrac{7}{3}=2\\dfrac{1}{3}$. Sayı $2$ ile $3$ arasındadır.",
                 "$2$ ile $3$ arasındaki birim aralığı $3$ eş parçaya bölelim.",
-                "$2$ den sonraki ilk bölme çizgisi $\\dfrac{7}{3}$ tür."),
+                "$2$ den sonraki ilk bölme çizgisi $\\dfrac{7}{3}$ dir."),
             "Negatif kesirler de aynı yolla, sıfırın solunda yerleştirilir. $-\\dfrac{5}{4}=-1\\dfrac{1}{4}$ sayısı $-2$ ile $-1$ arasında, $-1$ e daha yakın olan yerdedir.",
         ]},
         {"baslik": "Negatif kesirler ve işaret", "icerik": [
             "Bir kesrin eksi işareti paya, paydaya ya da kesrin önüne yazılabilir; üçü de aynı sayıdır:",
             "$$-\\frac{3}{4}=\\frac{-3}{4}=\\frac{3}{-4}$$",
             "Pay ve paydanın ikisi de negatifse eksiler birbirini götürür: $\\dfrac{-3}{-4}=\\dfrac{3}{4}$. Bu, tam sayılardaki bölme işaret kuralının kesirdeki karşılığıdır.",
-            "Negatif kesirleri sıralarken pozitif kesirlerdeki sıra <strong>tersine döner</strong>. $\\dfrac{1}{2}>\\dfrac{1}{3}$ tür, ama $-\\dfrac{1}{2}<-\\dfrac{1}{3}$ tür; çünkü $-\\dfrac{1}{2}$ sıfırdan daha uzaktadır.",
+            "Negatif kesirleri sıralarken pozitif kesirlerdeki sıra <strong>tersine döner</strong>. $\\dfrac{1}{2}>\\dfrac{1}{3}$ dir, ama $-\\dfrac{1}{2}<-\\dfrac{1}{3}$ dir; çünkü $-\\dfrac{1}{2}$ sıfırdan daha uzaktadır.",
             ornek(
                 "$-\\dfrac{2}{3}$, $-\\dfrac{3}{4}$ ve $-\\dfrac{1}{2}$ sayıları verilsin.",
                 "Bu sayıları küçükten büyüğe sıralayalım.",
@@ -169,7 +169,7 @@ YAZI = {
                 "$\\dfrac{9}{75}$ sadeleşir: $\\dfrac{3}{25}$ ve $25=5^2$. Sonlu, $0.12$."),
             dikkat(
                 "Bu kontrol kesir <strong>sadeleştirildikten sonra</strong> yapılır.",
-                "$\\dfrac{3}{12}$ nin paydasında $3$ çarpanı vardır, ama sadeleşince $\\dfrac{1}{4}=0.25$ olur ve gösterim sonludur."),
+                "$\\dfrac{3}{12}$ ün paydasında $3$ çarpanı vardır, ama sadeleşince $\\dfrac{1}{4}=0.25$ olur ve gösterim sonludur."),
         ]},
         {"baslik": "Devirli ondalık sayıyı kesre çevirme", "icerik": [
             "Devirli bir ondalık sayı her zaman bir kesre çevrilebilir; bu yüzden rasyoneldir. Çevirmenin kısa kuralı şudur:",
@@ -197,17 +197,17 @@ YAZI = {
                 "<strong>ALES</strong> ve <strong>KPSS</strong> düzeyinde kesirler bir problemin içinde de karşına çıkabilir: \"bir işin üçte biri\", \"paranın beşte ikisi\" gibi ifadeler kesirle işlem gerektirir."),
             "Kesir problemlerinde bütünün ne olduğunu en başta belirlemek önemlidir. \"Kalanın yarısı\" ile \"tamamın yarısı\" farklı bütünlere göre hesaplanır.",
             ornek(
-                "Bir öğrenci harçlığının $\\dfrac{1}{4}$ ünü kitaba, kalanın $\\dfrac{2}{3}$ ünü yemeğe harcıyor.",
+                "Bir öğrenci harçlığının $\\dfrac{1}{4}$ ini kitaba, kalanın $\\dfrac{2}{3}$ sini yemeğe harcıyor.",
                 "Harçlığının kaçta kaçı kalmıştır?",
                 "Kitaptan sonra kalan: $1-\\dfrac{1}{4}=\\dfrac{3}{4}$.",
-                "Yemeğe harcanan kalanın $\\dfrac{2}{3}$ ü: $\\dfrac{3}{4} \\cdot \\dfrac{2}{3}=\\dfrac{1}{2}$.",
+                "Yemeğe harcanan kalanın $\\dfrac{2}{3}$ si: $\\dfrac{3}{4} \\cdot \\dfrac{2}{3}=\\dfrac{1}{2}$.",
                 "Kalan: $\\dfrac{3}{4}-\\dfrac{1}{2}=\\dfrac{1}{4}$. Harçlığın dörtte biri kalmıştır."),
         ]},
         {"baslik": "Sık yapılan hatalar", "icerik": [
             tablo(["Hata", "Doğrusu"], [
                 ["$\\dfrac{1}{2}+\\dfrac{1}{3}=\\dfrac{2}{5}$", "Önce payda eşitlenir: $\\dfrac{5}{6}$"],
                 ["Bölmede birinci kesri ters çevirmek", "İkinci kesir ters çevrilir"],
-                ["$2\\dfrac{1}{3}$ ü çarpım sanmak", "$2+\\dfrac{1}{3}=\\dfrac{7}{3}$"],
+                ["$2\\dfrac{1}{3}$ i çarpım sanmak", "$2+\\dfrac{1}{3}=\\dfrac{7}{3}$"],
                 ["Sadeleştirmeden sonlu/devirli kararı", "Önce sadeleştir"],
                 ["$0.\\overline{9}$ u $1$ den küçük sanmak", "$0.\\overline{9}=1$"],
                 ["\"Kalanın\" ile \"tamamın\" karıştırmak", "Bütünü önce belirle"],

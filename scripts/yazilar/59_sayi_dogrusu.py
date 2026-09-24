@@ -35,7 +35,7 @@ YAZI = {
             "Ondalık ve irrasyonel sayılar için önce hangi iki tam sayı arasında olduklarına bakılır. $-1.5$, $-2$ ile $-1$ in tam ortasındadır. $\\sqrt{2}$ ise yaklaşık $1.41$ olduğu için $1$ ile $2$ arasında, $1.5$ in biraz solundadır.",
             dikkat(
                 "Negatif kesirleri yerleştirirken yön ters çalışır.",
-                "$-\\dfrac{7}{3}=-2-\\dfrac{1}{3}$ tür: $-2$ den <strong>sola</strong> doğru $1$ parça sayılır. Sayı $-2$ ile $-3$ arasındadır, $-2$ ye daha yakındır."),
+                "$-\\dfrac{7}{3}=-2-\\dfrac{1}{3}$ dir: $-2$ den <strong>sola</strong> doğru $1$ parça sayılır. Sayı $-2$ ile $-3$ arasındadır, $-2$ ye daha yakındır."),
         ]},
         {"baslik": "İki nokta arasındaki uzaklık ve orta nokta", "icerik": [
             "Sayı doğrusunda $a$ ve $b$ noktaları arasındaki uzaklık, büyük sayıdan küçüğün çıkarılmasıyla bulunur. Hangisinin büyük olduğunu düşünmek istemiyorsan farkın mutlak değerini al: uzaklık $|a-b|$ dir. İki noktanın tam ortasındaki nokta ise iki sayının ortalamasıdır: $\\dfrac{a+b}{2}$.",
@@ -146,7 +146,7 @@ YAZI = {
                 "Hangisi büyüktür?",
                 "Mutlak değerleri karşılaştıralım: $\\dfrac{2}{3}=\\dfrac{8}{12}$ ve $\\dfrac{3}{4}=\\dfrac{9}{12}$; yani $\\dfrac{2}{3}<\\dfrac{3}{4}$.",
                 "Negatiflerde sıra ters döner.",
-                "$-\\dfrac{3}{4}<-\\dfrac{2}{3}$; büyük olan $-\\dfrac{2}{3}$ tür."),
+                "$-\\dfrac{3}{4}<-\\dfrac{2}{3}$; büyük olan $-\\dfrac{2}{3}$ dir."),
         ]},
         {"baslik": "Köklü sayıları sıralama", "icerik": [
             "Köklü sayıları karşılaştırmanın en güvenilir yolu, hepsini tek bir kökün içine almaktır. Pozitif sayılarda kökün içi büyük olan sayı büyüktür. Kökün dışındaki bir katsayı, karesi alınarak içeri taşınır: $a\\sqrt{b}=\\sqrt{a^2 b}$.",
@@ -201,7 +201,7 @@ YAZI = {
             "$$x^2<x<\\sqrt{x}<\\dfrac{1}{x}$$",
             ornek(
                 "$x=\\dfrac{1}{4}$ olsun.",
-                "$x^2$, $x$, $\\sqrt{x}$ ve $\\dfrac{1}{x}$ yi sıralayalım.",
+                "$x^2$, $x$, $\\sqrt{x}$ ve $\\dfrac{1}{x}$ i sıralayalım.",
                 "Hesaplayalım: $x^2=\\dfrac{1}{16}$, $x=\\dfrac{1}{4}$, $\\sqrt{x}=\\dfrac{1}{2}$, $\\dfrac{1}{x}=4$.",
                 "Ondalıkla: $0.0625<0.25<0.5<4$.",
                 "Yani $x^2<x<\\sqrt{x}<\\dfrac{1}{x}$."),

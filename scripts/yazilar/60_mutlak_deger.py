@@ -85,7 +85,7 @@ YAZI = {
             "Üçgen eşitsizliğinin adı geometriden gelir: bir üçgende bir kenarın uzunluğu, diğer iki kenarın uzunlukları toplamından büyük olamaz. Sayı doğrusunda da durum aynıdır. $0$ dan $x+y$ ye doğrudan gitmek $|x+y|$ birim tutar; önce $x$ e gidip oradan $y$ kadar ilerlemek ise $|x|+|y|$ birim tutar. Dolambaçlı yol, doğrudan yoldan hiçbir zaman kısa olamaz.",
             dikkat(
                 "$\\sqrt{x^2}=x$ yazmak yanlıştır.",
-                "$x=-3$ için $\\sqrt{(-3)^2}=3$ olur, $-3$ olmaz. Doğrusu $\\sqrt{x^2}=|x|$ dir."),
+                "$x=-3$ için $\\sqrt{(-3)^2}=3$ olur, $-3$ olmaz. Doğrusu $\\sqrt{x^2}=|x|$ tir."),
         ]},
         {"baslik": "Mutlak değer ve uzaklık", "icerik": [
             "Mutlak değerin en kullanışlı yorumu uzaklıktır. $|x|$, $x$ in $0$ a uzaklığıdır; aynı şekilde $|x-a|$, $x$ in $a$ ya uzaklığıdır. İçerideki ifade $x+a$ biçimindeyse onu $x-(-a)$ olarak okumak gerekir: $|x+1|$, $x$ in $-1$ e uzaklığıdır.",
