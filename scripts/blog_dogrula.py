@@ -1295,6 +1295,191 @@ def yazi_86_91():
     esit("91 yuvarlama", (round(4572, -1), (4572 + 50)//100*100, (4572 + 500)//1000*1000), (4570, 4600, 5000))
 
 
+def yazi_92_97():
+    """92 Faktoriyel, 93 Permutasyon, 94 Kombinasyon, 95 Olasilik, 96 Kumeler, 97 Mantik."""
+    from math import factorial as fa, comb as C, perm as P, prod
+    perms = itertools.permutations
+    def say(n_esya, kosul):
+        """n_esya farkli nesnenin (0..n-1) kosulu saglayan siralamalari."""
+        return sum(1 for s in perms(range(n_esya)) if kosul(s))
+    def yan_yana(s, a, b):
+        return abs(s.index(a) - s.index(b)) == 1
+    # ── 92 faktoriyel ──
+    esit("92 tablo", [fa(n) for n in range(8)], [1, 1, 2, 6, 24, 120, 720, 5040])
+    esit("92 ozyineleme", (6*fa(5), 8*5040, 9*40320, fa(8), fa(9), fa(10) == 10*9*8*fa(7), fa(1) == 1*fa(0)), (720, 40320, 362880, 40320, 362880, True, True))
+    esit("92 uc kitap", (len(set(perms("ABC"))), sorted("".join(p) for p in perms("ABC"))), (6, ["ABC", "ACB", "BAC", "BCA", "CAB", "CBA"]))
+    esit("92 bes-alti kisi", (fa(5), fa(6), fa(6) // fa(5)), (120, 720, 6))
+    esit("92 bolumler", (fa(10) // fa(8), F(fa(7), fa(5)*fa(2)), F(42, 2), F(fa(5), fa(3)), fa(10) // fa(5), 10*9*8*7*6, fa(10) // fa(5) == fa(2)), (90, 21, 21, 20, 30240, 30240, False))
+    esit("92 genel bolum", all(fa(n + 1) // fa(n) == n + 1 and fa(n + 2) // fa(n) == (n + 2)*(n + 1) for n in range(1, 30)), True)
+    esit("92 toplama cikarma", (fa(5) + fa(4), fa(4)*6, fa(6) - fa(5), fa(5)*5, F(fa(8) + fa(7), fa(7) - fa(6)), fa(8) + fa(7) == 9*fa(7), fa(7) - fa(6) == 6*fa(6), F(9*7, 6)), (144, 144, 600, 600, F(21, 2), True, True, F(21, 2)))
+    esit("92 dagilmaz", (fa(2 + 3), fa(2) + fa(3), all(fa(2*n) != 2*fa(n) for n in range(2, 20))), (120, 8, True))
+    esit("92 denklemler", ([n for n in range(1, 60) if fa(n + 1) // fa(n - 1) == 42], F(fa(7), fa(5)), [n for n in range(2, 60) if fa(n) == 120 and fa(n - 2) == 6]), ([6], 42, [5]))
+    esit("92 ardisik", (7*8*9*10, fa(10) // fa(6), 3628800 // 720, 7*8*9, 504 // 6, 504 % 6), (5040, 5040, 5040, 504, 84, 0))
+    esit("92 ardisik k! boler", all(prod(range(a, a + k)) % fa(k) == 0 for a in range(1, 40) for k in range(1, 9)), True)
+    esit("92 kalanlar", ((fa(20) + 7) % 11, (fa(10) + 15) % 12, 15 % 12, fa(10) % 12), (7, 3, 3, 0))
+    esit("92 esitsizlik", (min(n for n in range(20) if fa(n) > 1000), fa(6) < 1000, fa(7) > 1000), (7, True, True))
+    esit("92 basamak", (fa(10), fa(12), len(str(fa(10))), len(str(fa(12))), round(fa(10) / 1e6, 1)), (3628800, 479001600, 7, 9, 3.6))
+    esit("92 secim", (F(fa(5), fa(2)*fa(3)), C(5, 2), 5*4, 20 // 2), (10, 10, 20, 10))
+    esit("92 buyume", ([(2**n, fa(n)) for n in (4, 6, 8, 10)], 2**10), ([(16, 24), (64, 720), (256, 40320), (1024, 3628800)], 1024))
+    sifir = lambda n: len(str(fa(n))) - len(str(fa(n)).rstrip("0"))
+    esit("92 sondaki sifir", (sifir(25), 25 // 5 + 25 // 25, sifir(100), 100 // 5 + 100 // 25, [k for k in range(1, 101) if k % 25 == 0]), (6, 6, 24, 24, [25, 50, 75, 100]))
+    esit("92 asal carpan", (sp.factorint(fa(10)), 10 // 2 + 10 // 4 + 10 // 8, 10 // 3 + 10 // 9, 256*81*25*7), ({2: 8, 3: 4, 5: 2, 7: 1}, 8, 4, 3628800))
+    esit("92 bolunebilme", (fa(7) % 60, fa(7) // 60, fa(7) % 11 != 0, all(fa(n) % p_ != 0 for n in range(1, 30) for p_ in sp.primerange(n + 1, 60))), (0, 84, True, True))
+    esit("92 birler", (sum(fa(n) for n in range(1, 101)) % 10, 1 + 2 + 6 + 24, all(fa(n) % 10 == 0 for n in range(5, 101)), all(fa(n) % 100 == 0 for n in range(10, 101))), (3, 33, True, True))
+    # ── 93 permutasyon ──
+    esit("93 ilkeler", (3*4, len(list(itertools.product(range(3), range(4)))), 5 + 3), (12, 12, 8))
+    esit("93 P tablosu", (P(5, 5), P(5, 2), P(8, 3), [P(n, 1) for n in range(1, 9)] == list(range(1, 9)), all(P(n, r) == fa(n) // fa(n - r) for n in range(12) for r in range(n + 1))), (120, 20, 336, True, True))
+    esit("93 yonetim yaris", (P(8, 3), 10*9*8, P(10, 3), 336 // 6, C(8, 3)), (336, 720, 720, 56, 56))
+    esit("93 ozdes", (len(set(perms("KAPAK"))), len(set(perms("ANANAS"))), len(set(perms("KKKMM"))), F(fa(6), fa(3)*fa(2))), (30, 60, 10, 60))
+    esit("93 blok", (say(5, lambda s: yan_yana(s, 0, 1)), fa(4)*2, say(5, lambda s: not yan_yana(s, 0, 1)), 120 - 48), (48, 48, 72, 72))
+    # kitaplar 0-2 matematik, 3-4 fizik; ayni dersin kitaplari yan yana
+    blok = lambda s, g: max(s.index(i) for i in g) - min(s.index(i) for i in g) == len(g) - 1
+    esit("93 ders bloklari", (say(5, lambda s: blok(s, (0, 1, 2)) and blok(s, (3, 4))), 2*6*2), (24, 24))
+    # 0-2 erkek, 3-4 kiz: kizlar yan yana degil
+    esit("93 araya yerlestirme", (say(5, lambda s: not yan_yana(s, 3, 4)), fa(3)*P(4, 2), P(4, 2)), (72, 72, 12))
+    esit("93 bir kisi arada", (say(5, lambda s: abs(s.index(0) - s.index(1)) == 2), 3*2*6), (36, 36))
+    # 0-2 kiz, 3-5 erkek, donusumlu
+    donusum = lambda s, kizlar: all((s[i] in kizlar) != (s[i + 1] in kizlar) for i in range(len(s) - 1))
+    esit("93 donusumlu", (say(6, lambda s: donusum(s, {0, 1, 2})), 2*6*6), (72, 72))
+    esit("93 donusumlu 3 kiz 2 erkek", all(s[0] in {0, 1, 2} for s in perms(range(5)) if donusum(s, {0, 1, 2})), True)
+    uc = [100*a + 10*b + c for a, b, c in perms(range(1, 6), 3)]
+    esit("93 rakamlar", (len(uc), P(5, 3), sum(1 for u in uc if u > 300), 3*4*3), (60, 60, 36, 36))
+    esit("93 izgara", (len(set(perms("SSSYY"))), C(5, 2)), (10, 10))
+    esit("93 konum", (say(5, lambda s: s[0] == 0), say(5, lambda s: s[0] == 0 and s[-1] == 1), say(5, lambda s: s[0] == 0 or s[-1] == 0), 2*24), (24, 6, 48, 48))
+    def dairesel(n, ters=False):
+        gorulen = set()
+        for s in perms(range(n)):
+            donen = [s[i:] + s[:i] for i in range(n)]
+            if ters:
+                donen += [tuple(reversed(d)) for d in donen]
+            gorulen.add(min(donen))
+        return gorulen
+    daire5 = dairesel(5)
+    esit("93 dairesel", (len(daire5), fa(4), 120 // 5, len(dairesel(5, True)), fa(4) // 2), (24, 24, 24, 12, 12))
+    esit("93 dairesel blok", (sum(1 for d in daire5 if abs(d.index(0) - d.index(1)) in (1, 4)), fa(3)*2), (12, 12))
+    esit("93 sifre", (10**4, len(list(itertools.product(range(10), repeat=4))), P(10, 4), 10*9*8*7, 10**3 + 10**4), (10000, 10000, 5040, 5040, 11000))
+    kalem = list(perms("KALEM"))
+    esit("93 KALEM", (len(set(kalem)), sum(1 for s in kalem if abs(s.index("A") - s.index("E")) == 1), 24*2), (120, 48, 48))
+    # ── 94 kombinasyon ──
+    esit("94 sira", (P(5, 3), 60 // 6, C(5, 3), F(fa(5), fa(3)*fa(2))), (60, 10, 10, 10))
+    esit("94 ozel degerler", all(C(n, 0) == 1 and C(n, 1) == n and C(n, n) == 1 and C(n, 2) == n*(n - 1)//2 for n in range(2, 30)), True)
+    esit("94 simetri", (C(10, 8), C(10, 2), 10*9 // 2, all(C(n, r) == C(n, n - r) for n in range(20) for r in range(n + 1))), (45, 45, 45, True))
+    esit("94 komisyon", (C(12, 4), 12*11*10*9, 4*3*2*1, 11880 // 24), (495, 11880, 24, 495))
+    esit("94 kiz erkek", (C(6, 2), C(5, 3), 15*10, 15 + 10), (15, 10, 150, 25))
+    kisi = [("K", i) for i in range(6)] + [("E", i) for i in range(5)]
+    kizsay = lambda e: sum(1 for k in e if k[0] == "K")
+    ekip4 = list(itertools.combinations(kisi, 4))
+    esit("94 en az bir kiz", (len(ekip4), C(11, 4), C(5, 4), sum(1 for e in ekip4 if kizsay(e) >= 1), 330 - 5), (330, 330, 5, 325, 325))
+    esit("94 durumlar", (C(6, 1)*C(5, 3), C(6, 2)*C(5, 2), C(6, 3)*C(5, 1), C(6, 4), 60 + 150 + 100 + 15), (60, 150, 100, 15, 325))
+    esit("94 en cok iki kiz", (sum(1 for e in ekip4 if kizsay(e) <= 2), 5 + 60 + 150, 6*10, 15*10), (215, 215, 60, 150))
+    on4 = list(itertools.combinations(range(10), 4))
+    esit("94 A B ayri", (len(on4), C(10, 4), C(8, 2), sum(1 for e in on4 if not (0 in e and 1 in e)), 210 - 28), (210, 210, 28, 182, 182))
+    esit("94 A var yok", (sum(1 for e in on4 if 0 in e), C(9, 3), sum(1 for e in on4 if 0 not in e), C(9, 4), 84 + 126), (84, 84, 126, 126, 210))
+    esit("94 pascal", ([[C(n, r) for r in range(n + 1)] for n in range(6)], all(C(n, r) == C(n - 1, r - 1) + C(n - 1, r) for n in range(1, 25) for r in range(1, n)), sum(C(5, r) for r in range(6)), 1 + 5 + 10 + 10 + 5 + 1, 2**5),
+         ([[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1], [1, 5, 10, 10, 5, 1]], True, 32, 32, 32))
+    esit("94 alt kume", (2**4, sum(C(4, r) for r in range(5)), 1 + 4 + 6 + 4 + 1, len([s for r in range(5) for s in itertools.combinations(range(4), r)])), (16, 16, 16, 16))
+    esit("94 geometri", (C(8, 2), C(8, 3), C(6, 2), C(6, 2) - 6, 6*(6 - 3)//2, C(5, 2), C(4, 2), 10*6), (28, 56, 15, 9, 9, 10, 6, 60))
+    a_, b_ = sp.symbols("a_ b_")
+    esit("94 binom", (sp.expand((a_ + b_)**4), sp.expand((a_ + b_)**2), sp.Poly((a_ + b_)**4, a_, b_).coeff_monomial(a_**2*b_**2)), (a_**4 + 4*a_**3*b_ + 6*a_**2*b_**2 + 4*a_*b_**3 + b_**4, a_**2 + 2*a_*b_ + b_**2, 6))
+    esit("94 tokalasma", (C(10, 2), 10*9, 90 // 2, P(10, 2)), (45, 90, 45, 90))
+    esit("94 kaptan", (C(10, 5), 252*5, sum(5 for _ in itertools.combinations(range(10), 5)), C(9, 4), 10*126), (252, 1260, 1260, 126, 1260))
+    esit("94 sec diz", (C(7, 3), C(7, 3)*6, P(7, 3), 7*6*5), (35, 210, 210, 210))
+    def ikili_ayir(k):
+        if not k:
+            return [()]
+        ilk, sonuc = k[0], []
+        for es in k[1:]:
+            kalan = [e for e in k[1:] if e != es]
+            sonuc += [((ilk, es),) + r for r in ikili_ayir(kalan)]
+        return sonuc
+    esit("94 gruplara ayirma", (C(6, 2)*C(4, 2)*C(2, 2), 15*6*1, len(ikili_ayir(list(range(6)))), 90 // 6), (90, 90, 15, 15))
+    esit("94 denklemler", ([n for n in range(2, 100) if C(n, 2) == 28], 8*7, [n for n in range(5, 100) if C(n, 3) == C(n, 5)], C(8, 3), C(8, 5)), ([8], 56, [8], 56, 56))
+    # ── 95 olasilik ──
+    zar = range(1, 7)
+    esit("95 zar", (F(len([z for z in zar if z % 2 == 0]), 6), F(len([z for z in zar if z > 4]), 6)), (F(1, 2), F(1, 3)))
+    para3 = list(itertools.product("TY", repeat=3))
+    esit("95 uc para en az bir", (len(para3), F(sum(1 for p in para3 if "T" in p), 8), 1 - F(1, 8)), (8, F(7, 8), F(7, 8)))
+    iki = list(itertools.product(zar, zar))
+    top = lambda t: sum(1 for a, b in iki if a + b == t)
+    esit("95 iki zar tablo", ([top(t) for t in (2, 4, 6, 7, 10, 12)], len(iki), F(top(7), 36), F(top(10), 36), max(range(2, 13), key=top), [top(t) for t in range(2, 13)]),
+         ([1, 3, 5, 6, 3, 1], 36, F(1, 6), F(1, 12), 7, [1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]))
+    esit("95 iki zar ciktilar", (sorted((a, b) for a, b in iki if a + b == 7), sorted((a, b) for a, b in iki if a + b == 10)), ([(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)], [(4, 6), (5, 5), (6, 4)]))
+    esit("95 tam iki tura", (sorted("".join(p) for p in para3 if p.count("T") == 2), [F(sum(1 for p in para3 if p.count("T") == k), 8) for k in range(4)], C(3, 2)), (["TTY", "TYT", "YTT"], [F(1, 8), F(3, 8), F(3, 8), F(1, 8)], 3))
+    esit("95 hic alti", (F(sum(1 for a, b in iki if 6 not in (a, b)), 36), F(5, 6)**2, F(sum(1 for a, b in iki if 6 in (a, b)), 36), F(1, 6) + F(1, 6), F(12, 36)), (F(25, 36), F(25, 36), F(11, 36), F(1, 3), F(1, 3)))
+    esit("95 siralama", (F(say(5, lambda s: yan_yana(s, 0, 1)), fa(5)), fa(4)*fa(2)), (F(2, 5), 48))
+    torba = ["K"]*4 + ["M"]*6
+    cift = list(perms(range(10), 2))
+    esit("95 ikinci renk", (F(sum(1 for i, j in cift if torba[j] == "K"), len(cift)), F(4, 10)*F(3, 9), F(6, 10)*F(4, 9), F(12, 90) + F(24, 90)), (F(2, 5), F(12, 90), F(24, 90), F(2, 5)))
+    esit("95 torba", (F(4, 10), F(6, 10), F(2, 5) + F(3, 5)), (F(2, 5), F(3, 5), 1))
+    kart = range(1, 21)
+    esit("95 birlesim", (len([k for k in kart if k % 2 == 0]), len([k for k in kart if k % 3 == 0]), len([k for k in kart if k % 6 == 0]), F(len([k for k in kart if k % 2 == 0 or k % 3 == 0]), 20), 10 + 6 - 3), (10, 6, 3, F(13, 20), 13))
+    esit("95 bagimsiz", (F(1, 6) + F(1, 6), F(1, 2)*F(1, 6), F(sum(1 for p in "TY" for z in zar if p == "T" and z == 6), 12)), (F(1, 3), F(1, 12), F(1, 12)))
+    esit("95 geri koyma", (F(sum(1 for i in range(10) for j in range(10) if torba[i] == torba[j] == "K"), 100), F(4, 10)**2, F(sum(1 for i, j in cift if torba[i] == torba[j] == "K"), len(cift)), F(4, 10)*F(3, 9), F(C(4, 2), C(10, 2)), C(4, 2), C(10, 2)),
+         (F(4, 25), F(4, 25), F(2, 15), F(2, 15), F(2, 15), 6, 45))
+    uc10 = list(itertools.combinations(range(10), 3))
+    esit("95 kombinasyonla", (len(uc10), F(sum(1 for e in uc10 if 0 in e and 1 in e), len(uc10)), C(8, 1), F(8, 120)), (120, F(1, 15), 8, F(1, 15)))
+    kiz9 = list(itertools.combinations(range(9), 3))
+    esit("95 iki kiz bir erkek", (len(kiz9), sum(1 for e in kiz9 if sum(1 for k in e if k < 5) == 2), C(5, 2)*C(4, 1), F(40, 84)), (84, 40, 40, F(10, 21)))
+    esit("95 kosullu zar", (F(len([z for z in zar if z > 4 and z % 2 == 0]), len([z for z in zar if z > 4])),), (F(1, 2),))
+    cocuk = [c for c in itertools.product("KE", repeat=2) if "K" in c]
+    esit("95 iki cocuk", (len(cocuk), F(sum(1 for c in cocuk if c == ("K", "K")), len(cocuk))), (3, F(1, 3)))
+    esit("95 cark deneysel", (F(3, 8), F(120, 360), F(47, 100), float(F(47, 100))), (F(3, 8), F(1, 3), F(47, 100), 0.47))
+    # ── 96 kumeler ──
+    esit("96 asallar", [n for n in range(20) if sp.isprime(n)], [2, 3, 5, 7, 11, 13, 17, 19])
+    altk = lambda K: [set(s) for r in range(len(K) + 1) for s in itertools.combinations(K, r)]
+    esit("96 alt kume sayisi", (len(altk("abc")), len(altk("abc")) - 1, sum(1 for s in altk("abcd") if "a" in s), 2**3, 16 // 2), (8, 7, 8, 8, 8))
+    A5 = altk([1, 2, 3, 4, 5])
+    esit("96 kosullu alt kume", (sum(1 for s in A5 if 1 in s and 2 not in s), sum(1 for s in A5 if s), 2**5 - 1, sum(1 for s in A5 if len(s) == 2), sum(1 for s in A5 if len(s) == 3)), (8, 31, 31, 10, 10))
+    E, A, B = set(range(1, 9)), {1, 2, 3, 4, 5}, {4, 5, 6, 7}
+    esit("96 islemler", (A | B, A & B, A - B, B - A, E - A, E - B, E - (A | B), (E - A) & (E - B)), (set(range(1, 8)), {4, 5}, {1, 2, 3}, {6, 7}, {6, 7, 8}, {1, 2, 3, 8}, {8}, {8}))
+    esit("96 alt kume ornegi", ({1, 2} <= {1, 2, 3}, {2, 4} <= {1, 2, 3}), (True, False))
+    esit("96 dil", (25 + 18 - 8, 40 - 35, 25 - 8, 18 - 8, 17 + 8 + 10 + 5), (35, 5, 17, 10, 40))
+    esit("96 spor", (30 - 5, 18 + 15 - 25, 18 - 8, 15 - 8, 10 + 8 + 7 + 5), (25, 8, 10, 7, 30))
+    esit("96 fark", (15 + 12 - 22, 15 - 5, 12 - 5, 10 + 7 + 5), (5, 10, 7, 22))
+    esit("96 yuzde", (60 + 50 - 20, 100 - 90, 200*F(10, 100)), (90, 10, 20))
+    # uc kulup: bolgeler negatif olmamali; toplam 39
+    ab, ac, bc, abc = 7 - 2, 5 - 2, 4 - 2, 2
+    yA, yB, yC = 20 - ab - ac - abc, 18 - ab - bc - abc, 15 - ac - bc - abc
+    esit("96 uc kume", (20 + 18 + 15, 7 + 5 + 4, 53 - 16 + 2, min(yA, yB, yC, ab, ac, bc) >= 0, yA + yB + yC + ab + ac + bc + abc), (53, 16, 39, True, 39))
+    olasi = [k for k in range(0, 19) if 18 + 20 - k <= 30]
+    esit("96 en az en cok", (min(olasi), max(olasi), 18 + 20 - 30), (8, 18, 8))
+    esit("96 kartezyen", (len(list(itertools.product([1, 2], "abc"))), 2*3), (6, 6))
+    import random
+    rnd = random.Random(9697)
+    for _ in range(300):
+        X, Y, Z = ({v for v in range(10) if rnd.random() < 0.5} for _ in range(3))
+        U = set(range(10))
+        esit("96 ozellikler", (X | Y == Y | X, X & Y == Y & X, (X | Y) | Z == X | (Y | Z), (X & Y) & Z == X & (Y & Z), X | set() == X, X & set() == set(), X | X == X, X & X == X,
+                               X & (Y | Z) == (X & Y) | (X & Z), U - (X | Y) == (U - X) & (U - Y), U - (X & Y) == (U - X) | (U - Y),
+                               len(X | Y) == len(X) + len(Y) - len(X & Y), len(X - Y) == len(X) - len(X & Y), len(X | Y) == len(X - Y) + len(Y - X) + len(X & Y),
+                               len(X | Y | Z) == len(X) + len(Y) + len(Z) - len(X & Y) - len(X & Z) - len(Y & Z) + len(X & Y & Z), len(list(itertools.product(X, Y))) == len(X)*len(Y),
+                               (not X <= Y) or (X | Y == Y and X & Y == X)), (True,)*17)
+    # ── 97 mantik ──
+    D2 = list(itertools.product((1, 0), repeat=2))
+    D3 = list(itertools.product((1, 0), repeat=3))
+    ve, veya, yada = (lambda p, q: p & q), (lambda p, q: p | q), (lambda p, q: p ^ q)
+    ise, ancak = (lambda p, q: (1 - p) | q), (lambda p, q: int(p == q))
+    d = lambda p: 1 - p
+    esit("97 tablolar", ([ve(p, q) for p, q in D2], [veya(p, q) for p, q in D2], [yada(p, q) for p, q in D2], [ise(p, q) for p, q in D2], [ancak(p, q) for p, q in D2], [d(p) for p in (1, 0)]),
+         ([1, 0, 0, 0], [1, 1, 1, 0], [0, 1, 1, 0], [1, 0, 1, 1], [1, 0, 0, 1], [0, 1]))
+    esit("97 onermeler", (sp.isprime(7), 2 + 3 == 6, sp.sqrt(9).is_integer, 12 % 2 == 0, sp.isprime(5), 5 % 2 == 0, 6 % 2 == 0 and 6 % 3 == 0), (True, False, True, True, True, False, True))
+    esit("97 ozellikler", all(all([ve(p, q) == ve(q, p), veya(p, q) == veya(q, p), ve(p, p) == p, veya(p, p) == p, ve(p, 1) == p, veya(p, 1) == 1, ve(p, 0) == 0, veya(p, 0) == p, ve(p, d(p)) == 0, veya(p, d(p)) == 1, d(d(p)) == p,
+                                   ve(p, veya(q, r)) == veya(ve(p, q), ve(p, r)), veya(p, ve(q, r)) == ve(veya(p, q), veya(p, r)),
+                                   d(ve(p, q)) == veya(d(p), d(q)), d(veya(p, q)) == ve(d(p), d(q)), ise(p, q) == veya(d(p), q), d(ise(p, q)) == ve(p, d(q)),
+                                   ise(p, q) == ise(d(q), d(p)), ise(q, p) == ise(d(p), d(q)), ancak(p, q) == ve(ise(p, q), ise(q, p)), ancak(p, q) == d(yada(p, q))])
+                          for p, q, r in D3), True)
+    esit("97 karsit denk degil", any(ise(p, q) != ise(q, p) for p, q in D2), True)
+    esit("97 dort ve cift", (all(n % 2 == 0 for n in range(1, 500) if n % 4 == 0), 6 % 2 == 0 and 6 % 4 != 0, all(n % 4 != 0 for n in range(1, 500) if n % 2 != 0)), (True, True, True))
+    tur = lambda f: "totoloji" if all(f(p, q) for p, q in D2) else ("celiski" if not any(f(p, q) for p, q in D2) else "ikisi de degil")
+    esit("97 totoloji", (tur(lambda p, q: veya(p, d(p))), tur(lambda p, q: ve(p, d(p))), tur(lambda p, q: ise(ve(p, q), p)), tur(lambda p, q: ise(p, veya(p, q))), tur(lambda p, q: ve(p, q)), [ve(p, q) for p, q in D2].count(1)),
+         ("totoloji", "celiski", "totoloji", "totoloji", "ikisi de degil", 1))
+    esit("97 satir sayisi", (len(D2), len(D3)), (4, 8))
+    esit("97 sadelestirme", (all(veya(ve(p, q), ve(p, d(q))) == p for p, q in D2), all(ve(ise(p, q), p) == ve(p, q) for p, q in D2)), (True, True))
+    esit("97 geriye", [(p, q, r) for p, q, r in D3 if ise(p, veya(q, r)) == 0], [(1, 0, 0)])
+    esit("97 acik onerme", ([x_ for x_ in range(100) if x_ + 2 < 5], all(({x_ for x_ in range(50) if x_ % 2 == 0} & {x_ for x_ in range(50) if x_ % 3 == 0}) == {x_ for x_ in range(50) if x_ % 2 == 0 and x_ % 3 == 0} for _ in [0])), ([0, 1, 2], True))
+    esit("97 niceleyiciler", (all(x_ + 1 > x_ for x_ in range(1000)), [x_ for x_ in range(1000) if x_ + 3 == 1], [x_ for x_ in range(-1000, 1000) if x_ + 3 == 1]), (True, [], [-2]))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -1317,7 +1502,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")

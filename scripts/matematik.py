@@ -37,6 +37,8 @@ ISARET = {
     "perp": "⊥", "parallel": "∥", "degree": "°", "ldots": "…", "cdots": "⋯",
     "circ": "∘", "subseteq": "⊆", "supseteq": "⊇", "Leftarrow": "⇐",
     "leftrightarrow": "↔", "mapsto": "↦", "setminus": "\\", "prime": "′",
+    # mantik (25.09): p ∧ q, p ∨ q, p ⊻ q; degil Turkiye mufredatindaki gibi p' ile yazilir
+    "wedge": "∧", "vee": "∨", "veebar": "⊻",
 }
 # Cift cizgili kume simgeleri: \mathbb{R} gibi yazilir ama tek bir harf gibi
 # davranir; grup ayristirmasina girmeden dogrudan karsiligi basilir.

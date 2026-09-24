@@ -41,6 +41,8 @@ def son_kelime(ifade):
         s = s[:-1].rstrip()
     if s.endswith("\\}"): s = s[:-2]
     if s.endswith("\\ldots") or s.endswith("\\cdots"): return None
+    # sondaki faktoriyel: 5! "bes faktoriyel" okunur (25.09: "$5!$ ten" yakalanamiyordu)
+    if s.endswith("!"): return "faktöriyel"
     # sondaki us: ^2 kare, ^3 kup, ^{...} ya da ^n
     m = re.search(r"\^(\{([^{}]*)\}|(\w))$", s)
     if m:

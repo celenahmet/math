@@ -56,6 +56,7 @@ def sinavda(*parcalar):
 def tablo(basliklar, satirlar):
     """Dar ekranda yatay kayan tablo. Hucreler KISA tutulur; uzun aciklama
     tablonun altina yazilir (blog yazim kurali)."""
-    bas = "".join(f"<th>{html.escape(str(b))}</th>" for b in basliklar)
+    # quote=False: baslik ogenin ICINDE, tirnak kacisi gerekmez; $p'$ gibi formuller &#x27; olup bozuluyordu (25.09)
+    bas = "".join(f"<th>{html.escape(str(b), quote=False)}</th>" for b in basliklar)
     gov = "".join("<tr>" + "".join(f"<td>{h}</td>" for h in s) + "</tr>" for s in satirlar)
     return f'<div class="bs-tablo"><table><thead><tr>{bas}</tr></thead><tbody>{gov}</tbody></table></div>'
