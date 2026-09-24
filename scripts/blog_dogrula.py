@@ -861,6 +861,152 @@ def yazi_66_70_ek():
     esit("70e negatif", (-Fr(2, 3)*Fr(3, 4), (-Fr(2, 3))*(-Fr(3, 4))), (Fr(-1, 2), Fr(1, 2)))
 
 # ── bicim denetimi ─────────────────────────────────────────────────────
+def _acilim(p_, q_):
+    """p/q (p >= 0, q > 0) uzun bolmesi: (tam kisim, devretmeyen basamaklar, devreden basamaklar)."""
+    tam_, r_ = divmod(p_, q_)
+    bas_, gor_ = [], {}
+    while r_ and r_ not in gor_:
+        gor_[r_] = len(bas_)
+        r_ *= 10
+        bas_.append(r_ // q_)
+        r_ %= q_
+    if not r_:
+        return (tam_, "".join(map(str, bas_)), "")
+    i_ = gor_[r_]
+    return (tam_, "".join(map(str, bas_[:i_])), "".join(map(str, bas_[i_:])))
+
+
+def _devir_kurali(tam_, dt_, dv_):
+    """Yazidaki kural: pay = tamami - devretmeyen, payda = devreden kadar 9 + devretmeyen ondalik kadar 0."""
+    return F(int(str(tam_) + dt_ + dv_) - int(str(tam_) + dt_), int("9"*len(dv_) + "0"*len(dt_)))
+
+
+def _yuvarla(x_, n_):
+    """Pozitif sayiyi n ondalik basamaga yuvarlar (5 ve ustu yukari)."""
+    return F(int(x_*10**n_ + F(1, 2)), 10**n_)
+
+
+def yazi_71_75():
+    """71 Ondalik, 72 Devirli, 73 Yuzdeler, 74 Oran-Oranti, 75 Dogru-Ters Oranti (genisletmeler dahil)."""
+    D = F  # D("3.472") ondalik sayiyi TAM kesir olarak okur
+    # ── 71 ondalik gosterim ──
+    esit("71 cozumleme", D("3.472") == 3 + F(4, 10) + F(7, 100) + F(2, 1000), True)
+    esit("71 sifirlar", (D("0.5") == D("0.50") == D("0.500"), D("2.30") == D("2.3"), D("2.03") == D("2.3")), (True, True, False))
+    esit("71 kesirden ondaliga", (F(3, 25) == F(12, 100) == D("0.12"), F(7, 20) == F(35, 100) == D("0.35"),
+                                  [divmod(30, 8), divmod(60, 8), divmod(40, 8)], F(3, 8) == D("0.375"), _acilim(1, 3)),
+         (True, True, [(3, 6), (7, 4), (5, 0)], True, (0, "", "3")))
+    esit("71 ondaliktan kesre", (D("0.35"), F(35 // 5, 100 // 5), D("2.125"), F(2125 // 125, 1000 // 125), float(F(17, 8))), (F(7, 20), F(7, 20), F(17, 8), F(17, 8), 2.125))
+    esit("71 siralama", D("0.07") < D("0.68") < D("0.7") < D("0.702"), True)
+    esit("71 toplama cikarma", (D("12.5") + D("3.075"), 7 - D("2.36")), (D("15.575"), D("4.64")))
+    esit("71 carpma", (24*35, F(24*35, 10*100), D("2.4")*D("0.35"), D("3.472")*100, D("0.5")*1000, 40*D("0.25")), (840, D("0.84"), D("0.84"), D("347.2"), 500, 10))
+    esit("71 bolme", (D("7.2")/D("0.4"), F(72, 4), D("0.63")/D("0.009"), F(630, 9), D("9.6")/4, D("45.6")/100, F(7, 1000)),
+         (18, 18, 70, 70, D("2.4"), D("0.456"), D("0.007")))
+    esit("71 yuvarlama", (_yuvarla(D("3.46"), 1), _yuvarla(D("2.749"), 2), _yuvarla(D("4.96"), 1), _yuvarla(D("2.449"), 1), _yuvarla(_yuvarla(D("2.449"), 2), 1)),
+         (D("3.5"), D("2.75"), 5, D("2.4"), D("2.5")))
+    esit("71 tahmin", (5*3, 498*302, D("4.98")*D("3.02")), (15, 150396, D("15.0396")))
+    esit("71 kalem ve not", (3*D("4.75"), 20 - 3*D("4.75"), D("7.5") + D("8.25") + D("6.75"), (D("7.5") + D("8.25") + D("6.75"))/3), (D("14.25"), D("5.75"), D("22.5"), D("7.5")))
+    esit("71 kesre cevirme kisayolu", (D("0.25"), D("0.125")), (F(1, 4), F(1, 8)))
+    esit("71 araliktaki sayilar", (len([k_ for k_ in range(230, 241) if 230 < k_ < 240]), len([k_ for k_ in range(2300, 2401) if 2300 < k_ < 2400])), (9, 99))
+    esit("71 kesir ve ondalik karsilastirma", (F(3, 4), F(75, 100) == D("0.75"), D("0.75") > D("0.7")), (D("0.75"), True, True))
+    tablo_ = [(F(1, 2), "0.5", 50), (F(1, 4), "0.25", 25), (F(3, 4), "0.75", 75), (F(1, 5), "0.2", 20), (F(2, 5), "0.4", 40),
+              (F(1, 8), "0.125", D("12.5")), (F(1, 10), "0.1", 10), (F(1, 20), "0.05", 5), (F(1, 25), "0.04", 4)]
+    esit("71 kesir ondalik yuzde tablosu", all(k_ == D(o_) and k_*100 == y_ for k_, o_, y_ in tablo_), True)
+    esit("71 yuzde donusum", (F(35, 100) == D("0.35"), F(7, 100) == D("0.07"), 36*D("0.25"), F(36, 4)), (True, True, 9, 9))
+    esit("71 birim donusumu", (D("2.5")*1000, D("1.75")*1000, F(350, 100), D("3.2")/D("0.4"), F(32, 4), D("1.2") + D("0.45")), (2500, 1750, D("3.5"), 8, 8, D("1.65")))
+    esit("71 karisik islem", (D("3.2") - D("1.8"), D("0.5")*D("1.4"), D("0.36")/D("0.12"), D("0.5")*(D("3.2") - D("1.8")) + D("0.36")/D("0.12")), (D("1.4"), D("0.7"), 3, D("3.7")))
+    esit("71 kesirle kisaltma", (F(1, 4)*D("0.8"), D("0.2")/D("0.02"), D("0.25")*D("0.8")/D("0.02")), (D("0.2"), 10, 10))
+    esit("71 her kesir sonlu ya da devirli", all((_acilim(p_, q_)[2] == "") == _sonlu_mu(p_, q_) for q_ in range(1, 150) for p_ in range(1, 60)), True)
+    # ── 72 devirli ondalik ──
+    esit("72 tablo", (_acilim(3, 8), _acilim(1, 3), _acilim(4, 11), _acilim(1, 6), _acilim(1, 7)),
+         ((0, "375", ""), (0, "", "3"), (0, "", "36"), (0, "1", "6"), (0, "", "142857")))
+    kalan_, bas_, r_ = [], [], 1
+    for _ in range(6):
+        bas_.append(r_*10 // 7); r_ = r_*10 % 7; kalan_.append(r_)
+    esit("72 1/7 kalanlari", (kalan_, bas_), ([3, 2, 6, 4, 5, 1], [1, 4, 2, 8, 5, 7]))
+    esit("72 devir en fazla q-1", all(len(_acilim(p_, q_)[2]) <= q_ - 1 for q_ in range(2, 300) for p_ in range(1, q_)), True)
+    esit("72 sonlu mu devirli mi", (sp.factorint(40), _acilim(7, 40), sp.factorint(30), _acilim(7, 30), F(3, 12), _acilim(3, 12), 2*5),
+         ({2: 3, 5: 1}, (0, "175", ""), {2: 1, 3: 1, 5: 1}, (0, "2", "3"), F(1, 4), (0, "25", ""), 10))
+    esit("72 kural ornekleri", (_devir_kurali(0, "", "3"), _devir_kurali(0, "", "36"), 16 - 1, _devir_kurali(0, "1", "6"),
+                                245 - 2, _devir_kurali(2, "", "45"), 1234 - 12, _devir_kurali(1, "2", "34"), F(1222, 990)),
+         (F(1, 3), F(4, 11), 15, F(1, 6), 243, F(27, 11), 1222, F(611, 495), F(611, 495)))
+    esit("72 kural kaba kuvvet", all(_devir_kurali(*_acilim(p_, q_)) == F(p_, q_) for q_ in range(1, 200) for p_ in range(0, 3*q_) if _acilim(p_, q_)[2]), True)
+    esit("72 kural ispati", (F(36, 99), F(15, 90), F(9, 9), F(1, 3)*3, 10 - 1), (F(4, 11), F(1, 6), 1, 1, 9))
+    esit("72 dokuz devreden", (_devir_kurali(0, "", "9"), 249 - 24, _devir_kurali(2, "4", "9"), float(F(5, 2))), (1, 225, F(5, 2), 2.5))
+    esit("72 devir uzunlugu", ([_acilim(1, q_)[2] for q_ in (3, 11, 37, 7, 13)], [len(_acilim(1, q_)[2]) for q_ in (3, 11, 37, 7, 13)], 7 - 1, 13 - 1),
+         (["3", "09", "027", "142857", "076923"], [1, 2, 3, 6, 6], 6, 12))
+    esit("72 yuzuncu basamak", (100 % 6, _acilim(1, 7)[2][(100 - 1) % 6]), (4, "8"))
+    esit("72 islem", (F(3, 9) + F(6, 9), F(1, 9) + F(2, 9), _devir_kurali(0, "1", "6")*6, F(36, 99)/F(12, 99)), (1, F(1, 3), 1, 3))
+    esit("72 siralama", (_devir_kurali(0, "3", "4"), D("0.33") < F(1, 3) < _devir_kurali(0, "3", "4"), F(1, 3) - D("0.33")), (F(31, 90), True, F(1, 300)))
+    esit("72 dokuzlara tamamlama", ([_acilim(1, q_) for q_ in (9, 99, 999)], _acilim(7, 9), _acilim(23, 99), _acilim(123, 999)),
+         ([(0, "", "1"), (0, "", "01"), (0, "", "001")], (0, "", "7"), (0, "", "23"), (0, "", "123")))
+    esit("72 genisletme", (11*9, F(5, 11) == F(45, 99), _acilim(5, 11), 27*37, F(2, 27) == F(74, 999), _acilim(2, 27)),
+         (99, True, (0, "", "45"), 999, True, (0, "", "074")))
+    esit("72 eksik basamak", (_acilim(7, 99), _devir_kurali(0, "", "7"), F(7, 9)/F(7, 99)), ((0, "", "07"), F(7, 9), 11))
+    esit("72 bilinmeyen tek", [a_ for a_ in range(10) if _devir_kurali(0, "", str(a_)) + F(3, 9) == _devir_kurali(0, "", "8")], [5])
+    esit("72 bilinmeyen cift", (all(_devir_kurali(0, "", f"{a_}{b_}") == F(10*a_ + b_, 99) for a_ in range(10) for b_ in range(10)),
+                                {a_ + b_ for a_ in range(1, 10) for b_ in range(1, 10) if _devir_kurali(0, "", f"{a_}{b_}") + _devir_kurali(0, "", f"{b_}{a_}") == 1},
+                                F(27 + 72, 99)),
+         (True, {9}, 1))
+    esit("72 yuvarlama", (_acilim(2, 3), _yuvarla(F(2, 3), 2), _devir_kurali(1, "", "27"), _yuvarla(_devir_kurali(1, "", "27"), 1), D("0.33")*3, F(1, 3)*3),
+         ((0, "", "6"), D("0.67"), F(14, 11), D("1.3"), D("0.99"), 1))
+    esit("72 bolmeyle kontrol", ([divmod(611, 495), divmod(1160, 495), divmod(1700, 495), divmod(2150, 495)], _acilim(611, 495)),
+         ([(1, 116), (2, 170), (3, 215), (4, 170)], (1, "2", "34")))
+    # ── 73 yuzdeler ──
+    esit("73 tanim", (F(25, 100), D("0.25"), F(10, 40), F(50, 200)), (F(1, 4), F(1, 4), F(1, 4), F(1, 4)))
+    esit("73 donusum", (F(7, 100) == D("0.07"), D("1.2")*100, F(3, 5) == F(60, 100), D("0.6")*100, F(6, 5) == D("1.2"), F(1, 8)*100),
+         (True, 120, True, 60, True, D("12.5")))
+    esit("73 sayinin yuzdesi", (240*F(15, 100), F(3600, 100), [240*F(y_, 100) for y_ in (10, 5, 25, 50, 15)], 24 + 12), (36, 36, [24, 12, 60, 120, 36], 36))
+    esit("73 yer degistirme", (50*F(8, 100), 8*F(50, 100), sp.simplify(a*b/100 - b*a/100)), (4, 4, 0))
+    esit("73 yuzdesi verilen", (F(42, 30), F(42, 30)*100, F(12, 4), 3*10, F(12, F(40, 100))), (D("1.4"), 140, 3, 30, 30))
+    esit("73 yuzde kaci", (F(18, 72), F(18, 72)*100, F(132, 480), F(132, 480)*100), (F(1, 4), 25, F(11, 40), D("27.5")))
+    esit("73 artis azalis", (F(100 - 80, 80)*100, F(80 - 100, 100)*100), (25, -20))
+    esit("73 carpanlar", (1 + F(20, 100), 1 - F(20, 100), 1 + F(5, 100), 1 - F(35, 100), D("1.2")*D("0.8"), D("1.1")*D("1.1")), (D("1.2"), D("0.8"), D("1.05"), D("0.65"), D("0.96"), D("1.21")))
+    esit("73 yuzde puan", (12 - 10, F(12 - 10, 10)*100), (2, 20))
+    esit("73 indirim vergi", (250*D("0.8"), 360/D("1.2"), 360 - 300, 360*F(20, 100), 360 - 72, 300*F(20, 100)), (200, 300, 60, 72, 288, 60))
+    esit("73 yuz kabul", 100*D("1.2")*D("0.8"), 96)
+    esit("73 basa donus", (1/D("1.25"), 200*D("1.25"), 250 - 200, F(50, 250)*100, D("1.25")*D("0.8"), D("0.8")*D("1.25")), (D("0.8"), 250, 50, 20, 1, 1))
+    esit("73 kar zarar", (120*D("1.25"), 150 - 120, 91/D("0.7"), F(910, 7), 130 - 91, F(30, 120)*100, F(30, 150)*100), (150, 30, 130, 130, 39, 25, 20))
+    esit("73 art arda indirim", (D("0.8")*D("0.9"), (1 - D("0.8")*D("0.9"))*100, 500*D("0.8")*D("0.9"), 500 - 360, F(140, 500)*100, 500*D("0.9")*D("0.8")),
+         (D("0.72"), 28, 360, 140, 28, 360))
+    esit("73 karisim", (200*D("0.15"), 30 + 50, 200 + 50, F(80, 250)*100, F(30, 300)*100, (F(10, 100)*100 + F(30, 100)*100)/200*100), (30, 80, 250, 32, 10, 20))
+    esit("73 faiz", (5000*D("0.4")*F(1, 2), 5000 + 1000, D("1.1")*D("1.1"), 2*10, F(6, 12), F(3, 12)), (1000, 6000, D("1.21"), 20, F(1, 2), F(1, 4)))
+    # ── 74 oran ve oranti ──
+    k_, m_, n_ = sp.symbols("k_ m_ n_", positive=True)
+    esit("74 oran", (F(12, 18), sp.igcd(12, 18), F(12, 18) == F(2, 3) == F(4, 6), F(50, 2), F(50, 200)), (F(2, 3), 6, True, 25, F(1, 4)))
+    esit("74 icler disler", (sp.solve(sp.Eq(5*x, 3*40), x), sp.solve(sp.Eq(4*(x + 1), 7*(x - 2)), x), F(6 + 1, 6 - 2)), ([24], [6], F(7, 4)))
+    esit("74 oranti sabiti", (sp.solve(sp.Eq(3*k_ + 5*k_ + 7*k_, 45), k_), [3*3, 5*3, 7*3], sp.solve(sp.Eq(2*k_*3*k_, 54), k_), (2*3, 3*3)), ([3], [9, 15, 21], [3], (6, 9)))
+    esit("74 ozellikler", (sp.simplify((b*k_ + d*k_)/(b + d)), sp.simplify((m_*b*k_ + n_*d*k_)/(m_*b + n_*d)), sp.simplify((2*3*k_ + 4*k_)/(3*k_ - 4*k_))), (k_, k_, -10))
+    esit("74 birlesik", (sp.ilcm(3, 4), (2*4, 3*4), (4*3, 5*3), F(8, 12) == F(2, 3), F(12, 15) == F(4, 5)), (12, (8, 12), (12, 15), True, True))
+    esit("74 bolusum", (2 + 3 + 4, 360 // 9, [2*40, 3*40, 4*40], sum([80, 120, 160]), 90 // 3, (3 + 5)*30), (9, 40, [80, 120, 160], 360, 30, 240))
+    esit("74 olcek", (4*50000, 200000 // 100000, 6*100, F(3, 600), 200*200, F(40000, 100*100), 50000 // 100), (200000, 2, 600, F(1, 200), 40000, 4, 500))
+    esit("74 gunluk", (32/D("0.4"), 57/D("0.75"), D("1.8")/6, 5 + 1), (80, 76, D("0.3"), 6))
+    esit("74 parca butun", (40*F(2, 5), 40 // 5, 2*8, F(2, 2 + 3), F(3, 5)), (16, 8, 16, F(2, 5), F(3, 5)))
+    esit("74 oran degisimi", (sp.solve(sp.Eq(3*k_ + 4, 4*k_), k_), (3*4, 4*4, 7*4), 500*F(1, 5), sp.solve(sp.Eq(2*(100 + x), 400), x), F(100 + 100, 400)),
+         ([4], (12, 16, 28), 100, [100], F(1, 2)))
+    esit("74 yas", (sp.solve(sp.Eq(4*(2*k_ + 5), 3*(3*k_ + 5)), k_), sp.expand(4*(2*k_ + 5)), sp.expand(3*(3*k_ + 5)), (2*5, 3*5), F(10 + 5, 15 + 5)),
+         ([5], 8*k_ + 20, 9*k_ + 15, (10, 15), F(3, 4)))
+    esit("74 orta orantili", (sp.solve(sp.Eq(x**2, 4*9), x), F(4, 6), F(6, 9), F(6, 4), F(9, 6)), ([-6, 6], F(2, 3), F(2, 3), F(3, 2), F(3, 2)))
+    c_ = a*d/b  # a/b = c/d  =>  c = a*d/b
+    esit("74 yer degistirme", [sp.simplify(e_) for e_ in (a/c_ - b/d, d/b - c_/a, b/a - d/c_)], [0, 0, 0])
+    esit("74 yer degistirme ornek", (F(3, 5) == F(12, 20), F(3, 12), F(5, 20)), (True, F(1, 4), F(1, 4)))
+    esit("74 karsilastirma", (F(18, 24), F(21, 30), F(18, 24) > F(21, 30), 21 > 18, F(150, 2), 200/D("2.5")), (D("0.75"), D("0.7"), True, True, 75, 80))
+    # ── 75 dogru ve ters oranti ──
+    esit("75 dogru oranti", (F(45, 3), 45*7, F(315, 3)), (15, 315, 105))
+    esit("75 ters oranti", (6*10, F(60, 4), 60*3, F(180, 90)), (60, 15, 180, 2))
+    cift_ = [(2, 12), (3, 8), (4, 6), (6, 4)]
+    esit("75 tablo testi", ([F(y_, x_) for x_, y_ in cift_], {x_*y_ for x_, y_ in cift_}, all(y_ == F(24, x_) for x_, y_ in cift_)),
+         ([6, F(8, 3), F(3, 2), F(2, 3)], {24}, True))
+    esit("75 yanilgi", ([10 - x_ for x_ in (2, 4, 5)], [x_*(10 - x_) for x_ in (2, 4, 5)], F(2*1 + 1, 1), F(2*2 + 1, 2)), ([8, 6, 5], [16, 24, 25], 3, F(5, 2)))
+    esit("75 bilesik", (F(4, 5*8), sp.solve(sp.Eq(Rational(4, 40), x/60), x), sp.solve(sp.Eq(6, k_*Rational(4, 2)), k_), 3*F(10, 5)), (F(1, 10), [6], [3], 6))
+    esit("75 gunluk", (sp.solve(sp.Eq(100*x, 6*350), x), 6*350, 12 // 4, 12 // 6), ([21], 2100, 3, 2))
+    esit("75 birim yontemi", (120 // 5, 8*24, 6*10, 60 // 4), (24, 192, 60, 15))
+    esit("75 havuz", (F(1, 6) + F(1, 12), 1/(F(1, 6) + F(1, 12)), F(1, 4) - F(1, 6), 1/(F(1, 4) - F(1, 6)), 6 + 12, F(6 + 12, 2), 4 < 6),
+         (F(1, 4), 4, F(1, 12), 12, 18, 9, True))
+    esit("75 degisen isci", (12*20, 12*5, 240 - 60, 180 // 9, 5 + 20, F(180, 12), F(12, 9), F(180, 12)*F(12, 9)), (240, 60, 180, 20, 25, 15, F(4, 3), 20))
+    esit("75 disli", (40*15, F(600, 24), F(30*4, 20), F(20*6, 60), 30*4 == 60*2), (600, 25, 6, 2, True))
+    esit("75 hiz yol zaman", (sp.solve(sp.Eq(60*x, 120*90), x), 120*90), ([180], 10800))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -883,7 +1029,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
