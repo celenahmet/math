@@ -154,12 +154,14 @@ def daire_grafik(baslik, dilimler):
 
 
 def koordinat_grafik(baslik, egriler=(), x_aralik=(-5, 5), y_aralik=(-5, 5), adim=1,
-                     noktalar=(), dikeyler=(), yataylar=(), etiket_adim=None):
+                     noktalar=(), dikeyler=(), yataylar=(), etiket_adim=None, x_isaretler=None):
     """Koordinat duzleminde fonksiyon grafigi (25.09, fonksiyon/parabol/trigonometri
     yazilari). Birim kare korunur: x ve y ekseninde ayni olcek.
     egriler  : [(etiket, f)]      f(x) -> y; None ya da tanimsiz/kopuk yerde cizgi kopar
     noktalar : [(x, y, etiket, dolu)]   dolu=False: acik daire (grafik icermez)
-    dikeyler / yataylar : kesikli yardimci dogrular (dikey dogru testi, simetri ekseni)."""
+    dikeyler / yataylar : kesikli yardimci dogrular (dikey dogru testi, simetri ekseni).
+    x_isaretler : [(x, etiket)] x ekseni icin ozel isaretler (trigonometride π/2, π ...);
+                  verilirse duzenli x izgarasi ve sayi etiketleri yerine bunlar cizilir."""
     import math
     x0, x1 = x_aralik
     y0, y1 = y_aralik
@@ -176,10 +178,14 @@ def koordinat_grafik(baslik, egriler=(), x_aralik=(-5, 5), y_aralik=(-5, 5), adi
          f'width="{(x1 - x0) * birim:.1f}" height="{(y1 - y0) * birim:.1f}"/></clipPath></defs>']
     kirp = f'clip-path="url(#{kimlik})"'
     # izgara
-    k = math.ceil(x0 / adim) * adim
-    while k <= x1 + 1e-9:
-        p.append(f'<line class="g-izgara" x1="{X(k):.1f}" y1="{Y(y0):.1f}" x2="{X(k):.1f}" y2="{Y(y1):.1f}"/>')
-        k += adim
+    if x_isaretler:
+        for k, _ in x_isaretler:
+            p.append(f'<line class="g-izgara" x1="{X(k):.1f}" y1="{Y(y0):.1f}" x2="{X(k):.1f}" y2="{Y(y1):.1f}"/>')
+    else:
+        k = math.ceil(x0 / adim) * adim
+        while k <= x1 + 1e-9:
+            p.append(f'<line class="g-izgara" x1="{X(k):.1f}" y1="{Y(y0):.1f}" x2="{X(k):.1f}" y2="{Y(y1):.1f}"/>')
+            k += adim
     k = math.ceil(y0 / adim) * adim
     while k <= y1 + 1e-9:
         p.append(f'<line class="g-izgara" x1="{X(x0):.1f}" y1="{Y(k):.1f}" x2="{X(x1):.1f}" y2="{Y(k):.1f}"/>')
@@ -191,11 +197,16 @@ def koordinat_grafik(baslik, egriler=(), x_aralik=(-5, 5), y_aralik=(-5, 5), adi
              f'<line class="g-eksen" x1="{X(ey):.1f}" y1="{Y(y0):.1f}" x2="{X(ey):.1f}" y2="{Y(y1):.1f}"/>'
              f'<text x="{X(x1) + 6:.1f}" y="{Y(ex) + 5:.1f}">x</text>'
              f'<text x="{X(ey) - 4:.1f}" y="{Y(y1) - 5:.1f}" text-anchor="middle">y</text>')
-    k = math.ceil(x0 / etiket_adim) * etiket_adim
-    while k <= x1 + 1e-9:
-        if abs(k) > 1e-9 and k < x1 - 1e-9:
-            p.append(f'<text class="g-kucuk" x="{X(k):.1f}" y="{Y(ex) + 15:.1f}" text-anchor="middle">{_sayi(round(k, 6))}</text>')
-        k += etiket_adim
+    if x_isaretler:
+        for k, e in x_isaretler:
+            if abs(k) > 1e-9:
+                p.append(f'<text class="g-kucuk" x="{X(k):.1f}" y="{Y(ex) + 15:.1f}" text-anchor="middle">{html.escape(e)}</text>')
+    else:
+        k = math.ceil(x0 / etiket_adim) * etiket_adim
+        while k <= x1 + 1e-9:
+            if abs(k) > 1e-9 and k < x1 - 1e-9:
+                p.append(f'<text class="g-kucuk" x="{X(k):.1f}" y="{Y(ex) + 15:.1f}" text-anchor="middle">{_sayi(round(k, 6))}</text>')
+            k += etiket_adim
     k = math.ceil(y0 / etiket_adim) * etiket_adim
     while k <= y1 + 1e-9:
         if abs(k) > 1e-9 and k < y1 - 1e-9:
