@@ -2500,6 +2500,88 @@ def yazi_37_39():
     es("39 tek cift", (tek_mi(D(X**2, X)), cift_mi(D(X**3, X)), cift_mi(D(sin(X), X)), tek_mi(D(cos(X), X))), (True, True, True, True))
 
 
+def yazi_40_42():
+    """40 Carpimin Turevi, 41 Bolumun Turevi, 42 Zincir Kurali."""
+    from sympy import sin, cos, tan, pi, E, exp, log as L, diff as D
+    es = esit_ogeler
+    Q = Rational
+    X, t_, a_, r_ = sp.symbols("X t_ a_ r_", real=True)
+    xp = sp.symbols("xp", positive=True)
+    sade = lambda e: sp.simplify(e)
+    sifir_mi = lambda e: sp.simplify(e) == 0
+    # ── 40 ──
+    es("40 xx", (D(X * X, X), D(X, X) * D(X, X)), (2 * X, 1))
+    es("40 ilk", (sp.expand(2 * (X**2 - 3) + (2 * X + 1) * 2 * X), D(sp.expand((2 * X + 1) * (X**2 - 3)), X)), (6 * X**2 + 2 * X - 6, 6 * X**2 + 2 * X - 6))
+    es("40 ustel", (sifir_mi(D(X**3 * exp(X), X) - X**2 * exp(X) * (X + 3)), sp.solveset(X**2 * (X + 3), X, R)), (True, FiniteSet(-3, 0)))
+    es("40 xex", (sifir_mi(D(X * exp(X), X) - exp(X) * (1 + X)), sp.solveset(1 + X, X, R), (X * exp(X)).subs(X, -1), sp.sign(D(X * exp(X), X).subs(X, -2)), sp.sign(D(X * exp(X), X).subs(X, 0))),
+       (True, FiniteSet(-1), -1 / E, -1, 1))
+    es("40 sincos", sifir_mi(D(sin(X) * cos(X), X) - cos(2 * X)), True)
+    es("40 xlnx", (sade(D(xp * L(xp), xp)), sp.solve(L(xp) + 1, xp)), (L(xp) + 1, [1 / E]))
+    es("40 koklu", (sifir_mi(D(sqrt(xp) * (xp - 1), xp) - (3 * xp - 1) / (2 * sqrt(xp))), D(sqrt(xp) * (xp - 1), xp).subs(xp, 1)), (True, 1))
+    es("40 degerler", (-1) * 4 + 3 * 5, 11)
+    k = X * (X + 1) * (X + 2)
+    es("40 uc carpan", (D(k, X).subs(X, 1), ((X + 1) * (X + 2) + X * (X + 2) + X * (X + 1)).subs(X, 1)), (11, 11))
+    es("40 kare", sp.expand(2 * (X**2 + 1) * 2 * X), 4 * X**3 + 4 * X)
+    es("40 carpim zincir", sifir_mi(D(X**2 * (3 * X + 1)**4, X) - 2 * X * (3 * X + 1)**3 * (9 * X + 1)), True)
+    es("40 ikinci", sifir_mi(D(X * exp(X), X, 2) - exp(X) * (X + 2)), True)
+    es("40 teget", (D(X * exp(X), X).subs(X, 0), (X * exp(X)).subs(X, 0)), (1, 0))
+    es("40 dikdortgen", 2 * 5 + 10 * 1, 20)
+    es("40 gelir", (D((20 + t_) * (100 - 2 * t_), t_).subs(t_, 0), 1 * 100 + 20 * (-2)), (60, 60))
+    es("40 negatif ustel", (sifir_mi(D(X**2 * exp(-X), X) - X * exp(-X) * (2 - X)), sp.solveset(X * (2 - X), X, R)), (True, FiniteSet(0, 2)))
+    es("40 kosinus", (D(X * cos(X), X), D(X * cos(X), X).subs(X, pi)), (cos(X) - X * sin(X), -1))
+    es("40 parametre", (D((X**2 + a_) * exp(X), X).subs(X, 0), sp.solve(a_ - 3, a_)), (a_, [3]))
+    es("40 kuvvet", (D(X * X * X, X), D(7 * X**2, X) - 7 * D(X**2, X)), (3 * X**2, 0))
+    # ── 41 ──
+    es("41 neden", (D(X**2 / X, X), Q(2, 1) * X, sp.solve(2 * X - 1, X)), (1, 2 * X, [Q(1, 2)]))
+    es("41 ilk", sifir_mi(D((X + 1) / (X - 1), X) + 2 / (X - 1)**2), True)
+    es("41 ikinci derece", (sifir_mi(D(X / (X**2 + 1), X) - (1 - X**2) / (X**2 + 1)**2), sp.solveset(1 - X**2, X, R)), (True, FiniteSet(-1, 1)))
+    aa, bb, cc, dd = sp.symbols("aa bb cc dd")
+    es("41 dogrusal", (sifir_mi(D((aa * X + bb) / (cc * X + dd), X) - (aa * dd - bb * cc) / (cc * X + dd)**2), 2 * 4 - 3 * 1, sifir_mi(D((2 * X + 3) / (X + 4), X) - 5 / (X + 4)**2)), (True, 5, True))
+    es("41 ters", (sifir_mi(D(1 / (X**2 + 1), X) + 2 * X / (X**2 + 1)**2), sifir_mi(D(1 / sqrt(xp), xp) + 1 / (2 * xp * sqrt(xp)))), (True, True))
+    es("41 degerler", Q(3 * 4 - 2 * (-1), 16), Q(7, 8))
+    es("41 tan cot", (sifir_mi(D(tan(X), X) - 1 / cos(X)**2), sifir_mi(D(cos(X) / sin(X), X) + 1 / sin(X)**2), D(tan(X), X).subs(X, pi / 4), 1 + tan(pi / 4)**2, sifir_mi(1 + tan(X)**2 - 1 / cos(X)**2)),
+       (True, True, 2, 2, True))
+    es("41 sinx bolu x", (sifir_mi(D(sin(X) / X, X) - (X * cos(X) - sin(X)) / X**2), D(sin(X) / X, X).subs(X, pi)), (True, -1 / pi))
+    es("41 ustel", (sifir_mi(D(exp(X) / X, X) - exp(X) * (X - 1) / X**2), sp.solveset(X - 1, X, R)), (True, FiniteSet(1)))
+    es("41 log", (sifir_mi(D(L(xp) / xp, xp) - (1 - L(xp)) / xp**2), sp.solve(1 - L(xp), xp), (L(xp) / xp).subs(xp, E)), (True, [E], 1 / E))
+    es("41 sadelestir", (D(sp.cancel((X**2 - 1) / (X - 1)), X), D(5 / X**3, X)), (1, -15 / X**4))
+    es("41 bolum zincir", (sifir_mi(D(sqrt(xp) / (xp + 1), xp) - (1 - xp) / (2 * sqrt(xp) * (xp + 1)**2)), D(sqrt(xp) / (xp + 1), xp).subs(xp, 1)), (True, 0))
+    es("41 parametre", (sifir_mi(D((a_ * X + 1) / (X + 2), X) - (2 * a_ - 1) / (X + 2)**2), sp.solve(Q(1, 4) * (2 * a_ - 1) - Q(5, 4), a_)), (True, [3]))
+    es("41 ikinci turev", D(1 / X, X, 2), 2 / X**3)
+    es("41 ortalama maliyet", sifir_mi(D((100 + 5 * X) / X, X) + 100 / X**2), True)
+    c = 5 * t_ / (t_**2 + 1)
+    es("41 derisim", (sifir_mi(D(c, t_) - 5 * (1 - t_**2) / (t_**2 + 1)**2), sp.solveset(1 - t_**2, t_, Interval(0, oo)), c.subs(t_, 1)), (True, FiniteSet(1), Q(5, 2)))
+    es("41 ayni ifade", (sifir_mi(D(X**2 / (X**2 + 1), X) - 2 * X / (X**2 + 1)**2), sifir_mi(X**2 / (X**2 + 1) - (1 - 1 / (X**2 + 1)))), (True, True))
+    y = (X + 1) / (X - 1)
+    es("41 teget", (y.subs(X, 2), D(y, X).subs(X, 2), sp.expand(3 - 2 * (X - 2))), (3, -2, -2 * X + 7))
+    # ── 42 ──
+    es("42 neden", (D((2 * X + 1)**2, X), sp.expand(4 * (2 * X + 1))), (8 * X + 4, 8 * X + 4))
+    es("42 disli", 3 * 2, 6)
+    es("42 kuvvet", (sifir_mi(D((X**2 + 1)**3, X) - 6 * X * (X**2 + 1)**2), D((X**2 + 1)**3, X).subs(X, 1)), (True, 24))
+    es("42 kok", (sifir_mi(D(sqrt(X**2 + 9), X) - X / sqrt(X**2 + 9)), D(sqrt(X**2 + 9), X).subs(X, 4)), (True, Q(4, 5)))
+    es("42 kesirli", sifir_mi(D((X**2 + 1)**Q(3, 2), X) - 3 * X * sqrt(X**2 + 1)), True)
+    es("42 mutlak", [D(sqrt(X**2), X).subs(X, v) for v in (-3, -1, 2, 5)], [-1, -1, 1, 1])
+    es("42 trig", (D(sin(X**2), X), D(cos(3 * X), X)), (2 * X * cos(X**2), -3 * sin(3 * X)))
+    es("42 trig kuvvet", (sifir_mi(D(sin(X)**2, X) - sin(2 * X)), sifir_mi(D(cos(X)**2, X) + sin(2 * X)), sifir_mi(D(sin(X)**2 + cos(X)**2, X))), (True, True, True))
+    es("42 ustel", (D(exp(X**2), X), D(exp(-3 * X), X), sifir_mi(D(2**(3 * X), X) - 3 * 2**(3 * X) * L(2))), (2 * X * exp(X**2), -3 * exp(-3 * X), True))
+    es("42 log", (sade(D(L(X**2 + 1), X)), D(L(X**2 + 1), X).subs(X, 1), sade(D(L(5 * xp), xp))), (2 * X / (X**2 + 1), 1, 1 / xp))
+    es("42 uc kat", (sifir_mi(D(sin(2 * X)**3, X) - 6 * sin(2 * X)**2 * cos(2 * X)), D(sin(2 * X)**3, X).subs(X, pi / 8)), (True, 3 * sqrt(2) / 2))
+    g = 2 * X + 1
+    f = lambda u: 5 * u
+    es("42 degerler", (g.subs(X, 1), D(g, X), D(f(g), X).subs(X, 1), 5 * 2), (3, 2, 10, 10))
+    es("42 ic dogrusal", (2 * 3, 2 * 3 * (-1)), (6, -6))
+    es("42 carpim zincir", (sifir_mi(D(X * sqrt(1 - X**2), X) - (1 - 2 * X**2) / sqrt(1 - X**2)), sp.solveset(1 - 2 * X**2, X, R)), (True, FiniteSet(-sqrt(2) / 2, sqrt(2) / 2)))
+    es("42 bolum zincir", sifir_mi(D((X / (X + 1))**2, X) - 2 * X / (X + 1)**3), True)
+    fx = X**3 + X
+    kok = sp.nsolve(fx - sp.Float("2.0001"), X, 1)
+    es("42 ters", (fx.subs(X, 1), D(fx, X).subs(X, 1), abs(float((kok - 1) / sp.Float("0.0001")) - 0.25) < 0.001), (2, 4, True))
+    yy = sp.Function("yy")(X)
+    es("42 kapali", (sp.solve(D(X**2 + yy**2 - 25, X), D(yy, X))[0].subs(yy, 4).subs(X, 3), Q(4, 3) * (-Q(3, 4))), (-Q(3, 4), -1))
+    es("42 balon", (D(Q(4, 3) * pi * r_**3, r_).subs(r_, 5) * Q(1, 10),), (10 * pi,))
+    es("42 merdiven", (sqrt(100 - 36), -Q(6 * 1, 8)), (8, -Q(3, 4)))
+    es("42 titresim", (D(3 * sin(2 * t_), t_), function_range(6 * cos(2 * t_), t_, Interval(0, pi))), (6 * cos(2 * t_), Interval(-6, 6)))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -2522,7 +2604,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32, yazi_33_36, yazi_37_39):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32, yazi_33_36, yazi_37_39, yazi_40_42):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
