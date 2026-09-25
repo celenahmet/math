@@ -14,6 +14,7 @@ HARIC_ON_EK = (
     "video/eskiler/", "video/ucgen/eskiler/", "video/demo/", "video/ucgen/demo/",
     "scripts/", "css/", "js/", "fonts/", "images/", "error_docs/",
     "aytmat/", "cozumler/", "deneme/", "dersnot/", "ozelders/",
+    "yonetim/",   # blog yorum onayi (25.09): dizinlenmez, aramada cikmaz
 )
 HARIC_AD = {"cozum.html", "indexcopy.html", "index1.html", "GET.html", "404.html", "403.html"}
 HARIC_PARCA = ("/tema/", "/errors/", "/bakim/", "/error/", "/httpdocs/", "/css/", "/js/", "/images/")

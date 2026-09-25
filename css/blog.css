@@ -106,7 +106,10 @@ h1, h2, h3, h4 {
 }
 
 /* ── hub ───────────────────────────────────────────────────────────── */
-.bs-hero { padding: 54px 0 30px; }
+/* Yan bosluk 20px: `.kap` ile ayni ogede; `0` yazilinca kapin yan boslugu
+   eziliyordu (25.09, Ahmet: "dengesiz yerlesme"). Baslik suzgecten ve
+   kartlardan 20px solda duruyor, 1180px altinda kenara yapisiyordu. */
+.bs-hero { padding: 54px 20px 30px; }
 .bs-hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 12px; }
 .bs-hero p { font-size: 18.5px; color: var(--soluk); max-width: 640px; margin: 0; }
 .bs-suzgec { display: flex; flex-wrap: wrap; gap: 8px; padding: 22px 0 28px; }
@@ -403,7 +406,7 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 .arama-alt { display: block; margin-top: 3px; color: var(--soluk); font-size: 12.5px; line-height: 1.4; word-break: break-word; }
 
 @media (max-width: 767px) {
-  .bs-hero { padding: 36px 0 20px; }
+  .bs-hero { padding: 36px 20px 20px; }
   .bs-hero h1 { font-size: 31px; }
   .bs-hero p { font-size: 16.5px; }
   .bs-baslik { font-size: 29px; }
@@ -716,3 +719,91 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 .bs-icerik .bs-toc a,
 .bs-icerik .bs-paylas a,
 .bs-icerik .bs-ilgili a { text-decoration: none; }
+
+/* ── süzgeç düzeltmeleri (25.09, Ahmet: "kategorilendirme çalışmıyor") ──
+   `.bs-kart{display:flex}` tarayıcının `[hidden]{display:none}` kuralını
+   eziyordu: blog.js kartı gizliyor ama kart ekranda kalıyordu. */
+.bs-kart[hidden], .bs-suzgec-bos[hidden] { display: none !important; }
+.bs-suzgec-bos { color: var(--soluk); padding: 10px 0 60px; margin: 0; }
+/* Öne çıkan kartın görseli 16:9'dan kısa kutuda kırpılıyor. Kapaklarda
+   yazı solda, fotoğraf sağda: kırpma sağdan yapılsın, başlık kesilmesin. */
+.bs-kart-one .bs-kart-gorsel img { object-position: left center; }
+
+/* ── yazı sonu etkileşimi (25.09) ──────────────────────────────────────
+   Ahmet: "dengeli, rahatsız etmeden". Tek sade kart: soru + iki düğme,
+   altında ince çizgiyle ayrılmış beş ifade. Kayan pencere, açılır kutu,
+   animasyon YOK. Yorumlar yazının en sonunda, form düğmeyle açılır.
+   Bölümler depo bağlı değilse gizli kalır (js/etkilesim.js). */
+.bs-etk[hidden], .bs-yorumlar[hidden], .bs-etk-geri[hidden], .bs-yorum-form[hidden],
+.bs-yorum-bos[hidden], .bs-yorum-ac[hidden] { display: none !important; }
+.bs-etk {
+  margin-top: 40px; padding: 18px 22px; background: var(--yuzey);
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+}
+.bs-etk-ust { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; }
+.bs-icerik .bs-etk-soru { margin: 0; font-weight: 600; color: var(--murekkep); font-size: 15.5px; }
+.bs-etk-oy { display: flex; gap: 8px; }
+.bs-etk button, .bs-yorumlar button { font: 600 14px Inter, sans-serif; cursor: pointer; }
+.bs-etk-oy button, .bs-dugme-ikincil {
+  display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 9px;
+  border: 1px solid var(--cizgi); background: var(--zemin); color: var(--govde);
+}
+.bs-etk-oy button:hover, .bs-dugme-ikincil:hover { border-color: var(--mor); color: var(--mor); }
+.bs-etk-oy button[aria-pressed="true"], .bs-etk-ifade button[aria-pressed="true"] {
+  background: var(--mor-acik); border-color: var(--mor); color: var(--mor);
+}
+.bs-etk-oy .bs-ikon, .bs-dugme-ikincil .bs-ikon { width: 18px; height: 18px; flex: none; }
+.bs-etk-n { font-weight: 700; font-variant-numeric: tabular-nums; }
+.bs-etk-n:empty { display: none; }
+.bs-etk-ifade {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--cizgi-acik);
+}
+.bs-etk-ifade button {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 5px 12px;
+  border-radius: 999px; border: 1px solid var(--cizgi); background: var(--yuzey); color: var(--govde); line-height: 1;
+}
+.bs-etk-ifade button:hover { border-color: var(--mor); }
+.bs-etk-ifade button > span { font-size: 18px; line-height: 1; }
+.bs-etk[aria-busy="true"] button { cursor: progress; }
+.bs-etk-geri, .bs-yorum-form { display: grid; gap: 12px; }
+.bs-etk-geri { margin-top: 14px; }
+.bs-etk-geri label, .bs-yorum-form label { display: grid; gap: 6px; font-weight: 600; font-size: 14px; color: var(--murekkep); }
+.bs-etk textarea, .bs-yorum-form textarea, .bs-yorum-form input {
+  width: 100%; box-sizing: border-box; padding: 10px 12px; border: 1px solid var(--cizgi); border-radius: 10px;
+  background: var(--zemin); color: var(--govde); font: 400 15px/1.55 Inter, sans-serif; resize: vertical;
+}
+.bs-etk textarea:focus, .bs-yorum-form textarea:focus, .bs-yorum-form input:focus {
+  outline: 2px solid var(--mor); outline-offset: 1px; border-color: var(--mor); background: var(--yuzey);
+}
+.bs-etk-geri-alt { display: flex; flex-wrap: wrap; gap: 8px; }
+.bs-dugme-ana {
+  display: inline-flex; align-items: center; padding: 9px 16px; border-radius: 9px;
+  border: 1px solid var(--mor); background: var(--mor); color: #fff;
+}
+.bs-dugme-ana:hover { background: var(--mor-koyu); border-color: var(--mor-koyu); }
+.bs-dugme-ana:disabled { opacity: .6; cursor: progress; }
+.bs-icerik .bs-etk-durum, .bs-icerik .bs-yorum-durum { margin: 10px 0 0; font-size: 14px; color: var(--soluk); }
+.bs-etk-durum:empty, .bs-yorum-durum:empty { display: none; }
+/* yorumlar */
+.bs-yorumlar { margin-top: 40px; scroll-margin-top: 84px; }
+.bs-yorumlar h2 em {
+  margin-left: 4px; font: 600 13px Inter, sans-serif; color: var(--soluk);
+  background: var(--cizgi-acik); border-radius: 20px; padding: 2px 9px;
+}
+.bs-yorumlar h2 em:empty { display: none; }
+.bs-icerik .bs-yorum-liste { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 12px; }
+.bs-yorum-liste li { padding: 14px 16px; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r-kucuk); }
+.bs-icerik .bs-yorum-ust { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin: 0 0 6px; }
+.bs-yorum-ust strong { color: var(--murekkep); font-size: 15px; }
+.bs-yorum-ust time { font-size: 13px; color: var(--soluk); }
+.bs-icerik .bs-yorum-metin { margin: 0; white-space: pre-line; overflow-wrap: anywhere; }
+.bs-icerik .bs-yorum-bos { color: var(--soluk); margin: 0 0 14px; }
+.bs-yorum-form { margin-top: 4px; padding: 18px; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r); }
+.bs-icerik .bs-yorum-not { margin: 0; font-size: 13px; line-height: 1.55; color: var(--soluk); }
+.bs-bal { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 480px) {
+  .bs-etk { padding: 16px; }
+  .bs-etk-oy { width: 100%; }
+  .bs-etk-oy button { flex: 1; justify-content: center; }
+}

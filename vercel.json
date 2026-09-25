@@ -57,6 +57,23 @@
           "value": "public, max-age=3600, s-maxage=86400"
         }
       ]
+    },
+    {
+      "source": "/yonetim/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
     }
   ],
   "rewrites": [

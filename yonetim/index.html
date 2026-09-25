@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Blog yönetimi</title>
+<!--
+  yonetim/index.html — blog yorum onayi ve geri bildirimler (25.09.2026)
+  Sunucu: api/yonetim.js. Anahtar bu sayfada YOK; girilen anahtar yalniz
+  bu tarayicida (oturum ya da "hatirla" secilirse kalici) tutulur ve her
+  istekte Authorization basligiyla gider. Butun kullanici metni textContent
+  ile basilir (yorumda betik olsa bile calismaz).
+-->
+<style>
+  :root { --mor: #1860f0; --murekkep: #0d2560; --govde: #334155; --soluk: #64748b; --cizgi: #e2e8f0; --zemin: #f8fafc; --kirmizi: #b91c1c; --yesil: #15803d; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; color: var(--govde); background: var(--zemin); }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 16px 60px; }
+  h1 { font-size: 24px; color: var(--murekkep); margin: 0 0 18px; }
+  h2 { font-size: 18px; color: var(--murekkep); margin: 28px 0 12px; display: flex; align-items: center; gap: 8px; }
+  h2 em { font-style: normal; font-size: 13px; background: #eaf1fe; color: var(--mor); border-radius: 20px; padding: 1px 9px; }
+  form.giris { display: grid; gap: 10px; max-width: 420px; background: #fff; border: 1px solid var(--cizgi); border-radius: 14px; padding: 18px; }
+  input[type=password] { width: 100%; padding: 10px 12px; border: 1px solid var(--cizgi); border-radius: 10px; font: inherit; }
+  button { font-family: inherit; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 9px; border: 1px solid var(--cizgi); background: #fff; color: var(--govde); cursor: pointer; }
+  button.ana { background: var(--mor); border-color: var(--mor); color: #fff; }
+  button.sil { color: var(--kirmizi); }
+  button:disabled { opacity: .6; cursor: progress; }
+  .ust { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+  .kart { background: #fff; border: 1px solid var(--cizgi); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
+  .kunye { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; color: var(--soluk); margin-bottom: 6px; }
+  .kunye strong { color: var(--murekkep); font-size: 14px; }
+  .metin { white-space: pre-line; overflow-wrap: anywhere; margin: 0 0 10px; }
+  .dugmeler { display: flex; gap: 8px; }
+  .bos { color: var(--soluk); margin: 0; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--cizgi); border-radius: 12px; overflow: hidden; font-size: 14px; }
+  th, td { padding: 8px 10px; border-bottom: 1px solid var(--cizgi); text-align: left; }
+  th { background: var(--zemin); font-size: 12px; color: var(--soluk); text-transform: uppercase; letter-spacing: .04em; }
+  td.s { text-align: right; font-variant-numeric: tabular-nums; }
+  .tablo { overflow-x: auto; }
+  #durum { min-height: 22px; margin: 8px 0 0; font-size: 14px; }
+  #durum.hata { color: var(--kirmizi); }
+  a { color: var(--mor); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Blog yönetimi</h1>
+  <form class="giris" id="giris" hidden>
+    <label for="anahtar">Yönetim anahtarı</label>
+    <input type="password" id="anahtar" autocomplete="off" required>
+    <label><input type="checkbox" id="hatirla"> Bu cihazda hatırla</label>
+    <button type="submit" class="ana">Giriş</button>
+  </form>
+  <section id="panel" hidden>
+    <div class="ust">
+      <button type="button" id="yenile">Yenile</button>
+      <button type="button" id="cikis">Çıkış</button>
+    </div>
+    <h2>Onay bekleyen yorumlar <em id="n-bekleyen">0</em></h2>
+    <div id="bekleyen"></div>
+    <h2>Geri bildirimler ("faydalı değil" diyenler) <em id="n-geri">0</em></h2>
+    <div id="geri"></div>
+    <h2>Yazı özeti</h2>
+    <div class="tablo" id="ozet"></div>
+    <h2>Yayındaki son yorumlar <em id="n-onayli">0</em></h2>
+    <div id="onayli"></div>
+  </section>
+  <p id="durum" role="status" aria-live="polite"></p>
+</main>
+<script>
+(function () {
+  'use strict';
+  var API = '/api/yonetim/', A = 'blog-yonetim-anahtari';
+  var $ = function (id) { return document.getElementById(id); };
+  function anahtar() {
+    try { return sessionStorage.getItem(A) || localStorage.getItem(A) || ''; } catch (e) { return ''; }
+  }
+  function sakla(k, kalici) {
+    try { (kalici ? localStorage : sessionStorage).setItem(A, k); } catch (e) { /* */ }
+  }
+  function unut() { try { sessionStorage.removeItem(A); localStorage.removeItem(A); } catch (e) { /* */ } }
+  function durum(t, hata) { $('durum').textContent = t || ''; $('durum').className = hata ? 'hata' : ''; }
+  function el(ad, sinif, metin) { var e = document.createElement(ad); if (sinif) { e.className = sinif; } if (metin !== undefined) { e.textContent = metin; } return e; }
+  function tarih(ms) { return new Date(ms).toLocaleString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }); }
+  function yazi(yol) {
+    var a = el('a', '', yol.replace(/^\/blog\/|\/$/g, ''));
+    if (/^\/blog\/[a-z0-9-]+\/$/.test(yol)) { a.href = yol; a.target = '_blank'; a.rel = 'noopener'; }
+    return a;
+  }
+  function istek(yontem, govde) {
+    return fetch(API, {
+      method: yontem, cache: 'no-store', credentials: 'omit',
+      headers: Object.assign({ Authorization: 'Bearer ' + anahtar() }, govde ? { 'Content-Type': 'application/json' } : {}),
+      body: govde ? JSON.stringify(govde) : undefined
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (j) { j.kod = r.status; return j; });
+    });
+  }
+  var HATA = { 401: 'Anahtar yanlış.', 429: 'Çok fazla yanlış deneme; 15 dakika sonra yeniden dene.', 503: 'Depo ya da anahtar yapılandırılmamış (Vercel ortam değişkenleri).' };
+
+  function kartlar(kutu, liste, dugmeler) {
+    kutu.textContent = '';
+    if (!liste.length) { kutu.appendChild(el('p', 'bos', 'Yok.')); return; }
+    liste.forEach(function (x) {
+      var k = el('div', 'kart');
+      var ku = el('div', 'kunye');
+      if (x.rumuz) { ku.appendChild(el('strong', '', x.rumuz)); }
+      ku.appendChild(yazi(x.yol));
+      ku.appendChild(el('span', '', tarih(x.zaman)));
+      k.appendChild(ku);
+      k.appendChild(el('p', 'metin', x.metin));
+      var d = el('div', 'dugmeler');
+      dugmeler.forEach(function (b) {
+        var bt = el('button', b[2] || '', b[0]);
+        bt.type = 'button';
+        bt.addEventListener('click', function () {
+          if (b[3] && !confirm(b[3])) { return; }
+          bt.disabled = true;
+          istek('POST', { islem: b[1], id: x.id }).then(function (j) {
+            if (j.kod === 200) { yukle(); } else { durum(HATA[j.kod] || 'İşlem yapılamadı (' + (j.hata || j.kod) + ').', true); bt.disabled = false; }
+          }, function () { durum('Ağ hatası.', true); bt.disabled = false; });
+        });
+        d.appendChild(bt);
+      });
+      k.appendChild(d);
+      kutu.appendChild(k);
+    });
+  }
+  function ozet(liste, ifadeler) {
+    var kutu = $('ozet');
+    kutu.textContent = '';
+    if (!liste.length) { kutu.appendChild(el('p', 'bos', 'Henüz etkileşim yok.')); return; }
+    var t = el('table'), bas = el('tr');
+    ['Yazı', '👍', '👎'].concat(ifadeler.map(function (i) { return i[1]; })).concat(['Yorum']).forEach(function (h) { bas.appendChild(el('th', '', h)); });
+    var th = el('thead'); th.appendChild(bas); t.appendChild(th);
+    var tb = el('tbody');
+    liste.sort(function (a, b) { return (b.begeni + b.begenmeme) - (a.begeni + a.begenmeme); }).forEach(function (x) {
+      var tr = el('tr'), td = el('td');
+      td.appendChild(yazi(x.yol)); tr.appendChild(td);
+      [x.begeni, x.begenmeme].concat(ifadeler.map(function (i) { return x.ifade[i[0]] || 0; })).concat([x.yorum]).forEach(function (v) { tr.appendChild(el('td', 's', String(v))); });
+      tb.appendChild(tr);
+    });
+    t.appendChild(tb);
+    kutu.appendChild(t);
+  }
+  function yukle() {
+    durum('Yükleniyor…');
+    istek('GET').then(function (j) {
+      if (j.kod !== 200) {
+        if (j.kod === 401) { unut(); goster(false); }
+        durum(HATA[j.kod] || 'Veri alınamadı (' + (j.hata || j.kod) + ').', true);
+        return;
+      }
+      goster(true);
+      $('n-bekleyen').textContent = j.bekleyen.length;
+      $('n-geri').textContent = j.geri.length;
+      $('n-onayli').textContent = j.onayli.length;
+      kartlar($('bekleyen'), j.bekleyen, [['Onayla', 'onayla', 'ana'], ['Sil', 'sil', 'sil', 'Bu yorum silinsin mi?']]);
+      kartlar($('geri'), j.geri, [['Okundu, kaldır', 'geri-sil', '']]);
+      kartlar($('onayli'), j.onayli, [['Yayından kaldır', 'sil', 'sil', 'Yorum yayından kaldırılıp silinsin mi?']]);
+      ozet(j.ozet, j.ifadeler || []);
+      durum('');
+    }, function () { durum('Ağ hatası.', true); });
+  }
+  function goster(ic) { $('giris').hidden = ic; $('panel').hidden = !ic; }
+  $('giris').addEventListener('submit', function (e) {
+    e.preventDefault();
+    sakla($('anahtar').value.trim(), $('hatirla').checked);
+    $('anahtar').value = '';
+    yukle();
+  });
+  $('yenile').addEventListener('click', yukle);
+  $('cikis').addEventListener('click', function () { unut(); goster(false); durum(''); });
+  if (anahtar()) { yukle(); } else { goster(false); }
+})();
+</script>
+</body>
+</html>

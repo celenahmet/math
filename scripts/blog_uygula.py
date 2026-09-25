@@ -110,7 +110,7 @@ def kimlik(baslik):
 
 
 # ── kabuk ────────────────────────────────────────────────────────────────
-def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=False, gorsel_alt=None):
+def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=False, gorsel_alt=None, ek_betik=""):
     adres = ALAN + yol
     og = ALAN + (gorsel or "/blog/kapak/fonksiyonlar-konu-anlatimi.avif")
     menu = "".join(
@@ -178,6 +178,7 @@ def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=
 </div>
 <script src="/js/arama.js"></script>
 <script src="/js/blog.js"></script>
+{ek_betik}
 </body>
 </html>
 '''
@@ -199,6 +200,63 @@ def _olu_baglantiyi_duzle(slug, parca):
         print(f"  ! {slug}: /blog/{m.group(1)}/ yayinda degil, baglanti duz metin basildi")
         return m.group(2)
     return _BLOG_BAG.sub(degistir, parca)
+
+
+# ── yazi sonu etkilesimi (25.09) ─────────────────────────────────────────
+# Ahmet: "yazi faydali oldu mu begen, dislike (gercek sayilar tutulsun),
+# dislike isaretlerse mesaj birakma gelsin; yorum ad soyad ya da rumuz,
+# onaydan sonra gelir; 5 emojili ifade, dengeli ve rahatsiz etmeden."
+# Sunucu: api/etkilesim.js, istemci: js/etkilesim.js. Bolumler `hidden`
+# basilir; depo bagli degilse (503) oyle kalir, islemeyen dugme gorunmez.
+# Ifade listesi TEK kaynaktan: api/_ifadeler.json (sunucu da onu okur).
+# ⚠️ Okura donuk metinler VARSAYILAN; son hali Ahmet'in (hitap metni kurali).
+IFADELER = json.loads((pathlib.Path(__file__).resolve().parent.parent / "api" / "_ifadeler.json").read_text(encoding="utf-8"))
+
+
+def etkilesim_karti(y):
+    yol = k(f"/blog/{y['slug']}/")
+    ifade = "".join(
+        f'<button type="button" data-ifade="{k(a)}" aria-pressed="false" aria-label="{k(ad)}" title="{k(ad)}">'
+        f'<span aria-hidden="true">{e}</span><b class="bs-etk-n" data-n="i:{k(a)}"></b></button>'
+        for a, e, ad in IFADELER)
+    return (f'<section class="bs-etk" data-yol="{yol}" aria-label="Bu yazı hakkında" hidden>'
+            '<div class="bs-etk-ust"><p class="bs-etk-soru">Bu yazı faydalı oldu mu?</p>'
+            '<div class="bs-etk-oy">'
+            f'<button type="button" data-oy="begeni" aria-pressed="false">{ikon("begen")}<span>Evet</span><b class="bs-etk-n" data-n="begeni"></b></button>'
+            f'<button type="button" data-oy="begenmeme" aria-pressed="false">{ikon("begenme")}<span>Hayır</span><b class="bs-etk-n" data-n="begenmeme"></b></button>'
+            '</div></div>'
+            '<form class="bs-etk-geri" hidden><label>Neyi eksik buldun?'
+            '<textarea name="metin" rows="3" minlength="3" maxlength="1000" required></textarea></label>'
+            '<div class="bs-etk-geri-alt"><button type="submit" class="bs-dugme-ana">Gönder</button>'
+            '<button type="button" class="bs-dugme-ikincil bs-etk-vazgec">Vazgeç</button></div></form>'
+            f'<div class="bs-etk-ifade" role="group" aria-label="İfade bırak">{ifade}</div>'
+            '<p class="bs-etk-durum" role="status" aria-live="polite"></p>'
+            '</section>\n')
+
+
+def yorumlar_bolumu(y):
+    # h2'ye id VERILMEZ: js/blog.js okuma konumunu `.bs-icerik h2[id]`
+    # uzerinden izliyor; yorumlar icindekilerde yok. Capa bolumun kendisinde.
+    yol = k(f"/blog/{y['slug']}/")
+    return (f'<section class="bs-yorumlar" id="yorumlar" data-yol="{yol}" hidden>'
+            f'<h2 class="bs-h2-ikon">{ikon("yorum")}Yorumlar<em class="bs-yorum-sayi"></em></h2>'
+            '<ol class="bs-yorum-liste"></ol>'
+            '<p class="bs-yorum-bos" hidden>Henüz yorum yok.</p>'
+            '<button type="button" class="bs-dugme-ikincil bs-yorum-ac" aria-expanded="false" aria-controls="yorum-form">'
+            + ikon("yorum") + 'Yorum yaz</button>'
+            '<form class="bs-yorum-form" id="yorum-form" hidden>'
+            '<label>Ad soyad ya da rumuz<input name="rumuz" minlength="2" maxlength="40" required autocomplete="nickname"></label>'
+            '<label>Yorumun<textarea name="metin" rows="4" minlength="3" maxlength="1500" required></textarea></label>'
+            # Tuzak alan: insan gormez ve sekmeyle ulasmaz, bot doldurur.
+            '<div class="bs-bal" aria-hidden="true"><label>Web sitesi<input name="web" tabindex="-1" autocomplete="off"></label></div>'
+            '<p class="bs-yorum-not">Yorumlar onaylandıktan sonra yayımlanır. Yalnız yazdığın ad ya da rumuz ile yorumun '
+            'saklanır, e-posta istenmez. Aynı tepkinin tekrarlanmaması için tarayıcına yalnız bu işe ait bir çerez bırakılır; '
+            'IP adresin saklanmaz.</p>'
+            '<div class="bs-etk-geri-alt"><button type="submit" class="bs-dugme-ana">Gönder</button>'
+            '<button type="button" class="bs-dugme-ikincil bs-yorum-vazgec">Vazgeç</button></div>'
+            '</form>'
+            '<p class="bs-yorum-durum" role="status" aria-live="polite"></p>'
+            '</section>')
 
 
 def yazi_govde(y, digerleri):
@@ -243,6 +301,7 @@ def yazi_govde(y, digerleri):
                + '<p class="bs-kontrol-tebrik" hidden>' + ikon("kontrol")
                + "Tebrikler, bu konunun kontrol listesini tamamladın.</p></div>\n")
         toc += '<li><a href="#b-kontrol">Kontrol listesi</a></li>'
+    ek += etkilesim_karti(y)
     # ⚠️ KAYNAKLAR YAYINDA GOSTERILMIYOR (Ahmet, 23.09): "kaynaklar kismini
     # not alalim ama yayinda gostermeyelim, kendi icimizde denetim icin
     # kullanalim; MEB sorularini kullanmak yasak olabilir cunku."
@@ -296,6 +355,7 @@ def yazi_govde(y, digerleri):
     <hr class="bs-ayrac">
 {mm(govde)}{mm(ek)}
     {blog_yan.paylas(y["baslik"], "/blog/" + y["slug"] + "/")}
+    {yorumlar_bolumu(y)}
   </article>
   <aside class="bs-yan">
     {blog_yan.uc_karti("blog-" + y["slug"])}
@@ -321,6 +381,39 @@ def yazi_govde(y, digerleri):
 
 
 # ── hub ──────────────────────────────────────────────────────────────────
+# Suzgec satirlarini dengeler (25.09, Ahmet: "dengesiz yerlesme"). Dugmeler
+# satira sigdigi kadar dizilince son satirda tek dugme kaliyordu (1440px'te
+# 6/6/1). Satir SAYISI korunarak kutu en dar genislige indirilir; dugmeler
+# satirlara esit dagilir (metindeki text-wrap:balance'in aynisi, flex icin
+# CSS karsiligi yok). Satir ici ve suzgecin HEMEN ardinda: ilk boyamadan once
+# calisir, yerlesim kaymasi (CLS) uretmez. Yazi tipi yuklenince ve boyut
+# degisince yeniden hesaplanir.
+SUZGEC_DENGE = """<script>
+(function () {
+  var l = [].slice.call(document.querySelectorAll('.bs-suzgec'));
+  function dengele(s) {
+    s.style.maxWidth = '';
+    var c = s.children;
+    function say() {
+      var k = 0, y = null;
+      for (var i = 0; i < c.length; i++) { if (c[i].offsetTop !== y) { y = c[i].offsetTop; k++; } }
+      return k;
+    }
+    var n = say();
+    if (n < 2) { return; }
+    var lo = Math.floor(s.clientWidth / n), hi = s.clientWidth, m;
+    while (hi - lo > 2) { m = (lo + hi) >> 1; s.style.maxWidth = m + 'px'; if (say() > n) { lo = m; } else { hi = m; } }
+    s.style.maxWidth = hi + 'px';
+  }
+  function hepsi() { l.forEach(dengele); }
+  hepsi();
+  var t;
+  addEventListener('resize', function () { cancelAnimationFrame(t); t = requestAnimationFrame(hepsi); });
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(hepsi); }
+})();
+</script>"""
+
+
 def hub_govde(yazilar):
     if not yazilar:
         return ('<div class="kap bs-hero"><h1>Blog</h1>'
@@ -367,7 +460,9 @@ def hub_govde(yazilar):
 <div class="kap">
   <div class="bs-suzgec-satir" id="konular"><span class="bs-suzgec-etiket">Konu</span><div class="bs-suzgec">{suzgec}</div></div>
   <div class="bs-suzgec-satir" id="sinavlar"><span class="bs-suzgec-etiket">Sınav</span><div class="bs-suzgec bs-suzgec-sinav">{sinav_suzgec}</div></div>
+{SUZGEC_DENGE}
   <div class="bs-izgara">{kartlar}</div>
+  <p class="bs-suzgec-bos" hidden>Bu seçimde henüz yazı yok.</p>
 </div>
 '''
 
@@ -454,7 +549,10 @@ def uygula():
             gorsel_alt=(f'<meta property="og:image:alt" content="{k(y.get("kapak_alt", y["baslik"]))}">'
                         '\n<meta property="og:image:width" content="1600">'
                         '\n<meta property="og:image:height" content="901">') if y.get("kapak") else None,
-            onyukle=onyukle))
+            onyukle=onyukle,
+            # Yazi sonu etkilesimi yalniz yazi sayfalarinda (hub'a inmez).
+            # defer: ilk boyamayi beklemez; betik bolumu yazi sonuna yaklasinca yukler.
+            ek_betik='<script src="/js/etkilesim.js" defer></script>'))
     n += yaz("blog/index.html", kabuk(
         yol="/blog/", title="Matematik Konu Anlatımı Blog - Ahmet Çelen",
         desc="TYT, AYT, ALES ve KPSS için baştan sona matematik konu anlatımı; hap bilgiler, çözümlü örnekler ve grafiklerle. Ücretsiz.",
