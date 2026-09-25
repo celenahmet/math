@@ -151,3 +151,99 @@ def daire_grafik(baslik, dilimler):
         parca.append(f'<rect x="262" y="{y - 11:.1f}" width="14" height="14" rx="3" fill="{GRAFIK_RENK[i % len(GRAFIK_RENK)]}"/>'
                      f'<text x="284" y="{y + 1:.1f}">{html.escape(etiket)}</text>')
     return _cerceve(baslik, gen, yuk, "".join(parca), ", ".join(e for e, _ in dilimler))
+
+
+def koordinat_grafik(baslik, egriler=(), x_aralik=(-5, 5), y_aralik=(-5, 5), adim=1,
+                     noktalar=(), dikeyler=(), yataylar=(), etiket_adim=None):
+    """Koordinat duzleminde fonksiyon grafigi (25.09, fonksiyon/parabol/trigonometri
+    yazilari). Birim kare korunur: x ve y ekseninde ayni olcek.
+    egriler  : [(etiket, f)]      f(x) -> y; None ya da tanimsiz/kopuk yerde cizgi kopar
+    noktalar : [(x, y, etiket, dolu)]   dolu=False: acik daire (grafik icermez)
+    dikeyler / yataylar : kesikli yardimci dogrular (dikey dogru testi, simetri ekseni)."""
+    import math
+    x0, x1 = x_aralik
+    y0, y1 = y_aralik
+    etiket_adim = etiket_adim or adim
+    birim = min(420 / (x1 - x0), 340 / (y1 - y0))
+    sol, ust = 34, 18
+    gen = round(sol + (x1 - x0) * birim + 24)
+    yuk = round(ust + (y1 - y0) * birim + 28)
+    X = lambda x: sol + (x - x0) * birim
+    Y = lambda y: ust + (y1 - y) * birim
+    import zlib
+    kimlik = f"kg{zlib.crc32(baslik.encode()):08x}"  # hash() her surecte degisir, HTML her build'de oynardi
+    p = [f'<defs><clipPath id="{kimlik}"><rect x="{X(x0):.1f}" y="{Y(y1):.1f}" '
+         f'width="{(x1 - x0) * birim:.1f}" height="{(y1 - y0) * birim:.1f}"/></clipPath></defs>']
+    kirp = f'clip-path="url(#{kimlik})"'
+    # izgara
+    k = math.ceil(x0 / adim) * adim
+    while k <= x1 + 1e-9:
+        p.append(f'<line class="g-izgara" x1="{X(k):.1f}" y1="{Y(y0):.1f}" x2="{X(k):.1f}" y2="{Y(y1):.1f}"/>')
+        k += adim
+    k = math.ceil(y0 / adim) * adim
+    while k <= y1 + 1e-9:
+        p.append(f'<line class="g-izgara" x1="{X(x0):.1f}" y1="{Y(k):.1f}" x2="{X(x1):.1f}" y2="{Y(k):.1f}"/>')
+        k += adim
+    # eksenler + sayi etiketleri
+    ex = 0 if y0 <= 0 <= y1 else y0
+    ey = 0 if x0 <= 0 <= x1 else x0
+    p.append(f'<line class="g-eksen" x1="{X(x0):.1f}" y1="{Y(ex):.1f}" x2="{X(x1):.1f}" y2="{Y(ex):.1f}"/>'
+             f'<line class="g-eksen" x1="{X(ey):.1f}" y1="{Y(y0):.1f}" x2="{X(ey):.1f}" y2="{Y(y1):.1f}"/>'
+             f'<text x="{X(x1) + 6:.1f}" y="{Y(ex) + 5:.1f}">x</text>'
+             f'<text x="{X(ey) - 4:.1f}" y="{Y(y1) - 5:.1f}" text-anchor="middle">y</text>')
+    k = math.ceil(x0 / etiket_adim) * etiket_adim
+    while k <= x1 + 1e-9:
+        if abs(k) > 1e-9 and k < x1 - 1e-9:
+            p.append(f'<text class="g-kucuk" x="{X(k):.1f}" y="{Y(ex) + 15:.1f}" text-anchor="middle">{_sayi(round(k, 6))}</text>')
+        k += etiket_adim
+    k = math.ceil(y0 / etiket_adim) * etiket_adim
+    while k <= y1 + 1e-9:
+        if abs(k) > 1e-9 and k < y1 - 1e-9:
+            p.append(f'<text class="g-kucuk" x="{X(ey) - 6:.1f}" y="{Y(k) + 4:.1f}" text-anchor="end">{_sayi(round(k, 6))}</text>')
+        k += etiket_adim
+    p.append(f'<text class="g-kucuk" x="{X(ey) - 6:.1f}" y="{Y(ex) + 15:.1f}" text-anchor="end">0</text>')
+    # yardimci dogrular
+    for d in dikeyler:
+        p.append(f'<line class="g-yardimci" x1="{X(d):.1f}" y1="{Y(y0):.1f}" x2="{X(d):.1f}" y2="{Y(y1):.1f}"/>')
+    for d in yataylar:
+        p.append(f'<line class="g-yardimci" x1="{X(x0):.1f}" y1="{Y(d):.1f}" x2="{X(x1):.1f}" y2="{Y(d):.1f}"/>')
+    # egriler: tanimsiz ya da cok buyuk sicrama olan yerde cizgi kopar
+    for i, (etiket, f) in enumerate(egriler):
+        renk = GRAFIK_RENK[i % len(GRAFIK_RENK)]
+        parcalar, simdiki, onceki = [], [], None
+        n = 480
+        for j in range(n + 1):
+            x = x0 + (x1 - x0) * j / n
+            try:
+                y = f(x)
+                y = None if y is None or not math.isfinite(y) else float(y)
+            except (ValueError, ZeroDivisionError, OverflowError):
+                y = None
+            if y is None or abs(y) > 1e6 or (onceki is not None and abs(y - onceki) > (y1 - y0)):
+                if len(simdiki) > 1: parcalar.append(simdiki)
+                simdiki = [] if y is None or abs(y) > 1e6 else [(x, y)]
+            else:
+                simdiki.append((x, y))
+            onceki = y
+        if len(simdiki) > 1: parcalar.append(simdiki)
+        for parca in parcalar:
+            nk = " ".join(f"{X(a):.1f},{Y(b):.1f}" for a, b in parca)
+            p.append(f'<polyline class="g-egri" {kirp} stroke="{renk}" points="{nk}"/>')
+    # noktalar
+    for x, y, etiket, dolu in noktalar:
+        p.append(f'<circle class="{"g-nokta-dolu" if dolu else "g-nokta"}" cx="{X(x):.1f}" cy="{Y(y):.1f}" r="4.5"/>')
+        if etiket:
+            p.append(f'<text class="g-deger g-kucuk" x="{X(x) + 7:.1f}" y="{Y(y) - 7:.1f}">{html.escape(etiket)}</text>')
+    # lejant: egri etiketleri sol ustte, beyaz zeminli
+    etiketli = [e for e, _ in egriler if e]
+    if etiketli:
+        genislik = max(len(e) for e in etiketli) * 6.8 + 36
+        p.append(f'<rect class="g-lejant-zemin" x="{X(x0) + 3:.1f}" y="{Y(y1) + 3:.1f}" width="{genislik:.1f}" height="{len(egriler) * 20 + 6}" rx="4"/>')
+    for i, (etiket, _) in enumerate(egriler):
+        if not etiket: continue
+        yy = Y(y1) + 16 + i * 20
+        renk = GRAFIK_RENK[i % len(GRAFIK_RENK)]
+        p.append(f'<line x1="{X(x0) + 8:.1f}" y1="{yy - 4:.1f}" x2="{X(x0) + 26:.1f}" y2="{yy - 4:.1f}" stroke="{renk}" stroke-width="3"/>'
+                 f'<text class="g-lejant" x="{X(x0) + 32:.1f}" y="{yy:.1f}">{html.escape(etiket)}</text>')
+    veri = "; ".join(e for e, _ in egriler if e) + ("; noktalar: " + ", ".join(f"({_sayi(a)}, {_sayi(b)})" for a, b, *_ in noktalar) if noktalar else "")
+    return _cerceve(baslik, gen, yuk, "".join(p), veri)

@@ -1569,6 +1569,124 @@ def yazi_98_100():
     esit("100 cok adimli", (F(500)/F(125, 100), 500*F(9, 10), 450 - 400, F(50, 400)*100, 25 - 10), (400, 450, 50, F(25, 2), 15))
 
 
+def yazi_06_10():
+    """06 Fonksiyon Grafikleri, 07 Polinomlar, 08 Bolme, 09 Kalan, 10 Carpanlara Ayirma."""
+    X, a_, b_, t_, k_, m_ = sp.symbols("X a_ b_ t_ k_ m_")
+    Q = Rational
+    ac = lambda e: sp.expand(e)
+    bol = lambda p, q: sp.div(ac(p), ac(q), X)
+    kalan = lambda p, q: sp.rem(ac(p), ac(q), X)
+    ayni = lambda e1, e2: sp.expand(e1 - e2) == 0
+    # ── 06 fonksiyon grafikleri ──
+    f = X**2 - 4*X + 3
+    esit("06 dogrusal tablo", [2*v - 1 for v in (-1, 0, 1, 2)], [-3, -1, 1, 3])
+    esit("06 cember", (1 + 8, sp.solve(X**2 + 1 - 9, X)), (9, [-2*sp.sqrt(2), 2*sp.sqrt(2)]))
+    esit("06 deger okuma", (f.subs(X, 0), f.subs(X, 4), set(sp.solve(f - 3, X)), set(sp.solve(f, X)), f.subs(X, 2)), (3, 3, {0, 4}, {1, 3}, -1))
+    esit("06 artan azalan", (sp.solve(sp.diff(f, X), X), _coz(f < 0, 0, X) if False else sp.solveset(f < 0, X, R), sp.solveset(f > 0, X, R)),
+         ([2], Interval.open(1, 3), Union(Interval.open(-oo, 1), Interval.open(3, oo))))
+    esit("06 goruntu", (sp.Interval(-1, 2), function_range(X**2, X, Interval(-1, 2)), (-1)**2, 2**2), (Interval(-1, 2), Interval(0, 4), 1, 4))
+    esit("06 dogru", ((-2*X + 4).subs(X, 0), sp.solve(-2*X + 4, X)), (4, [2]))
+    esit("06 mutlak", (min(abs(v - 2) + 1 for v in [i / 100 for i in range(-500, 500)]), abs(2 - 2) + 1), (1, 1))
+    pf = lambda v: v + 1 if v < 1 else 4 - v
+    esit("06 parcali", (pf(-1), pf(1), pf(3), sp.limit(X + 1, X, 1, "-"), pf(pf(3)), pf(0), pf(pf(0))), (0, 3, 1, 2, 3, 1, 3))
+    esit("06 oteleme", (sp.solve(sp.diff((X - 2)**2 + 1, X), X), ((X - 2)**2 + 1).subs(X, 2)), ([2], 1))
+    esit("06 yansima", (sp.sqrt(4), -sp.sqrt(4), sp.sqrt(-(-4))), (2, -2, 2))
+    esit("06 simetri", (ayni((-X)**3 - (-X), -(X**3 - X)), all(ayni(g.subs(X, -X), g) for g in (X**2, X**4 - 3*X**2)), all(ayni(g.subs(X, -X), -g) for g in (X, X**3)),
+                        ayni((X**2 + X).subs(X, -X), X**2 + X), ayni((X**2 + X).subs(X, -X), -(X**2 + X)), abs(-3) == abs(3)), (True, True, True, False, False, True))
+    esit("06 ters", (sp.solve(2*X + 1 - t_, X), 2*1 + 1, Q(3 - 1, 2)), ([(t_ - 1)/2], 3, 1))
+    esit("06 kesisim", (sp.solve(X**2 - X - 2, X), [(-1, 1), (2, 4)] == [(v, v**2) for v in (-1, 2)], [v + 2 for v in (-1, 2)]), ([-1, 2], True, [1, 4]))
+    # ── 07 polinomlar ──
+    esit("07 6/n", ([n for n in range(1, 50) if 6 % n == 0 and n - 1 >= 0], len([n for n in range(1, 50) if 6 % n == 0])), ([1, 2, 3, 6], 4))
+    p7 = sp.Poly(4*X**3 - 2*X**2 + 7*X - 5, X)
+    esit("07 derece", (p7.degree(), p7.LC(), p7.eval(0), sp.Poly(5 - 2*X + 3*X**4, X).LC()), (3, 4, -5, 3))
+    esit("07 sifir polinom", sp.solve([a_ - 3, b_ + 2, t_ - 1], [a_, b_, t_]), {a_: 3, b_: -2, t_: 1})
+    p = (2*X - 1)**3 + X**2 + 4
+    esit("07 sabit toplam", (p.subs(X, 0), p.subs(X, 1)), (3, 6))
+    p = (X + 2)**3
+    esit("07 cift tek", (p.subs(X, 1), p.subs(X, -1), Q(27 + 1, 2), Q(27 - 1, 2), ac(p), 6 + 8, 1 + 12), (27, 1, 14, 13, X**3 + 6*X**2 + 12*X + 8, 14, 13))
+    esit("07 esitlik", sp.solve([a_ - 2 - 3, b_ + 1 + 4, t_ - 5], [a_, b_, t_]), {a_: 5, b_: -5, t_: 5})
+    P7, Q7 = 2*X**3 - X + 4, X**3 + 3*X**2 - 5
+    esit("07 toplama", (ac(P7 + Q7), ac(P7 - Q7)), (3*X**3 + 3*X**2 - X - 1, X**3 - 3*X**2 - X + 9))
+    esit("07 carpma", (ac((2*X - 3)*(X**2 + X - 1)), ((2*X - 3)*(X**2 + X - 1)).subs(X, 1)), (2*X**3 - X**2 - 5*X + 3, -1))
+    Pd, Qd = X**3 + 2*X + 1, 5*X**2 - X + 7
+    esit("07 derece kurallari", (sp.degree(ac(Pd*Qd), X), sp.degree(ac(Pd**3), X), sp.degree(ac(Pd.subs(X, X**2)), X), sp.degree(ac(Pd + Qd), X), sp.degree(ac((X**2 + X) + (-X**2 + 3)), X)), (5, 9, 6, 3, 1))
+    pc = sp.Poly(ac((X**2 + 1)**3 * (2*X - 1)**2), X)
+    esit("07 carpim derecesi", (pc.degree(), pc.LC()), (8, 4))
+    esit("07 deger", ((X**3 - 2*X + 1).subs(X, 2), (X**3 - 2*X + 1).subs(X, -1)), (5, 2))
+    esit("07 P(x+1)", (ac((X - 1)**2 + 3*(X - 1) + 2), (X**2 + X).subs(X, 3), (X**2 + 3*X + 2).subs(X, 2)), (X**2 + X, 12, 12))
+    esit("07 bilesik girdi", ((X**2 - 3*X + 4).subs(X, 1), (X**2 - 3*X + 4).subs(X, -1)), (2, 8))
+    esit("07 grafik kokleri", set(sp.solve(X**3 - 3*X, X)), {0, sp.sqrt(3), -sp.sqrt(3)})
+    esit("07 kok carpan", ((X**3 - 6*X**2 + 11*X - 6).subs(X, 1), sp.factor(X**3 - 6*X**2 + 11*X - 6)), (0, (X - 1)*(X - 2)*(X - 3)))
+    esit("07 katsayi bul", sp.solve([a_ + b_ + 3 - 6, a_ - b_ + 3 - 4], [a_, b_]), {a_: 2, b_: 1})
+    esit("07 kokten polinom", (ac(3*(X - 1)*(X + 2)), (3*X**2 + 3*X - 6).subs(X, -2)), (3*X**2 + 3*X - 6, 0))
+    esit("07 fonksiyonel", (sp.solve([2*a_ - 4, 2*b_ - a_ - 2], [a_, b_]), ac((2*X + 2) + (2*(X - 1) + 2))), ({a_: 2, b_: 2}, 4*X + 2))
+    esit("07 ozdeslik", (ac((2*X + 3)**2), ac((X - 5)*(X + 5)), (1 + 1)**2, 1**2 + 1**2, 5*3 + 2), (4*X**2 + 12*X + 9, X**2 - 25, 4, 2, 17))
+    esit("07 carpim sabit", (3*(-2), 4*5), (-6, 20))
+    # ── 08 bolme ──
+    esit("08 kalansiz", (bol(X**2 + 5*X + 6, X + 2), Q(156, 12), 10**2 + 50 + 6, 10 + 2), ((X + 3, 0), 13, 156, 12))
+    esit("08 kalanli", (bol(2*X**3 - 3*X**2 + 4*X - 5, X - 1), ac((X - 1)*(2*X**2 - X + 3))), ((2*X**2 - X + 3, -2), 2*X**3 - 3*X**2 + 4*X - 3))
+    esit("08 eksik terim", (bol(X**3 - 8, X - 2), sp.factor(X**3 - 8)), ((X**2 + 2*X + 4, 0), (X - 2)*(X**2 + 2*X + 4)))
+    esit("08 ikinci derece bolen", (bol(X**4 + X**3 - X + 2, X**2 + 1), (X**4 + X**3 - X + 2).subs(X, 2), ((X**2 + 1)*(X**2 + X - 1) + (-2*X + 3)).subs(X, 2)), ((X**2 + X - 1, -2*X + 3), 24, 24))
+    esit("08 dereceler esit", bol(6*X**2 + X - 2, 3*X**2 + 1), (2, X - 4))
+    esit("08 derece", (5 - 2,), (3,))
+    def horner(kats, a):
+        s = [kats[0]]
+        for c in kats[1:]: s.append(s[-1]*a + c)
+        return s
+    esit("08 horner", (horner([2, -3, 4, -5], 1), horner([1, -4, 1, 6], -1), sp.factor(X**3 - 4*X**2 + X + 6), horner([1, 0, 0, 0, -16], 2)),
+         ([2, -1, 3, -2], [1, -5, 6, 0], (X - 3)*(X - 2)*(X + 1), [1, 2, 4, 8, 0]))
+    esit("08 ax+b bolen", (bol(6*X**2 + X - 2, 2*X - 1), (6*X**2 + X - 2).subs(X, Q(1, 2)), Q(6, 4) + Q(1, 2) - 2), ((3*X + 2, 0), 0, 0))
+    esit("08 bolunen bul", (ac((X**2 - 1)*(X + 2) + 3*X - 1), (X**3 + 2*X**2 + 2*X - 3).subs(X, 1), 3*1 - 1), (X**3 + 2*X**2 + 2*X - 3, 2, 2))
+    esit("08 kalansiz kosul", (sp.solve(1 + m_ + 6, m_), sp.factor(X**3 - 7*X + 6)), ([-7], (X - 2)*(X - 1)*(X + 3)))
+    esit("08 iki kalan", (sp.solve([1 + a_ + b_ - 4, -1 - a_ + b_ - 2], [a_, b_]), (X**3 + 3).subs(X, 1), (X**3 + 3).subs(X, -1)), ({a_: 0, b_: 3}, 4, 2))
+    esit("08 bolum degeri", sp.solve(2*t_ + 4 - 10, t_), [3])
+    esit("08 ozdeslik tablosu", (bol(X**2 - 9, X - 3), bol(X**3 - 8, X - 2), bol(X**3 + 27, X + 3)), ((X + 3, 0), (X**2 + 2*X + 4, 0), (X**2 - 3*X + 9, 0)))
+    esit("08 ikinci derece kalan", (kalan(X**5 + 2*X + 3, X**2 - X), (X**5 + 2*X + 3).subs(X, 0)), (3*X + 3, 3))
+    esit("08 sayilarla", (156 // 12, 156 % 12), (13, 0))
+    # ── 09 kalan ──
+    p9 = X**3 - 2*X**2 + 5
+    esit("09 temel", (p9.subs(X, 2), bol(p9, X - 2), p9.subs(X, -1), p9.subs(X, 1)), (5, (X**2, 5), 2, 4))
+    esit("09 ax+b", (kalan(4*X**2 - 2*X + 1, 2*X - 1), 4*Q(1, 4) - 1 + 1), (1, 1))
+    esit("09 x ile", kalan(3*X**4 - 7*X**2 + X - 6, X), -6)
+    esit("09 katsayi toplami", (kalan((X + 1)**5, X - 1), sum(sp.Poly((X + 1)**5, X).all_coeffs())), (32, 32))
+    esit("09 buyuk kuvvet", (kalan(X**100 + X**51 + 1, X + 1), kalan(X**100 + X**51 + 1, X - 1)), (1, 3))
+    esit("09 carpan teoremi", ((X**3 - 3*X**2 + 4).subs(X, 2), sp.factor(X**3 - 3*X**2 + 4)), (0, (X - 2)**2*(X + 1)))
+    esit("09 bilinmeyen", (sp.solve(8 + 4*k_ - 4 - 8, k_), sp.solve(-8 - 2*m_ + 6, m_)), ([1], [-1]))
+    esit("09 iki bilinmeyen", (sp.solve([1 + a_ + b_ - 2, 4 - 2*a_ + b_ - 5], [a_, b_]), (X**2 + 1).subs(X, 1), (X**2 + 1).subs(X, -2)), ({a_: 0, b_: 1}, 2, 5))
+    esit("09 bilesik girdi", ((X**2 - X + 2).subs(X, 3), kalan((X**2 - X + 2).subs(X, 2*X + 1), X - 1)), (8, 8))
+    esit("09 bolme esitliginden", (1 - 3)*2 + 5, 1)
+    esit("09 ikinci derece", (kalan(X**4 + X + 1, X**2 - 1), sp.solve([a_ + b_ - 3, -a_ + b_ - 1], [a_, b_]), ac((X**2 - 1)*(X**2 + 1) + X + 2)), (X + 2, {a_: 1, b_: 2}, X**4 + X + 1))
+    esit("09 gercek koksuz", kalan(X**4 + 3*X**3 + X + 2, X**2 + 1), -2*X + 3)
+    esit("09 derece indirgeme", kalan(X**7 + X**4 + X, X**3 - 1), 3*X)
+    esit("09 birlesik kalan", (sp.solve([a_ + b_ - 3, 2*a_ + b_ - 5], [a_, b_]), kalan((X - 1)*(X - 2)*(X**2 + 7) + 2*X + 1, (X - 1)*(X - 2))), ({a_: 2, b_: 1}, 2*X + 1))
+    esit("09 horner", horner([1, -2, 0, 5], 2), [1, 0, 0, 5])
+    esit("09 kokten kur", (ac((X - 1)*(X - 3)), 3), (X**2 - 4*X + 3, (X**2 - 4*X + 3).subs(X, 0)))
+    esit("09 bolum degeri", sp.solve((1 - 2)*t_ + 3 - 7, t_), [-4])
+    esit("09 horner deger", (horner([2, -3, 0, 1, -7], 2), (2*X**4 - 3*X**3 + X - 7).subs(X, 2), 32 - 24 + 2 - 7), ([2, 1, 2, 5, 3], 3, 3))
+    esit("09 buyuk bolenden", ((2*X + 3).subs(X, 2), (2*X + 3).subs(X, -2)), (7, -1))
+    esit("09 art arda", sp.expand((X - 1)*((X - 2)*t_ + 3) + 4 - (X - 1)*(X - 2)*t_), 3*X + 1)
+    # ── 10 carpanlara ayirma ──
+    fk = lambda e1, e2: ayni(e1, e2)
+    esit("10 temel", all([fk(6*X**3 - 9*X**2, 3*X**2*(2*X - 3)), fk(2*X**2 - 18, 2*(X - 3)*(X + 3)), fk(X**3 + 2*X**2 + 3*X + 6, (X + 2)*(X**2 + 3)),
+                          fk(X**2 - 25, (X - 5)*(X + 5)), fk(4*X**2 - 9, (2*X - 3)*(2*X + 3)), fk(X**4 - 16, (X - 2)*(X + 2)*(X**2 + 4)),
+                          fk(X**2 + 6*X + 9, (X + 3)**2), fk(4*X**2 - 12*X + 9, (2*X - 3)**2), fk(X**3 - 27, (X - 3)*(X**2 + 3*X + 9)),
+                          fk(8*X**3 + 1, (2*X + 1)*(4*X**2 - 2*X + 1)), fk(X**3 + 3*X**2 + 3*X + 1, (X + 1)**3), fk(X**2 - 5*X + 6, (X - 2)*(X - 3)),
+                          fk(X**2 + X - 12, (X + 4)*(X - 3)), fk(2*X**2 + 7*X + 3, (2*X + 1)*(X + 3)), fk(6*X**2 - X - 2, (2*X + 1)*(3*X - 2)),
+                          fk(X**4 - 5*X**2 + 4, (X - 1)*(X + 1)*(X - 2)*(X + 2)), fk(X**4 + 4, (X**2 - 2*X + 2)*(X**2 + 2*X + 2)),
+                          fk(X**3 - 6*X**2 + 11*X - 6, (X - 1)*(X - 2)*(X - 3)), fk(2*X**3 - 3*X**2 - 3*X + 2, (X - 2)*(X + 1)*(2*X - 1)),
+                          fk(X**4 - 5*X**3 + 5*X**2 + 5*X - 6, (X - 1)*(X + 1)*(X - 2)*(X - 3)), fk(X**2 + 5*X + 6, (X + 2)*(X + 3)),
+                          fk(2*X**3 - 8*X, 2*X*(X - 2)*(X + 2)), fk(X**3 - X**2 - 4*X + 4, (X - 1)*(X - 2)*(X + 2)), fk(3*X**2 - 12*X + 12, 3*(X - 2)**2)]), True)
+    esit("10 koksuzler", (sp.solveset(X**2 + 4, X, R), sp.solveset(X**2 + 9, X, R), sp.solveset(X**4 + 4, X, R), sp.solveset(X**2 - 2*X + 2, X, R)), (S.EmptySet,)*4)
+    esit("10 kok deneme", ([v for v in (1, -1, 2, -2, 3, -3, 6, -6) if (X**3 - 6*X**2 + 11*X - 6).subs(X, v) == 0], [v for v in (1, -1, 2, -2, Q(1, 2), -Q(1, 2)) if (2*X**3 - 3*X**2 - 3*X + 2).subs(X, v) == 0],
+                           [(X**4 - 5*X**3 + 5*X**2 + 5*X - 6).subs(X, v) for v in (1, -1, 2, 3)], 16 - 40 + 20 + 10 - 6, 81 - 135 + 45 + 15 - 6), ([1, 2, 3], [-1, 2, Q(1, 2)], [0, 0, 0, 0], 0, 0))
+    esit("10 sadelestirme", (sp.cancel((X**2 - 9)/(X**2 + 5*X + 6)), sp.solve(X**2 + 5*X + 6, X)), ((X - 3)/(X + 2), [-3, -2]))
+    esit("10 denklem", (sp.solveset(X**3 - X, X, R), sp.solveset(X**2 - 1, X, R)), (FiniteSet(-1, 0, 1), FiniteSet(-1, 1)))
+    esit("10 sayisal", (101**2 - 99**2, 2*200, 98*102, 100**2 - 2**2), (400, 400, 9996, 9996))
+    esit("10 ozdeslik degeri", (sp.expand((a_ + b_)**2 - 2*a_*b_), sp.expand((a_ + b_)**3 - 3*a_*b_*(a_ + b_))), (a_**2 + b_**2, a_**3 + b_**3))
+    esit("10 ozdeslik sayisal", (25 - 12, 125 - 90, 2**2 + 3**2, 2**3 + 3**3, 2 + 3, 2*3), (13, 35, 13, 35, 5, 6))
+    esit("10 kontrol", (ac((2*X + 1)*(3*X - 2)), (6*X**2 - X - 2).subs(X, 1), 3*1), (6*X**2 - X - 2, 3, 3))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -1591,7 +1709,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")

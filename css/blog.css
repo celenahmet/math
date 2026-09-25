@@ -273,6 +273,12 @@ math.mtml { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", s
 .bs-grafik .g-nokta { fill: var(--yuzey); stroke: var(--mor); stroke-width: 3; }
 .bs-grafik .g-dilim { stroke: var(--yuzey); stroke-width: 2; }
 .bs-grafik figcaption { margin-top: 8px; text-align: center; font-size: 14px; color: var(--soluk); }
+.bs-grafik .g-kucuk { font-size: 12px; paint-order: stroke; stroke: var(--yuzey); stroke-width: 3px; }
+.bs-grafik .g-egri { fill: none; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.bs-grafik .g-nokta-dolu { fill: var(--murekkep); }
+.bs-grafik .g-lejant-zemin { fill: var(--yuzey); opacity: .9; stroke: var(--cizgi); }
+.bs-grafik .g-yardimci { stroke: var(--soluk); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.bs-grafik .g-lejant { fill: var(--murekkep); font-weight: 600; paint-order: stroke; stroke: var(--yuzey); stroke-width: 4px; }
 
 /* sss */
 .bs-sss details {
