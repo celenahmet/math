@@ -1758,6 +1758,115 @@ def yazi_11_13():
     esit("13 hatirlama", sp.expand((X - 1)*(X - 2)), X**2 - 3*X + 2)
 
 
+def yazi_14_18():
+    """14 Parabol, 15 Tepe Noktasi, 16 Parabol Denklemi, 17 Parabol Grafigi, 18 Parabol ve Dogru."""
+    X, m_, k_, n_, a_, b_, c_, t_ = sp.symbols("X m_ k_ n_ a_ b_ c_ t_")
+    Q = Rational
+    kok = lambda e: sp.solveset(sp.expand(e), X, R)
+    ac = sp.expand
+    def tepe(e):
+        p = sp.Poly(ac(e), X); a, b, c = (p.all_coeffs() + [0, 0, 0])[:3] if p.degree() == 2 else (None, None, None)
+        r = Q(-b, 2*a) if all(isinstance(v, sp.Integer) for v in (a, b)) else -b/(2*a)
+        return (sp.nsimplify(r), sp.nsimplify(ac(e).subs(X, r)))
+    D = lambda a, b, c: b*b - 4*a*c
+    f = X**2 - 4*X + 3
+    # ── 14 ──
+    esit("14 temel", ([v*v for v in (-2, -1, 0, 1, 2)], 1 - 0, 4 - 1), ([4, 1, 0, 1, 4], 1, 3))
+    esit("14 x2-4x+3", (tepe(f), f.subs(X, 0), f.subs(X, 4), kok(f), -Q(D(1, -4, 3), 4), ac((X - 2)**2 - 1), ac((X - 1)*(X - 3))), ((2, -1), 3, 3, FiniteSet(1, 3), -1, f, f))
+    esit("14 tepe bicimi", (kok(2*(X - 1)**2 - 8), tepe((X + 1)*(X - 3))), (FiniteSet(-1, 3), (1, -4)))
+    g = -X**2 + 6*X - 5
+    esit("14 en buyuk", (tepe(g), kok(g)), ((3, 4), FiniteSet(1, 5)))
+    esit("14 goruntu", (function_range(f, X, R), function_range(g, X, R)), (Interval(-1, oo), Interval(-oo, 4)))
+    esit("14 kapali aralik", (f.subs(X, 0), f.subs(X, 5), function_range(f, X, Interval(0, 5))), (3, 8, Interval(-1, 8)))
+    esit("14 isaret", sp.solveset(f < 0, X, R), Interval.open(1, 3))
+    esit("14 oteleme", ac((X - 2)**2 + 3), X**2 - 4*X + 7)
+    esit("14 alan", (tepe(X*(10 - X)),), ((5, 25),))
+    h = -5*t_**2 + 20*t_
+    esit("14 atis", (sp.solve(sp.diff(h, t_), t_), h.subs(t_, 2), sp.solve(h, t_), h.subs(t_, 1), h.subs(t_, 3)), ([2], 20, [0, 4], 15, 15))
+    esit("14 isaret okuma", (tepe(X**2 - 4*X - 1)[0] > 0, (X**2 - 4*X - 1).subs(X, 0) < 0), (True, True))
+    # ── 15 ──
+    f5 = X**2 - 6*X + 5
+    esit("15 ilk", (tepe(f5), D(1, -6, 5), [f5.subs(X, v) for v in (1, 5, 0, 6)]), ((3, -4), 16, [0, 0, 5, 5]))
+    esit("15 kesirli", (tepe(2*X**2 - 3*X + 1), D(2, -3, 1), -Q(1, 8), 2*Q(9, 16) - Q(9, 4) + 1), ((Q(3, 4), -Q(1, 8)), 1, -Q(1, 8), -Q(1, 8)))
+    esit("15 asagi", tepe(-2*X**2 + 8*X - 3), (2, 5))
+    esit("15 tam kare", (ac((X + 2)**2 + 3), ac(2*(X - 2)**2 - 3), tepe(2*X**2 - 8*X + 5)), (X**2 + 4*X + 7, 2*X**2 - 8*X + 5, (2, -3)))
+    esit("15 kokler", (tepe((X - 2)*(X - 6)), Q(1 + 7, 2)), ((4, -4), 4))
+    esit("15 goruntu", function_range(f5, X, R), Interval(-4, oo))
+    esit("15 simetrik", [f5.subs(X, v) for v in (0, 6, 2, 4)], [5, 5, -3, -3])
+    esit("15 konum", (D(1, -2, 3), tepe(X**2 - 2*X + 3)), (-8, (1, 2)))
+    esit("15 tepeden denklem", (sp.solve(4*a_ - 3 - 5, a_), ac(2*(X - 2)**2 - 3)), ([2], 2*X**2 - 8*X + 5))
+    esit("15 aralik disi", (f5.subs(X, 4), f5.subs(X, 7), function_range(f5, X, Interval(4, 7))), (-3, 12, Interval(-3, 12)))
+    esit("15 koklere", kok((X - 3)**2 - 4), FiniteSet(1, 5))
+    esit("15 parametre eksen", (m_, ac((X**2 - 2*m_*X + m_ + 6).subs(m_, 3)), tepe(X**2 - 6*X + 9)), (m_, X**2 - 6*X + 9, (3, 0)))
+    esit("15 dogru uzerinde", (sp.solve((4 - 8 + m_) - 2, m_), tepe(X**2 - 4*X + 6)), ([6], (2, 2)))
+    esit("15 x ekseni", (sp.solve(D(1, m_, 9), m_), tepe(X**2 + 6*X + 9), tepe(X**2 - 6*X + 9)), ([-6, 6], (-3, 0), (3, 0)))
+    esit("15 yol", ac((X - m_)**2 + m_), ac(X**2 - 2*m_*X + m_**2 + m_))
+    G = t_*(100 - 2*t_)
+    esit("15 gelir", (sp.solve(sp.diff(G, t_), t_), G.subs(t_, 25), sp.solve(G, t_)), ([25], 1250, [0, 50]))
+    esit("15 oteleme", ac((X - 3)**2 - 4), f5)
+    esit("15 duvar", tepe(X*(40 - 2*X)), (10, 200))
+    # ── 16 ──
+    esit("16 tepe ve nokta", (sp.solve(4*a_ - 4, a_), ac((X - 1)**2 - 4), (X**2 - 2*X - 3).subs(X, -1)), ([1], X**2 - 2*X - 3, 0))
+    esit("16 tepe ve y", (sp.solve(4*a_ + 1 - 9, a_), ac(2*(X - 2)**2 + 1)), ([2], 2*X**2 - 8*X + 9))
+    esit("16 kok ve nokta", (sp.solve(-3*a_ + 6, a_), ac(2*(X + 1)*(X - 3))), ([2], 2*X**2 - 4*X - 6))
+    esit("16 kok ve max", (sp.solve(a_*2*(-2) - 8, a_), ac(-2*X*(X - 4)), tepe(-2*X**2 + 8*X)), ([-2], -2*X**2 + 8*X, (2, 8)))
+    esit("16 kok ve min", (sp.solve(a_*2*(-2) + 8, a_), ac(2*(X - 1)*(X - 5)), tepe(2*X**2 - 12*X + 10)), ([2], 2*X**2 - 12*X + 10, (3, -8)))
+    esit("16 tepe ve kok", (2 + (2 - (-1)), sp.solve(a_*3*(-3) + 9, a_), ac((X + 1)*(X - 5)), tepe(X**2 - 4*X - 5)), (5, [1], X**2 - 4*X - 5, (2, -9)))
+    esit("16 uc nokta", (sp.solve([a_ + b_ + 1, 4*a_ + 2*b_ + 1 - 3], [a_, b_]), [(2*X**2 - 3*X + 1).subs(X, v) for v in (0, 1, 2)]), ({a_: 2, b_: -3}, [1, 0, 3]))
+    esit("16 teget", (sp.solve(4*a_ - 8, a_), ac(2*(X - 2)**2)), ([2], 2*X**2 - 8*X + 8))
+    esit("16 eksen iki nokta", (sp.solve([a_ + k_ - 3, 4*a_ + k_], [a_, k_]), ac(-(X - 1)**2 + 4), (-X**2 + 2*X + 3).subs(X, 3)), ({a_: -1, k_: 4}, -X**2 + 2*X + 3, 0))
+    esit("16 grafikten", (sp.solve(4*a_ - 2 - 2, a_), ac((X + 1)**2 - 2), (X**2 + 2*X - 1).subs(X, -3)), ([1], X**2 + 2*X - 1, 2))
+    esit("16 grafikten kok", (sp.solve(-2*a_ + 4, a_), ac(2*(X + 2)*(X - 1))), ([2], 2*X**2 + 2*X - 4))
+    esit("16 oteleme", (ac((X - 3)**2 - 2), ac(3*(X + 1)**2 + 5)), (X**2 - 6*X + 7, 3*X**2 + 6*X + 8))
+    esit("16 bicimler", (ac(2*(X - 1)**2 - 8), ac(2*(X + 1)*(X - 3))), (2*X**2 - 4*X - 6, 2*X**2 - 4*X - 6))
+    esit("16 simetrik ve orijin", (sp.solve([a_ + c_ - 3, 4*a_ + c_ - 9], [a_, c_]), sp.solve([a_ + b_ - 1, 4*a_ + 2*b_ - 6], [a_, b_]), sp.solve(1 + m_ + 4 - 2, m_)),
+         ({a_: 2, c_: 1}, {a_: 2, b_: -1}, [-3]))
+    esit("16 iki nokta yetmez", (all((a*X**2 + (1 - a)*X).subs(X, 0) == 0 and (a*X**2 + (1 - a)*X).subs(X, 1) == 1 for a in (1, 2, 3, -5)), ac(2*X**2 - X).subs(X, 1)), (True, 1))
+    y16 = -X**2/20 + 5
+    esit("16 kemer", (sp.solve(-100*a_ - 5, a_), kok(y16), y16.subs(X, 6)), ([-Q(1, 20)], FiniteSet(-10, 10), Q(16, 5)))
+    h16 = -5*(t_ - 1)**2 + 7
+    esit("16 atis", (sp.solve(a_ + 7 - 2, a_), ac(h16), h16.subs(t_, 2), h16.subs(t_, 0)), ([-5], -5*t_**2 + 10*t_ + 2, 2, 2))
+    # ── 17 ──
+    F = X**2 - 2*X - 3
+    esit("17 ornek", (tepe(F), F.subs(X, 0), kok(F), F.subs(X, 2), [F.subs(X, v) for v in (-1, 0, 1, 2, 3)]), ((1, -4), -3, FiniteSet(-1, 3), -3, [0, -3, -4, -3, 0]))
+    esit("17 sabit cifti", ((X**2 - 6*X + 5).subs(X, 6),), (5,))
+    esit("17 asagi", (tepe(-X**2 + 4*X), kok(-X**2 + 4*X), [(-X**2 + 4*X).subs(X, v) for v in (1, 3)]), ((2, 4), FiniteSet(0, 4), [3, 3]))
+    esit("17 koksuz", (D(1, 2, 3), tepe(X**2 + 2*X + 3), [(X**2 + 2*X + 3).subs(X, v) for v in (0, -2, 1, -3)]), (-8, (-1, 2), [3, 3, 6, 6]))
+    esit("17 teget", [((X - 2)**2).subs(X, v) for v in (2, 0, 4)], [0, 4, 4])
+    esit("17 tepe bicimi", (kok(2*(X - 1)**2 - 2), [(2*(X - 1)**2 - 2).subs(X, v) for v in (-1, 3)]), (FiniteSet(0, 2), [6, 6]))
+    esit("17 kok bicimi", (tepe(-(X + 1)*(X - 3)), (-(X + 1)*(X - 3)).subs(X, 0), (-(X + 1)*(X - 3)).subs(X, 2)), ((1, 4), 3, 3))
+    esit("17 genislik", [[a*d*d for d in (1, 2, 3)] for a in (1, 2, Q(1, 2))], [[1, 4, 9], [2, 8, 18], [Q(1, 2), 2, Q(9, 2)]])
+    esit("17 oteleme", tepe((X + 2)**2 - 1), (-2, -1))
+    esit("17 kisitli", (function_range(X**2 - 2*X, X, Interval(0, 3)), (X**2 - 2*X).subs(X, 3)), (Interval(-1, 3), 3))
+    esit("17 mutlak", (sp.Abs(0**2 - 4), sp.solveset(X**2 - 4 < 0, X, R)), (4, Interval.open(-2, 2)))
+    esit("17 iki parabol", (kok(X**2 - (-X**2 + 2)), [v**2 for v in (-1, 1)]), (FiniteSet(-1, 1), [1, 1]))
+    esit("17 okuma", (kok(F - 5), sp.solveset(F < 0, X, R), function_range(F, X, R)), (FiniteSet(-2, 4), Interval.open(-1, 3), Interval(-4, oo)))
+    esit("17 yansima", tepe(-F), (1, 4))
+    esit("17 grafikle denklem", (kok(F - (X - 3)), F.subs(X, 3)), (FiniteSet(0, 3), 0))
+    esit("17 grafikten denklem", (sp.solve(a_ + 2 - 3, a_), ac((X + 1)**2 + 2)), ([1], X**2 + 2*X + 3))
+    # ── 18 ──
+    esit("18 temel", (D(1, -1, -2), kok(X**2 - (X + 2)), D(1, -2, 1), kok(X**2 - (2*X - 1)), D(1, -1, 1)), (9, FiniteSet(-1, 2), 0, FiniteSet(1), -3))
+    esit("18 uc dogru", (D(1, -2, 0), D(1, -2, 1), D(1, -2, 2), kok(X**2 - 2*X)), (4, 0, -4, FiniteSet(0, 2)))
+    esit("18 teget parametre", sp.solve(D(1, -m_, 3), m_), [-2*sp.sqrt(3), 2*sp.sqrt(3)])
+    esit("18 yatay", (sp.solveset(sp.expand(D(1, -4, 5 - k_)) < 0, k_, R), tepe(X**2 - 4*X + 5)), (Interval.open(-oo, 1), (2, 1)))
+    esit("18 teget noktasi", (sp.solve(D(1, -4, 3 - k_), k_), kok(X**2 - 4*X + 4), (X**2 - 2*X + 3).subs(X, 2), 2*2 - 1), ([-1], FiniteSet(2), 3, 3))
+    esit("18 egimli teget", (sp.solve(D(1, -4, -n_), n_), kok(X**2 - 4*X + 4), all(sp.solve(D(1, -mm, -n_), n_) == [-Q(mm*mm, 4)] for mm in range(-5, 6))), ([-4], FiniteSet(2), True))
+    esit("18 noktadan teget", (sp.solve(D(1, -m_, 1), m_), kok(X**2 - 2*X + 1), kok(X**2 + 2*X + 1)), ([-2, 2], FiniteSet(1), FiniteSet(-1)))
+    esit("18 orta nokta", (-(-4), Q(4, 2)), (4, 2))
+    esit("18 uzaklik", (sp.sqrt(3**2 + 3**2), sp.sqrt((2 - (-1))**2 + (4 - 1)**2)), (3*sp.sqrt(2), 3*sp.sqrt(2)))
+    esit("18 iki parabol", kok(X**2 - (-X**2 + 4*X)), FiniteSet(0, 2))
+    esit("18 esitsizlik", (sp.solveset(X**2 - X - 2 > 0, X, R), sp.solveset(X**2 - X + 1 > 0, X, R)), (Union(Interval.open(-oo, -1), Interval.open(2, oo)), R))
+    esit("18 dikey uzaklik", (tepe(X**2 - X + 1), D(1, -1, 1)), ((Q(1, 2), Q(3, 4)), -3))
+    esit("18 iki nokta parametre", sp.solveset(sp.expand(D(1, 1, 3 - k_)) > 0, k_, R), Interval.open(Q(11, 4), oo))
+    esit("18 bir nokta verildi", (sp.solve(2*m_ + 2 - 4, m_), kok(X**2 - X - 2), Q(-2, 2)), ([1], FiniteSet(-1, 2), -1))
+    esit("18 asagi yatay", tepe(-X**2 + 4*X), (2, 4))
+    def say(k):
+        return len(sp.solveset(sp.Abs(X**2 - 4) - k, X, R))
+    esit("18 mutlak yatay", [say(k) for k in (-1, 0, 2, 4, 5)], [0, 2, 4, 3, 2])
+    esit("18 kesen egim", (D(1, -3, -2), kok(X**2 - 3*X - 2).is_FiniteSet), (17, True))
+    esit("18 esit bas katsayi", sp.solve((X**2) - (X + 1)**2, X), [-Q(1, 2)])
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -1780,7 +1889,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
