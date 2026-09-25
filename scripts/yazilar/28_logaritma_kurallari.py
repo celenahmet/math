@@ -40,6 +40,7 @@ YAZI = {
                 "Değerini bulalım.",
                 "Çarpım kuralıyla ifade $\\log_6(4 \\cdot 9)=\\log_6 36$ olur.",
                 "$6^2=36$ olduğundan sonuç $2$ dir."),
+            hap("$\\log_a(xy)=\\log_a x+\\log_a y$ olur.", "Toplamın logaritması için ise böyle bir kural yoktur."),
         ]},
         {"baslik": "Bölüm kuralı", "icerik": [
             "Aynı yolla bölümün logaritması logaritmaların farkıdır. $\\dfrac{x}{y}=a^{m-n}$ olduğundan:",
@@ -50,6 +51,7 @@ YAZI = {
                 "Bölüm kuralıyla ifade $\\log_3 \\dfrac{54}{2}=\\log_3 27$ olur.",
                 "$3^3=27$ olduğundan sonuç $3$ tür."),
             "Bölüm kuralının özel bir durumu $\\log_a \\dfrac{1}{x}=-\\log_a x$ eşitliğidir; çünkü $\\log_a 1=0$ dır. Bir sayının tersinin logaritması, logaritmasının ters işaretlisidir.",
+            hap("Deprem büyüklüğü, sismografta kaydedilen dalga genliğinin onluk logaritmasıyla ölçülür.", "Bölüm kuralı gereği büyüklük farkı genlik oranının logaritmasıdır: aynı uzaklıkta $6$ büyüklüğündeki depremin genliği, $4$ büyüklüğündekinin $10^{6-4}=100$ katıdır.", gunluk=True),
         ]},
         {"baslik": "Kuvvet kuralı", "icerik": [
             "$x=a^m$ ise $x^n=a^{mn}$ olur. Bu yüzden bir kuvvetin logaritmasında üs, logaritmanın önüne katsayı olarak iner:",
@@ -60,6 +62,7 @@ YAZI = {
                 "$\\log_2 8^5=5\\log_2 8=5 \\cdot 3=15$ olur.",
                 "$\\log_5 \\sqrt{125}=\\dfrac{1}{2}\\log_5 125=\\dfrac{1}{2} \\cdot 3=\\dfrac{3}{2}$ olur."),
             "Kökler de kesirli üs olarak yazılıp aynı kurala uyar: $\\log_2 \\sqrt[3]{16}=\\dfrac{1}{3}\\log_2 16=\\dfrac{4}{3}$ olur.",
+            hap("$\\log_a x^n=n\\log_a x$ olur; kuvvet logaritmanın önüne katsayı olarak iner."),
         ]},
         {"baslik": "Kuvvet kuralında tanım koşulu", "icerik": [
             "Kuvvet kuralı yalnızca logaritması alınan sayı pozitifken doğrudan uygulanabilir. Çift kuvvetlerde bu koşula özellikle dikkat etmek gerekir: $x^2$ her $x \\neq 0$ için pozitiftir ama $x$ negatif olabilir.",
@@ -88,6 +91,7 @@ YAZI = {
                 "Taban değiştirmeyle bulalım.",
                 "$\\log_4 32=\\dfrac{\\log_2 32}{\\log_2 4}=\\dfrac{5}{2}$ olur.",
                 "$\\log_9 27=\\dfrac{\\log_3 27}{\\log_3 9}=\\dfrac{3}{2}$ olur."),
+            hap("$\\log_a b=\\dfrac{\\log_c b}{\\log_c a}$ olur; $c$ istenen herhangi bir taban olabilir."),
         ]},
         {"baslik": "Kurallarla karşılaştırma", "icerik": [
             "Farklı görünen iki logaritmanın eşit olup olmadığı ya da hangisinin büyük olduğu kurallarla anlaşılır. Tabanın kuvveti kuralı, birçok ifadeyi aynı tabana indirerek karşılaştırmayı hesapsız hâle getirir.",
@@ -130,6 +134,7 @@ YAZI = {
                 "Değerini bulalım.",
                 "Zincir kuralı art arda uygulanınca aradaki bütün sayılar sadeleşir ve $\\log_2 8$ kalır.",
                 "Sonuç $3$ tür."),
+            hap("$\\log_a b \\cdot \\log_b c=\\log_a c$ olur; aradaki sayı sadeleşir."),
         ]},
         {"baslik": "Kapanan zincir", "icerik": [
             "Zincirin son sayısı ilk tabana eşitse, yani zincir başladığı yere dönüyorsa çarpım her zaman $1$ dir: $\\log_a b \\cdot \\log_b c \\cdot \\log_c a=\\log_a a=1$. Bu kural, tabanları ve sayıları döngü oluşturan çarpımları tek adımda hesaplatır.",

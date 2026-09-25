@@ -54,6 +54,7 @@ YAZI = {
                 "Denklemi çözelim.",
                 "$x^2-3x=x-3$, yani $x^2-4x+3=0$ ve $(x-1)(x-3)=0$ olur.",
                 "$x=1$ için $x-3=-2<0$, $x=3$ için $x-3=0$ olduğundan iki kök de atılır; denklemin çözümü yoktur."),
+            hap("$\\log_a f(x)=\\log_a g(x)$ ise $f(x)=g(x)$ yazılır.", "Bulunan kök, iki taraftaki ifadenin ikisini de pozitif yapmalıdır."),
         ]},
         {"baslik": "Kare içeren logaritma", "icerik": [
             "Logaritmanın içinde bir kare varsa, ifadenin pozitif olması için karesi alınan ifadenin sıfırdan farklı olması yeter. Bu yüzden karenin logaritması ile logaritmanın iki katı farklı çözüm kümeleri verebilir.",
@@ -115,6 +116,7 @@ YAZI = {
                 "Denklemi çözelim.",
                 "$\\log_x 3=\\dfrac{1}{\\log_3 x}$ olduğundan $t+\\dfrac{1}{t}=\\dfrac{5}{2}$ olur; buradan $2t^2-5t+2=0$ ve $(2t-1)(t-2)=0$.",
                 "$t=2$ için $x=9$, $t=\\dfrac{1}{2}$ için $x=\\sqrt{3}$ bulunur."),
+            hap("Aynı logaritmanın hem karesi hem kendisi varsa logaritma yeni bir değişkenle gösterilir ve denklem ikinci dereceden olur."),
         ]},
         {"baslik": "Tabanda bilinmeyen", "icerik": [
             "Bilinmeyen tabandaysa denklem yine üslü biçime çevrilir. Bu kez tabanın pozitif ve $1$ den farklı olma koşulu kontrol edilir.",
@@ -163,6 +165,7 @@ YAZI = {
                 "Denklemleri çözelim.",
                 "Birincinin çözümü doğrudan $x=\\log_5 3$ olur.",
                 "İkincide iki tarafın doğal logaritması alınır: $x\\ln 2=(x-1)\\ln 3$, buradan $x=\\dfrac{\\ln 3}{\\ln 3-\\ln 2}$, yaklaşık $2.71$ olur."),
+            hap("İki taraf aynı tabana getirilemiyorsa logaritma alınır; üs, kuvvet kuralıyla öne iner."),
         ]},
         {"baslik": "Sabit çarpanlı üstel denklem", "icerik": [
             "Üssünde sabit bir ekleme bulunan denklemlerde önce üs kuralıyla sabit çarpan ayrılır. Sonra kalan kuvvet yalnız bırakılır ve logaritma alınır.",
@@ -220,6 +223,7 @@ YAZI = {
                 "$1000 \\cdot 1.1^n \\ge 2000$ olmalı, yani $1.1^n \\ge 2$ ve $n \\ge \\dfrac{\\log 2}{\\log 1.1}$ olur.",
                 "Bu oran yaklaşık $7.27$ olduğundan para $8$ yıl sonunda iki katını geçer."),
             "Faiz hesaplarının ayrıntısı için <a href=\"/blog/faiz-problemleri-nasil-cozulur/\">Faiz Problemleri Nasıl Çözülür?</a> yazısına bakabilirsin.",
+            hap("İkinci el değeri her yıl yüzde $20$ düşen bir telefonun değeri her yıl $0.8$ ile çarpılır.", "$0.8^3=0.512$ ve $0.8^4=0.4096$ olduğu için telefon, ilk değerinin yarısının altına dördüncü yılda iner.", gunluk=True),
         ]},
         {"baslik": "Uygulama: nüfus artışı", "icerik": [
             "Sabit sürelerde iki katına çıkan bir niceliğin belirli bir değere ulaşma zamanı da logaritmik bir denklemle bulunur.",

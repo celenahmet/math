@@ -52,6 +52,7 @@ YAZI = {
                 "$\\tan \\alpha$ yı bulalım ve sinüs ile kosinüsle ilişkisini gösterelim.",
                 "$\\tan \\alpha=\\dfrac{5}{12}$.",
                 "$\\dfrac{\\sin \\alpha}{\\cos \\alpha}=\\dfrac{5}{13}:\\dfrac{12}{13}=\\dfrac{5}{12}$; tanjant, sinüsün kosinüse bölümüdür."),
+            hap("Tanjant, karşı dik kenarın komşu dik kenara oranıdır.", "Hipotenüse bağlı olmadığı için $1$ den büyük olabilir: açı $45^\\circ$ den büyükse tanjant $1$ i aşar."),
         ]},
         {"baslik": "Kotanjant", "icerik": [
             "Bir dar açının <strong>kotanjantı</strong>, komşu dik kenarın karşı dik kenara oranıdır ve $\\cot \\alpha$ ile gösterilir. Tanjantın çarpmaya göre tersidir; bu yüzden ikisinin çarpımı her zaman $1$ dir.",
@@ -72,6 +73,7 @@ YAZI = {
         {"baslik": "Oranlar yalnızca açıya bağlıdır", "icerik": [
             "Aynı açılı iki dik üçgen benzerdir; kenarları orantılıdır. Bu yüzden oranlar üçgenin büyüklüğüne değil, yalnızca açıya bağlıdır. Kenarları $5$, $12$, $13$ olan üçgen ile kenarları $10$, $24$, $26$ olan üçgende aynı açının sinüsü $\\dfrac{5}{13}=\\dfrac{10}{26}$ dur.",
             "Trigonometrik oranların bir açının fonksiyonu olarak tanımlanabilmesi bu gözleme dayanır. Açı sabit kaldıkça oran değişmez; açı değiştikçe oran da değişir. Bu yüzden bir oran bilindiğinde, o orana uyan herhangi bir dik üçgen çizilerek hesap yapılabilir; hangi büyüklükte çizildiğinin önemi yoktur.",
+            hap("Aynı açılı dik üçgenler benzer olduğu için trigonometrik oranlar üçgenin büyüklüğüne değil, yalnızca açıya bağlıdır."),
         ]},
         {"baslik": "Tümler açılarda oranlar", "icerik": [
             "Bir dik üçgenin iki dar açısı tümlerdir: toplamları $90^\\circ$ dir. Bir açının karşı kenarı öteki açının komşu kenarı olduğu için bir açının sinüsü, tümlerinin kosinüsüne eşittir; tanjant ile kotanjant da aynı biçimde yer değiştirir.",
@@ -84,6 +86,7 @@ YAZI = {
                 "$x$ i bulalım.",
                 "Tümler açılarda sinüs ile kosinüs eşittir.",
                 "$x=90^\\circ-35^\\circ=55^\\circ$."),
+            hap("$\\alpha+\\beta=90^\\circ$ ise $\\sin \\alpha=\\cos \\beta$ ve $\\tan \\alpha=\\cot \\beta$ olur."),
         ]},
         {"baslik": "Oranlar arasındaki bağıntılar", "icerik": [
             "Dört oran birbirinden bağımsız değildir; biri bilindiğinde diğerleri bulunur. Bu bağlantıyı sağlayan temel eşitlikler şunlardır:",
@@ -186,6 +189,7 @@ YAZI = {
                 "Rampanın ulaştığı yüksekliği ve yatay uzunluğunu bulalım.",
                 "Yükseklik: $10 \\cdot \\sin 30^\\circ=5$ metre.",
                 "Yatay uzunluk: $10 \\cdot \\cos 30^\\circ=5\\sqrt{3}$, yaklaşık $8.66$ metre."),
+            hap("Bir rampanın eğimi, yerle yaptığı açının tanjantıdır: yükselme bölü yatay uzunluk.", "$50$ santimetre yükselip yatayda $6$ metre ilerleyen bir tekerlekli sandalye rampasının eğimi $\\dfrac{0.5}{6}$, yani yaklaşık $0.083$ olur.", gunluk=True),
         ]},
         {"baslik": "Merdivenin açısı", "icerik": [
             "Bazı problemlerde kenarlar verilir ve açı istenir. Bu durumda uygun oran hesaplanır ve değerin hangi açıya karşılık geldiğine bakılır.",

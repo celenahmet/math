@@ -57,6 +57,7 @@ YAZI = {
             "Bir noktaya iki yönden yaklaşılabilir: soldan, yani küçük değerlerden ve sağdan, yani büyük değerlerden. Limitin var olması için iki yönden yaklaşırken fonksiyonun aynı sayıya yönelmesi gerekir:",
             "$$\\lim_{x \\to a^-} f(x)=\\lim_{x \\to a^+} f(x)=L$$",
             "Soldan ve sağdan limitler farklıysa limit yoktur. Bu durum özellikle parçalı fonksiyonlarda, mutlak değerli ifadelerde ve tam değer fonksiyonunda görülür. Ayrıntılı örnekler için <a href=\"/blog/sagdan-soldan-limit/\">Sağdan ve Soldan Limit Nasıl Bulunur?</a> yazısına bakabilirsin.",
+            hap("Bir noktada limitin var olması için soldan ve sağdan limitler birbirine eşit olmalıdır."),
         ]},
         {"baslik": "En basit iki limit", "icerik": [
             "Bütün limit hesaplarının dayandığı iki temel sonuç vardır. Sabit bir fonksiyonun limiti her noktada o sabittir: $\\lim_{x \\to a} c=c$. Birim fonksiyonun limiti ise yaklaşılan sayının kendisidir: $\\lim_{x \\to a} x=a$.",
@@ -77,6 +78,7 @@ YAZI = {
                 "Limiti bulalım.",
                 "Polinom olduğu için $x$ yerine $2$ yazılır: $8-4+1$.",
                 "Limit $5$ tir."),
+            hap("Bir polinomun her noktadaki limiti, o noktadaki değerine eşittir; $x$ yerine sayı yazılır."),
         ]},
         {"baslik": "Rasyonel fonksiyonlarda limit", "icerik": [
             "İki polinomun bölümü olan rasyonel fonksiyonlarda, payda limitin alındığı noktada sıfır değilse limit yine doğrudan yerine yazmayla bulunur. Payda sıfır oluyorsa önce ifadenin sadeleştirilmesi gerekir.",
@@ -176,6 +178,7 @@ YAZI = {
                 ["Pay derecesi büyük", "$\\pm\\infty$", "$\\lim_{x \\to \\infty}\\dfrac{x^3}{x+1}=\\infty$"],
             ]),
             "Yatay asimptot kavramı da buradan gelir: dereceler eşitse grafik, baş katsayılar oranı olan yatay doğruya yaklaşır.",
+            hap("Sonsuzda rasyonel bir ifadede pay derecesi küçükse limit $0$ olur.", "Dereceler eşitse limit baş katsayıların oranıdır; pay derecesi büyükse ifade sınırsız büyür ya da küçülür."),
         ]},
         {"baslik": "Sıkıştırma fikri", "icerik": [
             "Doğrudan hesaplanamayan bir limit, limitleri aynı olan iki fonksiyon arasına sıkıştırılarak bulunabilir. Bu yönteme sıkıştırma ya da sandviç teoremi denir ve özellikle salınan fonksiyonlarda işe yarar. Alttaki ve üstteki fonksiyon aynı sayıya gidiyorsa aradaki fonksiyon da o sayıya gitmek zorundadır.",
@@ -193,6 +196,7 @@ YAZI = {
                 "$2$ ile $2+h$ arasındaki ortalama hız $\\dfrac{5(2+h)^2-20}{h}=20+5h$ olur.",
                 "$h$ sıfıra yaklaşırken ortalama hız $20$ ye yaklaşır; anlık hız $20$ metre bölü saniyedir."),
             "Bu hesap aslında türevin tanımıdır. Türevin limitle nasıl tanımlandığı <a href=\"/blog/turevin-tanimi/\">Türevin Tanımı ve Türev Nasıl Bulunur?</a> yazısında ayrıntılı olarak anlatılıyor.",
+            hap("Arabanın hız göstergesi ortalama hızı değil, anlık hızı gösterir; anlık hız, çok kısa sürelerdeki ortalama hızın limitidir.", "Yolu $s(t)=5t^2$ metre olan serbest düşen cismin $t=3$ anındaki hızı $30$ metre bölü saniye olur.", gunluk=True),
         ]},
         {"baslik": "Uygulama: sonsuz toplamlar", "icerik": [
             "Sonsuz toplamlar da limitle tanımlanır. $1+\\dfrac{1}{2}+\\dfrac{1}{4}+\\cdots$ toplamının ilk $n$ teriminin toplamı $2-\\dfrac{1}{2^{n-1}}$ dir. $n$ sonsuza giderken ikinci terim sıfıra yaklaştığı için toplamın limiti $2$ olur.",

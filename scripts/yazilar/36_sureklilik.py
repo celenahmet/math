@@ -92,6 +92,7 @@ YAZI = {
                 ["Sonsuz", "Sonlu değil", "Dikey asimptot", "Hayır"],
             ]),
             "Kaldırılabilir süreksizlik, fonksiyonun o noktadaki değerinin limit olarak yeniden tanımlanmasıyla giderilir. Diğer iki türde böyle bir düzeltme mümkün değildir; çünkü ortada fonksiyonun gitmesi gereken tek bir değer yoktur.",
+            hap("Kaldırılabilir süreksizlik tek bir değer değiştirilerek giderilir.", "Sıçrama ve sonsuz süreksizlik ise bir değer değiştirilerek giderilemez."),
         ]},
         {"baslik": "Sürekli fonksiyon aileleri", "icerik": [
             "Birçok temel fonksiyon tanımlı olduğu her noktada süreklidir. Bu bilgi, süreklilik sorularında yalnızca şüpheli noktaları incelemeyi yeterli kılar:",
@@ -121,6 +122,7 @@ YAZI = {
                 "Paydanın gerçek kökü olmamalı: $\\Delta=4-4m<0$.",
                 "Buradan $m>1$ bulunur."),
             "Diskriminantın ayrıntısı için <a href=\"/blog/diskriminant-delta/\">Diskriminant</a> yazısına bakabilirsin.",
+            hap("Paydası ikinci dereceden olan bir rasyonel fonksiyonun her yerde sürekli olması için paydanın diskriminantı negatif olmalıdır."),
         ]},
         {"baslik": "Tanjant fonksiyonunun sürekliliği", "icerik": [
             "Tanjant, sinüsün kosinüse bölümüdür. Sinüs ve kosinüs her yerde sürekli olduğu için tanjant, kosinüsün sıfır olmadığı her noktada süreklidir; kosinüsün sıfır olduğu $x=\\dfrac{\\pi}{2}+k\\pi$ noktalarında ise sonsuz süreksizlik vardır.",
@@ -178,6 +180,7 @@ YAZI = {
                 "$f(0)=-1<0$ ve $f(1)=1>0$ dır; fonksiyon polinom olduğu için süreklidir.",
                 "Ara değer teoremine göre $(0, 1)$ aralığında en az bir kök vardır."),
             "Teorem sürekliliğe dayanır. $\\dfrac{1}{x}$ fonksiyonu $[-1, 1]$ aralığında uçlarda ters işaretli değerler alır ama hiç sıfır olmaz; çünkü $x=0$ da süreksizdir.",
+            hap("$[a, b]$ aralığında sürekli bir fonksiyonda $f(a)$ ile $f(b)$ ters işaretliyse bu aralıkta en az bir kök vardır."),
         ]},
         {"baslik": "Kökü yaklaşık bulmak", "icerik": [
             "Ara değer teoremi, kökün yerini adım adım daraltmak için de kullanılır. Aralık ikiye bölünür, işaret değişiminin olduğu yarı seçilir ve işlem tekrarlanır. Bu yönteme ikiye bölme yöntemi denir.",
@@ -199,6 +202,7 @@ YAZI = {
         {"baslik": "Günlük hayatta süreklilik", "icerik": [
             "Sıcaklık, bir aracın hızı ya da bir bitkinin boyu gibi nicelikler zamanla sürekli değişir; bir anda bir değerden diğerine atlamazlar. Bu yüzden sabah $10$ derece olan sıcaklık öğlen $20$ dereceyse, arada bir anda tam olarak $15$ derece olmuştur; bu, ara değer teoreminin günlük bir örneğidir.",
             "Taksi ücreti, kargo tarifesi ya da bir sınavdaki not baremi ise basamaklıdır ve belirli eşiklerde sıçrar. Bu nicelikler süreksiz fonksiyonlarla modellenir ve eşiklerin iki yanında farklı değerler alır.",
+            hap("Boyun $1.50$ metreden $1.60$ metreye çıktıysa arada bir gün tam $1.55$ metre olmuşsundur.", "Boy zamanla sürekli değiştiği için arada kalan her değerden geçer; bu, ara değer teoreminin sonucudur.", gunluk=True),
         ]},
         {"baslik": "Süreklilik ve türev", "icerik": [
             "Bir fonksiyonun bir noktada türevi varsa o noktada mutlaka süreklidir. Tersi doğru değildir: $|x|$ fonksiyonu sıfırda süreklidir ama köşe yaptığı için orada türevi yoktur.",

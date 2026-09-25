@@ -42,6 +42,7 @@ YAZI = {
                 "$a_8=3 \\cdot 2^7$ olur.",
                 "Sonuç $3 \\cdot 128=384$ tür."),
             "Aritmetik dizide olduğu gibi formül iki terim arasına da genellenir: $a_n=a_k \\cdot r^{n-k}$. Sıra numaraları farkı kadar ortak oranla çarpılır ya da bölünür.",
+            hap("$a_n=a_1 \\cdot r^{n-1}$ olur; ortak oranın kuvveti $n-1$ olur."),
         ]},
         {"baslik": "İki terimi verilen dizi", "icerik": [
             "İki terimi bilinen bir geometrik dizide büyük sıralı terim küçük sıralı terime bölünür. Sonuç, ortak oranın sıra numaraları farkı kadar kuvvetidir.",
@@ -114,6 +115,7 @@ YAZI = {
             "Geometrik dizinin ilk $n$ teriminin toplamı $S_n$ olsun. $S_n$ ortak oranla çarpılıp kendisinden çıkarılırsa ortadaki bütün terimler sadeleşir ve yalnızca ilk terim ile $a_1 r^n$ kalır: $S_n-rS_n=a_1-a_1 r^n$. Buradan $r \\neq 1$ için şu formül çıkar:",
             "$$S_n=a_1 \\cdot \\dfrac{r^n-1}{r-1}$$",
             "Ortak oran $1$ ise bütün terimler eşittir ve toplam $S_n=n \\cdot a_1$ olur. Formüldeki kesir, $r<1$ iken pay ve payda negatif çıksın diye $\\dfrac{1-r^n}{1-r}$ olarak da yazılabilir; iki yazım aynı sonucu verir.",
+            hap("$r \\neq 1$ için $S_n=a_1 \\cdot \\dfrac{r^n-1}{r-1}$ olur.", "$r=1$ ise bütün terimler eşittir ve $S_n=n \\cdot a_1$ olur."),
         ]},
         {"baslik": "Toplam formülünün kullanımı", "icerik": [
             "Toplam formülü ilk terim, ortak oran ve terim sayısıyla çalışır. Son terim verilmişse önce terim sayısı bulunur.",
@@ -145,6 +147,7 @@ YAZI = {
                 "$a_1=1$ ve $r=\\dfrac{1}{2}$ olduğundan $S=\\dfrac{1}{1-\\dfrac{1}{2}}$ olur.",
                 "Sonuç $2$ dir."),
             "Ortak oranın mutlak değeri $1$ ya da daha büyükse terimler küçülmez ve toplam sonsuza gider ya da bir değere yerleşmez. $1+2+4+\\cdots$ toplamının sonlu bir değeri yoktur.",
+            hap("$|r|<1$ ise sonsuz toplam $\\dfrac{a_1}{1-r}$ olur.", "$|r| \\ge 1$ ise sonsuz toplam bir sayıya yaklaşmaz."),
         ]},
         {"baslik": "Devirli ondalık sayılar", "icerik": [
             "Devirli ondalık sayılar aslında sonsuz geometrik toplamlardır. $0.333\\ldots$ sayısı $\\dfrac{3}{10}+\\dfrac{3}{100}+\\cdots$ toplamıdır; ilk terimi $\\dfrac{3}{10}$, ortak oranı $\\dfrac{1}{10}$ dir.",
@@ -179,6 +182,7 @@ YAZI = {
                 "İki saat sonra kaç bakteri olacağını bulalım.",
                 "İki saat $120$ dakikadır; bu sürede $6$ bölünme olur.",
                 "Bakteri sayısı $2^6=64$ olur."),
+            hap("Her ikiye katlamada kalınlık iki katına çıkar.", "$0.1$ milimetrelik bir kâğıt $10$ kez ikiye katlanabilseydi kalınlığı $0.1 \\cdot 2^{10}=102.4$ milimetreye, yani yaklaşık $10$ santimetreye çıkardı.", gunluk=True),
         ]},
         {"baslik": "Problem: zıplayan top", "icerik": [
             "Yere çarptıktan sonra her seferinde bir önceki yüksekliğin sabit bir kesri kadar yükselen top, geometrik dizinin klasik bir uygulamasıdır. Topun aldığı toplam yol ise sonsuz geometrik toplamla bulunur.",

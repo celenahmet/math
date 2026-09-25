@@ -58,6 +58,7 @@ YAZI = {
                 "Soldan limit $1^2=1$, sağdan limit $1+2=3$ olur.",
                 "İki değer farklı olduğu için $\\lim_{x \\to 1} f(x)$ yoktur; fonksiyonun değeri ise $f(1)=3$ tür."),
             "Grafikteki boş daire, sol parçanın ulaşamadığı $(1, 1)$ noktasını, dolu daire ise fonksiyonun gerçekten aldığı $(1, 3)$ değerini gösterir.",
+            hap("Parçaların uçları aynı yüksekliğe gelmiyorsa grafik sıçrar; soldan ve sağdan limitler farklıdır ve limit yoktur."),
         ]},
         {"baslik": "Limiti var yapan parametre", "icerik": [
             "Parçalı fonksiyonun kurallarından birinde bilinmeyen bir katsayı varsa, limitin var olması için iki yönün sonuçları eşitlenir ve katsayı bulunur.",
@@ -103,6 +104,7 @@ YAZI = {
                 "Soldan ve sağdan limitleri bulalım.",
                 "Pay $|x|$ e eşittir; sağdan yaklaşırken kesir $1$ olur.",
                 "Soldan yaklaşırken kesir $-1$ olur; iki yön farklı olduğu için limit yoktur."),
+            hap("$\\sqrt{x^2}=|x|$ olur.", "$x$ negatifken $\\sqrt{x^2}$ ifadesi $x$ değil, $-x$ olur."),
         ]},
         {"baslik": "Tam değer fonksiyonu", "icerik": [
             "Tam değer fonksiyonu $\\lfloor x \\rfloor$, bir sayıdan büyük olmayan en büyük tam sayıyı verir: $\\lfloor 2.7 \\rfloor=2$, $\\lfloor -1.3 \\rfloor=-2$. Grafiği basamaklıdır ve her tam sayıda bir birim sıçrar.",
@@ -133,6 +135,7 @@ YAZI = {
                 "Sağdan yaklaşırken payda küçük pozitif sayılardır; kesir $+\\infty$ a gider.",
                 "Soldan yaklaşırken payda küçük negatif sayılardır; kesir $-\\infty$ a gider. İki yön farklı olduğu için limit yoktur."),
             "Payda kare olduğunda durum değişir: $\\dfrac{1}{(x-2)^2}$ ifadesinde payda iki yönden de pozitiftir ve iki tek yönlü limit de $+\\infty$ olur.",
+            hap("Sıfırdan farklı bir sayı sıfıra yaklaşan bir sayıya bölünüyorsa kesir sınırsız büyür ya da küçülür.", "Hangisinin olduğu, paydanın o yöndeki işaretinden okunur."),
         ]},
         {"baslik": "İşaret incelemesi", "icerik": [
             "Pay ve paydadaki çarpanların işaretleri tek tek belirlenerek kesrin işareti bulunur. Bu yöntem, payda sıfıra giderken sonsuzun işaretini hatasız verir.",
@@ -187,6 +190,7 @@ YAZI = {
                 "Ücret fonksiyonunun $1$ kilogramdaki tek yönlü limitlerini bulalım.",
                 "Ağırlık $1$ e soldan yaklaşırken ücret $30$ TL dir.",
                 "Sağdan yaklaşırken ücret $45$ TL dir; iki yön farklı olduğu için eşikte limit yoktur."),
+            hap("İlk saati $40$ lira, sonraki her başlayan saati $20$ lira olan bir otoparkta ücret birinci saatte sıçrar.", "$59$ dakika kalan araç $40$, $61$ dakika kalan araç $60$ lira öder; ücretin soldan ve sağdan limitleri bu noktada farklıdır.", gunluk=True),
         ]},
         {"baslik": "Tek yönlü limit ve süreklilik", "icerik": [
             "Bir fonksiyonun bir noktada sürekli olması için soldan limit, sağdan limit ve fonksiyonun değeri üçünün de eşit olması gerekir. Tek yönlü limitler, sürekliliği incelemenin en temel aracıdır.",

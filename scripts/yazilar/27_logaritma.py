@@ -76,6 +76,7 @@ YAZI = {
                 ["$a^{\\log_a b}=b$", "Üs, tabanın $b$ yi veren kuvvetidir"],
             ]),
             "Son iki eşitlik, logaritma ile üs almanın birbirinin tersi olduğunu gösterir: biri diğerinin yaptığını geri alır. Örneğin $5^{\\log_5 7}=7$ ve $\\log_3 3^{10}=10$ olur.",
+            hap("$\\log_a 1=0$ ve $\\log_a a=1$ olur.", "$a^{\\log_a b}=b$ eşitliği, logaritma ile üs almanın birbirinin tersi olduğunu gösterir."),
         ]},
         {"baslik": "Logaritmanın işareti", "icerik": [
             "Bir logaritmanın pozitif mi negatif mi olduğu, hesaplamadan önce taban ve sayının $1$ e göre konumundan anlaşılır. Taban ve sayı $1$ in aynı tarafındaysa logaritma pozitif, farklı taraflarındaysa negatiftir.",
@@ -86,6 +87,7 @@ YAZI = {
                 ["$0<a<1$", "$b>1$", "Negatif"],
             ]),
             "Örneğin $\\log_2 \\dfrac{1}{3}$ negatiftir, $\\log_{1/3} \\dfrac{1}{9}=2$ pozitiftir ve $\\log_{1/2} 5$ negatiftir. Karşılaştırma sorularında önce işaretlere bakmak, sayıları çoğu zaman hesap yapmadan gruplara ayırır.",
+            hap("Taban ve sayı $1$ in aynı tarafındaysa logaritma pozitif, farklı taraflarındaysa negatiftir."),
         ]},
         {"baslik": "Logaritmalı üsler", "icerik": [
             "Üssünde logaritma bulunan ifadelerde $a^{\\log_a b}=b$ eşitliği kullanılır. Üs bir toplam ise önce üs kuralıyla parçalara ayrılır; taban logaritmanın tabanının kuvvetiyse önce ortak tabana çevrilir.",
@@ -149,6 +151,7 @@ YAZI = {
                 "Tanım kümesini bulalım.",
                 "$x^2-4>0$ olmalıdır, yani $(x-2)(x+2)>0$.",
                 "Tanım kümesi $(-\\infty, -2) \\cup (2, \\infty)$ olur."),
+            hap("Tanım kümesi için taban pozitif ve $1$ den farklı, logaritması alınan ifade pozitif olmalıdır."),
         ]},
         {"baslik": "Logaritma fonksiyonunun grafiği", "icerik": [
             "$f(x)=\\log_a x$ fonksiyonu, $g(x)=a^x$ üstel fonksiyonunun tersidir. Ters fonksiyonların grafikleri $y=x$ doğrusuna göre simetrik olduğundan logaritma grafiği, üstel grafiğin bu doğruya göre yansımasıdır.",
@@ -232,6 +235,7 @@ YAZI = {
                 "$2^t=1024$ denklemi yazılır; $t=\\log_2 1024$.",
                 "$2^{10}=1024$ olduğundan $t=10$ saat bulunur."),
             "Aynı fikir ikili aramada da görülür: sıralı $1024$ elemanlı bir listede her adımda aranan aralık yarıya indiği için en fazla $10$ adımda sonuca ulaşılır. Logaritma, bu yüzden bilgisayar biliminde algoritmaların hızını ölçmede de temel bir araçtır.",
+            hap("Her gün iki katına çıkan bir paylaşım bir kişiden başlayıp $1000$ kişiyi onuncu günde geçer: $2^9=512$ ve $2^{10}=1024$ olur.", "Bu gün sayısı, $\\log_2 1000$ değerinin yukarı yuvarlanmasıdır.", gunluk=True),
         ]},
         {"baslik": "Sınavda logaritma", "icerik": [
             sinavda(

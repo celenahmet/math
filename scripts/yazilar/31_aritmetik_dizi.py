@@ -42,6 +42,7 @@ YAZI = {
                 "$a_{20}=3+19 \\cdot 4$ olur.",
                 "Sonuç $79$ dur."),
             "Formül, herhangi iki terim arasındaki ilişkiye de genellenir: $a_n=a_k+(n-k)d$. İki terimin sıra numaraları arasındaki fark kadar ortak fark eklenir ya da çıkarılır. Örneğin $a_5$ biliniyorsa $a_{12}$ ye ulaşmak için ortak fark yedi kez eklenir; ilk terimi bulmaya gerek kalmaz.",
+            hap("$a_n=a_1+(n-1)d$ olur.", "Birinci terimden $n$ inci terime ulaşmak için ortak fark $n-1$ kez eklenir."),
         ]},
         {"baslik": "İki terimi verilen dizi", "icerik": [
             "Bir aritmetik dizinin iki terimi biliniyorsa ortak fark ve ilk terim bulunur. İki terimin farkı, sıra numaraları farkı kadar ortak farka eşittir.",
@@ -76,6 +77,7 @@ YAZI = {
                 "Ortak fark $4$ tür: $\\dfrac{99-7}{4}+1$ hesaplanır.",
                 "$23+1=24$ terim vardır."),
             "Formüldeki $+1$ unutulursa sonuç bir eksik çıkar. Bunun nedeni, iki uç arasındaki adım sayısının terim sayısından bir az olmasıdır; tıpkı bir çitte direk sayısının aralık sayısından bir fazla olması gibi.",
+            hap("Terim sayısı $\\dfrac{\\text{Son terim}-\\text{İlk terim}}{d}+1$ ile bulunur; sondaki $1$ unutulmamalıdır."),
         ]},
         {"baslik": "Ardışık sayılar", "icerik": [
             "Ardışık tam sayılar ortak farkı $1$, ardışık çift ya da tek sayılar ortak farkı $2$ olan aritmetik dizilerdir. Bu yüzden ardışık sayıların toplamı, terim sayısı ile ortalamanın çarpımıdır.",
@@ -115,6 +117,7 @@ YAZI = {
             "$$S_n=\\dfrac{n(a_1+a_n)}{2}$$",
             "Son terim yerine genel terim formülü yazılırsa toplam yalnızca ilk terim ve ortak farkla ifade edilir:",
             "$$S_n=\\dfrac{n}{2}\\left(2a_1+(n-1)d\\right)$$",
+            hap("$S_n=\\dfrac{n(a_1+a_n)}{2}$ olur.", "Toplam, terim sayısı ile ilk ve son terimin ortalamasının çarpımıdır."),
         ]},
         {"baslik": "Toplam formülünün kullanımı", "icerik": [
             "Son terim biliniyorsa birinci formül, bilinmiyorsa ikinci formül kullanılır. İki formül de aynı sonucu verir; seçim yalnızca hesabı kısaltmak içindir.",
@@ -214,6 +217,7 @@ YAZI = {
                 "Onuncu haftada biriktirdiği tutarı ve on haftalık toplamı bulalım.",
                 "$a_{10}=20+9 \\cdot 5=65$ TL olur.",
                 "$S_{10}=\\dfrac{10(20+65)}{2}=425$ TL olur."),
+            hap("İlk gün $2$ kilometre koşup her gün $0.5$ kilometre artıran bir koşucu onuncu gün $6.5$ kilometre koşar.", "On günde koştuğu toplam yol $\\dfrac{10 \\cdot (2+6.5)}{2}=42.5$ kilometre olur.", gunluk=True),
         ]},
         {"baslik": "Problem: amfi koltukları", "icerik": [
             "Sıraları geriye doğru genişleyen salonlar, basamaklı yapılar ve üst üste dizilmiş borular gibi geometrik düzenler de aritmetik dizilerle modellenir.",

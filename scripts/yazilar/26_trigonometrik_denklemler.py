@@ -41,6 +41,7 @@ YAZI = {
                 "Genel çözümü yazalım.",
                 "Sinüsü $\\dfrac{\\sqrt{2}}{2}$ olan açılardan biri $\\alpha=\\dfrac{\\pi}{4}$ dir.",
                 "Genel çözüm $x=\\dfrac{\\pi}{4}+2k\\pi$ ya da $x=\\dfrac{3\\pi}{4}+2k\\pi$ olur."),
+            hap("$\\sin x=a$ denkleminin çözümleri $x=\\alpha+2k\\pi$ ve $x=\\pi-\\alpha+2k\\pi$ olur.", "İkinci kalıp unutulursa çözümlerin yarısı kaybolur."),
         ]},
         {"baslik": "Kosinüs denkleminin genel çözümü", "icerik": [
             "$\\cos x=a$ denkleminde kosinüsü $a$ olan açı $\\alpha$ ise ikinci çözüm $-\\alpha$ dır; çünkü kosinüs dikey eksene göre simetrik bir fonksiyondur. Birim çemberde bu iki açı yatay eksene göre birbirinin yansımasıdır:",
@@ -50,6 +51,7 @@ YAZI = {
                 "Genel çözümü yazalım.",
                 "Kosinüsü $\\dfrac{1}{2}$ olan açılardan biri $\\alpha=\\dfrac{\\pi}{3}$ dir.",
                 "Genel çözüm $x=\\pm\\dfrac{\\pi}{3}+2k\\pi$ olur; $[0, 2\\pi)$ aralığında bu $\\dfrac{\\pi}{3}$ ve $\\dfrac{5\\pi}{3}$ açılarıdır."),
+            hap("$\\cos x=a$ denkleminin çözümleri $x=\\pm\\alpha+2k\\pi$ olur."),
         ]},
         {"baslik": "Tanjant ve kotanjant denklemleri", "icerik": [
             "Tanjant ve kotanjant her gerçek değeri alır ve periyotları $\\pi$ dir. Bu yüzden $\\tan x=a$ ve $\\cot x=a$ denklemlerinin her gerçek $a$ için çözümü vardır ve genel çözüm tek bir kalıpla yazılır:",
@@ -59,6 +61,7 @@ YAZI = {
                 "Genel çözümleri yazalım.",
                 "$\\tan \\dfrac{\\pi}{3}=\\sqrt{3}$ olduğundan birincinin çözümü $x=\\dfrac{\\pi}{3}+k\\pi$ olur.",
                 "$\\cot \\dfrac{3\\pi}{4}=-1$ olduğundan ikincinin çözümü $x=\\dfrac{3\\pi}{4}+k\\pi$ olur."),
+            hap("$\\tan x=a$ denkleminin her gerçek $a$ için çözümü vardır ve çözümler $x=\\alpha+k\\pi$ olur."),
         ]},
         {"baslik": "Özel değerler", "icerik": [
             "Sağ taraf $0$, $1$ ya da $-1$ olduğunda çözümler birim çemberin eksenlerle kesiştiği noktalardadır. Bu durumlarda iki ayrı kalıp tek bir kalıba iner ve ezberlemek zaman kazandırır:",
@@ -187,6 +190,7 @@ YAZI = {
                 "$\\tan x \\sin x=\\sin x$ denkleminde iki tarafı $\\sin x$ e bölmek.",
                 "Bölme yapılsaydı $\\tan x=1$ kalır ve yalnızca $\\dfrac{\\pi}{4}$ ile $\\dfrac{5\\pi}{4}$ bulunurdu. $\\sin x=0$ yapan $0$ ve $\\pi$ çözümleri kaybolurdu."),
             "Tersine, denklemin tanım kümesi de kontrol edilmelidir. Paydada kosinüs olan bir denklemde bulunan kök kosinüsü sıfır yapıyorsa çözüm değildir. Örneğin $\\dfrac{1-\\sin x}{\\cos x}=0$ denkleminde pay $x=\\dfrac{\\pi}{2}$ için sıfır olur, ama bu değerde payda da sıfırdır; denklemin çözümü yoktur.",
+            hap("Bilinmeyen içeren bir ifadeye bölmek, o ifadeyi sıfır yapan çözümleri siler.", "Ortak çarpan bölünmez, paranteze alınır."),
         ]},
         {"baslik": "Eşitsizlikler", "icerik": [
             "Trigonometrik eşitsizlik çözerken önce eşitlik durumu çözülür, sonra birim çemberde ya da grafikte hangi yayların eşitsizliği sağladığına bakılır. Sınır noktalarının dahil olup olmadığı eşitsizliğin türüne bağlıdır.",
@@ -212,6 +216,7 @@ YAZI = {
                 "$10-8\\cos\\left(\\dfrac{\\pi t}{15}\\right)=14$ olduğundan $\\cos\\left(\\dfrac{\\pi t}{15}\\right)=-\\dfrac{1}{2}$.",
                 "$\\dfrac{\\pi t}{15}=\\dfrac{2\\pi}{3}$ ya da $\\dfrac{4\\pi}{3}$ olduğundan $t=10$ ve $t=20$ saniye bulunur; kabin bu yüksekliğe bir kez çıkarken bir kez inerken ulaşır."),
             "Aynı hesap sonraki turlarda da geçerlidir: periyot $30$ saniye olduğundan kabin $40$ ve $50$ saniyelerde, sonra her turda yine iki kez bu yüksekliğe ulaşır. Modeldeki periyot, denklemin genel çözümündeki tekrar aralığıyla aynıdır.",
+            hap("Periyodik bir harekette aynı yüksekliğe bir turda iki kez ulaşılır: biri çıkarken, biri inerken.", "Yüksekliği $h(t)=10-8\\cos \\dfrac{\\pi t}{15}$ metre olan kabin, $30$ saniyelik bir turda $10$ metreye $t=7.5$ ve $t=22.5$ saniyelerde ulaşır.", gunluk=True),
         ]},
         {"baslik": "Sınavda trigonometrik denklemler", "icerik": [
             sinavda(

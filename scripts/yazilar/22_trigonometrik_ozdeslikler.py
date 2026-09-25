@@ -46,6 +46,7 @@ YAZI = {
                 "$\\cos^2 x$ değerini bulalım.",
                 "$1+\\tan^2 x=5=\\dfrac{1}{\\cos^2 x}$.",
                 "$\\cos^2 x=\\dfrac{1}{5}$."),
+            hap("Temel özdeşlik $\\cos^2 x$ e bölününce $1+\\tan^2 x=\\sec^2 x$ elde edilir.", "$\\sin^2 x$ e bölününce $1+\\cot^2 x=\\csc^2 x$ elde edilir."),
         ]},
         {"baslik": "Bölüm özdeşlikleri", "icerik": [
             "Tanjant ve kotanjant, sinüs ve kosinüsün bölümü olarak yazılır. Bu özdeşlikler, farklı oranlar içeren ifadeleri tek bir oran türüne çevirmenin en kısa yoludur.",
@@ -140,6 +141,7 @@ YAZI = {
                 "$\\sin(a+b)$ ile $\\sin a+\\sin b$ yi karşılaştıralım.",
                 "$\\sin 90^\\circ=1$.",
                 "$\\sin 30^\\circ+\\sin 60^\\circ=\\dfrac{1}{2}+\\dfrac{\\sqrt{3}}{2}=\\dfrac{1+\\sqrt{3}}{2}$, yaklaşık $1.37$. İki değer farklıdır."),
+            hap("$\\sin(a+b)$ ifadesi $\\sin a+\\sin b$ ye eşit değildir; toplam formülü kullanılır."),
         ]},
         {"baslik": "İki kat açı formülleri", "icerik": [
             "Toplam formüllerinde $a=b=x$ yazılınca iki kat açı formülleri elde edilir. Kosinüsün iki kat açı formülünün üç biçimi vardır ve temel özdeşlikle birbirine dönüşür:",
@@ -155,6 +157,7 @@ YAZI = {
                 "$\\sin 2x$, $\\cos 2x$ ve $\\tan 2x$ değerlerini bulalım.",
                 "$\\cos x=\\dfrac{4}{5}$. $\\sin 2x=2 \\cdot \\dfrac{3}{5} \\cdot \\dfrac{4}{5}=\\dfrac{24}{25}$.",
                 "$\\cos 2x=\\dfrac{16}{25}-\\dfrac{9}{25}=\\dfrac{7}{25}$ ve $\\tan 2x=\\dfrac{24}{7}$."),            "İki kat ve yarım açı formüllerinin ayrıntılı anlatımı <a href=\"/blog/iki-kat-yarim-aci/\">İki Kat Açı ve Yarım Açı Formülleri</a> yazısında.",
+                                                                                                                      hap("$\\sin 2x=2\\sin x \\cos x$ olur.", "$\\cos 2x=\\cos^2 x-\\sin^2 x$ olur; bu fark $2\\cos^2 x-1$ ya da $1-2\\sin^2 x$ olarak da yazılır."),
         ]},
         {"baslik": "Bölgesi verilen açıda iki kat", "icerik": [
             "Açı ikinci bölgedeyse kosinüs negatif, sinüs pozitiftir. İki kat açı formülleri uygulanırken bu işaretler sonucu doğrudan etkiler; önce eksik oran temel özdeşlikle bulunur, işareti bölgeden seçilir, sonra formül uygulanır.",
@@ -257,6 +260,7 @@ YAZI = {
                 "$\\sqrt{3^2+4^2}=\\sqrt{25}=5$.",
                 "İfade $[-5, 5]$ aralığında değer alır."),
             "Aynı fikirle $\\sin x \\cos x=\\dfrac{\\sin 2x}{2}$ çarpımının en büyük değerinin $\\dfrac{1}{2}$ olduğu da hemen görülür.",
+            hap("Aynı frekanstaki iki ses dalgası üst üste bindiğinde yine bir dalga oluşur.", "$3\\sin x+4\\cos x$ toplamının en büyük değeri $\\sqrt{3^2+4^2}=5$ olur; iki dalga ayrı ayrı en fazla $3$ ve $4$ olsa da toplam $7$ olmaz.", gunluk=True),
         ]},
         {"baslik": "Formüllerin özeti", "icerik": [
             "En sık kullanılan formüller aşağıdaki tabloda bir araya getirilmiştir. Hepsi temel özdeşlik ile toplam formüllerinden türetilebilir; bu yüzden türetme yolunu bilmek, tabloyu ezberlemekten daha güvenilirdir.",

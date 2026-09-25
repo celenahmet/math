@@ -2863,6 +2863,99 @@ def hap_ekleri():
     es("20 hap bolgeler", (isaret(45), isaret(135), isaret(225), isaret(315)), ((1, 1, 1), (1, -1, -1), (-1, -1, 1), (-1, 1, -1)))
     es("20 hap referans", (sp.sin(sp.pi * 225 / 180), -sp.sin(sp.pi / 4)), (-sp.sqrt(2) / 2, -sp.sqrt(2) / 2))
 
+    # ── 21 trigonometrik oranlar ──
+    es("21 hap tanjant", (sp.tan(sp.pi / 3) > 1, sp.tan(sp.pi / 6) < 1, sp.tan(sp.pi / 4)), (True, True, 1))
+    es("21 hap benzerlik", (Rational(5, 13), Rational(10, 26)), (Rational(5, 13), Rational(5, 13)))
+    al = sp.symbols("al")
+    es("21 hap tumler", (sp.simplify(sp.sin(al) - sp.cos(sp.pi / 2 - al)), sp.simplify(sp.tan(al) - sp.cot(sp.pi / 2 - al))), (0, 0))
+    es("21 hap rampa", (Rational(5, 10) / 6, round(float(Rational(5, 10) / 6), 3)), (Rational(1, 12), 0.083))
+    # ── 22 ozdeslikler ──
+    es("22 hap turevler", (sp.simplify(1 + sp.tan(X)**2 - sp.sec(X)**2), sp.simplify(1 + sp.cot(X)**2 - sp.csc(X)**2)), (0, 0))
+    es("22 hap toplanmaz", (sp.sin(sp.pi / 2), sp.sin(sp.pi / 6) + sp.sin(sp.pi / 3) == 1), (1, False))
+    es("22 hap iki kat", (sp.simplify(sp.sin(2 * X) - 2 * sp.sin(X) * sp.cos(X)), sp.simplify(sp.cos(2 * X) - (sp.cos(X)**2 - sp.sin(X)**2)),
+                          sp.simplify(sp.cos(2 * X) - (2 * sp.cos(X)**2 - 1)), sp.simplify(sp.cos(2 * X) - (1 - 2 * sp.sin(X)**2))), (0, 0, 0, 0))
+    es("22 hap ses", (sp.sqrt(3**2 + 4**2), sp.simplify(sp.expand_trig(5 * sp.sin(X + sp.atan(Rational(4, 3)))) - (3 * sp.sin(X) + 4 * sp.cos(X)))), (5, 0))
+    # ── 23 grafikler ──
+    es("23 hap periyot ve genlik", (sp.simplify(sp.sin(2 * (X + sp.pi)) - sp.sin(2 * X)), 2 * sp.pi / 2, sp.maximum(3 * sp.sin(X), X, sp.Interval(0, 2 * sp.pi))), (0, sp.pi, 3))
+    t23 = sp.symbols("t23", real=True)
+    h23 = 22 - 20 * sp.cos(sp.pi * t23 / 5)
+    es("23 hap dolap", (h23.subs(t23, 0), h23.subs(t23, 5), sp.simplify(h23.subs(t23, t23 + 10) - h23), 2 * sp.pi / (sp.pi / 5)), (2, 42, 0, 10))
+    es("23 hap oteleme", (sp.sin(X - 1).subs(X, 1), sp.sin(X + 1).subs(X, -1)), (0, 0))
+    # ── 24 toplam ve fark ──
+    es("24 hap ozel olmayan", (sp.simplify(sp.expand_trig(sp.sin(sp.pi / 3 + sp.pi / 4)) - (sp.sqrt(6) + sp.sqrt(2)) / 4), 60 + 45, 45 - 30), (0, 105, 15))
+    ya = sp.symbols("ya")
+    es("24 hap tersten", sp.simplify(sp.sin(X) * sp.cos(ya) + sp.cos(X) * sp.sin(ya) - sp.sin(X + ya)), 0)
+    es("24 hap tumler tanjant", (sp.simplify(sp.tan(sp.pi / 18) * sp.tan(4 * sp.pi / 9)), abs(float(sp.tan(sp.pi / 18) * sp.tan(4 * sp.pi / 9)) - 1) < 1e-12), (1, True))
+    es("24 hap dik caddeler", 1 + 2 * Rational(-1, 2), 0)
+
+    # ── 25 iki kat ve yarim aci ──
+    es("25 hap bicimler", (sp.simplify(sp.cos(2 * X) - (2 * sp.cos(X)**2 - 1)), sp.simplify(sp.cos(2 * X) - (1 - 2 * sp.sin(X)**2)),
+                           sp.simplify(sp.expand_trig(sp.tan(2 * X)) - 2 * sp.tan(X) / (1 - sp.tan(X)**2))), (0, 0, 0))
+    es("25 hap kuvvet azaltma", (sp.simplify(sp.sin(X)**2 - (1 - sp.cos(2 * X)) / 2), sp.simplify(sp.cos(X)**2 - (1 + sp.cos(2 * X)) / 2), 1 - sp.tan(sp.pi / 4)**2), (0, 0, 0))
+    es("25 hap atis", (sp.sin(2 * sp.pi / 4), sp.sin(2 * sp.pi / 6) - sp.sin(2 * sp.pi / 3), sp.sin(sp.pi / 3) - sp.sin(2 * sp.pi / 3)), (1, 0, 0))
+    # ── 26 trigonometrik denklemler ──
+    alf = sp.symbols("alf")
+    es("26 hap genel cozum", (sp.simplify(sp.sin(sp.pi - alf) - sp.sin(alf)), sp.simplify(sp.cos(-alf) - sp.cos(alf)), sp.simplify(sp.tan(alf + sp.pi) - sp.tan(alf))), (0, 0, 0))
+    t26 = sp.symbols("t26", real=True)
+    es("26 hap dolap", sorted(sp.solveset(10 - 8 * sp.cos(sp.pi * t26 / 15) - 10, t26, sp.Interval.Ropen(0, 30))), [Rational(15, 2), Rational(45, 2)])
+    es("26 hap bolme", sorted(sp.solveset(sp.tan(X) * sp.sin(X) - sp.sin(X), X, sp.Interval.Ropen(0, 2 * sp.pi))), [0, sp.pi / 4, sp.pi, 5 * sp.pi / 4])
+    # ── 27 logaritma ──
+    es("27 hap temel", (sp.log(1, 7), sp.log(7, 7), sp.simplify(7**sp.log(5, 7))), (0, 1, 5))
+    es("27 hap isaret", (sp.log(Rational(1, 2), 2), sp.log(Rational(1, 4), Rational(1, 2)), sp.log(8, 2)), (-1, 2, 3))
+    es("27 hap paylasim", (2**9, 2**10, sp.ceiling(sp.log(1000, 2)), float(sp.log(1000, 2)) < 10), (512, 1024, 10, True))
+    # ── 28 logaritma kurallari ──
+    xp_, yp_ = sp.symbols("xp_ yp_", positive=True)
+    es("28 hap kurallar", (sp.expand_log(sp.log(xp_ * yp_), force=True), sp.expand_log(sp.log(xp_**3), force=True),
+                           sp.simplify(sp.log(9, 3) - sp.log(9) / sp.log(3)), sp.simplify(sp.log(3, 2) * sp.log(4, 3))), (sp.log(xp_) + sp.log(yp_), 3 * sp.log(xp_), 0, 2))
+    es("28 hap deprem", (10**(6 - 4), sp.log(100, 10)), (100, 2))
+
+    # ── 29 logaritmik denklemler ──
+    q29 = Rational(4, 5)
+    es("29 hap telefon", (q29**3, q29**4, q29**3 > Rational(1, 2), q29**4 < Rational(1, 2), sp.ceiling(sp.log(Rational(1, 2)) / sp.log(q29))), (Rational(64, 125), Rational(256, 625), True, True, 4))
+    es("29 hap esit taban", sp.solve((X + 3) - (2 * X - 1), X), [4])
+    # ── 30 diziler ──
+    n_ = sp.symbols("n_", positive=True, integer=True)
+    Sn = n_**2 + 2 * n_
+    es("30 hap kismi toplam", (sp.expand(Sn - Sn.subs(n_, n_ - 1)), Sn.subs(n_, 1)), (2 * n_ + 1, 3))
+    es("30 hap bowling", (1 + 2 + 3 + 4, Rational(4 * 5, 2)), (10, 10))
+    es("30 hap artan", sp.simplify((n_ + 1) / (n_ + 2) - n_ / (n_ + 1)) > 0, True)
+    # ── 31 aritmetik dizi ──
+    es("31 hap kosucu", (2 + 9 * Rational(1, 2), 10 * (2 + Rational(13, 2)) / 2), (Rational(13, 2), Rational(85, 2)))
+    es("31 hap terim sayisi", (Rational(99 - 7, 4) + 1, len(range(7, 100, 4))), (24, 24))
+    a31, d31 = sp.symbols("a31 d31")
+    es("31 hap toplam", sp.simplify(sp.summation(a31 + (sp.Symbol("k") - 1) * d31, (sp.Symbol("k"), 1, n_)) - n_ * (a31 + a31 + (n_ - 1) * d31) / 2), 0)
+    # ── 32 geometrik dizi ──
+    a32, r32 = sp.symbols("a32 r32")
+    kk = sp.symbols("kk", integer=True, nonnegative=True)
+    es("32 hap toplam", sp.simplify(sp.summation(a32 * r32**kk, (kk, 0, 5)) - a32 * (r32**6 - 1) / (r32 - 1)), 0)
+    es("32 hap sonsuz", (sp.summation(Rational(1, 2)**kk, (kk, 0, sp.oo)), 1 / (1 - Rational(1, 2))), (2, 2))
+    es("32 hap kagit", (Rational(1, 10) * 2**10, Rational(1, 10) * 2**10 / 10), (Rational(512, 5), Rational(256, 25)))
+
+    # ── 33 limit ──
+    t33 = sp.symbols("t33")
+    es("33 hap anlik hiz", (sp.limit((5 * (3 + t33)**2 - 5 * 9) / t33, t33, 0), sp.diff(5 * t33**2, t33).subs(t33, 3)), (30, 30))
+    es("33 hap derece", (sp.limit((X + 1) / X**2, X, sp.oo), sp.limit((2 * X + 1) / (X - 3), X, sp.oo), sp.limit((X**2 + 1) / (X + 1), X, sp.oo)), (0, 2, sp.oo))
+    es("33 hap polinom", sp.limit(X**3 - 2 * X + 1, X, 2), 5)
+    # ── 34 sagdan soldan ──
+    otopark = lambda dk: 40 if dk <= 60 else 40 + 20 * -(-(dk - 60) // 60)
+    es("34 hap otopark", (otopark(59), otopark(60), otopark(61), otopark(125)), (40, 40, 60, 80))
+    xr = sp.symbols("xr", real=True)
+    es("34 hap karekok", (sp.sqrt(xr**2), sp.sqrt((-3)**2)), (sp.Abs(xr), 3))
+    es("34 hap paydasi sifir", (sp.limit(1 / (X - 2), X, 2, "+"), sp.limit(1 / (X - 2), X, 2, "-")), (sp.oo, -sp.oo))
+    # ── 35 belirsizlikler ──
+    ap, bb = sp.symbols("ap bb", positive=True)
+    es("35 hap eslenik", sp.expand((sp.sqrt(ap) - bb) * (sp.sqrt(ap) + bb)), ap - bb**2)
+    es("35 hap trig", (sp.limit(sp.sin(X) / X, X, 0), sp.limit(sp.tan(X) / X, X, 0)), (1, 1))
+    xpos = sp.symbols("xpos", positive=True)
+    es("35 hap atolye", (sp.limit((1000 + 5 * xpos) / xpos, xpos, sp.oo), sp.simplify((1000 + 5 * xpos) / xpos - 5) > 0), (5, True))
+    es("35 hap carpan", sp.limit((X**2 - 4) / (X**2 - 3 * X + 2), X, 2), 4)
+    # ── 36 sureklilik ──
+    m36 = sp.symbols("m36", real=True)
+    es("36 hap diskriminant", sp.solveset(sp.discriminant(X**2 - 2 * X + m36, X) < 0, m36, sp.S.Reals) == sp.Interval.open(1, sp.oo), True)
+    f36 = X**3 + X - 1
+    es("36 hap ara deger", (f36.subs(X, 0), f36.subs(X, 1), len(sp.solveset(f36, X, sp.Interval(0, 1)))), (-1, 1, 1))
+    es("36 hap boy", Rational(150, 100) < Rational(155, 100) < Rational(160, 100), True)
+
 
 def bicim():
     import blog_veri

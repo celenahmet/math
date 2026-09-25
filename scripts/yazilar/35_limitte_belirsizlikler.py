@@ -51,6 +51,7 @@ YAZI = {
                 "Pay $(x-2)(x+2)$, payda $(x-2)(x-1)$ olarak ayrılır; $x-2$ sadeleşir.",
                 "Limit $\\lim_{x \\to 2}\\dfrac{x+2}{x-1}=4$ olur."),
             "Sadeleştirme $x \\neq 2$ için yapılır. Limit $x=2$ nin kendisine değil yakın değerlerine baktığı için bu işlem limiti değiştirmez. Sadeleşmiş ifadenin grafiği, asıl fonksiyonun grafiğiyle $x=2$ deki boşluk dışında tamamen aynıdır; limit de bu boşluğun yüksekliğidir.",
+            hap("Pay ve payda $x=a$ noktasında sıfır oluyorsa ikisi de $(x-a)$ çarpanını içerir.", "Bu çarpan sadeleştirilir, sonra yerine yazılır."),
         ]},
         {"baslik": "Özdeşliklerle çarpanlara ayırma", "icerik": [
             "Küp farkı, küp toplamı ve iki kare farkı gibi özdeşlikler belirsizlik sorularında çok sık kullanılır. $a^3-b^3=(a-b)(a^2+ab+b^2)$ ve $a^3+b^3=(a+b)(a^2-ab+b^2)$ özdeşlikleri özellikle önemlidir.",
@@ -77,6 +78,7 @@ YAZI = {
                 "Pay ve payda $\\sqrt{x}+2$ ile çarpılır: pay $x-4$ olur ve paydadaki $x-4$ ile sadeleşir.",
                 "Limit $\\lim_{x \\to 4}\\dfrac{1}{\\sqrt{x}+2}=\\dfrac{1}{4}$ olur."),
             "Payda $x-4$ yerine $(\\sqrt{x}-2)(\\sqrt{x}+2)$ olarak da yazılabilir; bu, eşlenik yönteminin çarpanlara ayırma ile aynı fikre dayandığını gösterir.",
+            hap("$\\sqrt{a}-b$ ifadesinin eşleniği $\\sqrt{a}+b$ olur ve ikisinin çarpımı $a-b^2$ olur; kök ortadan kalkar."),
         ]},
         {"baslik": "Paydada kök", "icerik": [
             "Kök paydadaysa eşlenikle çarpma yine uygulanır; bu kez eşlenik paydadaki köke göre seçilir. Pay ve payda aynı ifadeyle çarpıldığı için kesrin değeri değişmez, yalnızca biçimi değişir.",
@@ -118,6 +120,7 @@ YAZI = {
                 "İfade $3 \\cdot \\dfrac{\\sin 3x}{3x}$ biçiminde yazılır; $3x$ de sıfıra gider.",
                 "Limit $3 \\cdot 1=3$ olur."),
             "Genel olarak $\\lim_{x \\to 0}\\dfrac{\\sin ax}{bx}=\\dfrac{a}{b}$ dır. Aynı kural tanjant için de geçerlidir ve sinüs ile tanjant birbirinin yerine kullanılabilir.",
+            hap("$x$ radyan cinsinden sıfıra giderken $\\dfrac{\\sin x}{x}$ ve $\\dfrac{\\tan x}{x}$ ifadelerinin limiti $1$ olur."),
         ]},
         {"baslik": "Sinüslerin oranı", "icerik": [
             "Pay ve paydada sinüs varsa her ikisi de kendi açısına bölünüp çarpılır. Böylece iki temel limit ve açıların oranı kalır.",
@@ -168,6 +171,7 @@ YAZI = {
                 "Pay ve payda $x^2$ ye bölünür: $\\dfrac{4-\\dfrac{1}{x}}{2+\\dfrac{5}{x^2}}$.",
                 "Kesirli terimler sıfıra gider; limit $\\dfrac{4}{2}=2$ olur."),
             "Genel kural derecelere bakmaktır: pay derecesi küçükse limit $0$, dereceler eşitse baş katsayılar oranı, pay derecesi büyükse sonsuzdur.",
+            hap("Kirası $1000$ lira olan bir atölyede malzemesi tanesi $5$ lira tutan bir üründen $x$ tane yapılırsa ortalama maliyet $\\dfrac{1000+5x}{x}$ lira olur.", "Üretim arttıkça ortalama maliyet $5$ liraya yaklaşır ama hiçbir zaman $5$ liranın altına inmez.", gunluk=True),
         ]},
         {"baslik": "Eksi sonsuza giden bölüm", "icerik": [
             "Pay derecesi paydadan büyükse limit sonsuzdur, ama işareti baş katsayıların işaretine bağlıdır. Bu yüzden sonucu yazmadan önce en büyük dereceli terimlerin işaretlerine mutlaka bakılmalıdır. Baş katsayıların oranı negatifse ifade eksi sonsuza gider.",

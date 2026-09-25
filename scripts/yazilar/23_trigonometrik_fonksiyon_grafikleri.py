@@ -84,6 +84,7 @@ YAZI = {
                 "Genlik $|3|=3$ tür.",
                 "Fonksiyon $-3$ ile $3$ arasındaki değerleri alır: görüntü kümesi $[-3, 3]$ aralığıdır."),
             "Katsayı negatifse genlik yine pozitif alınır; negatif işaret yalnızca grafiği yatay eksene göre ters çevirir. $y=-2\\sin x$ grafiği, $\\dfrac{\\pi}{2}$ de $1$ e çıkmak yerine $-2$ ye iner.",
+            hap("$y=a\\sin x$ fonksiyonunda genlik $|a|$ olur; periyot ve sıfırlar değişmez."),
         ]},
         {"baslik": "Periyodun değişmesi", "icerik": [
             "$y=\\sin(bx)$ fonksiyonunda $b$ katsayısı dalganın sıklığını değiştirir. $b$ büyüdükçe nokta çember üzerinde daha hızlı döner ve dalgalar sıklaşır. Yeni periyot $\\dfrac{2\\pi}{|b|}$ formülüyle bulunur.",
@@ -94,6 +95,7 @@ YAZI = {
                 "Esas periyodu bulalım.",
                 "Periyot $\\dfrac{2\\pi}{|b|}$ formülüyle bulunur, burada $b=3$.",
                 "Esas periyot $\\dfrac{2\\pi}{3}$ dir."),
+            hap("$y=\\sin(bx)$ ve $y=\\cos(bx)$ fonksiyonlarının periyodu $\\dfrac{2\\pi}{|b|}$ olur."),
         ]},
         {"baslik": "Periyot formülleri", "icerik": [
             "Dört temel fonksiyonun periyot formülleri aşağıda bir araya getirilmiştir. Sinüs ve kosinüs için pay $2\\pi$, tanjant ve kotanjant için $\\pi$ alınır. Formülde yalnızca $x$ in katsayısı etkilidir; genlik, düşey öteleme ya da yatay öteleme periyodu değiştirmez.",
@@ -123,6 +125,7 @@ YAZI = {
                 "Parantez içindeki artı işaret, grafiğin $\\dfrac{\\pi}{2}$ kadar sola kaydığını gösterir.",
                 "Sinüs grafiği $\\dfrac{\\pi}{2}$ sola kayınca kosinüs grafiği elde edilir: fonksiyon $y=\\cos x$ olur."),
             "Katsayılı durumlarda önce parantez içi $b\\left(x+\\dfrac{c}{b}\\right)$ biçimine getirilir. $y=\\sin(2x-\\pi)$ fonksiyonunda kayma $\\pi$ değil, $\\dfrac{\\pi}{2}$ kadar sağa doğrudur.",
+            hap("$y=\\sin(x-c)$ grafiği $c$ birim sağa, $y=\\sin(x+c)$ grafiği $c$ birim sola kayar."),
         ]},
         {"baslik": "Genel biçim", "icerik": [
             "Tüm dönüşümler bir araya getirilince genel biçim $y=a\\sin(bx+c)+d$ olur. Bu biçimde her harfin görevi ayrıdır: $a$ genliği, $b$ periyodu, $c$ yatay kaymayı, $d$ ise denge çizgisini belirler.",
@@ -133,6 +136,7 @@ YAZI = {
                 ["$d$", "Denge çizgisi", "$y=d$"],
             ]),
             "Görüntü kümesi yalnızca $a$ ve $d$ ye bağlıdır: fonksiyon $d-|a|$ ile $d+|a|$ arasındaki tüm değerleri alır.",
+            hap("Yarıçapı $20$ metre, merkezi yerden $22$ metre yüksekte olan ve $10$ dakikada bir tur atan dönme dolapta kabinin yüksekliği $h(t)=22-20\\cos \\dfrac{\\pi t}{5}$ metre olur.", "Kabin en alçakta $2$, en yüksekte $42$ metrededir ve her $10$ dakikada bir aynı yüksekliğe döner.", gunluk=True),
         ]},
         {"baslik": "En büyük ve en küçük değer", "icerik": [
             "Genel biçimdeki bir fonksiyonun en büyük ve en küçük değeri, sinüs ya da kosinüsün $-1$ ile $1$ arasında kalmasından bulunur. Önce trigonometrik kısmın aralığı yazılır, sonra katsayılar ve sabit adım adım uygulanır.",

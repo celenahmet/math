@@ -54,6 +54,7 @@ YAZI = {
                 "Yalnızca kosinüs bilindiği için $2\\cos^2 x-1$ biçimi seçilir.",
                 "$\\cos 2x=2 \\cdot \\dfrac{1}{9}-1=-\\dfrac{7}{9}$ olur."),
             "Uygun biçim seçildiğinde eksik oranı bulmaya, dolayısıyla açının bölgesini düşünmeye gerek kalmaz. Kosinüsün iki katı, açının bölgesinden bağımsız olarak tek bir değer verir.",
+            hap("Yalnız kosinüs biliniyorsa $\\cos 2x=2\\cos^2 x-1$, yalnız sinüs biliniyorsa $\\cos 2x=1-2\\sin^2 x$ biçimi seçilir."),
         ]},
         {"baslik": "Tanjantın iki katı", "icerik": [
             "$\\tan 2x=\\dfrac{2\\tan x}{1-\\tan^2 x}$ formülü yalnızca tanjant cinsinden yazılmıştır; sinüs ya da kosinüse gerek yoktur. Paydanın sıfır olduğu durumda, yani $\\tan x=\\pm 1$ iken $\\tan 2x$ tanımsızdır.",
@@ -63,6 +64,7 @@ YAZI = {
                 "$\\tan 2x=\\dfrac{2 \\cdot \\dfrac{1}{2}}{1-\\dfrac{1}{4}}=\\dfrac{1}{\\dfrac{3}{4}}$.",
                 "Sonuç $\\dfrac{4}{3}$ olur."),
             "Tanjantın iki katı, açının bölgesini bilmeden yalnızca tanjant değeriyle hesaplanabildiği için tanjantı verilen sorularda en kısa yoldur. Sonucun işareti ise iki kat açının hangi bölgede bulunduğu hakkında da bilgi verir.",
+            hap("$\\tan 2x=\\dfrac{2\\tan x}{1-\\tan^2 x}$ olur.", "$\\tan x=1$ ya da $\\tan x=-1$ iken payda sıfır olur ve $\\tan 2x$ tanımsızdır."),
         ]},
         {"baslik": "Bölgesi verilen açıda iki kat", "icerik": [
             "Açı ikinci bölgede olduğunda kosinüs negatiftir. Bu işaret $\\sin 2x$ in işaretini doğrudan etkiler; $\\cos 2x$ in işareti ise karelerin farkından belirlenir.",
@@ -99,6 +101,7 @@ YAZI = {
             "$$\\sin^2 x=\\dfrac{1-\\cos 2x}{2}$$",
             "$$\\cos^2 x=\\dfrac{1+\\cos 2x}{2}$$",
             "Bu formüller integral hesabında, periyot sorularında ve dördüncü kuvvetli ifadeleri sadeleştirmede kullanılır. Kuvvet azalırken açının iki katına çıktığına dikkat etmek gerekir.",
+            hap("$\\sin^2 x=\\dfrac{1-\\cos 2x}{2}$ ve $\\cos^2 x=\\dfrac{1+\\cos 2x}{2}$ olur.", "Kare terim, iki kat açının birinci kuvvetine iner."),
         ]},
         {"baslik": "Dördüncü kuvvetler", "icerik": [
             "$\\sin^4 x+\\cos^4 x$ gibi ifadeler, iki kare toplamının karesinden yararlanılarak sadeleşir. $(\\sin^2 x+\\cos^2 x)^2=1$ olduğundan dördüncü kuvvetlerin toplamı $1-2\\sin^2 x \\cos^2 x$ tir.",
@@ -220,6 +223,7 @@ YAZI = {
                 "$R=\\dfrac{400}{10}\\sin 2\\theta=40\\sin 2\\theta$. $15^\\circ$ için $40\\sin 30^\\circ=20$ metre.",
                 "$75^\\circ$ için $40\\sin 150^\\circ=20$ metre; $45^\\circ$ için $40\\sin 90^\\circ=40$ metre ile en büyük menzil elde edilir."),
             "Tümler iki açıyla yapılan atışların aynı menzile ulaşması, $\\sin 2\\theta$ ile $\\sin(180^\\circ-2\\theta)$ değerlerinin eşit olmasından kaynaklanır.",
+            hap("Hava direnci ihmal edildiğinde yerden atılan bir top en uzağa $45^\\circ$ ile atılınca gider, çünkü o zaman $\\sin 2\\theta=1$ olur.", "$30^\\circ$ ve $60^\\circ$ ile aynı hızda atılan toplar aynı uzaklığa düşer: $\\sin 60^\\circ=\\sin 120^\\circ$ olur.", gunluk=True),
         ]},
         {"baslik": "Formüllerin özeti", "icerik": [
             tablo(["Konu", "Formül"], [

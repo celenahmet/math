@@ -73,6 +73,7 @@ YAZI = {
                 "$2n+5=45$ ise $n=20$; $45$, $a_n$ nin yirminci terimidir.",
                 "$n^2-1=99$ ise $n^2=100$ ve $n=10$; $99$, $b_n$ nin onuncu terimidir."),
             "Aynı yolla $50$ nin $a_n$ nin terimi olmadığı görülür: $2n+5=50$ denkleminden $n=22.5$ çıkar ve bu bir tam sayı değildir.",
+            hap("Bir sayının kaçıncı terim olduğu, genel terim o sayıya eşitlenerek bulunur.", "Çözüm pozitif bir tam sayı değilse sayı dizinin terimi değildir."),
         ]},
         {"baslik": "Belirli aralıktaki terim sayısı", "icerik": [
             "Bir dizinin iki sayı arasında kalan terimlerinin sayısı, genel terim için iki eşitsizlik yazılarak bulunur. Eşitsizlikleri sağlayan pozitif tam sayılar sayılır.",
@@ -110,6 +111,7 @@ YAZI = {
                 "$a_{n+1}-a_n=\\dfrac{n+1}{n+2}-\\dfrac{n}{n+1}=\\dfrac{1}{(n+1)(n+2)}$ olur.",
                 "Fark her $n$ için pozitif olduğundan dizi artandır."),
             "Bazı diziler ne artan ne azalandır. $a_n=(-1)^n$ dizisinin terimleri $-1$ ve $1$ arasında gidip gelir; bu yüzden bu dizi monoton değildir.",
+            hap("$a_{n+1}-a_n$ her $n$ için pozitifse dizi artan, negatifse azalandır."),
         ]},
         {"baslik": "Sınırlı diziler", "icerik": [
             "Terimlerinin hepsi belirli iki sayı arasında kalan dizilere <strong>sınırlı dizi</strong> denir. Artan bir dizinin en küçük terimi ilk terimidir; terimleri bir sayıya yaklaşıyorsa o sayı da bir üst sınırdır.",
@@ -197,6 +199,7 @@ YAZI = {
                 "Genel terimi bulalım.",
                 "$a_n=(n^2+2n)-((n-1)^2+2(n-1))=2n+1$ olur.",
                 "Kontrol: $a_1=S_1=3$ ve formülden $2 \\cdot 1+1=3$; formül ilk terim için de geçerlidir."),
+            hap("$a_n=S_n-S_{n-1}$ olur; ilk terim ise doğrudan $a_1=S_1$ ile bulunur."),
         ]},
         {"baslik": "Periyodik diziler", "icerik": [
             "Terimleri belirli aralıklarla tekrar eden dizilere periyodik dizi denir. Böyle bir dizinin çok ileri bir terimi, sıra numarasının periyoda bölümünden kalana bakılarak bulunur.",
@@ -215,6 +218,7 @@ YAZI = {
                 "$T_5=\\dfrac{5 \\cdot 6}{2}=15$ olur; kapaktaki boş bölmeye $15$ üçgen gelir.",
                 "$T_{10}=\\dfrac{10 \\cdot 11}{2}=55$ olur."),
             "Ardışık iki üçgensel sayının farkı sıra numarasına eşittir: $T_n-T_{n-1}=n$. Yani her yeni desen bir öncekine $n$ üçgenlik bir sıra eklenerek oluşur.",
+            hap("Bowlingde lobutlar üçgen biçiminde dizilir.", "Dört sıralık dizilişte $1+2+3+4=10$ lobut vardır; bu sayı dördüncü üçgensel sayı olan $T_4=10$ değeridir.", gunluk=True),
         ]},
         {"baslik": "Aritmetik ve geometrik diziler", "icerik": [
             "En sık kullanılan iki dizi türü, her adımda aynı sayının eklendiği aritmetik diziler ile her adımda aynı sayıyla çarpılan geometrik dizilerdir. $3, 7, 11, 15, \\ldots$ aritmetik, $3, 6, 12, 24, \\ldots$ ise geometrik bir dizidir.",

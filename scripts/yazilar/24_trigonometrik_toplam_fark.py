@@ -59,6 +59,7 @@ YAZI = {
                 "$\\sin 105^\\circ=\\sin(60^\\circ+45^\\circ)=\\dfrac{\\sqrt{3}}{2} \\cdot \\dfrac{\\sqrt{2}}{2}+\\dfrac{1}{2} \\cdot \\dfrac{\\sqrt{2}}{2}=\\dfrac{\\sqrt{6}+\\sqrt{2}}{4}$.",
                 "$\\sin 15^\\circ=\\sin(45^\\circ-30^\\circ)=\\dfrac{\\sqrt{2}}{2} \\cdot \\dfrac{\\sqrt{3}}{2}-\\dfrac{\\sqrt{2}}{2} \\cdot \\dfrac{1}{2}=\\dfrac{\\sqrt{6}-\\sqrt{2}}{4}$."),
             "$\\sin 105^\\circ$ ile $\\sin 75^\\circ$ aynı çıkar; çünkü iki açı bütünlerdir ve bütünler açıların sinüsleri eşittir.",
+            hap("Özel olmayan bir açı iki özel açının toplamı ya da farkı olarak yazılır.", "Örneğin $105^\\circ=60^\\circ+45^\\circ$ ve $15^\\circ=45^\\circ-30^\\circ$ olur."),
         ]},
         {"baslik": "Özel olmayan açıların kosinüsü", "icerik": [
             "Kosinüs hesabında formüldeki işaretin ters döndüğünü unutmamak gerekir. Toplam açının kosinüsünde iki çarpım arasına eksi, fark açısının kosinüsünde artı gelir.",
@@ -111,6 +112,7 @@ YAZI = {
                 "Birincisi sinüs toplam formülüdür: $\\sin(50^\\circ+10^\\circ)=\\sin 60^\\circ=\\dfrac{\\sqrt{3}}{2}$.",
                 "İkincisi kosinüs fark formülüdür: $\\cos(70^\\circ-10^\\circ)=\\cos 60^\\circ=\\dfrac{1}{2}$."),
             "Tanımanın ipucu çarpımların düzenidir: sinüs formüllerinde her çarpımda bir sinüs ve bir kosinüs bulunur; kosinüs formüllerinde ise çarpımlardan biri iki kosinüsten, diğeri iki sinüsten oluşur.",
+            hap("$\\sin x \\cos y+\\cos x \\sin y$ ifadesi $\\sin(x+y)$ olur; açılmış formülü tanımak işlemi tek satıra indirir."),
         ]},
         {"baslik": "Tanjant formülünü tersten tanımak", "icerik": [
             "Tanjant toplam formülünün biçimi de tanınmalıdır: payda iki tanjantın toplamı, paydada $1$ eksi aynı tanjantların çarpımı varsa ifade toplam açının tanjantıdır.",
@@ -136,6 +138,7 @@ YAZI = {
                 "Çarpımın değerini bulalım.",
                 "Çarpanlar tümler çiftler hâlinde gruplanır: $(\\tan 10^\\circ \\tan 80^\\circ)(\\tan 20^\\circ \\tan 70^\\circ)$.",
                 "Her parantez $1$ e eşittir; çarpım $1$ olur."),
+            hap("$a+b=90^\\circ$ ise $\\tan a \\cdot \\tan b=1$ olur."),
         ]},
         {"baslik": "Bütünler ve tümler kuralları", "icerik": [
             "Birim çemberden bilinen indirgeme kuralları aslında toplam ve fark formüllerinin özel hâlleridir. Açılardan biri $90^\\circ$ ya da $180^\\circ$ olduğunda sinüs ve kosinüsü $0$ ya da $\\pm 1$ olduğu için formülün bir terimi düşer.",
@@ -197,6 +200,7 @@ YAZI = {
                 "$\\tan \\theta=\\left|\\dfrac{3-\\dfrac{1}{2}}{1+\\dfrac{3}{2}}\\right|=\\dfrac{\\dfrac{5}{2}}{\\dfrac{5}{2}}=1$.",
                 "Doğrular arasındaki dar açı $45^\\circ$ dir."),
             "Paydanın sıfır olduğu durum, yani $m_1 m_2=-1$ olması, doğruların dik kesiştiğini gösterir. Analitik geometrideki diklik koşulu bu formülün doğal bir sonucudur.",
+            hap("Haritada eğimleri $2$ ve $-\\dfrac{1}{2}$ olan iki cadde dik kesişir.", "Formüldeki payda $1+m_1 m_2=1-1=0$ olduğu için aradaki açının tanjantı tanımsızdır, yani açı $90^\\circ$ olur.", gunluk=True),
         ]},
         {"baslik": "Sınavda toplam ve fark formülleri", "icerik": [
             sinavda(
