@@ -108,7 +108,7 @@ YAZI = {
                 "$\\sin 75^\\circ$ değeri istensin.",
                 "Toplam formülüyle bulalım.",
                 "$75^\\circ=45^\\circ+30^\\circ$: $\\sin 75^\\circ=\\sin 45^\\circ \\cos 30^\\circ+\\cos 45^\\circ \\sin 30^\\circ$.",
-                "$\\dfrac{\\sqrt{2}}{2} \\cdot \\dfrac{\\sqrt{3}}{2}+\\dfrac{\\sqrt{2}}{2} \\cdot \\dfrac{1}{2}=\\dfrac{\\sqrt{6}+\\sqrt{2}}{4}$."),
+                "$\\dfrac{\\sqrt{2}}{2} \\cdot \\dfrac{\\sqrt{3}}{2}+\\dfrac{\\sqrt{2}}{2} \\cdot \\dfrac{1}{2}=\\dfrac{\\sqrt{6}+\\sqrt{2}}{4}$."),            "Formüllerin birim çemberden ispatı ve daha fazla örnek için <a href=\"/blog/trigonometrik-toplam-fark/\">Trigonometrik Toplam ve Fark Formülleri</a> yazısına bakabilirsin.",
         ]},
         {"baslik": "Tanjant toplam formülüyle açı bulmak", "icerik": [
             "Tanjant toplam formülü yalnızca değer hesaplamak için değil, iki açının toplamını bulmak için de kullanılır. İki dar açının tanjantları biliniyorsa toplamlarının tanjantı hesaplanır, sonra hangi açıya karşılık geldiğine bakılır.",
@@ -154,7 +154,7 @@ YAZI = {
                 "$x$ dar açı ve $\\sin x=\\dfrac{3}{5}$ olsun.",
                 "$\\sin 2x$, $\\cos 2x$ ve $\\tan 2x$ değerlerini bulalım.",
                 "$\\cos x=\\dfrac{4}{5}$. $\\sin 2x=2 \\cdot \\dfrac{3}{5} \\cdot \\dfrac{4}{5}=\\dfrac{24}{25}$.",
-                "$\\cos 2x=\\dfrac{16}{25}-\\dfrac{9}{25}=\\dfrac{7}{25}$ ve $\\tan 2x=\\dfrac{24}{7}$."),
+                "$\\cos 2x=\\dfrac{16}{25}-\\dfrac{9}{25}=\\dfrac{7}{25}$ ve $\\tan 2x=\\dfrac{24}{7}$."),            "İki kat ve yarım açı formüllerinin ayrıntılı anlatımı <a href=\"/blog/iki-kat-yarim-aci/\">İki Kat Açı ve Yarım Açı Formülleri</a> yazısında.",
         ]},
         {"baslik": "Bölgesi verilen açıda iki kat", "icerik": [
             "Açı ikinci bölgedeyse kosinüs negatif, sinüs pozitiftir. İki kat açı formülleri uygulanırken bu işaretler sonucu doğrudan etkiler; önce eksik oran temel özdeşlikle bulunur, işareti bölgeden seçilir, sonra formül uygulanır.",
@@ -320,5 +320,5 @@ YAZI = {
     "kaynaklar": [
         ("MEB Ortaöğretim Matematik Dersi Öğretim Programı", "https://mufredat.meb.gov.tr/ProgramDetay.aspx?PID=343"),
     ],
-    "ilgili": ["trigonometrik-oranlar", "birim-cember", "trigonometrik-fonksiyon-grafikleri"],
+    "ilgili": ["trigonometrik-toplam-fark", "iki-kat-yarim-aci", "trigonometrik-denklemler"],
 }

@@ -181,7 +181,7 @@ YAZI = {
                 "$[0, 2\\pi)$ aralığında $\\sin x=\\dfrac{1}{2}$ denklemi verilsin.",
                 "Çözümleri bulalım.",
                 "Sinüsü $\\dfrac{1}{2}$ olan açılardan biri $\\dfrac{\\pi}{6}$ dir.",
-                "Sinüs ikinci bölgede de pozitiftir: $\\pi-\\dfrac{\\pi}{6}=\\dfrac{5\\pi}{6}$. Çözümler $\\dfrac{\\pi}{6}$ ve $\\dfrac{5\\pi}{6}$ dir."),
+                "Sinüs ikinci bölgede de pozitiftir: $\\pi-\\dfrac{\\pi}{6}=\\dfrac{5\\pi}{6}$. Çözümler $\\dfrac{\\pi}{6}$ ve $\\dfrac{5\\pi}{6}$ dir."),            "Genel çözüm, katlı açılar ve ikinci dereceden denklemler için <a href=\"/blog/trigonometrik-denklemler/\">Trigonometrik Denklemler Nasıl Çözülür?</a> yazısına bakabilirsin.",
         ]},
         {"baslik": "Dik üçgen uygulaması", "icerik": [
             "Trigonometrinin en eski kullanımı, doğrudan ölçülemeyen uzunlukları bir açı ve bir uzunluk yardımıyla hesaplamaktır. Hangi oranın kullanılacağı, bilinen ve istenen kenarların açıya göre konumuna bağlıdır.",

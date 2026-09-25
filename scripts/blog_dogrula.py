@@ -1867,6 +1867,24 @@ def yazi_14_18():
     esit("18 esit bas katsayi", sp.solve((X**2) - (X + 1)**2, X), [-Q(1, 2)])
 
 
+def esit_ogeler(ad, bul, bek):
+    """Ogeleri tek tek karsilastirir; trig sabitleri sympy'de kendiliginden sadelesmedigi
+    icin fark hem simplify hem 60 basamak sayisal olarak sifira bakilir."""
+    if isinstance(bul, (tuple, list)) and isinstance(bek, (tuple, list)) and len(bul) == len(bek):
+        for i, (u, v) in enumerate(zip(bul, bek)):
+            esit_ogeler(f"{ad}[{i}]", u, v)
+        return
+    sayi = lambda v: sp.Integer(v) if isinstance(v, int) and not isinstance(v, bool) else v
+    bul, bek = sayi(bul), sayi(bek)
+    if bul is bek or (type(bul) is type(bek) and bul == bek):
+        return esit(ad, True, True)
+    if not isinstance(bul, sp.Expr) or not isinstance(bek, sp.Expr):
+        return esit(ad, bul, bek)
+    fark = bul - bek
+    sifir = sp.simplify(fark) == 0 or (not fark.free_symbols and abs(sp.N(fark, 60)) < sp.Float("1e-50"))
+    esit(ad, sifir, True)
+
+
 def yazi_19_23():
     """19 Trigonometri, 20 Birim Cember, 21 Trigonometrik Oranlar, 22 Ozdeslikler, 23 Grafikler."""
     from sympy import sin, cos, tan, cot, sec, csc, pi, atan, periodicity
@@ -1878,22 +1896,7 @@ def yazi_19_23():
     tur = Interval.Ropen(0, 2 * pi)
     coz = lambda e, alan=tur: sp.solveset(e, X, alan)
     ozdes = lambda sol, sag: sp.simplify(sp.expand_trig(sol - sag)) == 0
-    def es(ad, bul, bek):
-        """Ogeleri tek tek karsilastirir; trig sabitleri sympy'de kendiliginden sadelesmedigi
-        icin fark hem simplify hem 60 basamak sayisal olarak sifira bakilir."""
-        if isinstance(bul, (tuple, list)) and isinstance(bek, (tuple, list)) and len(bul) == len(bek):
-            for i, (u, v) in enumerate(zip(bul, bek)):
-                es(f"{ad}[{i}]", u, v)
-            return
-        sayi = lambda v: sp.Integer(v) if isinstance(v, int) and not isinstance(v, bool) else v
-        bul, bek = sayi(bul), sayi(bek)
-        if bul is bek or (type(bul) is type(bek) and bul == bek):
-            return esit(ad, True, True)
-        if not isinstance(bul, sp.Expr) or not isinstance(bek, sp.Expr):
-            return esit(ad, bul, bek)
-        fark = bul - bek
-        sifir = sp.simplify(fark) == 0 or (not fark.free_symbols and abs(sp.N(fark, 60)) < sp.Float("1e-50"))
-        esit(ad, sifir, True)
+    es = esit_ogeler
     # ── 19 ──
     es("19 donusum", (Q(150, 180) * pi, Q(2, 3) * 180, (pi / 6) * 180 / pi), (5 * pi / 6, 120, 30))
     es("19 yay", (6 * pi / 3, 2 * pi * 6), (2 * pi, 12 * pi))
@@ -2024,6 +2027,105 @@ def yazi_19_23():
     es("23 hata", periodicity(sin(2 * X), X) != 4 * pi, True)
 
 
+def yazi_24_26():
+    """24 Toplam ve Fark, 25 Iki Kat ve Yarim Aci, 26 Trigonometrik Denklemler."""
+    from sympy import sin, cos, tan, cot, pi, atan, asin, acos
+    es = esit_ogeler
+    Q = Rational
+    g = lambda d: d * pi / 180
+    X, a_, b_, t_ = sp.symbols("X a_ b_ t_", real=True)
+    s2, s3, s6 = sqrt(2), sqrt(3), sqrt(6)
+    tur = Interval.Ropen(0, 2 * pi)
+    coz = lambda e, alan=tur: sp.solveset(e, X, alan)
+    # sympy bazi yarim aci ozdesliklerini sembolik sadelestiremiyor; o zaman ozdeslik
+    # yedi ayri noktada 50 basamak sayisal olarak denenir (analitik fonksiyonlar)
+    def ozdes(sol, sag):
+        fark = sol - sag
+        if sp.simplify(sp.expand_trig(fark)) == 0:
+            return True
+        serbest = sorted(fark.free_symbols, key=str)
+        noktalar = (Q(3, 10), Q(7, 10), Q(11, 10), Q(23, 10), Q(41, 10), Q(11, 2), Q(-9, 10))
+        return all(abs(sp.N(fark.subs({s: n + j * Q(1, 7) for j, s in enumerate(serbest)}), 60)) < sp.Float("1e-45") for n in noktalar)
+    # ── 24 ──
+    esit("24 ispat uzaklik", (sp.simplify(sp.expand((cos(a_) - cos(b_))**2 + (sin(a_) - sin(b_))**2) - (2 - 2 * (cos(a_) * cos(b_) + sin(a_) * sin(b_)))),
+                             sp.simplify(sp.expand((cos(a_ - b_) - 1)**2 + sin(a_ - b_)**2) - (2 - 2 * cos(a_ - b_)))), (0, 0))
+    es("24 tanjant tanimsiz", (1 - tan(g(30)) * tan(g(60)), g(30) + g(60)), (0, g(90)))
+    es("24 sinus", (sin(g(105)), s3 / 2 * s2 / 2 + Q(1, 2) * s2 / 2, sin(g(15)), s2 / 2 * s3 / 2 - s2 / 2 * Q(1, 2), sin(g(75))), ((s6 + s2) / 4, (s6 + s2) / 4, (s6 - s2) / 4, (s6 - s2) / 4, (s6 + s2) / 4))
+    es("24 kosinus", (cos(g(75)), cos(g(105)), s2 / 2 * s3 / 2 - s2 / 2 * Q(1, 2), Q(1, 2) * s2 / 2 - s3 / 2 * s2 / 2), ((s6 - s2) / 4, (s2 - s6) / 4, (s6 - s2) / 4, (s2 - s6) / 4))
+    es("24 tanjant", (tan(g(75)), (1 + s3 / 3) / (1 - s3 / 3), (3 + s3) / (3 - s3), sp.expand((3 + s3)**2), (12 + 6 * s3) / 6, tan(g(105)), tan(g(15)), tan(g(15)) * tan(g(75))),
+       (2 + s3, 2 + s3, 2 + s3, 12 + 6 * s3, 2 + s3, -(2 + s3), 2 - s3, 1))
+    es("24 radyan", (pi / 3 + pi / 4, cos(7 * pi / 12), (pi / 12) * 180 / pi, (7 * pi / 12) * 180 / pi), (7 * pi / 12, (s2 - s6) / 4, 15, 105))
+    a1, b1 = asin(Q(3, 5)), acos(Q(5, 13))
+    es("24 oranlardan", (cos(a1), sin(b1), sin(a1 + b1), cos(a1 + b1), sin(a1 - b1), cos(a1 - b1), float(a1 + b1) > float(pi / 2), float(b1) > float(a1)),
+       (Q(4, 5), Q(12, 13), Q(63, 65), -Q(16, 65), -Q(33, 65), Q(56, 65), True, True))
+    a2, b2 = pi - asin(Q(4, 5)), asin(Q(5, 13))
+    es("24 bolge", (cos(a2), cos(b2), cos(a2 + b2)), (-Q(3, 5), Q(12, 13), -Q(56, 65)))
+    es("24 tersten", (sin(g(50)) * cos(g(10)) + cos(g(50)) * sin(g(10)), cos(g(70)) * cos(g(10)) + sin(g(70)) * sin(g(10))), (s3 / 2, Q(1, 2)))
+    es("24 tanjant tersten", ((tan(g(20)) + tan(g(25))) / (1 - tan(g(20)) * tan(g(25))), (1 + tan(g(20))) * (1 + tan(g(25)))), (1, 2))
+    es("24 tanjantlardan aci", ((Q(1, 2) + Q(1, 3)) / (1 - Q(1, 6)), atan(Q(1, 2)) + atan(Q(1, 3))), (1, g(45)))
+    es("24 tumler tanjant", tan(g(10)) * tan(g(20)) * tan(g(70)) * tan(g(80)), 1)
+    es("24 indirgeme", (ozdes(sin(pi / 2 + X), cos(X)), ozdes(cos(pi - X), -cos(X))), (True, True))
+    es("24 carpim", (ozdes(sin(a_ + b_) * sin(a_ - b_), sin(a_)**2 - sin(b_)**2), ozdes(cos(a_ + b_) * cos(a_ - b_), cos(a_)**2 - sin(b_)**2),
+                     sin(g(75)) * sin(g(15)), sin(g(45))**2 - sin(g(30))**2), (True, True, Q(1, 4), Q(1, 4)))
+    es("24 tek sinus", (ozdes(s3 * sin(X) + cos(X), 2 * sin(X + g(30))), function_range(s3 * sin(X) + cos(X), X, Interval(0, 2 * pi)),
+                        ozdes(sin(X) - cos(X), s2 * sin(X - g(45))), function_range(sin(X) - cos(X), X, Interval(0, 2 * pi))), (True, Interval(-2, 2), True, Interval(-s2, s2)))
+    es("24 denklem", coz(sin(X) * cos(g(30)) + cos(X) * sin(g(30)) - 1), FiniteSet(g(60)))
+    A, B = asin(Q(3, 5)), asin(Q(5, 13))
+    es("24 ucgen", (sin(pi - A - B), cos(pi - A - B), Q(48, 65) - Q(15, 65), float(pi - A - B) > float(pi / 2)), (Q(56, 65), -Q(33, 65), Q(33, 65), True))
+    es("24 dogrular", ((3 - Q(1, 2)) / (1 + Q(3, 2)), sp.Abs(atan(3) - atan(Q(1, 2)))), (1, g(45)))
+    # ── 25 ──
+    x1_ = asin(Q(5, 13))
+    es("25 sin iki kat", (cos(x1_), sin(2 * x1_), sin(pi / 8) * cos(pi / 8)), (Q(12, 13), Q(120, 169), s2 / 4))
+    es("25 cos iki kat", (2 * Q(1, 9) - 1, cos(2 * acos(Q(1, 3)))), (-Q(7, 9), -Q(7, 9)))
+    es("25 tan iki kat", (tan(2 * atan(Q(1, 2))), 1 - 1**2), (Q(4, 3), 0))
+    x2_ = pi - asin(Q(12, 13))
+    es("25 bolge", (cos(x2_), sin(2 * x2_), cos(2 * x2_), abs(float(x2_ * 180 / pi) - 112.6) < 0.05, abs(float(2 * x2_ * 180 / pi) - 225.2) < 0.1),
+       (-Q(5, 13), -Q(120, 169), -Q(119, 169), True, True))
+    x3_ = acos(Q(7, 25)) / 2
+    es("25 iki kattan geri", (sin(x3_)**2, sin(x3_), cos(x3_)), (Q(9, 25), Q(3, 5), Q(4, 5)))
+    es("25 tersten", (cos(pi / 8)**2 - sin(pi / 8)**2, 1 - 2 * sin(g(15))**2), (s2 / 2, s3 / 2))
+    es("25 dorduncu kuvvet", (ozdes(sin(X)**4 + cos(X)**4, 1 - 2 * sin(X)**2 * cos(X)**2), sin(g(15))**4 + cos(g(15))**4, 1 - Q(1, 4) / 2, ozdes(cos(X)**4 - sin(X)**4, cos(2 * X))),
+       (True, Q(7, 8), Q(7, 8), True))
+    es("25 yarim aci deger", (cos(pi / 8), sin(pi / 8), (2 + s2) / 4 + (2 - s2) / 4), (sqrt(2 + s2) / 2, sqrt(2 - s2) / 2, 1))
+    x4_ = pi + acos(Q(3, 5))
+    es("25 yarim aci isaret", (cos(x4_), float(x4_ / 2) > float(pi / 2) and float(x4_ / 2) < float(3 * pi / 4), sin(x4_ / 2), cos(x4_ / 2), sqrt((1 + Q(3, 5)) / 2), -sqrt((1 - Q(3, 5)) / 2)),
+       (-Q(3, 5), True, 2 * sqrt(5) / 5, -sqrt(5) / 5, 2 * sqrt(5) / 5, -sqrt(5) / 5))
+    es("25 tanjant yarim", (ozdes(tan(X / 2), sin(X) / (1 + cos(X))), ozdes(tan(X / 2), (1 - cos(X)) / sin(X)), tan(pi / 8), tan(g(15))), (True, True, s2 - 1, 2 - s3))
+    t0 = 2
+    es("25 t donusumu", (ozdes(sin(X), 2 * tan(X / 2) / (1 + tan(X / 2)**2)), ozdes(cos(X), (1 - tan(X / 2)**2) / (1 + tan(X / 2)**2)), ozdes(tan(X), 2 * tan(X / 2) / (1 - tan(X / 2)**2)),
+                         Q(2 * t0, 1 + t0**2), Q(1 - t0**2, 1 + t0**2), sin(2 * atan(2)), cos(2 * atan(2))), (True, True, True, Q(4, 5), -Q(3, 5), Q(4, 5), -Q(3, 5)))
+    es("25 uc kat", (ozdes(sin(3 * X), 3 * sin(X) - 4 * sin(X)**3), ozdes(cos(3 * X), 4 * cos(X)**3 - 3 * cos(X)), cos(pi), 4 * Q(1, 8) - 3 * Q(1, 2)), (True, True, -1, -1))
+    es("25 sadelestirme", (ozdes((1 - cos(2 * X)) / sin(2 * X), tan(X)), ozdes(sin(2 * X) / (1 + cos(2 * X)), tan(X))), (True, True))
+    es("25 ispat", (ozdes((sin(X) + cos(X))**2, 1 + sin(2 * X)), ozdes(cot(X) - tan(X), 2 * cot(2 * X)), cot(g(15)) - tan(g(15)), 2 * cot(g(30))), (True, True, 2 * s3, 2 * s3))
+    es("25 denklem", (sp.factor(2 * X**2 - X - 1), coz(cos(2 * X) + sin(X))), ((2 * X + 1) * (X - 1), FiniteSet(g(90), g(210), g(330))))
+    es("25 en buyuk", function_range(4 * sin(X) * cos(X) + 1, X, Interval(0, 2 * pi)), Interval(-1, 3))
+    es("25 menzil", (Q(400, 10), 40 * sin(g(30)), 40 * sin(g(150)), 40 * sin(g(90))), (40, 20, 20, 40))
+    es("25 kontrol", (2 * cos(g(30))**2 - 1, cos(g(60))), (Q(1, 2), Q(1, 2)))
+    # ── 26 ──
+    es("26 grafik", coz(sin(X) - Q(1, 2)), FiniteSet(pi / 6, 5 * pi / 6))
+    es("26 genel", (coz(sin(X) - s2 / 2), coz(cos(X) - Q(1, 2)), coz(tan(X) - s3, Interval.Ropen(0, pi)), coz(cot(X) + 1, Interval.open(0, pi))),
+       (FiniteSet(pi / 4, 3 * pi / 4), FiniteSet(pi / 3, 5 * pi / 3), FiniteSet(pi / 3), FiniteSet(3 * pi / 4)))
+    es("26 ozel degerler", [coz(e) for e in (sin(X), sin(X) - 1, sin(X) + 1, cos(X), cos(X) - 1, cos(X) + 1)],
+       [FiniteSet(0, pi), FiniteSet(pi / 2), FiniteSet(3 * pi / 2), FiniteSet(pi / 2, 3 * pi / 2), FiniteSet(0), FiniteSet(pi)])
+    es("26 cozumsuz", (sp.solveset(2 * sin(X) - 3, X, R), sp.solveset(cos(X) + 2, X, R)), (S.EmptySet, S.EmptySet))
+    es("26 aralik", (coz(sin(X) + Q(1, 2)), coz(cos(X) + s3 / 2)), (FiniteSet(7 * pi / 6, 11 * pi / 6), FiniteSet(5 * pi / 6, 7 * pi / 6)))
+    es("26 katli", coz(sin(2 * X) - s3 / 2), FiniteSet(pi / 6, pi / 3, 7 * pi / 6, 4 * pi / 3))
+    es("26 otelenmis", coz(cos(X - pi / 6)), FiniteSet(2 * pi / 3, 5 * pi / 3))
+    es("26 ayni fonksiyon", (coz(sin(3 * X) - sin(X), Interval.Ropen(0, pi)), coz(cos(3 * X) - cos(X), Interval(0, pi))), (FiniteSet(0, pi / 4, 3 * pi / 4), FiniteSet(0, pi / 2, pi)))
+    es("26 ikinci derece", (sp.factor(2 * X**2 - 3 * X + 1), coz(2 * sin(X)**2 - 3 * sin(X) + 1)), ((2 * X - 1) * (X - 1), FiniteSet(pi / 6, pi / 2, 5 * pi / 6)))
+    es("26 ozdeslikle", (sp.factor(2 * X**2 + X - 1), coz(2 * cos(X)**2 - sin(X) - 1)), ((2 * X - 1) * (X + 1), FiniteSet(pi / 6, 5 * pi / 6, 3 * pi / 2)))
+    es("26 carpanlara", coz(tan(X) * sin(X) - sin(X)), FiniteSet(0, pi / 4, pi, 5 * pi / 4))
+    es("26 homojen", (sin(pi / 2)**2 - 3 * cos(pi / 2)**2, coz(sin(X)**2 - 3 * cos(X)**2)), (1, FiniteSet(pi / 3, 2 * pi / 3, 4 * pi / 3, 5 * pi / 3)))
+    es("26 toplam", (coz(sin(X) + cos(X) - 1), ozdes(sin(X) + cos(X), s2 * sin(X + pi / 4))), (FiniteSet(0, pi / 2), True))
+    es("26 kare alma", (coz(sin(2 * X)), sin(pi) + cos(pi), sin(3 * pi / 2) + cos(3 * pi / 2)), (FiniteSet(0, pi / 2, pi, 3 * pi / 2), -1, -1))
+    es("26 tanim kumesi", (coz((1 - sin(X)) / cos(X)), coz(1 - sin(X)), cos(pi / 2)), (S.EmptySet, FiniteSet(pi / 2), 0))
+    es("26 esitsizlik", sp.solveset(cos(X) < Q(1, 2), X, tur), Interval.open(pi / 3, 5 * pi / 3))
+    es("26 cozum sayisi", len(coz(sin(3 * X) - Q(1, 2))), 6)
+    h = 10 - 8 * cos(pi * t_ / 15)
+    es("26 donme dolap", (function_range(h, t_, Interval(0, 30)), sp.solveset(h - 14, t_, Interval.Ropen(0, 30)), h.subs(t_, 40), h.subs(t_, 50), (2 * pi) / (pi / 15)),
+       (Interval(2, 18), FiniteSet(10, 20), 14, 14, 30))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -2046,7 +2148,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
