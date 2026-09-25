@@ -2333,6 +2333,96 @@ def yazi_30_32():
     es("32 logaritma", [sp.log(v, 2) for v in (2, 4, 8, 16)], [1, 2, 3, 4])
 
 
+def yazi_33_36():
+    """33 Limit, 34 Sagdan ve Soldan Limit, 35 Limitte Belirsizlikler, 36 Sureklilik."""
+    from sympy import limit as lim, sin, cos, tan, pi, floor, E, log as L, Piecewise, sign
+    es = esit_ogeler
+    Q = Rational
+    X, h, t_, k_, a_, b_ = sp.symbols("X h t_ k_ a_ b_", real=True)
+    yak = lambda deger, yaklasik, tol: abs(float(deger) - yaklasik) < tol
+    # sympy'nin limit(..., '-') cagrisi Piecewise ve floor'da noktadaki degeri donduruyor (1 yerine 3);
+    # tek yonlu limit bu yuzden x = a -+ e (e > 0) yazilip e -> 0+ ile hesaplanir
+    e_ = sp.symbols("e_", positive=True)
+    sol = lambda f, a: lim(sp.sympify(f).subs(X, a - e_), e_, 0, "+")
+    sag = lambda f, a: lim(sp.sympify(f).subs(X, a + e_), e_, 0, "+")
+    iki = lambda f, a: (sol(f, a), sag(f, a))
+    # ── 33 ──
+    es("33 tablo", [2 * v + 1 for v in (Q(29, 10), Q(299, 100), Q(301, 100), Q(31, 10))], [Q(68, 10), Q(698, 100), Q(702, 100), Q(72, 10)])
+    es("33 yaklasma", lim(2 * X + 1, X, 3), 7)
+    es("33 tanimsiz", (lim((X**2 - 1) / (X - 1), X, 1), sp.factor(X**2 - 1)), (2, (X - 1) * (X + 1)))
+    es("33 deger farkli", (lim(X + 1, X, 2), 5), (3, 5))
+    es("33 basit", (lim(S(7), X, 5), lim(X**2, X, 5)), (7, 25))
+    es("33 tablo sinir", ([sin(pi / v) for v in (1, Q(1, 10), Q(1, 100))], sin(pi / Q(2, 5)), lim(sin(pi / X), X, 0)), ([0, 0, 0], 1, sp.AccumBounds(-1, 1)))
+    es("33 polinom", lim(X**3 - 2 * X + 1, X, 2), 5)
+    es("33 rasyonel", lim((X + 3) / (X + 1), X, 1), 2)
+    es("33 kurallar", (2 * 3 - (-2), 3 * (-2), Q(9, -2)), (8, -6, -Q(9, 2)))
+    es("33 parametre", sp.solve(4 + 2 * k_ - 10, k_), [3])
+    es("33 koklu mutlak", (lim(sqrt(X + 5), X, 4), lim(Abs(X**2 - 9), X, -2)), (3, 5))
+    es("33 bileske", lim(cos(X**2 + pi), X, 0), -1)
+    es("33 trig ustel log", (lim(sin(X), X, pi / 2), lim(2**X, X, 2), lim(L(X), X, E)), (1, 4, 1))
+    es("33 sinx bolu x", ([yak(sin(v) / v, w, 0.000005) for v, w in ((Q(1, 10), 0.99833), (Q(1, 100), 0.99998))], yak(sin(Q(1, 1000)) / Q(1, 1000), 0.9999998, 0.00000005), lim(sin(X) / X, X, 0)), ([True, True], True, 1))
+    es("33 belirsizlik", lim((X**2 - 9) / (X - 3), X, 3), 6)
+    es("33 sonsuz limit", ([1 / v**2 for v in (Q(1, 10), Q(1, 100), Q(1, 1000))], lim(1 / X**2, X, 0)), ([100, 10000, 1000000], oo))
+    es("33 iki yon sonsuz", iki(1 / X, 0), (-oo, oo))
+    es("33 sonsuzda", (lim(1 / X, X, oo), lim((2 * X + 1) / (X - 3), X, oo), lim((X + 1) / X**2, X, oo), lim((3 * X**2 + 1) / (X**2 - 5), X, oo), lim(X**3 / (X + 1), X, oo)), (0, 2, 0, 3, oo))
+    es("33 sikistirma", lim(X**2 * sin(1 / X), X, 0), 0)
+    es("33 anlik hiz", (sp.expand((5 * (2 + h)**2 - 20) / h), lim((5 * (2 + h)**2 - 20) / h, h, 0)), (20 + 5 * h, 20))
+    n_ = sp.symbols("n_", integer=True, positive=True)
+    es("33 sonsuz toplam", (sum(Q(1, 2)**i for i in range(10)) - (2 - Q(1, 2)**9),
+                            lim(2 - Q(1, 2)**(X - 1), X, oo), sp.summation(9 * Q(1, 10)**k_, (k_, 1, oo))), (0, 2, 1))
+    # ── 34 ──
+    f1 = Piecewise((X + 1, X < 2), (2 * X - 1, True))
+    es("34 esit", (iki(f1, 2), f1.subs(X, 2)), ((3, 3), 3))
+    f2 = Piecewise((X**2, X < 1), (X + 2, True))
+    es("34 sicrama", (iki(f2, 1), f2.subs(X, 1)), ((1, 3), 3))
+    es("34 parametre", (sp.solve(6 + a_ - 5, a_), lim(X**2 + 1, X, 2)), ([-1], 5))
+    f3 = Piecewise((X + 2, X < 0), (X**2, X < 2), (6 - X, True))
+    es("34 uc parca", (iki(f3, 0), iki(f3, 2)), ((2, 0), (4, 4)))
+    es("34 iki parametre", sp.solve([6 + b_ - 9, 1 + a_ - (2 + b_)], [a_, b_]), {a_: 4, b_: 3})
+    es("34 mutlak", (iki(Abs(X) / X, 0), iki((X**2 - 4) / Abs(X - 2), 2), lim(Abs(X), X, 0), iki(sqrt(X**2) / X, 0)), ((-1, 1), (-4, 4), 0, (-1, 1)))
+    es("34 tam deger", (floor(Q(27, 10)), floor(-Q(13, 10)), iki(floor(X), 2), lim(floor(X), X, Q(5, 2)), iki(floor(2 * X), 1), iki(floor(X) + X, 3)),
+       (2, -2, (1, 2), 2, (1, 2), (5, 6)))
+    es("34 payda sifir", (iki(1 / (X - 2), 2), iki(1 / (X - 2)**2, 2), iki((X + 1) / (X - 3), 3)), ((-oo, oo), (oo, oo), (-oo, oo)))
+    es("34 ustel", iki(2**(1 / X), 0), (0, oo))
+    es("34 tanjant", iki(tan(X), pi / 2), (oo, -oo))
+    es("34 kok uc", sag(sqrt(X), 0), 0)
+    es("34 isaret", (iki(sign(X), 0), lim(sign(X), X, 3)), ((-1, 1), 1))
+    # ── 35 ──
+    es("35 neden", (lim(X / X, X, 0), lim(X**2 / X, X, 0), sag(X / X**2, 0)), (1, 0, oo))
+    es("35 carpanlar", (lim((X**2 - 4) / (X**2 - 3 * X + 2), X, 2), lim((X**3 - 1) / (X - 1), X, 1), lim((X**3 + 1) / (X**2 - 1), X, -1)), (4, 3, -Q(3, 2)))
+    es("35 cift kok", (sp.factor(X**3 - 3 * X**2 + 4), lim((X**3 - 3 * X**2 + 4) / (X - 2)**2, X, 2)), ((X - 2)**2 * (X + 1), 3))
+    es("35 eslenik", (lim((sqrt(X) - 2) / (X - 4), X, 4), lim(X / (sqrt(X + 9) - 3), X, 0), lim((sqrt(X + 1) - 2) / (sqrt(X - 2) - 1), X, 3)), (Q(1, 4), 6, Q(1, 2)))
+    es("35 degisken", (lim((X**Q(1, 3) - 2) / (X - 8), X, 8), lim((t_ - 2) / (t_**3 - 8), t_, 2)), (Q(1, 12), Q(1, 12)))
+    es("35 parametre", (sp.solve(4 + 2 * a_ - 6, a_), sp.factor(X**2 + X - 6), lim((X**2 + X - 6) / (X - 2), X, 2)), ([1], (X - 2) * (X + 3), 5))
+    es("35 trig", (lim(sin(3 * X) / X, X, 0), lim(sin(5 * X) / sin(2 * X), X, 0), lim(tan(4 * X) / sin(2 * X), X, 0), lim(tan(X) / X, X, 0), lim((1 - cos(X)) / X**2, X, 0)),
+       (3, Q(5, 2), 2, 1, Q(1, 2)))
+    es("35 kosinus ozdes", sp.simplify(1 - cos(X) - 2 * sin(X / 2)**2), 0)
+    es("35 sonsuz bolu sonsuz", (lim((4 * X**2 - X) / (2 * X**2 + 5), X, oo), lim(sqrt(X**2 + 1) / X, X, oo), lim(sqrt(X**2 + 1) / X, X, -oo), lim((1 - X**3) / (X**2 + 1), X, oo)), (2, 1, -1, -oo))
+    es("35 sonsuz eksi sonsuz", (lim(sqrt(X**2 + 4 * X) - X, X, oo), lim(1 / (X - 1) - 2 / (X**2 - 1), X, 1)), (2, Q(1, 2)))
+    es("35 sifir carpi sonsuz", (lim(X * sin(1 / X), X, oo), lim((X**2 + sin(X)) / X, X, 0), lim((2**X + 3**X) / 3**X, X, oo)), (1, 1, 1))
+    es("35 mutlak", iki((X**2 - 9) / Abs(X - 3), 3), (-6, 6))
+    es("35 turev", (sp.expand(((3 + h)**2 - 9) / h), lim(((3 + h)**2 - 9) / h, h, 0)), (6 + h, 6))
+    # ── 36 ──
+    es("36 surekli", ((X**2 + 1).subs(X, 2), lim(X**2 + 1, X, 2)), (5, 5))
+    es("36 kaldirilabilir", (lim((X**2 - 4) / (X - 2), X, 2), lim((X**2 - 9) / (X - 3), X, 3)), (4, 6))
+    es("36 sicrama", (iki(f2, 1), 3 - 1), ((1, 3), 2))
+    es("36 sonsuz", iki(1 / (X - 2), 2), (-oo, oo))
+    es("36 rasyonel", sp.solveset(X**2 - 5 * X + 6, X, R), FiniteSet(2, 3))
+    es("36 her yerde", (sp.solveset(4 - 4 * sp.Symbol("m") < 0, sp.Symbol("m"), R), sp.solveset(X**2 - 2 * X + 2, X, R)), (Interval.open(1, oo), S.EmptySet))
+    es("36 parcali", sp.solve(2 * a_ - 1 - (4 + a_), a_), [5])
+    es("36 iki parametre", (sp.solve(1 + a_ - 3, a_), sp.solve(b_ + 1 - 3, b_)), ([2], [2]))
+    es("36 tanjant", sp.solveset(cos(X), X, Interval(0, 2 * pi)), FiniteSet(pi / 2, 3 * pi / 2))
+    es("36 bileske", (sp.simplify(1 / (X**2 - 1) - (1 / (X - 1)).subs(X, X**2)), sp.solveset(X**2 - 1, X, R)), (0, FiniteSet(-1, 1)))
+    es("36 tam deger", [kk for kk in range(-5, 10) if 0 < kk < 5], [1, 2, 3, 4])
+    es("36 kok", (sag(sqrt(X), 0), sqrt(0)), (0, 0))
+    fx = X**3 + X - 1
+    kok = sp.nsolve(fx, X, 0.7)
+    es("36 ara deger", (fx.subs(X, 0), fx.subs(X, 1), fx.subs(X, Q(1, 2)), fx.subs(X, Q(3, 4)), yak(kok, 0.682, 0.0005), len(sp.real_roots(sp.Poly(fx, X)))), (-1, 1, -Q(3, 8), Q(11, 64), True, 1))
+    es("36 ters ornek", ((1 / X).subs(X, -1), (1 / X).subs(X, 1), sp.solveset(1 / X, X, R)), (-1, 1, S.EmptySet))
+    es("36 en buyuk", (function_range(X**2, X, Interval(-1, 2)), Q(11, 64)), (Interval(0, 4), Q(171875, 1000000)))
+    es("36 mutlak turev", (lim(Abs(X), X, 0), iki(Abs(X) / X, 0)), (0, (-1, 1)))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -2355,7 +2445,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32, yazi_33_36):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
