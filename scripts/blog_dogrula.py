@@ -2582,6 +2582,93 @@ def yazi_40_42():
     es("42 titresim", (D(3 * sin(2 * t_), t_), function_range(6 * cos(2 * t_), t_, Interval(0, pi))), (6 * cos(2 * t_), Interval(-6, 6)))
 
 
+def yazi_43_45():
+    """43 Teget Denklemi, 44 Artan ve Azalan, 45 Maksimum ve Minimum."""
+    from sympy import sin, cos, pi, E, exp, log as L, diff as D, atan
+    es = esit_ogeler
+    Q = Rational
+    X, a_, b_, m_, t_ = sp.symbols("X a_ b_ m_ t_", real=True)
+    xp = sp.symbols("xp", positive=True)
+    sifir_mi = lambda e: sp.simplify(e) == 0
+    def teget(f, x0):
+        return sp.expand(f.subs(X, x0) + D(f, X).subs(X, x0) * (X - x0))
+    def artan_araliklari(f, alan=R):
+        return sp.solveset(D(f, X) > 0, X, alan)
+    def azalan_araliklari(f, alan=R):
+        return sp.solveset(D(f, X) < 0, X, alan)
+    # ── 43 ──
+    es("43 parabol", (teget(X**2 - 2 * X, 3), (X**2 - 2 * X).subs(X, 3), D(X**2 - 2 * X, X).subs(X, 3)), (4 * X - 9, 3, 4))
+    es("43 kup", (teget(X**3, -1), sp.roots(sp.Poly(X**3 - 3 * X - 2, X))), (3 * X + 2, {-1: 2, 2: 1}))
+    es("43 buküm", teget(X**3, 0), 0)
+    es("43 eksenler", (teget(X**2 - 4, 1), sp.solve(2 * X - 5, X)), (2 * X - 5, [Q(5, 2)]))
+    es("43 trig", (teget(sin(X), pi), teget(sin(X), 0)), (-X + pi, X))
+    es("43 ustel log", (teget(exp(X), 0), sp.expand(L(1) + (1 / S(1)) * (X - 1))), (X + 1, X - 1))
+    es("43 normal", sp.expand(1 - Q(1, 2) * (X - 1)), -X / 2 + Q(3, 2))
+    f = X**3 - 3 * X**2
+    es("43 yatay", (sp.solveset(D(f, X), X, R), f.subs(X, 0), f.subs(X, 2)), (FiniteSet(0, 2), 0, -4))
+    es("43 paralel dik", (sp.solve(2 * X - 4, X), teget(X**2, 2), sp.solve(2 * X - 2, X), teget(X**2, 1), -1 / (-Q(1, 2))), ([2], 4 * X - 4, [1], 2 * X - 1, 2))
+    es("43 disaridan", (sp.solve(-1 - a_**2 - 2 * a_ * (0 - a_), a_), teget(X**2, 1), teget(X**2, -1)), ([-1, 1], 2 * X - 1, -2 * X - 1))
+    tg = teget(1 / X, 2)
+    es("43 ucgen", (tg, sp.solve(tg, X), tg.subs(X, 0), Q(4 * 1, 2)), (-X / 4 + 1, [4], 1, 2))
+    tga = sp.expand((1 / a_ - (X - a_) / a_**2))
+    es("43 ucgen genel", sp.simplify(sp.solve(tga, X)[0] * tga.subs(X, 0) / 2), 2)
+    es("43 parametreli", sp.solve([1 + a_ + b_ - 2, 2 + a_ - 3], [a_, b_]), {a_: 1, b_: 0})
+    es("43 diskriminant", (sp.solve(m_**2 - 4, m_), sp.solve(X**2 - 2 * X + 1, X), sp.solve(X**2 + 2 * X + 1, X)), ([-2, 2], [1], [-1]))
+    es("43 ortak teget", (sp.factor(X**2 - (-X**2 + 4 * X - 2)), D(X**2, X).subs(X, 1), D(-X**2 + 4 * X - 2, X).subs(X, 1), teget(X**2, 1)), (2 * (X - 1)**2, 2, 2, 2 * X - 1))
+    es("43 cember", sp.expand(4 - Q(3, 4) * (X - 3)), -Q(3, 4) * X + Q(25, 4))
+    es("43 egim acisi", (atan(D(X**2 / 2, X).subs(X, 1)), atan(D(X**2 / 2, X).subs(X, sqrt(3)))), (pi / 4, pi / 3))
+    es("43 yaklasim", (teget(sqrt(X), 4), teget(sqrt(X), 4).subs(X, Q(41, 10))), (X / 4 + 1, Q(81, 40)))
+    es("43 tegetten bilgi", (3 * 2 - 1, 5 + 2 * 3), (5, 11))
+    g = X**3 - 3 * X**2 + 5
+    es("43 en kucuk egim", (sp.solve(D(g, X, 2), X), D(g, X).subs(X, 1), g.subs(X, 1), teget(g, 1)), ([1], -3, 3, -3 * X + 6))
+    es("43 teget kesisim", sp.solve([sp.Symbol("yy") - (2 * X - 1), sp.Symbol("yy") - (-2 * X - 1)], [X, sp.Symbol("yy")]), {X: 0, sp.Symbol("yy"): -1})
+    # ── 44 ──
+    es("44 parabol", (azalan_araliklari(X**2 - 4 * X), artan_araliklari(X**2 - 4 * X)), (Interval.open(-oo, 2), Interval.open(2, oo)))
+    es("44 kup", (artan_araliklari(X**3 - 3 * X), azalan_araliklari(X**3 - 3 * X)), (Union(Interval.open(-oo, -1), Interval.open(1, oo)), Interval.open(-1, 1)))
+    h = X**3 - 6 * X**2 + 9 * X + 1
+    es("44 uc aralik", (sp.factor(D(h, X)), azalan_araliklari(h), artan_araliklari(h)), (3 * (X - 3) * (X - 1), Interval.open(1, 3), Union(Interval.open(-oo, 1), Interval.open(3, oo))))
+    es("44 her yerde", (function_range(D(X**3 + X, X), X, R), function_range(D(X**3, X), X, R), azalan_araliklari(X**3)), (Interval(1, oo), Interval(0, oo), S.EmptySet))
+    es("44 parametre", sp.solveset(4 * a_**2 - 36 <= 0, a_, R), Interval(-3, 3))
+    es("44 rasyonel", (artan_araliklari(X / (X**2 + 1)), azalan_araliklari(X / (X**2 + 1))), (Interval.open(-1, 1), Union(Interval.open(-oo, -1), Interval.open(1, oo))))
+    k = (X + 1) / (X - 1)
+    es("44 asimptot", (sifir_mi(D(k, X) + 2 / (X - 1)**2), k.subs(X, 0), k.subs(X, 2)), (True, -1, 3))
+    es("44 ustel", (azalan_araliklari(X * exp(X)), artan_araliklari(X * exp(X))), (Interval.open(-oo, -1), Interval.open(-1, oo)))
+    es("44 log", (sp.solveset(D(L(X) / X, X) > 0, X, Interval.open(0, oo)), sp.solveset(D(L(X) / X, X) < 0, X, Interval.open(0, oo)), 3**4, 4**3, float(L(3) / 3) > float(L(4) / 4)),
+       (Interval.open(0, E), Interval.open(E, oo), 81, 64, True))
+    es("44 trig", (sp.solveset(cos(X) < 0, X, Interval(0, 2 * pi)), sp.solveset(D(X + 2 * cos(X), X) < 0, X, Interval(0, 2 * pi))), (Interval.open(pi / 2, 3 * pi / 2), Interval.open(pi / 6, 5 * pi / 6)))
+    ma = sp.Abs(X**2 - 4)
+    es("44 mutlak", [sp.sign(D(ma, X).subs(X, v)) for v in (-3, -1, 1, 3)], [-1, 1, -1, 1])
+    kk = sqrt(4 - X**2)
+    es("44 koklu", (sp.solveset(D(kk, X) > 0, X, Interval.open(-2, 2)), sp.solveset(D(kk, X) < 0, X, Interval.open(-2, 2)), kk.subs(X, 0)), (Interval.open(-2, 0), Interval.open(0, 2), 2))
+    gg = exp(X) - 1 - X
+    es("44 esitsizlik", (sp.solveset(D(gg, X), X, R), gg.subs(X, 0), function_range(gg, X, R), function_range(D(X - sin(X), X), X, R)), (FiniteSet(0), 0, Interval(0, oo), Interval(0, 2)))
+    es("44 kok sayisi", (len(sp.real_roots(sp.Poly(X**3 + X - 1, X))), (X**3 + X - 1).subs(X, 0), (X**3 + X - 1).subs(X, 1)), (1, -1, 1))
+    es("44 artanlikla esitsizlik", (sp.solveset(X**3 + X > 2, X, R), (X**3 + X).subs(X, 1)), (Interval.open(1, oo), 2))
+    # ── 45 ──
+    es("45 birinci test", (h.subs(X, 1), h.subs(X, 3), [sp.sign(D(h, X).subs(X, v)) for v in (0, 2, 4)]), (5, 1, [1, -1, 1]))
+    c = X**3 - 3 * X
+    es("45 ikinci test", (D(c, X, 2).subs(X, -1), D(c, X, 2).subs(X, 1), c.subs(X, -1), c.subs(X, 1)), (-6, 6, 2, -2))
+    es("45 karar vermez", (D(X**4, X, 2).subs(X, 0), D(X**3, X, 2).subs(X, 0), [sp.sign(D(X**4, X).subs(X, v)) for v in (-1, 1)], [sp.sign(D(X**3, X).subs(X, v)) for v in (-1, 1)]), (0, 0, [-1, 1], [1, 1]))
+    es("45 kapali aralik", ([c.subs(X, v) for v in (-2, -1, 1, 3)], function_range(c, X, Interval(-2, 3))), ([-2, 2, -2, 18], Interval(-2, 18)))
+    es("45 parabol", (sp.solve(D(-X**2 + 4 * X + 1, X), X), (-X**2 + 4 * X + 1).subs(X, 2)), ([2], 5))
+    es("45 tanimsiz", (function_range(sp.Abs(X), X, R), function_range(xp**Q(2, 3), xp, Interval.open(0, oo))), (Interval(0, oo), Interval.open(0, oo)))
+    es("45 rasyonel", function_range(X / (X**2 + 1), X, R), Interval(-Q(1, 2), Q(1, 2)))
+    es("45 ustel log", ((X * exp(-X)).subs(X, 1), sp.solve(D(X * exp(-X), X), X), (L(X) / X).subs(X, E)), (1 / E, [1], 1 / E))
+    sc = sin(X) + cos(X)
+    es("45 trig", (sp.solveset(D(sc, X), X, Interval(0, 2 * pi)), sc.subs(X, pi / 4), sc.subs(X, 5 * pi / 4), sc.subs(X, 0), sc.subs(X, 2 * pi)), (FiniteSet(pi / 4, 5 * pi / 4), sqrt(2), -sqrt(2), 1, 1))
+    ff = X**3 - 3 * X**2 - 9 * X
+    es("45 parametre", (sp.solve(27 + 6 * a_ - 9, a_), sp.factor(D(ff, X)), ff.subs(X, 3)), ([-3], 3 * (X - 3) * (X + 1), -27))
+    es("45 alan", (sp.solve(D(X * (10 - X), X), X), (X * (10 - X)).subs(X, 5)), ([5], 25))
+    V = X * (12 - 2 * X)**2
+    es("45 kutu", (sp.factor(D(V, X)), sp.solveset(D(V, X), X, Interval.open(0, 6)), V.subs(X, 2), function_range(V, X, Interval(0, 6))), (12 * (X - 6) * (X - 2), FiniteSet(2), 128, Interval(0, 128)))
+    es("45 iki sayi", ((X * (10 - X)).subs(X, 5), (X**2 + (10 - X)**2).subs(X, 5), sp.solve(D(X**2 + (10 - X)**2, X), X)), (25, 50, [5]))
+    d2 = X**2 + (X**2 - 2)**2
+    es("45 en yakin", (sp.expand(d2), sp.factor(D(d2, X)), d2.subs(X, sqrt(Q(3, 2))), function_range(d2, X, R), sqrt(Q(7, 4))), (X**4 - 3 * X**2 + 4, 2 * X * (2 * X**2 - 3), Q(7, 4), Interval(Q(7, 4), oo), sqrt(7) / 2))
+    K = -X**2 + 40 * X - 300
+    es("45 kar", (sp.solve(D(K, X), X), K.subs(X, 20)), ([20], 100))
+    es("45 yok", (function_range(1 / X, X, Interval.Lopen(0, 1)),), (Interval(1, oo),))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -2604,7 +2691,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32, yazi_33_36, yazi_37_39, yazi_40_42):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32, yazi_33_36, yazi_37_39, yazi_40_42, yazi_43_45):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
