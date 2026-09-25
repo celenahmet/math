@@ -2224,6 +2224,115 @@ def yazi_27_29():
     es("29 nufus", (sp.solveset(100 * 2**(t_ / 3) - 1600, t_, R), sp.solveset(80 * Q(1, 2)**(t_ / 5) - 10, t_, R)), (FiniteSet(12), FiniteSet(15)))
 
 
+def yazi_30_32():
+    """30 Diziler, 31 Aritmetik Dizi, 32 Geometrik Dizi."""
+    es = esit_ogeler
+    Q = Rational
+    n, k, X = sp.symbols("n k X", integer=True, positive=True)
+    yak = lambda deger, yaklasik, tol: abs(float(deger) - yaklasik) < tol
+    ilk = lambda f, m, bas=1: [sp.nsimplify(f(i)) for i in range(bas, bas + m)]
+    def indirge(a1, adim, m):
+        out = [a1]
+        for i in range(1, m):
+            out.append(adim(out[-1], i))
+        return out
+    # ── 30 ──
+    T = lambda m: Q(m * (m + 1), 2)
+    es("30 ucgensel", (ilk(T, 5), T(10), sp.simplify(n * (n + 1) / 2 - (n - 1) * n / 2)), ([1, 3, 6, 10, 15], 55, n))
+    es("30 genel terimden", (ilk(lambda i: 3 * i - 1, 3), 3 * 10 - 1, ilk(lambda i: Q(i + 1, i), 4)), ([2, 5, 8], 29, [2, Q(3, 2), Q(4, 3), Q(5, 4)]))
+    es("30 kaliplar", (ilk(lambda i: i**2, 4), ilk(lambda i: 2**i, 4), ilk(lambda i: Q(i, i + 1), 3), ilk(lambda i: (-1)**i, 4)),
+       ([1, 4, 9, 16], [2, 4, 8, 16], [Q(1, 2), Q(2, 3), Q(3, 4)], [-1, 1, -1, 1]))
+    es("30 dizi olma", (2 - 2, [i - 3 < 0 for i in (1, 2, 3)]), (0, [True, True, False]))
+    dizi_degil = [kk for kk in range(-10, 11) if any(i + kk == 0 for i in range(1, 50))]
+    es("30 k kosulu", (max(dizi_degil), min(set(range(-10, 11)) - set(dizi_degil))), (-1, 0))
+    es("30 kacinci", (sp.solve(2 * X + 5 - 45), sp.solve(X**2 - 1 - 99), Q(50 - 5, 2)), ([20], [10], Q(45, 2)))
+    es("30 aralik terim", (len([i for i in range(1, 200) if 20 <= 3 * i + 1 <= 100]), min(i for i in range(1, 200) if 3 * i + 1 >= 20), max(i for i in range(1, 200) if 3 * i + 1 <= 100)), (27, 7, 33))
+    es("30 isaret", (len([i for i in range(1, 100) if Q(i - 5, i + 1) < 0]), Q(5 - 5, 6)), (4, 0))
+    es("30 sabit", (sp.solve(Q(1, 3) * X - 2, X), sp.simplify((6 * n + 2) / (3 * n + 1))), ([6], 2))
+    es("30 artan", sp.simplify((n + 1) / (n + 2) - n / (n + 1) - 1 / ((n + 1) * (n + 2))), 0)
+    es("30 sinirli", (Q(1, 2), all(Q(1, 2) <= Q(i, i + 1) < 1 for i in range(1, 500)), all(Q(i + 1, i + 2) > Q(i, i + 1) for i in range(1, 500))), (Q(1, 2), True, True))
+    es("30 grafik", ilk(lambda i: Q(6, i), 6), [6, 3, 2, Q(3, 2), Q(6, 5), 1])
+    es("30 indirgeme", (indirge(1, lambda a, i: 2 * a + 1, 5), [2**i - 1 for i in range(1, 6)]), ([1, 3, 7, 15, 31], [1, 3, 7, 15, 31]))
+    es("30 toplamli indirgeme", (indirge(1, lambda a, i: a + i, 5), [1 + Q(i * (i - 1), 2) for i in range(1, 6)]), ([1, 2, 4, 7, 11], [1, 2, 4, 7, 11]))
+    fib = [1, 1]
+    while len(fib) < 10:
+        fib.append(fib[-1] + fib[-2])
+    es("30 fibonacci", (fib, yak(Q(55, 34), 1.6176, 0.00005), yak((1 + sqrt(5)) / 2, 1.618, 0.0005)), ([1, 1, 2, 3, 5, 8, 13, 21, 34, 55], True, True))
+    p_, q_ = sp.symbols("p_ q_")
+    es("30 esitlik", sp.solve([p_ + 1 - 5, 3 - (q_ - 2)], [p_, q_]), {p_: 4, q_: 5})
+    es("30 islemler", (2 * 3 + 3**2, (2 * 2) * 2**2), (15, 16))
+    es("30 toplam sembolu", (sp.summation(k, (k, 1, n)) - n * (n + 1) / 2, sp.summation(k**2, (k, 1, n)) - n * (n + 1) * (2 * n + 1) / 6, sp.summation(2 * k - 1, (k, 1, n)) - n**2,
+                             sp.summation(k, (k, 1, 10)), sp.summation(k**2, (k, 1, 5)), Q(10 * 11, 2), Q(5 * 6 * 11, 6)), (0, 0, 0, 55, 55, 55, 55))
+    es("30 toplam ozellik", (sp.summation(3 * k + 2, (k, 1, 20)), 3 * 210 + 40, sp.summation(k, (k, 1, 20))), (670, 670, 210))
+    Sk = n**2 + 2 * n
+    es("30 kismi toplam", (sp.expand(Sk - Sk.subs(n, n - 1)), Sk.subs(n, 1)), (2 * n + 1, 3))
+    per = [2, 5, 7]
+    es("30 periyodik", (per[(100 - 1) % 3], per[(50 - 1) % 3], 100 % 3, 50 % 3), (2, 5, 1, 2))
+    es("30 turler", ([7 - 3, 11 - 7, 15 - 11], [Q(6, 3), Q(12, 6), Q(24, 12)]), ([4, 4, 4], [2, 2, 2]))
+    # ── 31 ──
+    ar = lambda a1, d, m: a1 + (m - 1) * d
+    es("31 ortak fark", ([7 - 3, 11 - 7, 15 - 11], sp.expand(5 * (n + 1) - 2 - (5 * n - 2)), sp.expand((n + 1)**2 - n**2)), ([4, 4, 4], 5, 2 * n + 1))
+    es("31 genel terim", (ar(3, 4, 20),), (79,))
+    es("31 iki terim", (Q(26 - 11, 5), 11 - 2 * 3, ar(5, 3, 20), ar(5, 3, 3), ar(5, 3, 8)), (3, 5, 62, 11, 26))
+    es("31 genel terimden", (sp.expand(Q(3, 2) * (n + 1) + Q(5, 2) - (Q(3, 2) * n + Q(5, 2))), Q(3 + 5, 2)), (Q(3, 2), 4))
+    es("31 ilk negatif", (sp.expand(40 + (n - 1) * (-3)), min(i for i in range(1, 100) if 43 - 3 * i < 0), 43 - 3 * 15, 43 - 3 * 14, yak(Q(43, 3), 14.3, 0.05)), (43 - 3 * n, 15, -2, 1, True))
+    es("31 terim sayisi", (Q(99 - 7, 4) + 1, len(range(7, 100, 4))), (24, 24))
+    es("31 ardisik", (sum(range(11, 21)), Q(155, 10)), (155, Q(31, 2)))
+    es("31 cift sirali", ([ar(2, 3, m) for m in (2, 4, 6)], ar(2, 3, 4) - ar(2, 3, 2)), ([5, 11, 17], 6))
+    es("31 ortalama ozelligi", (sp.solve(2 * (3 * X - 2) - ((X + 1) + (4 * X + 1)), X), [6 + 1, 3 * 6 - 2, 4 * 6 + 1]), ([6], [7, 16, 25]))
+    a1_, d_ = sp.symbols("a1_ d_")
+    A = lambda m: a1_ + (m - 1) * d_
+    es("31 simetrik", (sp.expand(A(3) + A(12) - A(7) - A(8)), sp.expand(A(3) + A(12) - A(1) - A(14))), (0, 0))
+    Sn = lambda a1, d, m: Q(m, 2) * (2 * a1 + (m - 1) * d)
+    es("31 toplam", (Sn(3, 4, 20), sum(ar(3, 4, i) for i in range(1, 21)), sp.simplify(n * (a1_ + A(n)) / 2 - n / 2 * (2 * a1_ + (n - 1) * d_))), (820, 820, 0))
+    es("31 bilinen", (sum(range(1, 101)), sum(range(1, 20, 2)), sum(range(2, 21, 2)), 10**2, 10 * 11), (5050, 100, 110, 100, 110))
+    yedi = [i for i in range(10, 100) if i % 7 == 0]
+    es("31 yedinin katlari", (yedi[0], yedi[-1], len(yedi), sum(yedi), Q(13 * (14 + 98), 2)), (14, 98, 13, 728, 728))
+    S2 = 2 * n**2 + 3 * n
+    es("31 toplamdan", (sp.expand(S2 - S2.subs(n, n - 1)), S2.subs(n, 1)), (4 * n + 1, 5))
+    es("31 ortanca", (9 * 12, sum(ar(12 - 4 * 3, 3, i) for i in range(1, 10))), (108, 108))
+    es("31 grafik", ilk(lambda i: 2 * i - 3, 5), [-1, 1, 3, 5, 7])
+    es("31 araya", (Q(29 - 5, 6), [5 + 4 * i for i in range(1, 6)]), (4, [9, 13, 17, 21, 25]))
+    es("31 uc terim", (Q(30, 3), sp.solve(100 - X**2 - 91), 7 * 10 * 13, 7 + 10 + 13), (10, [3], 910, 30))
+    es("31 toplam verilen", (sp.expand(n * (2 * n + 3) - Q(1, 1) * n / 2 * (10 + 4 * (n - 1))), sp.solve(2 * X**2 + 3 * X - 275, X), sp.expand((X - 11) * (2 * X + 25))), (0, [11], 2 * X**2 + 3 * X - 275))
+    es("31 iki toplam", (sp.solve([5 * (2 * a1_ + 9 * d_) - 100, 10 * (2 * a1_ + 19 * d_) - 400], [a1_, d_]), Sn(1, 2, 10), Sn(1, 2, 20)), ({a1_: 1, d_: 2}, 100, 400))
+    ortak = sorted(set(range(3, 200, 4)) & set(range(2, 200, 5)))
+    es("31 ortak terimler", ortak[:3], [7, 27, 47])
+    es("31 birikim", (ar(20, 5, 10), Sn(20, 5, 10)), (65, 425))
+    es("31 amfi", (ar(12, 2, 15), Sn(12, 2, 15)), (40, 390))
+    es("31 en buyuk toplam", (sp.expand(ar(50, -4, n)), ar(50, -4, 13), ar(50, -4, 14), Sn(50, -4, 13), Sn(50, -4, 14), max(Sn(50, -4, m) for m in range(1, 40))), (54 - 4 * n, 2, -2, 338, 336, 338))
+    # ── 32 ──
+    ge = lambda a1, r, m: a1 * r**(m - 1)
+    es("32 oran", ([Q(6, 3), Q(12, 6), Q(24, 12)], sp.simplify(5 * 3**(n + 1) / (5 * 3**n)), sp.simplify((n + 1) * 2**(n + 1) / (n * 2**n) - 2 * (n + 1) / n)), ([2, 2, 2], 3, 0))
+    es("32 genel terim", (ge(3, 2, 8), 3 * 128), (384, 384))
+    es("32 iki terim", (Q(162, 6), sp.solve(X**3 - 27), Q(6, 3), ge(2, 3, 7), ge(2, 3, 2), ge(2, 3, 5)), (27, [3], 2, 1458, 6, 162))
+    es("32 cift kuvvet", sp.solve(sp.Symbol("r")**2 - 9), [-3, 3])
+    es("32 negatif", ([ge(2, -3, m) for m in range(1, 5)], ge(2, -3, 6)), ([2, -6, 18, -54], -486))
+    es("32 kesirli", (Q(32, 64), ge(64, Q(1, 2), 7), ilk(lambda m: ge(64, Q(1, 2), m), 3)), (Q(1, 2), 1, [64, 32, 16]))
+    es("32 tablo", (ilk(lambda m: ge(2, 3, m), 3), ilk(lambda m: ge(81, Q(1, 3), m), 3), ilk(lambda m: ge(1, -2, m), 3), ilk(lambda m: ge(-2, 3, m), 3)),
+       ([2, 6, 18], [81, 27, 9], [1, -2, 4], [-2, -6, -18]))
+    es("32 geometrik ortalama", (sp.solve((X + 3)**2 - X * (X + 9), X), [3, 6, 12], 6**2 - 3 * 12), ([3], [3, 6, 12], 0))
+    es("32 AO GO", (Q(4 + 9, 2), sqrt(36), sqrt(4 * 9)), (Q(13, 2), 6, 6))
+    b1_, r_ = sp.symbols("b1_ r_", positive=True)
+    G = lambda m: b1_ * r_**(m - 1)
+    es("32 simetrik", (sp.simplify(G(2) * G(9) - G(5) * G(6)), sp.simplify(G(2) * G(9) - G(1) * G(10))), (0, 0))
+    es("32 terim sayisi", (Q(768, 3), 2**8, len([m for m in range(1, 20) if ge(3, 2, m) <= 768])), (256, 256, 9))
+    Sg = lambda a1, r, m: S(a1) * (S(r)**m - 1) / (S(r) - 1)
+    es("32 toplam", (Sg(3, 2, 8), sum(ge(3, 2, m) for m in range(1, 9)), sum(2**i for i in range(10)), Sg(1, 2, 10),
+                     all(Sg(a1, r, m) == sum(S(a1) * S(r)**(i - 1) for i in range(1, m + 1)) for a1 in (1, 3, -2) for r in (2, 3, Q(1, 2), -3) for m in range(1, 12))), (765, 765, 1023, 1023, True))
+    es("32 kesirli toplam", (sum(Q(1, 2**i) for i in range(6)), Q(1 - Q(1, 64), Q(1, 2))), (Q(63, 32), Q(63, 32)))
+    es("32 sonsuz", (sp.summation(Q(1, 2)**k, (k, 0, oo)), Q(1, 1) / (1 - Q(1, 2)), sp.summation(3 * Q(1, 10)**k, (k, 1, oo)), sp.summation(36 * Q(1, 100)**k, (k, 1, oo)), Q(36, 99)),
+       (2, 2, Q(1, 3), Q(4, 11), Q(4, 11)))
+    es("32 uc terim", (sp.root(216, 3), sp.solve(2 * X**2 - 5 * X + 2), sp.solve(6 / sp.Symbol("rr") + 6 + 6 * sp.Symbol("rr") - 21), 3 * 6 * 12, 3 + 6 + 12),
+       (6, [2], [Q(1, 2), 2], 216, 21))
+    es("32 faiz", [1000 * Q(11, 10)**m for m in (1, 2, 3)], [1100, 1210, 1331])
+    es("32 bakteri", (Q(120, 20), 2**6), (6, 64))
+    es("32 top", ([16 * Q(3, 4)**m for m in (1, 2, 3)], 12 / (1 - Q(3, 4)), 16 + 2 * 48, sp.summation(12 * Q(3, 4)**k, (k, 0, oo))), ([12, 9, Q(27, 4)], 48, 112, 48))
+    es("32 kareler", ([16 * Q(1, 2)**m for m in range(3)], 16 / (1 - Q(1, 2)), (sqrt(2**2 + 2**2))**2), ([16, 8, 4], 32, 8))
+    es("32 yarilanma", (Q(20, 5), 1600 * Q(1, 2)**4), (4, 100))
+    es("32 logaritma", [sp.log(v, 2) for v in (2, 4, 8, 16)], [1, 2, 3, 4])
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -2246,7 +2355,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
