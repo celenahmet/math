@@ -2669,6 +2669,105 @@ def yazi_43_45():
     es("45 yok", (function_range(1 / X, X, Interval.Lopen(0, 1)),), (Interval(1, oo),))
 
 
+def yazi_46_50():
+    """46 Integral, 47 Belirsiz Integral, 48 Belirli Integral, 49 Degisken Degistirme, 50 Integral ile Alan."""
+    from sympy import integrate as I, sin, cos, tan, pi, E, exp, log as L, diff as D, limit as lim
+    es = esit_ogeler
+    Q = Rational
+    X, t_, a_, k_, y_ = sp.symbols("X t_ a_ k_ y_", real=True)
+    xp = sp.symbols("xp", positive=True)
+    yak = lambda deger, yaklasik, tol: abs(float(deger) - yaklasik) < tol
+    # ters turev dogru mu: turevi integrandi veriyor mu (sabit farki onemsiz)
+    tt = lambda F, f, v=X: sp.simplify(D(F, v) - f) == 0
+    # ── 46 ──
+    es("46 ters turev", (tt(X**3 / 3, X**2), tt(X**3 / 3 + 5, X**2), tt(X**3 + X**2, 3 * X**2 + 2 * X)), (True, True, True))
+    es("46 baslangic", (sp.solve(1 + k_ - 4, k_), (X**2 + 3).subs(X, 1)), ([3], 4))
+    sag = lambda n: sum((Q(2 * i, n))**2 * Q(2, n) for i in range(1, n + 1))
+    sol = lambda n: sum((Q(2 * i, n))**2 * Q(2, n) for i in range(0, n))
+    es("46 dikdortgenler", (sag(4), sol(4), sag(8), sol(8), sag(4) - sol(4), sag(8) - sol(8), lim(sp.summation((2 * k_ / sp.Symbol("n", positive=True))**2 * 2 / sp.Symbol("n", positive=True), (k_, 1, sp.Symbol("n", positive=True))), sp.Symbol("n", positive=True), oo)),
+       (Q(15, 4), Q(7, 4), Q(51, 16), Q(35, 16), 2, 1, Q(8, 3)))
+    es("46 temel teorem", (I(X**2, (X, 0, 2)), I(2 * X + 1, (X, 1, 3)), Q((3 + 7) * 2, 2), yak(Q(8, 3), 2.667, 0.0005)), (Q(8, 3), 10, 10, True))
+    es("46 isaretli", (I(sin(X), (X, 0, pi)), I(sin(X), (X, 0, 2 * pi)), I(Abs(sin(X)), (X, 0, 2 * pi))), (2, 0, 4))
+    es("46 degisken", tt((X**2 + 1)**4 / 4, 2 * X * (X**2 + 1)**3), True)
+    es("46 alan", I(X - X**2, (X, 0, 1)), Q(1, 6))
+    es("46 ortalama", I(X**2, (X, 0, 2)) / 2, Q(4, 3))
+    es("46 uygulamalar", (I(3 * t_**2, (t_, 0, 2)), I(10 - t_, (t_, 0, 10)), I(t_**2, (t_, 0, X)), D(I(t_**2, (t_, 0, X)), X)), (8, 50, X**3 / 3, X**2))
+    es("46 farkli", (I(cos(X), (X, 0, pi / 2)), I(exp(X), (X, 0, 1)), yak(E - 1, 1.718, 0.0005), I(1 / X, (X, 1, E)), I(sqrt(X), (X, 0, 4))), (1, E - 1, True, 1, Q(16, 3)))
+    es("46 tablo", (tt(-cos(X), sin(X)), tt(sin(X), cos(X)), tt(L(X), 1 / X), tt(exp(X), exp(X))), (True, True, True, True))
+    # ── 47 ──
+    es("47 aile", (D(X**2 + 1, X), D(X**2 - 7, X)), (2 * X, 2 * X))
+    es("47 tablo", (tt(X**Q(7, 2) / Q(7, 2), X**Q(5, 2)), tt(2**X / L(2), 2**X), tt(tan(X), 1 / cos(X)**2), [D(L(Abs(X)), X).subs(X, v) for v in (-2, 3)]), (True, True, True, [-Q(1, 2), Q(1, 3)]))
+    es("47 kuvvet", (tt(X**6 / 6, X**5), tt(5 * X, S(5)), tt(Q(2, 3) * X**Q(3, 2), sqrt(X)), tt(-1 / (2 * X**2), X**-3)), (True, True, True, True))
+    es("47 polinom", (sp.expand(I(4 * X**3 - 6 * X + 2, X)), sp.expand(I((X + 1)**2, X)), sp.expand(I((X + 2) * (X - 3), X))),
+       (X**4 - 3 * X**2 + 2 * X, X**3 / 3 + X**2 + X, X**3 / 3 - X**2 / 2 - 6 * X))
+    es("47 carpim tuzagi", (I(X * X, X), I(X, X) * I(X, X)), (X**3 / 3, X**4 / 4))
+    es("47 ayirma", (tt(X**2 / 2 + L(X), (X**2 + 1) / X), tt(Q(2, 3) * xp**Q(3, 2) + 2 * sqrt(xp), (xp + 1) / sqrt(xp), xp)), (True, True))
+    es("47 ustel trig", (tt(exp(3 * X) / 3, exp(3 * X)), tt(3 * sin(X) + 2 * cos(X), 3 * cos(X) - 2 * sin(X)), tt(sin(2 * X) / 2, cos(2 * X)), tt(-cos(3 * X) / 3, sin(3 * X))), (True, True, True, True))
+    es("47 ozdeslik", (tt(tan(X) - X, tan(X)**2), tt(X / 2 - sin(2 * X) / 4, sin(X)**2), tt(X / 2 + sin(2 * X) / 4, cos(X)**2), sp.simplify((X / 2 - sin(2 * X) / 4) + (X / 2 + sin(2 * X) / 4))),
+       (True, True, True, X))
+    es("47 dogrusal ic", (tt((2 * X + 1)**4 / 8, (2 * X + 1)**3), sp.expand(D((2 * X + 1)**4 / 8, X) - (2 * X + 1)**3)), (True, 0))
+    es("47 log turev", (tt(L(X**2 + 1), 2 * X / (X**2 + 1)), tt(L(2 * xp + 3) / 2, 1 / (2 * xp + 3), xp)), (True, True))
+    es("47 mutlak", [D(X * Abs(X) / 2, X).subs(X, w) for w in (-3, 2)], [3, 2])
+    es("47 baslangic", (sp.solve(1 - 2 + k_ - 4, k_), sp.solve(4 - 6 + k_ - 1, k_)), ([5], [3]))
+    f = X**3 + X + 2
+    es("47 ikinci turev", (D(f, X, 2), D(f, X).subs(X, 0), f.subs(X, 0)), (6 * X, 1, 2))
+    s = t_**3 + 2 * t_
+    es("47 hareket", (D(s, t_, 2), D(s, t_).subs(t_, 0), s.subs(t_, 0), s.subs(t_, 2)), (6 * t_, 2, 0, 12))
+    C = 100 + 5 * X + Q(1, 100) * X**2
+    es("47 maliyet", (D(C, X), C.subs(X, 0)), (5 + Q(2, 100) * X, 100))
+    es("47 katsayi", sp.solve(D(3 * X**2 + 2 * X, X).coeff(X, 1) - a_, a_), [6])
+    # ── 48 ──
+    n = sp.Symbol("n", positive=True, integer=True)
+    es("48 riemann", (sp.simplify(sp.summation(k_ / n, (k_, 1, n)) / n - (n + 1) / (2 * n)), lim((n + 1) / (2 * n), n, oo)), (0, Q(1, 2)))
+    es("48 polinom", (I(3 * X**2 - 2 * X, (X, 1, 2)), I((X + 1)**2, (X, 0, 1)), I(3, (X, 1, 4))), (4, Q(7, 3), 9))
+    es("48 kok", I(1 / sqrt(X), (X, 1, 4)), 2)
+    es("48 ustel log", (I(exp(X), (X, 0, L(2))), I(1 / X, (X, 1, E**2)), I(exp(2 * X), (X, 0, 1))), (1, 2, (E**2 - 1) / 2))
+    es("48 trig", (I(sin(X), (X, 0, pi / 2)), I(1 / cos(X)**2, (X, 0, pi / 4)), I(cos(X), (X, 0, pi)), I(sin(X)**2, (X, 0, pi))), (1, 1, 0, pi / 2))
+    es("48 ozellikler", (5 + 2, -(5 + 2), 2 * 5 + (3 - 1)), (7, -7, 12))
+    es("48 parcali", (I(X**2, (X, 0, 1)), I(2 * X - 1, (X, 1, 2))), (Q(1, 3), 2))
+    es("48 mutlak", (I(Abs(X - 1), (X, 0, 3)), I(1 - X, (X, 0, 1)), I(X - 1, (X, 1, 3))), (Q(5, 2), Q(1, 2), 2))
+    es("48 simetri", (I(X**3, (X, -2, 2)), I(X**2, (X, -1, 1))), (0, Q(2, 3)))
+    es("48 isaretli", (I(X, (X, -1, 2)), I(Abs(X), (X, -1, 2))), (Q(3, 2), Q(5, 2)))
+    es("48 degisken sinir", (I(2 * X * (X**2 + 1)**3, (X, 0, 1)), I(y_**3, (y_, 1, 2))), (Q(15, 4), Q(15, 4)))
+    es("48 ust sinir", (D(I(t_**2 + 1, (t_, 1, X)), X), sp.simplify(D(I(cos(t_), (t_, 0, X**2)), X) - 2 * X * cos(X**2))), (X**2 + 1, 0))
+    es("48 sinirda bilinmeyen", sp.solve(I(2 * X, (X, 0, xp)) - 9, xp), [3])
+    es("48 ortalama", (I(sin(X), (X, 0, pi)) / pi, yak(2 / pi, 0.64, 0.005)), (2 / pi, True))
+    es("48 karsilastirma", (I(X**2, (X, 0, 1)) < I(X, (X, 0, 1)),), (True,))
+    es("48 yol enerji", (I(t_ - 2, (t_, 0, 4)), I(Abs(t_ - 2), (t_, 0, 4)), I(2 * t_, (t_, 0, 3))), (0, 4, 9))
+    es("48 sinir degisimi", I(X, (X, 2, 0)), -2)
+    es("48 geometri", I(sqrt(4 - X**2), (X, -2, 2)), 2 * pi)
+    es("48 limit", lim(sp.summation((k_ / n)**2, (k_, 1, n)) / n, n, oo), Q(1, 3))
+    # ── 49 ──
+    es("49 kuvvet", (tt((X**2 + 1)**4 / 4, 2 * X * (X**2 + 1)**3), tt((X**2 + 1)**6 / 12, X * (X**2 + 1)**5)), (True, True))
+    es("49 kok kesir", (tt((X**2 + 4)**Q(3, 2) / 3, X * sqrt(X**2 + 4)), tt(-1 / (2 * (X**2 + 1)), X / (X**2 + 1)**2), tt(sqrt(X**2 + 1), X / sqrt(X**2 + 1))), (True, True, True))
+    es("49 log", (tt(L(xp**3 + 1), 3 * xp**2 / (xp**3 + 1), xp), tt(L(xp)**2 / 2, L(xp) / xp, xp), tt(L(L(xp)), 1 / (xp * L(xp)), xp), tt(L(exp(X) + 1), exp(X) / (exp(X) + 1))), (True, True, True, True))
+    es("49 ustel", (tt(exp(X**2) / 2, X * exp(X**2)), tt(2 * exp(sqrt(xp)), exp(sqrt(xp)) / sqrt(xp), xp)), (True, True))
+    es("49 trig", (tt(sin(X)**2 / 2, sin(X) * cos(X)), tt(-cos(2 * X) / 4, sin(X) * cos(X)), sp.simplify(sin(X)**2 / 2 - (1 - cos(2 * X)) / 4), tt(sin(X)**5 / 5, sin(X)**4 * cos(X)), tt(-cos(X)**4 / 4, cos(X)**3 * sin(X))),
+       (True, True, 0, True, True))
+    es("49 tanjant aci", (tt(-L(cos(X)), tan(X)), tt(sin(X**2), 2 * X * cos(X**2))), (True, True))
+    es("49 dogrusal", (tt((3 * X - 1)**5 / 15, (3 * X - 1)**4), tt(sin(2 * X + 1) / 2, cos(2 * X + 1))), (True, True))
+    es("49 belirli", (I(X * exp(X**2), (X, 0, 1)), I(sin(X) * cos(X), (X, 0, pi / 2)), I(2 * X * (X**2 + 1)**3, (X, 1, 2)), I(y_**3, (y_, 2, 5)), Q(625 - 16, 4)),
+       ((E - 1) / 2, Q(1, 2), Q(609, 4), Q(609, 4), Q(609, 4)))
+    es("49 eski degisken", (I(X * sqrt(X - 1), (X, 1, 2)), Q(2, 5) + Q(2, 3)), (Q(16, 15), Q(16, 15)))
+    es("49 log belirli", I(X / (X**2 + 1), (X, 0, 2)), L(5) / 2)
+    # ── 50 ──
+    es("50 eksen", (I(X**2, (X, 0, 2)), I(X**2 - 4, (X, -2, 2)), I(X**2 - 2 * X, (X, 0, 2))), (Q(8, 3), -Q(32, 3), -Q(4, 3)))
+    es("50 iki yan", (I(X**3, (X, -1, 0)), I(X**3, (X, 0, 2)), I(Abs(X**3), (X, -1, 2)), I(X**3, (X, -1, 2))), (-Q(1, 4), 4, Q(17, 4), Q(15, 4)))
+    es("50 grafikten", (3 - 2, 3 + 2), (1, 5))
+    es("50 sinus", (I(sin(X), (X, pi, 2 * pi)), I(Abs(sin(X)), (X, 0, 2 * pi))), (-2, 4))
+    es("50 iki egri", (I(X - X**2, (X, 0, 1)), sp.solveset(X**2 - 2 * X - 3, X, R), I(2 * X + 3 - X**2, (X, -1, 3)), I(4 - X**2, (X, -2, 2)), I(2 - 2 * X**2, (X, -1, 1))),
+       (Q(1, 6), FiniteSet(-1, 3), Q(32, 3), Q(32, 3), Q(8, 3)))
+    es("50 sin cos", (I(cos(X) - sin(X), (X, 0, pi / 4)), yak(sqrt(2) - 1, 0.414, 0.0005)), (sqrt(2) - 1, True))
+    es("50 yer degistirme", (I(X**3 - X, (X, -1, 0)), I(X - X**3, (X, 0, 1)), I(X - X**3, (X, -1, 1)), I(Abs(X - X**3), (X, -1, 1))), (Q(1, 4), Q(1, 4), 0, Q(1, 2)))
+    es("50 dikey", (I(4 - y_**2, (y_, -2, 2)), I(2 * sqrt(X), (X, 0, 4))), (Q(32, 3), Q(32, 3)))
+    es("50 ustel log", (I(exp(X), (X, 0, 1)), I(L(X), (X, 1, E)), tt(xp * L(xp) - xp, L(xp), xp)), (E - 1, 1, True))
+    es("50 hiperbol", (I(1 / X, (X, 1, E)), I(1 / X, (X, 1, 4)), yak(L(4), 1.386, 0.0005)), (1, L(4), True))
+    es("50 mutlak geometri", (I(Abs(X - 1), (X, 0, 3)), I(2 * X + 1, (X, 1, 3))), (Q(5, 2), 10))
+    es("50 parametre", (sp.solve(xp**3 / 3 - 9, xp), I(X, (X, 0, 2)), sp.solve(xp**2 / 2 - 1, xp)), ([3], 2, [sqrt(2)]))
+    es("50 araclar", I(2 * t_ - t_**2, (t_, 0, 2)), Q(4, 3))
+    es("50 kemer", (I(4 - X**2, (X, -2, 2)), yak(Q(32, 3), 10.67, 0.005), Q(2, 3) * 4 * 4), (Q(32, 3), True, Q(32, 3)))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -2691,7 +2790,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32, yazi_33_36, yazi_37_39, yazi_40_42, yazi_43_45):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32, yazi_33_36, yazi_37_39, yazi_40_42, yazi_43_45, yazi_46_50):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
