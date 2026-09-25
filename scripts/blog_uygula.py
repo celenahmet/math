@@ -184,6 +184,23 @@ def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=
 
 
 # ── yazi ─────────────────────────────────────────────────────────────────
+# Yayinda olmayan yaziya giden ic baglanti DUZ METIN basilir (25.09). Seri
+# yazilar ileriye baglanti veriyor (11 → 14 parabol); hedef henuz yoksa okuyucu
+# 404'e gitmesin. Hedef yazi eklenip site yeniden uretilince baglanti
+# kendiliginden geri gelir. UniConnectly blogundaki suzgecin aynisi.
+_BLOG_BAG = re.compile(r'<a href="/blog/([a-z0-9-]+)/">(.*?)</a>', re.S)
+
+
+def _olu_baglantiyi_duzle(slug, parca):
+    yayinda = {d["slug"] for d in blog_veri.yayinda()}
+    def degistir(m):
+        if m.group(1) in yayinda:
+            return m.group(0)
+        print(f"  ! {slug}: /blog/{m.group(1)}/ yayinda degil, baglanti duz metin basildi")
+        return m.group(2)
+    return _BLOG_BAG.sub(degistir, parca)
+
+
 def yazi_govde(y, digerleri):
     kat = KAT.get(y["kategori"], y["kategori"])
     toc = "".join(f'<li><a href="#{kimlik(b["baslik"])}">{k(b["baslik"])}</a></li>'
@@ -192,6 +209,7 @@ def yazi_govde(y, digerleri):
     for b in y["bolumler"]:
         icerik = "\n".join(p if p.lstrip().startswith("<") else f"<p>{p}</p>" for p in b["icerik"])
         govde += (f'<h2 id="{kimlik(b["baslik"])}">{k(b["baslik"])}</h2>\n' + icerik + "\n")
+    govde = _olu_baglantiyi_duzle(y["slug"], govde)
 
     ek = ""
     _ozet, _ozet_toc = hap_ozeti(govde)

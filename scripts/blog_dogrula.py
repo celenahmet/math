@@ -1687,6 +1687,77 @@ def yazi_06_10():
     esit("10 kontrol", (ac((2*X + 1)*(3*X - 2)), (6*X**2 - X - 2).subs(X, 1), 3*1), (6*X**2 - X - 2, 3, 3))
 
 
+def yazi_11_13():
+    """11 Ikinci Dereceden Denklemler, 12 Diskriminant, 13 Kokler Toplami ve Carpimi."""
+    X, m_, a_, b_, t_ = sp.symbols("X m_ a_ b_ t_")
+    Q = Rational
+    kok = lambda e: sp.solveset(sp.expand(e), X, R)
+    D = lambda a, b, c: b*b - 4*a*c
+    # ── 11 ──
+    esit("11 standart", sp.expand(2*X**2 - (7 - X)), 2*X**2 + X - 7)
+    esit("11 x2=k", (kok(X**2 - 9), kok(X**2 + 4), kok((X - 1)**2 - 16)), (FiniteSet(-3, 3), S.EmptySet, FiniteSet(-3, 5)))
+    esit("11 c=0", kok(2*X**2 - 6*X), FiniteSet(0, 3))
+    esit("11 b=0", (kok(X**2 - 7), kok(3*X**2 + 12)), (FiniteSet(-sp.sqrt(7), sp.sqrt(7)), S.EmptySet))
+    esit("11 carpanlar", (kok(X**2 - X - 6), sp.factor(X**2 - X - 6), kok(2*X**2 + 5*X - 3), sp.factor(2*X**2 + 5*X - 3)),
+         (FiniteSet(-2, 3), (X - 3)*(X + 2), FiniteSet(-3, Q(1, 2)), (X + 3)*(2*X - 1)))
+    esit("11 tam kare", (kok(X**2 + 6*X + 2), (Q(6, 2))**2, 9 - 2), (FiniteSet(-3 - sp.sqrt(7), -3 + sp.sqrt(7)), 9, 7))
+    esit("11 kok formulu", (D(1, -4, 1), kok(X**2 - 4*X + 1), sp.simplify((2 + sp.sqrt(3))**2 - 4*(2 + sp.sqrt(3)) + 1), sp.expand((2 + sp.sqrt(3))**2), 4 - 1),
+         (12, FiniteSet(2 - sp.sqrt(3), 2 + sp.sqrt(3)), 0, 7 + 4*sp.sqrt(3), 3))
+    esit("11 vieta", (1, -6, 3 + (-2), 3*(-2)), (-(-1)//1, -6, 1, -6))
+    esit("11 koksuz", (D(1, 2, 5), kok(X**2 + 2*X + 5), sp.expand((X + 1)**2 + 4)), (-16, S.EmptySet, X**2 + 2*X + 5))
+    esit("11 degisken", (kok(X**4 - 13*X**2 + 36), sp.factor(t_**2 - 13*t_ + 36)), (FiniteSet(-3, -2, 2, 3), (t_ - 9)*(t_ - 4)))
+    esit("11 kesirli", sp.solveset(X + 6/X - 5, X, R), FiniteSet(2, 3))
+    esit("11 koklu", (sp.solveset(sp.sqrt(X + 2) - X, X, R), kok(X**2 - X - 2), sp.sqrt(1) == -1), (FiniteSet(2), FiniteSet(-1, 2), False))
+    esit("11 kokten denklem", (sp.expand((X - 2)*(X + 5)), 2 + (-5), 2*(-5)), (X**2 + 3*X - 10, -3, -10))
+    esit("11 parametre", (sp.solve(9 - 3*(m_ + 1) + m_, m_), kok(X**2 - 4*X + 3)), ([3], FiniteSet(1, 3)))
+    esit("11 problem", (kok(X*(X + 1) - 56), kok(X*(X + 3) - 40), kok((X + 2)**2 - 49)), (FiniteSet(-8, 7), FiniteSet(-8, 5), FiniteSet(-9, 5)))
+    esit("11 kok mu", ((2*X**2 - 5*X - 3).subs(X, 3), (2*X**2 - 5*X - 3).subs(X, -1)), (0, 4))
+    esit("11 kesirli katsayi", (sp.expand(6*(Q(1, 2)*X**2 - Q(1, 3)*X - Q(1, 6))), kok(3*X**2 - 2*X - 1)), (3*X**2 - 2*X - 1, FiniteSet(-Q(1, 3), 1)))
+    esit("11 mutlak", (sp.solveset(X**2 - sp.Abs(X) - 6, X, R), kok(t_**2 - t_ - 6) if False else sp.solveset(t_**2 - t_ - 6, t_, R)), (FiniteSet(-3, 3), FiniteSet(-2, 3)))
+    esit("11 ortak kok", (sp.solve((X**2 - 5*X + 6) - (X**2 - X - 2), X), (X**2 - 5*X + 6).subs(X, 2), (X**2 - X - 2).subs(X, 2)), ([2], 0, 0))
+    # ── 12 ──
+    esit("12 tablo", (D(1, -5, 6), D(1, -4, 4), D(1, 1, 1), D(2, 3, -2)), (1, 0, -3, 25))
+    esit("12 kokler", (kok(X**2 - 5*X + 6), kok(X**2 - 4*X + 4), kok(2*X**2 + 3*X - 2), sp.factor(2*X**2 + 3*X - 2)), (FiniteSet(2, 3), FiniteSet(2), FiniteSet(-2, Q(1, 2)), (X + 2)*(2*X - 1)))
+    esit("12 grafik", (D(1, -2, -3), D(1, -2, 1), D(1, -2, 3), kok(X**2 - 2*X - 3), kok(X**2 - 2*X + 1)), (16, 0, -8, FiniteSet(-1, 3), FiniteSet(1)))
+    esit("12 rasyonel", (D(1, -1, -6), sp.sqrt(25), sp.sqrt(12).is_rational), (25, 5, False))
+    esit("12 parametreler", (sp.solveset(D(1, -4, m_) > 0, m_, R), sp.solve(D(1, m_, 9), m_), kok(X**2 + 6*X + 9), kok(X**2 - 6*X + 9), sp.solveset(D(1, 2, m_) < 0, m_, R)),
+         (Interval.open(-oo, 4), [-6, 6], FiniteSet(-3), FiniteSet(3), Interval.open(1, oo)))
+    esit("12 bas katsayi", (sp.solveset(D(m_, 4, 1) > 0, m_, R), kok(4*X + 1)), (Interval.open(-oo, 4), FiniteSet(-Q(1, 4))))
+    esit("12 tam sayi", ([m for m in range(1, 20) if D(1, -2, m - 3) > 0], sp.expand(D(1, -2, m_ - 3))), ([1, 2, 3], 16 - 4*m_))
+    esit("12 ac", (D(3, 7, -2), all(D(a, b, c) > 0 for a in range(1, 6) for b in range(-6, 7) for c in range(-6, 0))), (73, True))
+    esit("12 hep kok", sp.expand(D(1, m_ + 2, m_)), m_**2 + 4)
+    esit("12 kisa", ((-3)**2 - 1*5, D(1, -6, 5)), (4, 16))
+    esit("12 fark", (sp.sqrt(D(1, -5, 6))/1, sp.sqrt(D(2, 3, -2))/2, Q(1, 2) - (-2)), (1, Q(5, 2), Q(5, 2)))
+    esit("12 tam kare kosulu", (sp.solve(D(4, m_, 9), m_), sp.expand((2*X + 3)**2), sp.expand((2*X - 3)**2)), ([-12, 12], 4*X**2 + 12*X + 9, 4*X**2 - 12*X + 9))
+    esit("12 hep pozitif", sp.solveset(D(1, m_, 4) < 0, m_, R), Interval.open(-4, 4))
+    esit("12 teget", (sp.solve(D(1, -2, -t_), t_), kok(X**2 - 2*X + 1)), ([-1], FiniteSet(1)))
+    esit("12 tepe", (-Q(D(1, -2, -3), 4), (X**2 - 2*X - 3).subs(X, 1)), (-4, -4))
+    esit("12 isaret", (6 > 0, 5 > 0, kok(X**2 - 5*X + 6)), (True, True, FiniteSet(2, 3)))
+    esit("12 esitsizlik", (sp.solveset(X**2 - 4*X + 3 < 0, X, R), sp.solveset(X**2 + X + 1 < 0, X, R), D(1, -4, 3)), (Interval.open(1, 3), S.EmptySet, 4))
+    esit("12 durum tablosu", (D(1, -4, 4), kok(X**2 - 4*X + 4), D(1, -4, 3) > 0, D(1, -4, 5) < 0), (0, FiniteSet(2), True, True))
+    # ── 13 ──
+    x1, x2 = (5 - sp.sqrt(13))/2, (5 + sp.sqrt(13))/2
+    ss = lambda e: sp.nsimplify(sp.simplify(e))
+    esit("13 temel", (-Q(-6, 2), Q(4, 2), kok(2*X**2 - 6*X + 4)), (3, 2, FiniteSet(1, 2)))
+    esit("13 x2-5x+3", (kok(X**2 - 5*X + 3), ss(x1**2 + x2**2), ss(1/x1 + 1/x2), ss(x1**3 + x2**3), ss(sp.Abs(x1 - x2)), ss(x1**2*x2 + x1*x2**2), ss(x1/x2 + x2/x1), ss((x1 + 1)*(x2 + 1)), ss((x1 - 2)*(x2 - 2))),
+         (FiniteSet(x1, x2), 19, Q(5, 3), 80, sp.sqrt(13), 15, Q(19, 3), 9, -3))
+    esit("13 bir kok", (kok(X**2 - 7*X + 10), kok(3*X**2 - X - 2), Q(1, 1) - Q(2, 3)), (FiniteSet(2, 5), FiniteSet(-Q(2, 3), 1), Q(1, 3)))
+    esit("13 kareler parametre", (sp.solve(m_**2 - 8 - 17, m_), D(1, -5, 4), D(1, 5, 4)), ([-5, 5], 9, 9))
+    esit("13 kokten denklem", sp.expand((X - 3)*(X + 4)), X**2 + X - 12)
+    esit("13 turetilen", (sp.expand((X - 2*x1)*(X - 2*x2)), sp.expand((X - x1 - 1)*(X - x2 - 1)), sp.expand((X - x1**2)*(X - x2**2)), sp.expand(sp.radsimp(sp.expand(3*(X - 1/x1)*(X - 1/x2))))),
+         (X**2 - 10*X + 12, X**2 - 7*X + 9, X**2 - 19*X + 9, 3*X**2 - 5*X + 1))
+    esit("13 toplam parametre", (sp.solve(m_ + 2 - 5, m_), D(1, -5, 5)), ([3], 5))
+    esit("13 katsayi", (kok(X**2 - 4*X - 5),), (FiniteSet(-1, 5),))
+    esit("13 bagintilar", (kok(X**2 - 9*X + 18), kok(X**2 - 7*X + 10), sp.solve([a_ + b_ - 7, a_ - b_ - 3], [a_, b_])), (FiniteSet(3, 6), FiniteSet(2, 5), {a_: 5, b_: 2}))
+    esit("13 isaretler", kok(X**2 + 3*X - 10), FiniteSet(-5, 2))
+    esit("13 simetrik ters", (kok(X**2 - 4), kok(2*X**2 + 5*X + 2), Q(-1, 2)*(-2)), (FiniteSet(-2, 2), FiniteSet(-2, -Q(1, 2)), 1))
+    esit("13 esit kok", (D(1, -6, 9), kok(X**2 - 6*X + 9)), (0, FiniteSet(3)))
+    esit("13 tam sayi", sorted({a*(8 - a) for a in range(1, 8)}), [7, 12, 15, 16])
+    esit("13 dikdortgen", kok(X**2 - 10*X + 24), FiniteSet(4, 6))
+    esit("13 kubik", (sp.factor(X**3 - 6*X**2 + 11*X - 6), 1 + 2 + 3, 1*2 + 1*3 + 2*3, 1*2*3), ((X - 1)*(X - 2)*(X - 3), 6, 11, 6))
+    esit("13 hatirlama", sp.expand((X - 1)*(X - 2)), X**2 - 3*X + 2)
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -1709,7 +1780,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
