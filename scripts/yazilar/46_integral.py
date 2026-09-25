@@ -62,6 +62,7 @@ YAZI = {
                 ["$\\int \\cos x\\,dx$", "$\\sin x+C$"],
             ]),
             "Kuvvet kuralında üs bir artırılır ve yeni üsse bölünür. Üs $-1$ olduğunda bu kural sıfıra bölmeye yol açacağı için $\\dfrac{1}{x}$ in integrali ayrı bir kuralla, doğal logaritmayla verilir.",
+            hap("$n \\neq -1$ için $\\int x^n\\,dx=\\dfrac{x^{n+1}}{n+1}+C$ olur.", "$\\int \\dfrac{1}{x}\\,dx=\\ln|x|+C$ olur; bu durumda kuvvet kuralı kullanılmaz."),
         ]},
         {"baslik": "Sonucu türevle denetlemek", "icerik": [
             "İntegral almak türev almaktan daha zordur; çünkü her fonksiyonun ters türevi kolayca yazılamaz. Buna karşın bulunan sonucun doğruluğu her zaman kolayca denetlenir: sonucun türevi alınır ve integrali alınan fonksiyonla karşılaştırılır.",
@@ -122,6 +123,7 @@ YAZI = {
                 "Ters türev $F(x)=\\dfrac{x^3}{3}$ tür.",
                 "$F(2)-F(0)=\\dfrac{8}{3}-0=\\dfrac{8}{3}$ bulunur; dikdörtgenlerin yaklaştığı değerle aynıdır."),
             "Belirli integralde integral sabiti $C$ yazılmaz; çünkü $F(b)+C$ den $F(a)+C$ çıkarılınca sabit sadeleşir. Hangi ters türev seçilirse seçilsin sonuç aynıdır.",
+            hap("$\\int_a^b f(x)\\,dx=F(b)-F(a)$ olur; $F$ fonksiyonu $f$ nin herhangi bir ters türevi olabilir."),
         ]},
         {"baslik": "Temel teoremle ikinci örnek", "icerik": [
             "Temel teoremin verdiği sonucu, alanı geometriyle bilinen bir bölgede denetlemek teoremin gücünü gösterir. Doğrusal bir fonksiyonun altındaki bölge bir yamuktur ve alanı formülle de bulunabilir.",
@@ -155,6 +157,7 @@ YAZI = {
                 "Ters türev $-\\cos x$ tir: birincisi $-\\cos \\pi+\\cos 0=2$ olur.",
                 "İkincisi $-\\cos 2\\pi+\\cos 0=0$ olur; eksenin üstündeki ve altındaki alanlar birbirini götürür."),
             "Gerçek alan isteniyorsa eksenin altında kalan parçalar ayrı hesaplanıp mutlak değerleri toplanır. $[0, 2\\pi]$ aralığında sinüsün grafiğiyle eksen arasındaki gerçek alan $4$ tür.",
+            hap("Belirli integral işaretli alandır: eksenin üstündeki bölge artı, altındaki bölge eksi katkı yapar."),
         ]},
         {"baslik": "Belirli integralin özellikleri", "icerik": [
             "Belirli integral, alanın doğal özelliklerini taşır ve bu özellikler sezgiyle de kolayca anlaşılır. Bu özellikler hesapları kısaltır ve integralin sınırlarıyla oynamayı sağlar:",
@@ -199,6 +202,7 @@ YAZI = {
                 "İlk iki saniyede alınan yolu bulalım.",
                 "Yol $\\int_0^2 3t^2\\,dt$ dir; ters türev $t^3$ tür.",
                 "Yol $2^3-0=8$ metre olur."),
+            hap("Hızını $3$ saniyede sıfırdan $30$ metre bölü saniyeye düzgün biçimde çıkaran bir araç bu sürede $45$ metre yol alır.", "Alınan yol, hız zaman grafiğinin altındaki üçgenin alanıdır: $\\dfrac{3 \\cdot 30}{2}=45$ olur.", gunluk=True),
         ]},
         {"baslik": "Uygulama: akıştan miktar", "icerik": [
             "Bir depoya giren suyun akış hızı zamanla değişiyor ve sabit kalmıyorsa, belirli bir sürede biriken su miktarı akış hızının integralidir. Aynı fikir üretim hızından toplam üretimi, tüketim hızından toplam tüketimi bulmakta da kullanılır.",

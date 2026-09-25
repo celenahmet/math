@@ -40,6 +40,7 @@ YAZI = {
                 "Bölgenin alanını bulalım.",
                 "Eğri ekseni $x=-2$ ve $x=2$ de keser ve bu aralıkta eksenin altındadır: $\\int_{-2}^{2}(x^2-4)\\,dx=-\\dfrac{32}{3}$.",
                 "Alan $\\dfrac{32}{3}$ birimkare olur."),
+            hap("Eksenin altında kalan bölgenin alanı, belirli integralin mutlak değeridir; alan hiçbir zaman negatif olmaz."),
         ]},
         {"baslik": "Eksenin iki yanına yayılan bölge", "icerik": [
             "Eğri aralığın bir kısmında eksenin üstünde, bir kısmında altındaysa belirli integral iki parçanın farkını verir, toplamını değil. Alan için aralık, eğrinin ekseni kestiği noktalardan bölünür ve her parçanın mutlak değeri toplanır.",
@@ -86,6 +87,7 @@ YAZI = {
                 "Bölgenin alanını bulalım.",
                 "Eğriler $x=0$ ve $x=1$ de kesişir; bu aralıkta doğru üsttedir.",
                 "$A=\\int_0^1 (x-x^2)\\,dx=\\dfrac{1}{2}-\\dfrac{1}{3}=\\dfrac{1}{6}$ birimkare olur."),
+            hap("İki eğri arasındaki alan $\\int_a^b \\left(f(x)-g(x)\\right)\\,dx$ olur; burada $f$ üstteki, $g$ alttaki eğridir."),
         ]},
         {"baslik": "Neden üst eksi alt?", "icerik": [
             "İki eğri arasındaki alanda eksenin konumu önemsizdir. Bunun nedeni şudur: iki eğri birlikte aynı miktar yukarı ya da aşağı kaydırılırsa aralarındaki bölge değişmez ve üst eksi alt farkı da aynı kalır. Bu yüzden eğrilerden biri ya da ikisi eksenin altında olsa bile formül değişmez.",
@@ -98,6 +100,7 @@ YAZI = {
                 "Bölgenin alanını bulalım.",
                 "$x^2=2x+3$ ise $(x-3)(x+1)=0$, yani $x=-1$ ve $x=3$; aralıkta doğru üsttedir.",
                 "$A=\\int_{-1}^{3}(2x+3-x^2)\\,dx=\\dfrac{32}{3}$ birimkare olur."),
+            hap("Kapalı bölgenin sınırları eğrilerin kesişim noktalarıdır.", "Hangi eğrinin üstte olduğu, aralıktan bir sayı seçilerek belirlenir."),
         ]},
         {"baslik": "Parabol ile yatay doğru", "icerik": [
             "Yukarı açılan bir parabol ile onu kesen yatay bir doğru, parabolün içinde kapalı bir bölge oluşturur. Doğru üstte, parabol alttadır.",
@@ -203,6 +206,7 @@ YAZI = {
                 "Parabol yatay ekseni $x=\\pm 2$ de keser: $A=\\int_{-2}^{2}(4-x^2)\\,dx$.",
                 "$A=\\dfrac{32}{3}$, yaklaşık $10.67$ metrekaredir."),
             "Bu alan, kemerin içine yerleştirilebilecek en büyük dikdörtgenden de, kemeri çevreleyen dikdörtgenden de farklıdır; çevreleyen dikdörtgenin alanının tam üçte ikisidir.",
+            hap("Altı düz, üstü $y=1-x^2$ metre biçiminde kemerli bir pencerenin camı $x=-1$ ile $x=1$ arasındadır.", "Camın alanı $\\int_{-1}^{1}(1-x^2)\\,dx=\\dfrac{4}{3}$ metrekare olur.", gunluk=True),
         ]},
         {"baslik": "Alan hesabının adımları", "icerik": [
             "Alan sorularında aşağıdaki adımlar sırayla izlenirse hata olasılığı çok azalır ve hiçbir parça atlanmaz:",

@@ -34,6 +34,7 @@ YAZI = {
             "Aynı tanım, $x=a+h$ yazılarak farklı ama eşdeğer bir biçimde de ifade edilir. $h$ sıfıra giderken $x$ de $a$ ya gider:",
             "$$f'(a)=\\lim_{x \\to a}\\dfrac{f(x)-f(a)}{x-a}$$",
             "Bu biçim, özellikle bir noktadaki türevi hesaplarken çarpanlara ayırmayı kolaylaştırır. İki biçim aynı sonucu verir; hangisinin kullanılacağı sorudaki ifadenin görünüşüne bağlıdır.",
+            hap("$f'(a)=\\lim_{x \\to a}\\dfrac{f(x)-f(a)}{x-a}$ biçimi de türevin tanımıdır."),
         ]},
         {"baslik": "Tanımla türev almanın adımları", "icerik": [
             "Türevi tanımla bulmak dört adımlık bir işlemdir. Adımların sırası her fonksiyon için aynıdır; değişen yalnızca ikinci adımdaki cebirsel sadeleştirmedir:",
@@ -138,6 +139,7 @@ YAZI = {
                 "$\\lim_{h \\to 0}\\dfrac{f(1+h)-f(1-h)}{h}$ limitini bulalım.",
                 "Pay $f(1+h)-f(1)$ ile $f(1)-f(1-h)$ farklarının toplamı olarak yazılır; her biri $h$ ye bölününce $f'(1)$ e gider.",
                 "Limit $2f'(1)=8$ olur."),
+            hap("$\\lim_{h \\to 0}\\dfrac{f(a+kh)-f(a)}{h}=k \\cdot f'(a)$ olur."),
         ]},
         {"baslik": "Sinüsün türevi", "icerik": [
             "Sinüsün türevi tanımdan bulunurken toplam formülü ve iki temel limit kullanılır: $\\lim_{h \\to 0}\\dfrac{\\sin h}{h}=1$ ve $\\lim_{h \\to 0}\\dfrac{\\cos h-1}{h}=0$.",
@@ -181,6 +183,7 @@ YAZI = {
                 "Soldan ve sağdan türevleri bulalım.",
                 "$\\dfrac{|h|-0}{h}$ kesri $h>0$ için $1$, $h<0$ için $-1$ dir.",
                 "Sağdan türev $1$, soldan türev $-1$ olduğundan $|x|$ in sıfırda türevi yoktur."),
+            hap("Türevin var olması için soldan ve sağdan türevler eşit olmalıdır.", "Grafiğin köşe yaptığı noktalarda bu iki türev farklıdır."),
         ]},
         {"baslik": "Dikey teğet", "icerik": [
             "Bazı fonksiyonlarda kesenin eğimi sonsuz büyür; teğet dikey olur. Dikey bir doğrunun eğimi tanımsız olduğu için bu noktada türev yoktur.",
@@ -226,6 +229,7 @@ YAZI = {
                 "$x$ $3$ ten $3.01$ e çıkarken $f$ nin yaklaşık ne kadar değiştiğini bulalım.",
                 "$f'(3)=6$ ve $h=0.01$ olduğundan değişim yaklaşık $0.06$ dır.",
                 "Gerçek değişim $3.01^2-9=0.0601$ dir; yaklaşım çok iyidir."),
+            hap("Kenarı $10$ santimetre olan kare bir fayans $0.1$ santimetre büyük kesilirse alan yaklaşık $2 \\cdot 10 \\cdot 0.1=2$ santimetrekare artar.", "Gerçek artış $10.1^2-10^2=2.01$ santimetrekaredir; türev bu küçük farkı çok iyi tahmin eder.", gunluk=True),
         ]},
         {"baslik": "Tanımdan kurallara", "icerik": [
             "Tanımla türev almak her fonksiyonda mümkündür ama uzun sürer. Bu yüzden tanım bir kez genel olarak uygulanır ve sonuçlar kurallar hâline getirilir: kuvvet kuralı, toplam kuralı, çarpım ve bölüm kuralları ve zincir kuralı.",

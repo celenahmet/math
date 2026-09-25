@@ -36,6 +36,7 @@ YAZI = {
                 "Türevlerini bulalım.",
                 "$f'(x)=7x^6$ ve $g'(x)=-3x^{-4}$ olur.",
                 "$h'(x)=\\dfrac{3}{4}x^{-1/4}$ olur; kural her gerçek üs için geçerlidir."),
+            hap("$(x^n)'=nx^{n-1}$ olur; üs katsayı olarak öne alınır ve bir azaltılır."),
         ]},
         {"baslik": "Sabitle çarpım kuralı", "icerik": [
             "Bir fonksiyon sabit bir sayıyla çarpılmışsa sabit türevin dışında kalır ve sonuç aynı sabitle çarpılır. Grafik dikey yönde uzadığında eğimler de aynı oranda büyür:",
@@ -58,6 +59,7 @@ YAZI = {
         {"baslik": "Kaybolan sabit", "icerik": [
             "Toplamdaki bir sabit türevde sıfır olduğu için yalnızca sabitleri farklı olan fonksiyonların türevleri aynıdır. $x^2+5$ ile $x^2-3$ fonksiyonlarının ikisinin de türevi $2x$ tir; grafikleri birbirinin dikey kaydırılmış kopyasıdır ve her apsiste eğimleri eşittir.",
             "Bu gözlem, türevden fonksiyona geri dönerken bir sabitin belirsiz kalmasının nedenidir. Örneğin türevi $6x$ ve $f(0)=1$ olan fonksiyon $f(x)=3x^2+1$ dir; koşul verilmeseydi sabit bulunamazdı. Bu geri dönüş işlemi integral konusunun başlangıcıdır.",
+            hap("Yalnız sabit terimleri farklı olan fonksiyonların türevleri aynıdır, çünkü sabitin türevi sıfırdır."),
         ]},
         {"baslik": "Farklı değişkenler ve harfli katsayılar", "icerik": [
             "Türev hangi değişkene göre alınıyorsa yalnızca o harf değişken kabul edilir; diğer harfler sabit gibi davranır. Zamana bağlı fonksiyonlarda değişken genellikle $t$ dir.",
@@ -82,6 +84,7 @@ YAZI = {
                 "Türevini ve $f'(4)$ değerini bulalım.",
                 "$f(x)=3x^{1/2}-2x^{-1}+\\dfrac{1}{4}x^2$ olduğundan $f'(x)=\\dfrac{3}{2\\sqrt{x}}+\\dfrac{2}{x^2}+\\dfrac{x}{2}$ olur.",
                 "$f'(4)=\\dfrac{3}{4}+\\dfrac{1}{8}+2=\\dfrac{23}{8}$ bulunur."),
+            hap("Türev almadan önce $\\sqrt{x}=x^{1/2}$ ve $\\dfrac{1}{x^n}=x^{-n}$ yazılır."),
         ]},
         {"baslik": "Açarak türev almak", "icerik": [
             "Çarpım biçimindeki basit ifadeler önce açılırsa türev kuvvet ve toplam kurallarıyla alınır. Bu yol, çarpım kuralına gerek bırakmaz ve çoğu zaman daha az hata üretir. Açılımı uzun süren yüksek kuvvetlerde ise zincir kuralı daha hızlıdır.",
@@ -164,6 +167,7 @@ YAZI = {
                 "$f'(1)$ değerini bulalım.",
                 "$f'(x)=2^x \\ln 2+\\dfrac{1}{x \\ln 3}$ olur.",
                 "$f'(1)=2\\ln 2+\\dfrac{1}{\\ln 3}$ bulunur."),
+            hap("$(a^x)'=a^x \\ln a$ ve $(\\ln x)'=\\dfrac{1}{x}$ olur."),
         ]},
         {"baslik": "Logaritma kurallarıyla sadeleştirme", "icerik": [
             "Logaritmalı fonksiyonlarda türev almadan önce logaritma kuralları uygulanırsa işlem kısalır. Kuvvet kuralı üssü öne indirir, çarpım kuralı logaritmayı toplamlara ayırır.",
@@ -213,6 +217,7 @@ YAZI = {
                 "$t=2$ saniyedeki hızı ve ivmeyi bulalım.",
                 "$v(t)=6t^2-6t$ olduğundan $v(2)=12$ metre bölü saniye olur.",
                 "$a(t)=12t-6$ olduğundan $a(2)=18$ metre bölü saniye kare olur."),
+            hap("Bir asansörün konumu $s(t)=t^3-6t^2+9t$ metre ise hızı $s'(t)=3t^2-12t+9$ metre bölü saniye olur.", "Hız $t=1$ ve $t=3$ saniyelerde sıfırdır; asansör bu anlarda durup yön değiştirir.", gunluk=True),
         ]},
         {"baslik": "İkinci türev", "icerik": [
             "Türev kuralları art arda uygulanarak ikinci türev bulunur. İkinci türev, birinci türevin değişim hızıdır; grafiğin bükülme yönünü ve hareketteki ivmeyi verir.",

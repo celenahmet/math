@@ -34,6 +34,7 @@ YAZI = {
             koordinat_grafik("2x in ters türevlerinden üçü: y = x² + 2, y = x² ve y = x² - 2", [("", lambda x: x * x + 2), ("", lambda x: x * x), ("", lambda x: x * x - 2)],
                              (-3, 3), (-3, 7), adim=1, noktalar=[(0, 2, "", True), (0, 0, "", True), (0, -2, "", True)]),
             "Grafikteki üç eğri yukarıdan aşağıya $y=x^2+2$, $y=x^2$ ve $y=x^2-2$ dir; birbirinin dikey kaydırılmış kopyasıdırlar ve aynı apsiste eğimleri eşittir. Kapaktaki şeffaf levhalar bu eğri ailesinin fiziksel bir modelidir. Bir koşul verilmedikçe aileden hangi eğrinin istendiği bilinemez; bu yüzden sonuca her zaman $+C$ eklenir.",
+            hap("Belirsiz integralde $+C$ yazılır; çünkü yalnız sabit terimleri farklı fonksiyonların türevleri aynıdır."),
         ]},
         {"baslik": "İntegral neden türevden zordur?", "icerik": [
             "Türev almak mekanik bir işlemdir: toplam, çarpım, bölüm ve zincir kurallarıyla her temel fonksiyonun türevi bulunur. İntegralde ise çarpım ve bölüm için genel bir kural yoktur. Bu yüzden integral almak, çoğu zaman fonksiyonu tanıdık bir biçime getirmeyi gerektirir.",
@@ -113,6 +114,7 @@ YAZI = {
                 "$3\\int \\cos x\\,dx=3\\sin x$ ve $-2\\int \\sin x\\,dx=2\\cos x$ olur.",
                 "Sonuç $3\\sin x+2\\cos x+C$ dir."),
             "İçinde katsayılı açı bulunan trigonometrik fonksiyonlarda katsayı bölen olarak gelir: $\\int \\cos 2x\\,dx=\\dfrac{\\sin 2x}{2}+C$ ve $\\int \\sin 3x\\,dx=-\\dfrac{\\cos 3x}{3}+C$ dir.",
+            hap("$\\int \\sin x\\,dx=-\\cos x+C$ ve $\\int \\cos x\\,dx=\\sin x+C$ olur."),
         ]},
         {"baslik": "Özdeşliklerle integral", "icerik": [
             "Doğrudan tabloda bulunmayan trigonometrik integraller, trigonometrik özdeşliklerle tablodaki biçimlere çevrilir. $1+\\tan^2 x=\\dfrac{1}{\\cos^2 x}$ özdeşliği ve kuvvet azaltma formülleri en sık kullanılanlardır.",
@@ -131,6 +133,7 @@ YAZI = {
                 "Dış fonksiyonun integrali $\\dfrac{(2x+1)^4}{4}$ tür; iç fonksiyonun katsayısı $2$ ye bölünür.",
                 "Sonuç $\\dfrac{(2x+1)^4}{8}+C$ dir; türevi $\\dfrac{4(2x+1)^3 \\cdot 2}{8}=(2x+1)^3$ verir."),
             "İç fonksiyon doğrusal değilse bu kısa yol işlemez; o zaman değişken değiştirme yöntemi kullanılır. Ayrıntılar <a href=\"/blog/degisken-degistirme/\">İntegralde Değişken Değiştirme Yöntemi</a> yazısında.",
+            hap("İçteki ifade $ax+b$ biçimindeyse dıştaki fonksiyonun integrali yazılır ve $a$ ya bölünür."),
         ]},
         {"baslik": "Paydada doğrusal ifade", "icerik": [
             "Paydası doğrusal bir ifade olan kesirlerin integrali doğal logaritma verir. Paydadaki $x$ in katsayısı, doğrusal iç fonksiyon kuralı gereği bölen olarak gelir.",
@@ -192,6 +195,7 @@ YAZI = {
                 "$v(t)=3t^2+2$ ve $s(t)=t^3+2t$ olur.",
                 "$s(2)=8+4=12$ birim bulunur."),
             "Sabit ivmeli harekette aynı yol, fizikten bilinen $s=v_0 t+\\dfrac{1}{2}at^2$ formülünü verir; bu formül aslında iki kez integral almanın sonucudur.",
+            hap("Duraktan kalkan bir metro sabit $2$ metre bölü saniye kare ivmeyle hızlanırsa hızı $v(t)=2t$, aldığı yol $s(t)=t^2$ metre olur.", "Metro kalkıştan $10$ saniye sonra $100$ metre ilerlemiş olur.", gunluk=True),
         ]},
         {"baslik": "Uygulama: marjinal maliyetten maliyet", "icerik": [
             "Ekonomide marjinal maliyet, toplam maliyetin üretim miktarına göre türevidir. Marjinal maliyet ve sabit maliyet biliniyorsa toplam maliyet integralle bulunur; integral sabiti hiç üretim yapılmadığındaki sabit maliyettir.",

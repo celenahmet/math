@@ -2956,6 +2956,87 @@ def hap_ekleri():
     es("36 hap ara deger", (f36.subs(X, 0), f36.subs(X, 1), len(sp.solveset(f36, X, sp.Interval(0, 1)))), (-1, 1, 1))
     es("36 hap boy", Rational(150, 100) < Rational(155, 100) < Rational(160, 100), True)
 
+    # ── 37 turev ──
+    es("37 hap temel turevler", (sp.diff(X**5, X), sp.diff(sp.exp(X), X), sp.diff(sp.sin(X), X), sp.diff(sp.cos(X), X)), (5 * X**4, sp.exp(X), sp.cos(X), -sp.sin(X)))
+    es("37 hap teget", sp.expand(1 + sp.diff(X**2, X).subs(X, 1) * (X - 1)), 2 * X - 1)
+    es("37 hap karekok", (sp.diff(sp.sqrt(X), X).subs(X, 25), round(float(sp.sqrt(26)), 1), abs(float(sp.sqrt(26)) - 5.1) < 0.01), (Rational(1, 10), 5.1, True))
+    # ── 38 turevin tanimi ──
+    h38 = sp.symbols("h38")
+    es("38 hap ikinci bicim", (sp.limit((X**2 - 4) / (X - 2), X, 2), sp.diff(X**2, X).subs(X, 2)), (4, 4))
+    es("38 hap katli artis", (sp.limit(((3 + 2 * h38)**2 - 9) / h38, h38, 0), 2 * sp.diff(X**2, X).subs(X, 3)), (12, 12))
+    es("38 hap kose", (sp.limit(sp.Abs(h38) / h38, h38, 0, "+"), sp.limit(sp.Abs(h38) / h38, h38, 0, "-")), (1, -1))
+    es("38 hap fayans", (2 * 10 * Rational(1, 10), Rational(101, 10)**2 - 10**2), (2, Rational(201, 100)))
+    # ── 39 turev alma kurallari ──
+    es("39 hap kurallar", (sp.diff(X**7, X), sp.diff(X**2 + 5, X) - sp.diff(X**2 - 3, X), sp.diff(sp.sqrt(X), X) - Rational(1, 2) * X**Rational(-1, 2),
+                           sp.diff(X**-3, X), sp.simplify(sp.diff(2**X, X) - 2**X * sp.log(2)), sp.diff(sp.log(X), X)),
+       (7 * X**6, 0, 0, -3 * X**-4, 0, 1 / X))
+    t39 = sp.symbols("t39")
+    s39 = t39**3 - 6 * t39**2 + 9 * t39
+    es("39 hap asansor", (sp.diff(s39, t39), sorted(sp.solve(sp.diff(s39, t39), t39))), (3 * t39**2 - 12 * t39 + 9, [1, 3]))
+    # ── 40 carpimin turevi ──
+    es("40 hap ustel", sp.simplify(sp.diff(X**3 * sp.exp(X), X) - sp.exp(X) * (3 * X**2 + X**3)), 0)
+    es("40 hap uc carpan", (sp.diff(X * (X + 1) * (X + 2), X).subs(X, 1), (2 * 3 + 1 * 3 + 1 * 2)), (11, 11))
+    F40 = sp.Function("F40")
+    es("40 hap kare", sp.simplify(sp.diff(F40(X)**2, X) - 2 * F40(X) * sp.diff(F40(X), X)), 0)
+    es("40 hap kahve", 2 * 900 + 50 * (-30), 300)
+
+    # ── 41 bolumun turevi ──
+    a41, b41, c41, d41 = sp.symbols("a41 b41 c41 d41")
+    G41 = sp.Function("G41")
+    es("41 hap kurallar", (sp.simplify(sp.diff((a41 * X + b41) / (c41 * X + d41), X) - (a41 * d41 - b41 * c41) / (c41 * X + d41)**2),
+                           sp.simplify(sp.diff(1 / G41(X), X) + sp.diff(G41(X), X) / G41(X)**2)), (0, 0))
+    es("41 hap yazici", sp.simplify(sp.diff((4000 + X / 2) / X, X)), -4000 / X**2)
+    # ── 42 zincir kurali ──
+    G42 = sp.Function("G42")
+    n42 = sp.symbols("n42")
+    es("42 hap zincirler", (sp.simplify(sp.diff(G42(X)**n42, X) - n42 * G42(X)**(n42 - 1) * sp.diff(G42(X), X)),
+                            sp.simplify(sp.diff(sp.exp(G42(X)), X) - sp.exp(G42(X)) * sp.diff(G42(X), X)),
+                            sp.simplify(sp.diff(sp.log(G42(X)), X) - sp.diff(G42(X), X) / G42(X))), (0, 0, 0))
+    es("42 hap bisiklet", Rational(48, 16), 3)
+    # ── 43 teget denklemi ──
+    es("43 hap paralel", sp.solve(sp.diff(X**2, X) - 4, X), [2])
+    es("43 hap normal", (2 * Rational(-1, 2), -1 / sp.diff(X**2, X).subs(X, 1)), (-1, Rational(-1, 2)))
+    es("43 hap kaykay", (sp.diff(X**2 / 4, X).subs(X, 2), sp.atan(1)), (1, sp.pi / 4))
+    # ── 44 artan azalan ──
+    K44 = -X**2 + 40 * X - 300
+    es("44 hap firin", (sp.diff(K44, X), sp.solve(sp.diff(K44, X), X), sp.diff(K44, X).subs(X, 10) > 0, sp.diff(K44, X).subs(X, 30) < 0), (-2 * X + 40, [20], True, True))
+    es("44 hap sifir ama artan", (sp.diff(X**3, X).subs(X, 0), sp.diff(X**3, X).subs(X, -1) > 0, sp.diff(X**3, X).subs(X, 1) > 0), (0, True, True))
+
+    # ── 45 maksimum minimum ──
+    V45 = X * (30 - 2 * X)**2
+    es("45 hap kutu", (sorted(sp.solve(sp.diff(V45, X), X)), V45.subs(X, 5), sp.diff(V45, X, 2).subs(X, 5) < 0, 30 - 2 * 5), ([5, 15], 2000, True, 20))
+    f45 = -X**2 + 4 * X + 1
+    es("45 hap ikinci turev", (sp.solve(sp.diff(f45, X), X), sp.diff(f45, X, 2)), ([2], -2))
+    # ── 46 integral ──
+    n46 = sp.symbols("n46")
+    es("46 hap kurallar", (sp.simplify(sp.diff(X**(n46 + 1) / (n46 + 1), X) - X**n46), sp.integrate(1 / X, X), sp.integrate(X**2, (X, 0, 2))), (0, sp.log(X), Rational(8, 3)))
+    es("46 hap isaretli", (sp.integrate(sp.sin(X), (X, 0, 2 * sp.pi)), sp.integrate(sp.sin(X), (X, sp.pi, 2 * sp.pi))), (0, -2))
+    t46 = sp.symbols("t46")
+    es("46 hap arac", (sp.integrate(10 * t46, (t46, 0, 3)), Rational(3 * 30, 2)), (45, 45))
+    # ── 47 belirsiz integral ──
+    es("47 hap trig ve dogrusal", (sp.integrate(sp.sin(X), X), sp.integrate(sp.cos(X), X), sp.simplify(sp.diff((2 * X + 1)**4 / 8, X) - (2 * X + 1)**3)), (-sp.cos(X), sp.sin(X), 0))
+    t47 = sp.symbols("t47")
+    es("47 hap metro", (sp.integrate(2, (t47, 0, t47)), sp.integrate(2 * t47, (t47, 0, 10))), (2 * t47, 100))
+    # ── 48 belirli integral ──
+    es("48 hap ozellikler", (sp.integrate(X**2, (X, 1, 3)) + sp.integrate(X**2, (X, 3, 1)), sp.integrate(X**2, (X, 0, 1)) + sp.integrate(X**2, (X, 1, 3)) - sp.integrate(X**2, (X, 0, 3))), (0, 0))
+    es("48 hap simetri", (sp.integrate(X**3, (X, -2, 2)), sp.integrate(X**2, (X, -2, 2)) - 2 * sp.integrate(X**2, (X, 0, 2))), (0, 0))
+    es("48 hap isitici", sp.integrate(2, (X, 0, 3)), 6)
+
+    # ── 49 degisken degistirme ──
+    u49 = sp.symbols("u49")
+    es("49 hap ilk ve sinir", (sp.simplify(sp.diff((X**2 + 1)**4 / 4, X) - 2 * X * (X**2 + 1)**3), sp.integrate(2 * X * (X**2 + 1)**3, (X, 0, 1)), sp.integrate(u49**3, (u49, 1, 2))), (0, Rational(15, 4), Rational(15, 4)))
+    es("49 hap katsayi", sp.simplify(sp.diff((X**2 + 1)**6 / 12, X) - X * (X**2 + 1)**5), 0)
+    es("49 hap birim", 1 * 1000, 1000)
+    # ── 50 integral ile alan ──
+    es("50 hap pencere", sp.integrate(1 - X**2, (X, -1, 1)), Rational(4, 3))
+    es("50 hap eksen alti", (sp.integrate(X**2 - 4, (X, -2, 2)), abs(sp.integrate(X**2 - 4, (X, -2, 2)))), (Rational(-32, 3), Rational(32, 3)))
+    es("50 hap iki egri", (sp.integrate(X - X**2, (X, 0, 1)), sorted(sp.solve(X**2 - (X + 2), X))), (Rational(1, 6), [-1, 2]))
+    # ── 57 pozitif negatif ──
+    es("57 hap sicaklik", 5 - (-3), 8)
+    # ── 58 ardisik sayilar ──
+    es("58 hap sayfa", (58 - 23 + 1, len(range(23, 59))), (36, 36))
+    es("58 hap ortalama", (sum(range(11, 31)), 20 * (11 + 30) // 2), (410, 410))
+
 
 def bicim():
     import blog_veri

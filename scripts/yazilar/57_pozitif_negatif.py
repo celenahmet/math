@@ -45,6 +45,7 @@ YAZI = {
                 "Deniz seviyesini $0$ kabul edelim: dalgıcın konumu $-12$, martınınki $30$.",
                 "Fark, büyük değerden küçük değerin çıkarılmasıyla bulunur: $30-(-12)=30+12$.",
                 "Aralarındaki fark $42$ metredir."),
+            hap("Gündüz sıcaklığı $5$ derece, gece sıcaklığı $-3$ derece olan bir günde sıcaklık farkı $5-(-3)=8$ derece olur.", "Negatif bir sayıyı çıkarmak, onun mutlak değerini eklemek demektir.", gunluk=True),
         ]},
         {"baslik": "Toplama ve çıkarmada işaret", "icerik": [
             "Toplamada iki durum vardır. <strong>Aynı işaretli</strong> sayılar toplanırken mutlak değerler toplanır ve ortak işaret sonuca yazılır. <strong>Farklı işaretli</strong> sayılar toplanırken büyük mutlak değerden küçüğü çıkarılır ve mutlak değeri büyük olanın işareti sonuca yazılır.",

@@ -71,6 +71,7 @@ YAZI = {
                 "Türevini kısa yolla bulalım.",
                 "$a=2$, $b=3$, $c=1$, $d=4$ olduğundan $ad-bc=8-3=5$ olur.",
                 "$h'(x)=\\dfrac{5}{(x+4)^2}$ bulunur; fonksiyon her iki aralıkta da artandır."),
+            hap("$\\left(\\dfrac{ax+b}{cx+d}\\right)'=\\dfrac{ad-bc}{(cx+d)^2}$ olur; pay her zaman sabittir."),
         ]},
         {"baslik": "Ters fonksiyon kuralı", "icerik": [
             "Payı sabit olan bölümler için kural kısalır. $f=1$ alınırsa $f'=0$ olur ve birinci terim kaybolur. Pay başka bir sabitse sonuç o sabitle çarpılır:",
@@ -81,6 +82,7 @@ YAZI = {
                 "$g=x^2+1$ ve $g'=2x$ olur.",
                 "$h'(x)=-\\dfrac{2x}{(x^2+1)^2}$ bulunur."),
             "Aynı sonuç zincir kuralıyla da bulunur: $(x^2+1)^{-1}$ in türevi $-(x^2+1)^{-2} \\cdot 2x$ tir. İki yolun aynı sonucu vermesi kuralların tutarlılığını gösterir.",
+            hap("$\\left(\\dfrac{1}{g}\\right)'=-\\dfrac{g'}{g^2}$ olur."),
         ]},
         {"baslik": "Paydada kök", "icerik": [
             "Payı sabit ve paydası kök olan kesirlerde ters fonksiyon kuralı ya da negatif kesirli üs kullanılır. İki yol da aynı sonucu verir ve sonuç çoğu zaman kök içeren bir kesir olarak yazılır.",
@@ -173,6 +175,7 @@ YAZI = {
         {"baslik": "Türevin işareti", "icerik": [
             "Bölüm kuralında payda bir kare olduğu için tanımlı olduğu her yerde pozitiftir. Bu yüzden türevin işaretini yalnızca pay belirler ve işaret tablosu yalnızca paya bakılarak yapılır.",
             "Örneğin $\\dfrac{x}{x^2+1}$ in türevinin payı $1-x^2$ dir: $-1$ ile $1$ arasında pozitif, dışında negatiftir. Doğrusal kesirlerde ise pay sabit olduğu için türev her yerde aynı işaretlidir ve fonksiyon her aralıkta ya hep artar ya hep azalır.",
+            hap("Bölüm kuralında payda bir kare olduğu için türevin işaretini yalnızca pay belirler."),
         ]},
         {"baslik": "Parametreli bölüm", "icerik": [
             "Payda ya da payda bir bilinmeyen varsa ve bir noktadaki türev değeri verilmişse, bölüm kuralı uygulanıp nokta yerine yazılır ve bilinmeyen bulunur.",
@@ -197,6 +200,7 @@ YAZI = {
                 "Ortalama maliyetin türevini bulalım ve yorumlayalım.",
                 "Kısa yolla $A'(x)=\\dfrac{5 \\cdot 0-100 \\cdot 1}{x^2}=-\\dfrac{100}{x^2}$ olur.",
                 "Türev her zaman negatiftir; üretim arttıkça sabit maliyet daha çok birime bölündüğü için birim maliyet düşer."),
+            hap("Fiyatı $4000$ lira olan bir yazıcıda sayfa başına mürekkep maliyeti $0.5$ lira ise $x$ sayfadan sonra sayfa başına ortalama maliyet $\\dfrac{4000+0.5x}{x}$ lira olur.", "Bu ifadenin türevi $-\\dfrac{4000}{x^2}$ her zaman negatiftir; çok yazdırdıkça sayfa başına maliyet düşer.", gunluk=True),
         ]},
         {"baslik": "Uygulama: ilaç derişimi", "icerik": [
             "Kandaki ilaç derişimi bazı modellerde bir bölümle ifade edilir. Türevin sıfır olduğu an, derişimin en yüksek olduğu andır.",

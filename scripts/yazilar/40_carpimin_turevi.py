@@ -65,6 +65,7 @@ YAZI = {
                 "$f=x^3$, $g=e^x$: $h'(x)=3x^2 e^x+x^3 e^x$ olur.",
                 "Ortak çarpan alınınca $h'(x)=x^2 e^x(x+3)$ olur."),
             "Ortak paranteze alınmış biçim, türevin sıfır olduğu noktaları hemen gösterir: $x=0$ ya da $x=-3$. Çünkü $e^x$ hiçbir zaman sıfır olmaz.",
+            hap("Polinomla $e^x$ çarpımının türevinde $e^x$ ortak paranteze alınır: $(x^n e^x)'=e^x(nx^{n-1}+x^n)$."),
         ]},
         {"baslik": "Sıfırları bulmak", "icerik": [
             "Çarpım kuralıyla elde edilen türev sadeleştirilip çarpanlarına ayrılırsa, türevin sıfır olduğu yerler yani yatay teğetli noktalar kolayca bulunur.",
@@ -132,6 +133,7 @@ YAZI = {
                 "$k'(1)$ değerini bulalım.",
                 "$k'(x)=(x+1)(x+2)+x(x+2)+x(x+1)$ olur.",
                 "$k'(1)=6+3+2=11$ bulunur; açarak $k(x)=x^3+3x^2+2x$ ve $k'(1)=3+6+2=11$ ile de doğrulanır."),
+            hap("$(fgh)'=f'gh+fg'h+fgh'$ olur; her terimde yalnız bir çarpan türevlenir."),
         ]},
         {"baslik": "Türevin işaretiyle davranış", "icerik": [
             "Çarpım kuralıyla bulunan türev ortak paranteze alındığında işaret tablosu kolayca yapılır. Böylece fonksiyonun nerede azaldığı, nerede arttığı ve en küçük değerini nerede aldığı bulunur.",
@@ -148,6 +150,7 @@ YAZI = {
                 "Türevini çarpım kuralının özel hâliyle bulalım.",
                 "$h'(x)=2(x^2+1) \\cdot 2x$ olur.",
                 "$h'(x)=4x^3+4x$ bulunur; açarak alınan türevle aynıdır."),
+            hap("$(f^2)'=2f \\cdot f'$ olur; kareli ifadenin türevi açılmadan alınır."),
         ]},
         {"baslik": "Çarpım ve zincir birlikte", "icerik": [
             "Çarpanlardan biri bileşke bir fonksiyonsa, o çarpanın türevi zincir kuralıyla alınır ve çarpım kuralına yerleştirilir; iki kural birbirini tamamlar ve sırayla uygulanır. Sonuç genellikle ortak çarpanlar alınarak sadeleştirilir.",
@@ -191,6 +194,7 @@ YAZI = {
                 "$t=0$ anındaki gelirin değişim hızını bulalım.",
                 "$R'=p' \\cdot q+p \\cdot q'=1 \\cdot 100+20 \\cdot (-2)$ olur.",
                 "Gelir günde $60$ TL artmaktadır; fiyat artışının etkisi satış düşüşünün etkisinden büyüktür."),
+            hap("Bir kafede kahvenin fiyatı her ay $2$ lira artarken satışı her ay $30$ fincan azalıyor.", "Fiyat $50$ lira, satış $900$ fincanken aylık ciro ayda $2 \\cdot 900+50 \\cdot (-30)=300$ lira artar.", gunluk=True),
         ]},
         {"baslik": "Parametreli çarpım", "icerik": [
             "Çarpanlardan birinde bilinmeyen bir katsayı varsa ve bir noktadaki türev değeri verilmişse, çarpım kuralı uygulanıp nokta yerine yazılır; ortaya çıkan denklem katsayıyı verir.",

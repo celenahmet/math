@@ -46,6 +46,7 @@ YAZI = {
                 ["Eksiden artıya", "Yerel minimum"],
                 ["Değişmiyor", "Ekstremum yok"],
             ]),
+            hap("Türev artıdan eksiye geçiyorsa yerel maksimum, eksiden artıya geçiyorsa yerel minimum vardır.", "Türevin işareti değişmiyorsa o noktada ekstremum yoktur."),
         ]},
         {"baslik": "Birinci türev testiyle örnek", "icerik": [
             "Birinci türev testi, artan ve azalan aralıkları bulmak için yapılan işaret tablosunun doğrudan devamıdır. Tablo yapıldığında ekstremumlar da okunmuş olur.",
@@ -69,6 +70,7 @@ YAZI = {
                 "Kritik noktaları ikinci türev testiyle inceleyelim.",
                 "$f'(x)=3x^2-3$ ten kritik noktalar $-1$ ve $1$ dir; $f''(x)=6x$ tir.",
                 "$f''(-1)=-6<0$ olduğundan $x=-1$ de maksimum $2$, $f''(1)=6>0$ olduğundan $x=1$ de minimum $-2$ vardır."),
+            hap("$f'(a)=0$ iken $f''(a)<0$ ise yerel maksimum, $f''(a)>0$ ise yerel minimum vardır."),
         ]},
         {"baslik": "İkinci türev karar vermezse", "icerik": [
             "İkinci türevin de sıfır olduğu noktalarda test sonuç vermez; o zaman birinci türev testine dönülür. Bu durumda nokta maksimum da, minimum da, hiçbiri de olabilir.",
@@ -88,6 +90,7 @@ YAZI = {
             dikkat(
                 "Kapalı aralıkta yalnızca kritik noktalara bakmak.",
                 "Örnekte en büyük değer bir uç noktada çıktı; yerel maksimum olan $f(-1)=2$ ise mutlak maksimum değildir. Uç noktalar her zaman hesaba katılmalıdır."),
+            hap("Kapalı aralıkta mutlak ekstremumlar ya kritik noktalarda ya da aralığın uçlarındadır; hepsinde değer hesaplanıp karşılaştırılır."),
         ]},
         {"baslik": "Parabolün tepesi", "icerik": [
             "İkinci dereceden fonksiyonlarda tek bir kritik nokta vardır ve bu nokta parabolün tepe noktasıdır. Baş katsayı negatifse tepe bir maksimum, pozitifse minimumdur.",
@@ -176,6 +179,7 @@ YAZI = {
                 "Kutunun hacmini en büyük yapan $x$ i ve en büyük hacmi bulalım.",
                 "Hacim $V(x)=x(12-2x)^2$ dir ve $0<x<6$; türev $V'(x)=(12-2x)(12-6x)$ olur ve aralıkta yalnızca $x=2$ de sıfırdır.",
                 "Türev $x=2$ de artıdan eksiye geçer; en büyük hacim $V(2)=2 \\cdot 64=128$ santimetreküptür."),
+            hap("Kenarı $30$ santimetre olan kare bir kartonun köşelerinden $5$ santimetrelik kareler kesilip kenarlar kaldırılırsa üstü açık kutunun hacmi en büyük olur.", "Kutunun tabanı $20$ santimetrelik bir kare, yüksekliği $5$ santimetre olur ve hacmi $20 \\cdot 20 \\cdot 5=2000$ santimetreküp olur.", gunluk=True),
         ]},
         {"baslik": "Toplamı sabit iki sayı", "icerik": [
             "Toplamı sabit iki pozitif sayının çarpımı, sayılar eşitken en büyüktür; kareleri toplamı ise sayılar eşitken en küçüktür. İki sonuç da tek değişkenli bir fonksiyonun türeviyle gösterilir.",

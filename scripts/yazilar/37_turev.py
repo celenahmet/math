@@ -84,6 +84,7 @@ YAZI = {
                 ["$\\ln x$", "$\\dfrac{1}{x}$"],
             ]),
             "Sabitin türevinin sıfır olması, sabit bir fonksiyonun hiç değişmemesinden gelir; grafiği yatay bir doğrudur ve eğimi sıfırdır.",
+            hap("$(x^n)'=nx^{n-1}$ ve $(e^x)'=e^x$ olur.", "$(\\sin x)'=\\cos x$ ve $(\\cos x)'=-\\sin x$ olur; kosinüsün türevindeki eksi işaret unutulmamalıdır."),
         ]},
         {"baslik": "Kuvvet kuralı", "icerik": [
             "$x^n$ biçimindeki fonksiyonların türevi, üs katsayı olarak öne alınıp üs bir azaltılarak bulunur. Kural kesirli ve negatif üsler için de geçerlidir; bu yüzden kökler ve kesirler önce üslü biçime çevrilir.",
@@ -142,6 +143,7 @@ YAZI = {
                 "Eğim $f'(1)=2$ dir.",
                 "Teğet $y-1=2(x-1)$, yani $y=2x-1$ olur; grafikteki doğru budur."),
             "Teğet ve normal denklemleri için daha fazla örnek <a href=\"/blog/teget-denklemi/\">Türevde Teğet Denklemi Nasıl Bulunur?</a> yazısında.",
+            hap("$(a, f(a))$ noktasındaki teğet doğrusu $y-f(a)=f'(a)(x-a)$ olur."),
         ]},
         {"baslik": "Yatay teğet", "icerik": [
             "Türevin sıfır olduğu noktalarda teğet yataydır. Bu noktalar, grafiğin tepe ve çukur noktalarının adaylarıdır ve türevin en önemli uygulamalarının başlangıcıdır. Türevi sıfır yapan noktalara kritik nokta ya da durağan nokta denir; fonksiyon bu noktalarda bir an için ne artar ne azalır.",
@@ -227,6 +229,7 @@ YAZI = {
                 "Doğrusal yaklaşımla bulalım.",
                 "$f(x)=\\sqrt{x}$ için $f(4)=2$ ve $f'(4)=\\dfrac{1}{4}$ dir.",
                 "$\\sqrt{4.1} \\approx 2+\\dfrac{1}{4} \\cdot 0.1=2.025$ olur; gerçek değer yaklaşık $2.0248$ dir."),
+            hap("Hesap makinesi olmadan $\\sqrt{26}$ yaklaşık $5.1$ bulunur.", "$\\sqrt{25}=5$ olur ve karekökün buradaki türevi $\\dfrac{1}{2\\sqrt{25}}=0.1$ olduğu için bir birimlik artış kökü yaklaşık $0.1$ artırır.", gunluk=True),
         ]},
         {"baslik": "Uygulama: marjinal maliyet", "icerik": [
             "Ekonomide maliyetin üretim miktarına göre türevine marjinal maliyet denir. Bir birim daha üretmenin yaklaşık ek maliyetini verir.",

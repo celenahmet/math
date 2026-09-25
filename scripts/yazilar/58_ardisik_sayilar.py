@@ -63,6 +63,7 @@ YAZI = {
             dikkat(
                 "Soruda \"arasında\" ile \"dahil\" ifadelerine dikkat et.",
                 "$10$ ile $20$ arasındaki tam sayılar $11, 12, \\ldots, 19$ dur ve $9$ tanedir. Uç değerler dahil edilirse $10$ ve $20$ de sayılır ve $11$ tane olur."),
+            hap("Bir kitabın $23$ ile $58$ numaralı sayfaları arasında, bu iki sayfa dahil, $58-23+1=36$ sayfa vardır.", "Sondaki $1$, ilk sayfanın da sayılması içindir.", gunluk=True),
         ]},
         {"baslik": "Kaçıncı terim?", "icerik": [
             "Terim sayısı formülü tersinden de kullanılır. İlk terimi ve adımı bilinen bir dizide herhangi bir terimi bulmak için ilk terime adım, terimin sırasından bir eksik kadar eklenir:",
@@ -145,6 +146,7 @@ YAZI = {
                 "Sayıları $x-2$, $x$, $x+2$ olarak yazalım; toplam $3x=81$.",
                 "$x=27$; sayılar $25, 27, 29$.",
                 "En büyüğü $29$ dur."),
+            hap("Ardışık sayıların ortalaması ilk ve son terimin ortalamasıdır.", "Toplam, terim sayısı ile bu ortalamanın çarpımıdır."),
         ]},
         {"baslik": "Kareler ve küpler toplamı", "icerik": [
             "Ardışık sayıların kareleri ve küpleri ardışık dizi değildir; çünkü komşu terimlerin farkı sabit kalmaz. Bu yüzden onların toplamı için ayrı formüller kullanılır:",

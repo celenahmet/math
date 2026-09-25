@@ -46,6 +46,7 @@ YAZI = {
         {"baslik": "Dişli benzetmesi", "icerik": [
             "Birinci dişli ikinciyi üç kat hızlı, ikinci dişli de üçüncüyü iki kat hızlı döndürüyorsa, üçüncü dişli birinciden altı kat hızlı döner. Aktarma oranları toplanmaz, çarpılır.",
             "Zincir kuralında da durum aynıdır: $\\dfrac{du}{dx}$ içteki fonksiyonun $x$ e göre aktarma oranı, $\\dfrac{dy}{du}$ ise dıştaki fonksiyonun $u$ ya göre aktarma oranıdır. Toplam oran bu ikisinin çarpımıdır. Kapaktaki çark, dişli ve kaydırıcı üçlüsü tam olarak böyle çalışır.",
+            hap("Bisikletin ön dişlisi $48$, arka dişlisi $16$ dişliyse pedalın her turunda arka tekerlek $3$ kez döner, çünkü $\\dfrac{48}{16}=3$ olur.", "İç içe geçen değişim oranları toplanmaz, çarpılır; zincir kuralı da bunu söyler.", gunluk=True),
         ]},
         {"baslik": "İç ve dış fonksiyonu belirlemek", "icerik": [
             "Zincir kuralının ilk adımı, fonksiyonda en son yapılan işlemi bulmaktır. $x$ e bir değer verildiğinde en son uygulanan işlem dış fonksiyon, ondan önce yapılan hesap ise iç fonksiyondur:",
@@ -66,6 +67,7 @@ YAZI = {
                 "$h'(x)=3(x^2+1)^2 \\cdot 2x=6x(x^2+1)^2$ olur.",
                 "$h'(1)=6 \\cdot 1 \\cdot 4=24$ bulunur."),
             "Aynı türev açarak da bulunabilirdi, ama kuvvet büyüdükçe açmak çok uzar. $(x^2+1)^{20}$ gibi bir ifadede zincir kuralı tek satırlık bir sonuç verir.",
+            hap("$\\left(g(x)^n\\right)'=n g(x)^{n-1} \\cdot g'(x)$ olur."),
         ]},
         {"baslik": "Kök zinciri", "icerik": [
             "Karekök, üssü bir bölü iki olan bir kuvvet olduğu için zincir kuralı aynı biçimde işler: $\\left(\\sqrt{g(x)}\\right)'=\\dfrac{g'(x)}{2\\sqrt{g(x)}}$. İçteki ifadenin türevi paya, kökün kendisi paydaya gelir.",
@@ -116,6 +118,7 @@ YAZI = {
                 "$h'(x)=2x e^{x^2}$ olur.",
                 "$k'(x)=-3e^{-3x}$ olur; negatif katsayı, fonksiyonun azaldığını gösterir."),
             "Tabanı $e$ olmayan üstel fonksiyonlarda doğal logaritma da çarpan olarak eklenir: $\\left(a^{g(x)}\\right)'=a^{g(x)} \\ln a \\cdot g'(x)$. Örneğin $2^{3x}$ in türevi $3 \\cdot 2^{3x}\\ln 2$ dir.",
+            hap("$\\left(e^{g(x)}\\right)'=e^{g(x)} \\cdot g'(x)$ olur; üstel ifade türevde aynen kalır."),
         ]},
         {"baslik": "Logaritmik zincir", "icerik": [
             "$\\ln g(x)$ in türevi, içteki ifadenin türevinin kendisine bölümüdür: $\\left(\\ln g(x)\\right)'=\\dfrac{g'(x)}{g(x)}$. Bu kalıba logaritmik türev denir ve çok sık kullanılır.",
@@ -125,6 +128,7 @@ YAZI = {
                 "$h'(x)=\\dfrac{2x}{x^2+1}$ olur.",
                 "$h'(1)=\\dfrac{2}{2}=1$ bulunur."),
             "Logaritmik türevin bir sonucu şudur: $\\ln(kx)$ in türevi $\\dfrac{k}{kx}=\\dfrac{1}{x}$ dir; içteki sabit katsayı sadeleşir. Bu, $\\ln(kx)=\\ln k+\\ln x$ eşitliğiyle de tutarlıdır.",
+            hap("$\\left(\\ln g(x)\\right)'=\\dfrac{g'(x)}{g(x)}$ olur."),
         ]},
         {"baslik": "Üç katlı zincir", "icerik": [
             "Bazı fonksiyonlarda üç ya da daha fazla fonksiyon iç içedir. Zincir kuralı dıştan içe doğru her katta bir kez uygulanır ve bütün türevler çarpılır. Kat sayısı kadar çarpan olur; bir katı atlamak, sonucu o katın türevi kadar yanlış yapar.",

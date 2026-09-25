@@ -42,6 +42,7 @@ YAZI = {
                 ["4", "Bu noktaların arasındaki her aralıkta türevin işaretine bak"],
             ]),
             "Her aralıkta türevin işareti sabit olduğu için aralıktan tek bir sayı seçip türevde denemek yeterlidir. Çarpanlarına ayrılmış türevde işaret, çarpanların işaretlerinden de okunabilir.",
+            hap("Türevin işareti yalnızca türevin sıfır ya da tanımsız olduğu noktalarda değişebilir; bu noktalar işaret tablosuna yazılır."),
         ]},
         {"baslik": "Parabolde artan ve azalan", "icerik": [
             "İkinci dereceden fonksiyonlarda türev birinci derecedendir ve tek bir noktada sıfır olur. Bu nokta parabolün tepe noktasının apsisidir ve fonksiyon yalnızca burada yön değiştirir.",
@@ -87,6 +88,7 @@ YAZI = {
                 "$f'(x)=3x^2$ dir; türev $x=0$ da sıfır, diğer bütün noktalarda pozitiftir.",
                 "Türev sıfırın iki yanında pozitif olduğu için fonksiyon her yerde artandır."),
             "Bu yüzden artanlık için tam kural şöyledir: türev bir aralıkta sıfır ya da pozitifse ve yalnızca tek tek noktalarda sıfır oluyorsa fonksiyon o aralıkta artandır.",
+            hap("Türevin bir noktada sıfır olması yön değişimi demek değildir; noktanın iki yanındaki işaret karşılaştırılır."),
         ]},
         {"baslik": "Her yerde artan olma koşulu", "icerik": [
             "Parametreli bir fonksiyonun her yerde artan olması için türevinin hiçbir yerde negatif olmaması gerekir. Türev ikinci dereceden bir ifadeyse bu, baş katsayının pozitif ve diskriminantın sıfır ya da negatif olması demektir.",
@@ -194,6 +196,7 @@ YAZI = {
                 "Denklemin kaç gerçek kökü olduğunu bulalım.",
                 "$f(x)=x^3+x-1$ in türevi $3x^2+1>0$ olduğundan fonksiyon her yerde artandır; bu yüzden en fazla bir kökü vardır.",
                 "$f(0)=-1<0$ ve $f(1)=1>0$ olduğundan bir kök vardır; denklemin tam olarak bir gerçek kökü bulunur."),
+            hap("Bir aralıkta artan ya da azalan bir fonksiyon o aralıkta her değeri en fazla bir kez alır."),
         ]},
         {"baslik": "Artanlık ve birebirlik", "icerik": [
             "Bir aralıkta artan ya da azalan bir fonksiyon o aralıkta birebirdir: farklı $x$ ler farklı değerler verir. Birebir fonksiyonların tersi tanımlıdır; bu yüzden türevin işareti, bir fonksiyonun tersinin olup olmadığını da gösterir.",
@@ -202,6 +205,7 @@ YAZI = {
         {"baslik": "Günlük hayatta artan ve azalan", "icerik": [
             "Bir aracın konumunun türevi hızıdır. Hız pozitifken araç ileri gider ve konum artar, negatifken geri gider ve konum azalır. Hızın sıfır olduğu anlar aracın durup yön değiştirebileceği anlardır.",
             "Bir işletmenin kârı da benzer biçimde incelenir: kâr fonksiyonunun türevi pozitif olduğu sürece üretimi artırmak kârı artırır. Türev negatife döndüğünde üretimi artırmak kârı azaltmaya başlar. Bu dönüm noktası, kârın en yüksek olduğu üretim miktarıdır ve <a href=\"/blog/maksimum-minimum/\">Türevde Maksimum ve Minimum Nasıl Bulunur?</a> yazısının konusudur.",
+            hap("Bir fırının günlük kârı $x$ tepsi pişirildiğinde $K(x)=-x^2+40x-300$ lira olsun.", "$K'(x)=-2x+40$ olduğu için $20$ tepsiye kadar her ek tepsi kârı artırır, $20$ tepsiden sonra azaltır.", gunluk=True),
         ]},
         {"baslik": "Sınavda artan ve azalan", "icerik": [
             sinavda(

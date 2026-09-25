@@ -33,6 +33,7 @@ YAZI = {
         {"baslik": "dx ve du nin anlamı", "icerik": [
             "İntegraldeki $dx$, değişkendeki çok küçük bir değişimi temsil eder. $u=g(x)$ seçildiğinde $x$ çok az değişirse $u$ yaklaşık $g'(x)$ katı kadar değişir; bu yüzden $du=g'(x)\\,dx$ yazılır. Bu eşitlik, integraldeki $g'(x)\\,dx$ çarpımının tamamen $du$ ile değiştirilebileceğini söyler.",
             "Bu bakış, yöntemin neden türevi integralde bulunan ifadelerde işlediğini açıklar: türev çarpanı ile $dx$ birlikte $du$ ya dönüşür ve integralde yalnızca $u$ kalır. Türev çarpanı yoksa $dx$ tek başına $du$ ya çevrilemez.",
+            hap("Değişken değiştirmek birim değiştirmeye benzer: bir yol kilometre yerine metreyle ölçülürse her kilometre $1000$ metre sayılır.", "$du=g'(x)\\,dx$ eşitliği de iki değişken arasındaki bu dönüşüm katsayısıdır.", gunluk=True),
         ]},
         {"baslik": "Yöntemin adımları", "icerik": [
             "Değişken değiştirme, hangi integral olursa olsun aynı beş adımda yapılır. Adımların her biri kısa bir işlemdir ve sırası her integralde aynıdır:",
@@ -64,6 +65,7 @@ YAZI = {
                 ["$\\sin^n x$ ve $\\cos x$", "$\\sin x$"],
             ]),
             "Seçim yanlışsa üçüncü adımda $x$ ler temizlenmez ve integral daha karmaşık hâle gelir. Bu durumda başka bir $u$ denenir; yöntem deneme gerektirir ama doğru seçim genellikle ilk bakışta görülür.",
+            hap("Türevi integralde çarpan olarak bulunan iç ifade $u$ seçilir."),
         ]},
         {"baslik": "Katsayıyı ayarlamak", "icerik": [
             "İç fonksiyonun türevi integralde tam olarak değil, bir sabit katsayı farkıyla bulunuyorsa integral yine değişken değiştirmeyle alınır. Eksik ya da fazla sabit, integralin dışında düzeltilir.",
@@ -75,6 +77,7 @@ YAZI = {
             dikkat(
                 "Eksik olan bir değişkeni dışarıdan eklemeye çalışmak.",
                 "Sabit bir katsayı integralin dışına alınıp düzeltilebilir, ama eksik bir $x$ çarpanı düzeltilemez. $\\int (x^2+1)^5\\,dx$ integralinde $x$ çarpanı olmadığı için bu değişken değiştirme işe yaramaz; bu integral açılarak hesaplanır."),
+            hap("İç fonksiyonun türevi yalnız bir sabit farkıyla bulunuyorsa eksik sabit integralin dışında düzeltilir.", "Eksik bir $x$ çarpanı ise bu yolla düzeltilemez."),
         ]},
         {"baslik": "Kök içeren integraller", "icerik": [
             "Kök içindeki ifade $u$ seçilir; kök, $u$ nun kesirli kuvvetine dönüşür ve kuvvet kuralıyla integrali alınır. Sonuç yeniden kök biçiminde yazılabilir.",
@@ -186,6 +189,7 @@ YAZI = {
                 "Sınırları dönüştürerek hesaplayalım.",
                 "$u=\\sin x$ için $x=0$ da $u=0$, $x=\\dfrac{\\pi}{2}$ de $u=1$ olur.",
                 "İntegral $\\int_0^1 u\\,du=\\dfrac{1}{2}$ olur."),
+            hap("Belirli integralde $u$ seçilince eski sınırlar $u$ nun tanımında yerine konur ve yeni sınırlar bulunur."),
         ]},
         {"baslik": "Değişken değiştirmeyle belirli integral", "icerik": [
             "Logaritma veren kalıplar belirli integralde de sık kullanılır. Sınırlar dönüştürüldükten sonra sonuç logaritmaların farkı olarak yazılır ve logaritma kurallarıyla sadeleştirilir.",

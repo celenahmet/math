@@ -120,6 +120,7 @@ YAZI = {
                 ["Toplam", "$\\int_a^b (f+g)=\\int_a^b f+\\int_a^b g$"],
             ]),
             "Aralığın bölünmesi özelliği, $b$ noktası $a$ ile $c$ arasında olmasa da geçerlidir. Bu, işaretli alanın ve sınırların yer değiştirmesi kuralının doğal sonucudur.",
+            hap("$\\int_a^b f(x)\\,dx=-\\int_b^a f(x)\\,dx$ olur.", "$\\int_a^b f(x)\\,dx+\\int_b^c f(x)\\,dx=\\int_a^c f(x)\\,dx$ olur."),
         ]},
         {"baslik": "Özelliklerle hesap", "icerik": [
             "Fonksiyonun kendisi verilmeden yalnızca bazı integral değerleri verildiğinde, istenen integral özelliklerle bulunur. Bu sorularda fonksiyonu bulmaya çalışmak gereksizdir; özellikler tek başına yeterlidir.",
@@ -164,6 +165,7 @@ YAZI = {
                 "Simetriyle hesaplayalım.",
                 "$x^3$ tek olduğundan birincisi $0$ dır.",
                 "$x^2$ çift olduğundan ikincisi $2\\int_0^1 x^2\\,dx=\\dfrac{2}{3}$ olur."),
+            hap("Tek bir fonksiyonun $[-a, a]$ aralığındaki integrali $0$ olur.", "Çift bir fonksiyonda bu integral, $[0, a]$ aralığındaki integralin iki katıdır."),
         ]},
         {"baslik": "İşaretli alan ve gerçek alan", "icerik": [
             "Fonksiyonun negatif olduğu aralıklarda belirli integral negatif katkı yapar. Bu yüzden belirli integral bir alan değil, işaretli alandır. Gerçek alan isteniyorsa fonksiyonun işaret değiştirdiği noktalardan aralık bölünür ve her parçanın mutlak değeri alınır.",
@@ -182,6 +184,7 @@ YAZI = {
                 "$u=x^2+1$ ve $du=2x\\,dx$ olur; $x=0$ için $u=1$, $x=1$ için $u=2$ dir.",
                 "İntegral $\\int_1^2 u^3\\,du=\\dfrac{16-1}{4}=\\dfrac{15}{4}$ olur."),
             "Yöntemin ayrıntıları için <a href=\"/blog/degisken-degistirme/\">İntegralde Değişken Değiştirme Yöntemi</a> yazısına bakabilirsin.",
+            hap("Belirli integralde değişken değiştirilince sınırlar da yeni değişkene göre yeniden yazılır."),
         ]},
         {"baslik": "Üst sınırı değişken integral", "icerik": [
             "Üst sınırı $x$ olan bir integral, sınır değiştikçe değeri de değiştiği için $x$ in bir fonksiyonudur. Temel teoremin ikinci biçimine göre bu fonksiyonun türevi, integrali alınan fonksiyonun üst sınırdaki değeridir: $\\dfrac{d}{dx}\\int_a^x f(t)\\,dt=f(x)$.",
@@ -238,6 +241,7 @@ YAZI = {
                 "İlk üç saatte harcanan enerjiyi bulalım.",
                 "Enerji $\\int_0^3 2t\\,dt=\\left[t^2\\right]_0^3$ olur.",
                 "Harcanan enerji $9$ kilovatsaattir."),
+            hap("Gücü $2$ kilovat olan bir ısıtıcı $3$ saat çalışırsa harcanan enerji $2 \\cdot 3=6$ kilovatsaat olur.", "Bu değer, güç zaman grafiğinin altındaki alanı, yani gücün zamana göre integralini gösterir.", gunluk=True),
         ]},
         {"baslik": "Sınavda belirli integral", "icerik": [
             sinavda(

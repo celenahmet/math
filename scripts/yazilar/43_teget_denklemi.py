@@ -32,6 +32,7 @@ YAZI = {
             "Bir noktası $(x_0, y_0)$ ve eğimi $m$ olan doğrunun denklemi nokta eğim formülüyle yazılır:",
             "$$y-y_0=m(x-x_0)$$",
             "Teğet için $y_0=f(x_0)$ ve $m=f'(x_0)$ alınır. Böylece teğet denklemi $y-f(x_0)=f'(x_0)(x-x_0)$ olur. Denklem istenirse $y=mx+n$ biçimine getirilir; bu biçimde $n$ teğetin dikey ekseni kestiği noktayı gösterir.",
+            hap("Teğet denklemi $y-f(x_0)=f'(x_0)(x-x_0)$ olur."),
         ]},
         {"baslik": "Teğet yazmanın adımları", "icerik": [
             "Teğet denklemi her zaman aynı dört adımda yazılır. Adımların sırası her eğri için aynıdır ve her birinde tek bir hesap yapılır:",
@@ -100,6 +101,7 @@ YAZI = {
                 "Teğetin eğimi $2$ olduğundan normalin eğimi $-\\dfrac{1}{2}$ dir.",
                 "$y-1=-\\dfrac{1}{2}(x-1)$, yani $y=-\\dfrac{1}{2}x+\\dfrac{3}{2}$ bulunur."),
             "Teğet yataysa normal dikey olur ve denklemi $x=x_0$ dır. Bu durumda eğim formülü kullanılamaz; dikey doğrunun eğimi tanımsızdır.",
+            hap("Normal doğru dokunma noktasında teğete diktir ve eğimi $-\\dfrac{1}{m}$ olur."),
         ]},
         {"baslik": "Yatay teğetler", "icerik": [
             "Türevin sıfır olduğu noktalarda teğet yataydır ve denklemi $y=y_0$ biçimindedir; eğim sıfır olduğu için nokta eğim formülünde $x$ li terim kaybolur. Bu noktalar grafiğin tepe ve çukur noktalarının adaylarıdır.",
@@ -116,6 +118,7 @@ YAZI = {
                 "Teğet denklemini bulalım.",
                 "Eğim $4$ olmalı: $2x=4$, yani $x_0=2$ ve $y_0=4$ olur.",
                 "$y-4=4(x-2)$, yani $y=4x-4$ bulunur."),
+            hap("Bir doğruya paralel teğet için türev, o doğrunun eğimine eşitlenir."),
         ]},
         {"baslik": "Bir doğruya dik teğet", "icerik": [
             "Teğetin bir doğruya dik olması isteniyorsa önce o doğrunun eğiminin negatif tersi alınır; bu değer teğetin eğimidir. Sonra türev bu eğime eşitlenir.",
@@ -209,6 +212,7 @@ YAZI = {
                 "$x=1$ ve $x=\\sqrt{3}$ noktalarındaki teğetlerin yatay eksenle yaptığı açıları bulalım.",
                 "$y'=x$ olduğundan eğimler $1$ ve $\\sqrt{3}$ tür.",
                 "$\\tan \\theta=1$ için açı $45^\\circ$, $\\tan \\theta=\\sqrt{3}$ için $60^\\circ$ olur."),
+            hap("Kesiti $y=\\dfrac{x^2}{4}$ olan bir kaykay rampasında $x=2$ metre noktasındaki eğim $1$ olur.", "Eğim açının tanjantı olduğu için kaykaycı o noktada yatayla $45^\\circ$ açı yapar.", gunluk=True),
         ]},
         {"baslik": "Teğetle yaklaşık hesap", "icerik": [
             "Teğet doğrusu dokunma noktasının yakınında eğriye çok yakın olduğu için hesaplaması zor değerler teğetle yaklaşık bulunabilir; hesap makinesi olmadan kök ve üs değerleri böyle tahmin edilir. Buna doğrusal yaklaşım denir.",
