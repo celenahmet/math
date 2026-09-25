@@ -2126,6 +2126,104 @@ def yazi_24_26():
        (Interval(2, 18), FiniteSet(10, 20), 14, 14, 30))
 
 
+def yazi_27_29():
+    """27 Logaritma, 28 Logaritma Kurallari, 29 Logaritmik Denklemler."""
+    from sympy import log as L, E, exp, floor
+    es = esit_ogeler
+    Q = Rational
+    X, Y, t_, n_ = sp.symbols("X Y t_ n_", real=True)
+    lg = lambda v, b=10: L(v, b)                       # sympy: log(v, b)
+    yak = lambda deger, yaklasik, tol: abs(float(deger) - yaklasik) < tol
+    pozitif = Interval.open(0, oo)
+    def coz(e, alan=R):
+        return sp.solveset(e, X, alan)
+    def koklu(denklem, kosullar):
+        """Cebirsel denklemi coz, tanim kosullarini (hepsi > 0 ya da True) saglayanlari tut."""
+        kokler = sp.solveset(denklem, X, R)
+        return FiniteSet(*[k for k in kokler if all(bool(c.subs(X, k)) for c in kosullar)])
+    # ── 27 ──
+    es("27 giris", (2**3, lg(8, 2)), (8, 3))
+    es("27 tablo", (lg(32, 2), lg(81, 3), lg(Q(1, 25), 5), lg(3, 9), lg(8, Q(1, 2)), S(5)**-2, 9**Q(1, 2), Q(1, 2)**-3), (5, 4, -2, Q(1, 2), -3, Q(1, 25), 3, 8))
+    es("27 log4 8", (lg(8, 4), sp.solve(2 * X - 3, X)), (Q(3, 2), [Q(3, 2)]))
+    es("27 koklu", (lg(sqrt(8), 2), lg(1 / sqrt(3), 3), lg(4, sqrt(2))), (Q(3, 2), -Q(1, 2), 4))
+    es("27 temel", (lg(1, 7), lg(7, 7), lg(3**10, 3), 5**lg(7, 5)), (0, 1, 10, 7))
+    es("27 isaret", (float(lg(Q(1, 3), 2)) < 0, lg(Q(1, 9), Q(1, 3)), float(lg(5, Q(1, 2))) < 0), (True, 2, True))
+    es("27 logaritmali us", (2**(lg(3, 2) + 1), 10**(2 + lg(5)), 9**lg(5, 3)), (6, 500, 25))
+    es("27 onluk dogal", (lg(1000), L(1), L(E), exp(L(5)), yak(E, 2.718, 0.0005)), (3, 0, 1, 5, True))
+    es("27 arada", (1 < float(lg(7, 3)) < 2, 4 < float(lg(20, 2)) < 5, 3**1, 3**2, 2**4, 2**5), (True, True, 3, 9, 16, 32))
+    es("27 ic ice", (lg(lg(81, 3), 2), 3**(2**1)), (2, 9))
+    es("27 bilinmeyen taban", (koklu(X**2 - 49, [X > 0, sp.Ne(X, 1)]), 8**Q(2, 3), 4**Q(3, 2)), (FiniteSet(7), 4, 8))
+    ftan = sp.And(X - 1 > 0, sp.Ne(X - 1, 1), 5 - X > 0)
+    kume = sp.solveset(X - 1 > 0, X, R).intersect(sp.solveset(5 - X > 0, X, R)) - FiniteSet(2)
+    es("27 tanim f", (kume, [k for k in range(-10, 11) if bool(ftan.subs(X, k))]), (Union(Interval.open(1, 2), Interval.open(2, 5)), [3, 4]))
+    es("27 tanim g", sp.solveset(X**2 - 4 > 0, X, R), Union(Interval.open(-oo, -2), Interval.open(2, oo)))
+    es("27 grafik noktalari", (2**0, lg(1, 2), 2**1, lg(2, 2), lg(1024, 2)), (1, 0, 2, 1, 10))
+    es("27 kucuk taban", (sp.simplify(lg(X, Q(1, 2)) + lg(X, 2)), lg(4, 2), lg(4, Q(1, 2))), (0, 2, -2))
+    a1, b1, c1 = lg(10, 2), lg(10, 3), lg(10, 5)
+    es("27 karsilastirma", (3 < float(a1) < 4, 2 < float(b1) < 3, 1 < float(c1) < 2, float(c1) < float(b1) < float(a1)), (True, True, True, True))
+    es("27 esitsizlik", (sp.solveset(sp.log(X, 2) > 3, X, pozitif), sp.solveset(sp.log(X, Q(1, 2)) > 3, X, pozitif)), (Interval.open(8, oo), Interval.open(0, Q(1, 8))))
+    f = lg(X - 1, 3) + 2
+    finv = 3**(X - 2) + 1
+    es("27 ters", (sp.simplify(f.subs(X, finv) - X), f.subs(X, 4), finv.subs(X, 3)), (0, 3, 4))
+    es("27 basamak", (len(str(2**100)), yak(100 * lg(2), 30.103, 0.0005), floor(100 * lg(2)) + 1), (31, True, 31))
+    es("27 pH", (-lg(Q(1, 1000)), -lg(Q(1, 100))), (3, 2))
+    es("27 buyume", (lg(1024, 2), 2**10), (10, 1024))
+    # ── 28 ──
+    es("28 carpim bolum", (lg(4, 6) + lg(9, 6), lg(54, 3) - lg(2, 3), sp.simplify(sp.expand_log(lg(1 / sp.Symbol("yp", positive=True), 5) + lg(sp.Symbol("yp", positive=True), 5)))), (2, 3, 0))
+    es("28 kuvvet", (lg(8**5, 2), lg(sqrt(125), 5), lg(16**Q(1, 3), 2)), (15, Q(3, 2), Q(4, 3)))
+    es("28 kuvvet kosul", (lg((-3)**2, 3), 2 * lg(Abs(-3), 3)), (2, 2))
+    es("28 tabanin kuvveti", (lg(32, 8), lg(8, sqrt(2))), (Q(5, 3), 6))
+    es("28 taban degistirme", (lg(32, 4), lg(27, 9)), (Q(5, 2), Q(3, 2)))
+    es("28 hesap makinesi", (yak(lg(7), 0.8451, 0.00005), yak(lg(2), 0.3010, 0.00005), yak(Q(8451, 10000) / Q(3010, 10000), 2.81, 0.005), yak(lg(7, 2), 2.81, 0.005), 2 < float(lg(7, 2)) < 3), (True,) * 5)
+    es("28 karsilastirma", (lg(9, 4), float(lg(3, 2)) > 1.5, sqrt(8) < 3), (lg(3, 2), True, True))
+    es("28 ters cevirme", (lg(3, 2) * lg(2, 3), 1 / lg(6, 2) + 1 / lg(6, 3)), (1, 1))
+    zincir = 1
+    for k in range(2, 8):
+        zincir *= lg(k + 1, k)
+    es("28 zincir", (zincir, lg(5, 2) * lg(9, 5) * lg(2, 9)), (3, 1))
+    es("28 ters toplam", 1 / lg(30, 2) + 1 / lg(30, 3) + 1 / lg(30, 5), 1)
+    es("28 logaritmali us", (5**lg(7, 5), 2**(3 + lg(5, 2)), 3**lg(5, 2) - 5**lg(3, 2)), (7, 40, 0))
+    es("28 verilen", (2 * 2 + 3, Q(1, 2) * 2 - 3, 3 * 2 - 2 * 3), (7, -2, 0))
+    l2, l3 = Q(301, 1000), Q(477, 1000)
+    es("28 yaklasik", (l2 + l3, 1 - l2, 2 * l2 + l3, l3 - l2), (Q(778, 1000), Q(699, 1000), Q(1079, 1000), Q(176, 1000)))
+    es("28 yaklasik gercek", [yak(lg(v), w, 0.0006) for v, w in ((6, 0.778), (5, 0.699), (12, 1.079), (Q(3, 2), 0.176))], [True] * 4)
+    es("28 log5 25 50", (lg(25) - (2 - 2 * lg(2)), lg(50) - (2 - lg(2))), (0, 0))
+    A_, B_ = lg(2), lg(3)
+    es("28 harfle", (lg(18) - (A_ + 2 * B_), lg(15) - (B_ + 1 - A_), lg(12, 6) - (2 * A_ + B_) / (A_ + B_)), (0, 0, 0))
+    a_ = lg(3, 2)
+    es("28 harfle taban", lg(18, 12) - (1 + 2 * a_) / (2 + a_), 0)
+    es("28 dogal", (L(E**3), exp(L(5)), L(8) - 3 * L(2)), (3, 5, 0))
+    es("28 sadelestirme", (lg(12, 2) - lg(3, 2) + 2 * lg(Q(1, 2), 2), (lg(8) + lg(27)) / lg(6), 6**3), (0, 3, 216))
+    es("28 ortak taban", (lg(5, 2) + lg(25, 4) + lg(125, 8) - lg(125, 2), lg(25, 4) - lg(5, 2)), (0, 0))
+    es("28 katsayili", (2 * lg(5) + lg(4), 3 * lg(6, 2) - lg(27, 2)), (2, 3))
+    es("28 basamak", (len(str(3**20)), yak(20 * Q(477, 1000), 9.54, 0.001)), (10, True))
+    es("28 denklem", koklu(X * (X - 2) - 8, [X > 2]), FiniteSet(4))
+    # ── 29 ──
+    es("29 tanima donus", (koklu(2 * X + 1 - 9, [2 * X + 1 > 0]), koklu(X**2 - 15 - 10, [X**2 - 15 > 0])), (FiniteSet(4), FiniteSet(-5, 5)))
+    es("29 esit logaritma", (koklu((X + 3) - (2 * X - 1), [X + 3 > 0, 2 * X - 1 > 0]), koklu((X**2 - 3 * X) - (X - 3), [X**2 - 3 * X > 0, X - 3 > 0])), (FiniteSet(4), S.EmptySet))
+    es("29 kare", (koklu((X - 1)**2 - 9, [sp.Ne(X, 1)]), koklu(X - 1 - 3, [X > 1])), (FiniteSet(-2, 4), FiniteSet(4)))
+    es("29 ic ice", (4**3, lg(lg(lg(64, 4), 3), 2)), (64, 0))
+    es("29 birlestirme", (koklu(X * (X - 2) - 8, [X > 2]), koklu((X + 1) - 3 * (X - 1), [X > 1])), (FiniteSet(4), FiniteSet(2)))
+    es("29 katsayili", (koklu(X**2 - (X + 6), [X > 0]), (-2)**2, -2 + 6), (FiniteSet(3), 4, 4))
+    es("29 farkli taban", koklu(X**2 - (X + 2), [X > 0]), FiniteSet(2))
+    es("29 degisken", (sp.solveset(t_**2 - 3 * t_ + 2, t_, R), [2**v for v in (1, 2)], sp.solveset(2 * t_**2 - 5 * t_ + 2, t_, R), (3**2, 3**Q(1, 2)),
+                       lg(9, 3) + lg(3, 9), lg(sqrt(3), 3) + lg(3, sqrt(3))), (FiniteSet(1, 2), [2, 4], FiniteSet(Q(1, 2), 2), (9, sqrt(3)), Q(5, 2), Q(5, 2)))
+    es("29 kokler toplami", (sp.solveset(t_**2 - 5 * t_ + 6, t_, R), 4 + 8, 4 * 8, 2**(2 + 3)), (FiniteSet(2, 3), 12, 32, 32))
+    es("29 tabanda", (koklu(X**2 - 16, [X > 0, sp.Ne(X, 1)]), koklu((X - 1)**2 - 9, [X - 1 > 0, sp.Ne(X - 1, 1)])), (FiniteSet(4), FiniteSet(4)))
+    es("29 taban ve sayi", koklu(X**2 - (2 * X + 3), [X > 0, sp.Ne(X, 1), 2 * X + 3 > 0]), FiniteSet(3))
+    es("29 x uzeri logx", (sp.solveset(t_**2 - t_ - 2, t_, R), [(v**lg(v)) / (100 * v) for v in (100, Q(1, 10))]), (FiniteSet(-1, 2), [1, 1]))
+    xs = L(3) / (L(3) - L(2))
+    es("29 ustel", (5**lg(3, 5), 2**xs - 3**(xs - 1), yak(xs, 2.71, 0.005)), (3, 0, True))
+    es("29 sistem", (sp.solve([sp.Symbol("u") + sp.Symbol("v") - 3, sp.Symbol("u") - sp.Symbol("v") - 1]), lg(100) + lg(10), lg(100) - lg(10)), ({sp.Symbol("u"): 2, sp.Symbol("v"): 1}, 3, 1))
+    es("29 sabit carpan", (2**(lg(Q(5, 2), 2) + 1), lg(5, 2) - 1 - lg(Q(5, 2), 2), 1 < float(lg(Q(5, 2), 2)) < 2), (5, 0, True))
+    es("29 ayni taban", (sp.solve(2 * X - 3, X), sp.solveset(9**X - 4 * 3**X + 3, X, R)), ([Q(3, 2)], FiniteSet(0, 1)))
+    es("29 grafik", (lg(2, 2), 3 - 2, sp.nsolve(sp.log(X, 2) - (3 - X), X, 1.5)), (1, 1, 2))
+    es("29 esitsizlik", (sp.solveset(sp.log(X - 1, 2) < 3, X, Interval.open(1, oo)), sp.solveset(sp.log(X, Q(1, 3)) > 2, X, pozitif)), (Interval.open(1, 9), Interval.open(0, Q(1, 9))))
+    es("29 kurali esitsizlik", (sp.factor(X**2 - 3 * X - 10), sp.solveset(X**2 - 3 * X - 10 <= 0, X, R).intersect(Interval.open(3, oo))), ((X - 5) * (X + 2), Interval.Lopen(3, 5)))
+    es("29 faiz", (yak(lg(2) / lg(Q(11, 10)), 7.27, 0.005), Q(11, 10)**7 < 2, Q(11, 10)**8 > 2), (True, True, True))
+    es("29 nufus", (sp.solveset(100 * 2**(t_ / 3) - 1600, t_, R), sp.solveset(80 * Q(1, 2)**(t_ / 5) - 10, t_, R)), (FiniteSet(12), FiniteSet(15)))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -2148,7 +2246,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")
