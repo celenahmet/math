@@ -66,6 +66,7 @@ YAZI = {
             dikkat(
                 "Çapraz çarpım paydaların pozitif olmasını gerektirir.",
                 "Paydalardan biri negatifse eşitsizliğin yönü değişebilir. Bu yüzden önce eksi işaretini kesrin önüne ya da paya taşı, paydaları pozitif yap."),
+            hap("$b$ ve $d$ pozitifken $\\dfrac{a}{b}<\\dfrac{c}{d}$ olması için $ad<bc$ olmalıdır."),
         ]},
         {"baslik": "Referans kesirle karşılaştırma", "icerik": [
             "Bazen iki kesri doğrudan karşılaştırmak yerine ikisini de tanıdık bir sayıyla, örneğin $\\dfrac{1}{2}$ ya da $1$ ile karşılaştırmak yeter. Biri referansın altında, diğeri üstündeyse sıralama hesapsız ortaya çıkar. Bu, seçenekli sorularda zaman kazandıran bir ilk kontroldür.",
@@ -103,6 +104,7 @@ YAZI = {
                 "Her kesir bir öncekinin payına ve paydasına $10$ eklenerek elde edilmiş.",
                 "Kesirler $1$ den küçük olduğu için her adımda büyür.",
                 "Sıralama: $\\dfrac{3}{5}<\\dfrac{13}{15}<\\dfrac{23}{25}$. Kontrol: $0.6$, yaklaşık $0.867$ ve $0.92$."),
+            hap("Pozitif bir kesrin payına ve paydasına aynı pozitif sayı eklenirse kesir $1$ e yaklaşır."),
         ]},
         {"baslik": "Ondalığa çevirme", "icerik": [
             "Kesirleri ondalık sayıya çevirmek her zaman işe yarayan ama bazen uzun süren bir yoldur. Paydalar $2$, $4$, $5$, $8$, $10$ gibi kolay sayılarsa ya da kesirler ondalık sayılarla birlikte sıralanacaksa en pratik yol budur.",
@@ -160,6 +162,7 @@ YAZI = {
                 "Ortak paydayla karşılaştıralım: $\\dfrac{16}{81}$, $\\dfrac{36}{81}$, $\\dfrac{54}{81}$.",
                 "Sıralama: $x^2<x<\\sqrt{x}$, yani $\\dfrac{16}{81}<\\dfrac{4}{9}<\\dfrac{2}{3}$."),
             "Kesir $1$ den büyükse sıra tersine döner: karesi büyür, karekökü küçülür. $\\dfrac{9}{4}$ için kare $\\dfrac{81}{16}$, karekök $\\dfrac{3}{2}$ tür ve $\\dfrac{3}{2}<\\dfrac{9}{4}<\\dfrac{81}{16}$ olur.",
+            hap("$0$ ile $1$ arasındaki bir kesrin karesi kendisinden küçük, karekökü kendisinden büyüktür."),
         ]},
         {"baslik": "Beş kesri birden sıralamak", "icerik": [
             "Kesir sayısı arttıkça tek bir yöntemde ısrar etmek yerine yöntemleri birleştirmek işi kısaltır. Önce referans bir sayıyla kesirleri gruplara ayır, sonra her grubun içinde çapraz çarpım ya da ondalık değer kullan.",
@@ -188,6 +191,7 @@ YAZI = {
                 "Çapraz çarpım: $18 \\cdot 30=540$ ve $25 \\cdot 21=525$.",
                 "$540>525$ olduğu için A sınıfının oranı daha yüksektir: yüzde $72$ ile yüzde $70$."),
             "Son örnekte başarılı öğrenci sayısı B sınıfında daha fazladır ($21>18$), ama oran A sınıfında daha yüksektir. Karşılaştırmada sayılar değil oranlar, yani kesirler esas alınır. Farklı büyüklükteki grupları karşılaştırırken bu ayrım, yanlış sonuca varmayı önler.",
+            hap("$20$ soruda $17$ doğru yapan öğrenci, $25$ soruda $21$ doğru yapan öğrenciden daha başarılıdır.", "Başarı oranları $\\dfrac{17}{20}=0.85$ ve $\\dfrac{21}{25}=0.84$ olur.", gunluk=True),
         ]},
         {"baslik": "Harfli kesirleri karşılaştırmak", "icerik": [
             "Kesirlerin payında ya da paydasında harf olduğunda da aynı kurallar işler; yalnızca harfin pozitif olup olmadığına dikkat etmek gerekir.",

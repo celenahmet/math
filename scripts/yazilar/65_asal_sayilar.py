@@ -65,6 +65,7 @@ YAZI = {
                 "$14^2=196$ ve $15^2=225$ olduğu için iki sayının da karekökü $14$ ile $15$ arasındadır. Denenecek asallar: $2, 3, 5, 7, 11, 13$.",
                 "$221$: $13$ e bölünür, $221=13 \\cdot 17$. Asal değildir.",
                 "$211$: $2, 3, 5, 7, 11, 13$ ün hiçbirine bölünmez. Asaldır."),
+            hap("Bir sayının asal olduğunu anlamak için kareköküne kadar olan asallara bölmek yeter."),
         ]},
         {"baslik": "Eratosthenes kalburu", "icerik": [
             "Belirli bir sayıya kadar olan bütün asalları bulmanın eski ve düzenli bir yolu, Eratosthenes kalburudur. $50$ ye kadar olan asallar için:",
@@ -173,6 +174,7 @@ YAZI = {
         {"baslik": "Günlük hayatta asal sayılar", "icerik": [
             "Asal sayılar yalnızca ders konusu değildir. İnternette kullanılan bazı şifreleme yöntemleri, iki büyük asal sayıyı çarpmanın kolay, ama çarpımı yeniden asal çarpanlarına ayırmanın çok zor olmasına dayanır. Küçük sayılarda asal çarpanlara ayırma saniyeler sürer; yüzlerce basamaklı sayılarda ise bilinen yöntemlerle çok uzun zaman alır.",
             "Bu fark, çarpmanın ve çarpanlara ayırmanın aynı zorlukta olmadığını gösterir: $13 \\cdot 17=221$ işlemi bir adımda yapılır, ama $221$ in çarpanlarını bulmak için kök kuralıyla asalları tek tek denemek gerekir.",
+            hap("İki büyük asalı çarpmak kolay, çarpımı geri ayırmak zordur: $101 \\cdot 103=10403$ çarpımı hemen yapılır.", "Ama yalnız $10403$ verilseydi çarpanlarını bulmak uzun denemeler gerektirirdi; internetteki bazı şifreleme yöntemleri bu farka dayanır.", gunluk=True),
         ]},
         {"baslik": "Sınavda asal sayılar", "icerik": [
             sinavda(

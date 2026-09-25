@@ -56,6 +56,7 @@ YAZI = {
                 "Bu noktaları bulalım.",
                 "$5$ ten sağa $3$ birim: $8$. $5$ ten sola $3$ birim: $2$.",
                 "İki nokta vardır: $2$ ve $8$. Bu soru, $|x-5|=3$ denkleminin sayı doğrusundaki karşılığıdır."),
+            hap("Sayı doğrusunda $a$ ile $b$ arasındaki uzaklık $|a-b|$, orta nokta $\\dfrac{a+b}{2}$ olur."),
         ]},
         {"baslik": "Aralıklar ve aralıktaki tam sayılar", "icerik": [
             "Sayı doğrusunda iki sayı arasındaki bölgeye <strong>aralık</strong> denir. Uç noktanın aralığa dahil olup olmadığı iki şekilde gösterilir: sayı doğrusunda dolu nokta dahil, boş nokta hariç demektir; yazıda ise köşeli parantez dahil, normal parantez hariç demektir.",
@@ -97,6 +98,7 @@ YAZI = {
             dikkat(
                 "Basamak sayısı fazla olan ondalık sayı daha büyük değildir.",
                 "$0.305$ in üç ondalık basamağı var, $0.35$ in iki; ama $0.35$ daha büyüktür. Karşılaştırma basamak sayısına göre değil, soldan başlayarak basamak değerlerine göre yapılır."),
+            hap("Termometrede $-9$ derece, $-2$ dereceden daha soğuktur.", "İki negatif sayıdan mutlak değeri büyük olan daha küçüktür; sayı doğrusunda daha soldadır.", gunluk=True),
         ]},
         {"baslik": "Kesirleri sıralama", "icerik": [
             "Kesirleri sıralamanın tek bir yolu yoktur; sayılara bakıp en kısa yolu seçmek gerekir. Aşağıdaki yöntemler pozitif kesirler içindir:",

@@ -92,6 +92,7 @@ YAZI = {
             dikkat(
                 "$\\sqrt{2}+\\sqrt{3}=\\sqrt{5}$ yazmak yanlıştır.",
                 "$\\sqrt{2}$ yaklaşık $1.41$, $\\sqrt{3}$ yaklaşık $1.73$; toplamları yaklaşık $3.15$ tir. $\\sqrt{5}$ ise yaklaşık $2.24$ tür. Kök içleri toplamada birleştirilmez."),
+            hap("Köklü sayılar yalnız kök içleri ve dereceleri aynıysa toplanır: $2\\sqrt{3}+3\\sqrt{3}=5\\sqrt{3}$.", "$\\sqrt{2}+\\sqrt{3}$ toplamı $\\sqrt{5}$ değildir."),
         ]},
         {"baslik": "Köklü sayılarda çarpma ve bölme", "icerik": [
             "Aynı dereceli kökler çarpılırken ve bölünürken kök içleri birleştirilir. $a \\geq 0$ ve $b \\geq 0$ için:",
@@ -209,6 +210,7 @@ YAZI = {
                 "Köşegen, dik kenarları $1$ olan dik üçgenin hipotenüsüdür: $\\sqrt{1^2+1^2}=\\sqrt{2}$ birim.",
                 "İkinci karenin kenarı: $\\sqrt{50}=\\sqrt{25 \\cdot 2}=5\\sqrt{2}$ birim."),
             "Buradan bir sonuç daha çıkar: kenarı $a$ olan bir karenin köşegeni her zaman $a\\sqrt{2}$ dir. Kenarı $5$ olan karenin köşegeni $5\\sqrt{2}$, yani alanı $50$ olan karenin kenarıyla aynıdır.",
+            hap("Televizyon ekranının boyutu köşegeniyle söylenir ve köşegen Pisagor bağıntısıyla bulunur.", "Eni $80$, boyu $60$ santimetre olan ekranın köşegeni $\\sqrt{80^2+60^2}=100$ santimetredir.", gunluk=True),
         ]},
         {"baslik": "Sınavda köklü sayılar", "icerik": [
             sinavda(

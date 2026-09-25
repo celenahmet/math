@@ -103,6 +103,7 @@ YAZI = {
             dikkat(
                 "Bölme, çarpma gibi yer değiştirmeye izin vermez.",
                 "$a \\cdot b=b \\cdot a$ dır ama sıfırdan farklı $a$ ve $b$ için $a:b$ ile $b:a$ yalnızca $a=b$ ya da $a=-b$ iken eşittir. Bu yüzden bölme içeren bir ifadede soldan sağa sırası bozulamaz."),
+            hap("Çarpma ve bölme aynı önceliktedir ve soldan sağa yapılır: $24:4 \\cdot 2=12$ olur."),
         ]},
         {"baslik": "Toplama ve çıkarma: soldan sağa", "icerik": [
             "Toplama ve çıkarma da aynı önceliktedir ve soldan sağa yapılır. Çıkarmayı, zıt sayıyı eklemek olarak düşünmek hatayı önler: $10-4+3=10+(-4)+3=9$.",
@@ -238,6 +239,7 @@ YAZI = {
             dikkat(
                 "Burada parantezi unutmak sonucu değiştirir.",
                 "$100-3 \\cdot 12+2 \\cdot 5$ yazılırsa kalemlerin tutarı çıkarılmak yerine eklenir: $100-36+10=74$ bulunur. Bu yanlış bir sonuçtur."),
+            hap("Market fişinde tanesi $15$ lira olan $3$ süt ve tanesi $20$ lira olan $2$ paket makarna varsa tutar $3 \\cdot 15+2 \\cdot 20=85$ lira olur.", "Önce çarpmalar, sonra toplama yapılır.", gunluk=True),
         ]},
         {"baslik": "Kendini dene", "icerik": [
             "Aşağıdaki iki ifadeyi önce kendin çöz, sonra çözümle karşılaştır.",

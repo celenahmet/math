@@ -70,6 +70,7 @@ YAZI = {
                 "Son iki basamak $2a$ nın $4$ ün katı olması gerekir.",
                 "$20$ ile $29$ arasında $4$ ün katları $20$, $24$ ve $28$ dir.",
                 "$a$ nın değerleri $0$, $4$ ve $8$."),
+            hap("$4$ ile bölünebilmede son iki basamağa, $8$ ile bölünebilmede son üç basamağa bakılır."),
         ]},
         {"baslik": "25 ve 125 ile bölünebilme", "icerik": [
             "Aynı basamak fikri $25$ ve $125$ için de işler. $100=4 \\cdot 25$ olduğu için $25$ ile bölünebilmede son iki basamağa bakılır: son iki basamak $00$, $25$, $50$ ya da $75$ ise sayı $25$ e tam bölünür. $1000=8 \\cdot 125$ olduğu için $125$ ile bölünebilmede son üç basamağa bakılır.",
@@ -94,6 +95,7 @@ YAZI = {
             dikkat(
                 "$3$ e bölünen her sayı $9$ a bölünmez.",
                 "$12$ nin rakamları toplamı $3$ tür: $12$, $3$ e bölünür ama $9$ a bölünmez. Tersi ise her zaman doğrudur: $9$ a bölünen sayı $3$ e de bölünür."),
+            hap("Bir sayının $3$ e ya da $9$ a bölümünden kalan, rakamları toplamının kalanına eşittir."),
         ]},
         {"baslik": "11 ile bölünebilme", "icerik": [
             "$11$ ile bölünebilmede rakamlar <strong>sağdan başlayarak</strong> sırayla $+$, $-$, $+$, $-$ işaretleriyle toplanır. Bu toplam $11$ in katıysa (sıfır da dahil) sayı $11$ e tam bölünür. Toplamın $11$ e bölümünden kalan, sayının kalanına eşittir; toplam negatif çıkarsa $11$ eklenerek kalan bulunur.",
@@ -156,6 +158,7 @@ YAZI = {
                 "$b=0$ için rakamlar toplamı $7+a$; $9$ un katı olması için $a=2$.",
                 "$b=5$ için rakamlar toplamı $12+a$; $9$ un katı olması için $a=6$.",
                 "$a+b$ nin değerleri: $2+0=2$ ve $6+5=11$."),
+            hap("$126$ öğrenci altışarlı gruplara eksiksiz ayrılabilir.", "$126$ çifttir ve rakamları toplamı $9$ olduğu için $3$ e de bölünür; $2$ ve $3$ e bölünen sayı $6$ ya bölünür ve $21$ grup oluşur.", gunluk=True),
         ]},
         {"baslik": "Kalan soruları", "icerik": [
             "Kalanlar toplama ve çarpmada birlikte hareket eder: bir sayı yerine onun kalanı kullanılabilir. Bu özellik, sayının kendisini bilmeden bir ifadenin kalanını bulmayı sağlar.",

@@ -70,6 +70,7 @@ YAZI = {
             dikkat(
                 "Taban da üs de farklıysa bu kurallar doğrudan uygulanmaz.",
                 "$2^3 \\cdot 3^2$ için ne üsler toplanır ne tabanlar çarpılır; değer ayrı ayrı hesaplanır: $8 \\cdot 9=72$."),
+            hap("Tabanlar aynıysa çarpmada üsler toplanır: $a^m \\cdot a^n=a^{m+n}$.", "Toplamada böyle bir kural yoktur: $2^3+2^4$ toplamı $2^7$ değildir."),
         ]},
         {"baslik": "Bölme kuralları", "icerik": [
             "Tabanlar aynıysa bölmede payın üssünden paydanın üssü çıkarılır; üsler aynıysa tabanlar bölünür. İkisi de $a \\neq 0$ ve $b \\neq 0$ koşuluyla geçerlidir:",
@@ -195,6 +196,7 @@ YAZI = {
                 "$15$, $1$ ile $10$ arasında olmadığı için $15=1.5 \\cdot 10$ yazalım.",
                 "Sonuç: $1.5 \\cdot 10^{-2}$."),
             "Virgül sola kaydırıldıkça üs artar, sağa kaydırıldıkça azalır. Sayı $1$ den küçükse üs negatif olur.",
+            hap("Işığın bir saniyede aldığı yol yaklaşık $300000000$ metre, yani $3 \\cdot 10^8$ metredir.", "Bilimsel gösterim, sıfırları saymadan büyüklüğü tek bakışta gösterir.", gunluk=True),
         ]},
         {"baslik": "Üslü sayıları sıralama", "icerik": [
             "Tabanlar eşit ve $1$ den büyükse üssü büyük olan sayı büyüktür: $2^5<2^7$. Taban $0$ ile $1$ arasındaysa durum tersine döner; kuvvet arttıkça sayı küçülür: $\\left(\\dfrac{1}{2}\\right)^3=\\dfrac{1}{8}$ ve $\\left(\\dfrac{1}{2}\\right)^2=\\dfrac{1}{4}$ olduğu için $\\left(\\dfrac{1}{2}\\right)^3<\\left(\\dfrac{1}{2}\\right)^2$ dir.",

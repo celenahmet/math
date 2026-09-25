@@ -51,6 +51,7 @@ YAZI = {
             dikkat(
                 "EBOB'a yalnızca bir sayıda bulunan asal girmez.",
                 "Yukarıdaki örnekte $5$ yalnızca ikinci sayıda, $7$ yalnızca birinci sayıda var. İkisi de EBOB'a girmez ama ikisi de EKOK'a girer."),
+            hap("EBOB için yalnız ortak asallar küçük üsleriyle alınır.", "EKOK için bütün asallar büyük üsleriyle alınır."),
         ]},
         {"baslik": "Bölme yöntemi: ortak bölme tablosu", "icerik": [
             "Sayılar yan yana yazılır ve en küçük asaldan başlayarak bölünür. Bir asal, sayılardan en az birini bölüyorsa kullanılır; bölünemeyen sayı aynen aşağı indirilir. Bütün sayılar $1$ olunca durulur.",
@@ -98,6 +99,7 @@ YAZI = {
             "<ul><li>EBOB, EKOK'u her zaman tam böler.</li>"
             "<li>$a$, $b$ yi tam bölüyorsa EBOB $a$, EKOK $b$ dir. Örneğin $\\text{EBOB}(6, 24)=6$ ve $\\text{EKOK}(6, 24)=24$.</li>"
             "<li>EBOB'u $1$ olan sayılara <strong>aralarında asal</strong> denir; bu durumda EKOK sayıların çarpımıdır: $\\text{EKOK}(8, 15)=120$.</li></ul>",
+            hap("İki pozitif sayı için $\\text{EBOB}(a, b) \\cdot \\text{EKOK}(a, b)=a \\cdot b$ olur.", "Bu eşitlik yalnız iki sayı için geçerlidir."),
         ]},
         {"baslik": "EBOB'u verilen sayılar", "icerik": [
             "EBOB'u $d$ olan iki sayı $d \\cdot x$ ve $d \\cdot y$ biçiminde yazılır ve $x$ ile $y$ aralarında asal olmak zorundadır. Ortak bir çarpanları olsaydı EBOB $d$ den büyük çıkardı.",
@@ -134,6 +136,7 @@ YAZI = {
             dikkat(
                 "Açık ve kapalı yolda ağaç sayısı farklıdır.",
                 "Kapalı bir çevrede ağaç sayısı aralık sayısına eşittir. Düz ve açık bir yolun iki ucuna da ağaç dikilirse ağaç sayısı aralık sayısından $1$ fazladır."),
+            hap("Bayramda $48$ çikolata ve $36$ lokum hiç artmadan en çok $12$ çocuğa eşit paylaştırılır, çünkü $\\text{EBOB}(48, 36)=12$ olur.", "Her çocuk $4$ çikolata ve $3$ lokum alır.", gunluk=True),
         ]},
         {"baslik": "EKOK problemleri: buluşma ve birleştirme", "icerik": [
             "Farklı aralıklarla tekrar eden olayların <strong>ilk kez birlikte</strong> gerçekleşmesi, küçük parçalardan <strong>en küçük</strong> bütünü oluşturma ve verilen sayıların hepsine bölünen <strong>en küçük</strong> sayıyı bulma soruları EKOK ile çözülür.",

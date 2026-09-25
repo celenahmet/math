@@ -50,6 +50,7 @@ YAZI = {
             dikkat(
                 "Çapraz sadeleştirme yalnızca çarpmada yapılır.",
                 "$\\dfrac{2}{3}+\\dfrac{3}{4}$ toplamında $3$ ler sadeleştirilemez. Toplamada kesirler önce ortak paydaya getirilir."),
+            hap("Çarpmadan önce bir payla herhangi bir payda arasındaki ortak çarpan sadeleştirilir.", "Bu çapraz sadeleştirme yalnız çarpmada yapılır, toplamada yapılmaz."),
         ]},
         {"baslik": "Tam sayılı kesirlerde çarpma", "icerik": [
             "Tam sayılı kesirler çarpılmadan önce <strong>bileşik kesre</strong> çevrilir. Tam kısımları ve kesir kısımlarını ayrı ayrı çarpmak yanlış sonuç verir.",
@@ -70,6 +71,7 @@ YAZI = {
             "<li>$1$ ile çarpılırsa değişmez.</li></ul>",
             "Negatif kesirlerde tam sayılardaki işaret kuralları aynen geçerlidir: farklı işaretli iki kesrin çarpımı negatif, aynı işaretli iki kesrin çarpımı pozitiftir. Örneğin $-\\dfrac{2}{3} \\cdot \\dfrac{3}{4}=-\\dfrac{1}{2}$ ve $\\left(-\\dfrac{2}{3}\\right) \\cdot \\left(-\\dfrac{3}{4}\\right)=\\dfrac{1}{2}$ dir.",
             "Nedeni \"parçanın parçası\" fikrindedir: $\\dfrac{3}{4}$ ile çarpmak, sayının dörtte üçünü almaktır ve bu sayının kendisinden azdır. Bölmede ise durum tersine döner; bunu aşağıda göreceğiz.",
+            hap("Pozitif bir sayı $1$ den küçük pozitif bir kesirle çarpılırsa küçülür, $1$ den büyük bir kesirle çarpılırsa büyür."),
         ]},
         {"baslik": "Çarpmaya göre ters", "icerik": [
             "Çarpımları $1$ olan iki sayıya birbirinin <strong>çarpmaya göre tersi</strong> denir. Sıfırdan farklı bir kesrin tersi, pay ile paydanın yer değiştirmesiyle bulunur:",
@@ -211,6 +213,7 @@ YAZI = {
                 "$\\dfrac{3}{4}$ saatte kaç kilometre yol alır? $90$ kilometreyi kaç saatte alır?",
                 "Yol, hız ile sürenin çarpımıdır: $60 \\cdot \\dfrac{3}{4}=45$ kilometre.",
                 "Süre, yolun hıza bölümüdür: $90:60=\\dfrac{3}{2}$ saat, yani $1$ saat $30$ dakika."),
+            hap("$3$ litre ayranla yarım litrelik şişelerden $3:\\dfrac{1}{2}=6$ tane doldurulur.", "Kaç tane sığar sorusu bir bölmedir.", gunluk=True),
         ]},
         {"baslik": "Sınavda kesirlerde çarpma ve bölme", "icerik": [
             sinavda(

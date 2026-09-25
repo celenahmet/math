@@ -64,6 +64,7 @@ YAZI = {
                 "$\\dfrac{2}{5}$ yarımdan küçüktür; oysa yarıma bir şey ekleyince sonuç yarımdan büyük olmalıdır.",
                 "Doğrusu: $\\dfrac{3}{6}+\\dfrac{2}{6}=\\dfrac{5}{6}$."),
             "Bu yanlışı yakalamanın kolay bir yolu, sonucun büyüklüğünü tahmin etmektir. İki pozitif kesrin toplamı, her birinden büyük olmalıdır. Bulduğun toplam kesirlerden birinden küçükse bir hata vardır.",
+            hap("Kesirler toplanırken paydalar toplanmaz: $\\dfrac{1}{2}+\\dfrac{1}{3}=\\dfrac{5}{6}$ olur."),
         ]},
         {"baslik": "Tam sayı ile kesir", "icerik": [
             "Bir tam sayı, paydası $1$ olan bir kesir gibi düşünülebilir: $3=\\dfrac{3}{1}$. Tam sayı ile kesir toplanırken ya da çıkarılırken tam sayı kesrin paydasına genişletilir.",
@@ -163,6 +164,7 @@ YAZI = {
                 "Her terimi fark olarak yazalım: $\\left(1-\\dfrac{1}{2}\\right)+\\left(\\dfrac{1}{2}-\\dfrac{1}{3}\\right)+\\cdots+\\left(\\dfrac{1}{9}-\\dfrac{1}{10}\\right)$.",
                 "Ortadaki terimler birbirini götürür; geriye ilk ve son terim kalır.",
                 "Sonuç: $1-\\dfrac{1}{10}=\\dfrac{9}{10}$."),
+            hap("$\\dfrac{1}{n(n+1)}=\\dfrac{1}{n}-\\dfrac{1}{n+1}$ olur; bu yazım uzun toplamları kısaltır."),
         ]},
         {"baslik": "Fark ne kadar büyük?", "icerik": [
             "Çıkarma, iki kesrin arasındaki farkı ölçer. \"Hangisi büyük?\" sorusunun cevabını karşılaştırma verir; \"ne kadar büyük?\" sorusunun cevabını ise çıkarma verir.",
@@ -185,6 +187,7 @@ YAZI = {
                 "Toplam çalışma süresi ne kadardır?",
                 "Kesir kısımları: $\\dfrac{1}{2}+\\dfrac{3}{4}=\\dfrac{2}{4}+\\dfrac{3}{4}=\\dfrac{5}{4}=1\\dfrac{1}{4}$.",
                 "Toplam: $1+1\\dfrac{1}{4}=2\\dfrac{1}{4}$ saat, yani $2$ saat $15$ dakika."),
+            hap("Pazartesi saatin dörtte biri, salı üçte biri kadar kitap okuyan biri toplam $\\dfrac{1}{4}+\\dfrac{1}{3}=\\dfrac{7}{12}$ saat okumuş olur.", "Bu süre $60 \\cdot \\dfrac{7}{12}=35$ dakikadır.", gunluk=True),
         ]},
         {"baslik": "Adım adım yöntem", "icerik": [
             "Kesirlerde toplama ve çıkarma sorularında şu sıra izlenirse hata payı çok azalır:",

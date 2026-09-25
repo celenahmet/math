@@ -76,6 +76,7 @@ YAZI = {
             dikkat(
                 "Sadeleştirmede yalnızca çarpanlar bölünür, terimler bölünmez.",
                 "$\\dfrac{2+6}{2}$ kesrinde $2$ ler sadeleşmez: değer $\\dfrac{8}{2}=4$ tür, $1+6=7$ değildir. Pay bir toplam olduğunda önce toplam hesaplanır."),
+            hap("Pay ve payda sıfırdan farklı aynı sayıyla çarpılır ya da bölünürse kesrin değeri değişmez."),
         ]},
         {"baslik": "Bir çokluğun kesri", "icerik": [
             "Bir çokluğun $\\dfrac{a}{b}$ sını bulmak için çokluk paydaya bölünür, çıkan sonuç payla çarpılır. Bu, çokluğu $b$ eş gruba ayırıp $a$ grubunu almak demektir.",
@@ -117,6 +118,7 @@ YAZI = {
                 "Matematiğe günde kaç dakika ayırır?",
                 "$2$ saat $120$ dakikadır.",
                 "$120$ nin $\\dfrac{3}{4}$ ü: $120:4=30$ ve $30 \\cdot 3=90$ dakika."),
+            hap("Çeyrek saat, saatin dörtte biridir: $60 \\cdot \\dfrac{1}{4}=15$ dakika eder.", "Üç çeyrek saat ise $45$ dakikadır.", gunluk=True),
         ]},
         {"baslik": "Denk kesir problemleri", "icerik": [
             "Bir kesre denk olan kesirlerin hepsi, pay ve paydanın aynı sayıyla çarpılmasıyla elde edilir. Bu yüzden $\\dfrac{2}{3}$ ye denk her kesir $\\dfrac{2k}{3k}$ biçimindedir. Bu gözlem, bir koşulu sağlayan denk kesri bulmayı kolaylaştırır.",
@@ -180,6 +182,7 @@ YAZI = {
             dikkat(
                 "\"Kalanın\" kesrini \"tamamın\" kesri gibi alma.",
                 "Kitap örneğinde ikinci okuma kitabın $\\dfrac{1}{4}$ i değil, kalan $\\dfrac{2}{3}$ lik kısmın $\\dfrac{1}{4}$ idir. Tamamın $\\dfrac{1}{4}$ i alınsaydı yanlış sonuç çıkardı."),
+            hap("Kesir problemlerinde önce kesrin neyin kesri olduğu belirlenir.", "Kalanın kesri ile tamamın kesri farklı sonuç verir."),
         ]},
         {"baslik": "Kesirlerle işlemlere giriş", "icerik": [
             "Kesirlerle dört işlem ayrı yazılarda ayrıntılı anlatılıyor. Burada kısa bir özet:",

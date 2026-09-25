@@ -96,6 +96,7 @@ YAZI = {
                 "Aranan $x$ için $|x-2|=|x-10|$ olmalıdır.",
                 "İçler eşit olamaz çünkü $x-2=x-10$ çelişkidir. Öyleyse içler zıttır: $x-2=-(x-10)$, yani $2x=12$.",
                 "$x=6$. Bu nokta, $2$ ile $10$ un orta noktasıdır: $\\dfrac{2+10}{2}=6$."),
+            hap("Kavanozdaki şeker sayısı $120$ ise $|x-120|$, bir tahminin gerçek sayıya uzaklığıdır.", "$113$ ve $127$ tahminleri eşit derecede iyidir, çünkü ikisi de gerçek sayıdan $7$ uzaktadır.", gunluk=True),
         ]},
         {"baslik": "Mutlak değerli denklemler", "icerik": [
             "$|A|=k$ biçimindeki bir denklemde üç durum vardır:",
@@ -142,6 +143,7 @@ YAZI = {
                 "$|x-2|=4$ ise $x=6$ ya da $x=-2$.",
                 "$|x-2|=2$ ise $x=4$ ya da $x=0$.",
                 "Dört kök vardır: $-2, 0, 4, 6$. Toplamları $8$ dir."),
+            hap("$|A|=k$ denkleminde $k>0$ ise $A=k$ ya da $A=-k$ olur.", "$k<0$ ise denklemin çözümü yoktur, çünkü mutlak değer negatif olamaz."),
         ]},
         {"baslik": "Mutlak değerli eşitsizlikler", "icerik": [
             "Mutlak değerli eşitsizlikleri sayı doğrusundaki uzaklık fikriyle düşünmek en kolay yoldur. $a>0$ olmak üzere:",

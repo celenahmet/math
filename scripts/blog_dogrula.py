@@ -3037,6 +3037,41 @@ def hap_ekleri():
     es("58 hap sayfa", (58 - 23 + 1, len(range(23, 59))), (36, 36))
     es("58 hap ortalama", (sum(range(11, 31)), 20 * (11 + 30) // 2), (410, 410))
 
+    # ── 59 sayi dogrusu ──
+    es("59 hap uzaklik", (abs(-3 - 5), Rational(-3 + 5, 2), -9 < -2), (8, 1, True))
+    # ── 60 mutlak deger ──
+    es("60 hap seker", (abs(113 - 120), abs(127 - 120)), (7, 7))
+    es("60 hap denklem", (sorted(sp.solve([sp.Eq(X - 3, 5)], X).values()) + sorted(sp.solve([sp.Eq(X - 3, -5)], X).values()), sp.solveset(sp.Abs(X) + 1, X, sp.S.Reals)), ([8, -2], sp.S.EmptySet))
+    # ── 61 uslu ──
+    es("61 hap isik", (3 * 10**8, abs(3 * 10**8 - 299792458) / 299792458 < 0.001), (300000000, True))
+    es("61 hap carpma", (2**3 * 2**4, 2**7, 2**3 + 2**4), (128, 128, 24))
+    # ── 62 koklu ──
+    es("62 hap ekran", sp.sqrt(80**2 + 60**2), 100)
+    es("62 hap toplama", (2 * sp.sqrt(3) + 3 * sp.sqrt(3), sp.sqrt(2) + sp.sqrt(3) == sp.sqrt(5)), (5 * sp.sqrt(3), False))
+    # ── 63 islem onceligi ──
+    es("63 hap fis", (3 * 15 + 2 * 20, 24 // 4 * 2), (85, 12))
+    # ── 64 bolunebilme ──
+    es("64 hap gruplar", (126 % 6, 126 // 6, sum(int(c) for c in "126"), 126 % 2, 126 % 3), (0, 21, 9, 0, 0))
+    es("64 hap kalanlar", (123456 % 9, sum(int(c) for c in "123456") % 9, 987654 % 3, sum(int(c) for c in "987654") % 3, 3124 % 4, 24 % 4, 17064 % 8, 64 % 8), (3, 3, 0, 0, 0, 0, 0, 0))
+
+    # ── 65 asal ──
+    es("65 hap sifreleme", (101 * 103, sp.factorint(10403), sp.isprime(101), sp.isprime(103)), (10403, {101: 1, 103: 1}, True, True))
+    es("65 hap kok kurali", (all(97 % p for p in (2, 3, 5, 7)), sp.isprime(97), int(sp.sqrt(97))), (True, True, 9))
+    # ── 66 ebob ekok ──
+    from math import gcd as _gcd
+    es("66 hap paylasim", (_gcd(48, 36), 48 // 12, 36 // 12), (12, 4, 3))
+    es("66 hap iliski", (sp.gcd(12, 18) * sp.lcm(12, 18), 12 * 18, sp.gcd(sp.gcd(2, 4), 8) * sp.lcm(sp.lcm(2, 4), 8) == 2 * 4 * 8), (216, 216, False))
+    # ── 67 kesirler ──
+    es("67 hap ceyrek", (60 * Rational(1, 4), 60 * Rational(3, 4), Rational(6, 8) == Rational(3, 4)), (15, 45, True))
+    # ── 68 kesir siralama ──
+    es("68 hap basari", (Rational(17, 20), Rational(21, 25), 17 * 25, 21 * 20, Rational(17, 20) > Rational(21, 25)), (Rational(85, 100), Rational(84, 100), 425, 420, True))
+    es("68 hap kurallar", (Rational(3 + 1, 5 + 1) > Rational(3, 5), Rational(7 + 1, 5 + 1) < Rational(7, 5), Rational(4, 9)**2 < Rational(4, 9) < sp.sqrt(Rational(4, 9))), (True, True, True))
+    # ── 69 kesir toplama ──
+    nn = sp.symbols("nn", positive=True)
+    es("69 hap toplama", (Rational(1, 2) + Rational(1, 3), sp.simplify(1 / (nn * (nn + 1)) - (1 / nn - 1 / (nn + 1))), Rational(1, 4) + Rational(1, 3), 60 * Rational(7, 12)), (Rational(5, 6), 0, Rational(7, 12), 35))
+    # ── 70 kesir carpma ──
+    es("70 hap ayran", (3 / Rational(1, 2), 12 * Rational(3, 4) < 12, 12 * Rational(5, 4) > 12), (6, True, True))
+
 
 def bicim():
     import blog_veri
