@@ -59,6 +59,7 @@ YAZI = {
                               ("alt yarı", lambda x: -math.sqrt(9 - x * x) if abs(x) <= 3 else None)],
                              (-4, 4), (-4, 4), dikeyler=[1], noktalar=[(1, math.sqrt(8), "", True), (1, -math.sqrt(8), "", True)]),
             "Çemberin üst yarısı tek başına bir fonksiyon grafiğidir, alt yarısı da öyle. Kapaktaki öğrencinin elindeki dikey cetvel bu testi uygular: cetvel eğri boyunca kaydırılır ve her konumda eğriye en fazla bir kez değip değmediğine bakılır.",
+            hap("Hiçbir dikey doğru eğriyi birden fazla noktada kesmiyorsa eğri bir fonksiyon grafiğidir."),
         ]},
         {"baslik": "Grafikten değer okumak", "icerik": [
             "Grafik verildiğinde $f(a)$ değeri şöyle okunur: $x$ ekseninde $a$ noktasından dikey olarak grafiğe gidilir, grafiğe değilen noktanın yüksekliği $f(a)$ dır. Tersine, $f(x)=b$ denkleminin çözümleri için $y=b$ yatay doğrusunun grafiği kestiği noktaların yatay konumlarına bakılır.",
@@ -78,6 +79,7 @@ YAZI = {
                 "$y$ ekseni: $f(0)=3$; nokta $(0, 3)$.",
                 "$x$ ekseni: $x^2-4x+3=0$, yani $(x-1)(x-3)=0$. Noktalar $(1, 0)$ ve $(3, 0)$."),
             "Eksen kesişimleri grafiği çizmeye başlamak için en kolay bulunan noktalardır. Grafiğin çizilmesi istenen sorularda önce bu noktaları bulmak, eğriyi doğru yere yerleştirmeyi kolaylaştırır.",
+            hap("$y$ eksenini kestiği noktayı bulmak için $x=0$ yazılır.", "$x$ eksenini kestiği noktalar $f(x)=0$ denkleminin çözümleridir."),
         ]},
         {"baslik": "Grafikten tanım ve görüntü kümesi", "icerik": [
             "Grafiğin $x$ eksenine dik izdüşümü tanım kümesini, $y$ eksenine dik izdüşümü görüntü kümesini verir. Başka bir deyişle, grafiğin yatayda kapladığı aralık tanım kümesi, dikeyde kapladığı aralık görüntü kümesidir.",
@@ -119,6 +121,7 @@ YAZI = {
                 "$x$ ekseni: $-2x+4=0$, yani $x=2$; nokta $(2, 0)$.",
                 "Eğim $-2$ dir: $x$ bir artınca $y$ iki azalır; fonksiyon azalandır."),
             "Eğim pozitifse doğru soldan sağa yükselir ve fonksiyon artandır; eğim negatifse doğru alçalır ve fonksiyon azalandır. Eğim sıfırsa doğru yataydır: bu bir <strong>sabit fonksiyondur</strong> ve $y=3$ gibi yazılır. $f(x)=x$ ise <strong>birim fonksiyondur</strong>; grafiği başlangıç noktasından geçen ve eksenler arasındaki açıyı ikiye bölen doğrudur.",
+            hap("Açılış ücreti $50$ TL, kilometre ücreti $20$ TL olan bir taksinin ücreti $f(x)=20x+50$ doğrusudur.", "Doğrunun $y$ eksenini kestiği yer açılış ücretini, eğimi kilometre başına ücreti gösterir: $10$ kilometrelik yol $250$ TL tutar.", gunluk=True),
         ]},
         {"baslik": "Mutlak değer fonksiyonunun grafiği", "icerik": [
             "$f(x)=|x|$ fonksiyonunun grafiği, $x \\geq 0$ için $y=x$ doğrusu, $x<0$ için $y=-x$ doğrusundan oluşur ve V biçimindedir. En alçak noktası başlangıç noktasıdır.",
@@ -161,6 +164,7 @@ YAZI = {
             dikkat(
                 "Parantez içindeki ötelemenin yönünü ters almak.",
                 "$y=f(x-2)$ grafiği sola değil sağa kayar. Eski grafikte $x=0$ noktasında olan değer, yeni grafikte $x-2=0$, yani $x=2$ noktasında görülür."),
+            hap("$y=f(x-k)$ grafiği $k$ birim sağa, $y=f(x)+k$ grafiği $k$ birim yukarı kayar.", "Parantezin içindeki değişiklik yatay, dışındaki değişiklik dikey kaydırmadır."),
         ]},
         {"baslik": "Yansımalar", "icerik": [
             "Bir grafiğin eksenlere göre yansıması da kuraldan doğrudan okunur. $y=-f(x)$ grafiği, $y=f(x)$ grafiğinin $x$ eksenine göre yansımasıdır: her noktanın yüksekliği işaret değiştirir. $y=f(-x)$ grafiği ise $y$ eksenine göre yansımadır: her nokta yatayda karşı tarafa geçer.",

@@ -107,6 +107,7 @@ YAZI = {
             dikkat(
                 "Kalanın derecesinin tam olarak bölenin bir eksiği olduğunu sanmak.",
                 "Kalanın derecesi bölenin derecesinden küçüktür ama daha da küçük olabilir. İkinci dereceden bir bölenle bölmede kalan birinci dereceden, sabit ya da sıfır olabilir."),
+            hap("Bölümün derecesi, bölünenin derecesinden bölenin derecesi çıkarılarak bulunur.", "Kalanın derecesi bölenin derecesinden küçüktür."),
         ]},
         {"baslik": "Birinci dereceden bölenle kalan", "icerik": [
             "Bölen birinci dereceden olduğunda kalanın derecesi $0$ dan küçük olmalıdır; bu yüzden kalan her zaman bir sabittir. Bu gözlem, kalanı bölme yapmadan bulmayı sağlayan kalan teoreminin temelidir.",
@@ -116,6 +117,7 @@ YAZI = {
                 "$x-1$ ile bölümünden kalanı bölme yapmadan bulalım.",
                 "$P(1)=2-3+4-5=-2$.",
                 "Uzun bölmede bulunan kalanla aynıdır."),
+            hap("$P(x)$ polinomunun $x-a$ ile bölümünden kalan $P(a)$ olur."),
         ]},
         {"baslik": "Horner yöntemi", "icerik": [
             "Bölen $x-a$ biçimindeyse bölme, yalnızca katsayılarla çalışan kısa bir yöntemle yapılabilir. Bu yönteme <strong>Horner yöntemi</strong> ya da sentetik bölme denir. Katsayılar azalan kuvvet sırasıyla yazılır; ilk katsayı aşağı indirilir, her indirilen sayı $a$ ile çarpılıp bir sonraki katsayıya eklenir.",
@@ -130,6 +132,7 @@ YAZI = {
                 ["Sonuç", "$2$", "$-1$", "$3$", "$-2$"],
             ]),
             "Horner yöntemi uzun bölmeyle aynı sonucu verir ama çok daha kısadır. Eksik terimler burada da sıfır katsayıyla yazılmalıdır; aksi hâlde katsayılar yanlış sütunlara kayar.",
+            hap("Horner yönteminde $x-a$ ile bölerken $a$, $x+a$ ile bölerken $-a$ kullanılır.", "Bölünende eksik kuvvet varsa o sütuna $0$ yazılır."),
         ]},
         {"baslik": "Horner yönteminde eksik terimler", "icerik": [
             "Horner yönteminde her sütun bir kuvvete karşılık gelir. Bölünende eksik kuvvet varsa o sütuna $0$ yazılır; aksi hâlde bütün katsayılar bir sütun kayar ve sonuç yanlış çıkar.",
@@ -231,6 +234,7 @@ YAZI = {
                 ["Kalan $0$", "$0$"],
             ]),
             "Fark, polinomlarda eldenin olmamasıdır. Sayılarda bir basamaktaki değer $9$ u aşınca bir üst basamağa geçer; polinomlarda katsayılar her büyüklükte olabildiği için böyle bir aktarma yapılmaz.",
+            hap("$156$ lirayı $12$ kişiye paylaştırmak, $x=10$ için $x^2+5x+6$ polinomunu $x+2$ ye bölmek gibidir.", "Bölüm $x+3$ olduğu için kişi başına $13$ lira düşer ve artan para kalmaz.", gunluk=True),
         ]},
         {"baslik": "Sınavda polinom bölmesi", "icerik": [
             sinavda(

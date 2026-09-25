@@ -45,6 +45,7 @@ YAZI = {
             dikkat(
                 "Radyanı derece gibi yazmak.",
                 "$\\dfrac{\\pi}{6}$ bir radyan ölçüsüdür ve $30^\\circ$ ye eşittir. $\\pi$ nin sayısal değeri yaklaşık $3.14$ tür; bu yüzden $\\pi$ radyan yaklaşık $3.14$ radyan, yani $180^\\circ$ dir. Radyanı dereceyle karıştırmamak için birim her zaman açıkça düşünülmelidir."),
+            hap("$180^\\circ=\\pi$ radyan olduğu için dönüşümde $\\dfrac{D}{180}=\\dfrac{R}{\\pi}$ orantısı kullanılır."),
         ]},
         {"baslik": "Yay uzunluğu ve radyan", "icerik": [
             "Radyanın asıl kullanışlılığı yay uzunluğu hesabında görülür. Yarıçapı $r$ olan bir çemberde radyan cinsinden $\\theta$ açısının gördüğü yayın uzunluğu $l=r \\cdot \\theta$ dır. Derece kullanılsaydı formüle $\\dfrac{\\pi}{180}$ çarpanı eklenmesi gerekirdi.",
@@ -86,6 +87,7 @@ YAZI = {
                 ["$60^\\circ$", "$\\dfrac{\\sqrt{3}}{2}$", "$\\dfrac{1}{2}$", "$\\sqrt{3}$"],
             ]),
             "Kenarı $2$ olan bir eşkenar üçgen ortadan ikiye bölünürse açıları $30^\\circ$, $60^\\circ$ ve $90^\\circ$ olan, kenarları $1$, $\\sqrt{3}$ ve $2$ olan bir dik üçgen elde edilir. Dik kenarları $1$ olan ikizkenar dik üçgenin hipotenüsü ise $\\sqrt{2}$ dir ve açıları $45^\\circ$ dir. Tablodaki bütün değerler bu iki üçgenden okunur. Tabloyu ezberlemek yerine bu iki üçgeni zihinde çizmek, unutulan bir değeri birkaç saniyede yeniden bulmayı sağlar.",
+            hap("$\\sin 30^\\circ=\\cos 60^\\circ=\\dfrac{1}{2}$ olur.", "$\\sin 45^\\circ$ ile $\\cos 45^\\circ$ birbirine eşittir ve ikisi de $\\dfrac{\\sqrt{2}}{2}$ olur."),
         ]},
         {"baslik": "0 ve 90 derecede değerler", "icerik": [
             "Özel açılar tablosu $0^\\circ$ ve $90^\\circ$ değerleriyle tamamlanır. Birim çemberde $0^\\circ$ noktası $(1, 0)$, $90^\\circ$ noktası $(0, 1)$ dir; kosinüs yatay, sinüs dikey koordinat olduğu için değerler doğrudan okunur.",
@@ -138,6 +140,7 @@ YAZI = {
                 "$\\cos^2 \\theta=1-\\dfrac{9}{25}=\\dfrac{16}{25}$; birinci bölgede kosinüs pozitif olduğu için $\\cos \\theta=\\dfrac{4}{5}$.",
                 "$\\tan \\theta=\\dfrac{3}{4}$ ve $\\cot \\theta=\\dfrac{4}{3}$."),
             "Tanjant ve kotanjant da sinüs ve kosinüs cinsinden yazılır: $\\tan \\theta=\\dfrac{\\sin \\theta}{\\cos \\theta}$ ve $\\cot \\theta=\\dfrac{\\cos \\theta}{\\sin \\theta}$. Bu yüzden $\\tan \\theta \\cdot \\cot \\theta=1$ dir. Özdeşliklerin ayrıntısı <a href=\"/blog/trigonometrik-ozdeslikler-formuller/\">Trigonometrik Özdeşlikler ve Formüller</a> yazısında.",
+            hap("Her açı için $\\sin^2 \\theta+\\cos^2 \\theta=1$ olur."),
         ]},
         {"baslik": "Tümler açılar", "icerik": [
             "Toplamları $90^\\circ$ olan açılara tümler açılar denir. Bir dik üçgende iki dar açı tümlerdir ve birinin karşı kenarı ötekinin komşu kenarıdır. Bu yüzden bir açının sinüsü, tümlerinin kosinüsüne eşittir:",
@@ -214,6 +217,7 @@ YAZI = {
                 "$x$ ekseniyle yaptıkları açıları bulalım.",
                 "$y=x$ doğrusunun eğimi $1$ dir ve $\\tan 45^\\circ=1$ olduğu için açı $45^\\circ$ dir.",
                 "$y=\\sqrt{3}x$ doğrusunun eğimi $\\sqrt{3}$ tür ve açı $60^\\circ$ dir."),
+            hap("Yol tabelasındaki yüzde $10$ eğim, yatayda $100$ metre ilerlerken $10$ metre yükselmek demektir.", "Bu eğimin tanjantı $0.1$ olur ve yolun yatayla yaptığı açı yaklaşık $5.7^\\circ$ olur.", gunluk=True),
         ]},
         {"baslik": "Sınavda trigonometri", "icerik": [
             sinavda(

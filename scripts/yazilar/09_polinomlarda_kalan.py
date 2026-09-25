@@ -49,6 +49,7 @@ YAZI = {
             dikkat(
                 "$x+1$ ile bölmede $P(1)$ i hesaplamak.",
                 "Bölen sıfır yapılmalıdır: $x+1=0$ için $x=-1$ dir. $P(1)$ ise $x-1$ ile bölümden kalandır ve bu örnekte $4$ bulunur, yani yanlış sonuç verir."),
+            hap("$x+a$ ile bölümden kalan için $x=-a$ yazılır.", "Hesaplanan değer $P(a)$ değil, $P(-a)$ olur."),
         ]},
         {"baslik": "ax + b ile bölümden kalan", "icerik": [
             "Bölen $ax+b$ biçimindeyse böleni sıfır yapan değer $x=-\\dfrac{b}{a}$ dir ve kalan polinomun bu noktadaki değeridir. Mantık aynıdır: bölme eşitliğinde bölen sıfır olunca geriye yalnızca kalan kalır.",
@@ -64,6 +65,7 @@ YAZI = {
                 "$P(x)=3x^4-7x^2+x-6$ polinomu verilsin.",
                 "$x$ ile bölümünden kalanı bulalım.",
                 "Kalan: $P(0)=-6$."),
+            hap("$x$ ile bölümden kalan sabit terimdir.", "$x-1$ ile bölümden kalan ise katsayılar toplamıdır."),
         ]},
         {"baslik": "Kalan, katsayılar toplamı ve sabit terim", "icerik": [
             "Kalan teoremi, polinomlar konusundaki iki kısa yolu da açıklar. $x-1$ ile bölümden kalan $P(1)$ dir ve bu değer katsayıların toplamına eşittir. $x$ ile bölümden kalan $P(0)$ dır ve bu değer sabit terime eşittir.",
@@ -90,6 +92,7 @@ YAZI = {
                 "$P(2)=8-12+4=0$.",
                 "Kalan sıfır olduğu için $x-2$ bir çarpandır. Gerçekten $P(x)=(x-2)^2(x+1)$ dir."),
             "Çarpan teoremi, polinomları çarpanlarına ayırmanın ve köklerini bulmanın temel aracıdır. Ayrıntısı <a href=\"/blog/polinomlarda-carpanlara-ayirma/\">Polinomlarda Çarpanlara Ayırma</a> yazısında.",
+            hap("$P(a)=0$ ise $x-a$ polinomun bir çarpanıdır; tersi de doğrudur."),
         ]},
         {"baslik": "Kalandan bilinmeyen katsayı bulmak", "icerik": [
             "Polinomda bir bilinmeyen katsayı varsa ve bir bölmeden kalan verilmişse kalan teoremi bir denklem verir. Bu denklem çözülerek bilinmeyen bulunur. Kalansız bölünme bilgisi de aynı biçimde kullanılır; o durumda kalan sıfır alınır.",
@@ -185,6 +188,7 @@ YAZI = {
                 "$x^3=1$ yazılır: $x^7=(x^3)^2 \\cdot x=x$ ve $x^4=x^3 \\cdot x=x$.",
                 "Kalan: $x+x+x=3x$."),
             "Kalanın derecesi $1$ dir ve bölenin derecesi olan $3$ ten küçüktür; bu yüzden işlem burada biter. Bu tür sorularda kuvvetleri böleni oluşturan kuvvete göre gruplamak, uzun bölmenin onlarca adımını birkaç satıra indirir.",
+            hap("Kuvvetleri bir döngüye göre küçültmek, takvimde gün saymaya benzer.", "$100$ gün sonrası için $100$ ün $7$ ile bölümünden kalan olan $2$ kullanılır: bugün salıysa $100$ gün sonra perşembedir.", gunluk=True),
         ]},
         {"baslik": "İki kalandan birleşik kalan", "icerik": [
             "Bir polinomun $x-1$ ve $x-2$ ile bölümlerinden kalanlar biliniyorsa, $(x-1)(x-2)$ ile bölümünden kalan da bulunabilir. Bölen ikinci dereceden olduğu için kalan $ax+b$ biçimindedir ve iki kalan bilgisi iki denklem verir.",

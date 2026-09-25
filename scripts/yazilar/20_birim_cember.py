@@ -36,6 +36,7 @@ YAZI = {
                              (-1.5, 1.5), (-1.5, 1.5), adim=0.5, dikeyler=[_C30], yataylar=[0.5],
                              noktalar=[(_C30, 0.5, "P(√3/2, 1/2)", True), (_C30, 0, "", True), (0, 0.5, "", True)]),
             "Dar açılarda bu tanım dik üçgen tanımıyla aynı sonucu verir. $P$ den $x$ eksenine inen dikme bir dik üçgen oluşturur; hipotenüs yarıçaptır ve uzunluğu $1$ dir. Hipotenüs $1$ olunca karşı kenar sinüse, komşu kenar kosinüse eşit olur.",
+            hap("Birim çemberde $\\theta$ açısına karşılık gelen nokta $(\\cos \\theta, \\sin \\theta)$ olur."),
         ]},
         {"baslik": "Neden yarıçap 1?", "icerik": [
             "Yarıçapın $1$ seçilmesi hesabı büyük ölçüde sadeleştirir. Dik üçgende sinüs karşı kenarın hipotenüse bölümüdür; hipotenüs $1$ olunca bölme işlemi ortadan kalkar ve sinüs doğrudan bir uzunluk olur. Başka bir yarıçapla çalışılsaydı her değer yarıçapa bölünmek zorunda kalırdı.",
@@ -63,6 +64,7 @@ YAZI = {
                 "İşaretleri ezberlemeye çalışıp karıştırmak.",
                 "İşaret tablosunu ezberlemek gerekmez: kosinüs sağda pozitif, solda negatif; sinüs yukarıda pozitif, aşağıda negatiftir. Noktanın bulunduğu bölgeye bakmak her işareti doğrudan verir."),
             "Kotanjant da tanjantla aynı işarete sahiptir, çünkü biri ötekinin çarpmaya göre tersidir. Bu yüzden tablo tanjant için doğruysa kotanjant için de doğrudur.",
+            hap("Birinci bölgede hepsi, ikinci bölgede sinüs, üçüncü bölgede tanjant ve kotanjant, dördüncü bölgede kosinüs pozitiftir."),
         ]},
         {"baslik": "İşaretlerden bölgeyi bulmak", "icerik": [
             "İşaret tablosu tersinden de okunur: iki değerin işareti biliniyorsa açının bölgesi tek olarak belirlenir. Sorularda açının bölgesi çoğu zaman doğrudan verilmez, bu yolla bulunur.",
@@ -101,6 +103,7 @@ YAZI = {
                 "Birim çemberdeki noktasını bulalım.",
                 "Açı üçüncü bölgededir ve referans açısı $225^\\circ-180^\\circ=45^\\circ$ dir.",
                 "Üçüncü bölgede iki koordinat da negatiftir: nokta $(-\\dfrac{\\sqrt{2}}{2}, -\\dfrac{\\sqrt{2}}{2})$ dir."),
+            hap("Trigonometrik değerin mutlak değeri referans açıdan, işareti açının bölgesinden gelir."),
         ]},
         {"baslik": "Diğer bölgelere yansıtma", "icerik": [
             "Referans açısı $30^\\circ$ olan dört açı, birim çemberde birbirinin yansıması olan dört nokta verir. Koordinatların mutlak değerleri aynıdır; yalnızca işaretler bölgeye göre değişir.",
@@ -200,6 +203,7 @@ YAZI = {
                 "Noktanın koordinatlarını bulalım.",
                 "$x=4\\cos 60^\\circ=2$.",
                 "$y=4\\sin 60^\\circ=2\\sqrt{3}$. Nokta $(2, 2\\sqrt{3})$ tür."),
+            hap("Yarıçapı $20$ metre olan bir dönme dolapta kabinin merkeze göre konumu $(20\\cos \\theta, 20\\sin \\theta)$ olur.", "$\\theta=30^\\circ$ iken kabin merkezden $20 \\cdot \\dfrac{1}{2}=10$ metre yukarıdadır; $\\theta=90^\\circ$ iken en tepededir.", gunluk=True),
         ]},
         {"baslik": "Değerleri karşılaştırmak", "icerik": [
             "Birim çember, trigonometrik değerleri hesaplamadan karşılaştırmayı sağlar. Birinci bölgede açı büyüdükçe nokta yükselir ve sola kayar: sinüs artar, kosinüs azalır. Bu yüzden birinci bölgede açıları karşılaştırmak, değerleri karşılaştırmak için yeterlidir.",

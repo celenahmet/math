@@ -53,6 +53,7 @@ YAZI = {
                 "$x^2=9$ için $x=3$ ya da $x=-3$.",
                 "$x^2=-4$ denkleminin gerçek kökü yoktur; hiçbir gerçek sayının karesi negatif değildir.",
                 "$(x-1)^2=16$ için $x-1=\\pm 4$; $x=5$ ya da $x=-3$."),
+            hap("$x^2=k$ denkleminde $k>0$ ise iki kök vardır: $\\sqrt{k}$ ve $-\\sqrt{k}$.", "Karekök alırken eksi işaretli kök unutulmamalıdır."),
         ]},
         {"baslik": "Sabit terimi olmayan denklemler", "icerik": [
             "$c=0$ ise denklem $ax^2+bx=0$ biçimindedir ve $x$ ortak çarpan olarak paranteze alınır. Köklerden biri her zaman $0$ dır.",
@@ -115,6 +116,7 @@ YAZI = {
             dikkat(
                 "Formülde $-b$ yi yanlış işaretle yazmak.",
                 "$b=-4$ ise $-b=4$ tür. Katsayının işaretini parantez içinde yazmak, $-(-4)$ gibi ifadelerde işaret hatasını önler."),
+            hap("$\\Delta=b^2-4ac$ olmak üzere kökler $x=\\dfrac{-b \\pm \\sqrt{\\Delta}}{2a}$ formülüyle bulunur."),
         ]},
         {"baslik": "Kök formülü nereden gelir?", "icerik": [
             "Kök formülü, genel denklemin tam kareye tamamlanmasıyla elde edilir. Adımları izlemek, formülü unutulsa bile yeniden kurmayı sağlar.",
@@ -166,6 +168,7 @@ YAZI = {
                 "Katsayılardan: toplam $1$, çarpım $-6$.",
                 "Köklerden: $3+(-2)=1$ ve $3 \\cdot (-2)=-6$."),
             "Ayrıntısı <a href=\"/blog/kokler-toplami-carpimi/\">Kökler Toplamı ve Kökler Çarpımı Nasıl Bulunur?</a> yazısında.",
+            hap("Kökler toplamı $-\\dfrac{b}{a}$, kökler çarpımı $\\dfrac{c}{a}$ olur.", "Bu değerler kökleri bulmadan hesaplanır."),
         ]},
         {"baslik": "Grafikle bağlantı", "icerik": [
             "$ax^2+bx+c=0$ denkleminin kökleri, $y=ax^2+bx+c$ parabolünün $x$ eksenini kestiği noktaların yatay konumlarıdır. Kapaktaki esnek çubuk da bunu gösterir: kemer yatay çubuğu iki noktada keser ve bu iki nokta denklemin kökleridir.",
@@ -255,6 +258,7 @@ YAZI = {
                 "İlk kenar uzunluğunu bulalım.",
                 "İlk kenar $x$ olsun: $(x+2)^2=49$, yani $x+2=\\pm 7$.",
                 "$x=5$ ya da $x=-9$. Uzunluk negatif olamayacağı için ilk kenar $5$ santimetredir."),
+            hap("Alanı $48$ metrekare olan dikdörtgen bir bahçenin uzun kenarı kısa kenarından $2$ metre fazlaysa $x(x+2)=48$ denklemi kurulur.", "Kökler $6$ ve $-8$ olur; uzunluk negatif olamayacağı için kısa kenar $6$, uzun kenar $8$ metredir.", gunluk=True),
         ]},
         {"baslik": "Hangi yöntem ne zaman?", "icerik": [
             "Her ikinci dereceden denklem kök formülüyle çözülür ama çoğu zaman daha kısa bir yol vardır. Yöntemi denklemin biçimine göre seçmek zaman kazandırır.",

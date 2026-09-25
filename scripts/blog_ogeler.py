@@ -16,8 +16,13 @@ def _ic(parcalar):
     return "".join(p if p.lstrip().startswith("<") else f"<p>{p}</p>" for p in parcalar)
 
 
-def hap(*parcalar):
+def hap(*parcalar, gunluk=False):
     """Ezberlenecek kural, formul ya da kisayol.
+
+    gunluk=True: gundelik hayatla iliski kuran hap bilgi (Ahmet 25.09: "her
+    yazida en az 5 hap bilgi; gundelik hayatla iliski kurularak birer ikiser
+    tane versek cok tatli olur"). Kutu ayni, basinda "Gundelik hayatta"
+    etiketi var; etiket ic govdede oldugu icin ozette de gorunur.
 
     Ic govde ayri bir sarmalayiciya aliniyor: scripts/blog_uygula.py
     sayfanin sonunda butun hap bilgileri toplayip "Hap bilgi ozeti"
@@ -26,6 +31,8 @@ def hap(*parcalar):
     """
     ic = _ic(parcalar)
     assert "<div" not in ic, "hap() icine div (orn. tablo) konmaz; ozet cikarimi bozulur"
+    if gunluk:
+        ic = '<span class="bs-gunluk">Gündelik hayatta</span>' + ic
     return ('<div class="bs-hap"><b>' + ikon("hap") + "Hap bilgi" + "</b>"
             + '<div class="bs-hap-ic">' + ic + "</div></div>")
 

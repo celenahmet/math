@@ -32,6 +32,7 @@ YAZI = {
                 ["$k$", "$f(r)$ ya da $-\\dfrac{\\Delta}{4a}$"],
             ]),
             "İki yol da aynı sonucu verir. Katsayılar küçük tam sayılarsa $f(r)$ hesaplamak genellikle daha hızlıdır; $r$ kesirli çıktığında ise $-\\dfrac{\\Delta}{4a}$ formülü kesirli bir sayının karesini almaktan kurtarır ve hata payını azaltır.",
+            hap("Tepe noktasının yatay koordinatı $r=-\\dfrac{b}{2a}$ olur.", "Dikey koordinat $k=f(r)$ ile ya da $k=-\\dfrac{\\Delta}{4a}$ ile bulunur."),
         ]},
         {"baslik": "Formül nereden gelir?", "icerik": [
             "Tepe noktası formülü, genel denklemin tam kareye tamamlanmasıyla elde edilir. $a$ ortak paranteze alınır ve parantez içi bir tam kareye tamamlanır:",
@@ -96,6 +97,7 @@ YAZI = {
                 "Tepe noktasını bulalım.",
                 "Kökler $2$ ve $6$; $r=\\dfrac{2+6}{2}=4$.",
                 "$k=(4-2)(4-6)=-4$. Tepe noktası $T(4, -4)$ tür."),
+            hap("Kökler biliniyorsa simetri ekseni köklerin ortalamasıdır."),
         ]},
         {"baslik": "Simetrik noktalardan tepe", "icerik": [
             "Parabol üzerinde aynı yükseklikteki iki nokta biliniyorsa simetri ekseni bu iki noktanın yatay koordinatlarının ortalamasıdır. Kökler bu kuralın özel bir durumudur: iki kök de sıfır yüksekliğindedir.",
@@ -112,6 +114,7 @@ YAZI = {
                 "Simetrik noktaların değerlerini karşılaştıralım.",
                 "$f(0)=5$ ve $f(6)=36-36+5=5$.",
                 "$f(2)=4-12+5=-3$ ve $f(4)=16-24+5=-3$."),
+            hap("Her $d$ için $f(r+d)=f(r-d)$ olur; tepe noktasına eşit uzaklıktaki noktalar aynı yüksekliktedir."),
         ]},
         {"baslik": "Tepe noktasının eksene göre konumu", "icerik": [
             "Tepe noktasının dikey koordinatı $-\\dfrac{\\Delta}{4a}$ olduğu için, kolları yukarı bakan bir parabolde diskriminant pozitifse tepe noktası $x$ ekseninin altında, negatifse üstündedir. Bu, diskriminantın kök sayısını neden belirlediğinin grafik açıklamasıdır.",
@@ -206,6 +209,7 @@ YAZI = {
                 "Gelir: $G(p)=p(100-2p)=-2p^2+100p$.",
                 "Tepe noktası: $p=-\\dfrac{100}{-4}=25$ ve $G(25)=25 \\cdot 50=1250$. En büyük gelir $1250$ liradır."),
             "Sonuç sezgiyi de doğrular: fiyat çok düşükse birim kazanç azdır, çok yüksekse satış çok azalır. En iyi fiyat, iki etkinin dengelendiği tepe noktasındadır. Fiyat $0$ ya da $50$ lira olduğunda gelir sıfırdır; en iyi fiyat bu iki değerin tam ortasındadır.",
+            hap("Fiyat arttıkça satış azalıyorsa en yüksek gelir, gelir parabolünün tepe noktasındadır.", "Bardağı $p$ lira olan limonatadan günde $120-4p$ bardak satılıyorsa gelir $p(120-4p)$ olur; en yüksek gelir $p=15$ lirada, $60$ bardakla $900$ liradır.", gunluk=True),
         ]},
         {"baslik": "Duvar kenarındaki bahçe", "icerik": [
             "En büyük alan problemlerinin sık görülen bir biçiminde dikdörtgenin bir kenarı duvardır ve çit yalnızca üç kenara çekilir. Alan yine ikinci dereceden bir fonksiyondur ve en büyük değeri tepe noktasındadır.",

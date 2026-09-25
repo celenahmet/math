@@ -75,6 +75,7 @@ YAZI = {
             dikkat(
                 "Diskriminant negatifken kök formülüne devam etmek.",
                 "$\\sqrt{-3}$ gerçek bir sayı değildir. Diskriminant negatif çıktığında hesap orada durur; bulunacak gerçek bir kök yoktur."),
+            hap("Yukarı atılan bir topun $t$ saniyedeki yüksekliği $h(t)=-5t^2+10t$ metre olsun.", "Topun $6$ metreye ulaşıp ulaşmadığı $5t^2-10t+6=0$ denklemine döner; $\\Delta=100-120=-20$ negatif olduğu için top $6$ metreye hiç ulaşmaz.", gunluk=True),
         ]},
         {"baslik": "Üç durumun özeti", "icerik": [
             "Diskriminantın üç durumu, hem cebirsel hem grafik anlamıyla birlikte aşağıdaki tabloda özetlenmiştir.",
@@ -83,6 +84,7 @@ YAZI = {
                 ["$\\Delta=0$", "Çakışık kök", "Bir noktada teğet"],
                 ["$\\Delta<0$", "Gerçek kök yok", "Kesmez"],
             ]),
+            hap("$\\Delta>0$ ise iki farklı kök, $\\Delta=0$ ise çakışık kök vardır.", "$\\Delta<0$ ise denklemin gerçek kökü yoktur."),
         ]},
         {"baslik": "Grafik yorumu", "icerik": [
             "$ax^2+bx+c=0$ denkleminin kökleri, $y=ax^2+bx+c$ parabolünün $x$ eksenini kestiği noktalardır. Diskriminant bu yüzden parabolün $x$ ekseniyle ilişkisini de söyler. Kapaktaki üç panel bu üç durumu yan yana gösterir.",
@@ -100,6 +102,7 @@ YAZI = {
                 "$x^2-x-6=0$ için $\\Delta=1+24=25=5^2$; kökler rasyoneldir: $3$ ve $-2$.",
                 "$x^2-4x+1=0$ için $\\Delta=16-4=12$; tam kare değildir, kökler $2 \\pm \\sqrt{3}$ irrasyoneldir."),
             "Bu gözlem, çarpanlara ayırmaya ne zaman güvenileceğini de gösterir: diskriminant tam kare değilse denklem tam sayılarla çarpanlarına ayrılamaz ve kök formülüne geçmek gerekir.",
+            hap("Katsayılar tam sayıyken diskriminant bir tam kareyse kökler rasyoneldir.", "Diskriminant pozitif ama tam kare değilse kökler irrasyoneldir."),
         ]},
         {"baslik": "İki farklı kök için parametre", "icerik": [
             "Denklemde bir parametre varsa kök sayısıyla ilgili koşul diskriminant üzerinden bir eşitsizliğe dönüşür. İki farklı gerçek kök için $\\Delta>0$ yazılır ve parametre bulunur.",
@@ -160,6 +163,7 @@ YAZI = {
                 "Kök sayısını hesap yapmadan belirleyelim.",
                 "$a=3$ ve $c=-2$ ters işaretlidir; $ac<0$.",
                 "Diskriminant pozitiftir: $49+24=73$. İki farklı gerçek kök vardır."),
+            hap("$a$ ile $c$ ters işaretliyse denklemin her zaman iki farklı gerçek kökü vardır."),
         ]},
         {"baslik": "Her zaman kökü olan denklem", "icerik": [
             "Parametreli bir denklemin diskriminantı parametre ne olursa olsun pozitif çıkabilir. Bunu göstermek için diskriminant bir kare artı pozitif bir sayı biçimine getirilir.",

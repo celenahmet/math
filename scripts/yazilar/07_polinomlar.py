@@ -52,6 +52,7 @@ YAZI = {
             dikkat(
                 "Polinomu sıralamadan baş katsayıyı ilk terimden okumak.",
                 "$P(x)=5-2x+3x^4$ polinomunda baş katsayı $5$ değil $3$ tür. Baş katsayı her zaman en büyük kuvvetli terimin katsayısıdır; terimlerin yazılış sırası önemli değildir."),
+            hap("Derece, katsayısı sıfırdan farklı olan en büyük kuvvettir.", "Baş katsayı bu terimin katsayısıdır; ilk yazılan terimin katsayısı olmak zorunda değildir."),
         ]},
         {"baslik": "Sabit ve sıfır polinomu", "icerik": [
             "$P(x)=5$ gibi yalnızca sabit terimden oluşan polinomlara <strong>sabit polinom</strong> denir; derecesi $0$ dır, çünkü $5=5x^0$ olarak yazılabilir. Bütün katsayıları sıfır olan $P(x)=0$ polinomuna ise <strong>sıfır polinomu</strong> denir. Sıfır polinomunun hiçbir terimi sıfırdan farklı olmadığı için derecesi tanımsızdır.",
@@ -73,6 +74,7 @@ YAZI = {
                 "Sabit terim: $P(0)=(-1)^3+0+4=3$.",
                 "Katsayılar toplamı: $P(1)=1^3+1+4=6$."),
             "Bu yöntem, polinomu açmadan sonuç verir. $(2x-1)^3$ ifadesini açmak birkaç satır sürer; $P(0)$ ve $P(1)$ ise birkaç saniyede hesaplanır.",
+            hap("Sabit terim için $x$ yerine $0$, katsayılar toplamı için $1$ yazılır."),
         ]},
         {"baslik": "Çift ve tek dereceli terimler", "icerik": [
             "$x$ yerine $-1$ yazılınca çift dereceli terimler aynı kalır, tek dereceli terimler işaret değiştirir. Bu yüzden $P(1)$ ile $P(-1)$ toplanınca tek dereceli terimler birbirini götürür, çıkarılınca çift dereceli terimler birbirini götürür:",
@@ -156,6 +158,7 @@ YAZI = {
             dikkat(
                 "$(a+b)^2$ yi $a^2+b^2$ sanmak.",
                 "Ortadaki $2ab$ terimi unutulamaz. $a=1$ ve $b=1$ için $(1+1)^2=4$ iken $1^2+1^2=2$ dir."),
+            hap("Bir kenarı $x$ metre olan kare bahçenin her kenarı $2$ metre uzatılırsa yeni alan $(x+2)^2=x^2+4x+4$ metrekare olur.", "Alan $4$ metrekare değil, $4x+4$ metrekare artar; kenar uzadıkça artış da büyür.", gunluk=True),
         ]},
         {"baslik": "Derece kuralları", "icerik": [
             "Polinomlarla yapılan işlemlerde sonucun derecesi, işlemi yapmadan bulunabilir. $P$ ve $Q$ sıfırdan farklı polinomlar ve $n$ pozitif bir tam sayı olmak üzere:",
@@ -173,6 +176,7 @@ YAZI = {
             dikkat(
                 "Toplamın derecesini her zaman büyük derece sanmak.",
                 "İki polinomun dereceleri ve baş katsayıları eşit ama işaretleri zıtsa en büyük terimler birbirini götürür. $(x^2+x)+(-x^2+3)$ toplamının derecesi $2$ değil $1$ dir."),
+            hap("Çarpımın derecesi, çarpanların derecelerinin toplamıdır.", "$P(x)^n$ ve $P(x^n)$ polinomlarının derecesi $n \\cdot \\text{der}[P]$ olur."),
         ]},
         {"baslik": "Çarpımın sabit terimi ve katsayılar toplamı", "icerik": [
             "İki polinomun çarpımının sabit terimi, sabit terimlerinin çarpımıdır; katsayılar toplamı da katsayılar toplamlarının çarpımıdır. Bunun nedeni, $P(x) \\cdot Q(x)$ çarpımında $x=0$ ya da $x=1$ yazmanın iki çarpana ayrı ayrı yazmakla aynı sonucu vermesidir.",

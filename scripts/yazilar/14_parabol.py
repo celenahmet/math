@@ -28,6 +28,7 @@ YAZI = {
         {"baslik": "Günlük hayatta parabol", "icerik": [
             "Parabol yalnızca kâğıt üzerinde bir eğri değildir. Hava direnci ihmal edildiğinde eğik fırlatılan bir cismin izlediği yol bir paraboldür, çünkü yatayda sabit hızla ilerlerken dikeyde yer çekimiyle düzgün biçimde yavaşlar ve sonra hızlanır; bu yüzden basketbol topunun yayı ya da bir fıskiyeden çıkan suyun izi parabol biçimindedir.",
             "Çanak antenler ve bazı el fenerlerinin yansıtıcıları da parabol kesitlidir. Parabolün eksenine paralel gelen ışınlar yansıyınca tek bir noktada, odak noktasında toplanır. Kapaktaki öğrencilerin karşılaştırdığı köprü kemeri, su yayı ve çanak anten, aynı matematiksel eğrinin farklı kullanımlarıdır. Hepsinde ortak olan, eğrinin tek bir eksene göre simetrik olması ve bir tepe noktasından iki kola ayrılmasıdır.",
+            hap("Hava direnci ihmal edildiğinde basketbol topunun izlediği yay bir paraboldür.", "Topun ulaştığı en yüksek nokta, bu parabolün tepe noktasıdır.", gunluk=True),
         ]},
         {"baslik": "Temel parabol: y = x²", "icerik": [
             "En basit parabol $y=x^2$ dir. Değer tablosu kurulunca parabolün simetrisi hemen görülür: $x$ ile $-x$ aynı $y$ değerini verir.",
@@ -50,6 +51,7 @@ YAZI = {
             dikkat(
                 "Negatif baş katsayıyı yalnızca konum değişikliği sanmak.",
                 "$y=-x^2$ parabolü $y=x^2$ nin aşağı kaydırılmışı değil, $x$ eksenine göre yansımasıdır. Kollar aşağı döner ve tepe noktası artık en büyük değer olur."),
+            hap("$a>0$ ise kollar yukarı, $a<0$ ise aşağı bakar.", "$|a|$ büyüdükçe parabol daralır, küçüldükçe genişler."),
         ]},
         {"baslik": "Simetri ekseni", "icerik": [
             "Her parabol, tepe noktasından geçen dikey bir doğruya göre simetriktir. Bu doğruya <strong>simetri ekseni</strong> denir ve denklemi şudur:",
@@ -60,6 +62,7 @@ YAZI = {
                 "Simetri eksenini bulup simetrik iki noktayı gösterelim.",
                 "$x=-\\dfrac{-4}{2}=2$.",
                 "$x=0$ ve $x=4$ simetri eksenine eşit uzaklıktadır ve iki noktada da $y=3$ tür."),
+            hap("Simetri ekseni $x=-\\dfrac{b}{2a}$ doğrusudur ve köklerin tam ortasından geçer."),
         ]},
         {"baslik": "Tepe noktası", "icerik": [
             "Parabolün simetri ekseni üzerindeki noktasına <strong>tepe noktası</strong> denir. Tepe noktasının yatay koordinatı simetri eksenidir, dikey koordinatı ise fonksiyonun o noktadaki değeridir:",
@@ -130,6 +133,7 @@ YAZI = {
                 "Görüntü kümelerini bulalım.",
                 "Birinci parabolün tepesi $(2, -1)$ ve kolları yukarıdır: görüntü kümesi $[-1, \\infty)$.",
                 "İkinci parabolün tepesi $(3, 4)$ ve kolları aşağıdır: görüntü kümesi $(-\\infty, 4]$."),
+            hap("Kollar yukarı bakıyorsa görüntü kümesi $[k, \\infty)$, aşağı bakıyorsa $(-\\infty, k]$ olur.", "Buradaki $k$ tepe noktasının dikey koordinatıdır."),
         ]},
         {"baslik": "Artan ve azalan aralıklar", "icerik": [
             "Parabol, simetri ekseninin bir yanında artan, öteki yanında azalandır. Kollar yukarı bakıyorsa fonksiyon tepe noktasına kadar azalır, sonra artar. Kollar aşağı bakıyorsa önce artar, sonra azalır.",

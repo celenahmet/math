@@ -2768,6 +2768,102 @@ def yazi_46_50():
     es("50 kemer", (I(4 - X**2, (X, -2, 2)), yak(Q(32, 3), 10.67, 0.005), Q(2, 3) * 4 * 4), (Q(32, 3), True, Q(32, 3)))
 
 
+def hap_ekleri():
+    """25.09 Ahmet: "hap bilgiler her yazida en az 5 tane; gundelik hayatla iliski
+    kurularak birer ikiser tane." Yeni hap kutularindaki sayisal ve cebirsel
+    iddialar. Kural cumleleri yazinin kendi bolumunde zaten dogrulaniyor;
+    burada hap'in KENDI ornegi ve sayilari yeniden hesaplanir."""
+    X, k_ = sp.symbols("X k_")
+    es = esit_ogeler
+    # ── 06 fonksiyon grafikleri ──
+    taksi = 20 * X + 50
+    es("06 hap taksi", (taksi.subs(X, 0), sp.diff(taksi, X), taksi.subs(X, 10)), (50, 20, 250))
+    es("06 hap oteleme", (sp.solve(sp.diff((X - 3)**2, X), X), sp.expand(((X - 3)**2 + 2).subs(X, 3))), ([3], 2))
+    # ── 07 polinomlar ──
+    es("07 hap bahce", (sp.expand((X + 2)**2), sp.expand((X + 2)**2 - X**2)), (X**2 + 4 * X + 4, 4 * X + 4))
+    P7 = (2 * X - 1)**3 + X**2 + 4
+    es("07 hap sabit ve toplam", (P7.subs(X, 0), P7.subs(X, 1), sum(sp.Poly(P7, X).all_coeffs())), (3, 6, 6))
+    es("07 hap derece", (sp.degree((X**2 + X + 1)**3, X), sp.degree((X**6 + X**3 + 1), X), sp.degree((X**2 + 1) * (X**3 - X), X)), (6, 6, 5))
+    # ── 08 polinomlarda bolme ──
+    es("08 hap para", ((X**2 + 5 * X + 6).subs(X, 10), (X + 2).subs(X, 10), sp.div(X**2 + 5 * X + 6, X + 2, X), 156 // 12, 156 % 12),
+       (156, 12, (X + 3, 0), 13, 0))
+    P8 = 2 * X**3 - 3 * X**2 + 4 * X - 5
+    es("08 hap kalan teoremi", (sp.rem(P8, X - 1, X), P8.subs(X, 1), sp.rem(P8, X + 2, X), P8.subs(X, -2)), (-2, -2, -41, -41))
+    es("08 hap bolum derecesi", sp.degree(sp.div(X**5 - 3 * X**2 + 1, X**2 + X + 1, X)[0], X), 3)
+
+    # ── 09 kalan ──
+    P9 = X**3 - 2 * X**2 + 5
+    es("09 hap x+a ve x", (sp.rem(P9, X + 1, X), P9.subs(X, -1), sp.rem(P9, X, X), P9.subs(X, 0), sp.rem(P9, X - 1, X), sum(sp.Poly(P9, X).all_coeffs())), (2, 2, 5, 5, 4, 4))
+    gunler = ["pazartesi", "sali", "carsamba", "persembe", "cuma", "cumartesi", "pazar"]
+    es("09 hap takvim", (100 % 7, gunler[(gunler.index("sali") + 100) % 7]), (2, "persembe"))
+    es("09 hap carpan", (sp.rem(X**3 - 3 * X**2 + 4, X - 2, X), sp.factor(X**3 - 3 * X**2 + 4)), (0, (X - 2)**2 * (X + 1)))
+    # ── 10 carpanlara ayirma ──
+    a_, b_ = sp.symbols("a_ b_", real=True)
+    es("10 hap iki kare", (sp.expand((a_ - b_) * (a_ + b_)), sp.factor(a_**2 + b_**2), sp.solve(a_**2 + 1, a_)), (a_**2 - b_**2, a_**2 + b_**2, []))
+    es("10 hap market", (98 * 102, 100**2 - 2**2), (9996, 9996))
+    es("10 hap iki sayi", (sp.factor(X**2 - 5 * X + 6), sp.factor(X**2 + X - 12)), ((X - 3) * (X - 2), (X - 3) * (X + 4)))
+    # ── 11 ikinci dereceden denklemler ──
+    a2, b2, c2 = sp.symbols("a2 b2 c2")
+    k1, k2 = sp.solve(a2 * X**2 + b2 * X + c2, X)
+    es("11 hap kok formulu ve bagintilar", (sp.simplify(k1 + k2), sp.simplify(k1 * k2)), (-b2 / a2, c2 / a2))
+    es("11 hap bahce", (sorted(sp.solve(X * (X + 2) - 48, X)), 6 * 8), ([-8, 6], 48))
+    es("11 hap karekok", sorted(sp.solve(X**2 - 9, X)), [-3, 3])
+    # ── 12 diskriminant ──
+    t_ = sp.symbols("t_", real=True)
+    h = -5 * t_**2 + 10 * t_
+    es("12 hap top", (sp.discriminant(5 * t_**2 - 10 * t_ + 6, t_), sp.solve(h - 6, t_), sp.maximum(h, t_), 100 - 120), (-20, [], 5, -20))
+    es("12 hap rasyonel", (sp.discriminant(X**2 - X - 6, X), sp.sqrt(25), sp.discriminant(X**2 - 4 * X + 1, X), sp.sqrt(12).is_rational), (25, 5, 12, False))
+    es("12 hap ters isaret", sp.discriminant(3 * X**2 + 7 * X - 2, X) > 0, True)
+
+    # ── 13 kokler toplami ve carpimi ──
+    x1, x2 = sp.symbols("x1 x2")
+    es("13 hap kareler toplami", sp.expand((x1 + x2)**2 - 2 * x1 * x2 - (x1**2 + x2**2)), 0)
+    es("13 hap oda", (sorted(sp.solve(X**2 - 13 * X + 40, X)), 5 + 8, 5 * 8, 2 * (5 + 8)), ([5, 8], 13, 40, 26))
+    es("13 hap isaret", sorted(sp.solve(X**2 - X - 6, X)), [-2, 3])
+    # ── 14 parabol ──
+    a3, b3, c3 = sp.symbols("a3 b3 c3", nonzero=True)
+    es("14 hap simetri ekseni", sp.solve(sp.diff(a3 * X**2 + b3 * X + c3, X), X), [-b3 / (2 * a3)])
+    es("14 hap goruntu", (sp.minimum(X**2 - 4 * X + 3, X), sp.maximum(-X**2 + 6 * X - 5, X)), (-1, 4))
+    # ── 15 tepe noktasi ──
+    r_ = -b3 / (2 * a3)
+    f15 = a3 * X**2 + b3 * X + c3
+    d_ = sp.symbols("d_")
+    es("15 hap tepe", (sp.simplify(f15.subs(X, r_) + (b3**2 - 4 * a3 * c3) / (4 * a3)), sp.simplify(f15.subs(X, r_ + d_) - f15.subs(X, r_ - d_))), (0, 0))
+    p_ = sp.symbols("p_", real=True)
+    gelir = p_ * (120 - 4 * p_)
+    es("15 hap limonata", (sp.solve(sp.diff(gelir, p_), p_), 120 - 4 * 15, gelir.subs(p_, 15)), ([15], 60, 900))
+    es("15 hap kok ortalamasi", (sp.solve(sp.diff((X - 2) * (X - 6), X), X), Rational(2 + 6, 2)), ([4], 4))
+    # ── 16 parabol denklemi ──
+    kemer = -Rational(1, 4) * X**2 + 4
+    es("16 hap kemer", (kemer.subs(X, 4), kemer.subs(X, -4), kemer.subs(X, 0), kemer.subs(X, 2)), (0, 0, 4, 3))
+    es("16 hap teget", sp.discriminant(sp.expand(3 * (X - 2)**2), X), 0)
+
+    # ── 17 parabol grafigi ──
+    a4, k4, d4 = sp.symbols("a4 k4 d4")
+    f17 = a4 * (X - 2)**2 + k4
+    es("17 hap fiskiye ve genislik", (sp.simplify(f17.subs(X, 0) - f17.subs(X, 4)), sp.expand(f17.subs(X, 2 + d4) - f17.subs(X, 2))), (0, a4 * d4**2))
+    es("17 hap mutlak", (sp.Abs(X**2 - 4).subs(X, 0), sp.Abs(X**2 - 4).subs(X, 3)), (4, 5))
+    # ── 18 parabol ve dogru ──
+    kemer18 = -Rational(1, 4) * X**2 + 4
+    es("18 hap kemer", (sorted(sp.solve(kemer18 - 3, X)), 2 - (-2)), ([-2, 2], 4))
+    k18 = sp.symbols("k18")
+    es("18 hap teget", (sp.solve(sp.discriminant(X**2 - 4 * X + 3 - k18, X), k18), sp.solve(X**2 - 4 * X + 4, X), Rational(4, 2)), ([-1], [2], 2))
+    q18 = X**2 - 4 * X + 1 - k18
+    es("18 hap orta", sp.simplify(sum(sp.solve(q18, X)) / 2), 2)
+    # ── 19 trigonometri ──
+    es("19 hap donusum", (sp.pi * 150 / 180, sp.sin(sp.pi / 6), sp.cos(sp.pi / 3), sp.sin(sp.pi / 4), sp.cos(sp.pi / 4)),
+       (5 * sp.pi / 6, Rational(1, 2), Rational(1, 2), sp.sqrt(2) / 2, sp.sqrt(2) / 2))
+    th = sp.symbols("th")
+    es("19 hap temel ozdeslik", sp.simplify(sp.sin(th)**2 + sp.cos(th)**2), 1)
+    aci19 = float(sp.atan(Rational(1, 10)) * 180 / sp.pi)
+    es("19 hap yol egimi", (Rational(10, 100), round(aci19, 1)), (Rational(1, 10), 5.7))
+    # ── 20 birim cember ──
+    es("20 hap dolap", (20 * sp.sin(sp.pi / 6), (20 * sp.cos(sp.pi / 2), 20 * sp.sin(sp.pi / 2))), (10, (0, 20)))
+    isaret = lambda d: tuple(sp.sign(f(d * sp.pi / 180)) for f in (sp.sin, sp.cos, sp.tan))
+    es("20 hap bolgeler", (isaret(45), isaret(135), isaret(225), isaret(315)), ((1, 1, 1), (1, -1, -1), (-1, -1, 1), (-1, 1, -1)))
+    es("20 hap referans", (sp.sin(sp.pi * 225 / 180), -sp.sin(sp.pi / 4)), (-sp.sqrt(2) / 2, -sp.sqrt(2) / 2))
+
+
 def bicim():
     import blog_veri
     from blog_uygula import kelime_sayisi
@@ -2790,7 +2886,7 @@ def bicim():
 
 
 if __name__ == "__main__":
-    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32, yazi_33_36, yazi_37_39, yazi_40_42, yazi_43_45, yazi_46_50):
+    for fn in (yazi_02, yazi_03, yazi_04, yazi_05, ekler, yazi_51_55, yazi_56_60, yazi_61_65, yazi_61_65_ek, yazi_66_70, yazi_66_70_ek, yazi_71_75, yazi_76_80, yazi_81_85, yazi_86_91, yazi_92_97, yazi_98_100, yazi_06_10, yazi_11_13, yazi_14_18, yazi_19_23, yazi_24_26, yazi_27_29, yazi_30_32, yazi_33_36, yazi_37_39, yazi_40_42, yazi_43_45, yazi_46_50, hap_ekleri):
         once = SAY[0]
         fn()
         print(f"{fn.__name__}: {SAY[0] - once} iddia dogrulandi")

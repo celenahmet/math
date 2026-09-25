@@ -45,6 +45,7 @@ YAZI = {
                 "Sabit terimden bir nokta çifti bulalım.",
                 "$c=5$ ve $r=3$.",
                 "Noktalar $(0, 5)$ ve $(6, 5)$ tir. Kontrol: $36-36+5=5$."),
+            hap("Fıskiyeden çıkan su bir parabol çizer ve tepe noktasına göre simetriktir.", "Su $2$ metre ötede en yüksek noktasına çıkıyorsa çıkış noktasından $4$ metre ötede yeniden çıkış yüksekliğine iner.", gunluk=True),
         ]},
         {"baslik": "Adım adım bir örnek", "icerik": [
             "Adımları $y=x^2-2x-3$ parabolü üzerinde uygulayalım. Kapaktaki dört panel de aynı ilerleyişi gösterir: boş ızgara, belirleyici noktalar, simetrik noktalar ve tamamlanmış eğri.",
@@ -121,6 +122,7 @@ YAZI = {
                 "$x=0$ ve $x=2$ için $y=2-2=0$; kökler $0$ ve $2$ dir. $x=-1$ ve $x=3$ için $y=8-2=6$."),
             koordinat_grafik("y = 2(x − 1)² − 2", [("y = 2(x − 1)² − 2", lambda x: 2 * (x - 1) ** 2 - 2)], (-2, 4), (-3, 9), dikeyler=[1],
                              noktalar=[(1, -2, "T(1, −2)", True), (0, 0, "(0, 0)", True), (2, 0, "(2, 0)", True), (-1, 6, "(−1, 6)", True), (3, 6, "(3, 6)", True)]),
+            hap("Denklem $y=a(x-r)^2+k$ biçimindeyse tepe noktası $(r, k)$ doğrudan okunur."),
         ]},
         {"baslik": "Kök biçiminden çizmek", "icerik": [
             "Denklem çarpanlarına ayrılmışsa kökler hemen okunur, simetri ekseni köklerin ortalamasıdır ve tepe noktası bu değerde hesaplanır.",
@@ -140,6 +142,7 @@ YAZI = {
                 ["$3$ birim", "$9$", "$18$", "$\\dfrac{9}{2}$"],
             ]),
             "Tablo, dar ve geniş parabollerin farkını sayılarla gösterir. Grafiği çizerken bu noktaları işaretlemek, eğrinin rastgele değil doğru genişlikte çizilmesini sağlar.",
+            hap("Tepe noktasından $d$ birim uzakta eğri $ad^2$ kadar yükselir ya da alçalır."),
         ]},
         {"baslik": "Ötelemeyle çizmek", "icerik": [
             "Bir parabol başka bir parabolün ötelenmesiyse grafiği baştan hesaplanmaz; bilinen grafik kaydırılır. $y=(x-r)^2+k$ grafiği, $y=x^2$ grafiğinin $r$ birim yatay ve $k$ birim dikey ötelenmesidir.",
@@ -170,6 +173,7 @@ YAZI = {
                 "Bu kısım yukarı yansıtılır: yeni grafikte $(0, 4)$ bir tepe noktası gibi görünür ve $x=\\pm 2$ de köşeler oluşur."),
             koordinat_grafik("y = x² − 4 ve y = |x² − 4| grafikleri", [("y = x² − 4", lambda x: x * x - 4), ("y = |x² − 4|", lambda x: abs(x * x - 4))], (-4, 4), (-5, 6),
                              noktalar=[(0, 4, "(0, 4)", True), (-2, 0, "", True), (2, 0, "", True)]),
+            hap("$y=|f(x)|$ grafiğinde $x$ ekseninin altında kalan kısımlar eksene göre yukarı yansıtılır.", "Bu grafik hiçbir yerde $x$ ekseninin altına inmez."),
         ]},
         {"baslik": "İki parabolü birlikte çizmek", "icerik": [
             "İki parabol aynı düzlemde çizildiğinde kesişim noktaları iki denklemin eşitlenmesiyle bulunur. Grafik, bu noktaların sayısını ve konumunu doğrular.",

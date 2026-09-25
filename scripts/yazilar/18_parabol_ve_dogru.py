@@ -119,6 +119,7 @@ YAZI = {
                 "Kesişim sayısını $k$ ya göre inceleyelim.",
                 "Tepe noktası $(2, 4)$ tür; en büyük değer $4$ tür.",
                 "$k<4$ ise iki nokta, $k=4$ ise tepe noktasında teğet, $k>4$ ise ortak nokta yoktur."),
+            hap("Tabanı $8$ metre, yüksekliği $4$ metre olan $y=-\\dfrac{1}{4}x^2+4$ kemerinin altından yüksekliği $3$ metre olan bir araç geçecek.", "$y=3$ doğrusu kemeri $x=-2$ ve $x=2$ noktalarında keser; aracın genişliği $4$ metreden azsa araç geçer.", gunluk=True),
         ]},
         {"baslik": "Mutlak değerli parabol ve yatay doğrular", "icerik": [
             "Mutlak değerli bir parabolün grafiği, parabolün eksenin altında kalan kısmının yukarı yansıtılmasıyla oluşur. Bu grafik yatay doğrularla parabolden daha fazla noktada kesişebilir, çünkü yansıyan kısım yeni bir tepe oluşturur.",
@@ -131,6 +132,7 @@ YAZI = {
         {"baslik": "Dikey doğrular", "icerik": [
             "$x=a$ biçimindeki dikey doğrular parabolü her zaman tam olarak bir noktada keser, çünkü parabol bir fonksiyon grafiğidir ve her $x$ için tek bir $y$ değeri vardır. Kesişim noktası $(a, f(a))$ dır.",
             "Dikey bir doğrunun parabolle tek ortak noktası olsa da bu doğru teğet değildir: parabolün iki yanına geçer. Teğetlik ölçütü olarak diskriminant yalnızca dikey olmayan doğrular için kullanılır; dikey doğrular bu yöntemin dışında kalır.",
+            hap("$x=a$ biçimindeki dikey doğru parabolü her zaman tek noktada keser ama parabole teğet değildir."),
         ]},
         {"baslik": "Teğet noktasını bulmak", "icerik": [
             "Teğetlik koşulundan parametre bulunduktan sonra teğet noktası, çakışık kök formülüyle bulunur: eşitlemeden çıkan denklemin çakışık kökü $-\\dfrac{B}{2A}$ dir. Bu değer parabol ya da doğru denkleminde yerine yazılarak noktanın dikey koordinatı hesaplanır.",
@@ -140,6 +142,7 @@ YAZI = {
                 "$x^2-4x+3-k=0$ ve $\\Delta=16-4(3-k)=4+4k=0$; $k=-1$.",
                 "Çakışık kök $x=2$; $y=2 \\cdot 2-1=3$. Teğet noktası $(2, 3)$ tür."),
             "Bulunan noktanın hem parabolde hem doğruda olduğu kontrol edilmelidir: parabolde $4-4+3=3$, doğruda $4-1=3$ bulunur. İki değerin eşit çıkması, teğet noktasının doğru bulunduğunu gösterir.",
+            hap("Teğet noktasının yatay koordinatı, eşitlemeden çıkan $Ax^2+Bx+C=0$ denkleminin çakışık kökü olan $-\\dfrac{B}{2A}$ olur."),
         ]},
         {"baslik": "Belirli eğimli teğet", "icerik": [
             "Eğimi belli olan bir teğet isteniyorsa doğru $y=mx+n$ biçiminde yazılır ve yalnızca $n$ bilinmez. Teğetlik koşulu $n$ yi verir.",
@@ -168,6 +171,7 @@ YAZI = {
                 "$x^2-4x+1-k=0$; kökler toplamı $4$ tür.",
                 "Orta noktanın yatay koordinatı $\\dfrac{4}{2}=2$ dir ve $k$ ya bağlı değildir."),
             "Sonucun $k$ dan bağımsız olması ilginçtir: aynı eğimli bütün kesen doğruların parabolde ayırdığı parçaların orta noktaları aynı dikey doğru üzerindedir. Kökler toplamının ayrıntısı <a href=\"/blog/kokler-toplami-carpimi/\">Kökler Toplamı ve Kökler Çarpımı Nasıl Bulunur?</a> yazısında.",
+            hap("Kesişim noktalarının orta noktasının yatay koordinatı, eşitlemeden çıkan denklemin kökler toplamının yarısıdır."),
         ]},
         {"baslik": "Kesen doğrunun eğimini bulmak", "icerik": [
             "Kesişim noktalarının yatay koordinatlarının toplamı, eşitlemeden çıkan denklemin kökler toplamıdır ve doğrunun eğimine bağlıdır. Bu toplam verilmişse eğim tek adımda bulunur.",

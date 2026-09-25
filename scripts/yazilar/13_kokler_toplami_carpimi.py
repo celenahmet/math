@@ -68,6 +68,7 @@ YAZI = {
                 "$S=5$ ve $P=3$.",
                 "$x_1^2+x_2^2=25-6=19$."),
             "Bu denklemin kökleri irrasyoneldir: $\\dfrac{5 \\pm \\sqrt{13}}{2}$. Kökleri bulup karelerini toplamak uzun bir işlemdir; formül ise sonucu tek satırda verir.",
+            hap("Köklerin kareleri toplamı $S^2-2P$ olur.", "Bu değer $S^2$ ile karıştırılmamalıdır; aradaki fark $2P$ kadardır."),
         ]},
         {"baslik": "Köklerin terslerinin toplamı", "icerik": [
             "Köklerin terslerinin toplamı payda eşitlenerek toplam ve çarpım cinsinden yazılır:",
@@ -123,6 +124,7 @@ YAZI = {
                 "$S=-1$ ve $P=-12$.",
                 "$x^2+x-12=0$. Kontrol: $(x-3)(x+4)=x^2+x-12$."),
             "Baş katsayısı $1$ olmayan bir denklem istenirse bu denklem istenen sayıyla çarpılır. Kökler değişmez, çünkü denklemin iki tarafını sıfırdan farklı bir sayıyla çarpmak çözüm kümesini etkilemez.",
+            hap("Toplamı $S$, çarpımı $P$ olan iki sayı $x^2-Sx+P=0$ denkleminin kökleridir."),
         ]},
         {"baslik": "Kökleri türetilen denklem", "icerik": [
             "Bazı sorularda verilen denklemin köklerinden türetilen sayıları kök kabul eden yeni bir denklem istenir. Yeni köklerin toplamı ve çarpımı eski $S$ ve $P$ cinsinden hesaplanır.",
@@ -215,6 +217,7 @@ YAZI = {
                 "$P=-10<0$; kökler ters işaretlidir.",
                 "$S=-3<0$ olduğu için negatif kökün mutlak değeri daha büyüktür. Gerçekten kökler $2$ ve $-5$ tir."),
             "İşaret tablosu yalnızca gerçek kökler için anlamlıdır. Çarpım ve toplam pozitif olsa bile diskriminant negatifse denklemin gerçek kökü yoktur; bu yüzden işaret sorularında ilk adım her zaman diskriminantı kontrol etmektir.",
+            hap("Kökler çarpımı negatifse kökler ters işaretlidir.", "Çarpım pozitifse kökler aynı işaretlidir ve bu ortak işareti kökler toplamı belirler."),
         ]},
         {"baslik": "Simetrik ve ters kökler", "icerik": [
             "Köklerin birbirinin ters işaretlisi olması, yani $x_1=-x_2$ olması toplamın sıfır olması demektir; bu da $b=0$ koşulunu verir. Köklerin birbirinin çarpmaya göre tersi olması ise çarpımın $1$ olması, yani $c=a$ demektir.",
@@ -237,6 +240,7 @@ YAZI = {
                 "Kenarların toplamı yarı çevredir: $10$. Çarpımları alandır: $24$.",
                 "Kenarlar $x^2-10x+24=0$ denkleminin kökleridir: $(x-4)(x-6)=0$. Kenarlar $4$ ve $6$ santimetredir."),
             "Kapaktaki modelin söylediği de budur: iki uzunluğun art arda dizilmesi toplamı, bu uzunluklarla kurulan dikdörtgenin alanı çarpımı verir. İkisi birlikte bilindiğinde uzunlukların kendisi de bulunur.",
+            hap("Çevresi $26$ metre, alanı $40$ metrekare olan dikdörtgen bir odanın kenarları, toplamı $13$ ve çarpımı $40$ olan iki sayıdır.", "Bu sayılar $x^2-13x+40=0$ denkleminin kökleri olan $5$ ve $8$ olur; oda $5$ metreye $8$ metredir.", gunluk=True),
         ]},
         {"baslik": "Üçüncü dereceden denklemlere uzantı", "icerik": [
             "Vieta bağıntıları daha yüksek dereceli denklemlerde de geçerlidir. $ax^3+bx^2+cx+d=0$ denkleminin kökleri $x_1$, $x_2$ ve $x_3$ ise:",

@@ -54,6 +54,7 @@ YAZI = {
             dikkat(
                 "Ortak çarpan parantezini atlayıp doğrudan özdeşlik aramak.",
                 "$2x^2-18$ ifadesinde önce $2$ ortak çarpandır: $2(x^2-9)=2(x-3)(x+3)$. Ortak çarpan alınmadan iki kare farkı görülmez ve ayırma yarım kalır."),
+            hap("Çarpanlara ayırmada ilk iş, bütün terimlerdeki ortak çarpanı paranteze almaktır."),
         ]},
         {"baslik": "Gruplama", "icerik": [
             "Terimlerin hepsinde ortak bir çarpan yoksa terimler ikişerli gruplara ayrılır. Her grupta ortak çarpan alındıktan sonra gruplar arasında ortak bir parantez ortaya çıkıyorsa ifade çarpanlarına ayrılmış olur.",
@@ -75,6 +76,7 @@ YAZI = {
             dikkat(
                 "İki kare toplamını çarpanlarına ayırmaya çalışmak.",
                 "$x^2+4$ gerçek sayılarda çarpanlarına ayrılmaz, çünkü $x^2+4$ hiçbir gerçek $x$ için sıfır olmaz. Bu yüzden $x^4-16$ nın son çarpanı $x^2+4$ olarak kalır."),
+            hap("$a^2-b^2=(a-b)(a+b)$ en sık kullanılan özdeşliktir.", "İki kare toplamı olan $a^2+b^2$ ise gerçek sayılarda çarpanlara ayrılmaz."),
         ]},
         {"baslik": "Tam kare üç terimliler", "icerik": [
             "$a^2+2ab+b^2=(a+b)^2$ ve $a^2-2ab+b^2=(a-b)^2$ özdeşlikleri tersinden okunarak tam kare üç terimliler çarpanlarına ayrılır. Bir üç terimlinin tam kare olması için baştaki ve sondaki terimler kare, ortadaki terim de bunların tabanlarının çarpımının iki katı olmalıdır.",
@@ -111,6 +113,7 @@ YAZI = {
                 "$x^2-5x+6$: çarpımı $6$, toplamı $-5$ olan sayılar $-2$ ve $-3$ tür. Sonuç $(x-2)(x-3)$.",
                 "$x^2+x-12$: çarpımı $-12$, toplamı $1$ olan sayılar $4$ ve $-3$ tür. Sonuç $(x+4)(x-3)$."),
             "Çarpım negatifse sayıların işaretleri farklıdır; toplamın işareti, mutlak değeri büyük olan sayının işaretidir. Çarpım pozitifse iki sayının işareti aynıdır ve toplamın işaretini taşır. Bu iki gözlem aranan sayıları hızla daraltır. Böyle iki tam sayı bulunamıyorsa üç terimli tam sayılarla ayrılmıyor olabilir; o zaman kökler ikinci dereceden denklem yöntemleriyle bulunur.",
+            hap("Baş katsayısı $1$ olan üç terimliyi ayırmak için çarpımı sabit terime, toplamı $x$ in katsayısına eşit iki sayı aranır."),
         ]},
         {"baslik": "ax² + bx + c biçimindeki üç terimliler", "icerik": [
             "Baş katsayısı $1$ den farklıysa çapraz çarpım yöntemi kullanılır: $a$ katsayısı ve $c$ sabiti ikişer çarpana ayrılır; çaprazlama çarpımların toplamı $b$ yi veren düzen aranır.",
@@ -222,6 +225,7 @@ YAZI = {
                 "Sonucu hesaplayalım.",
                 "$(100-2)(100+2)=100^2-2^2$.",
                 "Sonuç $10000-4=9996$."),
+            hap("Tanesi $98$ lira olan üründen $102$ tane almanın tutarı akıldan hesaplanır.", "$98 \\cdot 102=(100-2)(100+2)=10000-4$ olduğu için tutar $9996$ liradır.", gunluk=True),
         ]},
         {"baslik": "Sonucu çarparak kontrol etmek", "icerik": [
             "Çarpanlara ayırmanın sonucu her zaman denetlenebilir: çarpanlar yeniden çarpılır ya da $x$ yerine basit bir sayı yazılarak iki tarafın değerleri karşılaştırılır. Sınavda tam çarpım zaman alıyorsa tek bir sayıyla yapılan kontrol çoğu hatayı yakalar.",

@@ -43,6 +43,7 @@ YAZI = {
                 ["Üç nokta", "$y=ax^2+bx+c$"],
             ]),
             "Tepe noktası biçiminde tepe noktası doğrudan yerleşir ve geriye yalnızca $a$ kalır. Kök biçiminde de kökler yerleşir ve yine yalnızca $a$ bilinmez. Genel biçim ise üç bilinmeyen içerdiği için üç denklem gerektirir.",
+            hap("Tepe noktası verilirse $y=a(x-r)^2+k$, kökler verilirse $y=a(x-x_1)(x-x_2)$ biçimiyle başlanır."),
         ]},
         {"baslik": "Tepe noktası ve bir nokta", "icerik": [
             "Tepe noktası $(r, k)$ biliniyorsa denklem $y=a(x-r)^2+k$ biçiminde yazılır. Parabol üzerindeki başka bir nokta yerine konunca $a$ bulunur.",
@@ -107,6 +108,7 @@ YAZI = {
                 "$(0, 1)$ den $c=1$. $(1, 0)$ dan $a+b+1=0$, $(2, 3)$ ten $4a+2b+1=3$.",
                 "$a+b=-1$ ve $2a+b=1$; buradan $a=2$ ve $b=-3$.",
                 "$y=2x^2-3x+1$. Kontrol: $x=2$ için $8-6+1=3$."),
+            hap("Yalnızca üç nokta verildiğinde genel biçim $y=ax^2+bx+c$ kullanılır.", "Noktalardan biri $y$ ekseni üzerindeyse sabit terim hemen bulunur."),
         ]},
         {"baslik": "y eksenine göre simetrik parabol", "icerik": [
             "Simetri ekseni $y$ ekseniyse $b=0$ dır ve denklem $y=ax^2+c$ biçimine iner. Bilinmeyen sayısı ikiye düştüğü için iki nokta yeterlidir.",
@@ -139,6 +141,7 @@ YAZI = {
                 "Denklemi yazalım.",
                 "$y=a(x-2)^2$ ve $x=0$ için $8=4a$; $a=2$.",
                 "$y=2(x-2)^2=2x^2-8x+8$."),
+            hap("$x$ eksenine $x=r$ noktasında teğet olan parabol $y=a(x-r)^2$ biçimindedir."),
         ]},
         {"baslik": "Simetri ekseni ve iki nokta", "icerik": [
             "Simetri ekseni biliniyor ama tepe noktasının yüksekliği bilinmiyorsa tepe noktası biçimi iki bilinmeyenle yazılır: $a$ ve $k$. İki nokta iki denklem verir.",
@@ -213,6 +216,7 @@ YAZI = {
                 "Kökler $-10$ ve $10$, tepe noktası $(0, 5)$: $y=a(x^2-100)$ ve $5=-100a$; $a=-\\dfrac{1}{20}$.",
                 "$y=-\\dfrac{x^2}{20}+5$. $x=6$ için $y=-\\dfrac{36}{20}+5=3.2$ metre."),
             "Koordinat sisteminin yeri sonucu değiştirmez ama hesabı değiştirir. Kemerin sol ucu başlangıç noktası seçilseydi kökler $0$ ve $20$ olurdu; aynı yükseklik bulunur ama denklem daha karmaşık görünür.",
+            hap("Tabanı $8$ metre, ortadaki yüksekliği $4$ metre olan parabol biçimli bir kapı kemeri için simetri ekseni $y$ ekseni seçilince $y=-\\dfrac{1}{4}x^2+4$ bulunur.", "Kenardan $2$ metre içeride kemerin yüksekliği $3$ metredir.", gunluk=True),
         ]},
         {"baslik": "Atış verisinden denklem", "icerik": [
             "Fırlatılan bir cismin yükseklik fonksiyonu da parabol olduğu için ölçülen birkaç değerden denklemi yazılabilir. En yüksek noktanın zamanı ve yüksekliği biliniyorsa tepe noktası biçimi kullanılır.",
