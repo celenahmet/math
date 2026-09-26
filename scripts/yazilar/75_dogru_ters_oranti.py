@@ -73,6 +73,7 @@ YAZI = {
             dikkat(
                 "Orantıyı yön değil, oran ya da çarpım belirler.",
                 "Birlikte artmak doğru orantı için yetmez, oran sabit olmalıdır. Biri artarken diğerinin azalması ters orantı için yetmez, çarpım sabit olmalıdır."),
+            hap("Biri artarken diğerinin azalması ters orantı için yetmez; iki büyüklüğün çarpımı sabit kalmalıdır."),
         ]},
         {"baslik": "Grafikler", "icerik": [
             "Doğru orantının grafiği <strong>başlangıç noktasından geçen bir doğrudur</strong>: $y=k \\cdot x$ te $x=0$ için $y=0$ dır ve $x$ her birim arttığında $y$ hep aynı miktarda, $k$ kadar artar. Doğru, başlangıç noktasından geçmiyorsa ilişki doğrusal olabilir ama doğru orantı değildir; $y=2x+1$ gibi.",
@@ -186,6 +187,7 @@ YAZI = {
                 "Zaman sabit olduğu için yol ile hız doğru orantılıdır: $\\dfrac{120}{60}=\\dfrac{x}{90}$.",
                 "$60x=10800$, yani $x=180$ kilometre."),
             "Aynı araçlarla bu kez aynı yol gidilseydi ilişki ters orantıya dönerdi: hızlı olan araç daha kısa sürede varırdı. Soru hangi büyüklüğün sabit olduğunu söylemiyorsa, önce bunu metinden çıkarmak gerekir.",
+            hap("Aynı yolu saatte $60$ kilometreyle $2$ saatte giden bir araç, saatte $80$ kilometreyle $1.5$ saatte gider.", "Yol sabitken hız ile süre ters orantılıdır: $60 \\cdot 2=80 \\cdot 1.5=120$ olur.", gunluk=True),
         ]},
         {"baslik": "Sınavda doğru ve ters orantı", "icerik": [
             sinavda(

@@ -48,6 +48,7 @@ YAZI = {
             dikkat(
                 "Toplam ile fark ya ikisi de tek ya ikisi de çift olmalıdır.",
                 "Sayılar tam sayıysa toplam ile fark ya ikisi de tek ya ikisi de çift olur. Toplamı $50$, farkı $15$ olan iki tam sayı yoktur; böyle bir sonuç, sorunun yanlış okunduğunu gösterir."),
+            hap("Toplamı $T$, farkı $F$ olan iki sayıdan büyüğü $\\dfrac{T+F}{2}$, küçüğü $\\dfrac{T-F}{2}$ olur."),
         ]},
         {"baslik": "Kat ilişkisi", "icerik": [
             "\"Bir sayı diğerinin $4$ katı\" gibi ifadelerde küçük sayıya $x$ demek en kısa yoldur; büyük sayı doğrudan $4x$ olur. Bu seçim kesirli ifadelerle uğraşmayı önler.",
@@ -114,6 +115,7 @@ YAZI = {
             dikkat(
                 "Kalanı bölenden büyük ya da eşit almak.",
                 "Kalan her zaman bölenden küçüktür. Bir hesapta kalan bölene eşit ya da ondan büyük çıkarsa bölüm bir artırılır ve kalan küçültülür."),
+            hap("$\\text{Bölünen}=\\text{Bölen} \\cdot \\text{Bölüm}+\\text{Kalan}$ olur ve kalan her zaman bölenden küçüktür."),
         ]},
         {"baslik": "Basamak içeren sayı problemleri", "icerik": [
             "İki basamaklı bir sayının onlar basamağındaki rakam $a$, birler basamağındaki rakam $b$ ise sayının değeri $10a+b$ dir. Rakamların yeri değişince sayı $10b+a$ olur. Bu yazım, rakamlarla ilgili bütün soruları denkleme çevirmeyi sağlar.",
@@ -127,6 +129,7 @@ YAZI = {
             dikkat(
                 "Rakamları çarpar gibi yazmak.",
                 "Onlar basamağı $a$, birler basamağı $b$ olan sayı $a \\cdot b$ değil, $10a+b$ dir. Örneğin $47$ sayısı $4 \\cdot 7=28$ değil, $4 \\cdot 10+7$ dir."),
+            hap("İki basamaklı bir sayının onlar basamağı $a$, birler basamağı $b$ ise değeri $10a+b$ olur; rakamlar yer değiştirince $10b+a$ olur."),
         ]},
         {"baslik": "Üç basamaklı sayılar", "icerik": [
             "Üç basamaklı bir sayının yüzler, onlar ve birler basamağındaki rakamlar $a$, $b$ ve $c$ ise sayının değeri $100a+10b+c$ dir. Rakamlar hakkında verilen her bilgi bir denkleme dönüşür.",
@@ -190,6 +193,7 @@ YAZI = {
             dikkat(
                 "Ortalamaları doğrudan toplamak ya da çıkarmak.",
                 "İlk örnekte $18-16=2$ yazmak anlamsızdır. Ortalamalar farklı sayıda sayıya ait olduğu için önce her birinin toplamı bulunur, işlem toplamlar üzerinden yapılır."),
+            hap("Dört sınavda ortalaması $70$ olan bir öğrencinin toplam puanı $280$ olur.", "Ortalamasını $75$ e çıkarmak için beşinci sınavdan $5 \\cdot 75-280=95$ alması gerekir.", gunluk=True),
         ]},
         {"baslik": "Tersten çözme", "icerik": [
             "Bir sayıya art arda işlemler uygulanıp sonuç verildiğinde, sondan başa doğru ters işlemler uygulanarak sayı bulunur. Toplamanın tersi çıkarma, çarpmanın tersi bölmedir. Bu yöntem, denklem kurmaktan çoğu zaman daha hızlıdır. Önemli olan, işlemleri sorudaki sıranın tam tersiyle, sondan başa doğru uygulamaktır.",

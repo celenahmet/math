@@ -46,6 +46,7 @@ YAZI = {
             dikkat(
                 "Kelimelerin sırası işlemin sırasını belirler.",
                 "\"$3$ katının $4$ eksiği\" ile \"$4$ eksiğinin $3$ katı\" aynı kelimelerden oluşur ama farklı ifadelerdir. İlkinde önce çarpılır sonra çıkarılır, ikincisinde önce çıkarılır sonra çarpılır. \"$7$ eksiği\" ile \"$7$ den farkı\" da farklıdır: $x-7$ ile $7-x$."),
+            hap("Bir sayının $4$ eksiğinin $3$ katı $3(x-4)$, $3$ katının $4$ eksiği $3x-4$ olur; işlemlerin sırası cümleden okunur."),
         ]},
         {"baslik": "Bilinmeyeni seçmek", "icerik": [
             "Doğru bilinmeyeni seçmek denklemi kısaltır. Genel kural, <strong>diğer niceliklerin kolayca ifade edilebildiği</strong> niceliğe $x$ demektir. Çoğu zaman bu, en küçük nicelik ya da başka niceliklerin katı olarak anlatılan niceliktir.",
@@ -81,6 +82,7 @@ YAZI = {
                 "Sayılar $x-2$, $x$ ve $x+2$: toplam $3x=87$.",
                 "$x=29$; sayılar $27$, $29$ ve $31$."),
             "Bu, ardışık sayıların genel bir özelliğini de gösterir: tek sayıda ardışık terimin toplamı, ortadaki terim ile terim sayısının çarpımıdır. Bu yüzden toplam terim sayısına bölününce ortadaki terim doğrudan bulunur: $87:3=29$.",
+            hap("Ardışık tek ya da çift sayılarda ortadakine $x$ denirse diğerleri $x-2$ ve $x+2$ olur; toplamda $-2$ ile $+2$ birbirini götürür."),
         ]},
         {"baslik": "Kurmadan önce tahmin etmek", "icerik": [
             "Denklemi kurmadan önce cevabın yaklaşık nerede olması gerektiğini düşünmek, yanlış kurulmuş bir denklemi fark etmenin en hızlı yoludur. Tahmin kaba olabilir; amaç yalnızca sonucun makul bir aralıkta olup olmadığını görmektir.",
@@ -116,6 +118,7 @@ YAZI = {
                 ["Toplam", "$30$", "", "$220$"],
             ]),
             "Aynı tablo; bilet, ürün ya da puan sorularına da uygulanır. Satırlar değişir ama \"adet çarpı birim değer eşittir toplam\" ilişkisi aynı kalır.",
+            hap("Cüzdanda yalnız $10$ ve $20$ liralık banknotlardan $20$ tane ve toplam $290$ lira varsa $10x+20(20-x)=290$ denklemi kurulur.", "$x=11$ bulunur: $11$ tane $10$ liralık, $9$ tane $20$ liralık banknot vardır.", gunluk=True),
         ]},
         {"baslik": "Geometri problemleri", "icerik": [
             "Şekillerin çevresi ve alanı da denklem kurmak için sık kullanılan ilişkilerdir. Kenarlardan biri $x$ seçilir, diğerleri $x$ cinsinden yazılır ve çevre ya da alan formülü denkleme dönüşür.",
@@ -189,6 +192,7 @@ YAZI = {
                 "Cevabı bulalım.",
                 "Sayı $x$ olsun: $2(x+5)=26$, yani $x+5=13$ ve $x=8$.",
                 "Soru sayının karesini istediği için cevap $8$ değil, $8^2=64$ tür."),
+            hap("Bulunan değer problemin bağlamına uymalıdır: kişi ya da banknot sayısı negatif ya da kesirli çıkamaz."),
         ]},
         {"baslik": "Sınavda denklem kurma", "icerik": [
             sinavda(

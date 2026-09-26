@@ -47,6 +47,7 @@ YAZI = {
             dikkat(
                 "Parçayı kesirle çarpmak.",
                 "Kızlar sınıfın yedide üçüyse sınıf mevcudu $12 \\cdot \\dfrac{3}{7}$ değildir; bu işlem $12$ den de küçük bir sayı verir ve bütünün parçadan küçük olması anlamsızdır. Bütün her zaman parçadan büyüktür."),
+            hap("Kesri verilen çokluğun tamamını bulmak için verilen parça pay sayısına bölünür, sonra payda kadar parça alınır."),
         ]},
         {"baslik": "Şerit modeli", "icerik": [
             "Kesir problemlerini çözmenin en görsel yolu <strong>şerit modelidir</strong>. Bütün bir şerit olarak çizilir ve paydadaki sayı kadar eş parçaya bölünür. Sorudaki bilgiler bu parçaların üzerine yazılır ve bir parçanın değeri bulunduğunda geri kalan her şey okunur.",
@@ -72,6 +73,7 @@ YAZI = {
             dikkat(
                 "Kalanın kesrini bütüne uygulamak.",
                 "İkinci gün okunan sayfa kitabın beşte ikisi değil, kalan sayfaların beşte ikisidir. Kesir bütüne uygulanırsa ikinci gün $120$ sayfa okunmuş sanılır ve denklem yanlış kurulur."),
+            hap("Soruda kalanın kesri geçiyorsa kesir bütüne değil, bir önceki adımdan kalana uygulanır."),
         ]},
         {"baslik": "Parçadan parçaya geçmek", "icerik": [
             "Bazen bir kesir verilir ve aynı sayının başka bir kesri sorulur. Bu durumda önce bütün bulunur, sonra istenen kesir hesaplanır. İki adım tek bir çarpımda da birleştirilebilir.",
@@ -94,6 +96,7 @@ YAZI = {
             dikkat(
                 "\"Kaçta kaçı\" ile \"kaç tane\" sorularını karıştırmak.",
                 "\"Kaçta kaçı\" sorusu bir kesir ister; cevap $\\dfrac{1}{6}$ dir. \"Kaç tane\" sorusu ise bir sayı ister; cevap $6$ dır. Soru kökünü dikkatle okumak, doğru hesabı yapıp yanlış seçeneği işaretlemeyi önler."),
+            hap("Bir grubun bir kısmının da bir kısmı sorulduğunda kesirler çarpılır."),
         ]},
         {"baslik": "İş ve süre içeren kesir soruları", "icerik": [
             "Bir işin belirli bir kesrinin ne kadar sürede yapıldığı biliniyorsa, çalışma hızı değişmediği sürece işin tamamının süresi de bulunur. Burada bütün, işin tamamıdır ve süre, yapılan kesirle doğru orantılıdır.",
@@ -129,6 +132,7 @@ YAZI = {
                 "Kalan oranlar: önce üçte iki, sonra yarısı. Toplam kalan oran $\\dfrac{2}{3} \\cdot \\dfrac{1}{2}=\\dfrac{1}{3}$ dir.",
                 "$\\dfrac{1}{3}x=200$, yani şişe $600$ mililitredir."),
             "Doluluk sorularında kabın başlangıçta boş mu dolu mu olduğunu ve her işlemden sonra kabın kaçta kaçının dolu kaldığını yazmak, bütün kurulumu sadeleştirir. Eklenen ve boşaltılan miktarlar her zaman aynı bütüne, yani kabın kapasitesine göre kesre çevrilir.",
+            hap("$60$ litrelik deposunun $\\dfrac{1}{4}$ i dolu olan bir aracın deposunu doldurmak için $60 \\cdot \\dfrac{3}{4}=45$ litre yakıt gerekir.", "Doldurulacak kısım, bütünden dolu kısım çıkarılarak bulunur.", gunluk=True),
         ]},
         {"baslik": "Kesirli ifadelerle denklem kurmak", "icerik": [
             "Bazı sorularda aynı sayının iki farklı kesri birbiriyle karşılaştırılır. Bu durumda sayıya $x$ denir, kesirler $x$ ile çarpılarak yazılır ve iki taraf paydaların EKOK'u ile çarpılarak kesirlerden kurtulunur.",

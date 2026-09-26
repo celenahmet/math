@@ -3072,6 +3072,39 @@ def hap_ekleri():
     # ── 70 kesir carpma ──
     es("70 hap ayran", (3 / Rational(1, 2), 12 * Rational(3, 4) < 12, 12 * Rational(5, 4) > 12), (6, True, True))
 
+    # ── 71 ondalik ──
+    es("71 hap peynir ve carpma", (Rational(125, 100) * 1000, Rational(23, 10) * Rational(15, 100), Rational(345, 1000)), (1250, Rational(345, 1000), Rational(69, 200)))
+    # ── 72 devirli ──
+    es("72 hap devirli", (sp.nsimplify("0.333333333333333333", rational=True) == Rational(1, 3), Rational(36 - 3, 90), sp.Sum(9 * Rational(1, 10)**sp.Symbol("k"), (sp.Symbol("k"), 1, sp.oo)).doit()), (True, Rational(11, 30), 1))
+    # ── 73 yuzdeler ──
+    es("73 hap indirim", (1000 * Rational(7, 10) * Rational(9, 10), 100 - 63, Rational(12 - 10, 10) * 100), (630, 37, 20))
+    # ── 74 oran oranti ──
+    es("74 hap olcek", (3 * 100000, 300000 // 100 // 1000, Rational(2, 5) + Rational(3, 5)), (300000, 3, 1))
+    es("74 hap bolusum", [360 * Rational(k, 2 + 3 + 4) for k in (2, 3, 4)], [80, 120, 160])
+    # ── 75 dogru ters oranti ──
+    es("75 hap hiz", (60 * 2, 80 * Rational(3, 2), Rational(120, 80)), (120, 120, Rational(3, 2)))
+    # ── 76 cebirsel ifadeler ──
+    aa, bb2 = sp.symbols("aa bb2")
+    es("76 hap cebir", (sp.expand((aa + bb2)**2), 2 * aa**2 * 5 * aa**3, 150 + 20 * 3), (aa**2 + 2 * aa * bb2 + bb2**2, 10 * aa**5, 210))
+
+    # ── 77 birinci dereceden ──
+    es("77 hap spor salonu", sp.solve(300 + 50 * X - 700, X), [8])
+    # ── 78 esitsizlikler ──
+    es("78 hap asansor", (Rational(600, 80), 600 // 80, 80 * 7 <= 600, 80 * 8 <= 600), (Rational(15, 2), 7, True, False))
+    # ── 79 denklem kurma ──
+    es("79 hap cuzdan", (sp.solve(10 * X + 20 * (20 - X) - 290, X), 11 * 10 + 9 * 20), ([11], 290))
+    es("79 hap ardisik", sp.expand((X - 2) + X + (X + 2)), 3 * X)
+    # ── 80 sayi problemleri ──
+    T_, F_ = sp.symbols("T_ F_")
+    es("80 hap toplam fark", (sp.simplify((T_ + F_) / 2 + (T_ - F_) / 2), sp.simplify((T_ + F_) / 2 - (T_ - F_) / 2)), (T_, F_))
+    es("80 hap ortalama", (4 * 70, 5 * 75 - 280, Rational(280 + 95, 5)), (280, 95, 75))
+    es("80 hap basamak", (10 * 4 + 7, 10 * 7 + 4, 47 % 10), (47, 74, 7))
+    # ── 81 kesir problemleri ──
+    es("81 hap depo", (60 * Rational(3, 4), 60 - 60 * Rational(1, 4)), (45, 45))
+    # ── 82 yas ──
+    es("82 hap dogum yili", (2026 - 2008, 2026 - 2008 - 1), (18, 17))
+    es("82 hap yas farki", (Rational(36 - 8, 4 - 1) == Rational(28, 3), Rational(40 - 10, 3 - 1)), (True, 15))
+
 
 def bicim():
     import blog_veri

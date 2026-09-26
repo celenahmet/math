@@ -108,6 +108,7 @@ YAZI = {
             dikkat(
                 "Çarpım her zaman büyümez.",
                 "$1$ den küçük bir ondalık sayıyla çarpınca sonuç küçülür: $40 \\cdot 0.25=10$. Bu, kesirlerde $1$ den küçük bir kesirle çarpmanın ondalık karşılığıdır."),
+            hap("Ondalık sayılar önce tam sayılar gibi çarpılır.", "Sonra çarpanlardaki ondalık basamak sayılarının toplamı kadar basamak sağdan ayrılır ve virgül konur."),
         ]},
         {"baslik": "Bölme", "icerik": [
             "Bölen bir ondalık sayıysa, bölen ve bölünen aynı anda $10$, $100$ ya da $1000$ ile çarpılarak bölen tam sayı yapılır. Bu, bir kesrin payını ve paydasını aynı sayıyla genişletmek gibidir ve bölümü değiştirmez.",
@@ -209,6 +210,7 @@ YAZI = {
             dikkat(
                 "Farklı birimlerle işlem yapmak.",
                 "$1.2$ metre ile $45$ santimetre toplanırken önce ikisi aynı birime çevrilmelidir: $1.2+0.45=1.65$ metre. Birim çevrilmeden yapılan $1.2+45$ işleminin anlamı yoktur."),
+            hap("Market tartısında $1.25$ kilogram gelen peynir $1250$ gramdır.", "Kilogramdan grama geçerken virgül üç basamak sağa kayar, çünkü $1$ kilogram $1000$ gramdır.", gunluk=True),
         ]},
         {"baslik": "Karışık işlemler", "icerik": [
             "Birden fazla işlem içeren ondalık ifadelerde tam sayılardaki işlem önceliği aynen geçerlidir: önce parantez içi, sonra soldan sağa çarpma ve bölme, en son soldan sağa toplama ve çıkarma. Ayrıntısı için <a href=\"/blog/islem-onceligi-nasil-yapilir/\">İşlem Önceliği Nasıl Yapılır?</a> yazısına bakabilirsin.",

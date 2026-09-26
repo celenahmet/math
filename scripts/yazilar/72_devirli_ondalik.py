@@ -53,6 +53,7 @@ YAZI = {
             dikkat(
                 "Karar vermeden önce kesri sadeleştir.",
                 "$\\dfrac{3}{12}$ ün paydasında $3$ görünür ama bu $3$ payla sadeleşir. Sadeleştirmeden karar verilirse sonlu bir kesir yanlışlıkla devirli sanılır."),
+            hap("Bir pizza $3$ kişiye eşit bölününce herkese $\\dfrac{1}{3}=0.333\\ldots$ pizza düşer.", "Hesap makinesinin gösterdiği $0.3333333$, bu sonsuz devrin ekrana sığan kısmıdır.", gunluk=True),
         ]},
         {"baslik": "Devirli sayıyı kesre çevirme kuralı", "icerik": [
             "Bir devirli ondalık sayıyı kesre çevirmek için şu kural kullanılır:",
@@ -78,6 +79,7 @@ YAZI = {
             dikkat(
                 "Paydadaki sıfırlar, virgülden sonraki devretmeyen basamaklar içindir.",
                 "Tam kısım paydaya sıfır eklemez. $2.\\overline{45}$ te virgülden sonra devretmeyen basamak olmadığı için payda yalnızca $99$ dur, $990$ değil."),
+            hap("Pay, virgül yokmuş gibi yazılan sayıdan devretmeyen kısım çıkarılarak bulunur.", "Paydaya devreden basamak sayısı kadar $9$, onun sağına devretmeyen ondalık basamak sayısı kadar $0$ yazılır."),
         ]},
         {"baslik": "Kural neden doğru?", "icerik": [
             "Kural ezber değildir; onun kuvvetleriyle çarpıp çıkarma fikrinden gelir. Amaç, devreden kısmı birbirini götürecek biçimde iki sayı elde etmektir.",
@@ -107,6 +109,7 @@ YAZI = {
             dikkat(
                 "Sonu $9$ devreden her sayı sonlu bir ondalık sayıya eşittir.",
                 "Bu yüzden devirli gösterimde devredenin $9$ olması genellikle tercih edilmez; aynı sayı sonlu biçimde yazılır."),
+            hap("$0.\\overline{9}=1$ olur; $0.999\\ldots$ ile $1$ aynı sayıdır."),
         ]},
         {"baslik": "Devrin uzunluğu", "icerik": [
             "Devreden kısmın kaç basamaklı olduğu paydaya bağlıdır ve bazen şaşırtıcı biçimde uzun olabilir. Aşağıdaki birim kesirlerde devrin uzunluğu görülüyor:",

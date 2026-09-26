@@ -37,6 +37,7 @@ YAZI = {
                 ["Fark", "$x-y$", "$x-y$", "$x-y$"],
             ]),
             "Tablonun son satırı yaş farkının neden sabit olduğunu açıkça gösterir: iki yaştan da aynı süre çıkarılır ya da iki yaşa da aynı süre eklenir, bu yüzden fark değişmez.",
+            hap("Yaş problemlerinde satırlara kişiler, sütunlara zamanlar yazılır; herkese aynı süre eklenir ya da çıkarılır."),
         ]},
         {"baslik": "Geleceğe dönük sorular", "icerik": [
             "\"Kaç yıl sonra\" sorulan problemlerde bilinmeyen geçecek süredir. Her kişinin bugünkü yaşına bu süre eklenir ve verilen ilişki denkleme çevrilir.",
@@ -71,6 +72,7 @@ YAZI = {
                 "Büyüğün yaşının küçüğün yaşının $4$ katı olduğu andaki yaşları bulalım.",
                 "Fark, küçüğün yaşının $4-1=3$ katıdır: küçük $9:3=3$ yaşındadır.",
                 "Büyük $3+9=12$ yaşındadır. Kontrol: $12=4 \\cdot 3$."),
+            hap("Büyük kişinin yaşı küçüğün $k$ katı olduğunda küçüğün o zamanki yaşı $\\dfrac{\\text{yaş farkı}}{k-1}$ olur."),
         ]},
         {"baslik": "Yaş toplamı soruları", "icerik": [
             "Bir grubun yaşları toplamı verildiğinde, zaman geçtikçe toplam her yıl grubun kişi sayısı kadar artar. Bu ilke, kişilerin yaşlarını tek tek bilmeden hesap yapmayı sağlar. Tersine, toplamdaki artış ve geçen süre biliniyorsa gruptaki kişi sayısı da bulunabilir: $5$ yılda toplam $20$ arttıysa grupta $4$ kişi vardır.",
@@ -84,6 +86,7 @@ YAZI = {
                 "Kaç yıl sonra toplamın $120$ olacağını bulalım.",
                 "Toplam her yıl $4$ artar: $96+4t=120$.",
                 "$4t=24$, yani $t=6$ yıl."),
+            hap("Bir grubun yaşları toplamı her yıl grubun kişi sayısı kadar artar."),
         ]},
         {"baslik": "Doğmamış kişi tuzağı", "icerik": [
             "Geçmişe dönük yaş toplamı sorularında, bir kişi o tarihte henüz doğmamışsa yaşı sıfırın altına inmez; o kişi toplama hiç katılmaz. Bu yüzden toplamdan her kişi için geçen süre kadar çıkarmak her zaman doğru değildir.",
@@ -157,6 +160,7 @@ YAZI = {
                 "Kızın $2026$ daki yaşı: $2026-2012=14$. Annenin yaşı: $3 \\cdot 14=42$.",
                 "Annenin doğum yılı: $2026-42=1984$.",
                 "Anne ile kız arasındaki yaş farkı $2012-1984=28$ dir ve bu fark her yıl aynı kalır."),
+            hap("$2008$ doğumlu biri doğum günü geçmişse $2026$ yılında $2026-2008=18$ yaşındadır.", "Doğum günü o yıl henüz gelmediyse $17$ yaşındadır.", gunluk=True),
         ]},
         {"baslik": "Denklem mi, kısa yol mu?", "icerik": [
             "Yaş problemlerinde iki yol da aynı sonuca götürür. Denklem yolu her soruda işler ve adımları açıktır; kısa yollar ise belirli soru türlerinde zaman kazandırır. Kat ilişkisi soruluyorsa yaş farkı yöntemi, grup toplamı soruluyorsa kişi sayısı kadar artış ilkesi, \"ben senin yaşındayken\" türündeki sorularda ise zaman çizgisi en hızlı yoldur.",

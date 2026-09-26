@@ -101,6 +101,7 @@ YAZI = {
             dikkat(
                 "Yüzde artış ile aynı yüzde azalış birbirini götürmez.",
                 "Bir değer yüzde $25$ artıp sonra yüzde $25$ azalırsa başa dönmez. Hangi yüzdeyle geri dönüleceği yeni değere göre hesaplanmalıdır."),
+            hap("Yüzde değişim eski değere göre hesaplanır: $\\dfrac{\\text{yeni}-\\text{eski}}{\\text{eski}} \\cdot 100$ olur."),
         ]},
         {"baslik": "Çarpan yöntemi ve art arda değişim", "icerik": [
             "Yüzde değişimleri hesaplamanın en kısa yolu <strong>çarpan</strong> kullanmaktır. Yüzde $a$ artış, değeri $1+\\dfrac{a}{100}$ ile çarpmak; yüzde $a$ azalış, $1-\\dfrac{a}{100}$ ile çarpmak demektir.",
@@ -132,6 +133,7 @@ YAZI = {
                 "Yüzde puan olarak: $12-10=2$; oran $2$ yüzde puan artmıştır.",
                 "Yüzde olarak: $\\dfrac{12-10}{10} \\cdot 100=20$; oran yüzde $20$ artmıştır."),
             "İki ifade de doğrudur ama farklı şeyleri anlatır. <strong>Yüzde puan</strong>, iki oranın doğrudan farkıdır. <strong>Yüzde</strong> ise bu farkın eski orana göre büyüklüğüdür. Haberlerde faiz, işsizlik ya da oy oranları anlatılırken bu ayrım önem taşır.",
+            hap("Bir oran yüzde $10$ dan yüzde $12$ ye çıkarsa $2$ yüzde puan artmış olur.", "Aynı değişim yüzde olarak söylendiğinde yüzde $20$ artıştır."),
         ]},
         {"baslik": "İndirim ve vergi", "icerik": [
             "İndirim bir yüzde azalış, fiyata eklenen vergi ise bir yüzde artıştır. İkisi de çarpan yöntemiyle hızlıca çözülür.",
@@ -184,6 +186,7 @@ YAZI = {
                 "Son fiyat: $500 \\cdot 0.8 \\cdot 0.9=360$ lira.",
                 "Toplam indirim: $500-360=140$ lira. Bu, $500$ ün yüzde $28$ i kadardır."),
             "Çarpmanın sırası sonucu değiştirmediği için indirimlerin hangi sırayla uygulandığı son fiyatı etkilemez: önce yüzde $10$, sonra yüzde $20$ indirim de aynı $360$ lirayı verir.",
+            hap("Etiketi $1000$ lira olan bir monta önce yüzde $30$, sonra kasada yüzde $10$ indirim yapılırsa ödenen tutar $1000 \\cdot 0.7 \\cdot 0.9=630$ lira olur.", "Toplam indirim yüzde $40$ değil, yüzde $37$ olur.", gunluk=True),
         ]},
         {"baslik": "Karışım problemlerinde yüzde", "icerik": [
             "Tuzlu su, şekerli su ya da alaşım sorularında yüzde, karışımdaki maddenin toplam kütleye oranıdır. Bu sorularda en güvenli yol, önce maddenin kendi miktarını bulmak, sonra yeni toplamla yeni oranı hesaplamaktır.",

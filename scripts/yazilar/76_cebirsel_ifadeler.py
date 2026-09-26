@@ -74,6 +74,7 @@ YAZI = {
             "Katsayıların aynı olması terimleri benzer yapmaz; belirleyici olan değişken kısmıdır. $3x$ ile $3x^2$ aynı katsayıya sahiptir ama benzer değildir.",
             "<h3>Cebir karolarıyla düşünmek</h3>",
             "Benzer terim fikrini somutlaştırmanın bir yolu, cebir karolarıdır. Kenar uzunlukları $x$ ve $1$ olan uzun bir karo $x$ i, kenarı $1$ olan küçük bir kare $1$ i, kenarı $x$ olan büyük bir kare de $x^2$ yi temsil eder. Karoları türlerine göre gruplamak, benzer terimleri bir araya getirmekle aynıdır: iki uzun karo ile üç uzun karo birleşince beş uzun karo olur, ama uzun karolar ile küçük kareler tek bir türde birleşemez.",
+            hap("Yalnız değişkenleri ve üsleri aynı olan terimler toplanıp çıkarılabilir; $3x$ ile $2y$ birleşmez."),
         ]},
         {"baslik": "Toplama ve çıkarma", "icerik": [
             "Cebirsel ifadelerde yalnızca benzer terimler toplanıp çıkarılabilir. Benzer terimler birleştirilirken katsayılar toplanır ya da çıkarılır, değişken kısmı aynen kalır: $2x+3x=5x$.",
@@ -120,6 +121,7 @@ YAZI = {
             dikkat(
                 "Bir toplamın karesini terimlerin kareleri sanmak.",
                 "$(x+3)^2$ ifadesi $x^2+9$ değildir. Kare, ifadenin kendisiyle çarpımıdır: $(x+3) \\cdot (x+3)=x^2+6x+9$. Ortadaki $6x$ terimi çoğunlukla unutulan kısımdır."),
+            hap("Tek terimliler çarpılırken katsayılar çarpılır, aynı tabanlı değişkenlerin üsleri toplanır: $2a^2 \\cdot 5a^3=10a^5$ olur."),
         ]},
         {"baslik": "Bölme ve sadeleştirme", "icerik": [
             "Bir ifade tek terimliye bölünürken payın her terimi ayrı ayrı bölünür. Payda sıfır olamayacağı için bölen terimin sıfırdan farklı olduğu kabul edilir.",
@@ -189,6 +191,7 @@ YAZI = {
                 "İfadeyi sadeleştirelim.",
                 "Pay iki kare farkıdır: $x^2-9=(x-3) \\cdot (x+3)$.",
                 "Ortak çarpan $x-3$ sadeleşir: sonuç $x+3$."),
+            hap("$(a+b)^2=a^2+2ab+b^2$ olur; ortadaki $2ab$ terimi unutulmamalıdır."),
         ]},
         {"baslik": "Sözel ifadeyi cebirsel ifadeye çevirmek", "icerik": [
             "Problemlerin çoğunda ilk adım, cümleyi cebirsel ifadeye çevirmektir. Bilinmeyen niceliğe bir harf verilir ve cümle, işlemlerin sırasına dikkat edilerek yazılır.",
@@ -204,6 +207,7 @@ YAZI = {
                 "En küçüğü $x$ olsun; diğerleri $x+2$ ve $x+4$ tür.",
                 "Toplam: $x+(x+2)+(x+4)=3x+6$."),
             "Cebirsel ifade kurmak, denklem kurmanın yarısıdır. İfadenin bir değere eşit olduğu söylendiğinde bir denklem ortaya çıkar; bu adımın ayrıntısı <a href=\"/blog/denklem-kurma-problemleri-nasil-cozulur/\">Denklem Kurma Problemleri Nasıl Çözülür?</a> yazısında.",
+            hap("Aylık sabit ücreti $150$ lira, her ek gigabaytı $20$ lira olan bir telefon tarifesinde $x$ ek gigabaytın faturası $150+20x$ lira olur.", "$3$ ek gigabayt kullanan kişi $150+20 \\cdot 3=210$ lira öder.", gunluk=True),
         ]},
         {"baslik": "Geometride cebirsel ifadeler", "icerik": [
             "Kenar uzunlukları harfle verilen şekillerin çevresi ve alanı birer cebirsel ifadedir. Bu ifadeler, şeklin ölçüsü değiştikçe çevrenin ve alanın nasıl değiştiğini tek satırda gösterir.",

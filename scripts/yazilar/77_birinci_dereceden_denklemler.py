@@ -49,6 +49,7 @@ YAZI = {
             dikkat(
                 "İki tarafı sıfırla çarpmak ya da sıfıra bölmek.",
                 "İki tarafı $0$ ile çarpmak her denklemi $0=0$ a dönüştürür ve bilgiyi yok eder; sıfıra bölmek ise tanımsızdır. Çarpılan ya da bölünen sayının sıfırdan farklı olduğundan emin ol."),
+            hap("Eşitliğin iki tarafına aynı işlem uygulanırsa denge bozulmaz.", "Bir terim karşı tarafa geçerken işareti değişir."),
         ]},
         {"baslik": "Adım adım çözüm", "icerik": [
             "Birinci dereceden bir denklem, aşağıdaki sırayla çözülebilir. Her adımda eşitliğin iki tarafına aynı işlem uygulanır:",
@@ -108,6 +109,7 @@ YAZI = {
             dikkat(
                 "EKOK ile çarparken bir terimi atlamak.",
                 "EKOK ile çarpma, eşitliğin iki tarafındaki <strong>her terime</strong> uygulanır; paydası olmayan terimler ve sağ taraf da dahil. İkinci örnekte sağdaki $3$ ün de $10$ ile çarpılıp $30$ olduğuna dikkat et. Payı birden fazla terimli kesirler ise çarpımdan sonra parantez içinde yazılmalıdır."),
+            hap("Kesirli denklemde iki taraf paydaların EKOK'u ile çarpılır; kesirli olmayan terimler de çarpılmalıdır."),
         ]},
         {"baslik": "Ondalıklı denklemler", "icerik": [
             "Ondalık sayı içeren denklemlerde iki taraf $10$, $100$ ya da $1000$ ile çarpılarak bütün katsayılar tam sayı yapılır. Hangi sayıyla çarpılacağını, en çok ondalık basamağı olan sayı belirler.",
@@ -160,6 +162,7 @@ YAZI = {
             dikkat(
                 "$0=0$ sonucunu \"çözüm sıfır\" sanmak.",
                 "$0=0$ kalması, $x=0$ demek değildir; her değerin çözüm olduğu anlamına gelir. $3=5$ gibi bir çelişki kalması ise hiçbir değerin çözüm olmadığını gösterir."),
+            hap("Sadeleşince $0=0$ gibi her zaman doğru bir eşitlik kalırsa sonsuz çözüm vardır.", "$0=5$ gibi yanlış bir eşitlik kalırsa denklemin çözümü yoktur."),
         ]},
         {"baslik": "Kökü verilen denklemde katsayı bulmak", "icerik": [
             "Bazı sorularda denklemin kökü verilir ve denklemdeki bilinmeyen bir katsayı sorulur. Kök, denklemi doğru yapan değer olduğu için yerine yazıldığında eşitlik sağlanmalıdır.",
@@ -231,6 +234,7 @@ YAZI = {
                 "$4(x+15)+3x=165$, yani $7x+60=165$ ve $7x=105$.",
                 "$x=15$: kalem $15$ lira, defter $30$ lira. Kontrol: $4 \\cdot 30+3 \\cdot 15=120+45=165$."),
             "Denklem kurmanın adımları ve farklı problem türleri <a href=\"/blog/denklem-kurma-problemleri-nasil-cozulur/\">Denklem Kurma Problemleri Nasıl Çözülür?</a> yazısında ayrıntılı olarak ele alınıyor.",
+            hap("Aylık üyeliği $300$ lira, ders başı ücreti $50$ lira olan bir spor salonunda $700$ lira ödeyen üye kaç ders almıştır?", "$300+50x=700$ denkleminden $x=8$ bulunur: üye $8$ ders almıştır.", gunluk=True),
         ]},
         {"baslik": "Sınavda birinci dereceden denklemler", "icerik": [
             sinavda(

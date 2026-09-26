@@ -66,6 +66,7 @@ YAZI = {
                 "$a$ ve $b$ yi bulalım.",
                 "$a=2k$, $b=3k$: $2k \\cdot 3k=6k^2=54$, yani $k^2=9$.",
                 "$a$ ve $b$ pozitif olduğu için $k=3$: $a=6$, $b=9$."),
+            hap("$\\dfrac{a}{b}=\\dfrac{c}{d}=k$ ise $a=bk$ ve $c=dk$ yazılır; birden fazla bilinmeyen tek bilinmeyene iner."),
         ]},
         {"baslik": "Orantının özellikleri", "icerik": [
             "Eşit oranlar kendi aralarında toplanıp çıkarıldığında oran değişmez. $\\dfrac{a}{b}=\\dfrac{c}{d}=k$ ise:",
@@ -106,6 +107,7 @@ YAZI = {
             dikkat(
                 "Bölüşümde oranlar tersine de verilebilir.",
                 "\"Yaşlarıyla ters orantılı paylaştırma\" gibi ifadelerde paylar yaşların tersleriyle orantılıdır. Ters orantının ayrıntısı <a href=\"/blog/dogru-oranti-ve-ters-oranti/\">Doğru Orantı ve Ters Orantı</a> yazısında."),
+            hap("Bir miktar verilen oranda paylaştırılırken oran sayıları toplanır ve miktar bu toplama bölünerek bir payın değeri bulunur."),
         ]},
         {"baslik": "Ölçek", "icerik": [
             "Harita ve planlarda gerçek uzunlukların belirli bir oranda küçültülmesine <strong>ölçek</strong> denir. Ölçek, çizimdeki uzunluğun gerçek uzunluğa oranıdır ve genellikle $1:n$ biçiminde yazılır.",
@@ -122,6 +124,7 @@ YAZI = {
             dikkat(
                 "Ölçek uzunluklar içindir, alanlar için değil.",
                 "Uzunluklar $200$ kat küçülürken alanlar $200 \\cdot 200=40000$ kat küçülür. $1:200$ ölçekli bir planda $1$ santimetrekarelik bir bölge, gerçekte $40000$ santimetrekare, yani $4$ metrekaredir. Alan hesabında ölçeğin karesi kullanılır."),
+            hap("Ölçeği $1:100000$ olan bir haritada $3$ santimetrelik uzunluk gerçekte $300000$ santimetre, yani $3$ kilometredir.", "Ölçekte sağdaki sayı, haritadaki bir birimin gerçekte kaç birim olduğunu söyler.", gunluk=True),
         ]},
         {"baslik": "Günlük hayatta oran", "icerik": [
             "Tarif ölçekleme, karışım hazırlama ve fiyat karşılaştırma oranın günlük kullanımlarıdır. Birim fiyat hesabı, farklı büyüklükteki paketlerden hangisinin daha ucuz olduğunu gösterir.",
@@ -148,6 +151,7 @@ YAZI = {
             dikkat(
                 "Oranı parçanın bütüne oranı sanmak.",
                 "Kırmızıların mavilere oranı $\\dfrac{2}{3}$ dir; ama kırmızılar bütün bilyelerin $\\dfrac{2}{3}$ si değil, $\\dfrac{2}{5}$ sidir. Soru \"bütünün ne kadarı\" diye soruyorsa oran sayıları toplanarak bütün bulunur."),
+            hap("$a:b=2:3$ ise $a$ toplamın $\\dfrac{2}{5}$ si, $b$ ise $\\dfrac{3}{5}$ ü kadardır."),
         ]},
         {"baslik": "Oranı değişen problemler", "icerik": [
             "Bir oranı oluşturan miktarlara ekleme ya da çıkarma yapılınca oran değişir. Bu sorularda başlangıç miktarları orantı sabitiyle yazılır, değişiklik eklenir ve yeni oran bir orantı olarak kurulur.",

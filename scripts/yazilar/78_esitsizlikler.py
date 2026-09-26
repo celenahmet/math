@@ -88,6 +88,7 @@ YAZI = {
             dikkat(
                 "Uç noktanın dahil olup olmadığını gözden kaçırmak.",
                 "Tam sayı sayma sorularında sonuç çoğu zaman uç noktaya bağlıdır. $2<x<7$ olsaydı $7$ dahil olmaz ve $4$ tam sayı kalırdı."),
+            hap("Uç nokta çözüme dahilse köşeli parantez, dahil değilse normal parantez kullanılır.", "Sonsuzluğun yanına her zaman normal parantez gelir."),
         ]},
         {"baslik": "Parantezli ve kesirli eşitsizlikler", "icerik": [
             "Parantezli ve kesirli eşitsizlikler de denklemlerdeki gibi sadeleştirilir. Kesirleri yok etmek için iki taraf paydaların EKOK'u ile çarpılır; EKOK pozitif olduğu için yön değişmez.",
@@ -134,6 +135,7 @@ YAZI = {
             dikkat(
                 "Kareli eşitsizliği birinci dereceden gibi çözmek.",
                 "$x^2<9$ eşitsizliğinin çözümü $x<3$ değildir; $x=-5$ için $x^2=25$ olur ve eşitsizlik sağlanmaz. Doğru çözüm $-3<x<3$ tür. Bu tür eşitsizlikler, mutlak değerdeki uzaklık fikriyle ya da ikinci dereceden eşitsizlik yöntemleriyle çözülür."),
+            hap("ve bağlacıyla verilen koşulların çözümü kesişim, ya da bağlacıyla verilen koşulların çözümü birleşimdir."),
         ]},
         {"baslik": "Eşitsizliklerde toplama ve değer aralığı", "icerik": [
             "Aynı yönlü iki eşitsizlik taraf tarafa toplanabilir: $a<b$ ve $c<d$ ise $a+c<b+d$ dir. Ama taraf tarafa <strong>çıkarma yapılamaz</strong>. İki değişkenin farkının aralığı, en küçük değerden en büyük değer çıkarılarak ve tersi yapılarak bulunur.",
@@ -187,6 +189,7 @@ YAZI = {
                 "$x \\geq 24$; en az $24$ bilet satılmalıdır.",
                 "Kontrol: $24 \\cdot 50=1200$ lira; gelir gideri tam karşılar."),
             "Bu tür sorularda sonucun tam sayı olması gerekip gerekmediğine dikkat etmek gerekir. Kişi, kitap ya da bilet sayısı tam sayıdır; bu yüzden \"en az\" sorularında çözüm yukarı, \"en fazla\" sorularında aşağı doğru en yakın tam sayıya tamamlanır.",
+            hap("En fazla $600$ kilogram taşıyabilen bir asansöre $80$ kilogramlık kişiler binecekse $80x \\leq 600$ olmalıdır.", "$x \\leq 7.5$ çıkar; kişi sayısı tam sayı olduğu için en çok $7$ kişi biner.", gunluk=True),
         ]},
         {"baslik": "Sınavda eşitsizlikler", "icerik": [
             sinavda(
