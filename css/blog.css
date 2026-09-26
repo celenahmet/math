@@ -517,22 +517,7 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
    Üçüncü taraf paylaşım betiği YÜKLENMEZ (her biri izleme çerezi taşır).
    Önce tarayıcının kendi paylaşım penceresi denenir; yoksa bağlantı
    panoya kopyalanır. */
-.bs-paylas {
-  margin-top: 40px; padding: 20px 22px; background: var(--yuzey);
-  border: 1px solid var(--cizgi); border-radius: var(--r);
-}
-.bs-paylas > p { margin: 0 0 12px; font-weight: 600; color: var(--murekkep); font-size: 15.5px; }
-.bs-paylas-dugmeler { display: flex; flex-wrap: wrap; gap: 9px; }
-.bs-paylas-dugmeler > * {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 9px 14px; border-radius: 9px; border: 1px solid var(--cizgi);
-  background: var(--zemin); color: var(--govde);
-  font: 600 14px Inter, sans-serif; cursor: pointer; text-decoration: none;
-}
-.bs-paylas-dugmeler > *:hover { border-color: var(--mor); color: var(--mor); }
-.bs-paylas-ana { background: var(--mor) !important; border-color: var(--mor) !important; color: #fff !important; }
-.bs-paylas-ana:hover { background: var(--mor-koyu) !important; color: #fff !important; }
-.bs-paylas-kopya.bs-kopyalandi { border-color: #16a34a; color: #16a34a; }
+/* Düzen ve düğmeler 26.09'da "yazı sonu kartı" bölümüne taşındı (.bs-son). */
 
 /* ── süzgeç satırları (23.09) ──────────────────────────────────────────
    Ahmet: "sağda kategoriler ve sınavlar diye ayrı bloklar olsun."
@@ -653,14 +638,6 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
    Ahmet: "bu görseldeki en alt kısmı da güzelleştirelim, dikey çok yer
    kaplamasın." Ölçüldü: paylaş 118 px + alt bilgi 199 px = 317 px.
    Paylaş başlığı düğmelerle aynı satıra alındı, alt bilgi tek satıra. */
-.bs-paylas {
-  margin-top: 34px; padding: 14px 18px;
-  display: flex; align-items: center; flex-wrap: wrap; gap: 10px 16px;
-}
-.bs-paylas > p { margin: 0; font-size: 14.5px; white-space: nowrap; }
-.bs-paylas-dugmeler { gap: 8px; margin-left: auto; }
-.bs-paylas-dugmeler > * { padding: 7px 12px; font-size: 13.5px; }
-.bs-paylas-dugmeler .bs-ikon { width: 15px; height: 15px; }
 
 .bs-alt { padding: 20px 0; }
 .bs-alt .kap { align-items: center; gap: 12px 26px; }
@@ -669,7 +646,6 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 .bs-alt nav { gap: 14px; }
 .bs-alt nav a { font-size: 13.5px; }
 @media (max-width: 640px) {
-  .bs-paylas-dugmeler { margin-left: 0; }
   .bs-alt .kap { flex-direction: column; align-items: flex-start; }
 }
 
@@ -736,14 +712,8 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
    Bölümler depo bağlı değilse gizli kalır (js/etkilesim.js). */
 .bs-etk[hidden], .bs-yorumlar[hidden], .bs-etk-geri[hidden], .bs-yorum-form[hidden],
 .bs-yorum-bos[hidden], .bs-yorum-ac[hidden] { display: none !important; }
-.bs-etk {
-  margin-top: 40px; padding: 18px 22px; background: var(--yuzey);
-  border: 1px solid var(--cizgi); border-radius: var(--r);
-}
-/* Faydali mi karti ile paylas alani ayni grubun parcasi (26.09 sira degisikligi):
-   kart gorunurken aradaki bosluk daralir. Kart gizliyse paylas kendi boslugunu korur. */
-.bs-etk:not([hidden]) + .bs-paylas { margin-top: 14px; }
-.bs-etk-ust { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; }
+.bs-etk { margin: 0; }
+.bs-etk-ust { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 .bs-icerik .bs-etk-soru { margin: 0; font-weight: 600; color: var(--murekkep); font-size: 15.5px; }
 .bs-etk-oy { display: flex; gap: 8px; }
 .bs-etk button, .bs-yorumlar button { font: 600 14px Inter, sans-serif; cursor: pointer; }
@@ -758,13 +728,10 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 .bs-etk-oy .bs-ikon, .bs-dugme-ikincil .bs-ikon { width: 18px; height: 18px; flex: none; }
 .bs-etk-n { font-weight: 700; font-variant-numeric: tabular-nums; }
 .bs-etk-n:empty { display: none; }
-.bs-etk-ifade {
-  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding-top: 14px;
-  border-top: 1px solid var(--cizgi-acik);
-}
+.bs-etk-ifade { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .bs-etk-ifade button {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 5px 12px;
-  border-radius: 999px; border: 1px solid var(--cizgi); background: var(--yuzey); color: var(--govde); line-height: 1;
+  display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 11px;
+  border-radius: 999px; border: 1px solid var(--cizgi); background: var(--zemin); color: var(--govde); line-height: 1;
 }
 .bs-etk-ifade button:hover { border-color: var(--mor); }
 .bs-etk-ifade button > span { font-size: 18px; line-height: 1; }
@@ -789,7 +756,7 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 .bs-icerik .bs-etk-durum, .bs-icerik .bs-yorum-durum { margin: 10px 0 0; font-size: 14px; color: var(--soluk); }
 .bs-etk-durum:empty, .bs-yorum-durum:empty { display: none; }
 /* yorumlar */
-.bs-yorumlar { margin-top: 40px; scroll-margin-top: 84px; }
+.bs-yorumlar { margin-top: 32px; scroll-margin-top: 84px; }
 .bs-yorumlar h2 em {
   margin-left: 4px; font: 600 13px Inter, sans-serif; color: var(--soluk);
   background: var(--cizgi-acik); border-radius: 20px; padding: 2px 9px;
@@ -806,7 +773,6 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 .bs-icerik .bs-yorum-not { margin: 0; font-size: 13px; line-height: 1.55; color: var(--soluk); }
 .bs-bal { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 @media (max-width: 480px) {
-  .bs-etk { padding: 16px; }
   .bs-etk-oy { width: 100%; }
   .bs-etk-oy button { flex: 1; justify-content: center; }
 }
@@ -818,3 +784,43 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
   background: #ccfbf1; color: #0f766e; font: 600 12px Inter, sans-serif; letter-spacing: .01em;
 }
 .bs-hap-ozet > li > .bs-gunluk { margin-bottom: 6px; }
+
+/* ── yazı sonu kartı (26.09) ────────────────────────────────────────────
+   Ahmet: "bu tasarım hiç olmamış". İki kutu üst üsteydi, paylaş düğmeleri
+   ikinci satırda sağa kayıyordu. Artık TEK kart: solda "faydalı oldu mu?"
+   ve ifadeler, sağda ikonlu paylaş düğmeleri. Depo bağlı değilse sol bölme
+   gizli kalır, kart yalnız paylaş satırı olur. Ardından yorumlar, en sonda
+   önerilenler gelir. */
+.bs-son {
+  margin-top: 40px; display: flex; align-items: flex-start; gap: 16px 24px;
+  padding: 18px 22px; background: var(--yuzey);
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+}
+.bs-son > .bs-etk { flex: 1 1 auto; min-width: 0; }
+.bs-son > .bs-paylas { flex: none; }
+.bs-son > .bs-etk:not([hidden]) + .bs-paylas { padding-left: 24px; border-left: 1px solid var(--cizgi-acik); }
+.bs-son > .bs-etk[hidden] + .bs-paylas { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.bs-son > .bs-etk[hidden] + .bs-paylas .bs-paylas-baslik { margin: 0; }
+.bs-icerik .bs-paylas-baslik { margin: 0 0 10px; font: 600 13px Inter, sans-serif; color: var(--soluk); }
+.bs-paylas-dugmeler { display: flex; gap: 8px; }
+.bs-paylas-dugmeler > * {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 40px; height: 40px; padding: 0; border-radius: 50%;
+  border: 1px solid var(--cizgi); background: var(--zemin); color: var(--govde);
+  cursor: pointer; text-decoration: none;
+}
+.bs-paylas-dugmeler .bs-ikon { width: 18px; height: 18px; }
+.bs-paylas-dugmeler > *:hover { border-color: var(--mor); color: var(--mor); }
+.bs-paylas-dugmeler .bs-paylas-ana { background: var(--mor); border-color: var(--mor); color: #fff; }
+.bs-paylas-dugmeler .bs-paylas-ana:hover { background: var(--mor-koyu); border-color: var(--mor-koyu); color: #fff; }
+.bs-paylas-dugmeler .bs-kopyalandi { border-color: #16a34a; color: #16a34a; }
+.bs-icerik .bs-paylas-durum { margin: 8px 0 0; font-size: 13px; color: #15803d; flex-basis: 100%; }
+.bs-paylas-durum:empty { display: none; }
+@media (max-width: 640px) {
+  .bs-son { flex-direction: column; align-items: stretch; padding: 16px; gap: 14px; }
+  .bs-son > .bs-etk:not([hidden]) + .bs-paylas {
+    padding: 14px 0 0; border-left: 0; border-top: 1px solid var(--cizgi-acik);
+  }
+  .bs-son > .bs-paylas { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
+  .bs-son .bs-paylas-baslik { margin: 0; }
+}

@@ -201,16 +201,21 @@
               + '&url=' + encodeURIComponent(adres);
     }
 
-    function panoyaYaz() {
+    // Dugmeler yalniz ikon (26.09); geri bildirim durum satirinda okunur.
+    var paylasDurum = paylasKutu.querySelector('.bs-paylas-durum');
+    var paylasSaat;
+    function panoyaYaz(mesaj, dugme) {
       var bitti = function () {
-        if (!kopyaDugme) { return; }
-        var eski = kopyaDugme.lastChild;
-        kopyaDugme.classList.add('bs-kopyalandi');
-        if (eski && eski.nodeType === 3) { eski.nodeValue = 'Kopyalandı'; }
-        setTimeout(function () {
-          kopyaDugme.classList.remove('bs-kopyalandi');
-          if (eski && eski.nodeType === 3) { eski.nodeValue = 'Bağlantıyı kopyala'; }
-        }, 1800);
+        var d = dugme || kopyaDugme;
+        if (d) {
+          d.classList.add('bs-kopyalandi');
+          setTimeout(function () { d.classList.remove('bs-kopyalandi'); }, 1800);
+        }
+        if (paylasDurum) {
+          paylasDurum.textContent = mesaj || 'Bağlantı kopyalandı.';
+          clearTimeout(paylasSaat);
+          paylasSaat = setTimeout(function () { paylasDurum.textContent = ''; }, 2600);
+        }
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(adres).then(bitti, function () {});
@@ -237,7 +242,7 @@
         }
       });
     }
-    if (kopyaDugme) { kopyaDugme.addEventListener('click', panoyaYaz); }
+    if (kopyaDugme) { kopyaDugme.addEventListener('click', function () { panoyaYaz(); }); }
 
     // Instagram web uzerinden baglanti paylasimi KABUL ETMIYOR (X'teki gibi
     // bir intent adresi yok). Yapilabilecek tek durust sey baglantiyi
@@ -245,16 +250,7 @@
     var ig = paylasKutu.querySelector('.bs-paylas-instagram');
     if (ig) {
       ig.addEventListener('click', function () {
-        panoyaYaz();
-        var yazi = ig.lastChild;
-        if (yazi && yazi.nodeType === 3) {
-          ig.classList.add('bs-kopyalandi');
-          yazi.nodeValue = 'Kopyalandı, hikâyene yapıştır';
-          setTimeout(function () {
-            ig.classList.remove('bs-kopyalandi');
-            yazi.nodeValue = 'Instagram';
-          }, 2600);
-        }
+        panoyaYaz('Kopyalandı, hikâyene yapıştır.', ig);
       });
     }
   }

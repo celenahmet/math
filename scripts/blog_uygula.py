@@ -301,16 +301,15 @@ def yazi_govde(y, digerleri):
                + '<p class="bs-kontrol-tebrik" hidden>' + ikon("kontrol")
                + "Tebrikler, bu konunun kontrol listesini tamamladın.</p></div>\n")
         toc += '<li><a href="#b-kontrol">Kontrol listesi</a></li>'
-    ek += etkilesim_karti(y)
     # ⚠️ KAYNAKLAR YAYINDA GOSTERILMIYOR (Ahmet, 23.09): "kaynaklar kismini
     # not alalim ama yayinda gostermeyelim, kendi icimizde denetim icin
     # kullanalim; MEB sorularini kullanmak yasak olabilir cunku."
     # Kaynaklar veride (scripts/yazilar/*.py) DURUYOR ve
     # scripts/blog_kaynak_denetimi.py ile ic rapora yaziliyor; sayfaya
     # basilmiyor. Rapor da .vercelignore ile yayin disinda.
-    # Yazi sonu sirasi (Ahmet 26.09: "yazi bitiminde paylas kismi once
-    # gosterilir sonra oneriler verilir"): faydali mi karti, paylas,
-    # onerilenler, yorumlar. Onerilenler bu yuzden `ek`ten ayri tutuluyor.
+    # Yazi sonu sirasi (Ahmet 26.09): once paylas sonra oneriler; "yorumlar
+    # buraya yakin olmali, en altta onerilerde olmamali". Sira: faydali mi
+    # ve paylas TEK kartta (.bs-son), yorumlar, en sonda onerilenler.
     ilgili = ""
     if digerleri:
         ilgili = (bolum_basligi("b-ilgili", "ilgili", "Bunlar da ilgini çekebilir") + '<div class="bs-ilgili">'
@@ -358,9 +357,9 @@ def yazi_govde(y, digerleri):
     </nav>
     <hr class="bs-ayrac">
 {mm(govde)}{mm(ek)}
-    {blog_yan.paylas(y["baslik"], "/blog/" + y["slug"] + "/")}
-{mm(ilgili)}
+    <div class="bs-son">{etkilesim_karti(y)}{blog_yan.paylas(y["baslik"], "/blog/" + y["slug"] + "/")}</div>
     {yorumlar_bolumu(y)}
+{mm(ilgili)}
   </article>
   <aside class="bs-yan">
     {blog_yan.uc_karti("blog-" + y["slug"])}

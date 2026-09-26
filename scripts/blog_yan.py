@@ -152,16 +152,19 @@ def paylas(baslik, yol):
     paylasim betigi YUKLENMEZ: her biri izleme cerezi tasiyor."""
     return (
         '<div class="bs-paylas" data-baslik="' + _k(baslik) + '" data-yol="' + _k(yol) + '">'
-        "<p>Bu yazıyı paylaş</p>"
+        # 26.09 (Ahmet: "bu tasarim hic olmamis"): paylas, faydali mi karti ile
+        # TEK kartin sag bolmesi. Dugmeler yalniz ikon; adlari aria-label ve
+        # title'da. Kopyalandi bildirimi dugme yazisi yerine durum satirinda.
+        '<p class="bs-paylas-baslik">Bu yazıyı paylaş</p>'
         '<div class="bs-paylas-dugmeler">'
-        '<button type="button" class="bs-paylas-ana">' + ikon("paylas") + "Paylaş</button>"
-        '<button type="button" class="bs-paylas-kopya">' + ikon("baglanti") + "Bağlantıyı kopyala</button>"
-        '<a class="bs-paylas-whatsapp" target="_blank" rel="noopener" href="#">' + ikon("whatsapp") + "WhatsApp</a>"
-        '<a class="bs-paylas-x" target="_blank" rel="noopener" href="#">' + ikon("x") + "X</a>"
+        '<button type="button" class="bs-paylas-ana" aria-label="Paylaş" title="Paylaş">' + ikon("paylas") + "</button>"
+        '<button type="button" class="bs-paylas-kopya" aria-label="Bağlantıyı kopyala" title="Bağlantıyı kopyala">' + ikon("baglanti") + "</button>"
+        '<a class="bs-paylas-whatsapp" target="_blank" rel="noopener" href="#" aria-label="WhatsApp ile paylaş" title="WhatsApp">' + ikon("whatsapp") + "</a>"
+        '<a class="bs-paylas-x" target="_blank" rel="noopener" href="#" aria-label="X ile paylaş" title="X">' + ikon("x") + "</a>"
         # ⚠️ Instagram web uzerinden BAGLANTI PAYLASIMINI DESTEKLEMIYOR:
         # X'in intent adresi gibi bir adresi yok. Bu yuzden dugme baglantiyi
         # panoya kopyalayip kullaniciya hikayesine yapistirmasini soyluyor.
         # Mobilde zaten sistem paylasim penceresinde (Paylas dugmesi)
         # Instagram cikiyor.
-        '<button type="button" class="bs-paylas-instagram">' + ikon("instagram") + "Instagram</button>"
-        "</div></div>")
+        '<button type="button" class="bs-paylas-instagram" aria-label="Instagram için bağlantıyı kopyala" title="Instagram">' + ikon("instagram") + "</button>"
+        '</div><p class="bs-paylas-durum" role="status" aria-live="polite"></p></div>')
