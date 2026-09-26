@@ -308,8 +308,12 @@ def yazi_govde(y, digerleri):
     # Kaynaklar veride (scripts/yazilar/*.py) DURUYOR ve
     # scripts/blog_kaynak_denetimi.py ile ic rapora yaziliyor; sayfaya
     # basilmiyor. Rapor da .vercelignore ile yayin disinda.
+    # Yazi sonu sirasi (Ahmet 26.09: "yazi bitiminde paylas kismi once
+    # gosterilir sonra oneriler verilir"): faydali mi karti, paylas,
+    # onerilenler, yorumlar. Onerilenler bu yuzden `ek`ten ayri tutuluyor.
+    ilgili = ""
     if digerleri:
-        ek += (bolum_basligi("b-ilgili", "ilgili", "Bunlar da ilgini çekebilir") + '<div class="bs-ilgili">'
+        ilgili = (bolum_basligi("b-ilgili", "ilgili", "Bunlar da ilgini çekebilir") + '<div class="bs-ilgili">'
                + "".join(f'<a href="/blog/{k(d["slug"])}/">'
                          # Kapak (Ahmet 23.09: "onerilen yazilarda da gorseller gozuksun").
                          # Baglantinin adi basliktan geliyor; gorsel sus: alt="".
@@ -355,6 +359,7 @@ def yazi_govde(y, digerleri):
     <hr class="bs-ayrac">
 {mm(govde)}{mm(ek)}
     {blog_yan.paylas(y["baslik"], "/blog/" + y["slug"] + "/")}
+{mm(ilgili)}
     {yorumlar_bolumu(y)}
   </article>
   <aside class="bs-yan">

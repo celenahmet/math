@@ -740,6 +740,9 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
   margin-top: 40px; padding: 18px 22px; background: var(--yuzey);
   border: 1px solid var(--cizgi); border-radius: var(--r);
 }
+/* Faydali mi karti ile paylas alani ayni grubun parcasi (26.09 sira degisikligi):
+   kart gorunurken aradaki bosluk daralir. Kart gizliyse paylas kendi boslugunu korur. */
+.bs-etk:not([hidden]) + .bs-paylas { margin-top: 14px; }
 .bs-etk-ust { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; }
 .bs-icerik .bs-etk-soru { margin: 0; font-weight: 600; color: var(--murekkep); font-size: 15.5px; }
 .bs-etk-oy { display: flex; gap: 8px; }
