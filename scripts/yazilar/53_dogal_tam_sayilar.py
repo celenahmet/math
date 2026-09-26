@@ -137,6 +137,7 @@ YAZI = {
             dikkat(
                 "Çarpma ve bölme soldan sağa yapılır, çarpma önce yapılmaz.",
                 "$24 \\div 4 \\cdot 2$ işleminde önce $24 \\div 4=6$, sonra $6 \\cdot 2=12$ bulunur. Sonuç $3$ değildir."),
+            hap("Tanesi $10$ liradan $3$ ekmek ve tanesi $25$ liradan $2$ süt alan birinin tutarı $3 \\cdot 10+2 \\cdot 25=80$ lira olur.", "İşlem önceliği bozulursa $(3 \\cdot 10+2) \\cdot 25=800$ gibi yanlış bir tutar çıkar.", gunluk=True),
         ]},
         {"baslik": "Bölme ve kalan", "icerik": [
             "Bir tam sayıyı pozitif bir tam sayıya böldüğümüzde bölüm ve kalan şu eşitlikle tanımlanır:",

@@ -50,6 +50,7 @@ YAZI = {
             dikkat(
                 "Tanım kümesi verilmişse onu sen genişletemezsin.",
                 "$f:[0,3] \\to \\mathbb{R}$ yazıldıysa kural $x=5$ için hesaplanabiliyor olsa bile $f(5)$ tanımsızdır."),
+            hap("Bir sinema salonunda satılan bilet sayısına göre hasılatı veren fonksiyonun tanım kümesi, $0$ ile salonun koltuk sayısı arasındaki tam sayılardır.", "Negatif ya da kesirli sayıda bilet satılamaz; bağlam tanım kümesini daraltır.", gunluk=True),
         ]},
         {"baslik": "En geniş tanım kümesi nasıl bulunur?", "icerik": [
             "Kural verilip tanım kümesi verilmediğinde soru şudur: hangi gerçel sayılar bu ifadeyi <strong>tanımsız</strong> yapar? Bunları $\\mathbb{R}$ den çıkarırsın, kalan küme en geniş tanım kümesidir.",

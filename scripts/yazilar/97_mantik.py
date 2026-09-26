@@ -105,6 +105,7 @@ YAZI = {
                 "Önerme \"ve\" bağlacıyla kurulmuştur: matematik ve fizik.",
                 "Değili: \"Ali matematik sınavını veya fizik sınavını geçemedi.\" Yani en az birini geçemedi."),
             "Kümelerdeki De Morgan kuralları da aynı yapıdadır: birleşimin tümleyeni tümleyenlerin kesişimi, kesişimin tümleyeni tümleyenlerin birleşimidir.",
+            hap("$(p \\wedge q)' \\equiv p' \\vee q'$ ve $(p \\vee q)' \\equiv p' \\wedge q'$ olur; değil alınınca bağlaç değişir."),
         ]},
         {"baslik": "Koşullu önerme", "icerik": [
             "\"$p$ ise $q$\" biçimindeki önermeye <strong>koşullu önerme</strong> denir ve $p \\Rightarrow q$ ile gösterilir. $p$ önermesine hipotez, $q$ önermesine hüküm denir. Koşullu önerme yalnızca hipotez doğru ve hüküm yanlış olduğunda yanlıştır.",
@@ -118,6 +119,7 @@ YAZI = {
             dikkat(
                 "Hipotez yanlışken koşullu önermeyi yanlış saymak.",
                 "Hipotez yanlışsa koşullu önerme hükümden bağımsız olarak doğrudur. Tablonun son iki satırı bu yüzden $1$ dir."),
+            hap("\"Yağmur yağarsa maç ertelenir\" sözü, yağmur yağmadığı hâlde maç ertelenirse çiğnenmiş olmaz.", "Söz yalnızca yağmur yağdığı hâlde maç oynanırsa yanlış çıkar.", gunluk=True),
         ]},
         {"baslik": "Koşullu önermenin denkliği", "icerik": [
             "Koşullu önerme, değil ve veya bağlaçlarıyla da yazılabilir. Bu denklik, koşullu önermelerin bulunduğu ifadeleri sadeleştirmenin anahtarıdır:",
@@ -138,6 +140,7 @@ YAZI = {
                 "Karşıtını ve karşıt tersini yazıp doğruluklarını inceleyelim.",
                 "Karşıtı: \"Bir sayı çiftse $4$ ile bölünür.\" Yanlıştır; $6$ çifttir ama $4$ ile bölünmez.",
                 "Karşıt tersi: \"Bir sayı çift değilse $4$ ile bölünmez.\" Doğrudur, tıpkı önermenin kendisi gibi."),
+            hap("Koşullu önerme karşıt tersine denktir: $p \\Rightarrow q \\equiv q' \\Rightarrow p'$ olur.", "Karşıtı ve tersi ise koşullu önermeye denk değildir."),
         ]},
         {"baslik": "İki yönlü koşullu önerme", "icerik": [
             "\"$p$ ancak ve ancak $q$\" biçimindeki önermeye <strong>iki yönlü koşullu önerme</strong> denir ve $p \\Leftrightarrow q$ ile gösterilir. İki önermenin doğruluk değerleri aynıysa doğru, farklıysa yanlıştır.",
@@ -158,6 +161,7 @@ YAZI = {
                 "Diğer üç satırda hipotez yanlış olduğu için koşullu önerme yine doğrudur.",
                 "Önerme bütün satırlarda doğrudur."),
             "Tablo kurarken sütunları içten dışa doğru sırala: önce önermeler, sonra parantez içindeki bağlaçlar, en son dıştaki bağlaç. Bu sıra işlem hatasını büyük ölçüde önler.",
+            hap("$n$ farklı önermeyle kurulan doğruluk tablosunda $2^n$ satır vardır."),
         ]},
         {"baslik": "Totoloji ve çelişki", "icerik": [
             "Doğruluk tablosunun bütün satırlarında doğru olan önermeye <strong>totoloji</strong>, bütün satırlarında yanlış olan önermeye <strong>çelişki</strong> denir. Bir önermenin totoloji olduğunu göstermek için tablo kurmak ya da denkliklerle $1$ e indirmek yeterlidir.",

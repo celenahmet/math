@@ -77,6 +77,7 @@ YAZI = {
                 "$a$ her alt kümede kesin olarak yer alır; kalan $3$ eleman için $2^3=8$ seçenek vardır.",
                 "$a$ yı içeren $8$ alt küme vardır; bu, bütün alt kümelerin yarısıdır: $16:2=8$."),
             "Belirli sayıda elemanlı alt kümeler kombinasyonla sayılır: $n$ elemanlı bir kümenin $r$ elemanlı alt kümelerinin sayısı $C(n, r)$ dir. Ayrıntısı <a href=\"/blog/kombinasyon-konu-anlatimi-pdf/\">Kombinasyon Konu Anlatımı PDF</a> yazısında.",
+            hap("$n$ elemanlı bir kümenin $2^n$ alt kümesi ve $2^n-1$ öz alt kümesi vardır."),
         ]},
         {"baslik": "Koşullu alt küme soruları", "icerik": [
             "Alt küme sorularında çoğu zaman belirli koşulları sağlayan alt kümeler sayılır. Genel yöntem şudur: kesin olarak girecek elemanlar alt kümeye önceden konur, kesin olarak girmeyecek elemanlar kümeden çıkarılır ve kalan her eleman için iki seçenek çarpılır.",
@@ -132,6 +133,7 @@ YAZI = {
                 "Hiçbir dil bilmeyen: $40-35=5$.",
                 "Yalnız İngilizce bilen: $25-8=17$; yalnız Almanca bilen: $18-8=10$."),
             "Formül, olasılıktaki birleşim kuralıyla aynı mantığa dayanır. Olasılıkta eleman sayıları yerine olasılıklar kullanılır; ayrıntısı <a href=\"/blog/olasilik-konu-anlatimi-pdf/\">Olasılık Konu Anlatımı PDF</a> yazısında.",
+            hap("$s(A \\cup B)=s(A)+s(B)-s(A \\cap B)$ olur; kesişim iki kez sayıldığı için bir kez çıkarılır."),
         ]},
         {"baslik": "Farkın eleman sayısı", "icerik": [
             "Fark kümesinin eleman sayısı, kümenin eleman sayısından kesişimin eleman sayısı çıkarılarak bulunur. Birleşim de ayrık üç parçaya bölünebilir: yalnız $A$ da olanlar, yalnız $B$ de olanlar ve ortak kısım.",
@@ -155,6 +157,7 @@ YAZI = {
             dikkat(
                 "Yalnız bir kümede olanları küme sayısıyla karıştırmak.",
                 "\"Futbol oynayan $18$ öğrenci\" iki sporu da oynayanları da kapsar. Yalnızca futbol oynayanların sayısı, ortak bölge çıkarılarak bulunur: $18-8=10$."),
+            hap("Bir ofiste çay içen $18$, kahve içen $12$ ve ikisini de içen $5$ kişi varsa en az birini içen $18+12-5=25$ kişi vardır.", "Venn şeması her zaman kesişimden başlanarak doldurulur.", gunluk=True),
         ]},
         {"baslik": "Yüzdeli küme problemleri", "icerik": [
             "Küme problemlerinde sayılar yerine yüzdeler de verilebilir. Yöntem değişmez: bütün grup yüzde yüz kabul edilir ve eleman sayısı formülü yüzdelerle aynen uygulanır.",
@@ -195,6 +198,7 @@ YAZI = {
                 "$A \\cup B=\\{1, 2, 3, 4, 5, 6, 7\\}$; tümleyeni $\\{8\\}$.",
                 "$A'=\\{6, 7, 8\\}$ ve $B'=\\{1, 2, 3, 8\\}$; kesişimleri $\\{8\\}$.",
                 "İki küme eşittir."),
+            hap("$(A \\cup B)'=A' \\cap B'$ ve $(A \\cap B)'=A' \\cup B'$ olur."),
         ]},
         {"baslik": "Kartezyen çarpım", "icerik": [
             "$A$ nın her elemanıyla $B$ nin her elemanının oluşturduğu sıralı ikililerin kümesine $A$ ile $B$ nin <strong>kartezyen çarpımı</strong> denir ve $A \\times B$ ile gösterilir. Eleman sayısı çarpımla bulunur: $s(A \\times B)=s(A) \\cdot s(B)$.",

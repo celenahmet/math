@@ -145,6 +145,7 @@ YAZI = {
                 "Ondalık: $3 \\div 8=0.375$.",
                 "Yüzde: $0.375 \\cdot 100=37.5$, yani $\\%37.5$."),
             "Sık kullanılan eşleşmeleri bilmek işlemleri hızlandırır: $\\dfrac{1}{2}=0.5=\\%50$, $\\dfrac{1}{4}=0.25=\\%25$, $\\dfrac{3}{4}=0.75=\\%75$, $\\dfrac{1}{5}=0.2=\\%20$, $\\dfrac{1}{8}=0.125=\\%12.5$.",
+            hap("Sekiz dilimli bir pizzadan $3$ dilim yenirse yenen kısım $\\dfrac{3}{8}$, kalan kısım $\\dfrac{5}{8}$ olur; bu da yüzde $62.5$ eder.", gunluk=True),
         ]},
         {"baslik": "Kesirlerin kuvveti", "icerik": [
             "Bir kesrin kuvveti alınırken pay ve payda ayrı ayrı kuvvete yükseltilir:",

@@ -150,6 +150,7 @@ YAZI = {
             "<li>İlk $n$ tek sayının toplamı $n^2$ dir: $1+3+5+\\cdots+(2n-1)=n^2$.</li>"
             "<li>İlk $n$ çift sayının toplamı $n(n+1)$ dir: $2+4+\\cdots+2n=n(n+1)$.</li></ul>",
             "Ardışık sayıların ayrıntılı anlatımı için <a href=\"/blog/ardisik-sayilar/\">Ardışık Sayılar</a> yazısına bakabilirsin.",
+            hap("İki arkadaş bulaşığı ayın tek günlerinde biri, çift günlerinde öteki yıkayacak biçimde paylaşırsa $31$ çeken aylarda tek günlere düşen kişi ayın $31$ i ve sonraki ayın $1$ i olmak üzere iki gün üst üste yıkar.", gunluk=True),
         ]},
         {"baslik": "Pariteyle imkânsızlığı göstermek", "icerik": [
             "Tek-çift bilgisinin en güçlü kullanımlarından biri, bir durumun <strong>hiçbir zaman</strong> gerçekleşemeyeceğini göstermektir. Bunun için sayıları tek tek denemek gerekmez; iki tarafın paritesini karşılaştırmak yeter.",

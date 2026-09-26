@@ -59,6 +59,19 @@ Bu, hap bilgilerin yazıya **anlamlı dağıtılmasını** zorunlu kılar. Bir
 bölümde hiç hap bilgi yoksa özet eksik kalır; on tane üst üste konursa
 özet okunmaz olur. Her ana bölümde bir tane, en fazla iki tane.
 
+**Sayı kuralı (26.09.2026, Ahmet):** her yazıda **en az 5** hap bilgi
+bulunur. `blog_dogrula.py` içindeki `bicim()` bunu denetler; 5'in altı
+derlemeyi kırmızıya düşürür. Beşi aynı bölüme yığılmaz, konunun farklı
+bölümlerine dağıtılır.
+
+**Gündelik hayat hapı (istenir, zorunlu değil):** yazıda bir iki tane hap,
+konuyu gündelik bir durumla bağlar (market indirimi, taksi ücreti, tarif,
+şifre sayısı gibi). `hap(..., gunluk=True)` ile yazılır, kutuda
+"Gündelik hayatta" etiketiyle görünür. Sayılar gerçekçi ama **uydurma
+gerçek bilgi** değil: kur, fiyat, nüfus gibi dış veriye dayanan iddia
+yazılmaz; "tanesi 10 liradan" gibi varsayım olduğu belli örnek kullanılır.
+Her sayısal iddia `hap_ekleri()` altında sympy ile doğrulanır.
+
 ⚠️ Hap bilgi kutusunun içine **tablo konmaz**; özet çıkarımını bozar.
 
 ### Kontrol listesi (zorunlu)

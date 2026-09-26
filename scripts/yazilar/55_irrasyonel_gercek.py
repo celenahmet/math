@@ -54,6 +54,7 @@ YAZI = {
             "</ol>",
             "Varsayım çelişkiye götürdüğü için yanlıştır: $\\sqrt{2}$ hiçbir kesirle yazılamaz, irrasyoneldir. Aynı yol, tam kare olmayan her doğal sayının karekökü için uyarlanabilir.",
             "Bu ispatı ezberlemen gerekmez, ama kuralın nereden geldiğini gösterir. \"Neden?\" sorusunun cevabını bilen öğrenci, kök içeren ifadelerde kural ezberlemeden karar verebilir.",
+            hap("A4 kâğıdının kenarları $210$ ve $297$ milimetredir; uzun kenarın kısa kenara oranı yaklaşık $\\sqrt{2} \\approx 1.414$ olur.", "Bu yüzden kâğıt ortadan ikiye katlanınca oluşan A5 kâğıdı da aynı orana sahiptir.", gunluk=True),
         ]},
         {"baslik": "Pi sayısı", "icerik": [
             "Bir çemberin çevresinin çapına oranı, çember ne kadar büyük ya da küçük olursa olsun aynıdır. Bu sabit orana $\\pi$ denir: $\\pi=3.14159265\\ldots$",

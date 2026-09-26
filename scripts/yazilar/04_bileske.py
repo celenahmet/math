@@ -43,6 +43,7 @@ YAZI = {
                 "$g \\circ f$: $1 \\to g(2)=3$, $2 \\to g(2)=3$, $3 \\to g(1)=2$.",
                 "İki bileşke farklı fonksiyonlardır."),
             "Aynı fonksiyon kendisiyle de birleştirilebilir. $(f \\circ f)(x)=f(f(x))$ yazılır. Yukarıdaki $f(x)=x^2+1$ için $(f \\circ f)(1)=f(2)=5$ tir.",
+            hap("Açılışı $20$ lira, kilometresi $15$ lira olan bir taksinin ücreti $f(y)=20+15y$, dakikada yarım kilometre giden taksinin yolu $g(t)=0.5t$ olsun.", "Ücret süreye göre $(f \\circ g)(t)=20+7.5t$ olur; $20$ dakikalık yolculuk $170$ lira tutar.", gunluk=True),
         ]},
         {"baslik": "Bileşkenin kuralını bulma", "icerik": [
             "Kuralı bulmak için dıştaki fonksiyonun kuralında $x$ gördüğün her yere içteki fonksiyonun <strong>tamamını</strong> parantez içinde yazarsın.",

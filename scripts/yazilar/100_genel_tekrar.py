@@ -79,6 +79,7 @@ YAZI = {
                 "İndirim $120$ nin $\\%20$ si, yani $24$ tür. Son fiyat $96$.",
                 "Son fiyat ilk fiyattan $\\%4$ düşüktür."),
             "Ayrıntılı anlatım: <a href=\"/blog/yuzde-problemleri-nasil-cozulur/\">Yüzde Problemleri Nasıl Çözülür?</a>",
+            hap("Art arda yüzde değişimlerde çarpanlar çarpılır: yüzde $20$ artışın ardından yüzde $20$ azalış, toplamda yüzde $4$ azalış verir."),
         ]},
         {"baslik": "Kâr ve zarar problemleri", "icerik": [
             "Kâr ve zarar yüzdeleri her zaman maliyet üzerinden hesaplanır. Satış fiyatı, maliyete kârın eklenmesiyle ya da maliyetten zararın çıkarılmasıyla bulunur.",
@@ -88,6 +89,7 @@ YAZI = {
                 "Birinci ürün: $400 \\cdot 1.25=500$ TL.",
                 "İkinci ürün: satış fiyatı maliyetin $\\%80$ idir. Maliyet: $360:0.8=450$ TL."),
             "Ayrıntılı anlatım: <a href=\"/blog/kar-ve-zarar-problemleri-konu-anlatimi-pdf/\">Kâr ve Zarar Problemleri Konu Anlatımı PDF</a>.",
+            hap("Okul kermesinde tanesi $5$ liraya mal edilen limonata $8$ liraya satılırsa kâr yüzde $60$ olur.", "Kâr yüzdesi satış fiyatına değil maliyete göre hesaplanır.", gunluk=True),
         ]},
         {"baslik": "Faiz problemleri", "icerik": [
             "Basit faizde faiz yalnızca ana para üzerinden hesaplanır ve her yıl aynı miktarda eklenir. Faiz, ana para, yıllık faiz oranı ve süre çarpılıp $100$ e bölünerek bulunur.",
@@ -116,6 +118,7 @@ YAZI = {
                 "Birlikte bir günde: $\\dfrac{1}{6}+\\dfrac{1}{12}=\\dfrac{3}{12}=\\dfrac{1}{4}$. İş $4$ günde biter.",
                 "Musluklar birlikte bir saatte: $\\dfrac{1}{4}-\\dfrac{1}{6}=\\dfrac{1}{12}$. Havuz $12$ saatte dolar."),
             "Ayrıntılı anlatım: <a href=\"/blog/isci-ve-havuz-problemleri-konu-anlatimi-pdf/\">İşçi ve Havuz Problemleri Konu Anlatımı PDF</a>.",
+            hap("İşi $a$ günde ve $b$ günde bitiren iki kişi birlikte işi $\\dfrac{a \\cdot b}{a+b}$ günde bitirir."),
         ]},
         {"baslik": "Hareket problemleri", "icerik": [
             "Hareket problemlerinin tek formülü yol eşittir hız çarpı zamandır. Birbirine doğru giden araçlarda hızlar toplanır, aynı yönde giden araçlarda ise hızların farkı alınır.",
@@ -152,6 +155,7 @@ YAZI = {
                 "Dizilim: $4!=24$.",
                 "İki zarda $36$ eşit olası sonuç vardır ve toplamı $7$ yapan $6$ sonuç bulunur: $\\dfrac{6}{36}=\\dfrac{1}{6}$."),
             "Ayrıntılı anlatım: <a href=\"/blog/permutasyon-konu-anlatimi-pdf/\">Permütasyon Konu Anlatımı PDF</a> ve <a href=\"/blog/olasilik-konu-anlatimi-pdf/\">Olasılık Konu Anlatımı PDF</a>.",
+            hap("Sıra önemliyse permütasyon, önemsizse kombinasyon kullanılır."),
         ]},
         {"baslik": "Küme problemleri", "icerik": [
             "Küme problemlerinde iki kümenin birleşiminin eleman sayısı, eleman sayılarının toplamından ortak kısmın çıkarılmasıyla bulunur. Venn şeması kesişimden başlanarak doldurulur.",

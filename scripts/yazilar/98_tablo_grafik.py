@@ -91,6 +91,7 @@ YAZI = {
             dikkat(
                 "Değişim yüzdesini yeni değere bölerek bulmak.",
                 "Payda her zaman eski değerdir. $56$ dan $84$ e artış $\\%50$ dir; ama $84$ ten $56$ ya azalış $\\%50$ değil, yaklaşık $\\%33$ tür. Aynı fark, farklı başlangıç değerlerinde farklı yüzdelere karşılık gelir."),
+            hap("Değişim yüzdesi, değişim miktarının eski değere bölünüp $100$ ile çarpılmasıyla bulunur."),
         ]},
         {"baslik": "Miktar mı, yüzde mi?", "icerik": [
             "Bir grafikte en büyük artış sorulduğunda, sorunun miktarı mı yoksa yüzdeyi mi istediği dikkatle okunmalıdır. İkisi farklı cevaplar verebilir.",
@@ -99,6 +100,7 @@ YAZI = {
                 ["B", "$50$", "$75$", "$25$", "$\\%50$"],
             ]),
             "A mağazasının satışı miktar olarak daha çok, B mağazasınınki ise oran olarak daha çok artmıştır. Küçük bir başlangıç değeri, küçük bir artışla bile büyük bir yüzde üretebilir. Bu yüzden haberlerde ve reklamlarda verilen yüzdeler, başlangıç değeri bilinmeden yorumlanmamalıdır.",
+            hap("En büyük artış miktarı ile en büyük artış yüzdesi farklı dönemlerde olabilir; önce sorunun hangisini istediği okunur."),
         ]},
         {"baslik": "Çizgi grafiği", "icerik": [
             "<strong>Çizgi grafiği</strong>, bir büyüklüğün zaman içindeki değişimini gösterir. Noktalar ölçülen değerleri, noktaları birleştiren çizgiler ise değişimin yönünü gösterir: yükselen çizgi artışı, alçalan çizgi azalışı anlatır.",
@@ -210,6 +212,7 @@ YAZI = {
             dikkat(
                 "Sütun boylarını oranlayarak karşılaştırmak.",
                 "Sütun boyları ancak eksen sıfırdan başlıyorsa değerlerle orantılıdır. Eksen kesikse değerler eksenden okunup öyle karşılaştırılmalıdır."),
+            hap("Bir reklam grafiğinde düşey eksen $95$ ten başlıyorsa $96$ ile $98$ lik iki sütundan biri ötekinin üç katı boyunda görünür.", "Gerçek fark ise yaklaşık yüzde $2$ dir.", gunluk=True),
         ]},
         {"baslik": "Grafik neyi söylemez?", "icerik": [
             "Bir grafik yalnızca gösterdiği veriyi anlatır. İki büyüklüğün birlikte artması, birinin diğerine neden olduğunu göstermez. Dondurma satışları ile boğulma olaylarının yaz aylarında birlikte artması, dondurmanın boğulmaya yol açtığı anlamına gelmez; ikisini de sıcak hava artırır.",

@@ -89,6 +89,7 @@ YAZI = {
                 "Ortalama: $\\dfrac{12+30}{2}=21$.",
                 "Terim sayısı: $\\dfrac{30-12}{2}+1=10$. Toplam: $10 \\cdot 21=210$."),
             "Aynı kural $1$ den $99$ a kadar olan sayılar için ortalamayı $\\dfrac{1+99}{2}=50$ verir. Ardışık sayıların toplamı sorulduğunda ortalamayı terim sayısıyla çarpmak, sayıları tek tek toplamaktan çok daha hızlıdır.",
+            hap("Ardışık sayıların ortalaması ilk ve son terimin ortalamasıdır ve ortancaya eşittir."),
         ]},
         {"baslik": "Ağırlıklı ortalama", "icerik": [
             "Değerlerin önemi ya da sayısı farklıysa her değer kendi ağırlığıyla çarpılır ve toplam, ağırlıkların toplamına bölünür. Buna <strong>ağırlıklı ortalama</strong> denir.",
@@ -101,6 +102,7 @@ YAZI = {
                 "Grupların ortalamalarının ortalamasını almak.",
                 "$\\dfrac{70+80}{2}=75$ yanlıştır, çünkü A sınıfı daha kalabalıktır ve ortalamayı kendi değerine doğru çeker. İki grup ancak eşit sayıdaysa ortalamaların ortalaması doğru sonucu verir."),
             "Üniversitelerdeki not ortalaması da ağırlıklı ortalamadır: her dersin notu kredisiyle çarpılır. Kredisi $4$ olan bir dersten $80$, kredileri $3$ olan iki dersten $70$ ve $90$ alan bir öğrencinin ortalaması $\\dfrac{4 \\cdot 80+3 \\cdot 70+3 \\cdot 90}{10}=80$ dir.",
+            hap("Ağırlıklı ortalamada her değer ağırlığıyla çarpılır ve toplam, ağırlıkların toplamına bölünür."),
         ]},
         {"baslik": "Ortalama hız tuzağı", "icerik": [
             "Ortalama hız, toplam yolun toplam süreye bölümüdür; hızların aritmetik ortalaması değildir. Aynı yol farklı hızlarla gidilip dönüldüğünde yavaş gidilen kısımda daha uzun zaman geçer ve ortalama hız yavaş hıza yaklaşır.",
@@ -158,6 +160,7 @@ YAZI = {
                 "Ortanca: $24$ bin TL.",
                 "Beş çalışandan dördü ortalamanın altında kazanır. Tek bir yüksek değer, ortalamayı grubun çoğunluğundan uzaklaştırmıştır."),
             "Bu yüzden gelir, konut fiyatı gibi uç değer içeren verilerde ortanca, tipik değeri ortalamadan daha iyi gösterir. Uç değer yoksa ve veri simetrik dağılıyorsa ortalama ile ortanca birbirine yakın çıkar.",
+            hap("Beş kişilik bir ekipte maaşlar $30$, $32$, $34$, $36$ ve $168$ bin lira ise ortalama $60$ bin, ortanca $34$ bin lira olur.", "Tek bir uç değer ortalamayı çok, ortancayı hiç etkilemez.", gunluk=True),
         ]},
         {"baslik": "Açıklık", "icerik": [
             "Ortalama, verinin merkezini gösterir ama verinin ne kadar yayıldığını göstermez. Yayılımın en basit ölçüsü <strong>açıklıktır</strong>: en büyük değerden en küçük değerin çıkarılmasıyla bulunur.",
@@ -198,6 +201,7 @@ YAZI = {
                 "Her değere $5$ eklenince veri $12$, $12$, $15$, $18$, $18$ olur: ortalama $15$, standart sapma yine $3$.",
                 "Her değer $2$ ile çarpılınca veri $14$, $14$, $20$, $26$, $26$ olur: ortalama $20$, standart sapma $6$."),
             "Bu özellik, bir sınavın bütün puanlarına aynı ek puan verildiğinde sınıfın başarı sıralamasının ve puanların dağılımının neden değişmediğini açıklar: herkes aynı miktarda yükselir.",
+            hap("Bütün değerlere aynı sayı eklenirse ortalama o sayı kadar artar; açıklık ve standart sapma değişmez."),
         ]},
         {"baslik": "Farkların karesi neden alınır?", "icerik": [
             "Standart sapma hesabında farklar doğrudan toplanmaz, çünkü ortalamadan farkların toplamı her zaman sıfırdır. Kare almak, negatif ve pozitif farkların birbirini götürmesini önler ve ortalamadan uzak değerlere daha fazla ağırlık verir.",

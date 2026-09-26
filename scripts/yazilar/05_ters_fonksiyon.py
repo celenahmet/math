@@ -151,6 +151,7 @@ YAZI = {
                 "İkinci örnekte cevap $x=2$ değil, parantezin içi olan $3$ tür.",
                 "$f^{-1}(8)$, $f$ ye hangi sayı verilince $8$ çıktığını sorar; $f$ ye verilen sayı parantezin içidir."),
             "Bileşke ile birlikte gelen değer sorularında da sıra aynıdır: içten dışa. $f(x)=2x+3$ ve $g(x)=x^2$ ise $(f^{-1} \\circ g)(3)=f^{-1}(9)$ olur. $f(b)=9$ denkleminden $2b+3=9$ ve $b=3$ bulunur; sonuç $3$ tür.",
+            hap("Santigrattan Fahrenhayta çeviren $f(C)=1.8C+32$ fonksiyonunun tersi $f^{-1}(F)=\\dfrac{F-32}{1.8}$ olur.", "Yurt dışındaki bir hava durumunda görülen $77$ derece Fahrenhayt, $\\dfrac{77-32}{1.8}=25$ derece santigrattır.", gunluk=True),
         ]},
         {"baslik": "Ters fonksiyonun özellikleri", "icerik": [
             "<ul>"

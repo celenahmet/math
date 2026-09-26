@@ -67,6 +67,7 @@ YAZI = {
                 "Yeni toplam: $400+200=600$ gram.",
                 "Yeni oran: $\\dfrac{120}{600}=0.2$, yani yüzde $20$."),
             "Aynı soru tersine de sorulabilir: $400$ gram yüzde $30$ luk tuzlu suyu yüzde $20$ lik yapmak için kaç gram su eklenmeli? Tuz $120$ gram kalır ve yeni karışımın yüzde $20$ si olmalıdır: $120:0.2=600$ gram. Eklenecek su $600-400=200$ gramdır.",
+            hap("$200$ gram yoğurda $200$ gram su katılan ayranda yoğurt oranı yüzde $50$ olur.", "Ayranı açmak için $100$ gram daha su eklenince yoğurt miktarı değişmez ama oran yüzde $40$ a iner.", gunluk=True),
         ]},
         {"baslik": "Su buharlaştırmak: derişikleştirme", "icerik": [
             "Karışımdaki suyun bir kısmı buharlaştırıldığında madde miktarı yine değişmez ama toplam miktar azalır. Bu yüzden oran büyür.",
@@ -79,6 +80,7 @@ YAZI = {
             dikkat(
                 "Buharlaşan suyla tuzu da azaltmak.",
                 "Buharlaşan yalnızca sudur; tuz karışımda kalır. Tuz miktarını buharlaşan oranda azaltmak, oranın değişmediği yanlış bir sonuç verir."),
+            hap("Su eklemek oranı küçültür, su buharlaştırmak oranı büyütür; iki durumda da madde miktarı aynı kalır."),
         ]},
         {"baslik": "İki karışımı birleştirmek", "icerik": [
             "İki karışım birleştirildiğinde madde miktarları toplanır, toplam miktarlar toplanır ve yeni oran bu iki toplamın bölümüdür. Yeni oran her zaman iki oranın arasında kalır ve miktarı fazla olan karışımın oranına daha yakındır.",
@@ -89,6 +91,7 @@ YAZI = {
                 "Toplam karışım: $200+300=500$ gram.",
                 "Yeni oran: $\\dfrac{95}{500}=0.19$, yani yüzde $19$."),
             "Sonuç yüzde $10$ ile yüzde $25$ arasındadır ve miktarı daha fazla olan ikinci karışımın oranına daha yakındır. İki oranın basit ortalaması olan yüzde $17.5$, yalnızca miktarlar eşitse doğru olurdu.",
+            hap("İki karışım birleşince oranlar toplanmaz; madde miktarları ve toplam miktarlar ayrı ayrı toplanıp yeniden oranlanır.", "Yeni oran her zaman iki oranın arasında kalır."),
         ]},
         {"baslik": "Üç karışımı birleştirmek", "icerik": [
             "İkiden fazla karışım birleştirildiğinde de yöntem değişmez: bütün madde miktarları ve bütün toplam miktarlar ayrı ayrı toplanır, sonra bölünür.",
@@ -146,6 +149,7 @@ YAZI = {
                 "Alınan $10$ litrede $10 \\cdot 0.5=5$ litre alkol vardır; kalan alkol $15$ litre.",
                 "Toplam yine $40$ litre; yeni oran $\\dfrac{15}{40}=0.375$, yani yüzde $37.5$."),
             "Bu işlem aynı biçimde tekrar edilirse her seferinde alkol miktarı aynı oranla azalır. Burada her işlemde alkolün dörtte biri gider ve dörtte üçü kalır; ikinci işlemden sonra alkol $15 \\cdot \\dfrac{3}{4}=11.25$ litre olur.",
+            hap("Karışımdan bir kısım alınıp yerine aynı miktarda su konursa toplam değişmez, madde miktarı ise alınan kısmın oranı kadar azalır."),
         ]},
         {"baslik": "Alaşım problemleri", "icerik": [
             "Metal karışımlarına alaşım denir ve oran çoğu zaman ayar ya da yüzde olarak verilir. Alaşım soruları da tuzlu su sorularıyla aynı mantıkla çözülür: tuzun yerini saf metal, suyun yerini diğer metaller alır. Altında saf altın $24$ ayar kabul edilir; $18$ ayar altın, kütlesinin $\\dfrac{18}{24}=\\dfrac{3}{4}$ ü saf altın olan alaşımdır.",

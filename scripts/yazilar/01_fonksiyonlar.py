@@ -153,6 +153,7 @@ YAZI = {
                 "$f(g(x)) = 3 \\cdot g(x) - 2$ olduğunu biliyoruz.",
                 "Öyleyse $3 \\cdot g(x) - 2 = 6x+4$ yazarız.",
                 "$3 \\cdot g(x) = 6x+6$ ve buradan $g(x) = 2x+2$ bulunur."),
+            hap("Bir üründe önce $100$ lira, sonra yüzde $20$ indirim uygulanıyorsa $g(x)=x-100$ ve $f(x)=0.8x$ olmak üzere ödenen tutar $f(g(x))$ olur.", "$500$ liralık ürün için $f(g(500))=320$ lira ödenir; sıra değişirse $g(f(500))=300$ lira ödenir.", gunluk=True),
         ]},
         {"baslik": "Ters fonksiyon", "icerik": [
             "Ters fonksiyon, makineyi geriye çalıştırmaktır: çıkıştan girişe dönmek. $f(a)=b$ ise $f^{-1}(b)=a$ olur.",

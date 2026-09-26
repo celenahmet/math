@@ -71,6 +71,7 @@ YAZI = {
             dikkat(
                 "Karşılaşmada hızların farkını kullanmak.",
                 "Birbirine doğru giden araçlarda mesafe iki araç tarafından birlikte kapatılır; hızlar toplanır. Hızların farkı, aynı yönde giden araçlar için kullanılır."),
+            hap("Birbirine doğru giden iki aracın karşılaşma süresi, aradaki mesafenin hızların toplamına bölümüdür."),
         ]},
         {"baslik": "Farklı saatlerde yola çıkan araçlar", "icerik": [
             "Araçlar aynı anda yola çıkmıyorsa önce erken çıkan aracın tek başına aldığı yol hesaplanır ve mesafeden çıkarılır. Kalan mesafe, ikisi birlikte hareket ederken karşılaşma ya da yetişme kuralına göre kapatılır.",
@@ -99,6 +100,7 @@ YAZI = {
                 "İkinci araç yola çıktığında birinci araç $60 \\cdot 2=120$ kilometre öndedir.",
                 "Aradaki mesafe her saat $90-60=30$ kilometre kapanır: $120:30=4$ saat.",
                 "Yetişme noktası başlangıçtan $90 \\cdot 4=360$ kilometre uzaktadır. Kontrol: birinci araç $6$ saatte $360$ kilometre gider."),
+            hap("Aynı yönde gidenlerde yetişme süresi, aradaki mesafenin hız farkına bölümüdür."),
         ]},
         {"baslik": "Zıt yönde hareket: uzaklaşma", "icerik": [
             "Aynı noktadan zıt yönlere giden iki araç arasındaki mesafe her saat hızlarının toplamı kadar büyür. Belirli bir süre sonraki aralarındaki mesafe, hızların toplamı ile sürenin çarpımıdır.",
@@ -125,6 +127,7 @@ YAZI = {
             dikkat(
                 "Hızların ortalamasını almak.",
                 "$60$ ile $40$ ın ortalaması olan $50$ yanlıştır. Araç yavaş gittiği dönüşte daha uzun süre kaldığı için ortalama hız yavaş hıza daha yakındır: $48$."),
+            hap("Yolun yarısı $v_1$, diğer yarısı $v_2$ hızla gidilirse ortalama hız $\\dfrac{2v_1v_2}{v_1+v_2}$ olur.", "Bu değer hızların basit ortalamasından küçüktür."),
         ]},
         {"baslik": "Gidiş dönüş soruları", "icerik": [
             "Gidiş ve dönüş hızları ile toplam süre verildiğinde yol, bilinmeyen olarak yazılır. Her yönün süresi yolun o yönün hızına bölümüdür ve süreler toplanır.",
@@ -178,6 +181,7 @@ YAZI = {
                 "İki süre arasındaki fark $6+4=10$ dakika, yani $\\dfrac{1}{6}$ saattir.",
                 "Denklem: $\\dfrac{d}{5}-\\dfrac{d}{6}=\\dfrac{1}{6}$, yani $\\dfrac{d}{30}=\\dfrac{1}{6}$ ve $d=5$ kilometre.",
                 "Kontrol: $5$ kilometre $5$ hızla $60$ dakika, $6$ hızla $50$ dakika sürer; fark $10$ dakikadır."),
+            hap("Okula uzaklığı $2$ kilometre olan bir öğrenci saatte $4$ kilometre hızla yürürse $30$ dakikada, saatte $12$ kilometre hızla bisiklet sürerse $10$ dakikada varır.", gunluk=True),
         ]},
         {"baslik": "Yol zaman grafikleri", "icerik": [
             "Hareket bazen bir yol zaman grafiğiyle verilir. Yatay eksen zamanı, dikey eksen alınan yolu gösterir. Sabit hızlı bir hareketin grafiği bir doğrudur ve doğrunun dikliği hızı verir: doğru ne kadar dikse hız o kadar büyüktür.",

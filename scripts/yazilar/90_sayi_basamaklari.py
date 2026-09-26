@@ -51,6 +51,7 @@ YAZI = {
             dikkat(
                 "Ardışık sayıları sayarken $1$ eklemeyi unutmak.",
                 "$10$ dan $99$ a kadar olan sayıların sayısı $99-10=89$ değil, $90$ dır. Hem ilk hem son sayı sayıldığı için fark $1$ artırılır."),
+            hap("$a$ dan $b$ ye kadar olan ardışık tam sayıların adedi $b-a+1$ olur."),
         ]},
         {"baslik": "En büyük ve en küçük sayılar", "icerik": [
             "$n$ basamaklı en küçük sayı $1$ ile başlayıp $0$ larla devam eder: $10^{n-1}$. En büyük sayı ise bütün basamakları $9$ olan sayıdır: $10^n-1$. Rakamların farklı olması istendiğinde ise en küçük ve en büyük sayılar değişir.",
@@ -63,6 +64,7 @@ YAZI = {
             dikkat(
                 "En küçük sayıya $0$ ile başlamak.",
                 "Rakamları farklı en küçük üç basamaklı sayı $012$ değildir, çünkü $012$ aslında iki basamaklı $12$ sayısıdır. En soldaki basamağa $0$ dan farklı en küçük rakam, yani $1$ gelir."),
+            hap("$n$ basamaklı en küçük sayı $10^{n-1}$, en büyük sayı $10^n-1$ olur."),
         ]},
         {"baslik": "Rakamları farklı sayıları saymak", "icerik": [
             "Rakamları birbirinden farklı sayılar sayılırken basamaklar tek tek doldurulur ve her basamak için kullanılabilecek rakam sayısı çarpılır. En soldaki basamaktan başlamak, $0$ kısıtını doğru uygulamayı sağlar.",
@@ -148,6 +150,7 @@ YAZI = {
                 "İki basamaklı sayfalar: $10$ dan $99$ a, $90$ sayfa; $180$ rakam.",
                 "Üç basamaklı sayfalar: $100$ den $150$ ye, $51$ sayfa; $153$ rakam. Toplam: $9+180+153=342$ rakam."),
             "Soru tersine de sorulabilir: $342$ rakamla numaralanan bir kitabın kaç sayfa olduğu sorulursa, önce tek ve iki basamaklı sayfaların kullandığı $189$ rakam çıkarılır. Kalan $153$ rakam üçer üçer kullanıldığı için $51$ üç basamaklı sayfa vardır; son sayfa $99+51=150$ dir.",
+            hap("Bir apartmanda kapılara $1$ den $60$ a kadar numara takılacaksa tek basamaklı $9$ numara için $9$, iki basamaklı $51$ numara için $102$ rakam gerekir.", "Toplam $111$ rakam plakası alınır.", gunluk=True),
         ]},
         {"baslik": "Bir rakamın kaç kez kullanıldığı", "icerik": [
             "Belirli bir rakamın bir aralıktaki sayılarda kaç kez yazıldığı sorulduğunda her basamak ayrı ayrı sayılır: rakam birler basamağında kaç kez, onlar basamağında kaç kez geçiyor? İki sayım toplandığında aynı sayıda iki kez geçen rakamlar da doğru sayılmış olur.",
@@ -167,6 +170,7 @@ YAZI = {
                 "İki basamaklı sayılar ikişer rakam kullanır: $91=2 \\cdot 45+1$. Yani $10$ dan başlayan $45$ sayı, $10$ dan $54$ e kadar, tam olarak yazılır ve $99$ uncu rakama ulaşılır.",
                 "$100$ üncü rakam bir sonraki sayı olan $55$ in ilk rakamıdır: $5$."),
             "Aynı yöntemle $200$ üncü rakam da bulunur. Tek ve iki basamaklı sayılar birlikte $9+180=189$ rakam kullanır; geriye $11$ rakam kalır. Üç basamaklı sayılar üçer rakam kullandığı için $11=3 \\cdot 3+2$ dir: $100$, $101$ ve $102$ tam olarak yazılır ve $103$ ün ikinci rakamına gelinir. $200$ üncü rakam $0$ dır.",
+            hap("$1$ den $9$ a kadar $9$, $10$ dan $99$ a kadar $180$, $100$ den $999$ a kadar $2700$ rakam kullanılır."),
         ]},
         {"baslik": "Sınavda sayı basamakları", "icerik": [
             sinavda(

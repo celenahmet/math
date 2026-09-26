@@ -66,6 +66,7 @@ YAZI = {
                 "Kaç farklı sıralama olduğunu bulalım.",
                 "$5!=120$ farklı sıralama vardır. Grup altı kişi olsaydı sıralama sayısı altı katına çıkıp $6!=720$ olurdu."),
             "Sıralama fikrinin genişletilmiş hâli <a href=\"/blog/permutasyon-konu-anlatimi-pdf/\">Permütasyon Konu Anlatımı PDF</a> yazısında anlatılıyor.",
+            hap("Fotoğraf için yan yana duran $4$ arkadaş $4!=24$ farklı biçimde sıralanabilir.", "Gruba bir kişi daha katılınca sıralamalar $5$ katına çıkar ve $120$ olur.", gunluk=True),
         ]},
         {"baslik": "Faktöriyelli ifadeleri sadeleştirmek", "icerik": [
             "İki faktöriyelin bölümünde büyük olan faktöriyel küçük olana kadar açılır ve ortak kısım sadeleştirilir. Büyük faktöriyelleri tam olarak hesaplamaya gerek kalmaz.",
@@ -82,6 +83,7 @@ YAZI = {
             dikkat(
                 "Faktöriyelleri sayı gibi sadeleştirmek.",
                 "$\\dfrac{10!}{5!}$ ifadesi $2!$ değildir. Faktöriyeller bölünürken sayılar değil çarpımlar sadeleşir: $\\dfrac{10!}{5!}=10 \\cdot 9 \\cdot 8 \\cdot 7 \\cdot 6=30240$."),
+            hap("Bölümde büyük faktöriyel küçük olana kadar açılır: $\\dfrac{10!}{7!}=10 \\cdot 9 \\cdot 8$ olur."),
         ]},
         {"baslik": "Faktöriyelli toplama ve çıkarma", "icerik": [
             "Faktöriyeller toplanırken ya da çıkarılırken en küçük faktöriyel ortak çarpan olarak paranteze alınır. Böylece büyük sayılarla uğraşmadan sonuç bulunur.",
@@ -176,6 +178,7 @@ YAZI = {
             dikkat(
                 "Yalnızca $5$ in katlarını saymak.",
                 "$25$, $50$, $75$ ve $100$ gibi sayılar iki tane $5$ çarpanı taşır. Bu yüzden $100!$ in sonundaki sıfır sayısı $20$ değil, $24$ tür. İkinci bölme adımı bu fazladan çarpanları sayar."),
+            hap("Bir faktöriyelin sonundaki sıfır sayısı, içindeki $5$ çarpanlarının sayısına eşittir.", "Örneğin $25$ faktöriyelin sonunda $5+1=6$ sıfır vardır."),
         ]},
         {"baslik": "Faktöriyelin asal çarpanları", "icerik": [
             "Aynı yöntem herhangi bir asal sayı için kullanılır: $n!$ içindeki $p$ asal çarpanlarının sayısı, $n$ nin $p$ ye art arda bölünmesiyle bulunan bölümlerin toplamıdır.",
@@ -204,6 +207,7 @@ YAZI = {
                 "$5!$ den itibaren her terim $0$ ile biter ve birler basamağını etkilemez.",
                 "İlk dört terimin toplamı: $1+2+6+24=33$.",
                 "Toplamın birler basamağı $3$ tür."),
+            hap("$5!$ ve daha büyük bütün faktöriyellerin birler basamağı $0$ olur."),
         ]},
         {"baslik": "Sınavda faktöriyel", "icerik": [
             sinavda(

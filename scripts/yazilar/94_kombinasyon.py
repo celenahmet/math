@@ -56,6 +56,7 @@ YAZI = {
                 "Değerini simetriyle hesaplayalım.",
                 "$C(10, 8)=C(10, 2)$.",
                 "$C(10, 2)=\\dfrac{10 \\cdot 9}{2}=45$."),
+            hap("$C(n, r)=C(n, n-r)$ olur; seçilecekleri seçmek ile geride kalacakları seçmek aynı iştir."),
         ]},
         {"baslik": "Basit seçim soruları", "icerik": [
             "Tek bir gruptan belirli sayıda eleman seçildiğinde formül doğrudan uygulanır. Büyük faktöriyelleri hesaplamak yerine pay ve payda sadeleştirilir.",
@@ -86,6 +87,7 @@ YAZI = {
                 "Hiç kız olmayan seçimler, yani yalnızca erkeklerden: $C(5, 4)=5$.",
                 "En az bir kız olan ekipler: $330-5=325$."),
             "Aynı soru durumları toplayarak da çözülebilir: $1$, $2$, $3$ ya da $4$ kız seçilen durumlar ayrı ayrı hesaplanıp toplanır. $C(6,1)C(5,3)+C(6,2)C(5,2)+C(6,3)C(5,1)+C(6,4)=60+150+100+15=325$ bulunur ve sonuç aynıdır.",
+            hap("En az bir koşulunda bütün seçimlerden hiç içermeyen seçimler çıkarılır."),
         ]},
         {"baslik": "En çok koşulu", "icerik": [
             "\"En çok\" koşullarında izin verilen durumlar genellikle azdır; bu yüzden durumlar tek tek sayılıp toplanır.",
@@ -135,6 +137,7 @@ YAZI = {
                 "Her eleman için $2$ seçenek: $2^4=16$.",
                 "Eleman sayısına göre: $C(4,0)+C(4,1)+C(4,2)+C(4,3)+C(4,4)=1+4+6+4+1=16$."),
             "Kümelerin ayrıntısı <a href=\"/blog/kumeler-konu-anlatimi-pdf/\">Kümeler Konu Anlatımı PDF</a> yazısında anlatılıyor.",
+            hap("$n$ elemanlı bir kümenin $2^n$ alt kümesi vardır; her eleman ya alınır ya alınmaz."),
         ]},
         {"baslik": "Geometri soruları", "icerik": [
             "Düzlemde herhangi üçü aynı doğru üzerinde olmayan noktalarla çizilebilecek doğru ve üçgenlerin sayısı kombinasyonla bulunur. Bir doğru iki noktayla, bir üçgen üç noktayla belirlenir ve noktaların sırası önemli değildir.",
@@ -174,6 +177,7 @@ YAZI = {
                 "Her tokalaşma iki kişilik bir seçimdir: $C(10, 2)=45$.",
                 "Başka bir yol: her kişi $9$ kişiyle tokalaşır, $10 \\cdot 9=90$ bulunur; ama her tokalaşma iki kez sayılmıştır: $90:2=45$."),
             "Aynı ligde takımlar birbiriyle hem kendi sahasında hem deplasmanda oynuyorsa sıra önemli olur ve maç sayısı $P(n, 2)=n \\cdot (n-1)$ olur.",
+            hap("$18$ takımlı bir ligde her takım diğerleriyle bir kez karşılaşırsa $C(18, 2)=153$ maç oynanır.", "Rövanşlı bir ligde bu sayı iki katına çıkar ve $306$ olur.", gunluk=True),
         ]},
         {"baslik": "Ekip ve kaptan seçmek", "icerik": [
             "Bir ekip seçilip ekibin içinden bir de kaptan belirleniyorsa iş iki adımda yapılır: önce ekip kombinasyonla seçilir, sonra ekibin üyelerinden biri kaptan olarak seçilir. İki adımın seçenekleri çarpılır.",

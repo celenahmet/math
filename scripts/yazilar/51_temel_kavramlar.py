@@ -44,6 +44,7 @@ YAZI = {
             dikkat(
                 "En küçük üç basamaklı sayı $100$ dür, ama rakamları farklı en küçük üç basamaklı sayı $102$ dir.",
                 "Soruda \"rakamları farklı\" ifadesinin olup olmadığına mutlaka bak."),
+            hap("Telefon numarası ya da okul numarası aslında bir sayı değil, rakamlardan oluşan bir koddur: başındaki $0$ atılamaz ve bu kodlarla toplama yapılmaz.", gunluk=True),
         ]},
         {"baslik": "Sayı çeşitleri kısaca", "icerik": [
             "Temel kavramlarda kullanılan sayı kümeleri şunlardır:",

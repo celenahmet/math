@@ -142,6 +142,7 @@ YAZI = {
             sinavda(
                 "Temel düzeyde (<strong>TYT</strong>) bu konu şema üzerinden gelebilir: birkaç eşleme verilir, hangisinin birebir, örten ya da birebir örten olduğu sorulur. Eleman sayısı soruları da bu düzeydedir.",
                 "İleri düzeyde (<strong>AYT</strong>) kural verilir ve bir parametre istenir: \"birebir örten ise $a$ kaçtır?\" gibi. Ters fonksiyonun var olup olmadığını tartışmak için de kullanılır."),
+            hap("Kişiden doğum gününe giden eşleme $367$ kişilik bir grupta birebir olamaz: yılda en çok $366$ gün vardır, en az iki kişi aynı günde doğmuştur.", "Tanım kümesi değer kümesinden büyükse fonksiyon birebir olamaz.", gunluk=True),
         ]},
         {"baslik": "Birebir örten fonksiyon", "icerik": [
             "Hem birebir hem örten olan fonksiyona <strong>birebir örten</strong> fonksiyon denir. Bu durumda $B$ deki her elemana <strong>tam bir</strong> ok gelir: ne boşta eleman kalır ne de iki ok aynı yere gider. İki küme arasında kusursuz bir eşleşme kurulmuş olur.",

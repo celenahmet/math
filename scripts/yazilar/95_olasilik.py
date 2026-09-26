@@ -52,6 +52,7 @@ YAZI = {
                 "Örnek uzayda $2^3=8$ çıktı vardır.",
                 "Hiç tura gelmemesi, yani üçünün de yazı gelmesi tek bir çıktıdır: $P=\\dfrac{1}{8}$.",
                 "En az bir tura: $1-\\dfrac{1}{8}=\\dfrac{7}{8}$."),
+            hap("$P(A')=1-P(A)$ olur; en az biri sorularında önce hiçbirinin olasılığı bulunur."),
         ]},
         {"baslik": "İki zar atma", "icerik": [
             "İki zar atıldığında her zar için $6$ sonuç vardır ve örnek uzayda $6 \\cdot 6=36$ eşit olası çıktı bulunur. Zarlar farklı kabul edilir: birinci zarın $1$, ikincinin $2$ gelmesi ile birincinin $2$, ikincinin $1$ gelmesi ayrı çıktılardır.",
@@ -69,6 +70,7 @@ YAZI = {
                 "Toplam $7$: $(1,6)$, $(2,5)$, $(3,4)$, $(4,3)$, $(5,2)$, $(6,1)$; $6$ çıktı. $P=\\dfrac{6}{36}=\\dfrac{1}{6}$.",
                 "Toplam $10$: $(4,6)$, $(5,5)$, $(6,4)$; $3$ çıktı. $P=\\dfrac{3}{36}=\\dfrac{1}{12}$."),
             "Toplam $7$, iki zarda en olası toplamdır, çünkü birinci zar ne gelirse gelsin ikinci zarın toplamı $7$ yapacak tam bir değeri vardır. Toplamlar $7$ den uzaklaştıkça çıktı sayısı birer birer azalır ve $2$ ile $12$ yalnızca birer çıktıyla oluşur.",
+            hap("İki zarda toplamı $7$ olan $6$ çıktı vardır; bu yüzden toplamın $7$ gelme olasılığı $\\dfrac{1}{6}$ olur.", "İki zarda en olası toplam $7$ dir."),
         ]},
         {"baslik": "Üç para atışı", "icerik": [
             "Birden fazla para atıldığında örnek uzayın her çıktısı, her paranın sonucunu sırayla belirten bir dizidir. Üç para için $2^3=8$ eşit olası çıktı vardır.",
@@ -89,6 +91,7 @@ YAZI = {
             dikkat(
                 "En az bir olasılığını toplayarak bulmak.",
                 "Her zarda $6$ gelme olasılığı $\\dfrac{1}{6}$ olduğu için $\\dfrac{1}{6}+\\dfrac{1}{6}=\\dfrac{12}{36}$ demek yanlıştır; iki zarda birden $6$ gelmesi iki kez sayılmış olur. Doğru sonuç $\\dfrac{11}{36}$ dir."),
+            hap("Her gün yağmur olasılığı yüzde $20$ olan ve günleri birbirinden bağımsız kabul edilen üç günlük bir tatilde en az bir gün yağmur yağma olasılığı $1-0.8^3=0.488$ olur.", "Bu değer, tek bir günün olasılığının iki katından fazladır.", gunluk=True),
         ]},
         {"baslik": "Sıralama olasılığı", "icerik": [
             "Kişiler ya da nesneler rastgele sıralandığında her sıralama eşit olasıdır. İstenen koşulu sağlayan sıralamaların sayısı, bütün sıralamaların sayısına bölünür.",
@@ -139,6 +142,7 @@ YAZI = {
             dikkat(
                 "Ayrık olayları bağımsız sanmak.",
                 "Ayrık olaylar birlikte gerçekleşemez; bu yüzden biri gerçekleşince diğerinin olasılığı sıfıra düşer. Yani olasılıkları sıfırdan farklı ayrık olaylar bağımsız değildir. Ayrık olaylarda olasılıklar toplanır, bağımsız olaylarda çarpılır."),
+            hap("Bağımsız iki olayın birlikte gerçekleşme olasılığı, olasılıkların çarpımıdır."),
         ]},
         {"baslik": "Geri koymalı ve geri koymasız çekiliş", "icerik": [
             "Bir torbadan art arda top çekilirken çekilen top geri konuyorsa torbanın durumu her çekilişte aynı kalır ve çekilişler bağımsızdır. Top geri konmuyorsa ikinci çekilişin olasılıkları birinci çekilişin sonucuna bağlıdır.",

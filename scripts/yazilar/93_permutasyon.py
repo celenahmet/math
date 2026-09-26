@@ -76,6 +76,7 @@ YAZI = {
                 "Üç A, iki N ve bir S vardır.",
                 "Dizi sayısı: $\\dfrac{6!}{3! \\cdot 2!}=\\dfrac{720}{12}=60$."),
             "Aynı kural renkli toplar ya da bayraklar için de geçerlidir: $3$ kırmızı ve $2$ mavi özdeş top bir sıraya $\\dfrac{5!}{3! \\cdot 2!}=10$ farklı biçimde dizilir.",
+            hap("Özdeş nesneler varsa $n!$, her özdeş grubun kendi faktöriyeline bölünür."),
         ]},
         {"baslik": "Belirli nesneler yan yana", "icerik": [
             "Belirli nesnelerin yan yana olması isteniyorsa bu nesneler tek bir blok gibi düşünülür. Önce blok ile diğer nesneler sıralanır, sonra bloğun içindeki nesneler kendi aralarında sıralanır.",
@@ -91,6 +92,7 @@ YAZI = {
                 "İki ders bloğu kendi aralarında $2!$ biçimde sıralanır.",
                 "Matematik kitapları kendi içinde $3!$, fizik kitapları $2!$ biçimde sıralanır.",
                 "Toplam: $2! \\cdot 3! \\cdot 2!=2 \\cdot 6 \\cdot 2=24$ dizilim."),
+            hap("Yan yana olması istenenler tek blok sayılır; blok ile diğerleri dizilir, sonra blok kendi içinde dizilir."),
         ]},
         {"baslik": "Belirli nesneler yan yana olmasın", "icerik": [
             "\"Yan yana olmasın\" koşulu doğrudan sayılmaz; tümleyen yoluyla hesaplanır. Bütün dizilimlerin sayısından yan yana oldukları dizilimlerin sayısı çıkarılır.",
@@ -163,6 +165,7 @@ YAZI = {
                 "Bir kişiyi sabitleyip diğerlerini ona göre dizelim: $(5-1)!=4!=24$.",
                 "Düz bir sıraya dizilseydi $5!=120$ dizilim olurdu; her dairesel düzen $5$ farklı düz sıraya karşılık gelir: $120:5=24$."),
             "Kolye ve anahtarlık gibi ters çevrilebilen nesnelerde ise saat yönündeki ve ters yöndeki dizilim aynı sayılır. Bu durumda sonuç yeniden $2$ ye bölünür: $n$ farklı boncuklu bir kolye $\\dfrac{(n-1)!}{2}$ biçimde dizilir. $5$ farklı boncuk için bu sayı $12$ dir. Dairesel dizilimde de blok yöntemi kullanılır: $5$ kişiden A ile B nin yuvarlak masada yan yana oturduğu düzenler, blok ve kalan $3$ kişiden oluşan $4$ birimin dairesel dizilimi $(4-1)!=6$ ile blok içi sıralama $2$ çarpılarak $12$ bulunur.",
+            hap("$n$ farklı nesne bir çember etrafına $(n-1)!$ farklı biçimde dizilir."),
         ]},
         {"baslik": "Şifre ve tekrarlı seçim", "icerik": [
             "Aynı nesne birden fazla kez kullanılabiliyorsa her yer için seçenek sayısı değişmez ve çarpma ilkesi doğrudan uygulanır. Şifre soruları bunun en tipik örneğidir.",
@@ -172,6 +175,7 @@ YAZI = {
                 "Tekrar serbest: her hane için $10$ seçenek; $10^4=10000$ şifre.",
                 "Tekrar yok: $10 \\cdot 9 \\cdot 8 \\cdot 7=5040$ şifre. Şifre üç ya da dört haneli olabiliyorsa ve tekrar serbestse, iki durum ayrık olduğu için toplama ilkesiyle $10^3+10^4=11000$ şifre bulunur."),
             "Şifrede ilk hanenin $0$ olabildiğine dikkat edilmelidir; bu yüzden sayı yazma sorularından farklıdır. Rakamlarla sayı yazma soruları <a href=\"/blog/sayi-basamaklari-konu-anlatimi-pdf/\">Sayı Basamakları Konu Anlatımı PDF</a> yazısında anlatılıyor.",
+            hap("Rakamları tekrar edebilen $4$ haneli bir telefon kilidinde $10^4=10000$ şifre vardır.", "Rakamlar farklı olmak zorundaysa şifre sayısı $10 \\cdot 9 \\cdot 8 \\cdot 7=5040$ olur.", gunluk=True),
         ]},
         {"baslik": "Kelime soruları", "icerik": [
             "Bir kelimenin harfleriyle yazılabilecek diziler, harflerin hepsi farklıysa $n!$ ile, özdeş harfler varsa bölmeli formülle sayılır. Ek koşullar blok ya da sabit yer yöntemiyle eklenir. Harflerin bir kısmı özdeşse önce bölmeli formül yazılır, sonra koşul uygulanır.",

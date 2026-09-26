@@ -43,6 +43,7 @@ YAZI = {
             dikkat(
                 "Süreleri toplamak ya da ortalamasını almak.",
                 "$12+24=36$ gün ya da ortalama $18$ gün demek yanlıştır. Birlikte çalışan iki kişi, işi tek başına en hızlı olanından bile daha kısa sürede bitirir. Sonuç her zaman en kısa süreden küçüktür: burada $8<12$."),
+            hap("Bulaşığı tek başına $30$ dakikada yıkayan biri, $60$ dakikada yıkayan kardeşiyle birlikte işi $20$ dakikada bitirir.", "Hızlar toplanır: $\\dfrac{1}{30}+\\dfrac{1}{60}=\\dfrac{1}{20}$ olur.", gunluk=True),
         ]},
         {"baslik": "Üç kişi birlikte çalışırsa", "icerik": [
             "Üç ya da daha fazla kişi için kısa formül işlemez; hızlar tek tek toplanır. Paydaların EKOK'u ortak payda olarak kullanılır.",
@@ -52,6 +53,7 @@ YAZI = {
                 "Ortak payda $30$: $\\dfrac{3}{30}+\\dfrac{2}{30}+\\dfrac{1}{30}=\\dfrac{6}{30}=\\dfrac{1}{5}$.",
                 "Birlikte bir günde işin beşte birini yaparlar; iş $5$ günde biter."),
             "İşin tamamını $1$ yerine paydaların EKOK'u kadar birim almak da hesabı sadeleştirir. İş $30$ birim olursa A günde $3$, B $2$, C $1$ birim yapar; birlikte günde $6$ birim yaparlar ve $30$ birimi $5$ günde bitirirler.",
+            hap("İki kişi için birlikte bitirme süresi $\\dfrac{a \\cdot b}{a+b}$ olur; üç kişide bu kısa formül işlemez, hızlar tek tek toplanır."),
         ]},
         {"baslik": "Bir kişinin süresini bulmak", "icerik": [
             "Birlikte bitirme süresi ve kişilerden birinin süresi biliniyorsa, diğerinin hızı toplam hızdan çıkarılarak bulunur.",
@@ -110,6 +112,7 @@ YAZI = {
                 "İşin büyüklüğü: $8 \\cdot 15=120$ işçi-gün.",
                 "$12$ işçi: $120:12=10$ gün."),
             "İşçi sayısı ile sürenin ters orantısı <a href=\"/blog/dogru-oranti-ve-ters-oranti/\">Doğru Orantı ve Ters Orantı</a> yazısında da anlatılıyor. İşçi-gün kavramı, iş sırasında işçi sayısı değiştiğinde de kullanılır: yapılan kısım çıkarılır, kalan işçi-gün yeni işçi sayısına bölünür.",
+            hap("İşçi sayısı ile gün sayısının çarpımı işin büyüklüğünü verir ve aynı iş için sabittir."),
         ]},
         {"baslik": "Farklı hızdaki işçiler", "icerik": [
             "İşçilerin hızları birbirine göre verildiğinde, en yavaş olanın hızına bir harf verilir ve diğerleri onun katı olarak yazılır.",
@@ -157,6 +160,7 @@ YAZI = {
                 "İkisi birlikte açılırsa dolu havuzun ne olacağını bulalım.",
                 "Net hız: $\\dfrac{1}{8}-\\dfrac{1}{6}=\\dfrac{3}{24}-\\dfrac{4}{24}=-\\dfrac{1}{24}$.",
                 "Net hız negatif olduğu için havuz boşalır; dolu havuz $24$ saatte tamamen boşalır."),
+            hap("Boşaltan musluğun hızı çıkarılır; net hız negatifse havuz dolmaz, boşalır."),
         ]},
         {"baslik": "Kısmen dolu havuzlar", "icerik": [
             "Havuz başlangıçta boş değilse doldurulması gereken kısım $1$ den çıkarılarak bulunur. Süre, bu kısmın net hıza bölünmesiyle hesaplanır.",

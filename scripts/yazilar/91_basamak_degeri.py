@@ -62,6 +62,7 @@ YAZI = {
             dikkat(
                 "Harfli sayıyı çarpım sanmak.",
                 "$AB$ yazılışı $A \\cdot B$ değildir. $A=4$ ve $B=7$ için $AB$ sayısı $47$ dir, $28$ değil."),
+            hap("$AB$ yazılışı çarpım değildir: $AB=10A+B$ ve $ABC=100A+10B+C$ olur."),
         ]},
         {"baslik": "Çözümlemeyle denklem kurmak", "icerik": [
             "Rakamları arasındaki bir ilişkisi verilen sayılar, çözümlenerek denkleme çevrilir. Rakamların $0$ ile $9$ arasında tam sayı olduğu ve en soldaki rakamın $0$ olamayacağı çözüm aşamasında kullanılır.",
@@ -100,6 +101,7 @@ YAZI = {
                 "Sayı $x$ olsun. Yeni sayı $10x+7$: $10x+7=x+520$.",
                 "$9x=513$, yani $x=57$.",
                 "Kontrol: $577-57=520$."),
+            hap("Bir sayının sağına $a$ rakamı yazılırsa sayı $10$ ile çarpılıp $a$ eklenmiş olur."),
         ]},
         {"baslik": "Bir rakamı değiştirmek", "icerik": [
             "Bir sayının bir rakamı değiştirildiğinde sayı, o rakamdaki değişimin basamak değeri kadar değişir. Onlar basamağındaki rakam $3$ artırılırsa sayı $30$, yüzler basamağındaki rakam $2$ azaltılırsa sayı $200$ değişir.",
@@ -158,6 +160,7 @@ YAZI = {
                 "Yüzlere: sağdaki rakam $7$, $5$ ten büyük; sonuç $4600$.",
                 "Binlere: sağdaki rakam $5$; sonuç $5000$."),
             "Yuvarlama, sayının yaklaşık değerini verir ve tahmin yaparken kullanılır. Yuvarlanan basamağın basamak değeri, yapılan hatanın en fazla ne kadar olabileceğini de gösterir: yüzlere yuvarlanan bir sayı gerçek değerinden en fazla $50$ uzaktadır.",
+            hap("$2480$ liralık bir alışveriş yüzlere yuvarlanınca $2500$, binlere yuvarlanınca $2000$ lira olur.", "Yuvarlanan basamağın sağındaki rakam $5$ ya da daha büyükse o basamak bir artar.", gunluk=True),
         ]},
         {"baslik": "Onluk sistemin mantığı ve eldeli işlemler", "icerik": [
             "Onluk sistemde her basamaktaki $10$ birim, bir üst basamakta $1$ birim eder: $10$ birlik bir onluk, $10$ onluk bir yüzlük, $10$ yüzlük bir binliktir. Kapaktaki birlik küpler, onluk çubuklar ve yüzlük kareler bu düzeni somut olarak gösterir.",
@@ -177,6 +180,7 @@ YAZI = {
                 "Fark: $4572-18=4554$.",
                 "$4554=9 \\cdot 506$; fark $9$ un katıdır."),
             "Genel olarak $ABC-(A+B+C)=99A+9B$ dir ve bu ifade $9$ un katıdır. Bu yüzden bir sayı $9$ a bölündüğünde verdiği kalan, rakamları toplamının $9$ a bölümünden kalana eşittir. $9$ a bölünebilme kuralının nedeni budur. Kuralların ayrıntısı <a href=\"/blog/bolunebilme-kurallari-konu-anlatimi-pdf/\">Bölünebilme Kuralları Konu Anlatımı PDF</a> yazısında anlatılıyor.",
+            hap("Bir sayıdan rakamlarının toplamı çıkarılırsa sonuç her zaman $9$ un katıdır."),
         ]},
         {"baslik": "Ondalık sayılarda basamak değeri", "icerik": [
             "Basamak değeri fikri virgülün sağına doğru da devam eder. Virgülün hemen sağındaki basamak onda birler, sonraki yüzde birler, sonraki binde birler basamağıdır. Her basamak yine solundakinin onda biri kadardır.",

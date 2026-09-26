@@ -51,6 +51,7 @@ YAZI = {
             dikkat(
                 "İki yüzdeyi toplamak ya da çıkarmak.",
                 "Yüzde $45$ ile yüzde $20$ farklı bütünlere aittir: birincisi okula, ikincisi kızlara. Bu yüzden $45-20=25$ ya da $45+20=65$ gibi işlemler anlamsızdır; yüzdenin yüzdesi çarparak bulunur."),
+            hap("Yüzdenin yüzdesi sorulduğunda iki yüzde çarpılır ve sonuç $100$ e bölünür.", "Yüzde $45$ in yüzde $20$ si, bütünün yüzde $9$ u olur."),
         ]},
         {"baslik": "Oranı değişen gruplar", "icerik": [
             "Bir gruba kişi eklenip çıkarıldığında gruptaki bir alt grubun yüzdesi değişir. Bu sorularda hem alt grubun sayısı hem de bütünün kendisi değişir; ikisi de denkleme ayrı ayrı yazılmalıdır.",
@@ -88,6 +89,7 @@ YAZI = {
                 ["Yüzde $100$", "Yüzde $50$"],
             ]),
             "Tablodaki son satır bu farkı en açık biçimde gösterir: $A$, $B$ nin iki katıysa $A$, $B$ den yüzde $100$ fazladır; ama $B$, $A$ dan yalnızca yüzde $50$ azdır.",
+            hap("$A$, $B$ den yüzde $25$ fazlaysa $B$, $A$ dan yüzde $20$ azdır.", "İki cümlede bütün farklı olduğu için yüzdeler de farklıdır."),
         ]},
         {"baslik": "Art arda değişimler ve eşdeğer tek değişim", "icerik": [
             "Birden fazla yüzde değişim art arda uygulandığında, çarpanlar çarpılarak tek bir eşdeğer değişim bulunur. Bu, özellikle seçenekli sorularda hesabı çok kısaltır ve ara değerleri hesaplamaya gerek bırakmaz.",
@@ -101,6 +103,7 @@ YAZI = {
                 "Son maaşın ilk maaşa göre durumunu bulalım.",
                 "Toplam çarpan: $1.1 \\cdot 0.9=0.99$.",
                 "Maaş başa dönmez; ilk maaşa göre yüzde $1$ azalmıştır."),
+            hap("Etiketinde yüzde $20$ indirim olan bir ürüne kasada ek yüzde $10$ indirim uygulanırsa toplam indirim yüzde $30$ değil, yüzde $28$ olur.", "Çarpanlar çarpılır: $0.8 \\cdot 0.9=0.72$ olur.", gunluk=True),
         ]},
         {"baslik": "Büyüme ve bileşik artış", "icerik": [
             "Bir nicelik her dönem bir önceki dönemin üzerine aynı yüzdeyle artıyorsa, her dönem aynı çarpanla çarpılır. $n$ dönem sonra değer, başlangıç değeri ile çarpanın $n$ inci kuvvetinin çarpımıdır.",
@@ -145,6 +148,7 @@ YAZI = {
                 "Yüzde puan: $36-30=6$.",
                 "Yüzde: $\\dfrac{6}{30} \\cdot 100=20$. Katılım oranı yüzde $20$ artmıştır."),
             "Haberlerde ve raporlarda iki ifade sık karıştırılır. Soru \"kaç puan arttı\" diye soruyorsa fark, \"yüzde kaç arttı\" diye soruyorsa farkın eski orana bölümü istenir.",
+            hap("İki oranın doğrudan farkı yüzde puandır; bu farkın eski orana bölümü ise yüzde değişimdir."),
         ]},
         {"baslik": "Anket ve dağılım soruları", "icerik": [
             "Bir bütünün farklı gruplara yüzdelerle dağıtıldığı sorularda yüzdelerin toplamı $100$ dür. Verilmeyen grubun yüzdesi, $100$ den diğerlerinin çıkarılmasıyla bulunur.",

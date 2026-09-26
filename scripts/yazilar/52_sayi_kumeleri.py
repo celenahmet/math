@@ -126,6 +126,7 @@ YAZI = {
                 "$-2.5$ ten büyük en küçük tam sayı $-2$ dir. $3$ hariç olduğu için en büyük tam sayı $2$ dir.",
                 "Tam sayılar: $-2$, $-1$, $0$, $1$, $2$. Toplam $5$ tane.",
                 "Aynı aralıkta rasyonel ve irrasyonel sayıların ise sonsuz sayıda olduğunu unutma."),
+            hap("Asansör paneli dikey bir sayı doğrusu gibidir: zemin kat $0$, bodrum katlar $-1$ ve $-2$, üst katlar pozitif sayılarla gösterilir.", "Asansör $-2$ den $3$ e çıkarken $3-(-2)=5$ kat yol alır.", gunluk=True),
         ]},
         {"baslik": "Bir sayının kümesine karar verme", "icerik": [
             "Bir sayının hangi kümelere ait olduğunu bulmak için şu sırayı izle:",

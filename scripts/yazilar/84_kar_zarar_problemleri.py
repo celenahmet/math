@@ -72,6 +72,7 @@ YAZI = {
             dikkat(
                 "Satış fiyatına zarar yüzdesini eklemek.",
                 "$320$ ye yüzde $20$ eklemek $384$ verir ve yanlıştır. Zarar yüzde $20$ ise satış fiyatı maliyetin yüzde $80$ idir; maliyet, satış fiyatının $0.8$ e bölünmesiyle bulunur."),
+            hap("Satış fiyatından maliyete dönerken satış fiyatı çarpana bölünür; satış fiyatından yüzde çıkarmak yanlış sonuç verir."),
         ]},
         {"baslik": "Birim fiyatla kâr hesabı", "icerik": [
             "Mallar adet adet alınıp satıldığında kâr, bir malın kârı ile adet sayısının çarpımıdır. Kâr yüzdesi ise adetten bağımsızdır; bir malın kâr yüzdesi, bütün partinin kâr yüzdesiyle aynıdır.",
@@ -119,6 +120,7 @@ YAZI = {
             dikkat(
                 "Etiket artışı ile indirimi birbirinden çıkarmak.",
                 "Yüzde $50$ artış ve yüzde $20$ indirim, yüzde $30$ kâr değildir. İndirim etiket fiyatına uygulandığı için çarpanlar çarpılır: $1.5 \\cdot 0.8=1.2$, yani yüzde $20$ kâr."),
+            hap("Maliyeti $400$ lira olan bir ayakkabının etiketine yüzde $50$ kârla $600$ lira yazılır.", "Mağaza yüzde $20$ indirim yapınca satış fiyatı $480$ lira olur ve kâr yüzde $20$ ye düşer.", gunluk=True),
         ]},
         {"baslik": "Toplu alım ve satım", "icerik": [
             "Aynı maldan çok sayıda alınıp bir kısmı bir fiyattan, kalanı başka bir fiyattan satıldığında toplam kâr, iki satışın toplamı üzerinden hesaplanır. Bir malın maliyetini $1$ birim kabul etmek hesabı sadeleştirir.",
@@ -151,6 +153,7 @@ YAZI = {
                 "Toplam maliyet $2500$ lira, toplam satış $2400$ lira.",
                 "Toplam zarar $100$ lira; yüzde olarak $\\dfrac{100}{2500} \\cdot 100=4$, yani yüzde $4$ zarar."),
             "Bu sonuç ilk bakışta şaşırtıcıdır ama sezgisel açıklaması basittir: zarar edilen malın maliyeti daha yüksektir, bu yüzden aynı yüzde daha büyük bir tutara karşılık gelir. Kârlı maldan $200$ lira kazanılırken zararlı maldan $300$ lira kaybedilir.",
+            hap("Aynı fiyata satılan iki maldan biri yüzde $a$ kârla, öteki yüzde $a$ zararla satılırsa toplamda her zaman zarar edilir."),
         ]},
         {"baslik": "Kâr miktarından maliyete", "icerik": [
             "Bazı sorularda kâr yüzdesi ile kâr miktarı birlikte verilir. Kâr miktarı maliyetin belirli bir yüzdesi olduğu için maliyet doğrudan bulunur.",
@@ -178,6 +181,7 @@ YAZI = {
                 "Bir ürünün kârı: $20-15=5$ lira.",
                 "Gereken adet: $1000:5=200$ ürün."),
             "Bu soru türüne sabit giderler de eklenebilir: örneğin bir stant kirası için ödenen $300$ lira varsa, önce bu gideri karşılamak gerekir ve gereken adet $(1000+300):5=260$ olur.",
+            hap("Gereken satış adedi, hedeflenen toplam kârın bir malın kârına bölünmesiyle bulunur."),
         ]},
         {"baslik": "Satışa göre kâr soruları", "icerik": [
             "Bazı sorular kâr yüzdesini açıkça satış fiyatına göre verir. Bu durumda bütün satış fiyatıdır ve kurulum değişir: satış fiyatına göre yüzde $a$ kâr, maliyetin satış fiyatının $1-\\dfrac{a}{100}$ katı olması demektir.",

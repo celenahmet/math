@@ -3105,6 +3105,81 @@ def hap_ekleri():
     es("82 hap dogum yili", (2026 - 2008, 2026 - 2008 - 1), (18, 17))
     es("82 hap yas farki", (Rational(36 - 8, 4 - 1) == Rational(28, 3), Rational(40 - 10, 3 - 1)), (True, 15))
 
+    # ── 83 yuzde problemleri ──
+    es("83 hap yuzdenin yuzdesi", Rational(45 * 20, 100), 9)
+    es("83 hap karsilastirma", (1 / Rational(5, 4), 1 - 1 / Rational(5, 4)), (Rational(4, 5), Rational(1, 5)))
+    es("83 hap market indirimi", (Rational(8, 10) * Rational(9, 10), 1 - Rational(72, 100)), (Rational(72, 100), Rational(28, 100)))
+    # ── 84 kar zarar ──
+    es("84 hap ayakkabi", (400 * Rational(3, 2), 600 * Rational(4, 5), Rational(480 - 400, 400)), (600, 480, Rational(1, 5)))
+    a_ = sp.symbols("a_", positive=True)
+    es("84 hap ayni fiyat iki mal", sp.simplify(1 / (1 + a_) + 1 / (1 - a_) - 2 - 2 * a_**2 / (1 - a_**2)), 0)
+    # ── 85 faiz ──
+    es("85 hap iki kat", (25 * 4, Rational(1000 * 25 * 4, 100)), (100, 1000))
+    es("85 hap aylik bilesik", (sp.Float(1.04)**12 > 1.60, sp.Float(1.04)**12 < 1.61, 12 * 4), (True, True, 48))
+    # ── 86 oran oranti ──
+    es("86 hap kek", 300 * Rational(6, 4), 450)
+    # ── 87 isci havuz ──
+    es("87 hap bulasik", (Rational(1, 30) + Rational(1, 60), Rational(30 * 60, 30 + 60)), (Rational(1, 20), 20))
+    # ── 88 hareket ──
+    v1_, v2_, d_ = sp.symbols("v1_ v2_ d_", positive=True)
+    es("88 hap ortalama hiz", sp.simplify(2 * d_ / (d_ / v1_ + d_ / v2_) - 2 * v1_ * v2_ / (v1_ + v2_)), 0)
+    es("88 hap okul", (Rational(2, 4) * 60, Rational(2, 12) * 60), (30, 10))
+
+    # ── 89 karisim ──
+    es("89 hap ayran", (Rational(200, 400), Rational(200, 500)), (Rational(1, 2), Rational(2, 5)))
+    # ── 90 sayi basamaklari ──
+    es("90 hap kapi numarasi", (9, (60 - 10 + 1), 9 + 51 * 2, sum(len(str(i)) for i in range(1, 61))), (9, 51, 111, 111))
+    es("90 hap rakam sayilari", (sum(len(str(i)) for i in range(1, 10)), sum(len(str(i)) for i in range(10, 100)), sum(len(str(i)) for i in range(100, 1000))), (9, 180, 2700))
+    # ── 91 basamak degeri ──
+    es("91 hap yuvarlama", (round(2480, -2), int(sp.floor(Rational(2480, 1000) + Rational(1, 2))) * 1000), (2500, 2000))
+    es("91 hap dokuzun kati", all((n - sum(int(c) for c in str(n))) % 9 == 0 for n in range(1, 2000)), True)
+    # ── 92 faktoriyel ──
+    es("92 hap fotograf", (sp.factorial(4), sp.factorial(5), sp.factorial(5) / sp.factorial(4)), (24, 120, 5))
+    es("92 hap sadelestirme", sp.factorial(10) / sp.factorial(7), 10 * 9 * 8)
+    es("92 hap sifirlar", (len(str(sp.factorial(25))) - len(str(sp.factorial(25)).rstrip("0")), 25 // 5 + 25 // 25), (6, 6))
+    # ── 93 permutasyon ──
+    es("93 hap kilit", (10**4, 10 * 9 * 8 * 7, len(list(itertools.permutations(range(10), 4)))), (10000, 5040, 5040))
+    # ── 94 kombinasyon ──
+    es("94 hap lig", (sp.binomial(18, 2), 2 * sp.binomial(18, 2)), (153, 306))
+
+    # ── 95 olasilik ──
+    zar_ = [(i, j) for i in range(1, 7) for j in range(1, 7)]
+    es("95 hap iki zar", (sum(1 for i, j in zar_ if i + j == 7), Rational(sum(1 for i, j in zar_ if i + j == 7), 36), max(range(2, 13), key=lambda t: sum(1 for i, j in zar_ if i + j == t))), (6, Rational(1, 6), 7))
+    es("95 hap yagmur", (1 - Rational(4, 5)**3, 1 - Rational(4, 5)**3 > 2 * Rational(1, 5)), (Rational(61, 125), True))
+    es("95 hap yagmur ondalik", Rational(61, 125), Rational(488, 1000))
+    # ── 96 kumeler ──
+    es("96 hap cay kahve", 18 + 12 - 5, 25)
+    Ev_ = set(range(10)); A_ = {1, 2, 3, 4}; B_ = {3, 4, 5, 6}
+    es("96 hap de morgan", (Ev_ - (A_ | B_) == (Ev_ - A_) & (Ev_ - B_), Ev_ - (A_ & B_) == (Ev_ - A_) | (Ev_ - B_)), (True, True))
+    # ── 97 mantik ──
+    ima_ = lambda a, b: (not a) or b
+    es("97 hap de morgan", all((not (p and q)) == ((not p) or (not q)) and (not (p or q)) == ((not p) and (not q)) for p in (0, 1) for q in (0, 1)), True)
+    es("97 hap karsit ters", (all(ima_(p, q) == ima_(not q, not p) for p in (0, 1) for q in (0, 1)), all(ima_(p, q) == ima_(q, p) for p in (0, 1) for q in (0, 1)), all(ima_(p, q) == ima_(not p, not q) for p in (0, 1) for q in (0, 1))), (True, False, False))
+    es("97 hap kosullu yanlis", [(p, q) for p in (0, 1) for q in (0, 1) if not ima_(p, q)], [(1, 0)])
+    # ── 98 tablo grafik ──
+    es("98 hap yaniltici", (Rational(98 - 95, 96 - 95), Rational(98 - 96, 96) * 100 > 2, Rational(98 - 96, 96) * 100 < Rational(21, 10)), (3, True, True))
+    # ── 99 ortalama ──
+    maas_ = [30, 32, 34, 36, 168]
+    es("99 hap maas", (Rational(sum(maas_), 5), sorted(maas_)[2]), (60, 34))
+    es("99 hap ardisik", (Rational(sum(range(3, 20, 2)), len(range(3, 20, 2))), Rational(3 + 19, 2), sorted(range(3, 20, 2))[4]), (11, 11, 11))
+    # ── 100 genel tekrar ──
+    es("100 hap art arda", Rational(6, 5) * Rational(4, 5), Rational(96, 100))
+    es("100 hap limonata", Rational(8 - 5, 5) * 100, 60)
+
+    # ── 01-05 gunluk ──
+    es("01 hap indirim bileske", ((500 - 100) * Rational(4, 5), 500 * Rational(4, 5) - 100), (320, 300))
+    es("03 hap dogum gunu", (367 > 366, 366), (True, 366))
+    tt_ = sp.symbols("tt_")
+    es("04 hap taksi", (sp.expand(20 + 15 * (Rational(1, 2) * tt_)), 20 + 15 * 10, 20 + Rational(15, 2) * 20), (20 + Rational(15, 2) * tt_, 170, 170))
+    Cc_ = sp.symbols("Cc_")
+    es("05 hap fahrenhayt", (sp.solve(Rational(9, 5) * Cc_ + 32 - 77, Cc_), Rational(77 - 32, 1) / Rational(9, 5)), ([25], 25))
+    # ── 51-56 gunluk ──
+    es("52 hap asansor", 3 - (-2), 5)
+    es("53 hap fis", (3 * 10 + 2 * 25, (3 * 10 + 2) * 25), (80, 800))
+    es("54 hap pizza", (1 - Rational(3, 8), Rational(5, 8) * 100), (Rational(5, 8), Rational(125, 2)))
+    es("55 hap a4", (abs(sp.Float(297) / 210 - sp.sqrt(2).evalf()) < sp.Float("0.001"), abs(sp.Float(210) / Rational(297, 2) - sp.sqrt(2).evalf()) < sp.Float("0.01")), (True, True))
+    es("56 hap bulasik", (31 % 2, 1 % 2), (1, 1))
+
 
 def bicim():
     import blog_veri
@@ -3120,11 +3195,14 @@ def bicim():
         esit(f"{no} aciklama <= 160", len(Y["aciklama"]) <= 160, True)
         esit(f"{no} kontrol 10", len(Y["kontrol"]), 10)
         esit(f"{no} >= 2000 kelime", kelime_sayisi(Y) >= 2000, True)
+        # 26.09.2026 kurali: her yazida en az 5 hap bilgi kutusu. Gundelik hayat
+        # hapi (hap(..., gunluk=True)) istenir ama zorunlu degil; yalniz sayilir.
+        esit(f"{no} en az 5 hap", metin.count("bs-hap-ic") >= 5, True)
         import json as _json
         from ek_denetimi import denetle as _ek_denetle
         esit(f"{no} formul sonrasi ekler", _ek_denetle(_json.dumps(Y, ensure_ascii=False).replace("\\\\", "\\")), [])
         print(f"  {no:34s} {kelime_sayisi(Y):5d} kelime · {len(Y['bolumler']):2d} bolum · "
-              f"{metin.count('bs-hap-ic'):2d} hap · aciklama {len(Y['aciklama'])}")
+              f"{metin.count('bs-hap-ic'):2d} hap ({metin.count('bs-gunluk')} gunluk) · aciklama {len(Y['aciklama'])}")
 
 
 if __name__ == "__main__":

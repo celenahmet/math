@@ -91,6 +91,7 @@ YAZI = {
                 "$25 \\cdot t=100$, yani $t=4$ yıl.",
                 "Kontrol: $1000$ lira her yıl $250$ lira faiz alır; $4$ yılda $1000$ lira faiz eklenir ve para $2000$ olur."),
             "Aynı mantıkla para üç katına çıkacaksa faiz anaparanın iki katı olmalıdır: $n \\cdot t=200$. Yüzde $25$ oranla bu $8$ yıl sürer.",
+            hap("Basit faizde oran ile sürenin çarpımı $100$ olduğunda para iki katına çıkar.", "Yıllık yüzde $25$ basit faizle para $4$ yılda iki katına çıkar."),
         ]},
         {"baslik": "Bileşik faiz", "icerik": [
             "Bileşik faizde her dönemin sonunda faiz anaparaya eklenir ve bir sonraki dönemin faizi bu yeni tutar üzerinden hesaplanır. Bu, her dönem aynı çarpanla çarpmak demektir. Yıllık oran $r$ ise $t$ yıl sonraki tutar şöyledir:",
@@ -102,6 +103,7 @@ YAZI = {
                 "İkinci yıl sonunda: $11000 \\cdot 1.1=12100$ lira.",
                 "Formülle: $10000 \\cdot 1.1^2=12100$. Toplam faiz $2100$ liradır."),
             "İkinci yılın faizi $1100$ liradır, birinci yılınki ise $1000$ lira. Aradaki $100$ lira, birinci yılın faizinin ikinci yılda kazandığı faizdir. Bileşik faizin gücü bu \"faizin faizinden\" gelir. Süre uzadıkça bu ek kazanç da büyür, çünkü her yıl bir önceki yılların bütün faizleri de faiz kazanmaya devam eder. Örneğin yıllık yüzde $10$ bileşik faizle $3$ yılın toplam artışı yüzde $33.1$ iken $6$ yılınki yaklaşık yüzde $77$ dir; süre iki katına çıkınca artış iki katından fazla olur.",
+            hap("Bileşik faizde $t$ yıl sonraki tutar, anaparanın $\\left(1+\\dfrac{r}{100}\\right)^t$ ile çarpımıdır."),
         ]},
         {"baslik": "Basit ve bileşik faizin karşılaştırması", "icerik": [
             "Aynı anapara ve aynı oranla basit ve bileşik faiz, ilk yılın sonunda aynı sonucu verir. Sonraki yıllarda bileşik faiz öne geçer ve fark her yıl büyür.",
@@ -165,10 +167,12 @@ YAZI = {
                 "B bankası: $10000 \\cdot 1.28^2=16384$ lira.",
                 "Oranı daha düşük görünen B bankası, $384$ lira daha fazla kazandırır."),
             "Süre uzadıkça bileşik faizin üstünlüğü artar. Bir yıllık yatırımda ise aynı oranla basit ve bileşik faiz aynı sonucu verir; bu durumda daha yüksek oranlı teklif daha iyidir.",
+            hap("Teklifler karşılaştırılırken aynı anapara ve aynı süre için süre sonundaki tutarlar hesaplanır; yalnızca orana bakılmaz."),
         ]},
         {"baslik": "Aylık ve yıllık oran", "icerik": [
             "Basit faizde aylık oran ile yıllık oran arasında doğrudan orantı vardır: yıllık oran, aylık oranın $12$ katıdır. Aylık yüzde $2$ basit faiz, yıllık yüzde $24$ basit faize eşdeğerdir.",
             "Bileşik faizde ise bu ilişki geçerli değildir. Aylık yüzde $2$ bileşik faiz bir yılda $1.02^{12}$ çarpanına ulaşır ve bu değer $1.24$ ten büyüktür; yani yıllık etkisi yüzde $24$ ten fazladır. Bu yüzden bileşik faizli ürünlerde aylık oranı $12$ ile çarparak yıllık oranı bulmak doğru değildir.",
+            hap("Borç her ay yüzde $4$ bileşik faizle büyürse bir yılda yüzde $48$ değil, yaklaşık yüzde $60$ büyür.", "Çünkü $1.04^{12} \\approx 1.60$ olur.", gunluk=True),
         ]},
         {"baslik": "Sınavda faiz problemleri", "icerik": [
             sinavda(

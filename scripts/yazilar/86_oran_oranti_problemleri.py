@@ -36,6 +36,7 @@ YAZI = {
             dikkat(
                 "Farkı toplam gibi kullanmak.",
                 "$1200$ lira toplam değil, iki payın farkıdır. $10k=1200$ yazmak, farkı bütün paranın yerine koymaktır. Fark, oran sayılarının farkına eşitlenir: $3k=1200$."),
+            hap("Oran sayılarının toplamı parça sayısını verir; toplam miktar parça sayısına bölünerek bir parçanın değeri bulunur."),
         ]},
         {"baslik": "Ters orantılı paylaştırma", "icerik": [
             "\"Yaşlarıyla ters orantılı\" ya da \"harcadıkları süreyle ters orantılı\" gibi ifadelerde paylar verilen sayıların <strong>terslerine</strong> göre dağıtılır. Terslerin oranını tam sayılara çevirmek için oran, paydaların EKOK'u ile çarpılır.",
@@ -48,6 +49,7 @@ YAZI = {
             dikkat(
                 "Ters orantıyı doğru orantı gibi paylaştırmak.",
                 "Yaşlara doğrudan $3:4:6$ oranında dağıtmak en büyük payı en büyük çocuğa verir; ters orantıda ise durum tam tersidir. Ters orantılı paylaştırmada önce sayıların tersleri alınır."),
+            hap("Ters orantılı paylaştırmada önce sayıların tersleri alınır, sonra bu terslerle doğru orantılı paylaştırma yapılır."),
         ]},
         {"baslik": "Birleşik oranlarla kurulan problemler", "icerik": [
             "Üç büyüklük ikişer ikişer oranlarla verildiğinde önce ortak büyüklük eşitlenerek tek bir birleşik oran yazılır. Sonra bu oran üzerinden $k$ yöntemi uygulanır.",
@@ -116,6 +118,7 @@ YAZI = {
             dikkat(
                 "Alanı ölçekle bir kez çarpmak.",
                 "Harita üzerindeki alan yalnızca $25000$ ile çarpılırsa sonuç $25000$ kat küçük çıkar. Uzunluk iki yönde de $25000$ kat büyüdüğü için alan $25000^2$ katına çıkar."),
+            hap("Ölçek $1:n$ ise uzunluklar $n$ katına, alanlar $n^2$ katına büyür."),
         ]},
         {"baslik": "Tarif ve karışım ölçekleme", "icerik": [
             "Bir tarifteki malzemeler kişi sayısıyla doğru orantılıdır. Tarif büyütülürken ya da küçültülürken bütün malzemeler aynı oranla çarpılır; bu oran, yeni kişi sayısının eski kişi sayısına bölümüdür. Malzemelerden yalnızca birini artırmak, tarifin kendi içindeki oranları bozar ve sonuç değişir.",
@@ -129,6 +132,7 @@ YAZI = {
                 "B maddesinin karışımdaki yüzdesini bulalım.",
                 "Karışımın tamamı $3+5=8$ parçadır; B bunun $5$ parçasıdır.",
                 "B nin payı: $\\dfrac{5}{8}=0.625$, yani yüzde $62.5$."),
+            hap("$4$ kişilik bir kek tarifinde $300$ gram un varsa $6$ kişilik kek için $300 \\cdot \\dfrac{6}{4}=450$ gram un gerekir.", "Bütün malzemeler aynı oranla çarpılır.", gunluk=True),
         ]},
         {"baslik": "Oranı koruyarak büyütmek", "icerik": [
             "Bir karışımın ya da grubun oranı korunarak toplam miktar değiştirilmek istendiğinde, yeni miktarlar aynı oranla yeniden hesaplanır. Eklenmesi gereken miktar, yeni ve eski değerlerin farkıdır.",
