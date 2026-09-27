@@ -48,21 +48,26 @@
   }
 
   // ── indirme: 10 sn bekleme ─────────────────────────────────────────────
-  // Ahmet (28.09): "indirdi ya, bir sure sonra spam korumasi nedeniyle tekrar
-  // 10 saniyelik donguye girip oyle indirebilsin." Indirme basladiktan kisa
-  // sure sonra dugme gizlenir ve sayac yeniden baslar. Kart boyu degismez
-  // (dugme visibility ile gizli), sayfa kaymaz.
+  // Ahmet (28.09): indirdikten sonra ya da hazir olup 60 sn icinde indirilmezse
+  // dugme kalkar; yeniden indirmek icin 10 sn'lik dongu tekrar baslar. Kart
+  // boyu degismez (dugme visibility ile gizli), sayfa kaymaz.
   var bekle = $('[data-pdf-bekle]');
   if (bekle) {
-    var sure = +bekle.getAttribute('data-pdf-bekle') || 10;
-    var sayac = $('[data-pdf-kalan]', bekle), metin = $('[data-pdf-bekle-metin]', bekle), indir = $('[data-pdf-indir]', bekle);
-    var tik = null, tekrar = false;
+    var sure = +bekle.getAttribute('data-pdf-bekle') || 10, GECERLILIK = 60;
+    var sayac = $('[data-pdf-kalan]', bekle), metin = $('[data-pdf-bekle-metin]', bekle);
+    var indir = $('[data-pdf-indir]', bekle), yeniden = $('[data-pdf-yeniden]', bekle);
+    var tik = null, dolum = null, tekrar = false;
     bekle.classList.add('js');
+    var doldu = function () {
+      bekle.classList.remove('hazir'); bekle.classList.add('doldu');
+      sayac.textContent = sure; yeniden.hidden = false;
+      metin.textContent = 'İndirme bağlantısının süresi doldu. PDF\'i yeniden hazırlamak için tıklayın.';
+    };
     var baslat = function () {
       var basla = Date.now();
-      bekle.classList.remove('hazir');
+      clearInterval(tik); clearTimeout(dolum);
+      bekle.classList.remove('hazir', 'doldu'); yeniden.hidden = true;
       sayac.textContent = sure;
-      clearInterval(tik);
       tik = setInterval(function () {
         var kalan = Math.max(0, sure - Math.floor((Date.now() - basla) / 1000));
         if (kalan <= 0) {
@@ -70,21 +75,56 @@
           bekle.classList.add('hazir');
           sayac.textContent = '✓';
           metin.textContent = tekrar ? 'PDF\'iniz yeniden indirilmeye hazır.' : 'PDF\'iniz hazır. İyi çalışmalar!';
+          dolum = setTimeout(doldu, GECERLILIK * 1000);
         } else {
           sayac.textContent = kalan;
-          metin.innerHTML = (tekrar ? 'İndirme başladı. Yeniden indirmek için ' : 'PDF\'iniz hazırlanıyor. İndirme bağlantısı ')
+          metin.innerHTML = (tekrar ? 'Yeniden indirmek için ' : 'PDF\'iniz hazırlanıyor. İndirme bağlantısı ')
             + '<strong>' + kalan + ' saniye</strong>' + (tekrar ? ' bekleyin.' : ' içinde açılacak.');
         }
       }, 250);
     };
-    var yeniden = function () {
+    var indirildi = function () {
       if (!bekle.classList.contains('hazir')) return;
-      tekrar = true;
+      clearTimeout(dolum); tekrar = true;
+      metin.textContent = 'İndirme başladı.';
       setTimeout(baslat, 1500);   // indirme baslasin, sonra dugme kalksin
     };
-    indir.addEventListener('click', yeniden);
-    indir.addEventListener('auxclick', yeniden);
+    indir.addEventListener('click', indirildi);
+    indir.addEventListener('auxclick', indirildi);
+    yeniden.addEventListener('click', function () { tekrar = true; baslat(); });
     baslat();
+  }
+
+  // ── indirme sayilari (28.09) ───────────────────────────────────────────
+  // Sunucudaki sayac (kaynak: medya erisim kaydi, bot ve ayni gun tekrari
+  // sayilmaz, IP saklanmaz) medya.ahmetcelen.com.tr/pdf/indirme.json'a yazar.
+  // Okunamazsa hicbir sey gosterilmez. Sayi KADEMELI gosterilir (Ahmet 28.09:
+  // "10'dan fazla olmussa +10 indirme gibi kademe kademe; tesvik icin"):
+  // 10+, 25+, 50+, 100+, 250+, 500+, 1.000+ ...; 10'un altinda gosterilmez.
+  // Tam sayilar yalniz indirme.json'da (Ahmet'in izlemesi icin).
+  var KADEMELER = [10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000];
+  function kademe(n) {
+    var k = 0;
+    for (var i = 0; i < KADEMELER.length; i++) if (n >= KADEMELER[i]) k = KADEMELER[i];
+    return k ? k.toLocaleString('tr-TR') + '+' : '';
+  }
+  var sayiYerleri = $$('[data-pdf-indirme]');
+  if (sayiYerleri.length && window.fetch) {
+    fetch('https://medya.ahmetcelen.com.tr/pdf/indirme.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || !d.belgeler) return;
+        sayiYerleri.forEach(function (el) {
+          var kd = el.getAttribute('data-pdf-indirme');
+          var n = kd === '*' ? d.toplam : (kd ? d.belgeler[kd] : null);
+          var metin = typeof n === 'number' ? kademe(n) : '';
+          if (!metin) return;
+          el.textContent = (el.getAttribute('data-onek') || '') + metin + ' indirme';
+          el.hidden = false;
+          var kutu = el.closest('[data-pdf-indirme-kutu]');
+          if (kutu) { kutu.hidden = false; el.textContent = metin; }
+        });
+      }).catch(function () {});
   }
 
   // ── dogrulama: guncel olmayan surumden gunceline yonlendirme ───────────

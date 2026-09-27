@@ -926,6 +926,11 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
 .pdf-indir { visibility: hidden; animation: pdf-goster 0s linear 10s forwards; font-size: 16px !important; padding: 12px 20px !important; }
 .pdf-bekleme.js .pdf-indir { animation: none; visibility: hidden; }
 .pdf-bekleme.hazir .pdf-indir { visibility: visible; }
+.pdf-bekleme.doldu .pdf-indir { display: none; }
+.pdf-yeniden { font-size: 15px !important; }
+.pdf-yeniden[hidden], [data-pdf-indirme][hidden], [data-pdf-indirme-kutu][hidden] { display: none !important; }
+.pdf-kunye > div { display: contents; }
+.bs-pdf-not { margin: 10px 0 0 !important; font-size: 13.5px; color: var(--soluk); }
 .pdf-bekleme.hazir .pdf-sayac .pdf-sayac-ilerle { stroke: #16a34a; animation: none; stroke-dashoffset: 0; }
 .pdf-bekleme.hazir .pdf-sayac span { color: #16a34a; }
 @keyframes pdf-goster { to { visibility: visible; } }

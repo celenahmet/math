@@ -68,6 +68,12 @@ try {
         return {kirik:[...document.images].filter(i=>!i.naturalWidth).map(i=>i.src), yazitipi:[...document.fonts].filter(f=>f.status==='error').map(f=>f.family)}})()` });
     const h = hazir.result.value;
     if (h.kirik.length || h.yazitipi.length) throw new Error(`${is.sayfa}: eksik varlik ${JSON.stringify(h)}`);
+    // Sabit yukseklikli sayfalar (ilk bilgi sayfasi, son tanitim sayfasi) tasarsa
+    // Chrome sessizce yeni sayfa acar (28.09: etiket eklenince 12 → 13 sayfa).
+    // Tasma varsa basim DURUR; metin ya da duzen kisaltilir.
+    const tasma = await gonder('Runtime.evaluate', { returnByValue: true, expression:
+      `[...document.querySelectorAll('.p-bilgi-sayfasi,.p-tanitim-sayfasi')].filter(e=>e.scrollHeight>e.clientHeight+1).map(e=>e.className+' '+e.scrollHeight+'>'+e.clientHeight)` });
+    if (tasma.result.value.length) throw new Error(`${is.sayfa}: sabit sayfa tasiyor ${JSON.stringify(tasma.result.value)}`);
     const pdf = await gonder('Page.printToPDF', {
       paperWidth: 8.2677, paperHeight: 11.6929, preferCSSPageSize: true, printBackground: true,
       marginTop: 0.59, marginBottom: 0.67, marginLeft: 0.63, marginRight: 0.63,

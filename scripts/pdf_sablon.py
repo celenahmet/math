@@ -56,8 +56,12 @@ SITE_BOLUMLER = [  # (ikon, baslik, aciklama, yol)
 # medyasi, Veteriner Akilli Klinik Yonetim Uygulamasi; bote.web.tr: Egitim Fakultesi
 # ve ogretmenlik dusunenler icin; ucretsiz veriyoruz, bu yapimlari degerlendirip
 # bize destek olabilirsiniz; pazarlama %70 agirlikta. UniConnectly alanini kucultme."
-DIGER_GIRIS = ("Bu belgeyi ücretsiz hazırlıyoruz. Diğer yapımlarımızı da keşfedin; "
-               "kullanmanız ve çevrenizle paylaşmanız bizim için en büyük destek.")
+# 28.09 (Ahmet): "bu cumleyi biraz toparlayalim; UniConnectly'nin de bizim
+# yapimimiz oldugunu soyleyelim, yukarida reklam gibi durmus."
+# Ahmet (28.09, ikinci tur): "UniConnectly'ye 'bizim yapimimiz' etiketi ekleme,
+# yapimlarimiz kismina metin olarak onu belirt sadece."
+DIGER_GIRIS = ("UniConnectly gibi bunlar da bizim yapımlarımız. Bu belgeyi ücretsiz sunuyoruz; "
+               "yapımlarımızı keşfetmeniz ve çevrenizle paylaşmanız, bu çalışmaları sürdürmemiz için en büyük destektir.")
 DIGER = [  # (logo dosyasi, ad, kalin metin, devam, adres, gorunen adres)
     ("bote.png", "BÖTE", "Eğitim fakültesi ve öğretmenlik düşünenler için:",
      "bölüm rehberleri, öğretmenlik mesleği ve eğitim teknolojileri üzerine kaynaklı yazılar.",

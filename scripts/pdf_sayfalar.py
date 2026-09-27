@@ -144,6 +144,7 @@ def duyurular(kayit, bugun, en_cok=30):
     return (f'<section class="pdf-duyurular" id="duyurular">'
             f'<h2 class="bs-h2-ikon">{ikon("saat")}Duyurular ve değişiklikler</h2>'
             f'<div class="pdf-durum-ozet"><span class="pdf-nokta"></span><strong>{toplam} belge yayında</strong>'
+            '<strong data-pdf-indirme="*" data-onek="Toplam " hidden></strong>'
             f'<span>Son {DUYURU_GUN} günde {hata_sayisi} hata düzeltmesi</span></div>'
             f'<div class="pdf-serit" role="img" aria-label="Son {DUYURU_GUN} günün değişiklik şeridi">{"".join(serit)}</div>'
             f'<div class="pdf-serit-alt"><span>{DUYURU_GUN} gün önce</span><span class="pdf-lejant">'
@@ -179,7 +180,8 @@ def merkez(kayit, yazilar, bugun):
                 f'<li class="pdf-satir" data-ara="{k(aranan.lower())}">'
                 f'<span class="pdf-kod">{k(kd)}</span>'
                 f'<div class="pdf-satir-ic"><a class="pdf-satir-baslik" href="{V.indirme_yolu(b["slug"])}">{k(b["baslik"])}</a>'
-                f'<span class="pdf-satir-kunye">Sürüm {k(s["surum"])} · {s["sayfa"]} sayfa · {boyut(s["bayt"])}</span></div>'
+                f'<span class="pdf-satir-kunye">Sürüm {k(s["surum"])} · {s["sayfa"]} sayfa · {boyut(s["bayt"])}'
+                f'<span data-pdf-indirme="{k(kd)}" data-onek=" · " hidden></span></span></div>'
                 f'<div class="pdf-satir-eylem"><a class="bs-dugme-ana" href="{V.indirme_yolu(b["slug"])}">{ikon("indir")}İndir</a>'
                 f'<a class="bs-dugme-ikincil" href="{V.dogrulama_yolu(kd)}">Doğrula</a></div></li>')
         satirlar.append(f'<section class="pdf-grup" style="--kat:{renk}"><h2 class="bs-h2-ikon">{ikon(ik)}{k(ad)}</h2>'
@@ -251,6 +253,7 @@ def indirme(kd, b, y):
       <dt>Sürüm</dt><dd>{k(s["surum"])} · {V.tr_tarih(s["tarih"])}</dd>
       <dt>Sayfa</dt><dd>{s["sayfa"]} sayfa, A4</dd>
       <dt>Boyut</dt><dd>{boyut(s["bayt"])}</dd>
+      <div data-pdf-indirme-kutu hidden><dt>İndirme</dt><dd data-pdf-indirme="{k(kd)}"></dd></div>
       <dt>Yayımlayan</dt><dd>ahmetcelen.com.tr</dd>
     </dl>
     <p class="pdf-ucretsiz">Bu belge tamamen ücretsizdir. Size satmaya çalışanlara itibar etmeyiniz.</p>
@@ -261,6 +264,7 @@ def indirme(kd, b, y):
       <div class="pdf-sayac" aria-hidden="true"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="pdf-sayac-ilerle" cx="22" cy="22" r="19"/></svg><span data-pdf-kalan>{BEKLEME}</span></div>
       <p class="pdf-bekle-metin" data-pdf-bekle-metin aria-live="polite">PDF'iniz hazırlanıyor. İndirme bağlantısı <strong>{BEKLEME} saniye</strong> içinde açılacak.</p>
       <a class="bs-dugme-ana pdf-indir" href="{k(adres)}" data-pdf-indir rel="nofollow">{ikon("indir")}PDF'i indir ({boyut(s["bayt"])})</a>
+      <button type="button" class="bs-dugme-ikincil pdf-yeniden" data-pdf-yeniden hidden>Yeniden hazırla</button>
     </div>
     {uc_reklam("pdf-indir-" + kd.lower())}
   </div>
@@ -306,7 +310,7 @@ def belge_sayfasi(kd, b):
   <p class="pdf-ust-etiket">{k(kd)} · Yazı {b["no"]}</p>
   <h1>{k(b["baslik"])}</h1>
   <div class="pdf-sonuc pdf-sonuc-guncel pdf-sonuc-kucuk">
-    <div><strong>Güncel sürüm: {k(s["surum"])}</strong><span>{V.tr_tarih(s["tarih"])} · {s["sayfa"]} sayfa · içerik izi {V.parmak_izi(s["icerik"])}</span></div>
+    <div><strong>Güncel sürüm: {k(s["surum"])}</strong><span>{V.tr_tarih(s["tarih"])} · {s["sayfa"]} sayfa · içerik izi {V.parmak_izi(s["icerik"])}<span data-pdf-indirme="{k(kd)}" data-onek=" · " hidden></span></span></div>
     <a class="bs-dugme-ana" href="{V.indirme_yolu(b["slug"])}">{ikon("indir")}Güncel sürümü indir</a>
   </div>
   <section class="pdf-gecmis"><h2 class="bs-h2-ikon">{ikon("liste")}Sürüm geçmişi</h2>{gecmis_tablosu(b)}</section>
@@ -367,6 +371,7 @@ def surum_sayfasi(kd, b, s):
     <dt>Belge kodu</dt><dd>{k(kd)}</dd>
     <dt>Sürüm</dt><dd>{k(s["surum"])} · {V.tr_tarih(s["tarih"])}</dd>
     <dt>İçerik izi</dt><dd>{V.parmak_izi(s["icerik"])}</dd>
+    <div data-pdf-indirme-kutu hidden><dt>İndirme</dt><dd data-pdf-indirme="{k(kd)}"></dd></div>
     <dt>Yayımlayan</dt><dd>ahmetcelen.com.tr</dd>
   </dl>
   <p class="pdf-iz-not">İçerik izi, PDF'in ilk sayfasındaki "Belge bilgileri" kutusunda yazan izle aynı olmalıdır.</p>

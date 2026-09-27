@@ -274,13 +274,23 @@ def pdf_seridi(y):
     boyut = (f"{mb:.1f}".replace(".", ",") + " MB") if mb >= 1 else f"{round(s['bayt'] / 1024)} KB"
     gecmis = "".join(f'<li><strong>Sürüm {k(x["surum"])}</strong> · {tr_tarih(x["tarih"])} · {k(V.TURLER[x["tur"]])}: {k(x["not"])}</li>'
                      for x in reversed(surumler))
+    # Tek surumse acilir liste yerine bilgi (Ahmet 28.09: "surum gecmisi yoksa bilgi yazsin").
+    if len(surumler) == 1:
+        gecmis_html = (f'<p class="bs-pdf-not">İlk sürüm ({tr_tarih(s["tarih"])}); henüz değişiklik yok. '
+                       'Bir düzeltme yapılırsa burada ve <a href="/pdf/">PDF Merkezi</a>nde duyurulur. '
+                       f'<a href="{V.dogrulama_yolu(kd)}">Belgeyi doğrula</a></p>')
+    else:
+        gecmis_html = (f'<details><summary>Sürüm geçmişi ({len(surumler)})</summary><ul>{gecmis}</ul>'
+                       f'<p><a href="{V.dogrulama_yolu(kd)}">Belgeyi doğrula</a> · <a href="/pdf/">PDF Merkezi</a></p></details>')
     return (f'<aside class="bs-pdf" aria-label="Bu konunun PDF\'i"><div class="bs-pdf-ust">{ikon("pdf")}'
-            f'<div class="bs-pdf-bilgi"><strong>Bu konunun PDF\'i</strong>'
-            f'<span>{k(kd)} · Sürüm {k(s["surum"])} · {s["sayfa"]} sayfa · {boyut} · ücretsiz</span></div>'
+            # Baslik (Ahmet 28.09): "bu konunun PDF'i degil, yazinin adi; adinda PDF
+            # varsa iki kez PDF yazmayalim."
+            f'<div class="bs-pdf-bilgi"><strong>{k(y["baslik"] if "PDF" in y["baslik"] else y["baslik"] + " PDF")}</strong>'
+            f'<span>{k(kd)} · Sürüm {k(s["surum"])} · {s["sayfa"]} sayfa · {boyut} · ücretsiz'
+            f'<span data-pdf-indirme="{k(kd)}" data-onek=" · " hidden></span></span></div>'
             # Yeni sekmede (Ahmet 28.09): okuyucu yaziyi kaybetmesin.
             f'<a class="bs-dugme-ana" href="{V.indirme_yolu(y["slug"])}" target="_blank" rel="noopener">{ikon("indir")}PDF indir</a></div>'
-            f'<details><summary>Sürüm geçmişi ({len(surumler)})</summary><ul>{gecmis}</ul>'
-            f'<p><a href="{V.dogrulama_yolu(kd)}">Belgeyi doğrula</a> · <a href="/pdf/">PDF Merkezi</a></p></details></aside>')
+            + gecmis_html + '</aside>')
 
 
 def yazi_govde(y, digerleri):
@@ -581,7 +591,9 @@ def uygula():
             onyukle=onyukle,
             # Yazi sonu etkilesimi yalniz yazi sayfalarinda (hub'a inmez).
             # defer: ilk boyamayi beklemez; betik bolumu yazi sonuna yaklasinca yukler.
-            ek_betik='<script src="/js/etkilesim.js" defer></script>'))
+            ek_betik='<script src="/js/etkilesim.js" defer></script>'
+                     # PDF seridindeki indirme sayisi (28.09)
+                     + ('<script src="/js/pdf.js" defer></script>' if 'data-pdf-indirme=' in pdf_seridi(y) else '')))
     n += yaz("blog/index.html", kabuk(
         yol="/blog/", title="Matematik Konu Anlatımı Blog - Ahmet Çelen",
         desc="TYT, AYT, ALES ve KPSS için baştan sona matematik konu anlatımı; hap bilgiler, çözümlü örnekler ve grafiklerle. Ücretsiz.",
