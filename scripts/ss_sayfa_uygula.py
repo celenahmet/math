@@ -15,6 +15,7 @@
 import re, sys, pathlib, html, datetime
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import ss_veri, uniconnectly_blok
+import pdf_tanitim   # 28.09: PDF merkezi ic tanitimi
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 KURU = "--kuru" in sys.argv
@@ -97,12 +98,14 @@ def govde(anahtar, v, m):
 				<span class="gs-cip">{kartlar[0][0]} - {kartlar[-1][0]}</span>
 				<span class="gs-cip">Kaynak: <a href="https://www.osym.gov.tr/" target="_blank" rel="noopener">ÖSYM</a></span>
 				<span class="gs-cip"><a href="/sinavlar/{v["geri_sayim"]}/">{v["kisa"]} sınavına kaç gün kaldı?</a></span>
+				<span class="gs-cip"><a href="#pdf-tanitim">Ücretsiz konu anlatımı PDF'leri</a></span>
 			</div>
 			<div class="cs-liste">
 {chr(10).join(kart(*k) for k in kartlar)}
 			</div>
 			<p class="cs-not">Bu soruların tüm hakları ÖSYM'ye aittir. Bağlantılar ÖSYM'nin resmî sitesine (dokuman.osym.gov.tr) yönlendirilmiştir; PDF'ler yeni sekmede açılır.{" 2019'dan itibaren ÖSYM soruların %10'unu 'temel soru kitapçığı' olarak yayımlar." if tam < len(kartlar) else ""} Bu sayfa {BUGUN[8:10]}.{BUGUN[5:7]}.{BUGUN[:4]} tarihinde güncellendi.</p>
 
+{pdf_tanitim.blok(anahtar, v["kisa"])}
 			<h3 class="gs-alt-baslik">Diğer çıkmış sorular</h3>
 			<div class="cs-diger">
 {diger(anahtar)}

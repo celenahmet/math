@@ -285,7 +285,7 @@ def pdf_seridi(y):
     return (f'<aside class="bs-pdf" aria-label="Bu konunun PDF\'i"><div class="bs-pdf-ust">{ikon("pdf")}'
             # Baslik (Ahmet 28.09): "bu konunun PDF'i degil, yazinin adi; adinda PDF
             # varsa iki kez PDF yazmayalim."
-            f'<div class="bs-pdf-bilgi"><strong>{k(y["baslik"] if "PDF" in y["baslik"] else y["baslik"] + " PDF")}</strong>'
+            f'<div class="bs-pdf-bilgi"><strong>{k(V.pdf_adi(y["baslik"]))}</strong>'
             f'<span>{k(kd)} · Sürüm {k(s["surum"])} · {s["sayfa"]} sayfa · {boyut} · ücretsiz'
             f'<span data-pdf-indirme="{k(kd)}" data-onek=" · " hidden></span></span></div>'
             # Yeni sekmede (Ahmet 28.09): okuyucu yaziyi kaybetmesin.

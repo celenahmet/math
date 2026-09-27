@@ -120,6 +120,14 @@ def dosya_adi(k, slug, s, kisa=None):
     return f"{kod_yol(k)}-{konu}-s{surum_yol(s)}" + (f"-{kisa}" if kisa else "") + ".pdf"
 
 
+def pdf_adi(baslik):
+    """Gorunen PDF adi (Ahmet 28.09): yazinin adi + PDF; adinda PDF varsa ikinci
+    kez eklenmez; soru isaretiyle biten baslikta "Nedir? PDF" yerine "(PDF)"."""
+    if "PDF" in baslik:
+        return baslik
+    return f"{baslik} (PDF)" if baslik.rstrip().endswith("?") else f"{baslik} PDF"
+
+
 def medya_adresi(dosya):
     return MEDYA + YAYIN_YOLU + dosya
 

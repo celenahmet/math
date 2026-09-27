@@ -21,6 +21,7 @@
 import re, sys, pathlib, datetime
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import uniconnectly_blok
+import pdf_tanitim   # 28.09: PDF merkezi ic tanitimi
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 KURU = "--kuru" in sys.argv
@@ -139,7 +140,7 @@ def govde(anahtar):
 				<div class="gs-kutu"><span class="gs-sayi" id="gs-sn">00</span><span class="gs-etiket">Saniye</span></div>
 			</div>
 			<div id="gs-bilgi" class="gs-bilgi"></div>
-
+{pdf_tanitim.blok("" if genel else anahtar, "" if genel else SINAVLAR[anahtar]["kisa"])}
 			<h3 class="gs-alt-baslik">Tüm sınavlar</h3>
 			<div class="gs-liste">
 {kartlar(anahtar)}
