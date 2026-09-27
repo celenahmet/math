@@ -91,6 +91,17 @@ def _kimlik(yol, no, y, s):
     xmp.update({NameObject("/Type"): NameObject("/Metadata"), NameObject("/Subtype"): NameObject("/XML")})
     w._root_object[NameObject("/Metadata")] = w._add_object(xmp)
     w._root_object[NameObject("/Lang")] = TextStringObject("tr-TR")
+    # Alt bilgi baglantilari (Ahmet 28.09: "en sol kisimdaki ahmetcelen kismi da
+    # tiklanabilir olmali"). Chrome alt bilgi sablonundaki <a>'yi baglanti yapmiyor;
+    # her sayfaya URI notu eklenir. Konumlar sablondaki alt bilgiden OLCULDU
+    # (pdfium metin kutulari, A4 594.96 x 841.92 pt): sol yazi x 54.5-163.6,
+    # sag kod/surum x 465.2-533.9, y 15-21. Sablon degisirse yeniden olc.
+    from pypdf.annotations import Link
+    site = f"{V.ALAN}/?utm_source=pdf&utm_medium=pdf&utm_campaign={kd.lower()}"
+    dogrula = V.ALAN + V.dogrulama_yolu(kd, s["surum"])
+    for i in range(len(w.pages)):
+        w.add_annotation(page_number=i, annotation=Link(rect=(43, 11, 167, 25), url=site, border=[0, 0, 0]))
+        w.add_annotation(page_number=i, annotation=Link(rect=(462, 11, 537, 25), url=dogrula, border=[0, 0, 0]))
     w.write(yol)
     return len(r.pages)
 

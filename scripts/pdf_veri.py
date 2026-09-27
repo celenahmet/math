@@ -43,7 +43,8 @@ YAYIN_YOLU = "/pdf/blog/"                          # medya.ahmetcelen.com.tr/pdf
 
 # Yazdirma sablonu surumu. Sablon/CSS/alt bilgi degisince 1 artir: denetim
 # butun belgeler icin "bicim" surumu ister (eski PDF'ler eski sablonda kalir).
-SABLON = 2
+SABLON = 3
+# 3 (28.09): alt bilgi ve ilk sayfadaki site adi tiklanabilir (URI notlari).
 # 2 (28.09): son sayfada "Diger yapimlarimiz" (BOTE, Veterito), site blogu 3 sutun.
 # Duyuru oncesi oldugu icin 1.0 yeniden basildi (pdf_uret.py on_yayin_yenile), surum acilmadi.
 

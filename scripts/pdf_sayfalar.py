@@ -69,8 +69,10 @@ def uc_reklam(kampanya):
         f'<a href="{k(u.format(kampanya=kampanya))}" target="_blank" rel="noopener">'
         f'<img src="{g}" alt="{k(e)}" height="40" loading="lazy" decoding="async"></a>'
         for e, g, u in UC.MAGAZALAR)
-    return (f'<aside class="pdf-uc" aria-label="Tanıtım: UniConnectly">'
-            f'<span class="pdf-uc-etiket">Tanıtım</span>'
+    # Etiket (Ahmet 28.09): "tanitim degil de diger yapimlarimiz; is birligi de
+    # degil, kendi urunumuz, ona gore yazalim."
+    return (f'<aside class="pdf-uc" aria-label="Diğer yapımlarımızdan: UniConnectly">'
+            f'<span class="pdf-uc-etiket">Diğer yapımlarımızdan</span>'
             f'<a class="pdf-uc-logo" href="{k(adres)}" target="_blank" rel="noopener">'
             f'<img src="{UC.LOGO}" alt="UniConnectly" width="640" height="185" decoding="async"></a>'
             '<p class="pdf-uc-giris">Üniversite topluluklarını, etkinlikleri ve şirketleri tek uygulamada buluşturan ücretsiz kampüs platformu.</p>'

@@ -102,7 +102,8 @@ strong { color: var(--murekkep); font-weight: 600; }
   border-bottom: 1pt solid var(--cizgi); font-size: 11pt; font-weight: 700; }
 .p-marka img { width: 26pt; height: auto; }
 .p-marka em { font-style: normal; font-weight: 600; color: var(--soluk); font-size: 9.5pt; }
-.p-marka .p-site { margin-left: auto; color: var(--mor); font-size: 10pt; }
+.p-marka .p-site { margin-left: auto; color: var(--mor); font-size: 10pt; text-decoration: none; }
+.p-tanitim a { text-decoration: none; }
 .p-rozetler { display: flex; flex-wrap: wrap; gap: 5pt; margin: 14pt 0 6pt; }
 .p-etiket { display: inline-flex; align-items: center; gap: 4pt; padding: 2pt 8pt 2pt 6pt; border-radius: 99pt;
   font: 600 8.5pt Inter, sans-serif; color: var(--kat); background: color-mix(in srgb, var(--kat) 9%, #fff);
@@ -350,7 +351,7 @@ def belge(no, y, s):
 </head>
 <body>
 <section class="p-bilgi-sayfasi">
-  <header class="p-marka"><img src="/blog/kapak/ac-monogram.avif" alt=""><span>Ahmet Çelen</span><em>Matematik Konu Anlatımı</em><span class="p-site">{_globe(10)}ahmetcelen.com.tr</span></header>
+  <header class="p-marka"><img src="/blog/kapak/ac-monogram.avif" alt=""><span>Ahmet Çelen</span><em>Matematik Konu Anlatımı</em><a class="p-site" href="{V.ALAN}/">{_globe(10)}ahmetcelen.com.tr</a></header>
   <div class="p-rozetler">{rozetler}</div>
   <h1>{k(y["baslik"])}</h1>
   <p class="p-ozet">{B.mm(k(y["ozet"]))}</p>
@@ -377,7 +378,7 @@ def belge(no, y, s):
     </div>
     <div class="p-qr"><a href="{k(dogrula)}">{qr_svg(dogrula)}</a><span>Güncelliği kontrol et</span></div>
   </div>
-  <aside class="p-tanitim"><b>{_globe(12, "#ffffff")}ahmetcelen.com.tr</b><span>{k(TANITIM)}</span></aside>
+  <aside class="p-tanitim"><a href="{V.ALAN}/"><b>{_globe(12, "#ffffff")}ahmetcelen.com.tr</b></a><span>{k(TANITIM)}</span></aside>
   </div>
 </section>
 <nav class="p-icindekiler" aria-label="İçindekiler">
