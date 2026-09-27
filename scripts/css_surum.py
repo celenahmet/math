@@ -18,7 +18,8 @@ KOK = pathlib.Path(__file__).resolve().parent.parent
 # ESKI style.css kalir, 14 dosya hem @import hem <link> ile iki kez inerdi.
 VARLIKLAR = ["css/duzeltmeler.css", "css/style-az.css", "css/font-awesome-az.css",
               "css/flaticon-az.css", "sinavlar/js/sinav-takvimi.js",
-              "js/uniconnectly-blok.js", "js/sayfa-duzeltmeleri.js", "js/arama.js", "css/blog.css", "js/blog.js", "js/etkilesim.js"]
+              "js/uniconnectly-blok.js", "js/sayfa-duzeltmeleri.js", "js/arama.js", "css/blog.css", "js/blog.js", "js/etkilesim.js",
+              "js/pdf.js"]   # 28.09: PDF merkezi / indirme / dogrulama (scripts/pdf_sayfalar.py)
 
 def ozet(yol):
     p = KOK / yol

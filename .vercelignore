@@ -85,3 +85,6 @@ scripts/
 *.md
 blog-gorselleri/
 .venv/
+
+# blog PDF uretimi: gecici yazdirma sayfalari (PDF'lerin kendisi zaten *.pdf ile disarida)
+.pdf-yapim/

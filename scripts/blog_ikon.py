@@ -112,6 +112,10 @@ _YOL = {
                '<path d="M7.5 13.5 11 20.2a1.9 1.9 0 0 0 3.4-1.5l-.9-3.9h5a1.8 1.8 0 0 0 1.8-2.1l-1.2-6.6a2 2 0 0 0-2-1.6H7.5"/>',
     "yorum": '<path d="M4 5.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1h-9.5L6 20.5V17H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1z"/>'
              '<path d="M7.5 10h9"/><path d="M7.5 13h6"/>',
+    # PDF (28.09): belge ve indirme; scripts/pdf_sayfalar.py + yazi seridi.
+    "pdf": '<path d="M14 3.5H7a1.5 1.5 0 0 0-1.5 1.5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8z"/>'
+           '<path d="M14 3.5V8h4.5"/><path d="M9 13h6"/><path d="M9 16.5h4"/>',
+    "indir": '<path d="M12 4v11"/><path d="M7 10.5l5 5 5-5"/><path d="M5 19.5h14"/>',
     "ilgili": '<rect x="3.6" y="4.6" width="7" height="7" rx="1.4"/>'
               '<rect x="13.4" y="4.6" width="7" height="7" rx="1.4"/>'
               '<rect x="3.6" y="14.4" width="7" height="5" rx="1.4"/>'

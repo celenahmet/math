@@ -28,6 +28,8 @@ def yt(q):
 MENU = [
     ("Ana Sayfa", "/", None, False),
     ("Ders Notları", "/pdfnot/", [
+        # 28.09: blog yazilarinin surumlu PDF'leri (scripts/pdf_sayfalar.py)
+        ("PDF Merkezi", "/pdf/", None, False),
         ("TYT Matematik Deneme", "/yt/tytmat.pdf", None, True),
         ("AYT Matematik Deneme", "/yt/aytmat.pdf", None, True),
         ("DGS Matematik Deneme", "/yt/dgsmat.pdf", None, True),

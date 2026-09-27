@@ -824,3 +824,195 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
   .bs-son > .bs-paylas { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
   .bs-son .bs-paylas-baslik { margin: 0; }
 }
+
+/* ── PDF merkezi, indirme ve dogrulama (28.09) — scripts/pdf_sayfalar.py ──
+   Renkler mevcut paletten; dekoratif gradyan/parilti YOK. Guncel = yesil,
+   eski = amber, hata = kirmizi (dogrulama sayfasi QR hedefi). */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.pdf-merkez, .pdf-indirme, .pdf-dogrula { padding-bottom: 56px; }
+.pdf-merkez .bs-dugme-ana, .pdf-indirme .bs-dugme-ana, .pdf-dogrula .bs-dugme-ana,
+.pdf-merkez .bs-dugme-ikincil, .pdf-indirme .bs-dugme-ikincil, .pdf-dogrula .bs-dugme-ikincil {
+  gap: 7px; font: 600 14.5px Inter, sans-serif; text-decoration: none; cursor: pointer; }
+.pdf-merkez .bs-ikon, .pdf-indirme .bs-dugme-ana .bs-ikon, .pdf-dogrula .bs-dugme-ana .bs-ikon { width: 17px; height: 17px; }
+.pdf-merkez h2, .pdf-indirme h2, .pdf-dogrula h2 { font-size: 22px; margin: 36px 0 14px; }
+.pdf-ust-etiket { margin: 0 0 6px; font: 600 13px Inter, sans-serif; color: var(--mor); letter-spacing: .02em; }
+.pdf-tur { display: inline-block; padding: 2px 9px; border-radius: 999px; font: 600 12px Inter, sans-serif;
+  background: var(--mor-acik); color: var(--mor-koyu); white-space: nowrap; }
+.pdf-tur-hata { background: #fee2e2; color: #b91c1c; }
+.pdf-tur-ilk { background: #dcfce7; color: #15803d; }
+.pdf-tur-bicim, .pdf-tur-duzeltme { background: var(--cizgi-acik); color: var(--soluk); }
+
+/* merkez */
+.pdf-ara { display: flex; align-items: center; gap: 12px; margin: 8px 0 6px; position: sticky; top: 64px; z-index: 5;
+  background: var(--zemin); padding: 10px 0; }
+.pdf-ara input { flex: 1; min-width: 0; padding: 13px 16px; border: 1px solid var(--cizgi); border-radius: 12px;
+  background: var(--yuzey); font: 400 16px Inter, sans-serif; color: var(--govde); }
+.pdf-ara input:focus { outline: 2px solid var(--mor); outline-offset: 1px; border-color: var(--mor); }
+.pdf-ara-sayi { font: 600 14px Inter, sans-serif; color: var(--soluk); white-space: nowrap; }
+.pdf-bos { color: var(--soluk); }
+.pdf-grup h2 .bs-ikon { color: var(--kat); }
+.pdf-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+@media (min-width: 1000px) { .pdf-liste { grid-template-columns: 1fr 1fr; } }
+.pdf-satir { display: flex; align-items: center; gap: 14px; padding: 12px 14px; background: var(--yuzey);
+  border: 1px solid var(--cizgi); border-radius: var(--r-kucuk); }
+.pdf-satir[hidden], .pdf-grup[hidden] { display: none !important; }
+.pdf-kod { flex: none; font: 700 12.5px Inter, sans-serif; color: var(--kat, var(--mor)); padding: 4px 8px; border-radius: 7px;
+  background: color-mix(in srgb, var(--kat, var(--mor)) 9%, #fff); font-variant-numeric: tabular-nums; }
+.pdf-satir-ic { flex: 1; min-width: 0; }
+.pdf-satir-baslik { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-weight: 600; color: var(--murekkep); line-height: 1.35; }
+.pdf-satir-baslik:hover { color: var(--mor); }
+.pdf-satir-kunye { display: block; font-size: 13.5px; color: var(--soluk); margin-top: 2px; }
+.pdf-satir-eylem { display: flex; gap: 6px; flex: none; }
+.pdf-satir-eylem .bs-dugme-ana, .pdf-satir-eylem .bs-dugme-ikincil { padding: 7px 12px; font-size: 13.5px; }
+@media (max-width: 640px) {
+  .pdf-satir { flex-wrap: wrap; }
+  .pdf-satir-eylem { width: 100%; }
+  .pdf-satir-eylem a { flex: 1; justify-content: center; }
+}
+
+/* duyurular: uptime seridi */
+.pdf-duyurular { margin: 0 0 8px; padding: 18px 20px; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r); }
+.pdf-duyurular h2 { margin-top: 0 !important; }
+.pdf-tum-degisiklik { margin: 10px 0 0; font-size: 14.5px; }
+.pdf-dogrula .pdf-duyurular { margin-top: 28px; }
+.pdf-durum-ozet { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 12px; font-size: 15px; }
+.pdf-durum-ozet span:last-child { color: var(--soluk); }
+.pdf-nokta { width: 10px; height: 10px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 4px #dcfce7; }
+.pdf-serit { display: flex; gap: 2px; height: 34px; }
+.pdf-gun { flex: 1; border-radius: 2px; min-width: 2px; }
+.pdf-gun-once { background: var(--cizgi-acik); }
+.pdf-gun-sorunsuz { background: #22c55e; }
+.pdf-gun-surum { background: var(--mor); }
+.pdf-gun-hata { background: #dc2626; }
+.pdf-serit-alt { display: flex; justify-content: space-between; gap: 10px; margin-top: 6px; font-size: 12.5px; color: var(--soluk); }
+.pdf-lejant { display: inline-flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; justify-content: center; }
+.pdf-lejant i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+.pdf-duyuru-liste { list-style: none; margin: 18px 0 0; padding: 0; border-top: 1px solid var(--cizgi); }
+.pdf-duyuru { display: grid; grid-template-columns: 130px auto 1fr; gap: 6px 12px; align-items: baseline;
+  padding: 12px 0; border-bottom: 1px solid var(--cizgi); font-size: 15px; }
+.pdf-duyuru time { color: var(--soluk); font-size: 14px; }
+.pdf-duyuru p { margin: 2px 0 0; color: var(--soluk); font-size: 14px; }
+.pdf-duyuru details summary { cursor: pointer; color: var(--murekkep); }
+.pdf-duyuru details ul { margin: 8px 0 0; padding-left: 18px; font-size: 14px; columns: 2; column-gap: 24px; }
+@media (max-width: 640px) {
+  .pdf-duyuru { grid-template-columns: 1fr; }
+  .pdf-duyuru details ul { columns: 1; }
+  .pdf-serit { gap: 1px; }
+}
+
+/* indirme sayfasi */
+.pdf-indirme { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 28px; align-items: start; }
+.pdf-gecmis { grid-column: 1 / -1; }
+.pdf-belge { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r); padding: 18px; }
+.pdf-kapak { display: block; width: 100%; height: auto; border-radius: var(--r-kucuk); margin-bottom: 14px; }
+.pdf-belge h1 { font-size: 28px; line-height: 1.2; margin: 0 0 12px; }
+.pdf-kunye { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0; font-size: 15px; }
+.pdf-kunye dt { color: var(--soluk); }
+.pdf-kunye dd { margin: 0; color: var(--murekkep); font-weight: 600; }
+.pdf-ucretsiz { margin: 14px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--mor-acik); border: 1px solid #dbe6fb;
+  color: var(--murekkep); font-weight: 600; font-size: 14.5px; }
+.pdf-baglantilar { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 14px 0 0; font-size: 14.5px; }
+.pdf-bekleme { display: grid; gap: 14px; }
+.pdf-sayac-kutu { display: grid; justify-items: center; gap: 12px; text-align: center; padding: 22px 18px;
+  background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r); }
+.pdf-sayac { position: relative; width: 84px; height: 84px; }
+.pdf-sayac svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.pdf-sayac circle { fill: none; stroke: var(--cizgi); stroke-width: 3.5; }
+.pdf-sayac .pdf-sayac-ilerle { stroke: var(--mor); stroke-linecap: round; stroke-dasharray: 119.4; stroke-dashoffset: 119.4;
+  animation: pdf-halka 10s linear forwards; }
+.pdf-sayac span { position: absolute; inset: 0; display: grid; place-items: center; font: 700 26px Outfit, sans-serif; color: var(--murekkep); }
+.pdf-bekle-metin { margin: 0; color: var(--soluk); }
+/* JS yoksa: dugme 10 sn sonra CSS ile gorunur. JS varsa sinifla yonetilir. */
+.pdf-indir { visibility: hidden; animation: pdf-goster 0s linear 10s forwards; font-size: 16px !important; padding: 12px 20px !important; }
+.pdf-bekleme.js .pdf-indir { animation: none; visibility: hidden; }
+.pdf-bekleme.hazir .pdf-indir { visibility: visible; }
+.pdf-bekleme.hazir .pdf-sayac .pdf-sayac-ilerle { stroke: #16a34a; animation: none; stroke-dashoffset: 0; }
+.pdf-bekleme.hazir .pdf-sayac span { color: #16a34a; }
+@keyframes pdf-goster { to { visibility: visible; } }
+@keyframes pdf-halka { to { stroke-dashoffset: 0; } }
+.pdf-uc { position: relative; padding: 18px; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r); }
+.pdf-uc-etiket { position: absolute; top: 12px; right: 14px; font: 600 11px Inter, sans-serif; color: var(--soluk);
+  text-transform: uppercase; letter-spacing: .06em; }
+.pdf-uc-logo img { height: 40px; width: auto; }
+.pdf-uc-giris { margin: 8px 0 10px; color: var(--govde); }
+.pdf-uc-faydalar { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+.pdf-uc-faydalar b { display: block; color: var(--murekkep); font-size: 14.5px; }
+.pdf-uc-faydalar span { display: block; font-size: 13.5px; color: var(--soluk); line-height: 1.45; }
+.pdf-uc-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 14px; }
+.pdf-uc-magaza { display: flex; flex-wrap: wrap; gap: 6px; }
+.pdf-uc-magaza img { height: 36px; width: auto; max-width: 100%; display: block; }
+@media (max-width: 860px) {
+  .pdf-indirme { grid-template-columns: minmax(0, 1fr); }
+  .pdf-bekleme { grid-template-columns: minmax(0, 1fr); }
+  .pdf-bekleme { order: -1; }
+  .pdf-uc-faydalar { grid-template-columns: 1fr; }
+}
+
+/* dogrulama */
+.pdf-dogrula { max-width: 860px; }
+.pdf-dogrula h1 { font-size: 32px; line-height: 1.2; margin: 0 0 10px; }
+.pdf-giris { color: var(--soluk); font-size: 16.5px; }
+.pdf-sonuc { display: flex; gap: 20px; align-items: flex-start; padding: 22px; border-radius: var(--r); border: 1px solid; margin: 8px 0 18px; }
+.pdf-sonuc-guncel { background: #f0fdf4; border-color: #bbf7d0; }
+.pdf-sonuc-eski { background: #fffbeb; border-color: #fde68a; }
+.pdf-sonuc-hata { background: #fef2f2; border-color: #fecaca; }
+.pdf-sonuc h1 { margin: 0 0 6px; }
+.pdf-sonuc-guncel h1 { color: #15803d; } .pdf-sonuc-eski h1 { color: #b45309; } .pdf-sonuc-hata h1 { color: #b91c1c; }
+.pdf-sonuc-ic p { margin: 0 0 10px; }
+.pdf-sonuc-kucuk { align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.pdf-sonuc-kucuk strong { display: block; color: #15803d; font-size: 18px; }
+.pdf-sonuc-kucuk span { color: var(--soluk); font-size: 14.5px; }
+.pdf-eylem { display: flex; flex-wrap: wrap; gap: 8px; }
+.pdf-onay, .pdf-uyari { flex: none; width: 76px; height: 76px; }
+.pdf-onay-daire { fill: #dcfce7; stroke: #16a34a; stroke-width: 2.5; stroke-dasharray: 151; stroke-dashoffset: 151;
+  animation: pdf-ciz .7s ease-out forwards, pdf-nabiz 2.4s ease-out .9s 2; transform-origin: center; }
+.pdf-onay-isaret { fill: none; stroke: #16a34a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 36; stroke-dashoffset: 36; animation: pdf-ciz .45s ease-out .6s forwards; }
+.pdf-uyari circle { fill: #fef3c7; stroke: #d97706; stroke-width: 2.5; }
+.pdf-uyari path { stroke: #b45309; stroke-width: 4; stroke-linecap: round; }
+.pdf-sonuc-hata .pdf-uyari circle { fill: #fee2e2; stroke: #dc2626; }
+.pdf-sonuc-hata .pdf-uyari path { stroke: #b91c1c; }
+@keyframes pdf-ciz { to { stroke-dashoffset: 0; } }
+@keyframes pdf-nabiz { 0% { transform: scale(1); } 20% { transform: scale(1.06); } 40%, 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .pdf-onay-daire, .pdf-onay-isaret { animation: none; stroke-dashoffset: 0; }
+  .pdf-sayac .pdf-sayac-ilerle { animation: none; }
+}
+.pdf-yonlendir { font-size: 14.5px; color: var(--govde); }
+.pdf-kal { border: 0; background: none; color: var(--mor); font: 600 14.5px Inter, sans-serif; cursor: pointer; text-decoration: underline; padding: 0; }
+.pdf-kunye-yatay { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r-kucuk); padding: 14px 16px; }
+.pdf-iz-not { font-size: 13.5px; color: var(--soluk); }
+.pdf-degisiklik { list-style: none; margin: 0; padding: 0; }
+.pdf-degisiklik li { padding: 10px 0; border-bottom: 1px solid var(--cizgi); }
+.pdf-degisiklik p { margin: 4px 0 0; color: var(--soluk); }
+.pdf-kod-form { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 18px 0; }
+.pdf-kod-form label { font-weight: 600; color: var(--murekkep); }
+.pdf-kod-form input { width: 180px; padding: 10px 12px; border: 1px solid var(--cizgi); border-radius: 10px; font: 600 16px Inter, sans-serif;
+  text-transform: uppercase; }
+.pdf-kod-sonuc { width: 100%; margin: 0; color: #b91c1c; font-size: 14.5px; }
+.pdf-kod-sonuc:empty { display: none; }
+.pdf-dosya { margin-top: 12px; }
+.pdf-dosya-sec { display: grid; place-items: center; min-height: 96px; padding: 18px; border: 2px dashed #c7d6f5; border-radius: var(--r);
+  background: var(--yuzey); color: var(--mor-koyu); font-weight: 600; text-align: center; cursor: pointer; }
+.pdf-dosya-sec.uzerinde { border-color: var(--mor); background: var(--mor-acik); }
+.pdf-dosya-sec input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.pdf-dosya-sec:focus-within { outline: 2px solid var(--mor); outline-offset: 2px; }
+.pdf-dosya-sonuc { margin-top: 12px; padding: 14px 16px; border-radius: var(--r-kucuk); border: 1px solid var(--cizgi); background: var(--yuzey); }
+.pdf-dosya-sonuc.guncel { background: #f0fdf4; border-color: #bbf7d0; }
+.pdf-dosya-sonuc.eski { background: #fffbeb; border-color: #fde68a; }
+.pdf-dosya-sonuc.hata, .pdf-dosya-sonuc.yok { background: #fef2f2; border-color: #fecaca; }
+.pdf-dosya-sonuc p { margin: 0 0 6px; } .pdf-dosya-sonuc p:last-child { margin: 0; }
+.pdf-liste-bag { margin-top: 26px; }
+
+/* yazi sayfasindaki PDF seridi */
+.bs-pdf { margin: 0 0 22px; padding: 14px 16px; border: 1px solid #dbe6fb; background: #f5f8ff; border-radius: var(--r-kucuk); }
+.bs-pdf-ust { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.bs-pdf-ust > .bs-ikon { width: 26px; height: 26px; color: var(--mor); }
+.bs-pdf-bilgi { flex: 1; min-width: 180px; }
+.bs-pdf-bilgi strong { display: block; color: var(--murekkep); font-size: 15.5px; }
+.bs-pdf-bilgi span { font-size: 13.5px; color: var(--soluk); }
+.bs-icerik .bs-pdf a.bs-dugme-ana { gap: 7px; font: 600 14.5px Inter, sans-serif; text-decoration: none; color: #fff; }
+.bs-pdf details { margin-top: 10px; font-size: 14px; }
+.bs-pdf summary { cursor: pointer; color: var(--mor-koyu); font-weight: 600; }
+.bs-pdf details ul { margin: 8px 0 0; padding-left: 18px; }
+.bs-pdf details li { margin-bottom: 4px; }

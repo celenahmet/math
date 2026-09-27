@@ -41,7 +41,7 @@ _yt = (KOK / "css/blog-yazitipleri.css").read_text(encoding="utf-8")
 ANA_FONT = re.search(r"webfont/(inter-latin-[0-9a-f]+\.woff2)", _yt).group(1)
 
 MENU = [("Tüm Yazılar", "/blog/"), ("Konular", "/blog/#konular"),
-        ("Sınavlar", "/blog/#sinavlar"), ("Ders Notları", "/pdfnot/"),
+        ("Sınavlar", "/blog/#sinavlar"), ("PDF Merkezi", "/pdf/"), ("Ders Notları", "/pdfnot/"),
         ("Ana Site", "/")]
 
 
@@ -165,7 +165,7 @@ def kabuk(*, yol, title, desc, govde, jsonld, gorsel=None, onyukle=None, taslak=
 <footer class="bs-alt">
   <div class="kap">
     <p><img class="bs-alt-logo" src="/blog/kapak/ahmet-celen-logo.avif" alt="" width="80" height="80" loading="lazy" decoding="async"><span>Üniversite ve kamu sınavlarına ücretsiz matematik kaynakları</span></p>
-    <nav><a href="/pdfnot/">Ders Notları</a><a href="/video/">Video Çözümler</a><a href="/ss/">Çıkmış Sorular</a><a href="/sinavlar/">Geri Sayımlar</a><a href="/hakkimizda/">Hakkımda</a><a href="/iletisim/">İletişim</a></nav>
+    <nav><a href="/pdf/">PDF Merkezi</a><a href="/pdfnot/">Ders Notları</a><a href="/video/">Video Çözümler</a><a href="/ss/">Çıkmış Sorular</a><a href="/sinavlar/">Geri Sayımlar</a><a href="/hakkimizda/">Hakkımda</a><a href="/iletisim/">İletişim</a></nav>
   </div>
 </footer>
 <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
@@ -257,6 +257,29 @@ def yorumlar_bolumu(y):
             '</form>'
             '<p class="bs-yorum-durum" role="status" aria-live="polite"></p>'
             '</section>')
+
+
+def pdf_seridi(y):
+    """Yazinin PDF'i (28.09, scripts/pdf_sayfalar.py): indirme sayfasina giden
+    serit ve surum gecmisi (Ahmet: "PDF'lerdeki degisiklikleri surum gecmisi
+    olarak her yazida yazariz"). Yalniz YAYINDA olan (sunucuya yuklenmis)
+    surum varsa basilir."""
+    import pdf_veri as V
+    b = next((x for x in V.oku()["belgeler"].values() if x["slug"] == y["slug"]), None)
+    surumler = [s for s in (b or {}).get("surumler", []) if V.yayinda_mi(s)]
+    if not surumler:
+        return ""
+    s, kd = surumler[-1], V.kod(b["no"])
+    mb = s["bayt"] / 1048576
+    boyut = (f"{mb:.1f}".replace(".", ",") + " MB") if mb >= 1 else f"{round(s['bayt'] / 1024)} KB"
+    gecmis = "".join(f'<li><strong>Sürüm {k(x["surum"])}</strong> · {tr_tarih(x["tarih"])} · {k(V.TURLER[x["tur"]])}: {k(x["not"])}</li>'
+                     for x in reversed(surumler))
+    return (f'<aside class="bs-pdf" aria-label="Bu konunun PDF\'i"><div class="bs-pdf-ust">{ikon("pdf")}'
+            f'<div class="bs-pdf-bilgi"><strong>Bu konunun PDF\'i</strong>'
+            f'<span>{k(kd)} · Sürüm {k(s["surum"])} · {s["sayfa"]} sayfa · {boyut} · ücretsiz</span></div>'
+            f'<a class="bs-dugme-ana" href="{V.indirme_yolu(y["slug"])}">{ikon("indir")}PDF indir</a></div>'
+            f'<details><summary>Sürüm geçmişi ({len(surumler)})</summary><ul>{gecmis}</ul>'
+            f'<p><a href="{V.dogrulama_yolu(kd)}">Belgeyi doğrula</a> · <a href="/pdf/">PDF Merkezi</a></p></details></aside>')
 
 
 def yazi_govde(y, digerleri):
@@ -351,6 +374,7 @@ def yazi_govde(y, digerleri):
     <p class="bs-kunye">{rozet}<span class="bs-kunye-oge">{ikon("saat")}{okuma_dk(y)} dakikalık okuma</span><span class="bs-kunye-oge bs-goruntulenme" data-yol="/blog/{k(y["slug"])}/" hidden>{ikon("goz")}<span class="bs-gor-sayi"></span> görüntülenme</span><span class="bs-kunye-oge"><time datetime="{k(y["tarih"])}">{tr_tarih(y["tarih"])}</time>{guncel}</span></p>
     {kapak}
     <p class="bs-ozet">{mm(k(y["ozet"]))}</p>
+    {pdf_seridi(y)}
     <nav class="bs-toc bs-toc-ust" aria-label="İçindekiler">
       <p class="bs-yan-baslik">{ikon("liste")}İçindekiler<em>{toc_sayi} bölüm</em></p>
       <ol>{toc}</ol>
