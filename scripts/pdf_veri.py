@@ -43,7 +43,9 @@ YAYIN_YOLU = "/pdf/blog/"                          # medya.ahmetcelen.com.tr/pdf
 
 # Yazdirma sablonu surumu. Sablon/CSS/alt bilgi degisince 1 artir: denetim
 # butun belgeler icin "bicim" surumu ister (eski PDF'ler eski sablonda kalir).
-SABLON = 1
+SABLON = 2
+# 2 (28.09): son sayfada "Diger yapimlarimiz" (BOTE, Veterito), site blogu 3 sutun.
+# Duyuru oncesi oldugu icin 1.0 yeniden basildi (pdf_uret.py on_yayin_yenile), surum acilmadi.
 
 # /pdf/<slug>/ indirme sayfalari; /pdf/ altindaki eski sayfa adlariyla cakismasin.
 AYRILMIS = {"blog", "parabol", "kayit"}
@@ -107,11 +109,13 @@ def indirme_yolu(slug):
     return f"/pdf/{slug}/"
 
 
-def dosya_adi(k, slug, s):
+def dosya_adi(k, slug, s, kisa=None):
     # Indirilen dosya kullanicinin klasorunde de anlasilsin: kod + konu + surum.
     # "-konu-anlatimi-pdf" ile biten adreslerde sondaki "-pdf" tekrar etmesin.
+    # `kisa`: dosyanin SHA-256'sinin ilk 8 hanesi. Adres icerige bagli olur;
+    # ayni adreste farkli bayt ASLA sunulmaz (medya 1 yil "immutable" onbellekli).
     konu = re.sub(r"-pdf$", "", slug)
-    return f"{kod_yol(k)}-{konu}-s{surum_yol(s)}.pdf"
+    return f"{kod_yol(k)}-{konu}-s{surum_yol(s)}" + (f"-{kisa}" if kisa else "") + ".pdf"
 
 
 def medya_adresi(dosya):

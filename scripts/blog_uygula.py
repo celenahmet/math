@@ -41,7 +41,7 @@ _yt = (KOK / "css/blog-yazitipleri.css").read_text(encoding="utf-8")
 ANA_FONT = re.search(r"webfont/(inter-latin-[0-9a-f]+\.woff2)", _yt).group(1)
 
 MENU = [("Tüm Yazılar", "/blog/"), ("Konular", "/blog/#konular"),
-        ("Sınavlar", "/blog/#sinavlar"), ("PDF Merkezi", "/pdf/"), ("Ders Notları", "/pdfnot/"),
+        ("Sınavlar", "/blog/#sinavlar"), ("PDF Merkezi", "/pdf/"),
         ("Ana Site", "/")]
 
 
@@ -277,7 +277,8 @@ def pdf_seridi(y):
     return (f'<aside class="bs-pdf" aria-label="Bu konunun PDF\'i"><div class="bs-pdf-ust">{ikon("pdf")}'
             f'<div class="bs-pdf-bilgi"><strong>Bu konunun PDF\'i</strong>'
             f'<span>{k(kd)} · Sürüm {k(s["surum"])} · {s["sayfa"]} sayfa · {boyut} · ücretsiz</span></div>'
-            f'<a class="bs-dugme-ana" href="{V.indirme_yolu(y["slug"])}">{ikon("indir")}PDF indir</a></div>'
+            # Yeni sekmede (Ahmet 28.09): okuyucu yaziyi kaybetmesin.
+            f'<a class="bs-dugme-ana" href="{V.indirme_yolu(y["slug"])}" target="_blank" rel="noopener">{ikon("indir")}PDF indir</a></div>'
             f'<details><summary>Sürüm geçmişi ({len(surumler)})</summary><ul>{gecmis}</ul>'
             f'<p><a href="{V.dogrulama_yolu(kd)}">Belgeyi doğrula</a> · <a href="/pdf/">PDF Merkezi</a></p></details></aside>')
 

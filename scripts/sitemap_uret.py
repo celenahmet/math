@@ -31,6 +31,11 @@ def uret():
     urls = []
     for p in sorted(KOK.rglob("*.html")):
         r = p.relative_to(KOK).as_posix()
+        # Nokta ile baslayan klasorler (.pdf-yapim, .venv, .vercel) yayinda yok
+        # (.vercelignore). 28.09: PDF yazdirma sayfalari /.pdf-yapim/ 100 adres
+        # olarak sitemap'e ve aramaya girmisti, canlida 404.
+        if any(parca.startswith(".") for parca in r.split("/")[:-1]):
+            continue
         if r.startswith(HARIC_ON_EK) or p.name in HARIC_AD or HARIC_DESEN.match(p.name):
             continue
         if any(x in "/" + r for x in HARIC_PARCA) or yonlendirme_mi(p):

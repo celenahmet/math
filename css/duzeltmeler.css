@@ -740,6 +740,10 @@ ul.arama-sonuc li a > span {
   .arama-kutu { max-height: calc(100vh - 210px); }
   .mk-fullscreen-search-overlay .mk-fullscreen-close { right: 18px; top: 24px; }
 }
+/* 28.09 (Ahmet: "arama butonundaki carpi calismiyor"): dar ekranda arama
+   kutusunun sarmalayicisi (konumlandirilmis, DOM'da carpidan SONRA) carpinin
+   ustune biniyordu; dokunus sarmalayiciya gidiyordu. Carpi ustte kalsin. */
+.mk-fullscreen-search-overlay .mk-fullscreen-close { z-index: 5; }
 
 /* ── 27) Blog (22.09) ──────────────────────────────────────────────────
    Sayfalari scripts/blog_uygula.py uretir, icerik scripts/blog_veri.py.

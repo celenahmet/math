@@ -48,24 +48,43 @@
   }
 
   // ── indirme: 10 sn bekleme ─────────────────────────────────────────────
+  // Ahmet (28.09): "indirdi ya, bir sure sonra spam korumasi nedeniyle tekrar
+  // 10 saniyelik donguye girip oyle indirebilsin." Indirme basladiktan kisa
+  // sure sonra dugme gizlenir ve sayac yeniden baslar. Kart boyu degismez
+  // (dugme visibility ile gizli), sayfa kaymaz.
   var bekle = $('[data-pdf-bekle]');
   if (bekle) {
-    var sure = +bekle.getAttribute('data-pdf-bekle') || 10, kalan = sure;
-    var sayac = $('[data-pdf-kalan]', bekle), metin = $('[data-pdf-bekle-metin]', bekle);
+    var sure = +bekle.getAttribute('data-pdf-bekle') || 10;
+    var sayac = $('[data-pdf-kalan]', bekle), metin = $('[data-pdf-bekle-metin]', bekle), indir = $('[data-pdf-indir]', bekle);
+    var tik = null, tekrar = false;
     bekle.classList.add('js');
-    var basla = Date.now();
-    var tik = setInterval(function () {
-      kalan = Math.max(0, sure - Math.floor((Date.now() - basla) / 1000));
-      sayac.textContent = kalan;
-      if (kalan <= 0) {
-        clearInterval(tik);
-        bekle.classList.add('hazir');
-        sayac.textContent = '✓';
-        metin.textContent = 'PDF\'iniz hazır. İyi çalışmalar!';
-      } else {
-        metin.innerHTML = 'PDF\'iniz hazırlanıyor. İndirme bağlantısı <strong>' + kalan + ' saniye</strong> içinde açılacak.';
-      }
-    }, 250);
+    var baslat = function () {
+      var basla = Date.now();
+      bekle.classList.remove('hazir');
+      sayac.textContent = sure;
+      clearInterval(tik);
+      tik = setInterval(function () {
+        var kalan = Math.max(0, sure - Math.floor((Date.now() - basla) / 1000));
+        if (kalan <= 0) {
+          clearInterval(tik);
+          bekle.classList.add('hazir');
+          sayac.textContent = '✓';
+          metin.textContent = tekrar ? 'PDF\'iniz yeniden indirilmeye hazır.' : 'PDF\'iniz hazır. İyi çalışmalar!';
+        } else {
+          sayac.textContent = kalan;
+          metin.innerHTML = (tekrar ? 'İndirme başladı. Yeniden indirmek için ' : 'PDF\'iniz hazırlanıyor. İndirme bağlantısı ')
+            + '<strong>' + kalan + ' saniye</strong>' + (tekrar ? ' bekleyin.' : ' içinde açılacak.');
+        }
+      }, 250);
+    };
+    var yeniden = function () {
+      if (!bekle.classList.contains('hazir')) return;
+      tekrar = true;
+      setTimeout(baslat, 1500);   // indirme baslasin, sonra dugme kalksin
+    };
+    indir.addEventListener('click', yeniden);
+    indir.addEventListener('auxclick', yeniden);
+    baslat();
   }
 
   // ── dogrulama: guncel olmayan surumden gunceline yonlendirme ───────────
@@ -102,8 +121,32 @@
     var girdi = $('[data-pdf-dosya-girdi]', kutu), etiket = $('.pdf-dosya-sec', kutu), sonuc = $('.pdf-dosya-sonuc', kutu);
     if (!window.crypto || !crypto.subtle) { etiket.querySelector('span').textContent = 'Tarayıcınız dosya denetimini desteklemiyor.'; return; }
     function goster(sinif, html) { sonuc.className = 'pdf-dosya-sonuc ' + sinif; sonuc.innerHTML = html; sonuc.hidden = false; }
-    function denetle(dosya) {
-      if (!dosya) return;
+    // Ahmet (28.09): "buraya sadece PDF kabul edilsin, guvenlik zaafiyeti olabilir."
+    // Dosya hicbir yere GONDERILMEZ ve ICERIGI ACILMAZ (PDF okuyucu calismaz);
+    // yalniz baytlarinin SHA-256'si hesaplanir. Yine de: tek dosya, en fazla
+    // 25 MB (yayinladigimiz PDF'ler 3 MB altinda; buyuk dosya sekmeyi
+    // kilitlemesin), uzanti + MIME + ilk baytlardaki "%PDF-" imzasi birlikte.
+    // Dosya ADI hicbir yerde ekrana basilmaz (yalniz defterdeki metinler, kacisli).
+    var SINIR = 25 * 1048576;
+    function pdfMi(dosya) {
+      if (!/\.pdf$/i.test(dosya.name || '')) return Promise.resolve('Yalnız PDF dosyası (.pdf) kabul edilir.');
+      if (dosya.type && dosya.type !== 'application/pdf') return Promise.resolve('Yalnız PDF dosyası kabul edilir.');
+      if (!dosya.size) return Promise.resolve('Dosya boş görünüyor.');
+      if (dosya.size > SINIR) return Promise.resolve('Dosya çok büyük (en fazla 25 MB). Yayımladığımız PDF\'ler 3 MB\'ın altındadır.');
+      return dosya.slice(0, 5).arrayBuffer().then(function (b) {
+        return String.fromCharCode.apply(null, new Uint8Array(b)) === '%PDF-' ? '' : 'Bu dosya geçerli bir PDF değil.';
+      });
+    }
+    function denetle(dosyalar) {
+      if (!dosyalar || !dosyalar.length) return;
+      if (dosyalar.length > 1) { goster('yok', '<p>Lütfen tek bir PDF dosyası seçin.</p>'); return; }
+      var dosya = dosyalar[0];
+      pdfMi(dosya).then(function (hata) {
+        if (hata) { goster('yok', '<p>' + esc(hata) + '</p>'); girdi.value = ''; return; }
+        ozetle(dosya);
+      });
+    }
+    function ozetle(dosya) {
       goster('', '<p>Denetleniyor…</p>');
       Promise.all([dosya.arrayBuffer().then(function (b) { return crypto.subtle.digest('SHA-256', b); }), kayit()]).then(function (r) {
         var ozet = [].map.call(new Uint8Array(r[0]), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
@@ -125,9 +168,11 @@
           'Güncel sürüm ' + esc(son.surum) + ': <a href="/pdf/' + esc(b.slug) + '/">güncel sürümü indirin</a>.</p>');
       }).catch(function () { goster('yok', '<p>Denetim yapılamadı, lütfen tekrar deneyin.</p>'); });
     }
-    girdi.addEventListener('change', function () { denetle(girdi.files[0]); });
+    girdi.addEventListener('change', function () { denetle(girdi.files); });
     ['dragenter', 'dragover'].forEach(function (o) { etiket.addEventListener(o, function (e) { e.preventDefault(); etiket.classList.add('uzerinde'); }); });
     ['dragleave', 'drop'].forEach(function (o) { etiket.addEventListener(o, function () { etiket.classList.remove('uzerinde'); }); });
-    etiket.addEventListener('drop', function (e) { e.preventDefault(); denetle(e.dataTransfer.files[0]); });
+    etiket.addEventListener('drop', function (e) { e.preventDefault(); denetle(e.dataTransfer.files); });
+    // Kutunun disina birakilan dosya tarayicida acilmasin (yanlislikla PDF'i sekmede acmak).
+    ['dragover', 'drop'].forEach(function (o) { window.addEventListener(o, function (e) { if (!etiket.contains(e.target)) e.preventDefault(); }); });
   });
 })();

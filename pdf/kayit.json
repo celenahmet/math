@@ -1,6 +1,6 @@
 {
  "aciklama": "ahmetcelen.com.tr blog PDF surum defteri. Her belge (AC-NNN) icin yayimlanan surumler, dosyalarin SHA-256 ozetleri ve degisiklik notlari. Dogrulama: https://ahmetcelen.com.tr/d/",
- "sablon": 1,
+ "sablon": 2,
  "belgeler": {
   "AC-001": {
    "no": 1,
@@ -14,11 +14,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "3a353e410c36323647e126ecdabe1d3275bf6e9aa2d6af6d5d63cd6ae27d14f0",
-     "sablon": 1,
-     "dosya": "ac-001-fonksiyonlar-konu-anlatimi-s1-0.pdf",
-     "sha256": "dfb1362de755f82257c4e53301abc191ff08b4d2b28566ac0c59765c219807e7",
-     "bayt": 1798863,
+     "sablon": 2,
+     "sha256": "e15a99de13c2b66847b90091375ade0ed62cab23782c6fb11dc18c2d2e7125ec",
+     "bayt": 1930315,
      "sayfa": 13,
+     "dosya": "ac-001-fonksiyonlar-konu-anlatimi-s1-0-e15a99de.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -35,11 +35,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "a41506c30e58beac23c202c7b59926b61e63cea0461bbbc4482c7bcc65585965",
-     "sablon": 1,
-     "dosya": "ac-002-tanim-deger-goruntu-kumeleri-s1-0.pdf",
-     "sha256": "19a3473ea4b969cbfc100f4686197f535d97c85b66980507579b03671d315af2",
-     "bayt": 2146836,
+     "sablon": 2,
+     "sha256": "3c4a5488f6ec3651c9cdf76a8803d35f3e981dd54b57103a738b6bcff67a3652",
+     "bayt": 2284114,
      "sayfa": 18,
+     "dosya": "ac-002-tanim-deger-goruntu-kumeleri-s1-0-3c4a5488.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -56,11 +56,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "aa5a60a5cbd7a296a72d4733067f5ee3169e8337cb11b1cfbada9caa0d6ae6fa",
-     "sablon": 1,
-     "dosya": "ac-003-birebir-orten-fonksiyon-s1-0.pdf",
-     "sha256": "87512219138d09a39d0831670a552d8f002b8ab64815c62727edb6143ae0447b",
-     "bayt": 1772214,
+     "sablon": 2,
+     "sha256": "046e89927d402cba35219f5f0dec431f54a6da3d98e53961d19ff2f764c25161",
+     "bayt": 1905895,
      "sayfa": 13,
+     "dosya": "ac-003-birebir-orten-fonksiyon-s1-0-046e8992.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -77,11 +77,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "7675ea0b5934c4d0372c2c5181324cd02ff18b1a2311a7540f346cf062277bf1",
-     "sablon": 1,
-     "dosya": "ac-004-bileske-fonksiyon-s1-0.pdf",
-     "sha256": "aabd7de6ff06d22ae33d4e76fb78be6e211c9983870b42f10478155645d8e553",
-     "bayt": 1923944,
+     "sablon": 2,
+     "sha256": "9d0b487939c04c6d4e6ddbbbbdb8ac4367a08fb6e64076407075bfff1aa3cda8",
+     "bayt": 2053577,
      "sayfa": 13,
+     "dosya": "ac-004-bileske-fonksiyon-s1-0-9d0b4879.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -98,11 +98,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "cd79df8cd27dbf593dce59b84c91e1cd1436e1a916be60c5e503255f034315ce",
-     "sablon": 1,
-     "dosya": "ac-005-ters-fonksiyon-s1-0.pdf",
-     "sha256": "aeb8719ae9db2b21ee05017a1a879f97d630f9fee23a44fc2648f65a0876c44c",
-     "bayt": 2000471,
+     "sablon": 2,
+     "sha256": "236d19990041ccfc140d9792da39314bc976fcd4832073cf1cc28ec7d78ded4a",
+     "bayt": 2137722,
      "sayfa": 13,
+     "dosya": "ac-005-ters-fonksiyon-s1-0-236d1999.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -119,11 +119,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "35b32dd61f74eb133b888dd6d6723aff6ca11cfd1c155607d75bb3e4840dd93b",
-     "sablon": 1,
-     "dosya": "ac-006-fonksiyon-grafikleri-s1-0.pdf",
-     "sha256": "796efd195d765bc5d926c88be6b47e2e2272ece79badf51985f615fae600fc78",
-     "bayt": 2217689,
+     "sablon": 2,
+     "sha256": "96d71bad7cd747ab5233e88a4fbb1a4c5a379abec26fc4307803c5f5970f5e16",
+     "bayt": 2355008,
      "sayfa": 18,
+     "dosya": "ac-006-fonksiyon-grafikleri-s1-0-96d71bad.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -140,11 +140,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "58fc21649a7bdc2cf41e10a865eb904c01a01137eb801c0b5c48baed88f4349f",
-     "sablon": 1,
-     "dosya": "ac-007-polinomlar-konu-anlatimi-s1-0.pdf",
-     "sha256": "f0db08eb8a7c899658ef1ce65ec1e0148626f9f14a531140b79086f7e751e684",
-     "bayt": 1967477,
+     "sablon": 2,
+     "sha256": "aa1111ae6e8ffbdee6811a413d1cc4217dafc1a1174237092ed274d5a1a4418b",
+     "bayt": 2105253,
      "sayfa": 15,
+     "dosya": "ac-007-polinomlar-konu-anlatimi-s1-0-aa1111ae.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -161,11 +161,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "5c07ba0a216998898809d6c0dadd3ee6ad1862b103fa88de6665f677bf187f16",
-     "sablon": 1,
-     "dosya": "ac-008-polinomlarda-bolme-s1-0.pdf",
-     "sha256": "c2375632f5689a1d0be1b31b996b43b5916475d45aeeba0a9bef706051f2ace8",
-     "bayt": 1805069,
+     "sablon": 2,
+     "sha256": "8bacd159b02815304ebdd95592636bd4c1191865470d702a8b456f4f739e7465",
+     "bayt": 1942573,
      "sayfa": 14,
+     "dosya": "ac-008-polinomlarda-bolme-s1-0-8bacd159.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -182,11 +182,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "918d655c5d6c9a48b36bd4631985160714645c64e29752931bcea31fad3fdde1",
-     "sablon": 1,
-     "dosya": "ac-009-polinomlarda-kalan-s1-0.pdf",
-     "sha256": "b8e623b73bf29af8607d62095e071f614b8e5b644dc7cd11b5c834b8ef9dcfec",
-     "bayt": 1754291,
+     "sablon": 2,
+     "sha256": "7e9eaa60cc1d1d95ae0c4a86b7495c19e48203b9e2af0670ea8bb7c89dab0c6e",
+     "bayt": 1891659,
      "sayfa": 14,
+     "dosya": "ac-009-polinomlarda-kalan-s1-0-7e9eaa60.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -203,11 +203,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "106af21990c9c7e52e72078b5b79d73bcf4809a9eb8deace60562ce220729496",
-     "sablon": 1,
-     "dosya": "ac-010-polinomlarda-carpanlara-ayirma-s1-0.pdf",
-     "sha256": "f71ba169f12fb9c5688855949c14779a6f6d7e728a135760898de0199f6a132b",
-     "bayt": 1774422,
+     "sablon": 2,
+     "sha256": "c852a9604092a3d13bf9dd6e89f8277434c384717136c83ed74ec126d541992c",
+     "bayt": 1911767,
      "sayfa": 14,
+     "dosya": "ac-010-polinomlarda-carpanlara-ayirma-s1-0-c852a960.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -224,11 +224,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "754cee02135c9a235438c052a6940f91292dda64479828dda4cc5355d0e322df",
-     "sablon": 1,
-     "dosya": "ac-011-ikinci-dereceden-denklemler-s1-0.pdf",
-     "sha256": "a7054244646eea8c7435e1501ee2a8c882e224a22803e6cd03823e4755152db5",
-     "bayt": 1931786,
+     "sablon": 2,
+     "sha256": "06c025372a4c81442bd068daab8dca15514c0b7e3086b343853430218792e028",
+     "bayt": 2069636,
      "sayfa": 16,
+     "dosya": "ac-011-ikinci-dereceden-denklemler-s1-0-06c02537.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -245,11 +245,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "d9097b65008d1f0f869591a28585d7837b2a29d37d237b00ead8b1c48858d958",
-     "sablon": 1,
-     "dosya": "ac-012-diskriminant-delta-s1-0.pdf",
-     "sha256": "10304bedbc2d03561ff35f76a0e7126f9b953181a26b30e48b3e3412187c98d6",
-     "bayt": 1797396,
+     "sablon": 2,
+     "sha256": "ab5cd0aad96742ce34cfa08b27cf73186480aab2e6906d1ac38029b2f79d6fc7",
+     "bayt": 1934790,
      "sayfa": 15,
+     "dosya": "ac-012-diskriminant-delta-s1-0-ab5cd0aa.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -266,11 +266,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "f8bcd30aabf8f6a5a5f937ccbd5c3c522506ffcf076c576042ef31b3cf361265",
-     "sablon": 1,
-     "dosya": "ac-013-kokler-toplami-carpimi-s1-0.pdf",
-     "sha256": "da138697a1bb7bce3d804be2b832fd4d5a688c93187ff879b8b48e67f4ff17b8",
-     "bayt": 1823256,
+     "sablon": 2,
+     "sha256": "41f2b8c7cf81ff224cb3739d786cfc7fe73695df7672b3e23b3d79179eb8a16d",
+     "bayt": 1960991,
      "sayfa": 15,
+     "dosya": "ac-013-kokler-toplami-carpimi-s1-0-41f2b8c7.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -287,11 +287,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "b092e14592ade608a2a685f88da26f11b7a40495546c658af71dc2ad504dc756",
-     "sablon": 1,
-     "dosya": "ac-014-parabol-konu-anlatimi-s1-0.pdf",
-     "sha256": "1e8121857b3f2e94ee815d6c23e946e27ea48083cdde19d982b2611516e91852",
-     "bayt": 1889962,
+     "sablon": 2,
+     "sha256": "a77aa7082e4a2e7f458ed2b00355175ce7bb92a2938cf08930848e03088d9ff1",
+     "bayt": 2027327,
      "sayfa": 15,
+     "dosya": "ac-014-parabol-konu-anlatimi-s1-0-a77aa708.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -308,11 +308,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "cec57887cfaf82d23bc8af7542ab1be77c4b596ae9180aae4ea806ef081d32b6",
-     "sablon": 1,
-     "dosya": "ac-015-parabol-tepe-noktasi-s1-0.pdf",
-     "sha256": "89f91e9b12346170b32e8aeca1cb1fe8b5a61b5df30e2a20a6c49e616b5b9524",
-     "bayt": 1826772,
+     "sablon": 2,
+     "sha256": "725aa1bd08d8f7f5a9e743c38a8038bd0272172b506867c1e1fdf5b1444eae2d",
+     "bayt": 1964087,
      "sayfa": 15,
+     "dosya": "ac-015-parabol-tepe-noktasi-s1-0-725aa1bd.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -329,11 +329,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "04f45de072a8b936ff0fa5fa67d5a206d88fa0dce24c6cc2ac0e637431a8abd7",
-     "sablon": 1,
-     "dosya": "ac-016-parabol-denklemi-s1-0.pdf",
-     "sha256": "8ee29559a60f2b5a0a33af3e1c03d6d97c6162b36081bd06f398528f0ee00760",
-     "bayt": 1914832,
+     "sablon": 2,
+     "sha256": "8853ca546a95897d8fe5321c80d1b3db1ba291c43676c6b332bfe4a8aa03a4f8",
+     "bayt": 2052400,
      "sayfa": 14,
+     "dosya": "ac-016-parabol-denklemi-s1-0-8853ca54.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -350,11 +350,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "11bb1899541967494f1eceed50c831365531dc13c196f77c07bc775ff79568d8",
-     "sablon": 1,
-     "dosya": "ac-017-parabol-grafigi-s1-0.pdf",
-     "sha256": "e3d06bca5b69b3482f55c9f49f1e6ec8e02c600f1022e42816ee43e59d0b8ae1",
-     "bayt": 2366073,
+     "sablon": 2,
+     "sha256": "a9bde1656f3d7114e181841da65481e70d5fe33ab97004be072854fa5003d2cf",
+     "bayt": 2503359,
      "sayfa": 22,
+     "dosya": "ac-017-parabol-grafigi-s1-0-a9bde165.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -371,11 +371,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "45e601d01317df0315ef72a25d53a46a09ea025fbd7fcaf91c5226aeeb882b08",
-     "sablon": 1,
-     "dosya": "ac-018-parabol-ve-dogru-s1-0.pdf",
-     "sha256": "5a01c6a003aa046b8cd0ea33982a3b8c655416de853748b9af94ae8987571270",
-     "bayt": 1926120,
+     "sablon": 2,
+     "sha256": "bfb8b56af991cfd4125bc5b5cdc972ac16d1f9fedba3bc6b6700698d50a87606",
+     "bayt": 2063538,
      "sayfa": 16,
+     "dosya": "ac-018-parabol-ve-dogru-s1-0-bfb8b56a.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -392,11 +392,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "5f769a552e12e11fb9fee39a77ce6954dc30c975bdde2d8e65b61e1b490269f7",
-     "sablon": 1,
-     "dosya": "ac-019-trigonometri-konu-anlatimi-s1-0.pdf",
-     "sha256": "5206523a180fd29269c45da27709b6c56d0e21a52d6c0891066d1a04be3deeed",
-     "bayt": 1771676,
+     "sablon": 2,
+     "sha256": "32a34200f981885d9ffb21c9656fd2ade8c0b55778bdbdcdfb62036371867baf",
+     "bayt": 1909120,
      "sayfa": 14,
+     "dosya": "ac-019-trigonometri-konu-anlatimi-s1-0-32a34200.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -413,11 +413,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "ae3be947eaab68d04f8bcc20260b0c03dfaa8f36fbecd22c15fa9797c90fad0a",
-     "sablon": 1,
-     "dosya": "ac-020-birim-cember-s1-0.pdf",
-     "sha256": "fd8cf440f0c1920aaad97495d6f37f193bfbde1a9569fc3c4efda1aad1141b06",
-     "bayt": 1766869,
+     "sablon": 2,
+     "sha256": "13a5c868f473153259355053dfa58bafa34d08a285ff201936f5ac1434ef835c",
+     "bayt": 1904189,
      "sayfa": 14,
+     "dosya": "ac-020-birim-cember-s1-0-13a5c868.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -434,11 +434,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "38b55cd08e2500863e9e757fbb2604a76545ea3e5c6e2f78550a2779e1bb39f8",
-     "sablon": 1,
-     "dosya": "ac-021-trigonometrik-oranlar-s1-0.pdf",
-     "sha256": "d90147760d6e6be505a2a45eb6344184cff2aa8d0fd94a040370ada3629296a0",
-     "bayt": 1669887,
+     "sablon": 2,
+     "sha256": "2c80743484dccde3d8dfc650d5d8df7300cf5826562a9787f5bdcc5bd69bd2d7",
+     "bayt": 1807205,
      "sayfa": 14,
+     "dosya": "ac-021-trigonometrik-oranlar-s1-0-2c807434.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -455,11 +455,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "95da29b625c99b38d28839788f15475003c070dd5afa8028b5331661f7647e2e",
-     "sablon": 1,
-     "dosya": "ac-022-trigonometrik-ozdeslikler-formuller-s1-0.pdf",
-     "sha256": "1ac160ccaeba6014358a0411d498c1a6c62929c6cf9a84c70834d95c21121627",
-     "bayt": 1914314,
+     "sablon": 2,
+     "sha256": "85b6032489df697963d6626c81d1dec9f6c1c5e88984194f5e3566d687d90e61",
+     "bayt": 2051655,
      "sayfa": 15,
+     "dosya": "ac-022-trigonometrik-ozdeslikler-formuller-s1-0-85b60324.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -476,11 +476,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "fc66e6e1994359dafcee1519508f646ac99040b4341b1e7684967411907cbc7f",
-     "sablon": 1,
-     "dosya": "ac-023-trigonometrik-fonksiyon-grafikleri-s1-0.pdf",
-     "sha256": "5cfb1adcb91b17fcce4d0860b674a2e9d751bca2fb7cc5fc827739a2ff08034b",
-     "bayt": 1904687,
+     "sablon": 2,
+     "sha256": "cd6ed2076791e4e2508d2b04dab8d5372377ed4ec35c64a6a9ac39add9b9b03a",
+     "bayt": 2042085,
      "sayfa": 16,
+     "dosya": "ac-023-trigonometrik-fonksiyon-grafikleri-s1-0-cd6ed207.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -497,11 +497,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "03b60f2c29fae3d63e57321df876d5b818928e6fa73e76aee5c3b5d9c0ebf66d",
-     "sablon": 1,
-     "dosya": "ac-024-trigonometrik-toplam-fark-s1-0.pdf",
-     "sha256": "5bba66fa66eef12b302845e139b73308089aaa1b351e341ef90aff9ab9fdb2b5",
-     "bayt": 1859400,
+     "sablon": 2,
+     "sha256": "34af105be106fea9cad5c85f640b8c61122830d08b3a61cc91fe1c0748d500e6",
+     "bayt": 1996680,
      "sayfa": 13,
+     "dosya": "ac-024-trigonometrik-toplam-fark-s1-0-34af105b.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -518,11 +518,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "a3a4dfbf089cd77a32b2f4dd9fea6e0a4858c12366762cb6f4aedce00abac200",
-     "sablon": 1,
-     "dosya": "ac-025-iki-kat-yarim-aci-s1-0.pdf",
-     "sha256": "a40bcb49d57d35158dbbc6d74c4dcd6f0ade9ea6a5f3f258df71085230beda98",
-     "bayt": 1873271,
+     "sablon": 2,
+     "sha256": "fea349e0db0b1dd472fbc1c44cbbbb87ff7977b2a99c62507bb49b10abd9e9ba",
+     "bayt": 2010783,
      "sayfa": 14,
+     "dosya": "ac-025-iki-kat-yarim-aci-s1-0-fea349e0.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -539,11 +539,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "33abb4f3dc9953ef8fc5a6128f50c697162fcc3f5595964a940e25ce8bdfb4f8",
-     "sablon": 1,
-     "dosya": "ac-026-trigonometrik-denklemler-s1-0.pdf",
-     "sha256": "572e9ad6d518359029deefaff7cf407f43d714da0cbfcd336d9f6ae1cd8821f5",
-     "bayt": 1797306,
+     "sablon": 2,
+     "sha256": "07e2dca1ed25805c0ecc5d2bd61aabcda244cf37d7dc1da00c232434ebf70d4b",
+     "bayt": 1935000,
      "sayfa": 13,
+     "dosya": "ac-026-trigonometrik-denklemler-s1-0-07e2dca1.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -560,11 +560,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "94d9e420300e929cb759f49db4cfc321083adc76745b39532e3988bb86460d7a",
-     "sablon": 1,
-     "dosya": "ac-027-logaritma-konu-anlatimi-s1-0.pdf",
-     "sha256": "4eaa91e2bb166029a13cb55bb3bcd61ac678022ba4e8b6b56aeb92f8c1352e13",
-     "bayt": 1834524,
+     "sablon": 2,
+     "sha256": "100a1eb2da0af7bb293a19a6cc46a7e9759c6b1ee452ea175a3816ae8457591e",
+     "bayt": 1971850,
      "sayfa": 14,
+     "dosya": "ac-027-logaritma-konu-anlatimi-s1-0-100a1eb2.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -581,11 +581,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "ba8bbc26887c0b832c3018cf961b2100293c3b072de556f24d0cea5c7f82adde",
-     "sablon": 1,
-     "dosya": "ac-028-logaritma-kurallari-formulleri-s1-0.pdf",
-     "sha256": "be44c194726a1b52270d804fae9a19cf57f72e66944face06b52c80cd01b688a",
-     "bayt": 1839880,
+     "sablon": 2,
+     "sha256": "fd4052a5f12f7fb1371de7414f4539db1c479a193079ae28b9691c30210a4dda",
+     "bayt": 1978376,
      "sayfa": 15,
+     "dosya": "ac-028-logaritma-kurallari-formulleri-s1-0-fd4052a5.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -602,11 +602,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "3a1dc0762c591c55aa95fb495d8c7d8aaf5e31424018921480d1f9fe86d2565a",
-     "sablon": 1,
-     "dosya": "ac-029-logaritmik-denklemler-s1-0.pdf",
-     "sha256": "e0cee3c0169845db84fd5186fbb8cdadf5b20bca8d31c07af6ba4f69a209cbda",
-     "bayt": 1841531,
+     "sablon": 2,
+     "sha256": "4ef46133a6e257ec638926de12e49cbd940131dce16cccad1a3f9a42a7e65bb9",
+     "bayt": 1979006,
      "sayfa": 15,
+     "dosya": "ac-029-logaritmik-denklemler-s1-0-4ef46133.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -623,11 +623,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "c3155449619c5c02c3fe665083d5f65e703808423f96c5d8f696de511a69e24a",
-     "sablon": 1,
-     "dosya": "ac-030-diziler-konu-anlatimi-s1-0.pdf",
-     "sha256": "3f652be7180d64049925babdf18de27f31d7423550ddeaf187d275b7ead31e1e",
-     "bayt": 1726572,
+     "sablon": 2,
+     "sha256": "0bcbb21c885a5f96deee62bf4e6f20dcd93d90157a2f36086addcaddf627ec5e",
+     "bayt": 1864101,
      "sayfa": 13,
+     "dosya": "ac-030-diziler-konu-anlatimi-s1-0-0bcbb21c.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -644,11 +644,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "1bf889f49e735969cec916f610d26009ffc2259fb0a41e9c57be511ecc862edc",
-     "sablon": 1,
-     "dosya": "ac-031-aritmetik-dizi-s1-0.pdf",
-     "sha256": "f34a7fbe92d6e6be5ec3792a4e7a6a0946500d0f45b48c0f524cba3ced3c23da",
-     "bayt": 1799850,
+     "sablon": 2,
+     "sha256": "b917a2f296a2c92363df77cf73e2852d8c411738a1fafa654b76cbf8df464f0e",
+     "bayt": 1937152,
      "sayfa": 15,
+     "dosya": "ac-031-aritmetik-dizi-s1-0-b917a2f2.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -665,11 +665,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "4b6b85ba3a4bed6bdd84d32e46a6fae69f1eb0000594f02a63afee65ad33c461",
-     "sablon": 1,
-     "dosya": "ac-032-geometrik-dizi-s1-0.pdf",
-     "sha256": "04b4a021fe50dd688de5779ba9f3ce7be3f62857d29a0016999242577da85120",
-     "bayt": 1685469,
+     "sablon": 2,
+     "sha256": "0efd3141fb07a633ef125270e3165d77b70a3b45daee370132fe8d21b7174a12",
+     "bayt": 1823521,
      "sayfa": 14,
+     "dosya": "ac-032-geometrik-dizi-s1-0-0efd3141.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -686,11 +686,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "3872cebfb9a19f84901f54cef549c6b5365686f5dde8c954e024f917dfc58251",
-     "sablon": 1,
-     "dosya": "ac-033-limit-konu-anlatimi-s1-0.pdf",
-     "sha256": "325a8df93222e91dff53dac02eb2490a3dd57156476d780f48bd6ff6e975aa95",
-     "bayt": 1709766,
+     "sablon": 2,
+     "sha256": "0b4d6a598902e14036dc8160cd1f29e516802825289c62134f9659f8dcf1a2ab",
+     "bayt": 1847171,
      "sayfa": 15,
+     "dosya": "ac-033-limit-konu-anlatimi-s1-0-0b4d6a59.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -707,11 +707,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "1b2a3e869190e0ac2fad6f529f93a0e9ab8b308645808bce1c1837235bc58a3e",
-     "sablon": 1,
-     "dosya": "ac-034-sagdan-soldan-limit-s1-0.pdf",
-     "sha256": "866cc86f441bfc4fbb9eb66b3b652552cbff74739fbab446e3a2575ad6d29dbb",
-     "bayt": 1748043,
+     "sablon": 2,
+     "sha256": "8f10786cbe4ebcc5e53c6e3e71e1314d7aec5e8c8fa0d5275ba87909ba89611e",
+     "bayt": 1885438,
      "sayfa": 15,
+     "dosya": "ac-034-sagdan-soldan-limit-s1-0-8f10786c.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -728,11 +728,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "dd5da042dec1845ce8fecbc3f36f4dfd343ebd9bb782b1d09465aee6b7f40eb8",
-     "sablon": 1,
-     "dosya": "ac-035-limitte-belirsizlikler-s1-0.pdf",
-     "sha256": "98040c04ee465405020752ab8ea1384c2dc266f51c09f5f7e57d9a4739f64fbf",
-     "bayt": 1784249,
+     "sablon": 2,
+     "sha256": "e3240a04749375a1c043a050cefe71a186b63f0a0d860e0a401fe6effce6ce4d",
+     "bayt": 1921622,
      "sayfa": 14,
+     "dosya": "ac-035-limitte-belirsizlikler-s1-0-e3240a04.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -749,11 +749,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "f1446075769f24c54834a54422a87543ddf3cb7f4fe4965fefbbc3b6fece8080",
-     "sablon": 1,
-     "dosya": "ac-036-sureklilik-konu-anlatimi-s1-0.pdf",
-     "sha256": "13968f814656af77b4106a0a9885affdd4c9411614f44abf73285bf694d189b6",
-     "bayt": 1582856,
+     "sablon": 2,
+     "sha256": "f463056f35a93f6042614dfa99b6baa98a0b8591e4ddea1a1d07c21f13d0b056",
+     "bayt": 1720137,
      "sayfa": 14,
+     "dosya": "ac-036-sureklilik-konu-anlatimi-s1-0-f463056f.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -770,11 +770,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "fcffb63b34bd133b59bcc92bb2b8d4d977edd1f799ea2bbf285900221a7732bb",
-     "sablon": 1,
-     "dosya": "ac-037-turev-konu-anlatimi-s1-0.pdf",
-     "sha256": "9e8aaf72ff9e39f1acc6ef8d3cea996e680d41550c1bec4a190c9c1d6ce86e88",
-     "bayt": 1831084,
+     "sablon": 2,
+     "sha256": "1a7fa162ac391f59bd89997693dd0584900763a0ec4fce9c60c0dffad3c9b0da",
+     "bayt": 1968397,
      "sayfa": 15,
+     "dosya": "ac-037-turev-konu-anlatimi-s1-0-1a7fa162.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -791,11 +791,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "b37b2e334fec3ae8b0271a7bc3ff2b7db453f0a89c47fe6c985ea335a8f6792f",
-     "sablon": 1,
-     "dosya": "ac-038-turevin-tanimi-s1-0.pdf",
-     "sha256": "04ed3a04df4338aad6c89eb9624b0a6da888d598a3228f9f826f4472b4ec307a",
-     "bayt": 1754796,
+     "sablon": 2,
+     "sha256": "b6340df438c7e47c5d31765a4ac56d850c1f1317ff0a3c10b751775943e5916e",
+     "bayt": 1892928,
      "sayfa": 14,
+     "dosya": "ac-038-turevin-tanimi-s1-0-b6340df4.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -812,11 +812,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "9303b8630a65044b4ec6f02b254e1b093d6de69dad47e2083db4a983542a5e0b",
-     "sablon": 1,
-     "dosya": "ac-039-turev-alma-kurallari-s1-0.pdf",
-     "sha256": "7aabece159ec256594990c5c1a33593f028c971247fa98a2f5a80f5450898150",
-     "bayt": 1919135,
+     "sablon": 2,
+     "sha256": "c7d2fd8d629ac5057d7cc8f66fbd84c7bb0224eca50bfe0675373205fc24fd76",
+     "bayt": 2056470,
      "sayfa": 15,
+     "dosya": "ac-039-turev-alma-kurallari-s1-0-c7d2fd8d.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -833,11 +833,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "a35e9592aed340e110c73ba2ac72dca2ce03db2cf433479bced92e0bb2e39065",
-     "sablon": 1,
-     "dosya": "ac-040-carpimin-turevi-s1-0.pdf",
-     "sha256": "e975821002ab60cd92b868f41bcb378864b207afc907e8f370f4ba6768d7b728",
-     "bayt": 1699358,
+     "sablon": 2,
+     "sha256": "c5f6f4f998f52340f17bdb3f6492c80578c3f1201f572a48d9ea44bc9bf75f1e",
+     "bayt": 1836657,
      "sayfa": 13,
+     "dosya": "ac-040-carpimin-turevi-s1-0-c5f6f4f9.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -854,11 +854,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "c0a41141b570b981d0f0b1fcf20fb11292e71c66bcbde2b5baa71cdc6ca56f27",
-     "sablon": 1,
-     "dosya": "ac-041-bolumun-turevi-s1-0.pdf",
-     "sha256": "732cda0d2642d01b3ef6a0d8edd3ec6447105906a9296fcd165b51da1671adf5",
-     "bayt": 1764832,
+     "sablon": 2,
+     "sha256": "1c7d7f4defc0f5f11f3418df9c93d8f35228eb0ac1c6ef24c0b7e11b2272cf1e",
+     "bayt": 1902136,
      "sayfa": 14,
+     "dosya": "ac-041-bolumun-turevi-s1-0-1c7d7f4d.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -875,11 +875,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "3a96bc5e7f24236e4ee2aa619660d4436766dc27755b1ace2c8f79e669a67691",
-     "sablon": 1,
-     "dosya": "ac-042-zincir-kurali-s1-0.pdf",
-     "sha256": "189ac3c69f7cbd643a5dcac4f735b482160e42b68bd919df5ba70856e3114a40",
-     "bayt": 1847630,
+     "sablon": 2,
+     "sha256": "cbfccad0a41e0bd0c79f134edc9ce970bb88b9838f7be1e8d91fd348143f8f22",
+     "bayt": 1984955,
      "sayfa": 13,
+     "dosya": "ac-042-zincir-kurali-s1-0-cbfccad0.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -896,11 +896,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "3b17c452c074be93a3f15fda3c294c4bdf633d50439f8eaeb68ec98247a47eb4",
-     "sablon": 1,
-     "dosya": "ac-043-teget-denklemi-s1-0.pdf",
-     "sha256": "bbbd302263563036d28846d743f38fa971fa5bb2bdb57131512aa431d85f1f40",
-     "bayt": 1792193,
+     "sablon": 2,
+     "sha256": "0c271c9bd724f5429a83aa5c520f29b3897eaa0be11d030d807b9d05741cbe37",
+     "bayt": 1929495,
      "sayfa": 14,
+     "dosya": "ac-043-teget-denklemi-s1-0-0c271c9b.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -917,11 +917,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "b05f85343a8e1346518c0b6d6c422bfaa723d1ee163dd45144aea76971c13228",
-     "sablon": 1,
-     "dosya": "ac-044-artan-azalan-fonksiyonlar-s1-0.pdf",
-     "sha256": "36d1b55521ce57d4fac14ab4600ef4cbac38dfc3ada8b683a295a7b17a6953ab",
-     "bayt": 1633804,
+     "sablon": 2,
+     "sha256": "0b1f8a2cf2594215d6db74288a95dff53d68ea8859743a237849e4dfc95a9aec",
+     "bayt": 1771574,
      "sayfa": 14,
+     "dosya": "ac-044-artan-azalan-fonksiyonlar-s1-0-0b1f8a2c.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -938,11 +938,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "64a229e8d0663fdfce99ec5028335c308f740beacf85c162fb34f6989707be30",
-     "sablon": 1,
-     "dosya": "ac-045-maksimum-minimum-s1-0.pdf",
-     "sha256": "4bd89fe3f8b07ab48d42b25271470a9d8df20fe4d41a2521acf7b5028f313a69",
-     "bayt": 1631311,
+     "sablon": 2,
+     "sha256": "4c27ae6c4f321c764d9274fbae28a3aa311eff83697865cb0f037252f0000c87",
+     "bayt": 1769056,
      "sayfa": 14,
+     "dosya": "ac-045-maksimum-minimum-s1-0-4c27ae6c.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -959,11 +959,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "9745f8ad967b5785a2a9c2a8389743259b5111063db67ed3b1ff2041857b6eb3",
-     "sablon": 1,
-     "dosya": "ac-046-integral-konu-anlatimi-s1-0.pdf",
-     "sha256": "033ce65e4232db7a5b1ec30ee5cb31358ddeaeb85b7acc2422fedc00ad2e372e",
-     "bayt": 1783585,
+     "sablon": 2,
+     "sha256": "9b35569642dcad34ff279c070201a82aa4a13cbfb76d49d2797755673ce501c8",
+     "bayt": 1920878,
      "sayfa": 15,
+     "dosya": "ac-046-integral-konu-anlatimi-s1-0-9b355696.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -980,11 +980,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "1aad47b80fb42165646bc08a7cf4dcf89835f6f033a01a03e45fc1c4cd77e21d",
-     "sablon": 1,
-     "dosya": "ac-047-belirsiz-integral-s1-0.pdf",
-     "sha256": "4633dc4aef191077413f9575a29d18827a2e3214b7975abe58dc379a643be57d",
-     "bayt": 1822960,
+     "sablon": 2,
+     "sha256": "f00376abac68bc9b3409de94445f1d8a5b05c8c9b77f58d128afdb3d4ca2fcb7",
+     "bayt": 1960260,
      "sayfa": 14,
+     "dosya": "ac-047-belirsiz-integral-s1-0-f00376ab.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1001,11 +1001,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "d88b73dc954748bc51b0b6a6e860b3aaad52d477bf5e54a142e5417a080df992",
-     "sablon": 1,
-     "dosya": "ac-048-belirli-integral-s1-0.pdf",
-     "sha256": "a5c5c2c408a14f4ed5245c0d9ecbed10855d11eb12d9dedb7daad7d4f74e9c9f",
-     "bayt": 1779442,
+     "sablon": 2,
+     "sha256": "cdaba57b498d8d01a8d1f2758a1afa6b4a6e63d7e9bfa6b006f09ba1f60e2d73",
+     "bayt": 1916774,
      "sayfa": 15,
+     "dosya": "ac-048-belirli-integral-s1-0-cdaba57b.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1022,11 +1022,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "6ccb3ac5ca93e196850d36ecac2b9ee8a782b9e1ed19cbaeb3d01da62bccd1bf",
-     "sablon": 1,
-     "dosya": "ac-049-degisken-degistirme-s1-0.pdf",
-     "sha256": "709e48c7e97b113668837936fe693281bc55714a870111db7d74e46f5bab9420",
-     "bayt": 1851600,
+     "sablon": 2,
+     "sha256": "62f1bbe55d4ead72cc83f4383a9ece12bb228affb6cd4135b513b6b25fe9ffcf",
+     "bayt": 1989168,
      "sayfa": 14,
+     "dosya": "ac-049-degisken-degistirme-s1-0-62f1bbe5.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1043,11 +1043,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "732ae65d5ac7e5c4db2eaeffd460e73ef248c420e8a2289cff792bd33d6c4e3c",
-     "sablon": 1,
-     "dosya": "ac-050-integral-alan-hesaplama-s1-0.pdf",
-     "sha256": "0c6b2dd9390a1ace4f68442c94dd45e4df5750a53f6341986a7e3872339cac74",
-     "bayt": 1689196,
+     "sablon": 2,
+     "sha256": "7c38287eb68bacc9d822c3dddbbd4144bb09b6e02aecc67734e2d1802b992fad",
+     "bayt": 1826576,
      "sayfa": 14,
+     "dosya": "ac-050-integral-alan-hesaplama-s1-0-7c38287e.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1064,11 +1064,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "afffa4f05bc0410e7f90aebf73d83bdb8af9acec39ee677b50ef29f7dafeb9c1",
-     "sablon": 1,
-     "dosya": "ac-051-temel-kavramlar-konu-anlatimi-s1-0.pdf",
-     "sha256": "b59dd27be13c967c8193693ef5cfaa9de3b8e8f905b828704df53fe18f642963",
-     "bayt": 1643540,
+     "sablon": 2,
+     "sha256": "8a4073ad90b4dc78ce1f40ee7a6d493d795c8379373df75da45877dc693efcaa",
+     "bayt": 1776868,
      "sayfa": 12,
+     "dosya": "ac-051-temel-kavramlar-konu-anlatimi-s1-0-8a4073ad.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1085,11 +1085,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "a53e5e88772b0b161ab89af6a3cdf2213e5d279adc444ebf5b101cf81835b618",
-     "sablon": 1,
-     "dosya": "ac-052-sayilar-ve-sayi-kumeleri-konu-anlatimi-s1-0.pdf",
-     "sha256": "850fb2e2f539070a55cbbb1e4c00aa03d15499a92aa095455b014f0c2eec4fe1",
-     "bayt": 1610369,
+     "sablon": 2,
+     "sha256": "63e4b2b80358e2318e71af7ab60c2c1f8902a4dafb071e5bd12841a407e27147",
+     "bayt": 1747697,
      "sayfa": 12,
+     "dosya": "ac-052-sayilar-ve-sayi-kumeleri-konu-anlatimi-s1-0-63e4b2b8.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1106,11 +1106,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "ca0d2d57f846c109772fa37bfe840afda2e1b1e1ecd258f1e3ca85bfd2e28445",
-     "sablon": 1,
-     "dosya": "ac-053-dogal-sayilar-ve-tam-sayilar-s1-0.pdf",
-     "sha256": "a885343252fa4ed78fd78e49f7e80912b3043d87a4061a5a1e306ccee0fffdf9",
-     "bayt": 1681556,
+     "sablon": 2,
+     "sha256": "2cc71658b3ed774dcfd0779831ff0040e76709c4be2f0aeaf927730a88739dfe",
+     "bayt": 1819026,
      "sayfa": 13,
+     "dosya": "ac-053-dogal-sayilar-ve-tam-sayilar-s1-0-2cc71658.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1127,11 +1127,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "de69a4cdae2238f9f667704e41abdc4e8a9758031ed4cb7d2878a647c1e5ec2e",
-     "sablon": 1,
-     "dosya": "ac-054-rasyonel-sayilar-konu-anlatimi-s1-0.pdf",
-     "sha256": "ccb7a59433e284f968d58f8d17003f1047848e9faaf3d8f32c36c30a672265ee",
-     "bayt": 1657667,
+     "sablon": 2,
+     "sha256": "58067f706fbc30c6e140d5025cabb5d5a5521ce8e8ee7c5df5ea575ee8e94e69",
+     "bayt": 1794919,
      "sayfa": 13,
+     "dosya": "ac-054-rasyonel-sayilar-konu-anlatimi-s1-0-58067f70.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1148,11 +1148,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "c8ed41ea481c46b99489615572c1fbe5bc9d2703e25bf3f45baf938783ca5d9b",
-     "sablon": 1,
-     "dosya": "ac-055-irrasyonel-sayilar-ve-gercek-sayilar-s1-0.pdf",
-     "sha256": "f763d6a16acf15757ab401b1a4c579c13087bc890ded52c7c84575d633fe31a9",
-     "bayt": 1613897,
+     "sablon": 2,
+     "sha256": "c7826f2d6cf52a1556f9e37dafa9bc950a5ad1f809ed06bb2b2af2d4a7988f00",
+     "bayt": 1751161,
      "sayfa": 13,
+     "dosya": "ac-055-irrasyonel-sayilar-ve-gercek-sayilar-s1-0-c7826f2d.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1169,11 +1169,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "31f44b2e36e5e026e3f296868eee8f3f9e516e2fedc7423374febd97c05c39d1",
-     "sablon": 1,
-     "dosya": "ac-056-tek-ve-cift-sayilar-s1-0.pdf",
-     "sha256": "24d79742e2612f49fb6becc319e47cd6530a5375fa52f948878e8a6636e53a11",
-     "bayt": 1534904,
+     "sablon": 2,
+     "sha256": "b7ae79d039546174f992ef9ee72216134abc372c632b8af390bc9e7ddfb4804a",
+     "bayt": 1666381,
      "sayfa": 12,
+     "dosya": "ac-056-tek-ve-cift-sayilar-s1-0-b7ae79d0.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1190,11 +1190,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "0830f74413114687fdefb60c0ca72338777fe6ab46072834840979230eaaf3a5",
-     "sablon": 1,
-     "dosya": "ac-057-pozitif-ve-negatif-sayilar-s1-0.pdf",
-     "sha256": "69b9452c58c589d9607122c6a7ca0774e259e00a1f66b5021a3374ff14982e7c",
-     "bayt": 1658431,
+     "sablon": 2,
+     "sha256": "4abe35119dc853dd97f3a52819373074cb3ddd74afe2dd2b574d57c8798f2e1f",
+     "bayt": 1789695,
      "sayfa": 13,
+     "dosya": "ac-057-pozitif-ve-negatif-sayilar-s1-0-4abe3511.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1211,11 +1211,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "5eddc18305e88bb4ac7541753c534417e4f4f0ad933682239b5d5491623a25a5",
-     "sablon": 1,
-     "dosya": "ac-058-ardisik-sayilar-s1-0.pdf",
-     "sha256": "06f14c84b3cc7393b85582580da828f5589050f49e884f71d381238fbda5ae0b",
-     "bayt": 1666085,
+     "sablon": 2,
+     "sha256": "3dd8e50f4a067f6be4ad0814c71f9f7070a2a354da0a0af12f80a0f0aae7a1a2",
+     "bayt": 1798691,
      "sayfa": 13,
+     "dosya": "ac-058-ardisik-sayilar-s1-0-3dd8e50f.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1232,11 +1232,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "3e44234640221273a5b6bd9f6fc2efd39e7c40fc5a0716d4b5de18925114fa3b",
-     "sablon": 1,
-     "dosya": "ac-059-sayi-dogrusu-ve-sayilari-siralama-s1-0.pdf",
-     "sha256": "09116ffabdabc5bb440529026632ec08fd918dbaef508ee5772c319d6c098399",
-     "bayt": 1640018,
+     "sablon": 2,
+     "sha256": "f1bef5df7271bd0ebc77cbfd1f1c1ea2b7bf54291023fb4a260ab68ce1928a1d",
+     "bayt": 1772640,
      "sayfa": 13,
+     "dosya": "ac-059-sayi-dogrusu-ve-sayilari-siralama-s1-0-f1bef5df.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1253,11 +1253,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "af1bad605502b9b75042a1b643d1f68a2e903fe3ab5e126ce698aaf213b8a6ad",
-     "sablon": 1,
-     "dosya": "ac-060-mutlak-deger-konu-anlatimi-s1-0.pdf",
-     "sha256": "2156050b37b6a800be620b2a8d8472111033446a333991ecf48d449f84457889",
-     "bayt": 1780409,
+     "sablon": 2,
+     "sha256": "2631eff632c4023dc661bc859b39739f7e1f146f0750c2fa4181021edee0c7dd",
+     "bayt": 1911748,
      "sayfa": 13,
+     "dosya": "ac-060-mutlak-deger-konu-anlatimi-s1-0-2631eff6.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1274,11 +1274,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "b1e0c5363278db052502f0ada00c2b9ba5fbb7d6b457456a493539f63b25c9ea",
-     "sablon": 1,
-     "dosya": "ac-061-uslu-sayilar-konu-anlatimi-s1-0.pdf",
-     "sha256": "836f5c6a62ea3e73e923597d0006e080bfb3601a26b09da0914d86f73eb4dc33",
-     "bayt": 1751584,
+     "sablon": 2,
+     "sha256": "86d5e70f364e8dbe7990759fb3b4be2e91c7ab75aa533d8df532bf799ca65a40",
+     "bayt": 1883741,
      "sayfa": 14,
+     "dosya": "ac-061-uslu-sayilar-konu-anlatimi-s1-0-86d5e70f.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1295,11 +1295,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "0f4adc4746795056cd36390341477e0ca179db490dc8bb1af087fbe1a1170e8a",
-     "sablon": 1,
-     "dosya": "ac-062-koklu-sayilar-konu-anlatimi-s1-0.pdf",
-     "sha256": "7a000d9a583dc901a385958189548ad8ba95ff21adfc3dc1cea87e1cdc90c3b1",
-     "bayt": 1720949,
+     "sablon": 2,
+     "sha256": "358a72542e104bff728ffe9d0ec18b7da1c32620a8f9880bf9b91e2866cc8eab",
+     "bayt": 1850907,
      "sayfa": 14,
+     "dosya": "ac-062-koklu-sayilar-konu-anlatimi-s1-0-358a7254.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1316,11 +1316,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "f675419a2e24743ad70f49eda311e637181f98421dfdd36f99f1e105c93fdc07",
-     "sablon": 1,
-     "dosya": "ac-063-islem-onceligi-nasil-yapilir-s1-0.pdf",
-     "sha256": "9fd1a099dcd81c20f25dd4556cf12ec33f453c393c411fe407cb1f764d010765",
-     "bayt": 1717842,
+     "sablon": 2,
+     "sha256": "1939e2550c945cd7b0190b5a9e7e8b3543d3192e9066f6d7fea7222e763e5b92",
+     "bayt": 1852187,
      "sayfa": 15,
+     "dosya": "ac-063-islem-onceligi-nasil-yapilir-s1-0-1939e255.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1337,11 +1337,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "db27c821c013efc73b1b50215619cad57d1fd08aca2d4c65c3004d7c42a7fcd9",
-     "sablon": 1,
-     "dosya": "ac-064-bolunebilme-kurallari-konu-anlatimi-s1-0.pdf",
-     "sha256": "08e93493c37de6163e590ccaae1d23f9a7cea39d81b472a93ddd26a5907a6e0a",
-     "bayt": 1591618,
+     "sablon": 2,
+     "sha256": "68079805f81a9a06fe325bd9fdf511f404f25324478aa0bff2424048db41972c",
+     "bayt": 1724961,
      "sayfa": 13,
+     "dosya": "ac-064-bolunebilme-kurallari-konu-anlatimi-s1-0-68079805.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1358,11 +1358,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "84c1bb3ad06fd8572f6d2dc8f197878e4ef355e096951fa6537c1bd08d6415a3",
-     "sablon": 1,
-     "dosya": "ac-065-asal-sayilar-ve-asal-carpanlara-ayirma-s1-0.pdf",
-     "sha256": "b59474f1b03f0407729c773456a89187e92de2b390a1b05de0e1abe7d7029f81",
-     "bayt": 1524192,
+     "sablon": 2,
+     "sha256": "06597855b276b61d713894b5bab25bf178810a4df797b597620140999308f366",
+     "bayt": 1653762,
      "sayfa": 12,
+     "dosya": "ac-065-asal-sayilar-ve-asal-carpanlara-ayirma-s1-0-06597855.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1379,11 +1379,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "c8c8809169e8e5527e81aaa84c6672846c1ba93ae16cbb458184399502d8420a",
-     "sablon": 1,
-     "dosya": "ac-066-ebob-ve-ekok-konu-anlatimi-s1-0.pdf",
-     "sha256": "2c7201c66392c7af703a2836c6cc7822cf3f7db17dcf23b0420dcd665c053d75",
-     "bayt": 1528290,
+     "sablon": 2,
+     "sha256": "f2d42ff21430ba126d9598ef0b9646927366b2435c1401d975cd2687519058c8",
+     "bayt": 1659570,
      "sayfa": 12,
+     "dosya": "ac-066-ebob-ve-ekok-konu-anlatimi-s1-0-f2d42ff2.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1400,11 +1400,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "ae5dfff0d726e47269f14c994e58327bd3f2353204ee2abda3aedd094947ecd0",
-     "sablon": 1,
-     "dosya": "ac-067-kesirler-konu-anlatimi-s1-0.pdf",
-     "sha256": "05599d4493a9666961e482841456a917ed19bec586da914b77fe4b439ee1d9c7",
-     "bayt": 1514733,
+     "sablon": 2,
+     "sha256": "0ba7fe954f0b0a78484c34941f311bb378961574eb1dc10529988e93424c70be",
+     "bayt": 1645380,
      "sayfa": 12,
+     "dosya": "ac-067-kesirler-konu-anlatimi-s1-0-0ba7fe95.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1421,11 +1421,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "aa5b1009b73120f66ef8cbddb2ae704da8a037a61adb2f5a80c3b13afae0b641",
-     "sablon": 1,
-     "dosya": "ac-068-kesirlerde-siralama-ve-karsilastirma-s1-0.pdf",
-     "sha256": "3283951da58dda0fb9d7c5107b716e7d0e28a21ed4c51ade6bb1cb0b91f0e779",
-     "bayt": 1623224,
+     "sablon": 2,
+     "sha256": "377784581fcca6512107d2127e406216a73e7ef2b6c4b56eb42fdbfb6970cf67",
+     "bayt": 1753614,
      "sayfa": 13,
+     "dosya": "ac-068-kesirlerde-siralama-ve-karsilastirma-s1-0-37778458.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1442,11 +1442,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "540595edb31567c55c3793d958a2193f4600f2ac1704bcefae56290ebda05c58",
-     "sablon": 1,
-     "dosya": "ac-069-kesirlerde-toplama-ve-cikarma-s1-0.pdf",
-     "sha256": "54f0ab05cb66328fe35a92d2be7b7e42e7352d3ee94deef737e10f91cd7b66b3",
-     "bayt": 1672826,
+     "sablon": 2,
+     "sha256": "f6e6cd83ddba062bce162ff4c1fca5ccb0b3bd44f79e7eeb949284d1fb8b714e",
+     "bayt": 1806518,
      "sayfa": 14,
+     "dosya": "ac-069-kesirlerde-toplama-ve-cikarma-s1-0-f6e6cd83.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1463,11 +1463,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "aeae0d08b1751086616508745464b14a0a9622d7d331f476637233c990dfcb36",
-     "sablon": 1,
-     "dosya": "ac-070-kesirlerde-carpma-ve-bolme-s1-0.pdf",
-     "sha256": "02c03b5efeb55c9c15dfff0e4630e43c00b1edf3dc5a9a2fc7b7b0a2f10bd5bc",
-     "bayt": 1642860,
+     "sablon": 2,
+     "sha256": "4d3899f3cbebe837a16b3e5bcc8831f84fbef9faf800093865275cfe3d334958",
+     "bayt": 1776155,
      "sayfa": 13,
+     "dosya": "ac-070-kesirlerde-carpma-ve-bolme-s1-0-4d3899f3.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1484,11 +1484,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "91cdf8cebac2bb454d77668e3f756cb89364684acd5d68d68173274891d9f7ec",
-     "sablon": 1,
-     "dosya": "ac-071-ondalik-gosterim-konu-anlatimi-s1-0.pdf",
-     "sha256": "7606a8491aaaa057e83d814ebd77f9d58090fd1dfdf76b8a35b005feb3415712",
-     "bayt": 1521086,
+     "sablon": 2,
+     "sha256": "cfafa5e9491bda5def53edd685b6756e29d3a91c175bcb63b8c8a923832fa3d9",
+     "bayt": 1653401,
      "sayfa": 14,
+     "dosya": "ac-071-ondalik-gosterim-konu-anlatimi-s1-0-cfafa5e9.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1505,11 +1505,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "a52c1daa74b941c4626268c804c6ad7ced2590067f851ba539f5fc5ce441c646",
-     "sablon": 1,
-     "dosya": "ac-072-devirli-ondalik-sayilar-nasil-kesre-cevrilir-s1-0.pdf",
-     "sha256": "1f32a6653c5165d9107609f49e0a8a9f9241f00e9509aa59c9b749334dd40653",
-     "bayt": 1639192,
+     "sablon": 2,
+     "sha256": "1ea9974cd44d5989ec77dbf915625ebc2b7763e194a8ccd18ae28e67188e7bc8",
+     "bayt": 1772716,
      "sayfa": 13,
+     "dosya": "ac-072-devirli-ondalik-sayilar-nasil-kesre-cevrilir-s1-0-1ea9974c.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1526,11 +1526,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "e018e9d44169038f23f13bc994256710a08957ecc224fe733cf79f80dda6b914",
-     "sablon": 1,
-     "dosya": "ac-073-yuzdeler-konu-anlatimi-s1-0.pdf",
-     "sha256": "64970b97c94cc4d688df0b52eaf297a3686b7a04d118e43c7e906bcde3e28d0d",
-     "bayt": 1558623,
+     "sablon": 2,
+     "sha256": "60719f6740d03552e08e9833ccba0a280c6b78669501334c529a7021b28f0182",
+     "bayt": 1691790,
      "sayfa": 13,
+     "dosya": "ac-073-yuzdeler-konu-anlatimi-s1-0-60719f67.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1547,11 +1547,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "bcb1961892d9b8a0b1daf334cf544f9a46c5a4d2eef406e7045564fa8af5329e",
-     "sablon": 1,
-     "dosya": "ac-074-oran-ve-oranti-konu-anlatimi-s1-0.pdf",
-     "sha256": "cfa8f5e90d103773b8025b38bee880dbfecbda0ca7886d6200b8e2bfc70a155d",
-     "bayt": 1618626,
+     "sablon": 2,
+     "sha256": "f6b634ab7647d53166fd11d9bca3ee74a111bd17898592df5a0671cec450bd13",
+     "bayt": 1749986,
      "sayfa": 14,
+     "dosya": "ac-074-oran-ve-oranti-konu-anlatimi-s1-0-f6b634ab.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1568,11 +1568,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "1dc41fc6117138c2ad65c628d0c5aad05fa3c2f7d1a1485d9e49f56550115a1e",
-     "sablon": 1,
-     "dosya": "ac-075-dogru-oranti-ve-ters-oranti-s1-0.pdf",
-     "sha256": "9f6e7f92965ae3952dcfcd969adb7cd570b5e9104b5b9b97f5966b9b01135807",
-     "bayt": 1490801,
+     "sablon": 2,
+     "sha256": "e6c29c5cf61aeaabbeffeaf2333bee9b086ceb1990f6f4f3c4c7052f4903d8a7",
+     "bayt": 1628227,
      "sayfa": 12,
+     "dosya": "ac-075-dogru-oranti-ve-ters-oranti-s1-0-e6c29c5c.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1589,11 +1589,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "a6fd52e9c719bac123632acdc32ef4395079de81d511d1c31394646c68fbf3b8",
-     "sablon": 1,
-     "dosya": "ac-076-cebirsel-ifadeler-konu-anlatimi-s1-0.pdf",
-     "sha256": "fbb3cca79f18d991e46f2b6bbbd998b7661b1cd4fac6a14edf033ecebef97ae4",
-     "bayt": 1763850,
+     "sablon": 2,
+     "sha256": "0d644007d73190bb22c6a7bd39671ea6d4c2f8e3f3ede15c9af076adbe694589",
+     "bayt": 1893519,
      "sayfa": 14,
+     "dosya": "ac-076-cebirsel-ifadeler-konu-anlatimi-s1-0-0d644007.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1610,11 +1610,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "8430da42396cfb82692304249b49b171afcce6cb0eabf4b7fabf579938f68733",
-     "sablon": 1,
-     "dosya": "ac-077-birinci-dereceden-denklemler-konu-anlatimi-s1-0.pdf",
-     "sha256": "0dfb134fe1ff7563c92a41a7cf86f872d1f33b14997faeaad8a286b29e777bd0",
-     "bayt": 1673245,
+     "sablon": 2,
+     "sha256": "402547e2a25a0b31991223c0aaae090b4de7d4f1691093b9a493fc15a65f2619",
+     "bayt": 1803302,
      "sayfa": 14,
+     "dosya": "ac-077-birinci-dereceden-denklemler-konu-anlatimi-s1-0-402547e2.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1631,11 +1631,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "9ddf245c8f9d1fd800f0922b8426ab62497d9f7e3e2ea9f2fe4f05e7a539ecfa",
-     "sablon": 1,
-     "dosya": "ac-078-esitsizlikler-konu-anlatimi-s1-0.pdf",
-     "sha256": "8e886edd9cbed3334f733ca32f471db4f38db2ff872cf3a635f4fa56737f27a7",
-     "bayt": 1538041,
+     "sablon": 2,
+     "sha256": "c91f5352ed9a120ab6e63d4b1040dbfea2108107e80823b5f4d049683adb2cc0",
+     "bayt": 1669012,
      "sayfa": 12,
+     "dosya": "ac-078-esitsizlikler-konu-anlatimi-s1-0-c91f5352.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1652,11 +1652,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "2a9abafb290a77f2e29e108bc6b0ac74055ec13400b20a1a6a46376b6e18204c",
-     "sablon": 1,
-     "dosya": "ac-079-denklem-kurma-problemleri-nasil-cozulur-s1-0.pdf",
-     "sha256": "e1da9f247d4a7a5a742d754bea374705db56d4d81898ec94a8be6f4db576fe9a",
-     "bayt": 1588213,
+     "sablon": 2,
+     "sha256": "4cc2b0d3de0a6f9481d1955ae93c470403ad31d9df28cf99ac716efc068acebf",
+     "bayt": 1725547,
      "sayfa": 13,
+     "dosya": "ac-079-denklem-kurma-problemleri-nasil-cozulur-s1-0-4cc2b0d3.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1673,11 +1673,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "80e3c64719b539883f459c1785dcedf80e2d3b28680af05c1e063cffeb3cad86",
-     "sablon": 1,
-     "dosya": "ac-080-sayi-problemleri-konu-anlatimi-s1-0.pdf",
-     "sha256": "37cf1ddf9ce5f301ba3c51fff06e2535ff165a979649d773d78f91867a795096",
-     "bayt": 1570335,
+     "sablon": 2,
+     "sha256": "b87ea44b12282cc5f151d5b0b67759666318792f761bc64fae316fe85ef8f98d",
+     "bayt": 1707676,
      "sayfa": 13,
+     "dosya": "ac-080-sayi-problemleri-konu-anlatimi-s1-0-b87ea44b.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1694,11 +1694,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "f64c9630d28435a72abaa966f95a5fd635b69d245ee013d298d6ba6f830ce44e",
-     "sablon": 1,
-     "dosya": "ac-081-kesir-problemleri-nasil-cozulur-s1-0.pdf",
-     "sha256": "373a3e2021aa108df97d98f50030f031f3fae3b22accd6ecf632209c31d46cef",
-     "bayt": 1435157,
+     "sablon": 2,
+     "sha256": "632423f8e043f019e33cb31fc3a7f299fedc8b8956227f67c9f5b320fdbaebba",
+     "bayt": 1567986,
      "sayfa": 12,
+     "dosya": "ac-081-kesir-problemleri-nasil-cozulur-s1-0-632423f8.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1715,11 +1715,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "112aa31003ce706ae7206b87896c4fedceb9c80819dd4b189dadf8d5f34d8d44",
-     "sablon": 1,
-     "dosya": "ac-082-yas-problemleri-konu-anlatimi-s1-0.pdf",
-     "sha256": "34a702385b07f3cd98d87e221fdefc2adb35a911ed52e20380936c4227921d50",
-     "bayt": 1474998,
+     "sablon": 2,
+     "sha256": "d335b47e287f6a721685cf48fe460628855aa5e31bfe9d75cdfe6a5502458fdb",
+     "bayt": 1608468,
      "sayfa": 12,
+     "dosya": "ac-082-yas-problemleri-konu-anlatimi-s1-0-d335b47e.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1736,11 +1736,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "20f196103f5eb5a3f63405f3cb4d14fc6cea7a632de0b5124d6ee3d567dcb00d",
-     "sablon": 1,
-     "dosya": "ac-083-yuzde-problemleri-nasil-cozulur-s1-0.pdf",
-     "sha256": "18f161b738d8cfc3d71517431b33a4bdf9155205c643899e288bf33cb94344c1",
-     "bayt": 1518239,
+     "sablon": 2,
+     "sha256": "847793348bfefb82815f51fce7e398d47be9c6bdf4398d93ca6899ad58501d13",
+     "bayt": 1655709,
      "sayfa": 13,
+     "dosya": "ac-083-yuzde-problemleri-nasil-cozulur-s1-0-84779334.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1757,11 +1757,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "eced0554ec19409ffa61420f41fb13f642622231ebf7dc36ba777b42fde86125",
-     "sablon": 1,
-     "dosya": "ac-084-kar-ve-zarar-problemleri-konu-anlatimi-s1-0.pdf",
-     "sha256": "08a09e7bf2a41c305adac52f6cde128d8cdfd7af3cb9941189dda21a5c979d0a",
-     "bayt": 1432709,
+     "sablon": 2,
+     "sha256": "cb6ce571ef8189874788e113c1a53e5b82468c385d2e381d89d4e3c8c1d922c4",
+     "bayt": 1570119,
      "sayfa": 12,
+     "dosya": "ac-084-kar-ve-zarar-problemleri-konu-anlatimi-s1-0-cb6ce571.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1778,11 +1778,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "2e2dad48d49125f6df2906df0c8b133d8b689a96a515daa175dbb864f83a2f43",
-     "sablon": 1,
-     "dosya": "ac-085-faiz-problemleri-nasil-cozulur-s1-0.pdf",
-     "sha256": "46739ffea3a66c10346977848978051e18cede1e4b018e83140c5caf976f07bb",
-     "bayt": 1417732,
+     "sablon": 2,
+     "sha256": "fc3b8e07f6c9346a5175d09e18c9faf2a43a09f5afe0a4fd818bff7e40170f9d",
+     "bayt": 1555084,
      "sayfa": 12,
+     "dosya": "ac-085-faiz-problemleri-nasil-cozulur-s1-0-fc3b8e07.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1799,11 +1799,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "834d21511bffb1c0e2a2e8f19fa7bbf03a6d3ed45bedfa354a7f157d21631752",
-     "sablon": 1,
-     "dosya": "ac-086-oran-ve-oranti-problemleri-s1-0.pdf",
-     "sha256": "dde49045826f169db314a4e546bb5e39487a23eb9a2c53d7662fff1db43e9039",
-     "bayt": 1422312,
+     "sablon": 2,
+     "sha256": "e86aa7bf70b252a29b1241854afe281ff1c2e326460591bd7190f78caaeee8a9",
+     "bayt": 1559590,
      "sayfa": 12,
+     "dosya": "ac-086-oran-ve-oranti-problemleri-s1-0-e86aa7bf.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1820,11 +1820,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "168aab8e658ea15f573cec50e2cc01a85d27b455b827f0432567aac258114724",
-     "sablon": 1,
-     "dosya": "ac-087-isci-ve-havuz-problemleri-konu-anlatimi-s1-0.pdf",
-     "sha256": "32764eb3f9cf330a12cf30b0cc94ab3fdf027dc936dc416aa911dff9b7aeaa19",
-     "bayt": 1540838,
+     "sablon": 2,
+     "sha256": "0b924bc40da9c2045832c1bf65d35454e143fcd106193cea334925a7b75bd402",
+     "bayt": 1673937,
      "sayfa": 12,
+     "dosya": "ac-087-isci-ve-havuz-problemleri-konu-anlatimi-s1-0-0b924bc4.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1841,11 +1841,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "b6e677e0ae0ce1d2c81e232db9dfbc82fcc45df021f6a9062f363ea79edbff41",
-     "sablon": 1,
-     "dosya": "ac-088-hareket-problemleri-konu-anlatimi-s1-0.pdf",
-     "sha256": "5f666f27628713cdbac268a9765027d2e0ce6be2f2f33891a44b2cdfe28e5c68",
-     "bayt": 1433700,
+     "sablon": 2,
+     "sha256": "1b60166e2dde846510a055ed64b629a7435aefd813ba009966888cdf4f65896c",
+     "bayt": 1571048,
      "sayfa": 13,
+     "dosya": "ac-088-hareket-problemleri-konu-anlatimi-s1-0-1b60166e.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1862,11 +1862,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "9595dd6c3073c2e3d75534d562bd7f9531a70d80973b585e84b84023b63b7413",
-     "sablon": 1,
-     "dosya": "ac-089-karisim-problemleri-konu-anlatimi-s1-0.pdf",
-     "sha256": "2049eb3d7dbf86cade41ae7c8cc4adf7cffa70cd2e0b63dfd53c0be38a6ec3b8",
-     "bayt": 1462670,
+     "sablon": 2,
+     "sha256": "e899845effc59d71bb364ff2dfbbc3c1e2265e3e0bf1e591fd19142bdcb543cb",
+     "bayt": 1600293,
      "sayfa": 12,
+     "dosya": "ac-089-karisim-problemleri-konu-anlatimi-s1-0-e899845e.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1883,11 +1883,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "e939a0365321e5c08ae241255a728bc2bcaa0e66fd10c764d270d3ce50ad6839",
-     "sablon": 1,
-     "dosya": "ac-090-sayi-basamaklari-konu-anlatimi-s1-0.pdf",
-     "sha256": "29dd9bbe601b441c69f3f08215aa81fcf69e2c819c9b1eef941f2e5b7700af84",
-     "bayt": 1518121,
+     "sablon": 2,
+     "sha256": "e88d76f5350311f5aaf5882452b718c1fd4c39afca80491112cf693dbbe851d0",
+     "bayt": 1650950,
      "sayfa": 12,
+     "dosya": "ac-090-sayi-basamaklari-konu-anlatimi-s1-0-e88d76f5.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1904,11 +1904,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "62fc81c6406de24e324fb6d9ae3d3054df435c8a525460ff18dc8f6cdac7aeec",
-     "sablon": 1,
-     "dosya": "ac-091-basamak-degeri-ve-cozumleme-s1-0.pdf",
-     "sha256": "886a0f133e35d2908e4d7ff8763d5e9456c0c3e2d92e7db5385d8df1855701f4",
-     "bayt": 1599680,
+     "sablon": 2,
+     "sha256": "4fe20d9fb469ea815dfe9467ecda90648714a432b8e11e8b496a429a9ae07350",
+     "bayt": 1732376,
      "sayfa": 13,
+     "dosya": "ac-091-basamak-degeri-ve-cozumleme-s1-0-4fe20d9f.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1925,11 +1925,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "2e73b730541070aae9f911d5a46411570696e280e20b00477cc1c9066caafc42",
-     "sablon": 1,
-     "dosya": "ac-092-faktoriyel-konu-anlatimi-s1-0.pdf",
-     "sha256": "c3d45017c4fb28487b2884310c0fce9588fdf6b8b13b6879917a31c04de5f002",
-     "bayt": 1637459,
+     "sablon": 2,
+     "sha256": "8dd326485f9732ca0cfd695cab3b6400eeb4723e6fd5fe2ac21c2767b77eb477",
+     "bayt": 1774777,
      "sayfa": 13,
+     "dosya": "ac-092-faktoriyel-konu-anlatimi-s1-0-8dd32648.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1946,11 +1946,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "78a66309ca413927899eeb55ff0cfeb75f667b85de7d5db918ec681ed2884daa",
-     "sablon": 1,
-     "dosya": "ac-093-permutasyon-konu-anlatimi-s1-0.pdf",
-     "sha256": "ed3c434ee8c71e72d0618a7f0bb75c876737512e733209b1364376bae740be37",
-     "bayt": 1449222,
+     "sablon": 2,
+     "sha256": "7cff4ac1b8f682cf0664d532380020aa5b27bd3d7e48a993c933777d2289f315",
+     "bayt": 1580790,
      "sayfa": 12,
+     "dosya": "ac-093-permutasyon-konu-anlatimi-s1-0-7cff4ac1.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1967,11 +1967,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "7644c057ee8cbcf34464d50f1ee60ed717ab09f8556581e3c3c57c7ca0c63ac0",
-     "sablon": 1,
-     "dosya": "ac-094-kombinasyon-konu-anlatimi-s1-0.pdf",
-     "sha256": "69711e674caa7fa668be879c6c9a3ca92e895b12ff24087df5388e349c897858",
-     "bayt": 1609492,
+     "sablon": 2,
+     "sha256": "4a2717f7b2d23921b41cf6322602173a30aa36c151ed74e472dc2b35ca4511b1",
+     "bayt": 1747191,
      "sayfa": 13,
+     "dosya": "ac-094-kombinasyon-konu-anlatimi-s1-0-4a2717f7.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -1988,11 +1988,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "dbb7a400b37007988287c77a2dad5c9793c1f714dbadc1a9c60fe0222308ad6e",
-     "sablon": 1,
-     "dosya": "ac-095-olasilik-konu-anlatimi-s1-0.pdf",
-     "sha256": "a4db30588beb46e62495864ef13d0de457ac8d8735579154dc6042637f676847",
-     "bayt": 1514151,
+     "sablon": 2,
+     "sha256": "db4a88dd83e729dcd1facc72f4c24d86c98d1e2df0d12ea6a29057fdbe57b608",
+     "bayt": 1651508,
      "sayfa": 13,
+     "dosya": "ac-095-olasilik-konu-anlatimi-s1-0-db4a88dd.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -2009,11 +2009,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "7b0a08e7ae58012c96bd28a676acf36b71e41572df0f0488a18ac490b948c500",
-     "sablon": 1,
-     "dosya": "ac-096-kumeler-konu-anlatimi-s1-0.pdf",
-     "sha256": "69a40e488aa6598eac459a0301f0844c859857b00bb03dd813d642ad27accaae",
-     "bayt": 1695282,
+     "sablon": 2,
+     "sha256": "c563cbffdbb2fcaeac7cac4f0c5c014478a20d62f3bca858000a631fd43f09c2",
+     "bayt": 1832778,
      "sayfa": 13,
+     "dosya": "ac-096-kumeler-konu-anlatimi-s1-0-c563cbff.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -2030,11 +2030,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "97dd8efd8e48918326432b1ee41e642b4125dd17e0ed1b4e22660b8ca3042719",
-     "sablon": 1,
-     "dosya": "ac-097-mantik-konu-anlatimi-s1-0.pdf",
-     "sha256": "1485283408f7f3ed539d4adcd6b77af20f4442711993ac31223bf574d06ed378",
-     "bayt": 1515889,
+     "sablon": 2,
+     "sha256": "cc34f494cf06284cb7451c8d6d17bd5fa4838bb057a6e1f727e18d06732367fd",
+     "bayt": 1653383,
      "sayfa": 13,
+     "dosya": "ac-097-mantik-konu-anlatimi-s1-0-cc34f494.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -2051,11 +2051,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "a827b3ff91cd014a4144edfd0d47a8beef1d48b9f6ba540a782b8d0196c2438c",
-     "sablon": 1,
-     "dosya": "ac-098-tablo-ve-grafik-yorumlama-s1-0.pdf",
-     "sha256": "b762aa64d94e50fff59b9c5424e754d6b2975c5df199340d5ab26b8aac934135",
-     "bayt": 1593065,
+     "sablon": 2,
+     "sha256": "c0202167128311553ddc7c5577e19e96e059a6d90e99a4ea52679b467c564e9f",
+     "bayt": 1730483,
      "sayfa": 16,
+     "dosya": "ac-098-tablo-ve-grafik-yorumlama-s1-0-c0202167.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -2072,11 +2072,11 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "1aece53a6cb9d344a4917693f540c67e7d9240a64cde4a1939486acaf3115fc5",
-     "sablon": 1,
-     "dosya": "ac-099-aritmetik-ortalama-ve-veri-analizi-s1-0.pdf",
-     "sha256": "f067c6a312debf422986b7e8f76075acd1fcf320185430b17664305578f8406c",
-     "bayt": 1561663,
+     "sablon": 2,
+     "sha256": "b13c4617587234a32ee2fa93e21f475094862d51f935f7c566aad9223d56415a",
+     "bayt": 1699032,
      "sayfa": 14,
+     "dosya": "ac-099-aritmetik-ortalama-ve-veri-analizi-s1-0-b13c4617.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
@@ -2093,14 +2093,116 @@
      "tur": "ilk",
      "not": "İlk yayın.",
      "icerik": "da5499276dd361a1d514df967a0fbfda4f71b908e8e27731dfe093984238f84f",
-     "sablon": 1,
-     "dosya": "ac-100-temel-matematik-problemleri-genel-tekrar-s1-0.pdf",
-     "sha256": "895ecb65a9b7e7dc9c9ed6a6428818976ee7b2bd6313f2adc79c38f45cc99f7d",
-     "bayt": 1508958,
+     "sablon": 2,
+     "sha256": "88f3a7c44f14f1da009c968262b685b8cfe512cab5496f0627a408733d75f765",
+     "bayt": 1646287,
      "sayfa": 13,
+     "dosya": "ac-100-temel-matematik-problemleri-genel-tekrar-s1-0-88f3a7c4.pdf",
      "yuklendi": "2026-09-28"
     }
    ]
   }
- }
+ },
+ "silinecek": [
+  "ac-001-fonksiyonlar-konu-anlatimi-s1-0.pdf",
+  "ac-002-tanim-deger-goruntu-kumeleri-s1-0.pdf",
+  "ac-003-birebir-orten-fonksiyon-s1-0.pdf",
+  "ac-004-bileske-fonksiyon-s1-0.pdf",
+  "ac-005-ters-fonksiyon-s1-0.pdf",
+  "ac-006-fonksiyon-grafikleri-s1-0.pdf",
+  "ac-007-polinomlar-konu-anlatimi-s1-0.pdf",
+  "ac-008-polinomlarda-bolme-s1-0.pdf",
+  "ac-009-polinomlarda-kalan-s1-0.pdf",
+  "ac-010-polinomlarda-carpanlara-ayirma-s1-0.pdf",
+  "ac-011-ikinci-dereceden-denklemler-s1-0.pdf",
+  "ac-012-diskriminant-delta-s1-0.pdf",
+  "ac-013-kokler-toplami-carpimi-s1-0.pdf",
+  "ac-014-parabol-konu-anlatimi-s1-0.pdf",
+  "ac-015-parabol-tepe-noktasi-s1-0.pdf",
+  "ac-016-parabol-denklemi-s1-0.pdf",
+  "ac-017-parabol-grafigi-s1-0.pdf",
+  "ac-018-parabol-ve-dogru-s1-0.pdf",
+  "ac-019-trigonometri-konu-anlatimi-s1-0.pdf",
+  "ac-020-birim-cember-s1-0.pdf",
+  "ac-021-trigonometrik-oranlar-s1-0.pdf",
+  "ac-022-trigonometrik-ozdeslikler-formuller-s1-0.pdf",
+  "ac-023-trigonometrik-fonksiyon-grafikleri-s1-0.pdf",
+  "ac-024-trigonometrik-toplam-fark-s1-0.pdf",
+  "ac-025-iki-kat-yarim-aci-s1-0.pdf",
+  "ac-026-trigonometrik-denklemler-s1-0.pdf",
+  "ac-027-logaritma-konu-anlatimi-s1-0.pdf",
+  "ac-028-logaritma-kurallari-formulleri-s1-0.pdf",
+  "ac-029-logaritmik-denklemler-s1-0.pdf",
+  "ac-030-diziler-konu-anlatimi-s1-0.pdf",
+  "ac-031-aritmetik-dizi-s1-0.pdf",
+  "ac-032-geometrik-dizi-s1-0.pdf",
+  "ac-033-limit-konu-anlatimi-s1-0.pdf",
+  "ac-034-sagdan-soldan-limit-s1-0.pdf",
+  "ac-035-limitte-belirsizlikler-s1-0.pdf",
+  "ac-036-sureklilik-konu-anlatimi-s1-0.pdf",
+  "ac-037-turev-konu-anlatimi-s1-0.pdf",
+  "ac-038-turevin-tanimi-s1-0.pdf",
+  "ac-039-turev-alma-kurallari-s1-0.pdf",
+  "ac-040-carpimin-turevi-s1-0.pdf",
+  "ac-041-bolumun-turevi-s1-0.pdf",
+  "ac-042-zincir-kurali-s1-0.pdf",
+  "ac-043-teget-denklemi-s1-0.pdf",
+  "ac-044-artan-azalan-fonksiyonlar-s1-0.pdf",
+  "ac-045-maksimum-minimum-s1-0.pdf",
+  "ac-046-integral-konu-anlatimi-s1-0.pdf",
+  "ac-047-belirsiz-integral-s1-0.pdf",
+  "ac-048-belirli-integral-s1-0.pdf",
+  "ac-049-degisken-degistirme-s1-0.pdf",
+  "ac-050-integral-alan-hesaplama-s1-0.pdf",
+  "ac-051-temel-kavramlar-konu-anlatimi-s1-0.pdf",
+  "ac-052-sayilar-ve-sayi-kumeleri-konu-anlatimi-s1-0.pdf",
+  "ac-053-dogal-sayilar-ve-tam-sayilar-s1-0.pdf",
+  "ac-054-rasyonel-sayilar-konu-anlatimi-s1-0.pdf",
+  "ac-055-irrasyonel-sayilar-ve-gercek-sayilar-s1-0.pdf",
+  "ac-056-tek-ve-cift-sayilar-s1-0.pdf",
+  "ac-057-pozitif-ve-negatif-sayilar-s1-0.pdf",
+  "ac-058-ardisik-sayilar-s1-0.pdf",
+  "ac-059-sayi-dogrusu-ve-sayilari-siralama-s1-0.pdf",
+  "ac-060-mutlak-deger-konu-anlatimi-s1-0.pdf",
+  "ac-061-uslu-sayilar-konu-anlatimi-s1-0.pdf",
+  "ac-062-koklu-sayilar-konu-anlatimi-s1-0.pdf",
+  "ac-063-islem-onceligi-nasil-yapilir-s1-0.pdf",
+  "ac-064-bolunebilme-kurallari-konu-anlatimi-s1-0.pdf",
+  "ac-065-asal-sayilar-ve-asal-carpanlara-ayirma-s1-0.pdf",
+  "ac-066-ebob-ve-ekok-konu-anlatimi-s1-0.pdf",
+  "ac-067-kesirler-konu-anlatimi-s1-0.pdf",
+  "ac-068-kesirlerde-siralama-ve-karsilastirma-s1-0.pdf",
+  "ac-069-kesirlerde-toplama-ve-cikarma-s1-0.pdf",
+  "ac-070-kesirlerde-carpma-ve-bolme-s1-0.pdf",
+  "ac-071-ondalik-gosterim-konu-anlatimi-s1-0.pdf",
+  "ac-072-devirli-ondalik-sayilar-nasil-kesre-cevrilir-s1-0.pdf",
+  "ac-073-yuzdeler-konu-anlatimi-s1-0.pdf",
+  "ac-074-oran-ve-oranti-konu-anlatimi-s1-0.pdf",
+  "ac-075-dogru-oranti-ve-ters-oranti-s1-0.pdf",
+  "ac-076-cebirsel-ifadeler-konu-anlatimi-s1-0.pdf",
+  "ac-077-birinci-dereceden-denklemler-konu-anlatimi-s1-0.pdf",
+  "ac-078-esitsizlikler-konu-anlatimi-s1-0.pdf",
+  "ac-079-denklem-kurma-problemleri-nasil-cozulur-s1-0.pdf",
+  "ac-080-sayi-problemleri-konu-anlatimi-s1-0.pdf",
+  "ac-081-kesir-problemleri-nasil-cozulur-s1-0.pdf",
+  "ac-082-yas-problemleri-konu-anlatimi-s1-0.pdf",
+  "ac-083-yuzde-problemleri-nasil-cozulur-s1-0.pdf",
+  "ac-084-kar-ve-zarar-problemleri-konu-anlatimi-s1-0.pdf",
+  "ac-085-faiz-problemleri-nasil-cozulur-s1-0.pdf",
+  "ac-086-oran-ve-oranti-problemleri-s1-0.pdf",
+  "ac-087-isci-ve-havuz-problemleri-konu-anlatimi-s1-0.pdf",
+  "ac-088-hareket-problemleri-konu-anlatimi-s1-0.pdf",
+  "ac-089-karisim-problemleri-konu-anlatimi-s1-0.pdf",
+  "ac-090-sayi-basamaklari-konu-anlatimi-s1-0.pdf",
+  "ac-091-basamak-degeri-ve-cozumleme-s1-0.pdf",
+  "ac-092-faktoriyel-konu-anlatimi-s1-0.pdf",
+  "ac-093-permutasyon-konu-anlatimi-s1-0.pdf",
+  "ac-094-kombinasyon-konu-anlatimi-s1-0.pdf",
+  "ac-095-olasilik-konu-anlatimi-s1-0.pdf",
+  "ac-096-kumeler-konu-anlatimi-s1-0.pdf",
+  "ac-097-mantik-konu-anlatimi-s1-0.pdf",
+  "ac-098-tablo-ve-grafik-yorumlama-s1-0.pdf",
+  "ac-099-aritmetik-ortalama-ve-veri-analizi-s1-0.pdf",
+  "ac-100-temel-matematik-problemleri-genel-tekrar-s1-0.pdf"
+ ]
 }

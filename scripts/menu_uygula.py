@@ -27,20 +27,11 @@ def yt(q):
 # (etiket, href, alt_ogeler | None, yeni_sekme)
 MENU = [
     ("Ana Sayfa", "/", None, False),
-    ("Ders Notları", "/pdfnot/", [
-        # 28.09: blog yazilarinin surumlu PDF'leri (scripts/pdf_sayfalar.py)
-        ("PDF Merkezi", "/pdf/", None, False),
-        ("TYT Matematik Deneme", "/yt/tytmat.pdf", None, True),
-        ("AYT Matematik Deneme", "/yt/aytmat.pdf", None, True),
-        ("DGS Matematik Deneme", "/yt/dgsmat.pdf", None, True),
-        # kpssmat.pdf / alesmat.pdf: eski menude vardi, dosya hicbir yerde yok
-        # (repo + medya sunucusu tarandi, 21.09) → 404 vermesin diye cikarildi.
-        ("TYT Son Prova", "/yt/2021denemeler/tytmatsonprova.pdf", None, True),
-        ("AYT Son Prova", "/yt/2021denemeler/aytmatsonprova.pdf", None, True),
-        ("Parabol Fasikülü", "/pdf/parabol.pdf", None, True),
-        ("Tüm Notlar (Google Drive)",
-         "https://drive.google.com/drive/folders/1rjDxAuM4c1mmqp_X-BTmfoJCCFFlahcU?usp=sharing", None, True),
-    ], False),
+    # 28.09 (Ahmet): "ana adrese PDF merkezinin linkini ekleyelim, tam baglanti olacak
+    # sekilde; pdfnot ders notu kismi gereksiz, onu durdurmayalim." Acilir "Ders Notlari"
+    # menusu kalkti, yerine dogrudan PDF Merkezi. /pdfnot/ sayfasi YERINDE (adres
+    # degismez), alt bilgiden ulasilir. Eski menu ogeleri asagida yorumda.
+    ("PDF Merkezi", "/pdf/", None, False),
     ("Videolar", "/video/", [
         ("YouTube Kanalı", "/youtube/", None, False),
         ("Konu Anlatımları", "/video/konu.html", None, False),
@@ -188,3 +179,19 @@ for p in sayfalar():
         if not KURU:
             p.write_text(s, encoding="utf-8", errors="surrogateescape")
 print(f"\n{degisen} sayfa {'degisecek' if KURU else 'guncellendi'}.")
+
+# ── 28.09 oncesi "Ders Notlari" menusu (geri almak icin) ──
+#     ("Ders Notları", "/pdfnot/", [
+#         # 28.09: blog yazilarinin surumlu PDF'leri (scripts/pdf_sayfalar.py)
+#         ("PDF Merkezi", "/pdf/", None, False),
+#         ("TYT Matematik Deneme", "/yt/tytmat.pdf", None, True),
+#         ("AYT Matematik Deneme", "/yt/aytmat.pdf", None, True),
+#         ("DGS Matematik Deneme", "/yt/dgsmat.pdf", None, True),
+#         # kpssmat.pdf / alesmat.pdf: eski menude vardi, dosya hicbir yerde yok
+#         # (repo + medya sunucusu tarandi, 21.09) → 404 vermesin diye cikarildi.
+#         ("TYT Son Prova", "/yt/2021denemeler/tytmatsonprova.pdf", None, True),
+#         ("AYT Son Prova", "/yt/2021denemeler/aytmatsonprova.pdf", None, True),
+#         ("Parabol Fasikülü", "/pdf/parabol.pdf", None, True),
+#         ("Tüm Notlar (Google Drive)",
+#          "https://drive.google.com/drive/folders/1rjDxAuM4c1mmqp_X-BTmfoJCCFFlahcU?usp=sharing", None, True),
+#     ], False),

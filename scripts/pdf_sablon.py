@@ -52,6 +52,22 @@ SITE_BOLUMLER = [  # (ikon, baslik, aciklama, yol)
 ]
 
 
+# Son sayfa "Diger yapimlarimiz" (Ahmet 28.09): "Veterito: Hayvanseverlerin sosyal
+# medyasi, Veteriner Akilli Klinik Yonetim Uygulamasi; bote.web.tr: Egitim Fakultesi
+# ve ogretmenlik dusunenler icin; ucretsiz veriyoruz, bu yapimlari degerlendirip
+# bize destek olabilirsiniz; pazarlama %70 agirlikta. UniConnectly alanini kucultme."
+DIGER_GIRIS = ("Bu belgeyi ücretsiz hazırlıyoruz. Diğer yapımlarımızı da keşfedin; "
+               "kullanmanız ve çevrenizle paylaşmanız bizim için en büyük destek.")
+DIGER = [  # (logo dosyasi, ad, kalin metin, devam, adres, gorunen adres)
+    ("bote.png", "BÖTE", "Eğitim fakültesi ve öğretmenlik düşünenler için:",
+     "bölüm rehberleri, öğretmenlik mesleği ve eğitim teknolojileri üzerine kaynaklı yazılar.",
+     "https://bote.web.tr/", "bote.web.tr"),
+    ("veterito.png", "Veterito", "Hayvanseverlerin sosyal medyası",
+     "ve veteriner akıllı klinik yönetim uygulaması.",
+     "https://veterito.com/", "veterito.com"),
+]
+
+
 def _globe(boyut=9, renk="#1860f0"):
     """Alan adinin onundeki web ikonu (Ahmet 28.09). Cizgi ikon, dolgu yok."""
     return (f'<svg width="{boyut}" height="{boyut}" viewBox="0 0 24 24" fill="none" stroke="{renk}" '
@@ -193,8 +209,26 @@ math.mtml { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", s
   border: .8pt solid #bfd3fb; color: var(--murekkep); font-weight: 600; font-size: 8.3pt !important; }
 
 /* son sayfa: site + UniConnectly tanitimi */
-.p-tanitim-sayfasi { break-before: page; height: 265mm; display: flex; flex-direction: column; gap: 10pt; }
-.p-yarim { flex: 1 1 0; border-radius: 8pt; padding: 16pt 18pt; display: flex; flex-direction: column; }
+.p-tanitim-sayfasi { break-before: page; height: 265mm; display: flex; flex-direction: column; gap: 8pt; }
+.p-yarim { flex: 0 0 auto; border-radius: 8pt; padding: 14pt 16pt; display: flex; flex-direction: column; }
+.p-uc-yari { flex: 1 1 auto; }
+.p-site-bas { display: flex; gap: 12pt; align-items: flex-start; }
+.p-site-bas > div:first-child { flex: 1; }
+.p-site-qr { flex: none; text-align: center; font: 600 7.5pt Inter, sans-serif; color: var(--mor-koyu); }
+.p-site-qr svg { display: block; width: 21mm; height: 21mm; margin-bottom: 1pt; }
+.p-kartlar-3 { grid-template-columns: 1fr 1fr 1fr !important; gap: 6pt !important; }
+.p-kartlar-3 .p-kart { padding: 6pt 8pt; }
+.p-kartlar-3 .p-kart span { font-size: 7.8pt; }
+.p-diger { flex: 0 0 auto; border-radius: 8pt; padding: 12pt 14pt; background: var(--murekkep); color: #cbd5e1; }
+.p-diger-bas { margin: 0 0 8pt; font-size: 8.6pt; line-height: 1.45; }
+.p-diger-bas b { display: block; color: #fff; font: 700 12pt Outfit, Inter, sans-serif; margin-bottom: 2pt; }
+.p-diger-kartlar { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; }
+.p-diger-kart { display: flex; flex-direction: column; gap: 5pt; padding: 9pt 11pt; border-radius: 6pt;
+  background: rgba(255,255,255,.07); border: .6pt solid rgba(255,255,255,.16); color: #cbd5e1; text-decoration: none; }
+.p-diger-kart img { height: 20pt; width: auto; align-self: flex-start; }
+.p-diger-kart p { margin: 0; font-size: 8.4pt; line-height: 1.42; }
+.p-diger-kart p b { color: #fff; font-weight: 600; }
+.p-diger-kart em { font-style: normal; font: 700 9pt Inter, sans-serif; color: #93c5fd; }
 .p-yarim h2 { margin: 0 0 4pt; font-size: 17pt; display: flex; align-items: center; gap: 6pt; }
 .p-yarim h2 small { font: 600 11pt Outfit, Inter, sans-serif; color: var(--soluk); }
 .p-yarim > p { margin: 0 0 10pt; }
@@ -261,12 +295,18 @@ def son_sayfa(kd):
     faydalar_html = "".join(f"<li><b>{k(b)}</b>{k(_duz(a).split(';')[0])}</li>" for b, a in faydalar)
     rozetler = "".join(f'<img src="/.pdf-yapim/uc/{e.lower().replace(" ", "-")}.png" alt="{k(e)}">'
                        for e, _, _ in UC.MAGAZALAR)
+    diger = "".join(
+        f'<a class="p-diger-kart" href="{k(adres)}?utm_source=ahmetcelen.com.tr&amp;utm_medium=pdf&amp;utm_campaign={kd.lower()}">'
+        f'<img src="/.pdf-yapim/diger/{logo}" alt="{k(ad)}"><p><b>{k(kalin)}</b> {k(devam)}</p><em>{k(gorunen)}</em></a>'
+        for logo, ad, kalin, devam, adres, gorunen in DIGER)
     return f'''<section class="p-tanitim-sayfasi">
   <div class="p-yarim p-site-yari">
-    <h2>{_globe(18)}ahmetcelen.com.tr <small>- {k(SLOGAN)}</small></h2>
-    <p>{k(SITE_GIRIS)}</p>
-    <div class="p-kartlar">{kartlar}</div>
-    <div class="p-yarim-alt">{qr_svg(site_qr)}<p><strong>PDF merkezi</strong><br>Bütün konuların güncel PDF'leri, sürüm geçmişi ve duyurular:<br><a href="{site_qr}">ahmetcelen.com.tr/pdf/</a></p></div>
+    <div class="p-site-bas">
+      <div><h2>{_globe(18)}ahmetcelen.com.tr <small>- {k(SLOGAN)}</small></h2>
+      <p>{k(SITE_GIRIS)}</p></div>
+      <a class="p-site-qr" href="{site_qr}">{qr_svg(site_qr)}PDF merkezi</a>
+    </div>
+    <div class="p-kartlar p-kartlar-3">{kartlar}</div>
   </div>
   <div class="p-yarim p-uc-yari">
     <img class="p-uc-logo" src="/.pdf-yapim/uc/logo.webp" alt="UniConnectly">
@@ -274,6 +314,10 @@ def son_sayfa(kd):
     <ul class="p-faydalar">{faydalar_html}</ul>
     <div class="p-yarim-alt">{qr_svg(uc_adres)}<p><strong>Ücretsiz keşfet</strong><br>QR kodu okutun ya da <a href="{k(uc_adres)}">uniconnectly.com</a> adresine girin.
       <span class="p-rozetler-uc">{rozetler}</span></p></div>
+  </div>
+  <div class="p-diger">
+    <p class="p-diger-bas"><b>Diğer yapımlarımız</b>{k(DIGER_GIRIS)}</p>
+    <div class="p-diger-kartlar">{diger}</div>
   </div>
 </section>'''
 

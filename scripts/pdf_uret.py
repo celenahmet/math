@@ -120,6 +120,19 @@ def uc_varliklari():
             p.write_bytes(urllib.request.urlopen(istek, timeout=30).read())
 
 
+def diger_varliklari():
+    """Son sayfadaki diger yapimlarin logolari (yerel depolardan; yayindaki
+    logolarla ayni dosyalar)."""
+    import shutil
+    ev = pathlib.Path.home() / "Developer"
+    for kaynak, ad in ((ev / "bote-web/assets/img/educator-logo1.png", "bote.png"),
+                       (ev / "veteriner-web/dist/vet-logo-full.png", "veterito.png")):
+        hedef = YAPIM / "diger" / ad
+        if not hedef.exists():
+            hedef.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(kaynak, hedef)
+
+
 def _hazirla(no, y, s):
     if y.get("kapak"):
         kapak_jpg(y["kapak"])
@@ -138,6 +151,7 @@ def _bitir(cikti, no, y, s):
 def ornek(no):
     YAPIM.mkdir(exist_ok=True)
     uc_varliklari()
+    diger_varliklari()
     no, y = next((n, y) for n, y in V.yazilar() if n == int(no))
     s = {"surum": "1.0", "tarih": datetime.date.today().isoformat(), "tur": "ilk",
          "not": "İlk yayın.", "icerik": V.icerik_ozeti(y)}
@@ -209,6 +223,7 @@ def bas():
     """Dosyasi olmayan butun surumleri TEK Chrome oturumunda basar."""
     YAPIM.mkdir(exist_ok=True)
     uc_varliklari()
+    diger_varliklari()
     kayit = V.oku()
     yazi = dict(V.yazilar())
     isler, bekleyen = [], []
@@ -218,9 +233,8 @@ def bas():
             continue
         y = yazi[b["no"]]
         assert s["icerik"] == V.icerik_ozeti(y), f"{kd}: icerik defterdeki ozetle ayni degil; once surum ac"
-        s["dosya"] = V.dosya_adi(kd, y["slug"], s["surum"])
-        cikti = V.YEREL_DIZIN / s["dosya"]
-        assert not cikti.exists() or True
+        # Once gecici adla basilir; SHA-256 belli olunca icerige bagli ada tasinir.
+        cikti = V.YEREL_DIZIN / (V.dosya_adi(kd, y["slug"], s["surum"])[:-4] + ".yapim.pdf")
         is_ = _hazirla(b["no"], y, s)
         is_["cikti"] = str(cikti)
         isler.append(is_)
@@ -231,6 +245,8 @@ def bas():
     _yazdir(isler)
     for kd, b, s, y, cikti in bekleyen:
         s.update(_bitir(cikti, b["no"], y, s))
+        s["dosya"] = V.dosya_adi(kd, y["slug"], s["surum"], s["sha256"][:8])
+        cikti.rename(V.YEREL_DIZIN / s["dosya"])
     V.yaz(kayit)
     toplam = sum(s["bayt"] for _, _, s, _, _ in bekleyen)
     print(f"bas: {len(bekleyen)} PDF · toplam {toplam / 1048576:.1f} MB")
@@ -274,10 +290,55 @@ def yukle():
         sys.exit(1)
 
 
+def on_yayin_yenile(onay=""):
+    """DUYURU ONCESI tek seferlik izin (Ahmet 28.09: "PDF 1.1 yapmana gerek yok,
+    henuz hic yayimlamadik; bu reklamlar icin surum degistirme"). Butun
+    belgeler yalniz 1.0'daysa ve defterde "duyuru" tarihi yoksa 1.0 YENIDEN
+    basilir: ayni surum, yeni dosya (adinda yeni ozet), eski dosya adlari
+    `silinecek` listesine yazilir (eski_sil). Duyurudan sonra bu komut calismaz;
+    her degisiklik yeni surumdur."""
+    assert onay == "EVET", "kullanim: on_yayin_yenile EVET"
+    kayit = V.oku()
+    assert not kayit.get("duyuru"), f"belgeler {kayit['duyuru']} tarihinde duyuruldu; yeni surum acin"
+    yazi = dict(V.yazilar())
+    silinecek = kayit.setdefault("silinecek", [])
+    for kd, b in kayit["belgeler"].items():
+        assert len(b["surumler"]) == 1 and b["surumler"][0]["tur"] == "ilk", f"{kd}: birden fazla surum var"
+        s = b["surumler"][0]
+        if s.get("dosya"):
+            silinecek.append(s["dosya"])
+        for alan in ("sha256", "bayt", "sayfa", "dosya", "yuklendi"):
+            s.pop(alan, None)
+        s["icerik"] = V.icerik_ozeti(yazi[b["no"]])
+        s["sablon"] = V.SABLON
+    V.yaz(kayit)
+    print(f"on_yayin_yenile: {len(kayit['belgeler'])} belge 1.0 olarak yeniden basilacak; {len(silinecek)} eski dosya silinecek")
+
+
+def eski_sil():
+    """on_yayin_yenile sonrasi: yeni dosyalar yayinda ve sayfalar yeni dosyaya
+    baglandiktan SONRA eski dosyalari sunucudan ve yerelden siler."""
+    kayit = V.oku()
+    liste = kayit.get("silinecek", [])
+    kullanilan = {s.get("dosya") for b in kayit["belgeler"].values() for s in b["surumler"]}
+    liste = [d for d in liste if d not in kullanilan]
+    if not liste:
+        print("eski_sil: silinecek dosya yok")
+        return
+    import shlex
+    subprocess.run(["ssh", "myserver", "cd " + V.SUNUCU_DIZIN + " && rm -f " + " ".join(shlex.quote(d) for d in liste)], check=True)
+    for d in liste:
+        (V.YEREL_DIZIN / d).unlink(missing_ok=True)
+    kayit.pop("silinecek", None)
+    V.yaz(kayit)
+    print(f"eski_sil: {len(liste)} eski dosya silindi")
+
+
 if __name__ == "__main__":
     komut, *arg = sys.argv[1:] or ["?"]
     islevler = {"ornek": ornek, "denetle": lambda: sys.exit(0 if denetle() else 1), "ilk": ilk,
-                "surum": surum, "bas": bas, "yukle": yukle}
+                "surum": surum, "bas": bas, "yukle": yukle,
+                "on_yayin_yenile": on_yayin_yenile, "eski_sil": eski_sil}
     if komut not in islevler:
         sys.exit(f"komut: {', '.join(islevler)}")
     islevler[komut](*arg)

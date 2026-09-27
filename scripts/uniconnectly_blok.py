@@ -51,7 +51,9 @@ def yazi_karti(slug, baslik, etiket, kampanya):
 # indirimleri, Bilime Destek). Olmayan ozellik yazilmaz.
 FAYDALAR = {
     "ogrenci": ("Öğrenciye ne kazandırır?", [
-        ("Dijital portföy", '<span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresiyle herkese açık paylaş; CV\'ne ve LinkedIn\'e sertifika doğrulama bağlantısı olarak ekle. <a class="uc-ornek" href="{ORNEK_OGRENCI}" target="_blank" rel="noopener" title="Örnek portföy: @nursena">Örneği gör: @nursena</a>'),
+        # 28.09 (Ahmet): "katildigin etkinlikler, sertifikalar hepsi gorunur sekilde sergile" —
+        # onceki cumlede NEYIN paylasildigi yazmiyordu.
+        ("Dijital portföy", 'Katıldığın etkinlikleri ve sertifikalarını <span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresinde herkese açık sergile; CV\'ne ve LinkedIn\'e sertifika doğrulama bağlantısı olarak ekle. <a class="uc-ornek" href="{ORNEK_OGRENCI}" target="_blank" rel="noopener" title="Örnek portföy: @nursena">Örneği gör: @nursena</a>'),
         ("Doğrulanabilir katılım", "QR ile giriş yaptığın etkinlikler portföyünde doğrulanmış listelenir"),
         ("Sertifikalar", "Platformda verilen sertifikalar doğrulanmış işaretli, edu.tr e-postan onaylı"),
         ("Anlık fırsatlar", "Staj, iş ve burs duyuruları akışına düşer; şirket ilanlarına uygulamadan başvur"),
