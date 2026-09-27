@@ -88,3 +88,8 @@ blog-gorselleri/
 
 # blog PDF uretimi: gecici yazdirma sayfalari (PDF'lerin kendisi zaten *.pdf ile disarida)
 .pdf-yapim/
+
+# 28.09: eski Apache/hosting kalintilari yayinda 200 donuyordu (gizli bilgi yok, ama yayinda isi yok)
+.htaccess
+.htacess
+.imunify_patch_id
