@@ -75,13 +75,15 @@
       kisa: 'KPSS Ön Lisans', yol: 'kpss-onlisans',
       uzun: 'KPSS Ön Lisans (Kamu Personel Seçme Sınavı)',
       donem: '2026-KPSS Ön Lisans', tarih: '2026-10-04', saat: '10:15', saatResmi: true,
-      sonuc: '30.10.2026'
+      sonuc: '30.10.2026', ikiYilda: true,
+      ek: 'KPSS Ön Lisans genellikle iki yılda bir düzenlenir'
     },
     kpssorta: {
       kisa: 'KPSS Ortaöğretim', yol: 'kpss-ortaogretim',
       uzun: 'KPSS Ortaöğretim (Kamu Personel Seçme Sınavı)',
       donem: '2026-KPSS Ortaöğretim', tarih: '2026-10-25', saat: '10:00', saatResmi: false,
-      sonuc: '19.11.2026'
+      sonuc: '19.11.2026', ikiYilda: true,
+      ek: 'KPSS Ortaöğretim genellikle iki yılda bir düzenlenir'
     },
     ales3: {
       kisa: 'ALES/3', yol: 'ales3',
@@ -173,6 +175,12 @@
     var z = setInterval(tik, 1000);
   }
 
+  /* sonuc 'GG.AA.YYYY': o gün başladıysa açıklandı sayılır. */
+  function sonucAciklandiMi(s) {
+    var p = s.sonuc.split('.');
+    return new Date(+p[2], +p[1] - 1, +p[0]) <= new Date();
+  }
+
   function durumYaz(s, one) {
     var d = el('gs-durum');
     if (!d) { return; }
@@ -184,9 +192,11 @@
     } else {
       var siradaki = siradakiSinav();
       d.innerHTML = '<strong>' + s.donem + '</strong> sınavı <strong>' + tarih + '</strong> tarihinde yapıldı' +
-        (s.sonuc ? ', sonuçlar ' + s.sonuc + ' tarihinde açıklandı' : '') + '.' +
+        (s.sonuc ? ', sonuçlar ' + s.sonuc + ' tarihinde ' + (sonucAciklandiMi(s) ? 'açıklandı' : 'açıklanacak') : '') + '.' +
         (s.ek ? '<br>' + s.ek + '.' : '') +
-        '<br>2027 sınav takvimi ÖSYM tarafından henüz yayımlanmadı; yayımlandığında geri sayım bu sayfada yeniden başlar.' +
+        (s.ikiYilda
+          ? '<br>Bir sonraki dönemin tarihi ÖSYM takviminde yayımlandığında geri sayım bu sayfada yeniden başlar.'
+          : '<br>2027 sınav takvimi ÖSYM tarafından henüz yayımlanmadı; yayımlandığında geri sayım bu sayfada yeniden başlar.') +
         (siradaki && siradaki !== s
           ? '<br>Şu an geri sayımı süren sınav: <a href="' + KOK + siradaki.yol + '/"><strong>' +
             siradaki.donem + '</strong> · ' + gosterimTarihi(siradaki) + '</a>'

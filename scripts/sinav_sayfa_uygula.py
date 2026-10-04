@@ -46,6 +46,7 @@ def js_sinavlar():
     out = {}
     for m in re.finditer(r"\n\s{4}(\w+): \{(.*?)\n\s{4}\}", govde, re.S):
         out[m.group(1)] = dict(re.findall(r"(\w+): '([^']*)'", m.group(2)))
+        out[m.group(1)].update(re.findall(r"(\w+): (true|false)\b", m.group(2)))
     sira = re.findall(r"'(\w+)'", JS[JS.index("var SIRA = ["):JS.index("]", JS.index("var SIRA = ["))])
     kaynak_tarihi = re.search(r"KAYNAK_TARIHI = '([^']+)'", JS).group(1)
     return out, sira, kaynak_tarihi
@@ -71,7 +72,7 @@ def aciklama(anahtar):
     if gecti(s):
         return (f"{donem} sınavı {tr_tarih(s['tarih'])}'da yapıldı"
                 + (f", sonuç {tr_tarih_nokta(s['sonuc'])}" if s.get("sonuc") else "")
-                + f". {int(yil)+1} {kisa} tarihi ÖSYM takvimiyle burada; {yon} kaç gün kaldı geri sayımı.")
+                + (". Sonraki tarih" if s.get('ikiYilda') == 'true' else f". {int(yil)+1} {kisa} tarihi") + f" ÖSYM takvimiyle burada; {yon} kaç gün kaldı geri sayımı.")
     return (f"{donem} sınavı {tr_tarih(s['tarih'])}'da. {yon} kaç gün kaldı? Canlı geri sayım"
             + (f", sonuç tarihi {tr_tarih_nokta(s['sonuc'])}" if s.get("sonuc") else "")
             + ". Tarihler ÖSYM resmî sınav takviminden.")
