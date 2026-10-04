@@ -431,7 +431,9 @@ ul.arama-sonuc li a:hover, ul.arama-sonuc li[aria-selected="true"] a { border-co
   background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: var(--r);
   padding: 18px; margin-bottom: 22px; text-align: center;
 }
+.bs-reklam > .bs-uc[hidden] { display: none; }
 .bs-uc-logo { display: block; margin-bottom: 12px; }
+.bs-oto .bs-uc-logo img { width: 190px; }
 .bs-uc-logo img { width: 132px; height: auto; }
 .bs-uc p { font-size: 13.5px; line-height: 1.55; color: var(--soluk); margin: 0 0 14px; }
 .bs-uc-dugme {

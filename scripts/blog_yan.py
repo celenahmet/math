@@ -52,6 +52,27 @@ def uc_karti(kampanya):
         "</aside>")
 
 
+def otosenior_karti(kampanya):
+    """OtoSenior tanitim karti (Ahmet 04.10.2026: bloglarin reklam alaninda OtoSenior da donsun).
+    UniConnectly kartiyla ayni kutu; reklam_alani() icinde 15 sn'de bir sirayla gosterilir."""
+    adres = ("https://otosenior.com/?ref=ahmetcelen.com.tr&utm_source=ahmetcelen.com.tr"
+             f"&utm_medium=referral&utm_campaign={_k(kampanya)}")
+    return (
+        '<aside class="bs-uc bs-oto" hidden>'
+        f'<a class="bs-uc-logo" href="{adres}" target="_blank" rel="noopener">'
+        '<img src="/images/otosenior-logo.webp" alt="OtoSenior" width="440" height="80" loading="lazy" decoding="async"></a>'
+        "<p>Otomobil sahipleri, galericiler ve meraklıları için araç alım satımı, vergi, sigorta ve "
+        "trafik kurallarında resmî kaynaklı rehberler.</p>"
+        f'<a class="bs-uc-dugme" href="{adres}" target="_blank" rel="noopener">Rehberleri oku</a>'
+        "</aside>")
+
+
+def reklam_alani(kampanya):
+    """Sag blogun ustundeki reklam alani: kartlar js/blog.js'te 15 sn'de bir doner,
+    uzerine gelince ya da odaklaninca durur. Ilk kart (UniConnectly) sabit HTML'de gorunur."""
+    return '<div class="bs-reklam" data-donen>' + uc_karti(kampanya) + otosenior_karti(kampanya) + "</div>"
+
+
 def kategori_blogu(etkin=None):
     """Kategori listesi. Baglantilar /blog/#<anahtar> adresine gider;
     js/blog.js hub'da adres parcasini okuyup suzgeci uyguluyor.

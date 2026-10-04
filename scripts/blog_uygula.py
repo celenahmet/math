@@ -397,7 +397,7 @@ def yazi_govde(y, digerleri):
 {mm(ilgili)}
   </article>
   <aside class="bs-yan">
-    {blog_yan.uc_karti("blog-" + y["slug"])}
+    {blog_yan.reklam_alani("blog-" + y["slug"])}
     {blog_yan.kategori_blogu(y["kategori"])}
     {blog_yan.sinav_blogu(y.get("sinavlar"))}
     {blog_yan.yazi_listesi(y["slug"])}

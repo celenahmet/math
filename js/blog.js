@@ -383,4 +383,18 @@
     parcaSec();
     addEventListener('hashchange', parcaSec);
   }
+
+  // Reklam alani: kartlar 15 sn'de bir doner; uzerine gelince ya da odaklaninca durur.
+  var reklam = document.querySelector('.bs-reklam[data-donen]');
+  if (reklam) {
+    var kartlar = reklam.querySelectorAll('.bs-uc'), sira = 0, dur = false;
+    ['mouseenter', 'focusin'].forEach(function (o) { reklam.addEventListener(o, function () { dur = true; }); });
+    ['mouseleave', 'focusout'].forEach(function (o) { reklam.addEventListener(o, function () { dur = false; }); });
+    setInterval(function () {
+      if (dur || document.hidden || kartlar.length < 2) { return; }
+      kartlar[sira].hidden = true;
+      sira = (sira + 1) % kartlar.length;
+      kartlar[sira].hidden = false;
+    }, 15000);
+  }
 })();
