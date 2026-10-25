@@ -14,13 +14,18 @@
 import html
 
 SITE = "https://uniconnectly.com"
-LOGO = SITE + "/brand/light-logo-yildizsiz.webp"  # yildizsiz (Ahmet 22.09: reklam alanlarinda hep bu)
-LOGO_KOYU = SITE + "/brand/dark-logo-yildizsiz.webp"  # lacivert panel icin
+# Gorseller CDN'den (25.10.2026): bu kutu her sayfa gosteriminde uniconnectly.com'a
+# 18 istek atiyordu ve iki sitenin ortak Vercel kotasini (aylik 1M CDN istegi) %93'e
+# tasidi. Gorseller R2'de web/ altinda ayni yolla duruyor; yeni blog kapagi henuz
+# yuklenmemisse js/uniconnectly-blok.js uniconnectly.com'daki asil adrese duser.
+MEDYA = "https://cdn.uniconnectly.com/web"
+LOGO = MEDYA + "/brand/light-logo-yildizsiz.webp"  # yildizsiz (Ahmet 22.09: reklam alanlarinda hep bu)
+LOGO_KOYU = MEDYA + "/brand/dark-logo-yildizsiz.webp"  # lacivert panel icin
 MAGAZALAR = [  # (etiket, rozet gorseli, adres)
-    ("App Store", SITE + "/brand/imza/app-store.png", "https://apps.apple.com/tr/app/uniconnectly/id6784849124"),
-    ("Google Play", SITE + "/brand/imza/google-play.png",
+    ("App Store", MEDYA + "/brand/imza/app-store.png", "https://apps.apple.com/tr/app/uniconnectly/id6784849124"),
+    ("Google Play", MEDYA + "/brand/imza/google-play.png",
      "https://play.google.com/store/apps/details?id=com.uniconnectly.app&referrer=utm_source%3Dahmetcelen.com.tr%26utm_medium%3Dreferral%26utm_campaign%3D{kampanya}"),
-    ("AppGallery", SITE + "/brand/imza/appgallery.png", "https://appgallery.huawei.com/app/C118677033"),
+    ("AppGallery", MEDYA + "/brand/imza/appgallery.png", "https://appgallery.huawei.com/app/C118677033"),
 ]
 SABIT_YAZILAR = [
     ("edu-tr-mail-ogrenci-firsatlari", "Edu.tr Mailiyle Ücretsiz Neler Alınabilir? Öğrenci Fırsatları", "Fırsat"),
@@ -40,7 +45,7 @@ def ref(yol, kampanya):
 
 def yazi_karti(slug, baslik, etiket, kampanya):
     return (f'        <a class="uc-yazi" href="{ref("/blog/" + slug, kampanya)}" target="_blank" rel="noopener">\n'
-            f'          <img src="{SITE}/assets/blog/{slug}.webp" alt="" loading="lazy" decoding="async" width="600" height="400">\n'
+            f'          <img src="{MEDYA}/assets/blog/{slug}.webp" alt="" loading="lazy" decoding="async" width="600" height="400">\n'
             f'          <span class="uc-yazi-etiket">{etiket}</span>\n'
             f'          <span class="uc-yazi-baslik">{html.escape(baslik)}</span>\n'
             f'        </a>')
@@ -51,10 +56,12 @@ def yazi_karti(slug, baslik, etiket, kampanya):
 # indirimleri, Bilime Destek). Olmayan ozellik yazilmaz.
 FAYDALAR = {
     "ogrenci": ("Öğrenciye ne kazandırır?", [
+        ("CV’ni hemen PDF olarak indir", "10’dan fazla CV şablonundan tarzına uygun olanı seç, CV’ni güncelle ve PDF olarak indir. Staj ve iş başvurularına hazır ol."),
         # 28.09 (Ahmet): "katildigin etkinlikler, sertifikalar hepsi gorunur sekilde sergile" —
         # onceki cumlede NEYIN paylasildigi yazmiyordu.
         ("Dijital portföy", 'Katıldığın etkinlikleri ve sertifikalarını <span class="uc-mono">uniconnectly.com/@kullanıcıadı</span> adresinde herkese açık sergile; CV\'ne ve LinkedIn\'e sertifika doğrulama bağlantısı olarak ekle. <a class="uc-ornek" href="{ORNEK_OGRENCI}" target="_blank" rel="noopener" title="Örnek portföy: @nursena">Örneği gör: @nursena</a>'),
-        ("Doğrulanabilir katılım", "QR ile giriş yaptığın etkinlikler portföyünde doğrulanmış listelenir"),
+        ("Fırsatları yakından takip et", "Etkinlikleri, toplulukları ve şirketleri takip et; yeni fırsatlardan haberdar ol. İşini şansa bırakma."),
+        ("İş, staj ve part-time fırsatlarını keşfet", "İş ilanlarını, stajları ve part-time işleri tek yerde keşfet. Yeni ilanlardan anında haberdar ol, sana uygun fırsatı kaçırma."),
         ("Sertifikalar", "Platformda verilen sertifikalar doğrulanmış işaretli, edu.tr e-postan onaylı"),
         ("Anlık fırsatlar", "Staj, iş ve burs duyuruları akışına düşer; şirket ilanlarına uygulamadan başvur"),
         ("Topluluklar ve etkinlikler", "Üniversitendeki toplulukları ve takvimi tek ekranda gör, başvurulu etkinliklere katıl"),

@@ -16,6 +16,7 @@ import re, sys, pathlib, html, datetime
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import ss_veri, uniconnectly_blok
 import pdf_tanitim   # 28.09: PDF merkezi ic tanitimi
+import sayfa_metadata
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 KURU = "--kuru" in sys.argv
@@ -105,14 +106,14 @@ def govde(anahtar, v, m):
 			</div>
 			<p class="cs-not">Bu soruların tüm hakları ÖSYM'ye aittir. Bağlantılar ÖSYM'nin resmî sitesine (dokuman.osym.gov.tr) yönlendirilmiştir; PDF'ler yeni sekmede açılır.{" 2019'dan itibaren ÖSYM soruların %10'unu 'temel soru kitapçığı' olarak yayımlar." if tam < len(kartlar) else ""} Bu sayfa {BUGUN[8:10]}.{BUGUN[5:7]}.{BUGUN[:4]} tarihinde güncellendi.</p>
 
-{pdf_tanitim.blok(anahtar, v["kisa"])}
 			<h3 class="gs-alt-baslik">Diğer çıkmış sorular</h3>
 			<div class="cs-diger">
 {diger(anahtar)}
 			</div>
 		</div>
 	</section>
-''' + uniconnectly_blok.blok(f"ss-{anahtar}", "kariyer" if anahtar.startswith("kpss") else "kampus")
+''' + uniconnectly_blok.blok(f"ss-{anahtar}", "kariyer" if anahtar.startswith("kpss") else "kampus") + ('<section class="gs-sayfa gs-kaynaklar"><div class="container">'
+    + pdf_tanitim.blok(anahtar, v["kisa"]) + '</div></section>')
 
 def hub():
     kartlar = []
@@ -174,7 +175,7 @@ def yaz(yol, title, keywords, description, govde_html):
     son = SON if "uniconnectly-blok.js" in SON else SON.replace(
         '<script type="text/javascript" src="/js/script.js"></script>',
         '<script type="text/javascript" src="/js/script.js"></script>\n<script src="/js/uniconnectly-blok.js"></script>')
-    yeni = bas + govde_html + son
+    yeni = sayfa_metadata.uygula(bas + govde_html + son, yol)
     p = KOK / yol
     eski = p.read_text(encoding="utf-8") if p.exists() else ""
     if not KURU and yeni != eski:

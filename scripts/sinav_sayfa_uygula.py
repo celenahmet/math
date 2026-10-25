@@ -22,6 +22,7 @@ import re, sys, pathlib, datetime
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import uniconnectly_blok
 import pdf_tanitim   # 28.09: PDF merkezi ic tanitimi
+import sayfa_metadata
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 KURU = "--kuru" in sys.argv
@@ -141,11 +142,16 @@ def govde(anahtar):
 				<div class="gs-kutu"><span class="gs-sayi" id="gs-sn">00</span><span class="gs-etiket">Saniye</span></div>
 			</div>
 			<div id="gs-bilgi" class="gs-bilgi"></div>
-{pdf_tanitim.blok("" if genel else anahtar, "" if genel else SINAVLAR[anahtar]["kisa"])}
 			<h3 class="gs-alt-baslik">Tüm sınavlar</h3>
 			<div class="gs-liste">
 {kartlar(anahtar)}
 			</div>
+		</div>
+	</section>
+{uniconnectly_blok.blok("sinavlar-genel" if genel else f"sinavlar-{anahtar}", "kariyer" if (not genel and (anahtar.startswith("kpss") or anahtar.startswith("ales"))) else "kampus")}
+	<section class="gs-sayfa gs-kaynaklar">
+		<div class="container">
+{pdf_tanitim.blok("" if genel else anahtar, "" if genel else SINAVLAR[anahtar]["kisa"])}
 
 			<h3 class="gs-alt-baslik">Çalışma kaynakları</h3>
 			<div class="gs-baglantilar">
@@ -154,7 +160,7 @@ def govde(anahtar):
 			<p id="gs-kaynak" class="gs-kaynak"></p>
 		</div>
 	</section>
-''' + uniconnectly_blok.blok("sinavlar-genel" if genel else f"sinavlar-{anahtar}", "kariyer" if (not genel and (anahtar.startswith("kpss") or anahtar.startswith("ales"))) else "kampus")
+'''
 
 # --- iskelet parcalari (ss/kpss/index.html) ---
 BAS = ISKELET[:ISKELET.index("\t<!-- Inner Page Breadcrumb -->")]
@@ -186,7 +192,7 @@ def sayfa(anahtar, yol):
                      lambda m: m.group(1) + '\n<script src="/sinavlar/js/sinav-takvimi.js"></script>\n'
                                f"<script>sinavGeriSayim('{anahtar}');</script>", son, count=1)
     assert n == 1, "uniconnectly-blok.js etiketi bulunamadi; geri sayim betigi eklenemedi"
-    yeni = bas + govde(anahtar) + son
+    yeni = sayfa_metadata.uygula(bas + govde(anahtar) + son, yol)
     if not KURU and yeni != eski:
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(yeni, encoding="utf-8")

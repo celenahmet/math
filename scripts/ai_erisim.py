@@ -71,6 +71,7 @@ Allow: /
 Disallow: /c/
 
 Sitemap: {ALAN}/sitemap.xml
+Sitemap: {ALAN}/sitemap-blog.xml
 
 # >>> YAPAY ZEKA ARACLARI — ACIK IZIN
 # Site ucretsiz egitim icerigi yayimliyor; dil modellerinin okumasini,

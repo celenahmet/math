@@ -55,6 +55,11 @@ ws.addEventListener('message', (e) => {
 });
 const gonder = (method, params = {}) => new Promise((ok, red) => { const i = ++sira; bekleyen.set(i, [ok, red]); ws.send(JSON.stringify({ id: i, method, params })); });
 await gonder('Page.enable'); await gonder('Runtime.enable');
+// Tasma olcumu BASKI kosullarinda yapilmali: baski ortami + icerik genisligi (A4 210 mm - 2 x 16 mm
+// kenar = 178 mm = 673 px). Ekran genisliginde olculurse satirlar daha uzun, icerik daha kisa
+// kalir ve tasma gorunmez (28.09: BOTE son sayfasi baskida tasti, denetim yakalamadi).
+await gonder('Emulation.setEmulatedMedia', { media: 'print' });
+await gonder('Emulation.setDeviceMetricsOverride', { width: 673, height: 1000, deviceScaleFactor: 1, mobile: false });
 
 const sonuc = [];
 try {

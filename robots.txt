@@ -9,6 +9,7 @@ Allow: /
 Disallow: /c/
 
 Sitemap: https://ahmetcelen.com.tr/sitemap.xml
+Sitemap: https://ahmetcelen.com.tr/sitemap-blog.xml
 
 # >>> YAPAY ZEKA ARACLARI — ACIK IZIN
 # Site ucretsiz egitim icerigi yayimliyor; dil modellerinin okumasini,

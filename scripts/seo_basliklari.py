@@ -67,8 +67,9 @@ def gorsel_of(yol):
             return g
     return OG_VARSAYILAN
 
-def blok(p, yol):
-    s = p.read_text(encoding="utf-8")
+def blok(p, yol, s=None):
+    if s is None:
+        s = p.read_text(encoding="utf-8")
     tm = re.search(r"<title>(.*?)</title>", s, re.S)
     title = html.escape(re.sub(r"\s+", " ", tm.group(1)).strip(), quote=True) if tm else "Ahmet Çelen"
     dm = re.search(r'<meta name="description" content="([^"]*)"', s)

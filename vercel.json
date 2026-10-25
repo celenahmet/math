@@ -3,6 +3,61 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/blog/logaritma/",
+      "destination": "/blog/logaritma-konu-anlatimi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/parabol-konu-anlatimli-pdf/",
+      "destination": "/blog/parabol-konu-anlatimi/",
+      "permanent": true
+    },
+    {
+      "source": "/dersnot/",
+      "destination": "/pdfnot/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.php/2021/03/18/logaritma/",
+      "destination": "/blog/logaritma-konu-anlatimi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.php/tag/trigonometri/",
+      "destination": "/blog/trigonometri-konu-anlatimi/",
+      "permanent": true
+    },
+    {
+      "source": "/sinavlar/kpss-on-lisans/",
+      "destination": "/sinavlar/kpss-onlisans/",
+      "permanent": true
+    },
+    {
+      "source": "/redirect/matblog/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/redirect/aytblog/",
+      "destination": "/blog/#sinavlar",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.php/category/matematik/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.php/category/alan-yeterlilik-testi/",
+      "destination": "/blog/#sinavlar",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.php/2020/12/20/video-ders-notlari/",
+      "destination": "/pdfnot/",
+      "permanent": true
+    },
+    {
       "source": "/:yol*.:uzanti(mp4|MP4|mov|MOV|webm|m4v|avi|mkv|mp3|MP3|wav|pptx|PPTX|ppt|docx|doc|xlsx|rar|RAR|zip|ZIP|jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF|webp|bmp|tif|tiff)",
       "destination": "https://medya.ahmetcelen.com.tr/:yol*.:uzanti",
       "permanent": false
@@ -59,6 +114,15 @@
       ]
     },
     {
+      "source": "/yt/(.*)\\.(pdf|PDF)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
+    },
+    {
       "source": "/yonetim/(.*)",
       "headers": [
         {
@@ -77,6 +141,10 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/blog/post-sitemap.xml",
+      "destination": "/sitemap-blog.xml"
+    },
     {
       "source": "/:yol*.pdf",
       "destination": "https://medya.ahmetcelen.com.tr/:yol*.pdf"

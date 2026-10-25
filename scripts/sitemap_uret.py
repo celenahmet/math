@@ -4,7 +4,8 @@
 # dosyalar ve .vercelignore ile yayindan cikan klasorler DAHIL EDILMEZ.
 #
 # Kullanim: python3 scripts/sitemap_uret.py
-import pathlib, datetime, re
+import pathlib, re
+from xml.sax.saxutils import escape
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 ALAN = "https://ahmetcelen.com.tr"
@@ -42,12 +43,16 @@ def uret():
             continue
         # "<!-- blog:taslak -->" tasiyan sayfa henuz icerik tasimiyor
         # (scripts/blog_uygula.py); sitemap'e girmez.
-        if "<!-- blog:taslak -->" in p.read_text(encoding="utf-8", errors="ignore"):
+        content = p.read_text(encoding="utf-8", errors="ignore")
+        if "<!-- blog:taslak -->" in content or re.search(r'<meta\b[^>]*\bcontent=["\'][^"\']*noindex', content, re.I):
             continue
         if p.name == "index.html":
             yol = "/" if p.parent == KOK else "/" + p.parent.relative_to(KOK).as_posix() + "/"
         else:
             yol = "/" + r
+        canonical = re.search(r'<link\b[^>]*rel=["\']canonical["\'][^>]*href=["\']([^"\']+)', content, re.I)
+        if canonical and canonical.group(1) != ALAN + yol:
+            continue
         urls.append(yol)
 
     urls = sorted(set(urls), key=lambda u: (u.count("/"), u))
@@ -59,15 +64,23 @@ def uret():
     import blog_veri
     kapak = {f"/blog/{y['slug']}/": f"{ALAN}/blog/kapak/{y['kapak']}.avif"
              for y in blog_veri.yayinda() if y.get("kapak")}
-    bugun = datetime.date.today().isoformat()
+    # Publication/content revision dates are stable; running a generator is
+    # not a content update. Omit lastmod where no reliable date is recorded.
+    dates = {f"/blog/{y['slug']}/": y.get('guncelleme') or y['tarih']
+             for y in blog_veri.yayinda()}
     xml = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
            'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
-    xml += [f"  <url><loc>{ALAN}{u}</loc><lastmod>{bugun}</lastmod>"
-            + (f"<image:image><image:loc>{kapak[u]}</image:loc></image:image>" if u in kapak else "")
-            + "</url>" for u in urls]
+    def entry(u):
+        return (f"  <url><loc>{escape(ALAN + u)}</loc>"
+                + (f"<lastmod>{dates[u]}</lastmod>" if u in dates else "")
+                + (f"<image:image><image:loc>{escape(kapak[u])}</image:loc></image:image>" if u in kapak else "")
+                + "</url>")
+    xml += [entry(u) for u in urls]
     xml.append("</urlset>")
     (KOK / "sitemap.xml").write_text("\n".join(xml) + "\n", encoding="utf-8")
+    blog_xml = xml[:2] + [entry(u) for u in urls if u.startswith('/blog/')] + ['</urlset>']
+    (KOK / 'sitemap-blog.xml').write_text('\n'.join(blog_xml) + '\n', encoding='utf-8')
     print(f"{len(urls)} adres yazildi → sitemap.xml")
 
 
