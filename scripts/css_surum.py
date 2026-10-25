@@ -19,7 +19,15 @@ KOK = pathlib.Path(__file__).resolve().parent.parent
 VARLIKLAR = ["css/duzeltmeler.css", "css/style-az.css", "css/font-awesome-az.css",
               "css/flaticon-az.css", "sinavlar/js/sinav-takvimi.js",
               "js/uniconnectly-blok.js", "js/sayfa-duzeltmeleri.js", "js/arama.js", "css/blog.css", "js/blog.js", "js/etkilesim.js",
-              "js/pdf.js"]   # 28.09: PDF merkezi / indirme / dogrulama (scripts/pdf_sayfalar.py)
+              "js/pdf.js",   # 28.09: PDF merkezi / indirme / dogrulama (scripts/pdf_sayfalar.py)
+              "css/tema.css", "js/tema-vendor.js"]  # 25.10: scripts/paketle.py (Vercel istek kotasi)
+
+# 25.10: tema paketleri surum ekinden ONCE kaynaklardan yeniden uretilir; boylece
+# duzeltmeler.css gibi bir dosya degisince paket de (ve surum eki de) tazelenir.
+import sys  # noqa: E402
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import paketle  # noqa: E402
+paketle.calistir()
 
 def ozet(yol):
     p = KOK / yol
