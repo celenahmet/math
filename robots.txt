@@ -1,6 +1,6 @@
 # robots.txt — ahmetcelen.com.tr
 # Uretici: scripts/ai_erisim.py (ELLE DUZENLEME; yeniden yazilir)
-# Guncelleme: 2026-09-22
+# Guncelleme: 2026-10-28
 
 User-agent: *
 Allow: /

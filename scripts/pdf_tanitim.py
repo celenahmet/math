@@ -19,6 +19,7 @@ ESLEME = {
     "tyt": ["TYT"], "ayt": ["AYT"], "msu": ["TYT"], "dgs": ["ALES", "TYT"],
     "kpss": ["KPSS"], "kpssa": ["KPSS"], "kpss-onlisans": ["KPSS"], "kpss-ortaogretim": ["KPSS"],
     "ales1": ["ALES"], "ales2": ["ALES"], "ales3": ["ALES"],
+    "ags": ["KPSS"],   # AGS'de sayisal yetenek bolumu var; KPSS matematik notlari ortak
 }
 
 

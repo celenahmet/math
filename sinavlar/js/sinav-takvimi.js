@@ -6,12 +6,22 @@
  *
  * KAYNAK: yalnizca ÖSYM resmi sinav takvimi
  *   https://www.osym.gov.tr/Sayfa/SinavTakvimi   (21.09.2026'da alindi; KPSS On Lisans/Ortaogretim 22.09.2026)
+ *   2027 takvimi: ÖSYM duyurusu 28.10.2026, PDF
+ *   https://dokuman.osym.gov.tr/web/2026/10/osym-2027-yili-sinav-takvimi-7d09wi-28090734.pdf
+ *   (28.10.2026'da okundu; 2027'de KPSS On Lisans/Ortaogretim yok, 2026 kaydi kalir)
  * Takvim siteleri, haber siteleri ve "tahmini tarih" iceren kaynaklar
  * KULLANILMAZ. ÖSYM yeni takvimi yayimlayinca asagidaki tablo guncellenir.
  *
  * NOT: ÖSYM takviminde sinav SAATI cogu sinav icin yayimlanmiyor; saat
  * yayimlanmissa o kullanilir, yayimlanmamissa geri sayimin calisabilmesi
  * icin 10:00 varsayilir ve sayfada saat GOSTERILMEZ.
+ *
+ * SONRAKI DONEM: ÖSYM yeni yilin takvimini her yil Ekim'de yayimliyor; o
+ * sirada yilin son sinavlari (ALES/3) henuz yapilmamis oluyor. Boyle bir
+ * sinava sonrakiDonem / sonrakiTarih / sonrakiSonuc (istege bagli
+ * sonrakiEk) yazilir: sinav gunu gecince sayfa kendiliginden sonraki doneme
+ * gecer (saat yayimlanmamis sayilir). Python ureticileri de ayni kurali
+ * uygular (jsonld_uygula.js_sinavlar, sinav_sayfa_uygula.py).
  *
  * Sayfa DOM sozlesmesi (scripts/sinav_sayfa_uygula.py uretir):
  *   #gs-durum  durum cumlesi          #gs-sayac  4 kutu (gun/saat/dk/sn)
@@ -24,52 +34,60 @@
   'use strict';
 
   var KAYNAK = 'https://www.osym.gov.tr/Sayfa/SinavTakvimi';
-  var KAYNAK_TARIHI = '22.09.2026';
+  var KAYNAK_TARIHI = '28.10.2026';
 
-  /* ÖSYM 2026 takvimi. saatResmi=false → saat ÖSYM'ce yayimlanmadi. */
+  /* ÖSYM 2027 takvimi (KPSS On Lisans/Ortaogretim 2026'dan kalir: iki yilda
+     bir). saatResmi=false → saat ÖSYM'ce yayimlanmadi. */
   var SINAVLAR = {
     msu: {
       kisa: 'MSÜ', yol: 'msu',
       uzun: 'MSÜ (Millî Savunma Üniversitesi Askerî Öğrenci Aday Belirleme Sınavı)',
-      donem: '2026-MSÜ', tarih: '2026-03-01', saat: '10:15', saatResmi: true,
-      sonuc: '24.03.2026'
+      donem: '2027-MSÜ', tarih: '2027-03-20', saat: '10:00', saatResmi: false,
+      sonuc: '15.04.2027'
     },
     ales1: {
       kisa: 'ALES/1', yol: 'ales1',
       uzun: 'ALES/1 (Akademik Personel ve Lisansüstü Eğitimi Giriş Sınavı)',
-      donem: '2026-ALES/1', tarih: '2026-05-10', saat: '10:00', saatResmi: false,
-      sonuc: '05.06.2026'
+      donem: '2027-ALES/1', tarih: '2027-04-18', saat: '10:00', saatResmi: false,
+      sonuc: '07.05.2027'
+    },
+    ags: {
+      kisa: 'AGS', yol: 'ags',
+      uzun: 'AGS (Millî Eğitim Bakanlığı Akademi Giriş Sınavı)',
+      donem: '2027-MEB-AGS', tarih: '2027-05-08', saat: '10:00', saatResmi: false,
+      sonuc: '11.06.2027',
+      ek: 'Öğretmenlik Alan Bilgisi Testi (ÖABT) oturumu: 09.05.2027'
     },
     tyt: {
       kisa: 'TYT', yol: 'tyt',
       uzun: 'TYT (Temel Yeterlilik Testi)',
-      donem: '2026-YKS 1. Oturum (TYT)', tarih: '2026-06-20', saat: '10:00', saatResmi: false,
-      sonuc: '21.07.2026'
+      donem: '2027-YKS 1. Oturum (TYT)', tarih: '2027-06-19', saat: '10:00', saatResmi: false,
+      sonuc: '21.07.2027'
     },
     ayt: {
       kisa: 'AYT', yol: 'ayt',
       uzun: 'AYT (Alan Yeterlilik Testi)',
-      donem: '2026-YKS 2. Oturum (AYT)', tarih: '2026-06-21', saat: '10:00', saatResmi: false,
-      sonuc: '21.07.2026'
-    },
-    dgs: {
-      kisa: 'DGS', yol: 'dgs',
-      uzun: 'DGS (Dikey Geçiş Sınavı)',
-      donem: '2026-DGS', tarih: '2026-07-19', saat: '10:00', saatResmi: false,
-      sonuc: '13.08.2026'
+      donem: '2027-YKS 2. Oturum (AYT)', tarih: '2027-06-20', saat: '10:00', saatResmi: false,
+      sonuc: '21.07.2027'
     },
     ales2: {
       kisa: 'ALES/2', yol: 'ales2',
       uzun: 'ALES/2 (Akademik Personel ve Lisansüstü Eğitimi Giriş Sınavı)',
-      donem: '2026-ALES/2', tarih: '2026-08-02', saat: '10:00', saatResmi: false,
-      sonuc: '14.08.2026'
+      donem: '2027-ALES/2', tarih: '2027-07-11', saat: '10:00', saatResmi: false,
+      sonuc: '30.07.2027'
+    },
+    dgs: {
+      kisa: 'DGS', yol: 'dgs',
+      uzun: 'DGS (Dikey Geçiş Sınavı)',
+      donem: '2027-DGS', tarih: '2027-07-18', saat: '10:00', saatResmi: false,
+      sonuc: '12.08.2027'
     },
     kpssa: {
       kisa: 'KPSS', yol: 'kpssa',
       uzun: 'KPSS Lisans (Kamu Personel Seçme Sınavı)',
-      donem: '2026-KPSS Lisans (Genel Yetenek-Genel Kültür)', tarih: '2026-09-06', saat: '10:00', saatResmi: false,
-      sonuc: '07.10.2026',
-      ek: 'Alan Bilgisi oturumları: 12.09.2026 ve 13.09.2026'
+      donem: '2027-KPSS A Grubu (Genel Yetenek-Genel Kültür)', tarih: '2027-09-12', saat: '10:00', saatResmi: false,
+      sonuc: '13.10.2027',
+      ek: 'Alan Bilgisi oturumları: 18.09.2027 ve 19.09.2027'
     },
     kpssonlisans: {
       kisa: 'KPSS Ön Lisans', yol: 'kpss-onlisans',
@@ -89,13 +107,14 @@
       kisa: 'ALES/3', yol: 'ales3',
       uzun: 'ALES/3 (Akademik Personel ve Lisansüstü Eğitimi Giriş Sınavı)',
       donem: '2026-ALES/3', tarih: '2026-11-29', saat: '10:00', saatResmi: false,
-      sonuc: '17.12.2026'
+      sonuc: '17.12.2026',
+      sonrakiDonem: '2027-ALES/3', sonrakiTarih: '2027-11-28', sonrakiSonuc: '17.12.2027'
     }
   };
 
-  /* Listede gosterilme sirasi: takvim sirasi. KPSS On Lisans / Ortaogretim
-     22.09.2026'da ÖSYM takviminden eklendi (04.10 10:15 ve 25.10). */
-  var SIRA = ['msu', 'ales1', 'tyt', 'ayt', 'dgs', 'ales2', 'kpssa', 'kpssonlisans', 'kpssorta', 'ales3'];
+  /* Kart listesinde gosterilme sirasi: 2027 takvim sirasi (ALES/2 bu yil
+     DGS'den once). AGS 28.10.2026'da eklendi. */
+  var SIRA = ['msu', 'ales1', 'ags', 'tyt', 'ayt', 'ales2', 'dgs', 'kpssa', 'kpssonlisans', 'kpssorta', 'ales3'];
 
   var KOK = '/sinavlar/';
 
@@ -128,11 +147,24 @@
     return Math.round((hedef - bugun) / 86400000);
   }
 
+  /* Sinav gecti ve sonraki donemi biliniyorsa sonraki donem; yoksa kendisi. */
+  function gecerli(s) {
+    if (!s || !s.sonrakiTarih || !gectiMi(s)) { return s; }
+    return {
+      kisa: s.kisa, yol: s.yol, uzun: s.uzun, donem: s.sonrakiDonem, tarih: s.sonrakiTarih,
+      saat: '10:00', saatResmi: false, sonuc: s.sonrakiSonuc, ek: s.sonrakiEk
+    };
+  }
+
+  /* Tarihi en yakin, henuz yapilmamis sinav. SIRA sirasina guvenilmez:
+     yeni yil takvimi gelince listede iki yil bir arada bulunur. */
   function siradakiSinav() {
+    var en = null;
     for (var i = 0; i < SIRA.length; i++) {
-      if (!gectiMi(SINAVLAR[SIRA[i]])) { return SINAVLAR[SIRA[i]]; }
+      var s = gecerli(SINAVLAR[SIRA[i]]);
+      if (!gectiMi(s) && (!en || tarihNesnesi(s) < tarihNesnesi(en))) { en = s; }
     }
-    return null;
+    return en;
   }
 
   function el(id) { return document.getElementById(id); }
@@ -144,9 +176,11 @@
   function rozetleriYaz(bulunduguAnahtar) {
     var kartlar = document.querySelectorAll('[data-sinav]');
     for (var i = 0; i < kartlar.length; i++) {
-      var k = kartlar[i], s = SINAVLAR[k.getAttribute('data-sinav')];
+      var k = kartlar[i], s = gecerli(SINAVLAR[k.getAttribute('data-sinav')]);
       var r = k.querySelector('.gs-rozet');
       if (!s || !r) { continue; }
+      var t = k.querySelector('.gs-kart-tarih');
+      if (t) { t.textContent = gosterimTarihi(s); }
       if (gectiMi(s)) {
         r.textContent = 'Tamamlandı'; r.className = 'gs-rozet gs-bitti';
       } else {
@@ -196,7 +230,7 @@
         (s.ek ? '<br>' + s.ek + '.' : '') +
         (s.ikiYilda
           ? '<br>Bir sonraki dönemin tarihi ÖSYM takviminde yayımlandığında geri sayım bu sayfada yeniden başlar.'
-          : '<br>2027 sınav takvimi ÖSYM tarafından henüz yayımlanmadı; yayımlandığında geri sayım bu sayfada yeniden başlar.') +
+          : '<br>' + (parcala(s.tarih).yil + 1) + ' sınav takvimi ÖSYM tarafından henüz yayımlanmadı; yayımlandığında geri sayım bu sayfada yeniden başlar.') +
         (siradaki && siradaki !== s
           ? '<br>Şu an geri sayımı süren sınav: <a href="' + KOK + siradaki.yol + '/"><strong>' +
             siradaki.donem + '</strong> · ' + gosterimTarihi(siradaki) + '</a>'
@@ -228,10 +262,10 @@
    *   (genel sayfa: geri sayimi suren en yakin sinav one cikar).
    */
   function sinavGeriSayim(anahtar) {
-    var s = anahtar === 'tumu' ? siradakiSinav() : SINAVLAR[anahtar];
+    var s = anahtar === 'tumu' ? siradakiSinav() : gecerli(SINAVLAR[anahtar]);
     if (!s) {
       var d = el('gs-durum');
-      if (d) { d.textContent = '2027 sınav takvimi ÖSYM tarafından henüz yayımlanmadı.'; }
+      if (d) { d.textContent = 'Bir sonraki sınav takvimi ÖSYM tarafından henüz yayımlanmadı.'; }
       rozetleriYaz(null); kaynakYaz();
       return;
     }

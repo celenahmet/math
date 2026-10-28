@@ -77,6 +77,10 @@ def blok(p, yol, s=None):
     adres = ALAN + yol
     g = ALAN + gorsel_of(yol)
     hero = "home1-mainslider" in s
+    # 25.10: tema sayfalari css/tema.css paketini yukler (scripts/paketle.py); yazitipleri ve
+    # ikon CSS'leri paketin icinde. Sayfa yeniden uretilince bu satirlar tekrar yazilirsa ayni
+    # CSS iki kez iner (Vercel istek kotasi) ve paketleyici artik onlari tanimaz.
+    paketli = 'href="/css/tema.css' in s
     satirlar = [
         BAS,
         # Yazi tipleri 22.09'da KENDI SUNUCUMUZA alindi
@@ -85,7 +89,7 @@ def blok(p, yol, s=None):
         # DNS + TCP + TLS ve font istegi CSS inmeden baslayamiyordu.
         # Dosya adi icerik ozeti tasidigi icin surum eki gerekmez.
         f'<link rel="preload" as="font" type="font/woff2" href="/fonts/webfont/{ANA_FONT}" crossorigin>',
-        '<link rel="stylesheet" href="/css/yazitipleri.css">',
+    ] + ([] if paketli else ['<link rel="stylesheet" href="/css/yazitipleri.css">']) + [
         # LCP ogesi sayfa tipine gore degisir; yanlis gorseli on yuklemek
         # hem bos yere bant genisligi harcar hem GERCEK LCP'yi geciktirir.
         # 22.09: ana sayfa ve /video/ hero slayti kullaniyor, ic sayfalar
@@ -99,8 +103,10 @@ def blok(p, yol, s=None):
         # Ikon fontlari kritik degil: render'i bloklamadan yuklensinler.
         # 22.09: -az surumleri yalniz sitede GECEN ikonlari tasir
         # (scripts/ikon_azalt.py): 131 KB → 10 KB.
+    ] + ([] if paketli else [
         '<link rel="preload" as="style" href="/css/font-awesome-az.css" onload="this.rel=\'stylesheet\'">',
         '<link rel="preload" as="style" href="/css/flaticon-az.css" onload="this.rel=\'stylesheet\'">',
+    ]) + [
         f'<link rel="canonical" href="{adres}">',
         # Uzun ozet + buyuk gorsel izni (TO). Varsayilan snippet 155-160 karakterde kesiliyor.
         # Taslak sayfa (scripts/blog_uygula.py) aramaya DUSMEZ.

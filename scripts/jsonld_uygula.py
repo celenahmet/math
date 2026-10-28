@@ -15,7 +15,7 @@
 # Idempotent: "<!-- jsonld:bas -->" ... "<!-- jsonld:son -->" blogu.
 #
 # Kullanim: python3 scripts/jsonld_uygula.py
-import json, re, sys, pathlib, html
+import json, re, sys, pathlib, html, datetime
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 ALAN = "https://ahmetcelen.com.tr"
@@ -92,6 +92,10 @@ def js_sinavlar():
         d[a] = {"kisa": al("kisa"), "yol": al("yol"), "uzun": al("uzun"), "donem": al("donem"),
                 "tarih": al("tarih"), "saat": al("saat"),
                 "saatResmi": "saatResmi: true" in ic, "sonuc": al("sonuc")}
+        # Sinav gectiyse ve sonraki donemi yazildiysa o donem gecerli (JS'teki gecerli() ile ayni kural).
+        if al("sonrakiTarih") and datetime.date.fromisoformat(d[a]["tarih"]) <= datetime.date.today():
+            d[a].update(donem=al("sonrakiDonem"), tarih=al("sonrakiTarih"), saat="10:00",
+                        saatResmi=False, sonuc=al("sonrakiSonuc"))
     return d
 
 def sinav_grafi(a, s):
@@ -155,7 +159,7 @@ def uygula():
     sinavlar = js_sinavlar()
     for a, s in sinavlar.items():
         n += yaz(f"sinavlar/{s['yol']}/index.html", sinav_grafi(a, s))
-    takvim = {"@type": "ItemList", "name": "2026 ÖSYM sınav takvimi geri sayımları",
+    takvim = {"@type": "ItemList", "name": "ÖSYM sınav takvimi geri sayımları",
               "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": s["donem"],
                                    "item": f"{ALAN}/sinavlar/{s['yol']}/"}
                                   for i, s in enumerate(sinavlar.values())]}

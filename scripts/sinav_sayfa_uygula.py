@@ -31,7 +31,7 @@ ISKELET = (KOK / "ss/kpss/index.html").read_text(encoding="utf-8")
 BUGUN = datetime.date.today()
 AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
          "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
-YONELME = {"msu": "MSÜ'ye", "ales1": "ALES/1'e", "tyt": "TYT'ye", "ayt": "AYT'ye",
+YONELME = {"msu": "MSÜ'ye", "ales1": "ALES/1'e", "ags": "AGS'ye", "tyt": "TYT'ye", "ayt": "AYT'ye",
            "dgs": "DGS'ye", "ales2": "ALES/2'ye", "kpssa": "KPSS'ye", "ales3": "ALES/3'e",
            "kpssonlisans": "KPSS Ön Lisans'a", "kpssorta": "KPSS Ortaöğretim'e"}
 CIKMIS = {"msu": ("MSÜ Çıkmış Sorular", "/ss/msu/"), "tyt": ("TYT Çıkmış Sorular", "/ss/tyt/"),
@@ -53,6 +53,14 @@ def js_sinavlar():
     return out, sira, kaynak_tarihi
 
 SINAVLAR, SIRA, KAYNAK_TARIHI = js_sinavlar()
+
+# Sinav gectiyse ve sonraki donemi yazildiysa o donem gecerli (JS gecerli() ile ayni kural).
+for _s in SINAVLAR.values():
+    if _s.get("sonrakiTarih") and datetime.date.fromisoformat(_s["tarih"]) <= BUGUN:
+        _s.update(donem=_s["sonrakiDonem"], tarih=_s["sonrakiTarih"], saat="10:00", saatResmi="false",
+                  sonuc=_s.get("sonrakiSonuc", ""))
+        if _s.get("sonrakiEk"): _s["ek"] = _s["sonrakiEk"]
+        else: _s.pop("ek", None)
 assert set(SINAVLAR) == set(YONELME) == set(SIRA), "JS ile betik anahtarlari uyusmuyor"
 
 def gecti(s): return datetime.date.fromisoformat(s["tarih"]) <= BUGUN
@@ -63,25 +71,35 @@ def tr_tarih_nokta(s):
 def nokta(iso):
     y, a, g = iso.split("-"); return f"{g}.{a}.{y}"
 def siradaki():
-    for a in SIRA:
-        if not gecti(SINAVLAR[a]): return a
-    return None
+    # Tarihe gore: yeni yil takvimi gelince listede iki yil bir arada bulunur.
+    kalan = [a for a in SIRA if not gecti(SINAVLAR[a])]
+    return min(kalan, key=lambda a: SINAVLAR[a]["tarih"]) if kalan else None
+
+# Bulunma eki yilin okunusuna gore: "2026'da", "2027'de", "2030'da".
+_BIRLER = {1: "de", 2: "de", 3: "te", 4: "te", 5: "te", 6: "da", 7: "de", 8: "de", 9: "da"}
+_ONLAR = {1: "da", 2: "de", 3: "da", 4: "ta", 5: "de", 6: "ta", 7: "te", 8: "de", 9: "da"}
+def bulunma_eki(sayi):
+    if sayi % 10: return "'" + _BIRLER[sayi % 10]
+    if sayi % 100: return "'" + _ONLAR[sayi % 100 // 10]
+    return "'de"   # yuz, bin
 
 def aciklama(anahtar):
     s = SINAVLAR[anahtar]; kisa, yon = s["kisa"], YONELME[anahtar]; yil = s["tarih"][:4]
-    donem = s["donem"] if len(s["donem"]) <= 28 else f"{yil}-{s['uzun'].split(' (')[0]}"
+    # Uzun donem adi parantezden kesilir ("2027-KPSS A Grubu"); sayfa adiyla degil ÖSYM adiyla.
+    donem = s["donem"] if len(s["donem"]) <= 28 else s["donem"].split(" (")[0]
+    ek = bulunma_eki(int(yil))
     if gecti(s):
-        return (f"{donem} sınavı {tr_tarih(s['tarih'])}'da yapıldı"
+        return (f"{donem} sınavı {tr_tarih(s['tarih'])}{ek} yapıldı"
                 + (f", sonuç {tr_tarih_nokta(s['sonuc'])}" if s.get("sonuc") else "")
                 + (". Sonraki tarih" if s.get('ikiYilda') == 'true' else f". {int(yil)+1} {kisa} tarihi") + f" ÖSYM takvimiyle burada; {yon} kaç gün kaldı geri sayımı.")
-    return (f"{donem} sınavı {tr_tarih(s['tarih'])}'da. {yon} kaç gün kaldı? Canlı geri sayım"
+    return (f"{donem} sınavı {tr_tarih(s['tarih'])}{ek}. {yon} kaç gün kaldı? Canlı geri sayım"
             + (f", sonuç tarihi {tr_tarih_nokta(s['sonuc'])}" if s.get("sonuc") else "")
             + ". Tarihler ÖSYM resmî sınav takviminden.")
 
 def aciklama_genel():
     sn = siradaki()
     ilk = (f"Sıradaki sınav {SINAVLAR[sn]['kisa']}, {tr_tarih(SINAVLAR[sn]['tarih'])}. " if sn else "")
-    return (ilk + "TYT, AYT, MSÜ, DGS, KPSS ve ALES sınavlarına kaç gün kaldı? "
+    return (ilk + "TYT, AYT, MSÜ, DGS, KPSS, ALES ve AGS sınavlarına kaç gün kaldı? "
             "ÖSYM takvimine göre canlı geri sayım ve sonuç tarihleri.")
 
 def kartlar(secili):
@@ -148,7 +166,7 @@ def govde(anahtar):
 			</div>
 		</div>
 	</section>
-{uniconnectly_blok.blok("sinavlar-genel" if genel else f"sinavlar-{anahtar}", "kariyer" if (not genel and (anahtar.startswith("kpss") or anahtar.startswith("ales"))) else "kampus")}
+{uniconnectly_blok.blok("sinavlar-genel" if genel else f"sinavlar-{anahtar}", "kariyer" if (not genel and (anahtar.startswith("kpss") or anahtar.startswith("ales") or anahtar == "ags")) else "kampus")}
 	<section class="gs-sayfa gs-kaynaklar">
 		<div class="container">
 {pdf_tanitim.blok("" if genel else anahtar, "" if genel else SINAVLAR[anahtar]["kisa"])}
@@ -165,7 +183,8 @@ def govde(anahtar):
 # --- iskelet parcalari (ss/kpss/index.html) ---
 BAS = ISKELET[:ISKELET.index("\t<!-- Inner Page Breadcrumb -->")]
 SON = ISKELET[ISKELET.index('\t<section class="footer_one">'):]
-assert '<link rel="stylesheet" href="/css/duzeltmeler.css' in BAS and "</body>" in SON
+# 25.10'dan beri tema CSS'leri css/tema.css paketinde (scripts/paketle.py); iskelette ikisinden biri olmali.
+assert ('href="/css/duzeltmeler.css' in BAS or 'href="/css/tema.css' in BAS) and "</body>" in SON
 
 def sayfa(anahtar, yol):
     p = KOK / yol

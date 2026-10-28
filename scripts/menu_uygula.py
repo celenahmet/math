@@ -82,6 +82,7 @@ MENU = [
             ("KPSS Lisans Geri Sayım", "/sinavlar/kpssa/", None, False),
             ("KPSS Ön Lisans Geri Sayım", "/sinavlar/kpss-onlisans/", None, False),
             ("KPSS Ortaöğretim Geri Sayım", "/sinavlar/kpss-ortaogretim/", None, False),
+            ("AGS Geri Sayım", "/sinavlar/ags/", None, False),
             ("ALES/1 Geri Sayım", "/sinavlar/ales1/", None, False),
             ("ALES/2 Geri Sayım", "/sinavlar/ales2/", None, False),
             ("ALES/3 Geri Sayım", "/sinavlar/ales3/", None, False),
