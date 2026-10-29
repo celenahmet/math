@@ -48,7 +48,13 @@
     for (var i = 0; i < b.length; i++) { s += (b[i] < 16 ? '0' : '') + b[i].toString(16); }
     return s;
   }
+  // Bulmaca sunucuda 10 dk gecerli (POW_SURE_SN). Sayfa acilinca hazirlanan cozum,
+  // yaziyi uzun okuyan okurda tiklama anina kadar ESKIYORDU: sunucu "cozum" diye
+  // reddediyor, okur "Kaydedilemedi" goruyordu (Ahmet 30.10, bote.web.tr'de goruldu,
+  // ayni betik). Bitmesine 60 sn kalan cozum kullanilmaz, yenisi cozulur.
+  function suresi(c) { return Number(String(c.tuz).split('?s=')[1] || 0) * 1000; }
   function coz() {
+    if (hazir && suresi(hazir) - Date.now() < 60000) { hazir = null; }
     if (hazir) { return Promise.resolve(hazir); }
     if (suruyor) { return suruyor; }
     suruyor = fetch(API + '?meydan=1', { credentials: 'omit', cache: 'no-store' })
@@ -76,7 +82,7 @@
   }
   function hazirla() { setTimeout(function () { coz().catch(function () {}); }, 30); }
 
-  function gonder(veri) {
+  function gonder(veri, tekrar) {
     return coz().then(function (cozum) {
       hazir = null;   // tek kullanimlik
       veri.yol = yol;
@@ -86,8 +92,13 @@
         headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(veri)
       });
     }).then(function (r) {
-      hazirla();
       return r.json().catch(function () { return {}; }).then(function (j) { j.kod = r.status; return j; });
+    }).then(function (j) {
+      // Cozum reddedildiyse (suresi dolmus ya da kullanilmis) BIR KEZ taze
+      // bulmacayla yeniden dene; okur bir sey fark etmesin.
+      if (!tekrar && (j.hata === 'cozum' || j.hata === 'cozum-kullanildi')) { return gonder(veri, true); }
+      hazirla();
+      return j;
     });
   }
 
