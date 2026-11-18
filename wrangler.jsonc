@@ -7,6 +7,8 @@
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
   "preview_urls": false,
+  // Yol DNS kaydi turuncu buluta (proxied) alininca devreye girer; gri bulutta etkisiz.
+  "routes": [{ "pattern": "ahmetcelen.com.tr/*", "zone_name": "ahmetcelen.com.tr" }, { "pattern": "www.ahmetcelen.com.tr/*", "zone_name": "ahmetcelen.com.tr" }],
   "assets": {
     "directory": ".cf-dist",
     "binding": "ASSETS",
