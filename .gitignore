@@ -33,3 +33,8 @@ __pycache__/
 # blog PDF uretimi (scripts/pdf_uret.py): gecici HTML ve basilan PDF'ler
 .pdf-yapim/
 pdf/blog/
+
+# Cloudflare Workers derleme ciktisi ve yerel durum (18.11)
+.cf-dist/
+.wrangler/
+.dev.vars

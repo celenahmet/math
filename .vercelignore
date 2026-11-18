@@ -94,3 +94,8 @@ blog-gorselleri/
 .htacess
 seo-2026-10-13/
 .imunify_patch_id
+
+# 18.11: Cloudflare Workers dosyalari (yayina cikmaz)
+/cloudflare
+/wrangler.jsonc
+/.cf-dist
